@@ -6,8 +6,8 @@ import random
 
 app = Flask(__name__)
 
-line_bot_api = LineBotApi('YOUR_CHANNEL_ACCESS_TOKEN')
-handler = WebhookHandler('YOUR_CHANNEL_SECRET')
+line_bot_api = LineBotApi(https://leap-linebot.onrender.com/callback)
+handler = WebhookHandler(aac4677cf91986a5455773a7ee01dfec)
 
 questions = [
     "What's the past tense of 'go'?",
