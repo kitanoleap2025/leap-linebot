@@ -14,9 +14,9 @@ line_bot_api = LineBotApi(os.getenv("LINE_CHANNEL_ACCESS_TOKEN"))
 handler = WebhookHandler(os.getenv("LINE_CHANNEL_SECRET"))
 
 questions = [
-    "Translate this: '私は学生です'",
-    "What is the past tense of 'go'?",
-    "Fill in the blank: She ____ to school every day.",
+    "1:I ___ with the idea that students should not be given too much homework.",
+    "2:He strongly opposed corruption until he was promoted.",
+    "3:The teacher ___ me to study English vocabulary",
     "Choose the correct sentence: 'He go to school' or 'He goes to school'?"
 ]
 
