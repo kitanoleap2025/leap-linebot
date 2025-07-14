@@ -14,24 +14,16 @@ line_bot_api = LineBotApi(os.getenv("LINE_CHANNEL_ACCESS_TOKEN"))
 handler = WebhookHandler(os.getenv("LINE_CHANNEL_SECRET"))
 
 questions = [
-    "001 I ___ with the idea that students should not be given too much homework.
-    生徒に宿題を与えすぎるべきではないという考えに賛成です.",
-    "002 He strongly ___ corruption until he was promoted.
-    昇進するまでは,彼は汚職に強く反対していた.",
-    "003 The teacher ___ me to study English vocabulary.
-    先生は私に英単語を勉強するよう助言した.",
-    "004 ___: Don’t argue with fools. From a distance, people might not be able to tell who is who.
-    ヒント：ばかとは口論するな.遠くから見たら,どっちがどっちか分からないから.",
-    "005 We ___ the problem so much, we forgot to solve it.
-    私たちはその問題についてあまりに議論しすぎて,解決するのを忘れていた.",
+    "001 I ___ with the idea that students should not be given too much homework.\n生徒に宿題を与えすぎるべきではないという考えに賛成です.",
+    "002 He strongly ___ corruption until he was promoted.\n昇進するまでは,彼は汚職に強く反対していた.",
+    "003 The teacher ___ me to study English vocabulary.\n先生は私に英単語を勉強するよう助言した.",
+    "004 ___: Don’t argue with fools. From a distance, people might not be able to tell who is who.\nヒント：ばかとは口論するな.遠くから見たら,どっちがどっちか分からないから.",
+    "005 We ___ the problem so much, we forgot to solve it.\n私たちはその問題についてあまりに議論しすぎて,解決するのを忘れていた.",
     "006 ",
-    "007 He ___ that sleep wasn’t necessary for exams.
-    彼は試験のために睡眠は必要ないと主張した.",
+    "007 He ___ that sleep wasn’t necessary for exams.\n彼は試験のために睡眠は必要ないと主張した.",
     "008 ",
-    "009 He ___ about having to buy a math textbook he would never use.
-    彼は使うことのない数学の教科書を買わされることに不満を言っていました.",
-    "010 The company ___ him a job after the interview.
-    面接の後,会社は彼に仕事を申し出た.",
+    "009 He ___ about having to buy a math textbook he would never use.\n彼は使うことのない数学の教科書を買わされることに不満を言っていました.",
+    "010 The company ___ him a job after the interview.\n面接の後,会社は彼に仕事を申し出た.",
 ]
 
 @app.route("/")
