@@ -15,9 +15,10 @@ handler = WebhookHandler(os.getenv("LINE_CHANNEL_SECRET"))
 
 questions = [
     "1:I ___ with the idea that students should not be given too much homework.",
-    "2:He strongly opposed corruption until he was promoted.",
+    "2:He strongly ___ corruption until he was promoted.",
     "3:The teacher ___ me to study English vocabulary",
-    "Choose the correct sentence: 'He go to school' or 'He goes to school'?"
+    "4:___: Don’t argue with fools. From a distance, people might not be able to tell who is who.",
+    "5:We ___ the problem so much, we forgot to solve it."
 ]
 
 @app.route("/")
