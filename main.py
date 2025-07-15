@@ -28,7 +28,7 @@ questions = [
      "answer": "discussed"},
     {"text": "006 \n",
      "answer": ""},
-    {"text": "007 He ___ that sleep wasn’t必要なかった.\n彼は試験のために睡眠は必要ないと主張した.",
+    {"text": "007 He ___ that sleep wasn’t necessary for eaxms.\n彼は試験のために睡眠は必要ないと主張した.",
      "answer": "argued"},
     {"text": "008 I ___ that learning classical Japanese in high school is unnecessary.\n高校で古文を学ぶことは不必要だと主張する.",
      "answer": "claim"},
