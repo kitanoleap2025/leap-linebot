@@ -26,12 +26,20 @@ questions = [
      "answer": "tip"},
     {"text": "005 We ___ the problem so much, we forgot to solve it.\n私たちはその問題についてあまりに議論しすぎて,解決するのを忘れていた.",
      "answer": "discussed"},
+    {"text": "006 \n",
+     "answer": ""},
     {"text": "007 He ___ that sleep wasn’t必要なかった.\n彼は試験のために睡眠は必要ないと主張した.",
      "answer": "argued"},
+    {"text": "008 I ___ that learning classical Japanese in high school is unnecessary.\n高校で古文を学ぶことは不必要だと主張する.",
+     "answer": "claim"},
     {"text": "009 He ___ about having to buy a math textbook he would never use.\n彼は使うことのない数学の教科書を買わされることに不満を言っていました.",
      "answer": "complained"},
     {"text": "010 The company ___ him a job after the interview.\n面接の後,会社は彼に仕事を申し出た.",
      "answer": "offered"},
+    {"text": "044 ___ LINE stickers using the teather's face\n先生の顔でLINEスタンプを作る",
+     "answer": "create"}
+    {"text": "101 ___ the pen of the person sitting next to me\n隣の席の人のペンを破壊する",
+     "answer": "destroy"},
 ]
 
 @app.route("/callback", methods=["POST"])
@@ -62,7 +70,7 @@ def handle_message(event):
         if user_id in user_states:
             correct_answer = user_states[user_id].lower()
             if msg.lower() == correct_answer:
-                reply = "Correct answer✅\n\n次の問題はこちらです："
+                reply = "Correct answer✅\n\n Next："
             else:
                 reply = f"Incorrect❌ The correct answer is「{correct_answer}」.\n\n次の問題はこちらです："
             # 出題状態をクリア
