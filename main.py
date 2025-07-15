@@ -72,7 +72,7 @@ def handle_message(event):
             if msg.lower() == correct_answer:
                 reply = "Correct answer✅\n\n Next："
             else:
-                reply = f"Incorrect❌ The correct answer is「{correct_answer}」.\n\n次の問題はこちらです："
+                reply = f"Incorrect❌ The correct answer is「{correct_answer}」.\n\n Next："
             # 出題状態をクリア
             del user_states[user_id]
 
