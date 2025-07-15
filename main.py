@@ -37,7 +37,7 @@ questions = [
     {"text": "010 The company ___ him a job after the interview.\n面接の後,会社は彼に仕事を申し出た.",
      "answer": "offered"},
     {"text": "044 ___ LINE stickers using the teather's face\n先生の顔でLINEスタンプを作る",
-     "answer": "create"}
+     "answer": "create"},
     {"text": "101 ___ the pen of the person sitting next to me\n隣の席の人のペンを破壊する",
      "answer": "destroy"},
 ]
