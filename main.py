@@ -94,18 +94,18 @@ questions = [
      "answer": "seems"},
     {"text": "311 If you put ___ on a grandma, can you call it a bicycle?\nおばあちゃんに車輪を付けたら,自転車と呼べるのか.",
      "answer": "wheels"},
+    {"text":"335 __, __, __ your boat
+            Gently down the stream
+            Merrily, merrily, merrily, merrily
+            Life is but a dream
+            ボートを漕げ、漕げ、漕げ
+            そっと流れを下って
+            陽気に、陽気に、陽気に、陽気に
+            人生は夢に過ぎない","answer": "row"},
     {"text": "338 I want to transfer to the ___ course.\n美術コースに転向したい.",
      "answer": "art"},
     {"text": "359 The locals were amazed by the car they had never seen before and ___, but it was a driverless\n現地の人々は初めての車に驚き,物乞いをしたが,無人自動車だった.",
      "answer": "begged"},
-    {"text": "__, __, __ your boat
-            Gently down the stream
-            Merrily, merrily, merrily, merrily
-            Life is but a dream"155
-          \nボートを漕げ、漕げ、漕げ
-            そっと流れを下って
-            陽気に、陽気に、陽気に、陽気に
-            人生は夢に過ぎない","answer": "row"},
     {"text": "434 He’s been pursuing her aunt for months\n彼は何か月も彼女のおばを狙っています.",
      "answer": "pursuing"},
     {"text": "440 the ___ of having to create example sentences to protect copyright\n著作権保護のため例文を作らなければならないという課題",
