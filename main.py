@@ -106,14 +106,20 @@ questions = [
             そっと流れを下って
             陽気に、陽気に、陽気に、陽気に
             人生は夢に過ぎない","answer": "row"},
+    {"text": "434 He’s been pursuing her aunt for months\n彼は何か月も彼女のおばを狙っています.",
+     "answer": "pursuing"},
+    {"text": "440 the ___ of having to create example sentences to protect copyright\n著作権保護のため例文を作らなければならないという課題",
+     "answer": "challenge"},
+    {"text": "443 Is his face ___ or has it always been ___?\n彼は青ざめているのか,いつも青白いのか.",
+     "answer": "pale"},
+    {"text": "500 The consumption tax should be ___.\n消費税は廃止されるべきだ.",
+     "answer": "abolished"},
+    {"text": "539 The road to success is under construction.\n成功への道は工事中だ.",
+     "answer": "construction"},
+    {"text": "610 I can ___ everything except temptation.\n私は誘惑以外の全てに耐えうる.",
+     "answer": "resist"},
     {"text": "155 \n",
      "answer": ""},
-    {"text": "155 \n",
-     "answer": ""},
-    {"text": "155 \n",
-     "answer": ""},
-    {"text": "155 \n",
-     "answer": ""}
 ]
 
 @app.route("/callback", methods=["POST"])
