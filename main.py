@@ -36,10 +36,6 @@ questions = [
      "answer": "complained"},
     {"text": "010 The company ___ him a job after the interview.\n面接の後,会社は彼に仕事を申し出た.",
      "answer": "offered"},
-    {"text": "011 \n",
-     "answer": ""},
-    {"text": "012 \n",
-     "answer": ""},
     {"text": "013 He said he was ___ to her for the feedback, but he ignored all of it.\n彼は彼女のフィードバックに感謝していると言ったが,すべて無視した.",
      "answer": "grateful"},
     {"text": "016 His family ___ his finally being accepted into college.\n彼の家族は,彼がついに大学に合格したことを祝った.",
@@ -62,8 +58,6 @@ questions = [
      "answer": "research"},
     {"text": "029 ___ intelligence is changing the world rapidly.\n人工知能は急速に世界を変えている.",
      "answer": "artificial"},
-    {"text": "031 \n",
-     "answer": ""},
     {"text": "034 He had the ___ to disappear whenever work started.\n彼は仕事が始まるといつも消える技術があった.",
      "answer": "skill"},
     {"text": "037 Success often comes after continuous ___.\n成功はたいてい継続的な努力の後にやってくる.",
@@ -80,6 +74,46 @@ questions = [
      "answer": "voted"},
     {"text": "101 ___ the pen of the person sitting next to me\n隣の席の人のペンを破壊する",
      "answer": "destroy"},
+    {"text": "111 The captain rescued only the ___ from his own country.\n船長は自国の人だけを救出しました.",
+     "answer": "passengers"},
+    {"text": "115 He climbed the ladder of success, then kicked it away so no one else could ___.\n彼は成功のはしごを登り,それを蹴飛ばし,他の誰も追随できないようにした.",
+     "answer": "follow"},
+    {"text": "116 Not all who ___ are lost.\n彷徨う人全員が迷っているわけではない.",
+     "answer": "wander"},
+    {"text": "137 He ___ silence for wisdom, and loudness for leadership.\n彼は沈黙を賢さと勘違いし,声の大きさをリーダーシップと勘違いした.",
+     "answer": "mistook"},
+    {"text": "150 ___ to understand\nわかっているふりをする",
+     "answer": "pretend"},
+    {"text": "153 ___ Juso after school\n放課後,十三を探検する",
+     "answer": "explore"},
+    {"text": "155 More and more problems ___.\nますます多くの問題が現れた.",
+     "answer": "appeared"},
+    {"text": "167 ___ is written by the victors.\n歴史は勝者によって書かれる.",
+     "answer": "history"},
+    {"text": "209 He ___ to side with the insects.\n彼はその虫の味方をするようだ.",
+     "answer": "seems"},
+    {"text": "311 If you put ___ on a grandma, can you call it a bicycle?\nおばあちゃんに車輪を付けたら,自転車と呼べるのか.",
+     "answer": "wheels"},
+    {"text": "338 I want to transfer to the ___ course.\n美術コースに転向したい.",
+     "answer": "art"},
+    {"text": "359 The locals were amazed by the car they had never seen before and ___, but it was a driverless\n現地の人々は初めての車に驚き,物乞いをしたが,無人自動車だった.",
+     "answer": "begged"},
+    {"text":__, __, __ your boat
+            Gently down the stream
+            Merrily, merrily, merrily, merrily
+            Life is but a dream"155
+          \nボートを漕げ、漕げ、漕げ
+            そっと流れを下って
+            陽気に、陽気に、陽気に、陽気に
+            人生は夢に過ぎない","answer": "row"},
+    {"text": "155 \n",
+     "answer": ""},
+    {"text": "155 \n",
+     "answer": ""},
+    {"text": "155 \n",
+     "answer": ""},
+    {"text": "155 \n",
+     "answer": ""}
 ]
 
 @app.route("/callback", methods=["POST"])
