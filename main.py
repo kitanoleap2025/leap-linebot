@@ -98,7 +98,7 @@ questions = [
      "answer": "art"},
     {"text": "359 The locals were amazed by the car they had never seen before and ___, but it was a driverless\n現地の人々は初めての車に驚き,物乞いをしたが,無人自動車だった.",
      "answer": "begged"},
-    {"text":__, __, __ your boat
+    {"text": "__, __, __ your boat
             Gently down the stream
             Merrily, merrily, merrily, merrily
             Life is but a dream"155
