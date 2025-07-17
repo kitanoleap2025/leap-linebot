@@ -100,7 +100,7 @@ questions = [
      "answer": "art"},
     {"text": "359 The locals were amazed by the car they had never seen before and ___, but it was a driverless\n現地の人々は初めての車に驚き,物乞いをしたが,無人自動車だった.",
      "answer": "begged"},
-    {"text": "434 He’s been pursuing her aunt for months\n彼は何か月も彼女のおばを狙っています.",
+    {"text": "434 He’s been ___ her aunt for months\n彼は何か月も彼女のおばを狙っています.",
      "answer": "pursuing"},
     {"text": "440 the ___ of having to create example sentences to protect copyright\n著作権保護のため例文を作らなければならないという課題",
      "answer": "challenge"},
@@ -114,7 +114,7 @@ questions = [
      "answer": "resist"},
     {"text": "782 ___ woman\n熟女",
      "answer": "mature"},
-    {"text": "1000 ___ __ capitakism, your value peaks at checkout.\n資本主義によると,あなたの価値はチェックアウト時にピークに達する.",
+    {"text": "1000 ___ __ capitalism, your value peaks at checkout.\n資本主義によると,あなたの価値はチェックアウト時にピークに達する.",
      "answer": "according to"}
 ]
 
