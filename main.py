@@ -132,7 +132,7 @@ questions = [
      "answer": "pale"},
     {"text": "500 The consumption tax should be ___.\n消費税は廃止されるべきだ.",
      "answer": "abolished"},
-    {"text": "539 The road to success is under construction.\n成功への道は工事中だ.",
+    {"text": "539 The road to success is under ___.\n成功への道は工事中だ.",
      "answer": "construction"},
     {"text": "610 I can ___ everything except temptation.\n私は誘惑以外の全てに耐えうる.",
      "answer": "resist"},
