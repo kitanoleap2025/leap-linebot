@@ -195,21 +195,20 @@ def handle_message(event):
         total = score["total"]
 
         if total == 0:
-            result_text = "まだ成績データがありません。問題を解いてみましょう！"
+            result_text = "No questions solved, but you expect a grade?"
         else:
-            accuracy = round((correct / total) * 100)
-            if accuracy >= 90:
-                rank = "Sランク✨"
-            elif accuracy >= 75:
-                rank = "Aランク💪"
-            elif accuracy >= 50:
-                rank = "Bランク👍"
+            rate = round((correct / total) * 100)
+            if rate >= 1000:
+                rank = "Sランク🎖️"
+            elif rate >= 500:
+                rank = "Aランク🔥"
+            elif rate >= 100:
+                rank = "Bランク💪"
             else:
-                rank = "Cランク📘"
+                rank = "Cランク💤"
             result_text = (
                 f"【あなたの成績】\n"
-                f"✅ 総正解数: {correct}/{total}問\n"
-                f"✅ 把握率: {accuracy}%\n"
+                f"✅ レート: {correct}*{rate}\n"
                 f"✅ ランク: {rank}"
             )
         line_bot_api.reply_message(event.reply_token, TextSendMessage(text=result_text))
