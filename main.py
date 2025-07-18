@@ -156,7 +156,7 @@ questions = [
      "answer": "granted"},
     {"text": "763 The truth is often simple, but people prefer ___ answers.\n真実はしばしば単純ですが,人々は複雑な答えを好みます.",
      "answer": "complex"},
-    {"text": "820 People ___ to accept ideas not because they are true, but because they are ___.\n人々はアイデアが真実だからではなく,馴染みがあるから受け入れる傾向があります.",
+    {"text": "820 People ___ to accept ideas not because they are true, but because they are familiar.\n人々はアイデアが真実だからではなく,馴染みがあるから受け入れる傾向があります.",
      "answer": "tend"},
     {"text": "901 I want to ___ to the art course.\n美術コースに転向したい.",
      "answer": "transfer"},
@@ -189,7 +189,7 @@ def handle_message(event):
     msg = event.message.text.strip().lower()
 
     # --- 成績処理 ---
-    if msg == "成績":
+        if msg == "成績":
         history = user_histories.get(user_id, [])
         count = len(history)
         correct = sum(history)
@@ -197,8 +197,8 @@ def handle_message(event):
         if count == 0:
             result_text = "No questions solved, but you expect a grade?"
         else:
-            accuracy = correct / count
-            rate = round(accuracy * 1000)  # レートは1000点満点に換算
+            accuracy = correct / 100  # ← ここを変更！
+            rate = round(accuracy * 1000)
 
             if rate >= 900:
                 rank = "Sランク🎖️"
@@ -212,7 +212,7 @@ def handle_message(event):
             result_text = (
                 f"【あなたの成績（直近{count}問）】\n"
                 f"✅ 正解数: {correct} / {count}\n"
-                f"📈 レート: {rate}\n"
+                f"📈 レート: {rate}（100問換算）\n"
                 f"🏆 ランク: {rank}"
             )
         line_bot_api.reply_message(event.reply_token, TextSendMessage(text=result_text))
