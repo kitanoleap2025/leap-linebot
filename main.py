@@ -12,8 +12,8 @@ app = Flask(__name__)
 line_bot_api = LineBotApi(os.getenv("LINE_CHANNEL_ACCESS_TOKEN"))
 handler = WebhookHandler(os.getenv("LINE_CHANNEL_SECRET"))
 
-user_states = {}  # 出題中のユーザーと答え
-user_scores = {}  # ユーザーの正解数と出題数
+user_states = {}      # 出題中のユーザーと正解
+user_histories = {}   # ユーザーごとの直近100回の正誤履歴（1=正解, 0=不正解）
 
 questions = [
     {"text": "001 I ___ with the idea that students should not be given too much homework.\n生徒に宿題を与えすぎるべきではないという考えに賛成です.",
@@ -190,24 +190,28 @@ def handle_message(event):
 
     # --- 成績処理 ---
     if msg == "成績":
-        score = user_scores.get(user_id, {"correct": 0, "total": 0})
-        correct = score["correct"]
-        total = score["total"]
+        history = user_histories.get(user_id, [])
+        count = len(history)
+        correct = sum(history)
 
-        if total == 0:
+        if count == 0:
             result_text = "No questions solved, but you expect a grade?"
         else:
-            rate = round((correct)*(correct / total) * 100)
-            if rate >= 1000:
+            accuracy = correct / count
+            rate = round(accuracy * 1000)  # レートは1000点満点に換算
+
+            if rate >= 900:
                 rank = "Sランク🎖️"
-            elif rate >= 500:
+            elif rate >= 750:
                 rank = "Aランク🔥"
-            elif rate >= 100:
+            elif rate >= 500:
                 rank = "Bランク💪"
             else:
                 rank = "Cランク💤"
+
             result_text = (
-                f"【あなたの成績】\n"
+                f"【あなたの成績（直近{count}問）】\n"
+                f"✅ 正解数: {correct} / {count}\n"
                 f"📈 レート: {rate}\n"
                 f"🏆 ランク: {rank}"
             )
@@ -226,18 +230,18 @@ def handle_message(event):
         correct_answer = user_states[user_id].lower()
         is_correct = (msg == correct_answer)
 
-        # スコア記録
-        if user_id not in user_scores:
-            user_scores[user_id] = {"correct": 0, "total": 0}
-        user_scores[user_id]["total"] += 1
-        if is_correct:
-            user_scores[user_id]["correct"] += 1
+        # 履歴更新（最大100件）
+        history = user_histories.get(user_id, [])
+        history.append(1 if is_correct else 0)
+        if len(history) > 100:
+            history.pop(0)
+        user_histories[user_id] = history
 
-        # フィードバックメッセージ
+        # フィードバック
         if is_correct:
-            feedback = "Correct answer✅\n\n Next："
+            feedback = "Correct answer✅\n\nNext："
         else:
-            feedback = f"Incorrect❌ 正解は「{correct_answer}」です。\n\n Next："
+            feedback = f"Incorrect❌ 正解は「{correct_answer}」です。\n\nNext："
 
         # 次の問題を出題
         q = random.choice(questions)
@@ -251,7 +255,6 @@ def handle_message(event):
             ]
         )
     else:
-        # 状態がないときのガイド
         line_bot_api.reply_message(
             event.reply_token,
             TextSendMessage(text="「1-1000」または「問題」と送って問題を始めてください。")
@@ -260,5 +263,3 @@ def handle_message(event):
 if __name__ == "__main__":
     port = int(os.environ.get("PORT", 8000))
     app.run(host="0.0.0.0", port=port)
-
-
