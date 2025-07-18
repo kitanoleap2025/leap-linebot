@@ -189,7 +189,7 @@ def handle_message(event):
     msg = event.message.text.strip().lower()
 
     # --- 成績処理 ---
-        if msg == "成績":
+    if msg == "成績":
         history = user_histories.get(user_id, [])
         count = len(history)
         correct = sum(history)
