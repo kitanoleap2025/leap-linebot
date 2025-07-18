@@ -217,7 +217,7 @@ def handle_message(event):
     user_id = event.source.user_id
     msg = event.message.text.strip()
 
-    if msg == "問題":
+    if msg == "1-1000":
         q = random.choice(questions)
         user_states[user_id] = q["answer"]  # ユーザーごとに正解を保存
         line_bot_api.reply_message(
