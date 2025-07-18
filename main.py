@@ -7,42 +7,13 @@ import random
 from dotenv import load_dotenv
 
 load_dotenv()
-
 app = Flask(__name__)
 
 line_bot_api = LineBotApi(os.getenv("LINE_CHANNEL_ACCESS_TOKEN"))
 handler = WebhookHandler(os.getenv("LINE_CHANNEL_SECRET"))
 
-user_states = {}  # ユーザーごとの状態を記録
-user_scores = {}  # ユーザーの成績を記録
-
-elif msg == "成績":
-    if user_id in user_scores and user_scores[user_id]["total"] > 0:
-        correct = user_scores[user_id]["correct"]
-        total = user_scores[user_id]["total"]            accuracy = round((correct / total) * 100)# ランク判定
-            if accuracy >= 90:
-                rank = "Sランク✨"
-            elif accuracy >= 75:
-                rank = "Aランク💪"
-            elif accuracy >= 50:
-                rank = "Bランク👍"
-            else:
-                rank = "Cランク📘"
-
-            result_text = (
-                f"【あなたの成績】\n"
-                f"✅ 総正解数: {correct}/{total}問\n"
-                f"✅ LEAP把握率: {accuracy}%\n"
-                f"✅ ランク: {rank}"
-            )
-    else:
-            result_text = "まだ成績データがありません。問題ボタンを押してみましょう！"
-
-        line_bot_api.reply_message(
-            event.reply_token,
-            TextSendMessage(text=result_text)
-        )
-
+user_states = {}  # 出題中のユーザーと答え
+user_scores = {}  # ユーザーの正解数と出題数
 
 questions = [
     {"text": "001 I ___ with the idea that students should not be given too much homework.\n生徒に宿題を与えすぎるべきではないという考えに賛成です.",
@@ -210,51 +181,85 @@ def callback():
         handler.handle(body, signature)
     except InvalidSignatureError:
         abort(400)
-
     return "OK"
 
 @handler.add(MessageEvent, message=TextMessage)
 def handle_message(event):
     user_id = event.source.user_id
-    msg = event.message.text.strip()
+    msg = event.message.text.strip().lower()
 
-    if msg == "1-1000":
+    # --- 成績処理 ---
+    if msg == "成績":
+        score = user_scores.get(user_id, {"correct": 0, "total": 0})
+        correct = score["correct"]
+        total = score["total"]
+
+        if total == 0:
+            result_text = "まだ成績データがありません。問題を解いてみましょう！"
+        else:
+            accuracy = round((correct / total) * 100)
+            if accuracy >= 90:
+                rank = "Sランク✨"
+            elif accuracy >= 75:
+                rank = "Aランク💪"
+            elif accuracy >= 50:
+                rank = "Bランク👍"
+            else:
+                rank = "Cランク📘"
+            result_text = (
+                f"【あなたの成績】\n"
+                f"✅ 総正解数: {correct}/{total}問\n"
+                f"✅ 把握率: {accuracy}%\n"
+                f"✅ ランク: {rank}"
+            )
+        line_bot_api.reply_message(event.reply_token, TextSendMessage(text=result_text))
+        return
+
+    # --- 出題要求処理 ---
+    if msg == "1-1000" or msg == "問題":
         q = random.choice(questions)
-        user_states[user_id] = q["answer"]  # ユーザーごとに正解を保存
+        user_states[user_id] = q["answer"]
+        line_bot_api.reply_message(event.reply_token, TextSendMessage(text=q["text"]))
+        return
+
+    # --- 回答処理 ---
+    if user_id in user_states:
+        correct_answer = user_states[user_id].lower()
+        is_correct = (msg == correct_answer)
+
+        # スコア記録
+        if user_id not in user_scores:
+            user_scores[user_id] = {"correct": 0, "total": 0}
+        user_scores[user_id]["total"] += 1
+        if is_correct:
+            user_scores[user_id]["correct"] += 1
+
+        # フィードバックメッセージ
+        if is_correct:
+            feedback = "Correct answer✅\n\n Next："
+        else:
+            feedback = f"Incorrect❌ 正解は「{correct_answer}」です。\n\n Next："
+
+        # 次の問題を出題
+        q = random.choice(questions)
+        user_states[user_id] = q["answer"]
+
         line_bot_api.reply_message(
             event.reply_token,
-            TextSendMessage(text=q["text"])
-        )
-    else:
-        if user_id in user_states:
-            correct_answer = user_states[user_id].lower()
-            if msg.lower() == correct_answer:
-                reply = "Correct answer✅\n\n Next："
-            else:
-                reply = f"Incorrect❌ The correct answer is「{correct_answer}」.\n\n Next："
-            # 出題状態をクリア
-            del user_states[user_id]
-
-            # 新しい問題をランダムに出す
-            q = random.choice(questions)
-            user_states[user_id] = q["answer"]
-
-            messages = [
-                TextSendMessage(text=reply),
+            messages=[
+                TextSendMessage(text=feedback),
                 TextSendMessage(text=q["text"])
             ]
-
-            line_bot_api.reply_message(
-                event.reply_token,
-                messages
-            )
-        else:
-            reply = "「問題」と送ってください。"
-            line_bot_api.reply_message(
-                event.reply_token,
-                TextSendMessage(text=reply)
-            )
+        )
+    else:
+        # 状態がないときのガイド
+        line_bot_api.reply_message(
+            event.reply_token,
+            TextSendMessage(text="「1-1000」または「問題」と送って問題を始めてください。")
+        )
 
 if __name__ == "__main__":
     port = int(os.environ.get("PORT", 8000))
     app.run(host="0.0.0.0", port=port)
+
+
