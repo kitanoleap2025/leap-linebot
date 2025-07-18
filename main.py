@@ -15,13 +15,10 @@ handler = WebhookHandler(os.getenv("LINE_CHANNEL_SECRET"))
 
 user_states = {}  # ユーザーごとの状態を記録
 
-    elif msg == "成績":
-        if user_id in user_scores and user_scores[user_id]["total"] > 0:
-            correct = user_scores[user_id]["correct"]
-            total = user_scores[user_id]["total"]
-            accuracy = round((correct / total) * 100)
-
-            # ランク判定
+elif msg == "成績":
+    if user_id in user_scores and user_scores[user_id]["total"] > 0:
+        correct = user_scores[user_id]["correct"]
+        total = user_scores[user_id]["total"]            accuracy = round((correct / total) * 100)# ランク判定
             if accuracy >= 90:
                 rank = "Sランク✨"
             elif accuracy >= 75:
@@ -37,8 +34,8 @@ user_states = {}  # ユーザーごとの状態を記録
                 f"✅ LEAP把握率: {accuracy}%\n"
                 f"✅ ランク: {rank}"
             )
-        else:
-            result_text = "まだ成績データがありません。「問題」と送って始めてみましょう！"
+    else:
+            result_text = "まだ成績データがありません。問題ボタンを押してみましょう！"
 
         line_bot_api.reply_message(
             event.reply_token,
