@@ -197,7 +197,7 @@ def handle_message(event):
         if total == 0:
             result_text = "No questions solved, but you expect a grade?"
         else:
-            rate = round((correct / total) * 100)
+            rate = round((correct)*(correct / total) * 100)
             if rate >= 1000:
                 rank = "Sランク🎖️"
             elif rate >= 500:
@@ -208,8 +208,8 @@ def handle_message(event):
                 rank = "Cランク💤"
             result_text = (
                 f"【あなたの成績】\n"
-                f"✅ レート: {correct}*{rate}\n"
-                f"✅ ランク: {rank}"
+                f"📈 レート: {rate}\n"
+                f"🏆 ランク: {rank}"
             )
         line_bot_api.reply_message(event.reply_token, TextSendMessage(text=result_text))
         return
