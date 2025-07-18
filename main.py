@@ -14,6 +14,7 @@ line_bot_api = LineBotApi(os.getenv("LINE_CHANNEL_ACCESS_TOKEN"))
 handler = WebhookHandler(os.getenv("LINE_CHANNEL_SECRET"))
 
 user_states = {}  # ユーザーごとの状態を記録
+user_scores = {}  # ユーザーの成績を記録
 
 elif msg == "成績":
     if user_id in user_scores and user_scores[user_id]["total"] > 0:
