@@ -56,7 +56,7 @@ class ShotgunRussianRoulette:
     def player_action(self, choice):
         result = ""
         if self.current_index >= len(self.bullets):
-            result += f"🔄再装填：実弾{self.live}発、空砲{self.empty}発
+            result += f"🔄再装填：実弾{self.live}発、空砲{self.empty}発"
 "
             self.new_chamber()
 
@@ -78,23 +78,23 @@ class ShotgunRussianRoulette:
             if bullet == 'live':
                 if self.adrenaline_used:
                     self.adrenaline_used = False
-                    result += "💥自分に撃ったが、アドレナリンで耐えた！
+                    result += "💥自分に撃ったが、アドレナリンで耐えた！"
 "
                 else:
                     self.player_hp -= 1
-                    result += "💥自分に撃った！実弾だった…ダメージ！
+                    result += "💥自分に撃った！実弾だった…ダメージ！"
 "
                 self.turn = "dealer"
             else:
-                result += "💨自分に撃った！空砲！ノーダメージ。
+                result += "💨自分に撃った！空砲！ノーダメージ。"
 "
         elif choice == "2":
             if bullet == 'live':
                 self.dealer_hp -= 1
-                result += "🔫相手に撃った！実弾命中！
+                result += "🔫相手に撃った！実弾命中！"
 "
             else:
-                result += "💨相手に撃った！空砲！ノーダメージ。
+                result += "💨相手に撃った！空砲！ノーダメージ。"
 "
             self.turn = "dealer"
         else:
@@ -154,20 +154,20 @@ class ShotgunRussianRoulette:
         if target == "player":
             if bullet == 'live':
                 self.player_hp -= 1
-                result += "💥ディーラーはあなたに撃った！実弾命中！
+                result += "💥ディーラーはあなたに撃った！実弾命中！"
 "
             else:
-                result += "💨ディーラーはあなたに撃った！空砲！
+                result += "💨ディーラーはあなたに撃った！空砲！"
 "
             self.turn = "player"
         else:
             if bullet == 'live':
                 self.dealer_hp -= 1
-                result += "💥ディーラーは自分に撃った！実弾！
+                result += "💥ディーラーは自分に撃った！実弾！"
 "
                 self.turn = "player"
             else:
-                result += "💨ディーラーは自分に撃った！空砲！ターン継続。
+                result += "💨ディーラーは自分に撃った！空砲！ターン継続。"
 "
                 self.turn = "dealer"
                 return result, True
