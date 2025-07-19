@@ -211,7 +211,6 @@ class ShotgunRussianRoulette:
         h2 = user_histories.get(user_id + "_1000_1935", [])
         result_text = build_result_text(h1, "1-1000") + "\n\n" + build_result_text(h2, "1000-1935")
         line_bot_api.reply_message(event.reply_token, TextSendMessage(text=result_text))
-        return
 
     # --- 英単語問題出題処理 ---
     if msg == "1-1000":
