@@ -40,8 +40,8 @@ questions_1000_1935 = [
 # --- ゲームクラス定義 ---
 class ShotgunRussianRoulette:
     def __init__(self):
-        self.player_hp = 2
-        self.dealer_hp = 2
+        self.player_hp = 4
+        self.dealer_hp = 4
         self.live = random.randint(1, 3)
         self.empty = random.randint(1, 3)
         self.bullets = ['live'] * self.live + ['empty'] * self.empty
@@ -63,7 +63,7 @@ class ShotgunRussianRoulette:
                 result_text = "BANG💥実弾だった..."
                 self.turn = "dealer"
             else:
-                result_text = "CLICK 空砲だった...ターン継続."
+                result_text = "CLICK 空砲だった...プレイヤーターン継続."
                 # ターン継続（turn変えない）
         elif choice == "2":  # 相手に撃つ
             if bullet == 'live':
@@ -92,18 +92,18 @@ class ShotgunRussianRoulette:
         if choice == "shoot":
             if bullet == 'live':
                 self.player_hp -= 1
-                result_text = "BANG💥実弾だった..."
+                result_text = "DEALER SHOT YOU...\nBANG💥実弾だった..."
                 self.turn = "player"
             else:
-                result_text = "CLICK 空砲だった..."
+                result_text = "DEALER SHOT YOU...\nCLICK 空砲だった..."
                 self.turn = "player"
         else:
             if bullet == 'live':
                 self.dealer_hp -= 1
-                result_text = "BANG💥実弾だった..."
+                result_text = "DEALER SHOT HIMSELF...\nBANG💥実弾だった..."
                 self.turn = "player"
             else:
-                result_text = "CLICK 空砲だった...ターン継続."
+                result_text = "DEALER SHOT HIMSELF...\nCLICK 空砲だった...ディーラーターン継続."
                 # ターン継続（turn変えない）
 
         return result_text, True
@@ -150,7 +150,7 @@ def handle_message(event):
         # 勝敗判定
         end = game.is_game_over()
         if end:
-            winner = "win" if end == "player" else "GET UP. THE NIGHT IS YOUNG."
+            winner = "win" if end == "player" else "YOU DIED... GET UP... THE NIGHT IS YOUNG..."
             del active_games[user_id]
             reply = f"{result}\n\n{winner}"
         else:
@@ -163,10 +163,11 @@ def handle_message(event):
     if msg == "game":
         game = ShotgunRussianRoulette()
         active_games[user_id] = game
+        TextSendMessage(text="RUSSIAN ROULETTE")
         line_bot_api.reply_message(
             event.reply_token,
             TextSendMessage(
-                text=(f"NEW LOADING：実弾{game.live}発. 空砲{game.empty}発...\n私はランダムに装填します.\n"
+                text=(f"実弾{game.live}発,空砲{game.empty}発...\n私はランダムに装填します\n"
                       + game.get_status() + "\n1:SHOOT YOURSELF / 2:SHOOT THE DEALER")
             )
         )
