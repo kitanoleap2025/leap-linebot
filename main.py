@@ -26,14 +26,90 @@ questions_1000_1935 = [
 ]
 
 # --- ゲームクラス定義 ---
+class ShotgunRussianRoulette:
+    def __init__(self):
+        self.player_hp = 2
+        self.dealer_hp = 2
+        self.live = 2
+        self.empty = 4
+        self.bullets = ['live'] * self.live + ['empty'] * self.empty
+        random.shuffle(self.bullets)
+        self.current_index = 0
+        self.turn = "player"
+
+    def player_action(self, choice):
+        if self.current_index >= len(self.bullets):
+            return "もう弾がありません。", False
+
+        bullet = self.bullets[self.current_index]
+        self.current_index += 1
+        result_text = ""
+
+        if choice == "1":
+            if bullet == 'live':
+                self.player_hp -= 1
+                result_text += "💥自分に撃った！実弾だった…ダメージ！"
+            else:
+                result_text += "💨自分に撃った！空砲！ノーダメージ。"
+        elif choice == "2":
+            if bullet == 'live':
+                self.dealer_hp -= 1
+                result_text += "🔫相手に撃った！実弾命中！"
+            else:
+                result_text += "💨相手に撃った！空砲！ノーダメージ。"
+        else:
+            return "1 か 2 を入力してください。", False
+
+        self.turn = "dealer"
+        return result_text, True
+
+    def dealer_action(self):
+        if self.current_index >= len(self.bullets):
+            return "ディーラー「弾切れだ…」", False
+
+        bullet = self.bullets[self.current_index]
+        self.current_index += 1
+
+        if self.player_hp == 1:
+            choice = "shoot"
+        else:
+            choice = random.choice(["shoot", "self"])
+
+        if choice == "shoot":
+            if bullet == 'live':
+                self.player_hp -= 1
+                result_text = "💥ディーラーはあなたに撃った！実弾命中！"
+            else:
+                result_text = "💨ディーラーはあなたに撃った！空砲！ノーダメージ。"
+        else:
+            if bullet == 'live':
+                self.dealer_hp -= 1
+                result_text = "💥ディーラーは自分に撃った！実弾だった…ダメージ！"
+            else:
+                result_text = "💨ディーラーは自分に撃った！空砲！ノーダメージ。"
+
+        self.turn = "player"
+        return result_text, True
+
+    def get_status(self):
+        return f"🔥HP - PLAYER: {'🔥' * self.player_hp}, DEALER: {'🔥' * self.dealer_hp}\n" \
+               f"残弾 - 実弾: {self.live - self.bullets[:self.current_index].count('live')}, 空砲: {self.empty - self.bullets[:self.current_index].count('empty')}"
+
+    def is_game_over(self):
+        if self.player_hp <= 0:
+            return "dealer"
+        elif self.dealer_hp <= 0:
+            return "player"
+        return None
+
+
+# --- LINEイベント処理 ---
 @handler.add(MessageEvent, message=TextMessage)
 def handle_message(event):
     user_id = event.source.user_id
     msg = event.message.text.strip().lower()
 
-    # === ゲーム中の場合の処理 ===
     if user_id in active_games:
-        # 強制終了コマンド例
         if msg in ["1-1000", "1000-1935", "成績"]:
             del active_games[user_id]
             line_bot_api.reply_message(
@@ -55,16 +131,10 @@ def handle_message(event):
 
             result += player_result
 
-            # プレイヤーのターン後、ゲームが続いていればディーラーのターンへ
             if not game.is_game_over() and game.turn == "dealer":
                 dealer_result, _ = game.dealer_action()
-                result += f"\n\nディーラーの行動: {dealer_result}"
+                result += f"\n\n{dealer_result}"
 
-        else:
-            dealer_result, _ = game.dealer_action()
-            result = f"ディーラーの行動: {dealer_result}"
-
-        # 勝敗判定
         end = game.is_game_over()
         if end:
             winner = "あなたの勝ち！🎉" if end == "player" else "ディーラーの勝ち…😵"
@@ -76,7 +146,7 @@ def handle_message(event):
         line_bot_api.reply_message(event.reply_token, TextSendMessage(text=reply))
         return
 
-    # === ゲーム開始 ===
+    # ゲーム開始
     if msg == "game":
         game = ShotgunRussianRoulette()
         active_games[user_id] = game
@@ -92,8 +162,7 @@ def handle_message(event):
             )
         )
         return
-
-
+        
 　　# --- 成績処理 ---
     if msg == "成績":
         def build_result_text(history, title):
