@@ -182,7 +182,7 @@ class ShotgunRussianRoulette:
                 event.reply_token,
                 TextSendMessage(text="🎮ゲームを強制終了しました。成績を表示します。")
             )
-            return
+        return
 
         def build_result_text(history, title):
             count = len(history)
