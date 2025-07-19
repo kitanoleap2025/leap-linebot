@@ -14,6 +14,7 @@ handler = WebhookHandler(os.getenv("LINE_CHANNEL_SECRET"))
 
 user_states = {}        # 出題中のユーザーと正解
 user_histories = {}     # 出題範囲ごとの正誤履歴（最大100件）
+active_games = {}       # 現在ミニゲーム中のユーザー
 
 # --- 出題リスト ---
 questions_1_1000 = [
@@ -24,6 +25,80 @@ questions_1000_1935 = [
     {"text": "1001 The ___ made a critical discovery in the lab.\nその科学者は研究室で重大な発見をした。", "answer": "scientist"}
 ]
 
+# --- ゲームクラス定義 ---
+class ShotgunRussianRoulette:
+    def __init__(self):
+        self.player_hp = 4
+        self.dealer_hp = 4
+        self.reload_bullets()
+        self.turn = "player"
+
+    def reload_bullets(self):
+        self.live = random.randint(1, 3)
+        self.empty = random.randint(1, 3)
+        self.bullets = ['live'] * self.live + ['empty'] * self.empty
+        random.shuffle(self.bullets)
+        self.current_index = 0
+
+    def get_status(self):
+        return f"HP - プレイヤー: {self.player_hp}, ディーラー: {self.dealer_hp}\n残弾 - 実弾: {self.live - self.bullets[:self.current_index].count('live')}, 空砲: {self.empty - self.bullets[:self.current_index].count('empty')}"
+
+    def is_game_over(self):
+        if self.player_hp <= 0:
+            return "dealer"
+        if self.dealer_hp <= 0:
+            return "player"
+        return None
+
+    def shoot(self, target):
+        if self.current_index >= len(self.bullets):
+            self.reload_bullets()
+            self.turn = "player"
+            return "弾がなくなったためリロードしました。プレイヤーのターンです。", False
+
+        bullet = self.bullets[self.current_index]
+        self.current_index += 1
+        damage = 0
+        result_msg = f"{target}に撃った！"
+
+        if bullet == "live":
+            damage = 1
+            result_msg += " 実弾！1ダメージ！"
+            if target == "player":
+                self.player_hp -= damage
+            else:
+                self.dealer_hp -= damage
+            self.turn = "dealer" if self.turn == "player" else "player"
+            return result_msg, True
+        else:
+            result_msg += " 空砲。"
+            if target == self.turn:
+                result_msg += " ターン継続。"
+                return result_msg, True
+            else:
+                result_msg += " ターン交代。"
+                self.turn = "dealer" if self.turn == "player" else "player"
+                return result_msg, True
+
+    def player_action(self, choice):
+        if self.turn != "player":
+            return "今はプレイヤーのターンではありません。", False
+        if choice == "1":
+            return self.shoot("player")
+        elif choice == "2":
+            return self.shoot("dealer")
+        else:
+            return "選択が無効です。1か2を入力してください。", False
+
+    def dealer_action(self):
+        if self.turn != "dealer":
+            return "今はディーラーのターンではありません。", False
+        target = "player" if self.player_hp <= self.dealer_hp else "dealer"
+        if random.random() < 0.2:
+            target = "dealer" if target == "player" else "player"
+        return self.shoot(target)
+
+# --- LINEエンドポイント ---
 @app.route("/callback", methods=["POST"])
 def callback():
     signature = request.headers.get("X-Line-Signature", "")
@@ -39,6 +114,49 @@ def callback():
 def handle_message(event):
     user_id = event.source.user_id
     msg = event.message.text.strip().lower()
+
+    # === ゲーム中の場合の処理 ===
+    if user_id in active_games:
+        if msg in ["1-1000", "1000-1935", "成績"]:
+            del active_games[user_id]
+            line_bot_api.reply_message(
+                event.reply_token,
+                TextSendMessage(text="🎮 ゲームは強制終了されました。")
+            )
+            return
+
+        game = active_games[user_id]
+        if game.turn == "player":
+            if msg == "1":
+                result, proceed = game.player_action("1")
+            elif msg == "2":
+                result, proceed = game.player_action("2")
+            else:
+                result, proceed = "1 か 2 を入力してください。", False
+        else:
+            result, proceed = game.dealer_action()
+            result = "ディーラーの行動: " + result
+
+        end = game.is_game_over()
+        if end:
+            winner = "あなたの勝ち！🎉" if end == "player" else "ディーラーの勝ち…😵"
+            del active_games[user_id]
+            reply = f"{result}\n\n{winner}"
+        else:
+            reply = f"{result}\n\n{game.get_status()}"
+
+        line_bot_api.reply_message(event.reply_token, TextSendMessage(text=reply))
+        return
+
+    # === ゲーム開始 ===
+    if msg == "game":
+        game = ShotgunRussianRoulette()
+        active_games[user_id] = game
+        line_bot_api.reply_message(
+            event.reply_token,
+            TextSendMessage(text="🎮ゲーム開始！ 1: 自分に撃つ / 2: 相手に撃つ\n" + game.get_status())
+        )
+        return
 
     # --- 成績処理 ---
     if msg == "成績":
@@ -72,7 +190,7 @@ def handle_message(event):
         line_bot_api.reply_message(event.reply_token, TextSendMessage(text=result_text))
         return
 
-    # --- 出題要求処理 ---
+    # --- 出題処理 ---
     if msg == "1-1000":
         q = random.choice(questions_1_1000)
         user_states[user_id] = ("1-1000", q["answer"])
@@ -101,7 +219,6 @@ def handle_message(event):
             "Correct answer✅\n\nNext：" if is_correct else f"Incorrect❌ The correct answer is 「{correct_answer}」.\nNext："
         )
 
-        # 次の問題（同じ範囲から）
         if question_range == "1-1000":
             q = random.choice(questions_1_1000)
         else:
