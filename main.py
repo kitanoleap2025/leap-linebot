@@ -107,7 +107,7 @@ class ShotgunRussianRoulette:
         return result_text, True
 
     def get_status(self):
-        return (f"🔥HP - PLAYER: {'🔥' * self.player_hp}, DEALER: {'🔥' * self.dealer_hp}\n"
+        return (f"HP - PLAYER: {'⚡' * self.player_hp}, DEALER: {'⚡' * self.dealer_hp}\n"
                 f"残弾 - 実弾: {self.live - self.bullets[:self.current_index].count('live')}, "
                 f"空砲: {self.empty - self.bullets[:self.current_index].count('empty')}")
 
