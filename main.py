@@ -46,7 +46,7 @@ def handle_message(event):
         active_games[user_id] = {"phase": "choose"}
         line_bot_api.reply_message(
             event.reply_token,
-            TextSendMessage(text="🎮 BackShot Roulette\nChoose:\n1: Shoot yourself\n2: Shoot the dealer")
+            TextSendMessage(text="BackShot Roulette\nChoose:\n1: Shoot yourself\n2: Shoot the dealer")
         )
         return
 
