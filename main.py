@@ -49,14 +49,16 @@ def handle_message(event):
                 return f"【Your Performance（{title}）】\nNo questions solved, but you expect a grade?"
             accuracy = correct / 100  # 常に100問換算
             rate = round(accuracy * 1000)
-            if rate >= 900:
-                rank = "Sランク🎖️"
-            elif rate >= 750:
-                rank = "Aランク🔥"
+            if rate >= 970:
+                rank = "S Rank🤩"
+            elif rate >= 900:
+                rank = "A Rank😎"
+            elif rate >= 800:
+                rank = "B Rank😤"
             elif rate >= 500:
-                rank = "Bランク💪"
+                rank = "C Rank🫠"
             else:
-                rank = "Cランク💤"
+                rank = "D Rank😇"
             return (
                 f"【Your Performance（{title}）】\n"
                 f"✅ Score: {correct} / {count}\n"
