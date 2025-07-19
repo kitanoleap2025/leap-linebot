@@ -44,8 +44,8 @@ class ShotgunRussianRoulette:
         player_hp_bar = "🔥" * self.player_hp
         dealer_hp_bar = "🔥" * self.dealer_hp
         return (
-            f"HP - PLAYER: {player_hp_bar}（{self.player_hp}）\n"
-            f"HP - DEALER: {dealer_hp_bar}（{self.dealer_hp}）"
+            f"PLAYER: {player_hp_bar}\n"
+            f"DEALER: {dealer_hp_bar}"
         )
 
     def is_game_over(self):
