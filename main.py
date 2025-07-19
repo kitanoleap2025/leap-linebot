@@ -26,6 +26,20 @@ questions_1000_1935 = [
 ]
 
 # --- ゲームクラス定義 ---
+import random
+from flask import Flask, request, abort
+from linebot import LineBotApi, WebhookHandler
+from linebot.exceptions import InvalidSignatureError
+from linebot.models import MessageEvent, TextMessage, TextSendMessage
+
+app = Flask(__name__)
+
+# LineBotApiとWebhookHandlerの初期化（環境変数などで設定してください）
+line_bot_api = LineBotApi('YOUR_CHANNEL_ACCESS_TOKEN')
+handler = WebhookHandler('YOUR_CHANNEL_SECRET')
+
+active_games = {}
+
 class ShotgunRussianRoulette:
     def __init__(self):
         self.player_hp = 4
@@ -41,7 +55,12 @@ class ShotgunRussianRoulette:
         self.current_index = 0
 
     def get_status(self):
-        return f"🔥HP - PLAYER: {self.player_hp}, DEALER: {self.dealer_hp}\n {self.live - self.bullets[:self.current_index].count('live')}, 空砲: {self.empty - self.bullets[:self.current_index].count('empty')}"
+        player_hp_bar = "🔥" * self.player_hp
+        dealer_hp_bar = "🔥" * self.dealer_hp
+        return (
+            f"HP - PLAYER: {player_hp_bar}（{self.player_hp}）\n"
+            f"HP - DEALER: {dealer_hp_bar}（{self.dealer_hp}）"
+        )
 
     def is_game_over(self):
         if self.player_hp <= 0:
@@ -54,7 +73,11 @@ class ShotgunRussianRoulette:
         if self.current_index >= len(self.bullets):
             self.reload_bullets()
             self.turn = "player"
-            return "弾がなくなったためリロードしました。プレイヤーのターンです。", False
+            return (
+                f"🔄 弾がなくなったためリロードしました。\n"
+                f"新しい装填：実弾{self.live}発、空砲{self.empty}発\n"
+                f"プレイヤーのターンです。", False
+            )
 
         bullet = self.bullets[self.current_index]
         self.current_index += 1
@@ -117,6 +140,7 @@ def handle_message(event):
 
     # === ゲーム中の場合の処理 ===
     if user_id in active_games:
+        # 強制終了コマンド例
         if msg in ["1-1000", "1000-1935", "成績"]:
             del active_games[user_id]
             line_bot_api.reply_message(
@@ -154,9 +178,17 @@ def handle_message(event):
         active_games[user_id] = game
         line_bot_api.reply_message(
             event.reply_token,
-            TextSendMessage(text="🎲Russian Roulette！💥\n" + game.get_status() + "\n1: 自分を撃つ / 2: 相手を撃つ")
+            TextSendMessage(
+                text=(
+                    "🎲 Russian Roulette！💥\n"
+                    f"新しい装填：実弾{game.live}発、空砲{game.empty}発\n"
+                    + game.get_status()
+                    + "\n1: 自分を撃つ / 2: 相手を撃つ"
+                )
+            )
         )
         return
+
 
     # --- 成績処理 ---
     if msg == "成績":
