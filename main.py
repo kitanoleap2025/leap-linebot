@@ -64,7 +64,7 @@ class ShotgunRussianRoulette:
                 self.turn = "dealer"
             else:
                 result_text = "💨自分に撃った！空砲！ノーダメージ。ターン継続！"
-                # ターンは変えずにプレイヤー続行
+                # ターン継続（turn変えない）
         elif choice == "2":  # 相手に撃つ
             if bullet == 'live':
                 self.dealer_hp -= 1
@@ -84,7 +84,6 @@ class ShotgunRussianRoulette:
         bullet = self.bullets[self.current_index]
         self.current_index += 1
 
-        # ディーラーがHP少ない時は攻撃優先
         if self.player_hp <= 1:
             choice = "shoot"
         else:
@@ -94,22 +93,23 @@ class ShotgunRussianRoulette:
             if bullet == 'live':
                 self.player_hp -= 1
                 result_text = "💥ディーラーはあなたに撃った！実弾命中！"
+                self.turn = "player"
             else:
                 result_text = "💨ディーラーはあなたに撃った！空砲！ノーダメージ。"
+                self.turn = "player"
         else:
             if bullet == 'live':
                 self.dealer_hp -= 1
                 result_text = "💥ディーラーは自分に撃った！実弾だった…ダメージ！"
+                self.turn = "player"
             else:
-                result_text = "💨ディーラーは自分に撃った！空砲！ノーダメージ。"
+                result_text = "💨ディーラーは自分に撃った！空砲！ノーダメージ。ターン継続！"
+                # ターン継続（turn変えない）
 
-        self.turn = "player"
         return result_text, True
 
     def get_status(self):
-        return (f"HP - PLAYER: {'⚡' * self.player_hp}, DEALER: {'⚡' * self.dealer_hp}\n"
-                f"残弾 - 実弾: {self.live - self.bullets[:self.current_index].count('live')}, "
-                f"空砲: {self.empty - self.bullets[:self.current_index].count('empty')}")
+        return f"HP - PLAYER: {'⚡' * self.player_hp}, DEALER: {'⚡' * self.dealer_hp}"
 
     def is_game_over(self):
         if self.player_hp <= 0:
@@ -138,9 +138,10 @@ def handle_message(event):
             result += player_result
 
             # プレイヤーのターン後、ゲーム続行＆ターンがディーラーならディーラー行動
-            if not game.is_game_over() and game.turn == "dealer":
+            while not game.is_game_over() and game.turn == "dealer":
                 dealer_result, _ = game.dealer_action()
                 result += f"\n\n{dealer_result}"
+                # ディーラーが空砲で自分に撃った場合、ターン継続なのでループ続行
 
         else:
             dealer_result, _ = game.dealer_action()
@@ -165,11 +166,12 @@ def handle_message(event):
         line_bot_api.reply_message(
             event.reply_token,
             TextSendMessage(
-                text=(f"🎲 Russian Roulette\n新しい装填：実弾{game.live}発、空砲{game.empty}発\n"
+                text=(f"🎲 新しい装填：実弾{game.live}発、空砲{game.empty}発\n"
                       + game.get_status() + "\n1: 自分を撃つ / 2: 相手を撃つ")
             )
         )
         return
+
     # --- 成績処理 ---
     if msg == "成績":
         def build_result_text(history, title):
