@@ -60,20 +60,20 @@ class ShotgunRussianRoulette:
         if choice == "1":  # 自分に撃つ
             if bullet == 'live':
                 self.player_hp -= 1
-                result_text = "💥自分に撃った！実弾だった…ダメージ！"
+                result_text = "BANG💥実弾だった..."
                 self.turn = "dealer"
             else:
-                result_text = "💨自分に撃った！空砲！ノーダメージ。ターン継続！"
+                result_text = "CLICK 空砲だった...ターン継続."
                 # ターン継続（turn変えない）
         elif choice == "2":  # 相手に撃つ
             if bullet == 'live':
                 self.dealer_hp -= 1
-                result_text = "🔫相手に撃った！実弾命中！"
+                result_text = "BANG💥実弾だった..."
             else:
-                result_text = "💨相手に撃った！空砲！ノーダメージ。"
+                result_text = "CLICK 空砲だった..."
             self.turn = "dealer"
         else:
-            return "1 か 2 を入力してください。", False
+            return "1:SHOOT YOURSELF / 2:SHOOT THE DEALER", False
 
         return result_text, True
 
@@ -92,24 +92,24 @@ class ShotgunRussianRoulette:
         if choice == "shoot":
             if bullet == 'live':
                 self.player_hp -= 1
-                result_text = "💥ディーラーはあなたに撃った！実弾命中！"
+                result_text = "BANG💥実弾だった..."
                 self.turn = "player"
             else:
-                result_text = "💨ディーラーはあなたに撃った！空砲！ノーダメージ。"
+                result_text = "CLICK 空砲だった..."
                 self.turn = "player"
         else:
             if bullet == 'live':
                 self.dealer_hp -= 1
-                result_text = "💥ディーラーは自分に撃った！実弾だった…ダメージ！"
+                result_text = "BANG💥実弾だった..."
                 self.turn = "player"
             else:
-                result_text = "💨ディーラーは自分に撃った！空砲！ノーダメージ。ターン継続！"
+                result_text = "CLICK 空砲だった...ターン継続."
                 # ターン継続（turn変えない）
 
         return result_text, True
 
     def get_status(self):
-        return f"HP - PLAYER: {'⚡' * self.player_hp}, DEALER: {'⚡' * self.dealer_hp}"
+        return f"PLAYER: {'⚡' * self.player_hp}\nDEALER: {'⚡' * self.dealer_hp}"
 
     def is_game_over(self):
         if self.player_hp <= 0:
@@ -133,7 +133,7 @@ def handle_message(event):
             elif msg == "2":
                 player_result, proceed = game.player_action("2")
             else:
-                player_result, proceed = "1 か 2 を入力してください。", False
+                player_result, proceed = "1:SHOOT YOURSELF / 2:SHOOT THE DEALER", False
 
             result += player_result
 
@@ -150,7 +150,7 @@ def handle_message(event):
         # 勝敗判定
         end = game.is_game_over()
         if end:
-            winner = "あなたの勝ち！🎉" if end == "player" else "ディーラーの勝ち…😵"
+            winner = "win" if end == "player" else "GET UP. THE NIGHT IS YOUNG."
             del active_games[user_id]
             reply = f"{result}\n\n{winner}"
         else:
@@ -166,8 +166,8 @@ def handle_message(event):
         line_bot_api.reply_message(
             event.reply_token,
             TextSendMessage(
-                text=(f"🎲 新しい装填：実弾{game.live}発、空砲{game.empty}発\n"
-                      + game.get_status() + "\n1: 自分を撃つ / 2: 相手を撃つ")
+                text=(f"NEW LOADING：実弾{game.live}発. 空砲{game.empty}発...\n私はランダムに装填します.\n"
+                      + game.get_status() + "\n1:SHOOT YOURSELF / 2:SHOOT THE DEALER")
             )
         )
         return
