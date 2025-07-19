@@ -7,26 +7,14 @@ import random
 from dotenv import load_dotenv
 
 load_dotenv()
-app = Flask(__name__)  # ここを先に書く
+app = Flask(__name__)
 
 line_bot_api = LineBotApi(os.getenv("LINE_CHANNEL_ACCESS_TOKEN"))
 handler = WebhookHandler(os.getenv("LINE_CHANNEL_SECRET"))
 
-@app.route("/callback", methods=['POST'])
-def callback():
-    signature = request.headers.get('X-Line-Signature', '')
-    body = request.get_data(as_text=True)
-
-    try:
-        handler.handle(body, signature)
-    except InvalidSignatureError:
-        abort(400)
-
-    return 'OK'
-
 user_states = {}        # 出題中のユーザーと正解
 user_histories = {}     # 出題範囲ごとの正誤履歴（最大100件）
-active_games = {}       # 現在ミニゲーム中のユーザー
+active_games = {}       # ゲーム進行中のユーザーと状態
 
 # --- 出題リスト ---
 questions_1_1000 = [
@@ -37,69 +25,79 @@ questions_1000_1935 = [
     {"text": "1001 The ___ made a critical discovery in the lab.\nその科学者は研究室で重大な発見をした。", "answer": "scientist"}
 ]
 
-# --- ゲームクラス定義 ---
-class ShotgunRussianRoulette:
-    def __init__(self):
-        self.player_hp = 4
-        self.dealer_hp = 4
-        self.reload()
-        self.current_index = 0
-        self.turn = "player"
+@app.route("/callback", methods=["POST"])
+def callback():
+    signature = request.headers.get("X-Line-Signature", "")
+    body = request.get_data(as_text=True)
 
-    def reload(self):
-        self.live = random.randint(1, 3)
-        self.empty = random.randint(1, 3)
-        self.bullets = ['live'] * self.live + ['empty'] * self.empty
-        random.shuffle(self.bullets)
-        self.current_index = 0
+    try:
+        handler.handle(body, signature)
+    except InvalidSignatureError:
+        abort(400)
+    return "OK"
 
-    def player_action(self, choice):
-        if self.current_index >= len(self.bullets):
-            self.reload()
+@handler.add(MessageEvent, message=TextMessage)
+def handle_message(event):
+    user_id = event.source.user_id
+    msg = event.message.text.strip().lower()
 
-        bullet = self.bullets[self.current_index]
-        self.current_index += 1
-        result_text = ""
+    # --- ゲーム処理 ---
+    if msg == "game":
+        active_games[user_id] = {"phase": "choose"}
+        line_bot_api.reply_message(
+            event.reply_token,
+            TextSendMessage(text="🎮 BackShot Roulette\nChoose:\n1: Shoot yourself\n2: Shoot the dealer")
+        )
+        return
 
-        if choice == "1":  # 自分に撃つ
-            if bullet == 'live':
-                self.player_hp -= 1
-                result_text = "BANG💥 実弾だった..."
-                self.turn = "dealer"
+    # --- ゲーム中の選択処理 ---
+    if user_id in active_games:
+        if msg not in ["1", "2"]:
+            line_bot_api.reply_message(
+                event.reply_token,
+                TextSendMessage(text="1 か 2 を選んでください。")
+            )
+            return
+
+        player_choice = msg
+        chamber = [0] * 5 + [1]
+        random.shuffle(chamber)
+        bullet = chamber[0]
+
+        if player_choice == "1":
+            if bullet == 1:
+                result = "💥 You shot yourself... Game Over."
             else:
-                result_text = "CLICK 空砲だった...プレイヤーターン継続."
-        elif choice == "2":  # 相手に撃つ
-            if bullet == 'live':
-                self.dealer_hp -= 1
-                result_text = "BANG💥 実弾だった..."
-            else:
-                result_text = "CLICK 空砲だった..."
-            self.turn = "dealer"
+                result = "😮 Click! You survived. The dealer shoots next..."
         else:
-            return "1:SHOOT YOURSELF / 2:SHOOT THE DEALER", False
+            if bullet == 1:
+                result = "🔫 Bang! You eliminated the dealer. You win!"
+            else:
+                result = "😓 Click! The dealer survived. Your turn next..."
 
-        # 撃った後に弾が尽きたら再装填
-        if self.current_index >= len(self.bullets):
-            self.reload()
-            result_text += f"\n🔄 新しい装填：実弾{self.live}発、空砲{self.empty}発"
-
-        return result_text, True
-
-    def dealer_action(self):
-        if self.current_index >= len(self.bullets):
-            self.reload()
-
-        bullet = self.bul
-
+        del active_games[user_id]
+        line_bot_api.reply_message(
+            event.reply_token,
+            TextSendMessage(text=result)
+        )
+        return
 
     # --- 成績処理 ---
     if msg == "成績":
+        if user_id in active_games:
+            del active_games[user_id]
+            line_bot_api.reply_message(
+                event.reply_token,
+                TextSendMessage(text="🎮ゲームを強制終了しました。成績を表示します。")
+            )
+            return
+
         def build_result_text(history, title):
             count = len(history)
             correct = sum(history)
             if count == 0:
                 return f"【🤔Your Performance\n（{title}）】\nNo questions solved, but you expect a grade?"
-            accuracy = correct / 100  # 常に100問換算
+            accuracy = correct / 100
             rate = round(accuracy * 1000)
             if rate >= 970:
                 rank = "S Rank🤩"
@@ -126,12 +124,28 @@ class ShotgunRussianRoulette:
 
     # --- 出題処理 ---
     if msg == "1-1000":
+        if user_id in active_games:
+            del active_games[user_id]
+            line_bot_api.reply_message(
+                event.reply_token,
+                TextSendMessage(text="🎮ゲームを強制終了しました。問題を出題します。")
+            )
+            return
+
         q = random.choice(questions_1_1000)
         user_states[user_id] = ("1-1000", q["answer"])
         line_bot_api.reply_message(event.reply_token, TextSendMessage(text=q["text"]))
         return
 
     if msg == "1000-1935":
+        if user_id in active_games:
+            del active_games[user_id]
+            line_bot_api.reply_message(
+                event.reply_token,
+                TextSendMessage(text="🎮ゲームを強制終了しました。問題を出題します。")
+            )
+            return
+
         q = random.choice(questions_1000_1935)
         user_states[user_id] = ("1000-1935", q["answer"])
         line_bot_api.reply_message(event.reply_token, TextSendMessage(text=q["text"]))
@@ -153,10 +167,8 @@ class ShotgunRussianRoulette:
             "Correct answer✅\n\nNext：" if is_correct else f"Incorrect❌ The correct answer is 「{correct_answer}」.\nNext："
         )
 
-        if question_range == "1-1000":
-            q = random.choice(questions_1_1000)
-        else:
-            q = random.choice(questions_1000_1935)
+        # 次の問題（同じ範囲から）
+        q = random.choice(questions_1_1000 if question_range == "1-1000" else questions_1000_1935)
         user_states[user_id] = (question_range, q["answer"])
 
         line_bot_api.reply_message(
@@ -166,11 +178,21 @@ class ShotgunRussianRoulette:
                 TextSendMessage(text=q["text"])
             ]
         )
-    else:
+        return
+
+    # --- ゲーム中以外で "1" や "2" を送っても反応しないように ---
+    if msg in ["1", "2"]:
         line_bot_api.reply_message(
             event.reply_token,
-            TextSendMessage(text="Press button 1-1000 or 1000-1935!")
+            TextSendMessage(text="まず「game」と送ってゲームを開始して下さい。")
         )
+        return
+
+    # --- 未対応コマンド ---
+    line_bot_api.reply_message(
+        event.reply_token,
+        TextSendMessage(text="Press button 1-1000 or 1000-1935!")
+    )
 
 if __name__ == "__main__":
     port = int(os.environ.get("PORT", 8000))
