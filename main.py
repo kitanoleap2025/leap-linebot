@@ -163,7 +163,7 @@ def handle_message(event):
         )
         return
         
-　　# --- 成績処理 ---
+    # --- 成績処理 ---
     if msg == "成績":
         def build_result_text(history, title):
             count = len(history)
