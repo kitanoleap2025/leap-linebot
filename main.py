@@ -46,7 +46,7 @@ def handle_message(event):
             count = len(history)
             correct = sum(history)
             if count == 0:
-                return f"【Your Performance（{title}）】\nNo questions solved, but you expect a grade?"
+                return f"【📊✏️Your Performance（{title}）】\nNo questions solved, but you expect a grade?"
             accuracy = correct / 100  # 常に100問換算
             rate = round(accuracy * 1000)
             if rate >= 970:
