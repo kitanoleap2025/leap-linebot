@@ -219,7 +219,7 @@ class ShotgunRussianRoulette:
             line_bot_api.reply_message(
                 event.reply_token,
                 TextSendMessage(text="🎮ゲームを強制終了しました。問題を出題します。")
-            ）
+            )
 
         q = random.choice(questions_1_1000)
         user_states[user_id] = ("1-1000", q["answer"])
