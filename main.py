@@ -26,99 +26,6 @@ questions_1000_1935 = [
 ]
 
 # --- ゲームクラス定義 ---
-class ShotgunRussianRoulette:
-    def __init__(self):
-        self.player_hp = 4
-        self.dealer_hp = 4
-        self.reload_bullets()
-        self.turn = "player"
-
-    def reload_bullets(self):
-        self.live = random.randint(1, 3)
-        self.empty = random.randint(1, 3)
-        self.bullets = ['live'] * self.live + ['empty'] * self.empty
-        random.shuffle(self.bullets)
-        self.current_index = 0
-
-    def get_status(self):
-        player_hp_bar = "🔥" * self.player_hp
-        dealer_hp_bar = "🔥" * self.dealer_hp
-        return (
-            f"PLAYER: {player_hp_bar}\n"
-            f"DEALER: {dealer_hp_bar}"
-        )
-
-    def is_game_over(self):
-        if self.player_hp <= 0:
-            return "dealer"
-        if self.dealer_hp <= 0:
-            return "player"
-        return None
-
-    def shoot(self, target):
-        if self.current_index >= len(self.bullets):
-            self.reload_bullets()
-            self.turn = "player"
-            return (
-                f"🔄 弾がなくなったためリロードしました。\n"
-                f"{self.live} LIVE ROUND. {self.empty} BLANKS.\n"
-                f"プレイヤーのターンです。", False
-            )
-
-        bullet = self.bullets[self.current_index]
-        self.current_index += 1
-        damage = 0
-        result_msg = f"{target}に撃った！"
-
-        if bullet == "live":
-            damage = 1
-            result_msg += " 実弾！1ダメージ！"
-            if target == "player":
-                self.player_hp -= damage
-            else:
-                self.dealer_hp -= damage
-            self.turn = "dealer" if self.turn == "player" else "player"
-            return result_msg, True
-        else:
-            result_msg += " 空砲。"
-            if target == self.turn:
-                result_msg += " ターン継続。"
-                return result_msg, True
-            else:
-                result_msg += " ターン交代。"
-                self.turn = "dealer" if self.turn == "player" else "player"
-                return result_msg, True
-
-    def player_action(self, choice):
-        if self.turn != "player":
-            return "今はプレイヤーのターンではありません。", False
-        if choice == "1":
-            return self.shoot("player")
-        elif choice == "2":
-            return self.shoot("dealer")
-        else:
-            return "選択が無効です。1か2を入力してください。", False
-
-    def dealer_action(self):
-        if self.turn != "dealer":
-            return "今はディーラーのターンではありません。", False
-        target = "player" if self.player_hp <= self.dealer_hp else "dealer"
-        if random.random() < 0.2:
-            target = "dealer" if target == "player" else "player"
-        return self.shoot(target)
-
-# --- LINEエンドポイント ---
-@app.route("/callback", methods=["POST"])
-def callback():
-    signature = request.headers.get("X-Line-Signature", "")
-    body = request.get_data(as_text=True)
-
-    try:
-        handler.handle(body, signature)
-    except InvalidSignatureError:
-        abort(400)
-    return "OK"
-
 @handler.add(MessageEvent, message=TextMessage)
 def handle_message(event):
     user_id = event.source.user_id
@@ -136,17 +43,28 @@ def handle_message(event):
             return
 
         game = active_games[user_id]
+        result = ""
+
         if game.turn == "player":
             if msg == "1":
-                result, proceed = game.player_action("1")
+                player_result, proceed = game.player_action("1")
             elif msg == "2":
-                result, proceed = game.player_action("2")
+                player_result, proceed = game.player_action("2")
             else:
-                result, proceed = "1 か 2 を入力してください。", False
-        else:
-            result, proceed = game.dealer_action()
-            result = "ディーラーの行動: " + result
+                player_result, proceed = "1 か 2 を入力してください。", False
 
+            result += player_result
+
+            # プレイヤーのターン後、ゲームが続いていればディーラーのターンへ
+            if not game.is_game_over() and game.turn == "dealer":
+                dealer_result, _ = game.dealer_action()
+                result += f"\n\nディーラーの行動: {dealer_result}"
+
+        else:
+            dealer_result, _ = game.dealer_action()
+            result = f"ディーラーの行動: {dealer_result}"
+
+        # 勝敗判定
         end = game.is_game_over()
         if end:
             winner = "あなたの勝ち！🎉" if end == "player" else "ディーラーの勝ち…😵"
@@ -176,7 +94,7 @@ def handle_message(event):
         return
 
 
-    # --- 成績処理 ---
+　　# --- 成績処理 ---
     if msg == "成績":
         def build_result_text(history, title):
             count = len(history)
