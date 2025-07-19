@@ -6,9 +6,15 @@ import os
 import random
 from dotenv import load_dotenv
 
+load_dotenv()
+app = Flask(__name__)  # ここを先に書く
+
+line_bot_api = LineBotApi(os.getenv("LINE_CHANNEL_ACCESS_TOKEN"))
+handler = WebhookHandler(os.getenv("LINE_CHANNEL_SECRET"))
+
 @app.route("/callback", methods=['POST'])
 def callback():
-    signature = request.headers['X-Line-Signature']
+    signature = request.headers.get('X-Line-Signature', '')
     body = request.get_data(as_text=True)
 
     try:
@@ -17,12 +23,6 @@ def callback():
         abort(400)
 
     return 'OK'
-
-load_dotenv()
-app = Flask(__name__)
-
-line_bot_api = LineBotApi(os.getenv("LINE_CHANNEL_ACCESS_TOKEN"))
-handler = WebhookHandler(os.getenv("LINE_CHANNEL_SECRET"))
 
 user_states = {}        # 出題中のユーザーと正解
 user_histories = {}     # 出題範囲ごとの正誤履歴（最大100件）
@@ -174,7 +174,7 @@ def handle_message(event):
             )
         )
         return
-        
+
     # --- 成績処理 ---
     if msg == "成績":
         def build_result_text(history, title):
@@ -258,3 +258,4 @@ def handle_message(event):
 if __name__ == "__main__":
     port = int(os.environ.get("PORT", 8000))
     app.run(host="0.0.0.0", port=port)
+
