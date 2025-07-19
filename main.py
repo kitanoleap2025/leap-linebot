@@ -48,8 +48,10 @@ class ShotgunRussianRoulette:
         self.current_index = 0
 
     def get_item_display(self):
-        return f"🧰 Your items: {', '.join(self.player_items)},
-🧰 Dealer items: {', '.join(self.dealer_items)}"
+        return (
+            f"🧰 Your items: {', '.join(self.player_items)}, "
+            f"🤖 Dealer items: {', '.join(self.dealer_items)}"
+        )
 
     def player_action(self, choice):
         result = ""
