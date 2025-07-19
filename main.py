@@ -41,7 +41,7 @@ class ShotgunRussianRoulette:
         self.current_index = 0
 
     def get_status(self):
-        return f"HP - プレイヤー: {self.player_hp}, ディーラー: {self.dealer_hp}\n残弾 - 実弾: {self.live - self.bullets[:self.current_index].count('live')}, 空砲: {self.empty - self.bullets[:self.current_index].count('empty')}"
+        return f"🔥HP - PLAYER: {self.player_hp}, DEALER: {self.dealer_hp}\n {self.live - self.bullets[:self.current_index].count('live')}, 空砲: {self.empty - self.bullets[:self.current_index].count('empty')}"
 
     def is_game_over(self):
         if self.player_hp <= 0:
