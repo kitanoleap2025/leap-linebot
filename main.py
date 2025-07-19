@@ -61,7 +61,7 @@ class ShotgunRussianRoulette:
             self.turn = "player"
             return (
                 f"🔄 弾がなくなったためリロードしました。\n"
-                f"新しい装填：実弾{self.live}発、空砲{self.empty}発\n"
+                f"{self.live} LIVE ROUND. {self.empty} BLANKS.\n"
                 f"プレイヤーのターンです。", False
             )
 
