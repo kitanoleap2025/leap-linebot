@@ -224,7 +224,6 @@ class ShotgunRussianRoulette:
         q = random.choice(questions_1_1000)
         user_states[user_id] = ("1-1000", q["answer"])
         line_bot_api.reply_message(event.reply_token, TextSendMessage(text=q["text"]))
-        return
 
     if msg == "1000-1935":
         if user_id in active_games:
@@ -233,12 +232,10 @@ class ShotgunRussianRoulette:
                 event.reply_token,
                 TextSendMessage(text="🎮ゲームを強制終了しました。問題を出題します。")
             )
-            return
 
         q = random.choice(questions_1000_1935)
         user_states[user_id] = ("1000-1935", q["answer"])
         line_bot_api.reply_message(event.reply_token, TextSendMessage(text=q["text"]))
-        return
 
     # --- 英単語回答処理 ---
     if user_id in user_states:
@@ -267,7 +264,6 @@ class ShotgunRussianRoulette:
                 TextSendMessage(text=q["text"])
             ]
         )
-        return
 
     # --- 1 または 2 がゲーム中以外で送られた場合の案内 ---
     if msg in ["1", "2"]:
@@ -275,7 +271,6 @@ class ShotgunRussianRoulette:
             event.reply_token,
             TextSendMessage(text="まず「game」と送ってゲームを開始して下さい。")
         )
-        return
 
     # --- 未対応コマンドのデフォルト応答 ---
     line_bot_api.reply_message(
