@@ -154,7 +154,7 @@ def handle_message(event):
         active_games[user_id] = game
         line_bot_api.reply_message(
             event.reply_token,
-            TextSendMessage(text="🎮ゲーム開始！ 1: 自分に撃つ / 2: 相手に撃つ\n" + game.get_status())
+            TextSendMessage(text="🎲Russian Roulette！💥\n" + game.get_status() + "\n1: 自分を撃つ / 2: 相手を撃つ")
         )
         return
 
