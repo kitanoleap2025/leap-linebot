@@ -131,7 +131,7 @@ def handle_message(event):
             del active_games[user_id]
             line_bot_api.reply_message(
                 event.reply_token,
-                TextSendMessage(text="🎮 ゲームは強制終了されました。")
+                TextSendMessage(text="ゲームは強制終了されました。")
             )
             return
 
@@ -166,7 +166,7 @@ def handle_message(event):
             event.reply_token,
             TextSendMessage(
                 text=(
-                    "🎲 Russian Roulette！💥\n"
+                    "🎲 Russian Roulette\n"
                     f"新しい装填：実弾{game.live}発、空砲{game.empty}発\n"
                     + game.get_status()
                     + "\n1: 自分を撃つ / 2: 相手を撃つ"
