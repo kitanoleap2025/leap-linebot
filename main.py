@@ -60,7 +60,7 @@ def handle_message(event):
             return (
                 f"【Your Performance（{title}）】\n"
                 f"✅ Score: {correct} / {count}\n"
-                f"📈 Rating: {rate}（100問換算）\n"
+                f"📈 Rating: {rate}\n"
                 f"🏆 Grade: {rank}"
             )
 
