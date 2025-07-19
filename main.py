@@ -46,7 +46,7 @@ def handle_message(event):
             count = len(history)
             correct = sum(history)
             if count == 0:
-                return f"【あなたの成績（{title}）】\nNo questions solved, but you expect a grade?"
+                return f"【Your Performance（{title}）】\nNo questions solved, but you expect a grade?"
             accuracy = correct / 100  # 常に100問換算
             rate = round(accuracy * 1000)
             if rate >= 900:
@@ -58,10 +58,10 @@ def handle_message(event):
             else:
                 rank = "Cランク💤"
             return (
-                f"【あなたの成績（{title}）】\n"
-                f"✅ 正解数: {correct} / {count}\n"
-                f"📈 レート: {rate}（100問換算）\n"
-                f"🏆 ランク: {rank}"
+                f"【Your Performance（{title}）】\n"
+                f"✅ Score: {correct} / {count}\n"
+                f"📈 Rating: {rate}（100問換算）\n"
+                f"🏆 Grade: {rank}"
             )
 
         h1 = user_histories.get(user_id + "_1_1000", [])
@@ -96,7 +96,7 @@ def handle_message(event):
         user_histories[key] = history
 
         feedback = (
-            "Correct answer✅\n\nNext：" if is_correct else f"Incorrect❌ 正解は「{correct_answer}」です。\n\nNext："
+            "Correct answer✅\n\nNext：" if is_correct else f"Incorrect❌ The correct answer is 「{correct_answer}」.\nNext："
         )
 
         # 次の問題（同じ範囲から）
@@ -116,7 +116,7 @@ def handle_message(event):
     else:
         line_bot_api.reply_message(
             event.reply_token,
-            TextSendMessage(text="「1-1000」または「1000-1935」と送って問題を始めてください。")
+            TextSendMessage(text="Press button 1-1000 or 1000-1935!")
         )
 
 if __name__ == "__main__":
