@@ -15,9 +15,12 @@ handler = WebhookHandler(os.getenv("LINE_CHANNEL_SECRET"))
 
 user_states = {}  # 出題中のユーザーと正解
 user_scores = defaultdict(dict)  # user_scores[user_id][単語] = 0~4のスコア（初期値0）
+user_total_questions = defaultdict(lambda: {"1-1000": 0, "1000-1935": 0})
+user_total_corrects = defaultdict(lambda: {"1-1000": 0, "1000-1935": 0})
 
+# --- 問題リスト ---
 questions_1_1000 = [
-      {"text": "001 I ___ with the idea that students should not be given too much homework.\n生徒に宿題を与えすぎるべきではないという考えに賛成です.",
+    {"text": "001 I ___ with the idea that students should not be given too much homework.\n生徒に宿題を与えすぎるべきではないという考えに賛成です.",
      "answer": "agree"},
     {"text": "002 He strongly ___ corruption until he was promoted.\n昇進するまでは,彼は汚職に強く反対していた.",
      "answer": "opposed"},
@@ -174,7 +177,7 @@ questions_1_1000 = [
 ]
 
 questions_1000_1935 = [
-    {"text": "1001 The ___ made a critical discovery in the lab.\nその科学者は研究室で重大な発見をした。", "answer": "scientist"}
+    {"text": "1001 The ___ made a critical discovery in the lab.\nその科学者は研究室で重大な発見をした。", "answer": "scientist"},
 ]
 
 def get_rank(score):
@@ -188,38 +191,37 @@ def build_result_text(user_id):
     for title, questions in [("1-1000", questions_1_1000), ("1000-1935", questions_1000_1935)]:
         scores = user_scores.get(user_id, {})
         total_score = 0
-        correct_count = 0
-        total_questions = 0
-
+        word_count = 0
         for q in questions:
             ans = q["answer"]
-            score = scores.get(ans, 0)
-            total_score += score
-            if score > 0:
-                correct_count += score
-            total_questions += 1
+            s = scores.get(ans, 0)
+            total_score += s
+            word_count += 1
 
-        if total_questions == 0:
-            result += f"📊 成績（{title}）\nNo data.\n\n"
+        correct = user_total_corrects[user_id][title]
+        total = user_total_questions[user_id][title]
+
+        if word_count == 0:
+            result += f"📑成績（{title}）\nNo data\n\n"
             continue
 
-        rating = round((total_score / total_questions) * 10000)
-        if rating >= 9700:
+        rate = round((total_score / word_count) * 10000)
+        if rate >= 9700:
             rank = "S"
-        elif rating >= 9000:
+        elif rate >= 9000:
             rank = "A"
-        elif rating >= 8000:
+        elif rate >= 8000:
             rank = "B"
-        elif rating >= 5000:
+        elif rate >= 5000:
             rank = "C"
         else:
             rank = "D"
 
         result += (
-            f"📊 成績（{title}）\n"
-            f"✅ 総正解数 / 総出題数: {correct_count} / {total_questions}\n"
-            f"📈 レート（10000点満点）: {rating}\n"
-            f"🏅 ランク（S/A/B/C/D）: {rank}\n\n"
+            f"📑成績（{title}）\n"
+            f"✅ 総正解数 / 総出題数：{correct} / {total}\n"
+            f"📈 レート：{rate}\n"
+            f"🏆 ランク：{rank}\n\n"
         )
     return result.strip()
 
@@ -242,6 +244,7 @@ def choose_weighted_question(user_id, questions):
     weights = [score_to_weight(scores.get(q["answer"], 0)) for q in questions]
     return random.choices(questions, weights=weights, k=1)[0]
 
+# --- Flask / LINE webhook ---
 @app.route("/callback", methods=["POST"])
 def callback():
     signature = request.headers.get("X-Line-Signature", "")
@@ -279,9 +282,6 @@ def handle_message(event):
         line_bot_api.reply_message(event.reply_token, TextSendMessage(text=q["text"]))
         return
 
-    if msg in ["1-1000", "1000-1935"]:
-        return  # 無視して処理終了（回答として扱わない）
-
     if user_id in user_states:
         question_range, correct_answer = user_states[user_id]
         is_correct = (msg.lower() == correct_answer.lower())
@@ -290,15 +290,19 @@ def handle_message(event):
         if correct_answer not in scores:
             scores[correct_answer] = 0
 
+        # 出題数 +1（回答したらカウント）
+        user_total_questions[user_id][question_range] += 1
+
         if is_correct:
             scores[correct_answer] = min(4, scores[correct_answer] + 1)
+            user_total_corrects[user_id][question_range] += 1
         else:
             scores[correct_answer] = max(0, scores[correct_answer] - 1)
 
         user_scores[user_id] = scores
 
         feedback = (
-            "Correct✅\n\nNext:" if is_correct else f"Wrong❌\nAnswer: {correct_answer}\n\nNext:"
+            "Correct✅\nNext:" if is_correct else f"Wrong❌\nAnswer: {correct_answer}\n\nNext:"
         )
 
         next_q = choose_weighted_question(
@@ -323,6 +327,3 @@ def handle_message(event):
 if __name__ == "__main__":
     port = int(os.environ.get("PORT", 8000))
     app.run(host="0.0.0.0", port=port)
-
-   
- 
