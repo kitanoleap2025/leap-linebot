@@ -174,7 +174,7 @@ questions_1_1000 = [
      "answer": "mature"}
 ]
 
-questions_1000_1935 = [
+questions_1001_1935 = [
     {"text": "1001 The ___ made a critical discovery in the lab.\nその科学者は研究室で重大な発見をした。", "answer": "scientist"}
 ]
 
@@ -186,7 +186,7 @@ def score_to_weight(score):
 
 def build_result_text(user_id):
     result = ""
-    for title, questions in [("1-1000", questions_1_1000), ("1000-1935", questions_1000_1935)]:
+    for title, questions in [("1-1000", questions_1_1000), ("1001-1935", questions_1001_1935)]:
         scores = user_scores.get(user_id, {})
         total = 0
         count = 0
@@ -224,7 +224,7 @@ def build_result_text(user_id):
 def build_grasp_text(user_id):
     scores = user_scores.get(user_id, {})
     rank_counts = {"S": 0, "A": 0, "B": 0, "C": 0, "D": 0}
-    all_answers = [q["answer"] for q in questions_1_1000 + questions_1000_1935]
+    all_answers = [q["answer"] for q in questions_1_1000 + questions_1001_1935]
 
     for word in all_answers:
         score = scores.get(word, 0)
@@ -276,7 +276,7 @@ def handle_message(event):
 
     if msg == "1000-1935":
         q = choose_weighted_question(user_id, questions_1000_1935)
-        user_states[user_id] = ("1000-1935", q["answer"])
+        user_states[user_id] = ("1001-1935", q["answer"])
         line_bot_api.reply_message(event.reply_token, TextSendMessage(text=q["text"]))
         return
 
@@ -303,7 +303,7 @@ def handle_message(event):
 
         next_q = choose_weighted_question(
             user_id,
-            questions_1_1000 if mode == "1-1000" else questions_1000_1935
+            questions_1_1000 if mode == "1-1000" else questions_1001_1935
         )
         user_states[user_id] = (mode, next_q["answer"])
 
@@ -319,7 +319,7 @@ def handle_message(event):
     # ===== 初期メッセージ =====
     line_bot_api.reply_message(
         event.reply_token,
-        TextSendMessage(text="1-1000 または 1000-1935 を送信してね！")
+        TextSendMessage(text="1-1000 または 1001-1935 を送信してね！")
     )
 
 if __name__ == "__main__":
