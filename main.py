@@ -13,13 +13,12 @@ app = Flask(__name__)
 line_bot_api = LineBotApi(os.getenv("LINE_CHANNEL_ACCESS_TOKEN"))
 handler = WebhookHandler(os.getenv("LINE_CHANNEL_SECRET"))
 
-user_states = {}        # 出題中のユーザーと正解
-user_histories = {}     # 出題範囲ごとの正誤履歴（最大100件）
-user_scores = defaultdict(dict)  # user_scores[user_id][単語] = 0~4のスコア
+user_states = {}  # 出題中のユーザーと正解
+user_scores = defaultdict(dict)  # user_scores[user_id][単語] = 0~4のスコア（初期値0）
 
-# --- 英単語問題リスト ---
+# --- 問題リスト ---
 questions_1_1000 = [
-    {"text": "001 I ___ with the idea that students should not be given too much homework.\n生徒に宿題を与えすぎるべきではないという考えに賛成です.",
+     {"text": "001 I ___ with the idea that students should not be given too much homework.\n生徒に宿題を与えすぎるべきではないという考えに賛成です.",
      "answer": "agree"},
     {"text": "002 He strongly ___ corruption until he was promoted.\n昇進するまでは,彼は汚職に強く反対していた.",
      "answer": "opposed"},
@@ -173,44 +172,74 @@ questions_1_1000 = [
      "answer": "according to"},
     {"text": "782 ___ woman\n熟女",
      "answer": "mature"}
-    # 他の問題もここに追加可能
 ]
 
-questions_1001_1935 = [
+questions_1000_1935 = [
     {"text": "1001 The ___ made a critical discovery in the lab.\nその科学者は研究室で重大な発見をした。", "answer": "scientist"},
-    # 他の問題もここに追加可能
+    # 必要に応じて追加
 ]
 
-# --- 成績テキスト生成関数 ---
-def build_result_text(user_id):
-    h1 = user_histories.get(user_id + "_1_1000", [])
-    h2 = user_histories.get(user_id + "_1001_1935", [])
+def get_rank(score):
+    return {0: "D", 1: "C", 2: "B", 3: "A", 4: "S"}[score]
 
-    def score_text(history, title):
-        count = len(history)
-        correct = sum(history)
+def score_to_weight(score):
+    return {0: 5, 1: 4, 2: 3, 3: 2, 4: 1}.get(score, 5)
+
+def build_result_text(user_id):
+    result = ""
+    for title, questions in [("1-1000", questions_1_1000), ("1000-1935", questions_1000_1935)]:
+        scores = user_scores.get(user_id, {})
+        total = 0
+        count = 0
+        for q in questions:
+            ans = q["answer"]
+            s = scores.get(ans, 0)
+            total += s
+            count += 1
+
         if count == 0:
-            return f"【🤔Your Performance\n（{title}）】\nNo questions solved, but you expect a grade?"
-        accuracy = correct / count
-        rate = round(accuracy * 10000)
-        if rate >= 9700:
+            result += f"【{title}】\nNo questions.\n\n"
+            continue
+
+        rating = round((total / count) * 10000)
+        if rating >= 9700:
             rank = "S Rank🤩"
-        elif rate >= 9000:
+        elif rating >= 9000:
             rank = "A Rank😎"
-        elif rate >= 8000:
+        elif rating >= 8000:
             rank = "B Rank😤"
-        elif rate >= 5000:
+        elif rating >= 5000:
             rank = "C Rank🫠"
         else:
             rank = "D Rank😇"
-        return (
-            f"【✏️Your Performance\n（{title}）】\n"
-            f"✅ Score: {correct} / {count}\n"
-            f"📈 Rating: {rate}\n"
-            f"🏆 Grade: {rank}"
-        )
 
-    return score_text(h1, "1-1000") + "\n\n" + score_text(h2, "1001-1935")
+        result += (
+            f"【{title}】\n"
+            f"🧠単語数: {count}語\n"
+            f"📈平均点: {round(total/count, 2)}\n"
+            f"📊レート: {rating}\n"
+            f"🏆ランク: {rank}\n\n"
+        )
+    return result.strip()
+
+def build_grasp_text(user_id):
+    scores = user_scores.get(user_id, {})
+    rank_counts = {"S": 0, "A": 0, "B": 0, "C": 0, "D": 0}
+    all_answers = [q["answer"] for q in questions_1_1000 + questions_1000_1935]
+
+    for word in all_answers:
+        score = scores.get(word, 0)  # 未出題は0としてD
+        rank_counts[get_rank(score)] += 1
+
+    text = "【単語把握度】\n"
+    for rank in ["S", "A", "B", "C", "D"]:
+        text += f"{rank}ランク: {rank_counts[rank]}語\n"
+    return text
+
+def choose_weighted_question(user_id, questions):
+    scores = user_scores.get(user_id, {})
+    weights = [score_to_weight(scores.get(q["answer"], 0)) for q in questions]
+    return random.choices(questions, weights=weights, k=1)[0]
 
 # --- Flask / LINE webhook ---
 @app.route("/callback", methods=["POST"])
@@ -228,100 +257,66 @@ def handle_message(event):
     user_id = event.source.user_id
     msg = event.message.text.strip()
 
-    # --- 把握度コマンド ---
-  if msg == "把握度":
-    all_questions = questions_1_1000 + questions_1000_1935
-    scores = user_scores.get(user_id, {})
-
-    # 初期化：全単語をDとしてカウント
-    rank_counts = {"S(0点)": 0, "A(1点)": 0, "B(2点)": 0, "C(3点)": 0, "D(4点)": 0}
-    for q in all_questions:
-        word = q["answer"]
-        score = scores.get(word, 4)  # 未出題ならスコア4（Dランク）として扱う
-        if score == 0:
-            rank_counts["S(0点)"] += 1
-        elif score == 1:
-            rank_counts["A(1点)"] += 1
-        elif score == 2:
-            rank_counts["B(2点)"] += 1
-        elif score == 3:
-            rank_counts["C(3点)"] += 1
-        elif score == 4:
-            rank_counts["D(4点)"] += 1
-
-    text = "【単語把握度内訳】\n"
-    for rank, count in rank_counts.items():
-        text += f"{rank}: {count}語\n"
-
-    line_bot_api.reply_message(event.reply_token, TextSendMessage(text=text))
-    return
-
-    # --- 成績表示 ---
     if msg == "成績":
-        result_text = build_result_text(user_id)
-        line_bot_api.reply_message(event.reply_token, TextSendMessage(text=result_text))
+        text = build_result_text(user_id)
+        line_bot_api.reply_message(event.reply_token, TextSendMessage(text=text))
         return
 
-    # --- 英単語問題出題処理 ---
+    if msg == "把握度":
+        text = build_grasp_text(user_id)
+        line_bot_api.reply_message(event.reply_token, TextSendMessage(text=text))
+        return
+
     if msg == "1-1000":
-        q = random.choice(questions_1_1000)
+        q = choose_weighted_question(user_id, questions_1_1000)
         user_states[user_id] = ("1-1000", q["answer"])
         line_bot_api.reply_message(event.reply_token, TextSendMessage(text=q["text"]))
         return
 
-    if msg == "1001-1935":
-        q = random.choice(questions_1001_1935)
-        user_states[user_id] = ("1001-1935", q["answer"])
+    if msg == "1000-1935":
+        q = choose_weighted_question(user_id, questions_1000_1935)
+        user_states[user_id] = ("1000-1935", q["answer"])
         line_bot_api.reply_message(event.reply_token, TextSendMessage(text=q["text"]))
         return
 
-    # --- 英単語回答処理 ---
     if user_id in user_states:
         question_range, correct_answer = user_states[user_id]
         is_correct = (msg.lower() == correct_answer.lower())
-
         scores = user_scores[user_id]
-        if correct_answer not in scores:
-            scores[correct_answer] = 0  # 初期値：0点（D）
 
-        # 正解なら+1（最大4）、不正解なら-1（最小0）
+        if correct_answer not in scores:
+            scores[correct_answer] = 0
+
         if is_correct:
-            scores[correct_answer] = min(4, scores[correct_answer] + 1)
-        else:
             scores[correct_answer] = max(0, scores[correct_answer] - 1)
+        else:
+            scores[correct_answer] = min(4, scores[correct_answer] + 1)
 
         user_scores[user_id] = scores
 
-        key = user_id + ("_1_1000" if question_range == "1-1000" else "_1001_1935")
-        history = user_histories.get(key, [])
-        history.append(1 if is_correct else 0)
-        if len(history) > 100:
-            history.pop(0)
-        user_histories[key] = history
-
         feedback = (
-            "Correct answer✅\n\nNext：" if is_correct else f"Incorrect❌ The correct answer is 「{correct_answer}」.\nNext："
+            "Correct✅\n\nNext:" if is_correct else f"Wrong❌\nAnswer: {correct_answer}\n\nNext:"
         )
 
-        q = random.choice(questions_1_1000 if question_range == "1-1000" else questions_1001_1935)
-        user_states[user_id] = (question_range, q["answer"])
+        next_q = choose_weighted_question(
+            user_id, questions_1_1000 if question_range == "1-1000" else questions_1000_1935
+        )
+        user_states[user_id] = (question_range, next_q["answer"])
 
         line_bot_api.reply_message(
             event.reply_token,
             messages=[
                 TextSendMessage(text=feedback),
-                TextSendMessage(text=q["text"])
+                TextSendMessage(text=next_q["text"])
             ]
         )
         return
 
-    # --- 未対応コマンドのデフォルト応答 ---
     line_bot_api.reply_message(
         event.reply_token,
-        TextSendMessage(text="Press button 1-1000 or 1001-1935!")
+        TextSendMessage(text="1-1000 または 1000-1935 を送信してね！")
     )
 
 if __name__ == "__main__":
     port = int(os.environ.get("PORT", 8000))
     app.run(host="0.0.0.0", port=port)
-
