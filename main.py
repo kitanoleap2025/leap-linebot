@@ -16,9 +16,8 @@ handler = WebhookHandler(os.getenv("LINE_CHANNEL_SECRET"))
 user_states = {}  # 出題中のユーザーと正解
 user_scores = defaultdict(dict)  # user_scores[user_id][単語] = 0~4のスコア（初期値0）
 
-# --- 問題リスト ---
 questions_1_1000 = [
-    {"text": "001 I ___ with the idea that students should not be given too much homework.\n生徒に宿題を与えすぎるべきではないという考えに賛成です.",
+      {"text": "001 I ___ with the idea that students should not be given too much homework.\n生徒に宿題を与えすぎるべきではないという考えに賛成です.",
      "answer": "agree"},
     {"text": "002 He strongly ___ corruption until he was promoted.\n昇進するまでは,彼は汚職に強く反対していた.",
      "answer": "opposed"},
@@ -174,7 +173,7 @@ questions_1_1000 = [
      "answer": "mature"}
 ]
 
-questions_1001_1935 = [
+questions_1000_1935 = [
     {"text": "1001 The ___ made a critical discovery in the lab.\nその科学者は研究室で重大な発見をした。", "answer": "scientist"}
 ]
 
@@ -186,45 +185,48 @@ def score_to_weight(score):
 
 def build_result_text(user_id):
     result = ""
-    for title, questions in [("1-1000", questions_1_1000), ("1001-1935", questions_1001_1935)]:
+    for title, questions in [("1-1000", questions_1_1000), ("1000-1935", questions_1000_1935)]:
         scores = user_scores.get(user_id, {})
-        total = 0
-        count = 0
+        total_score = 0
+        correct_count = 0
+        total_questions = 0
+
         for q in questions:
             ans = q["answer"]
-            s = scores.get(ans, 0)
-            total += s
-            count += 1
+            score = scores.get(ans, 0)
+            total_score += score
+            if score > 0:
+                correct_count += score
+            total_questions += 1
 
-        if count == 0:
-            result += f"【{title}】\nNo questions.\n\n"
+        if total_questions == 0:
+            result += f"📊 成績（{title}）\nNo data.\n\n"
             continue
 
-        rating = round((total / count) * 10000)
+        rating = round((total_score / total_questions) * 10000)
         if rating >= 9700:
-            rank = "S Rank🤩"
+            rank = "S"
         elif rating >= 9000:
-            rank = "A Rank😎"
+            rank = "A"
         elif rating >= 8000:
-            rank = "B Rank😤"
+            rank = "B"
         elif rating >= 5000:
-            rank = "C Rank🫠"
+            rank = "C"
         else:
-            rank = "D Rank😇"
+            rank = "D"
 
         result += (
-            f"【{title}】\n"
-            f"🧠単語数: {count}語\n"
-            f"📈平均点: {round(total/count, 2)}\n"
-            f"📊レート: {rating}\n"
-            f"🏆ランク: {rank}\n\n"
+            f"📊 成績（{title}）\n"
+            f"✅ 総正解数 / 総出題数: {correct_count} / {total_questions}\n"
+            f"📈 レート（10000点満点）: {rating}\n"
+            f"🏅 ランク（S/A/B/C/D）: {rank}\n\n"
         )
     return result.strip()
 
 def build_grasp_text(user_id):
     scores = user_scores.get(user_id, {})
     rank_counts = {"S": 0, "A": 0, "B": 0, "C": 0, "D": 0}
-    all_answers = [q["answer"] for q in questions_1_1000 + questions_1001_1935]
+    all_answers = [q["answer"] for q in questions_1_1000 + questions_1000_1935]
 
     for word in all_answers:
         score = scores.get(word, 0)
@@ -240,7 +242,6 @@ def choose_weighted_question(user_id, questions):
     weights = [score_to_weight(scores.get(q["answer"], 0)) for q in questions]
     return random.choices(questions, weights=weights, k=1)[0]
 
-# --- Flask / LINE webhook ---
 @app.route("/callback", methods=["POST"])
 def callback():
     signature = request.headers.get("X-Line-Signature", "")
@@ -256,7 +257,6 @@ def handle_message(event):
     user_id = event.source.user_id
     msg = event.message.text.strip()
 
-    # ===== 成績 / 把握度コマンド =====
     if msg == "成績":
         text = build_result_text(user_id)
         line_bot_api.reply_message(event.reply_token, TextSendMessage(text=text))
@@ -267,7 +267,6 @@ def handle_message(event):
         line_bot_api.reply_message(event.reply_token, TextSendMessage(text=text))
         return
 
-    # ===== 出題モード切り替え（常に優先） =====
     if msg == "1-1000":
         q = choose_weighted_question(user_id, questions_1_1000)
         user_states[user_id] = ("1-1000", q["answer"])
@@ -276,20 +275,21 @@ def handle_message(event):
 
     if msg == "1000-1935":
         q = choose_weighted_question(user_id, questions_1000_1935)
-        user_states[user_id] = ("1001-1935", q["answer"])
+        user_states[user_id] = ("1000-1935", q["answer"])
         line_bot_api.reply_message(event.reply_token, TextSendMessage(text=q["text"]))
         return
 
-    # ===== 解答処理 =====
+    if msg in ["1-1000", "1000-1935"]:
+        return  # 無視して処理終了（回答として扱わない）
+
     if user_id in user_states:
-        mode, correct_answer = user_states[user_id]
+        question_range, correct_answer = user_states[user_id]
         is_correct = (msg.lower() == correct_answer.lower())
         scores = user_scores[user_id]
 
         if correct_answer not in scores:
             scores[correct_answer] = 0
 
-        # 修正済: 正解なら+1, 不正解なら-1（最小0）
         if is_correct:
             scores[correct_answer] = min(4, scores[correct_answer] + 1)
         else:
@@ -302,10 +302,9 @@ def handle_message(event):
         )
 
         next_q = choose_weighted_question(
-            user_id,
-            questions_1_1000 if mode == "1-1000" else questions_1001_1935
+            user_id, questions_1_1000 if question_range == "1-1000" else questions_1000_1935
         )
-        user_states[user_id] = (mode, next_q["answer"])
+        user_states[user_id] = (question_range, next_q["answer"])
 
         line_bot_api.reply_message(
             event.reply_token,
@@ -316,14 +315,14 @@ def handle_message(event):
         )
         return
 
-    # ===== 初期メッセージ =====
     line_bot_api.reply_message(
         event.reply_token,
-        TextSendMessage(text="1-1000 または 1001-1935 を送信してね！")
+        TextSendMessage(text="1-1000 または 1000-1935 を送信してね！")
     )
 
 if __name__ == "__main__":
     port = int(os.environ.get("PORT", 8000))
     app.run(host="0.0.0.0", port=port)
 
+   
  
