@@ -5,6 +5,7 @@ from linebot.exceptions import InvalidSignatureError
 import os
 import random
 from dotenv import load_dotenv
+from collections import defaultdict
 
 load_dotenv()
 app = Flask(__name__)
@@ -14,6 +15,7 @@ handler = WebhookHandler(os.getenv("LINE_CHANNEL_SECRET"))
 
 user_states = {}        # 出題中のユーザーと正解
 user_histories = {}     # 出題範囲ごとの正誤履歴（最大100件）
+user_scores = defaultdict(dict)  # user_scores[user_id][単語] = 0~4のスコア
 
 # --- 英単語問題リスト ---
 questions_1_1000 = [
@@ -73,7 +75,37 @@ def handle_message(event):
     user_id = event.source.user_id
     msg = event.message.text.strip()
 
-    # 成績表示
+    # --- 把握度コマンド ---
+    if msg == "把握度":
+        scores = user_scores.get(user_id, {})
+        if not scores:
+            line_bot_api.reply_message(
+                event.reply_token,
+                TextSendMessage(text="まだ学習データがありません。")
+            )
+            return
+
+        rank_counts = {"S(0点)": 0, "A(1点)": 0, "B(2点)": 0, "C(3点)": 0, "D(4点)": 0}
+        for score in scores.values():
+            if score == 0:
+                rank_counts["S(0点)"] += 1
+            elif score == 1:
+                rank_counts["A(1点)"] += 1
+            elif score == 2:
+                rank_counts["B(2点)"] += 1
+            elif score == 3:
+                rank_counts["C(3点)"] += 1
+            elif score == 4:
+                rank_counts["D(4点)"] += 1
+
+        text = "【単語把握度内訳】\n"
+        for rank, count in rank_counts.items():
+            text += f"{rank}: {count}語\n"
+
+        line_bot_api.reply_message(event.reply_token, TextSendMessage(text=text))
+        return
+
+    # --- 成績表示 ---
     if msg == "成績":
         result_text = build_result_text(user_id)
         line_bot_api.reply_message(event.reply_token, TextSendMessage(text=result_text))
@@ -96,6 +128,19 @@ def handle_message(event):
     if user_id in user_states:
         question_range, correct_answer = user_states[user_id]
         is_correct = (msg.lower() == correct_answer.lower())
+
+        # 単語スコアの初期化（0〜4の範囲、初期値2）
+        scores = user_scores[user_id]
+        if correct_answer not in scores:
+            scores[correct_answer] = 2  # 中間値スタート
+
+        # 正解ならスコア1減少（最低0）、間違いなら1増加（最大4）
+        if is_correct:
+            scores[correct_answer] = max(0, scores[correct_answer] - 1)
+        else:
+            scores[correct_answer] = min(4, scores[correct_answer] + 1)
+
+        user_scores[user_id] = scores  # 保存
 
         key = user_id + ("_1_1000" if question_range == "1-1000" else "_1000_1935")
         history = user_histories.get(key, [])
