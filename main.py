@@ -13,12 +13,11 @@ app = Flask(__name__)
 line_bot_api = LineBotApi(os.getenv("LINE_CHANNEL_ACCESS_TOKEN"))
 handler = WebhookHandler(os.getenv("LINE_CHANNEL_SECRET"))
 
-user_states = {}  # 出題中のユーザーと正解
-user_scores = defaultdict(dict)  # user_scores[user_id][単語] = 0~4のスコア（初期値0）
-user_total_questions = defaultdict(lambda: {"1-1000": 0, "1000-1935": 0})
-user_total_corrects = defaultdict(lambda: {"1-1000": 0, "1000-1935": 0})
+user_states = {}  # user_id: (range_str, correct_answer)
+user_scores = defaultdict(dict)  # user_id: {word: score}
+user_stats = defaultdict(lambda: {"correct": 0, "total": 0})  # user_id: {"correct": x, "total": y}
 
-# --- 問題リスト ---
+# --- 問題リスト（簡略版） ---
 questions_1_1000 = [
     {"text": "001 I ___ with the idea that students should not be given too much homework.\n生徒に宿題を与えすぎるべきではないという考えに賛成です.",
      "answer": "agree"},
@@ -175,11 +174,11 @@ questions_1_1000 = [
     {"text": "782 ___ woman\n熟女",
      "answer": "mature"}
 ]
-
-questions_1000_1935 = [
+questions_1001_1935 = [
     {"text": "1001 The ___ made a critical discovery in the lab.\nその科学者は研究室で重大な発見をした。", "answer": "scientist"},
 ]
 
+# --- ユーティリティ関数 ---
 def get_rank(score):
     return {0: "D", 1: "C", 2: "B", 3: "A", 4: "S"}[score]
 
@@ -187,25 +186,31 @@ def score_to_weight(score):
     return {0: 5, 1: 4, 2: 3, 3: 2, 4: 1}.get(score, 5)
 
 def build_result_text(user_id):
-    result = ""
-    for title, questions in [("1-1000", questions_1_1000), ("1000-1935", questions_1000_1935)]:
+    text = ""
+
+    for title, questions in [("1-1000", questions_1_1000), ("1001-1935", questions_1001_1935)]:
         scores = user_scores.get(user_id, {})
-        total_score = 0
-        word_count = 0
-        for q in questions:
-            ans = q["answer"]
-            s = scores.get(ans, 0)
-            total_score += s
-            word_count += 1
+        relevant_answers = [q["answer"] for q in questions]
+        total_score = sum(scores.get(ans, 0) for ans in relevant_answers)
+        count = len(relevant_answers)
 
-        correct = user_total_corrects[user_id][title]
-        total = user_total_questions[user_id][title]
+        stat = user_stats.get(user_id, {})
+        correct = stat.get("correct", 0)
+        total = stat.get("total", 0)
 
-        if word_count == 0:
-            result += f"📑成績（{title}）\nNo data\n\n"
+        if title == "1-1000":
+            filtered_correct = sum(1 for ans in relevant_answers if scores.get(ans, 0) > 0)
+            filtered_total = sum(1 for ans in relevant_answers if ans in scores)
+        else:
+            filtered_correct = sum(1 for ans in relevant_answers if scores.get(ans, 0) > 0)
+            filtered_total = sum(1 for ans in relevant_answers if ans in scores)
+
+        if filtered_total == 0:
+            text += f"📊 成績（{title}）\nNo data yet.\n\n"
             continue
 
-        rate = round((total_score / word_count) * 10000)
+        avg_score = round(total_score / count, 2)
+        rate = round((total_score / count) * 10000)
         if rate >= 9700:
             rank = "S"
         elif rate >= 9000:
@@ -217,18 +222,18 @@ def build_result_text(user_id):
         else:
             rank = "D"
 
-        result += (
-            f"📑成績（{title}）\n"
-            f"✅ 総正解数 / 総出題数：{correct} / {total}\n"
-            f"📈 レート：{rate}\n"
-            f"🏆 ランク：{rank}\n\n"
+        text += (
+            f"📊 成績（{title}）\n"
+            f"✅ 総正解数 / 総出題数\n　{filtered_correct} / {filtered_total}\n"
+            f"📈 レート（10000点満点）\n　{rate}\n"
+            f"🏅 ランク\n　{rank}\n\n"
         )
-    return result.strip()
+    return text.strip()
 
 def build_grasp_text(user_id):
     scores = user_scores.get(user_id, {})
     rank_counts = {"S": 0, "A": 0, "B": 0, "C": 0, "D": 0}
-    all_answers = [q["answer"] for q in questions_1_1000 + questions_1000_1935]
+    all_answers = [q["answer"] for q in questions_1_1000 + questions_1001_1935]
 
     for word in all_answers:
         score = scores.get(word, 0)
@@ -260,6 +265,16 @@ def handle_message(event):
     user_id = event.source.user_id
     msg = event.message.text.strip()
 
+    # 特別コマンド優先
+    if msg in ["1-1000", "1001-1935"]:
+        if msg == "1-1000":
+            q = choose_weighted_question(user_id, questions_1_1000)
+        else:
+            q = choose_weighted_question(user_id, questions_1001_1935)
+        user_states[user_id] = (msg, q["answer"])
+        line_bot_api.reply_message(event.reply_token, TextSendMessage(text=q["text"]))
+        return
+
     if msg == "成績":
         text = build_result_text(user_id)
         line_bot_api.reply_message(event.reply_token, TextSendMessage(text=text))
@@ -270,45 +285,27 @@ def handle_message(event):
         line_bot_api.reply_message(event.reply_token, TextSendMessage(text=text))
         return
 
-    if msg == "1-1000":
-        q = choose_weighted_question(user_id, questions_1_1000)
-        user_states[user_id] = ("1-1000", q["answer"])
-        line_bot_api.reply_message(event.reply_token, TextSendMessage(text=q["text"]))
-        return
-
-    if msg == "1000-1935":
-        q = choose_weighted_question(user_id, questions_1000_1935)
-        user_states[user_id] = ("1000-1935", q["answer"])
-        line_bot_api.reply_message(event.reply_token, TextSendMessage(text=q["text"]))
-        return
-
+    # 回答処理
     if user_id in user_states:
-        question_range, correct_answer = user_states[user_id]
+        range_str, correct_answer = user_states[user_id]
         is_correct = (msg.lower() == correct_answer.lower())
-        scores = user_scores[user_id]
 
-        if correct_answer not in scores:
-            scores[correct_answer] = 0
-
-        # 出題数 +1（回答したらカウント）
-        user_total_questions[user_id][question_range] += 1
-
+        # スコア処理
+        score = user_scores[user_id].get(correct_answer, 0)
         if is_correct:
-            scores[correct_answer] = min(4, scores[correct_answer] + 1)
-            user_total_corrects[user_id][question_range] += 1
+            user_scores[user_id][correct_answer] = min(4, score + 1)
+            user_stats[user_id]["correct"] += 1
         else:
-            scores[correct_answer] = max(0, scores[correct_answer] - 1)
-
-        user_scores[user_id] = scores
+            user_scores[user_id][correct_answer] = max(0, score - 1)
+        user_stats[user_id]["total"] += 1
 
         feedback = (
-            "Correct✅\nNext:" if is_correct else f"Wrong❌\nAnswer: {correct_answer}\n\nNext:"
+            "Correct✅\n\nNext:" if is_correct else f"Wrong❌\nAnswer: {correct_answer}\n\nNext:"
         )
 
-        next_q = choose_weighted_question(
-            user_id, questions_1_1000 if question_range == "1-1000" else questions_1000_1935
-        )
-        user_states[user_id] = (question_range, next_q["answer"])
+        questions = questions_1_1000 if range_str == "1-1000" else questions_1001_1935
+        next_q = choose_weighted_question(user_id, questions)
+        user_states[user_id] = (range_str, next_q["answer"])
 
         line_bot_api.reply_message(
             event.reply_token,
@@ -321,7 +318,7 @@ def handle_message(event):
 
     line_bot_api.reply_message(
         event.reply_token,
-        TextSendMessage(text="1-1000 または 1000-1935 を送信してね！")
+        TextSendMessage(text="1-1000 または 1001-1935 を送信してね！")
     )
 
 if __name__ == "__main__":
