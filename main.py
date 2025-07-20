@@ -18,7 +18,7 @@ user_scores = defaultdict(dict)  # user_scores[user_id][単語] = 0~4のスコ�
 
 # --- 問題リスト ---
 questions_1_1000 = [
-     {"text": "001 I ___ with the idea that students should not be given too much homework.\n生徒に宿題を与えすぎるべきではないという考えに賛成です.",
+    {"text": "001 I ___ with the idea that students should not be given too much homework.\n生徒に宿題を与えすぎるべきではないという考えに賛成です.",
      "answer": "agree"},
     {"text": "002 He strongly ___ corruption until he was promoted.\n昇進するまでは,彼は汚職に強く反対していた.",
      "answer": "opposed"},
@@ -175,8 +175,7 @@ questions_1_1000 = [
 ]
 
 questions_1000_1935 = [
-    {"text": "1001 The ___ made a critical discovery in the lab.\nその科学者は研究室で重大な発見をした。", "answer": "scientist"},
-    # 必要に応じて追加
+    {"text": "1001 The ___ made a critical discovery in the lab.\nその科学者は研究室で重大な発見をした。", "answer": "scientist"}
 ]
 
 def get_rank(score):
@@ -228,7 +227,7 @@ def build_grasp_text(user_id):
     all_answers = [q["answer"] for q in questions_1_1000 + questions_1000_1935]
 
     for word in all_answers:
-        score = scores.get(word, 0)  # 未出題は0としてD
+        score = scores.get(word, 0)
         rank_counts[get_rank(score)] += 1
 
     text = "【単語把握度】\n"
@@ -257,6 +256,7 @@ def handle_message(event):
     user_id = event.source.user_id
     msg = event.message.text.strip()
 
+    # ===== 成績 / 把握度コマンド =====
     if msg == "成績":
         text = build_result_text(user_id)
         line_bot_api.reply_message(event.reply_token, TextSendMessage(text=text))
@@ -267,6 +267,7 @@ def handle_message(event):
         line_bot_api.reply_message(event.reply_token, TextSendMessage(text=text))
         return
 
+    # ===== 出題モード切り替え（常に優先） =====
     if msg == "1-1000":
         q = choose_weighted_question(user_id, questions_1_1000)
         user_states[user_id] = ("1-1000", q["answer"])
@@ -279,18 +280,20 @@ def handle_message(event):
         line_bot_api.reply_message(event.reply_token, TextSendMessage(text=q["text"]))
         return
 
+    # ===== 解答処理 =====
     if user_id in user_states:
-        question_range, correct_answer = user_states[user_id]
+        mode, correct_answer = user_states[user_id]
         is_correct = (msg.lower() == correct_answer.lower())
         scores = user_scores[user_id]
 
         if correct_answer not in scores:
             scores[correct_answer] = 0
 
+        # 修正済: 正解なら+1, 不正解なら-1（最小0）
         if is_correct:
-            scores[correct_answer] = max(0, scores[correct_answer] - 1)
-        else:
             scores[correct_answer] = min(4, scores[correct_answer] + 1)
+        else:
+            scores[correct_answer] = max(0, scores[correct_answer] - 1)
 
         user_scores[user_id] = scores
 
@@ -299,9 +302,10 @@ def handle_message(event):
         )
 
         next_q = choose_weighted_question(
-            user_id, questions_1_1000 if question_range == "1-1000" else questions_1000_1935
+            user_id,
+            questions_1_1000 if mode == "1-1000" else questions_1000_1935
         )
-        user_states[user_id] = (question_range, next_q["answer"])
+        user_states[user_id] = (mode, next_q["answer"])
 
         line_bot_api.reply_message(
             event.reply_token,
@@ -312,6 +316,7 @@ def handle_message(event):
         )
         return
 
+    # ===== 初期メッセージ =====
     line_bot_api.reply_message(
         event.reply_token,
         TextSendMessage(text="1-1000 または 1000-1935 を送信してね！")
@@ -320,3 +325,5 @@ def handle_message(event):
 if __name__ == "__main__":
     port = int(os.environ.get("PORT", 8000))
     app.run(host="0.0.0.0", port=port)
+
+ 
