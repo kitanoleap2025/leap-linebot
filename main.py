@@ -229,34 +229,32 @@ def handle_message(event):
     msg = event.message.text.strip()
 
     # --- 把握度コマンド ---
-    if msg == "把握度":
-        scores = user_scores.get(user_id, {})
-        if not scores:
-            line_bot_api.reply_message(
-                event.reply_token,
-                TextSendMessage(text="まだ学習データがありません。")
-            )
-            return
+  if msg == "把握度":
+    all_questions = questions_1_1000 + questions_1000_1935
+    scores = user_scores.get(user_id, {})
 
-        rank_counts = {"S(4点)": 0, "A(3点)": 0, "B(2点)": 0, "C(1点)": 0, "D(0点)": 0}
-        for score in scores.values():
-            if score == 4:
-                rank_counts["S(4点)"] += 1
-            elif score == 3:
-                rank_counts["A(3点)"] += 1
-            elif score == 2:
-                rank_counts["B(2点)"] += 1
-            elif score == 1:
-                rank_counts["C(1点)"] += 1
-            elif score == 0:
-                rank_counts["D(0点)"] += 1
+    # 初期化：全単語をDとしてカウント
+    rank_counts = {"S(0点)": 0, "A(1点)": 0, "B(2点)": 0, "C(3点)": 0, "D(4点)": 0}
+    for q in all_questions:
+        word = q["answer"]
+        score = scores.get(word, 4)  # 未出題ならスコア4（Dランク）として扱う
+        if score == 0:
+            rank_counts["S(0点)"] += 1
+        elif score == 1:
+            rank_counts["A(1点)"] += 1
+        elif score == 2:
+            rank_counts["B(2点)"] += 1
+        elif score == 3:
+            rank_counts["C(3点)"] += 1
+        elif score == 4:
+            rank_counts["D(4点)"] += 1
 
-        text = "【単語把握度内訳】\n"
-        for rank, count in rank_counts.items():
-            text += f"{rank}: {count}語\n"
+    text = "【単語把握度内訳】\n"
+    for rank, count in rank_counts.items():
+        text += f"{rank}: {count}語\n"
 
-        line_bot_api.reply_message(event.reply_token, TextSendMessage(text=text))
-        return
+    line_bot_api.reply_message(event.reply_token, TextSendMessage(text=text))
+    return
 
     # --- 成績表示 ---
     if msg == "成績":
