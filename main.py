@@ -254,6 +254,13 @@ def handle_message(event):
                 state['known_safe'] = known_safe
                 state['turn'] = 0
                 state['player_turn'] = True
+                reply = (
+                    f"6発中...実弾{state['bullet_count']}発.\n"
+                    f"📱古い携帯から声が聞こえる...{state['known_safe'] + 1}発目...空砲.\n\n"
+                    f"{state['turn'] + 1}発目\n"
+                    f"PLAYER        DEALER\n{'⚡' * state['player_hp']}          {'⚡' * state['bot_hp']}\n"
+                    "自分に撃つ(1) / 相手に撃つ(2)"
+                )
 
             user_sessions[user_id] = state
             line_bot_api.reply_message(event.reply_token, TextSendMessage(text="\n".join(messages)))
