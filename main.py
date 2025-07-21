@@ -83,7 +83,7 @@ def handle_message(event):
         state = new_game_state()
         user_sessions[user_id] = state
         reply = ("=== Russian Roulette ===\n"
-                 "6発装填のショットガンを交互に撃ち合う.ライフは1人1つ.\n\n"
+                 "6発装填のショットガンを交互に撃ち合う.ライフは1人2つ.\n\n"
                  f"6発中...実弾{state['bullet_count']}発.\n"
                  f"📱古い携帯から声が聞こえる...\n{state['known_safe'] + 1}発目...空砲.\n\n"
                  f"{state['turn'] + 1}発目\n"
@@ -112,7 +112,7 @@ def handle_message(event):
 
     # プレイヤーのターン処理
     if text == '1':
-        messages.append("こめかみに銃口を当てた。")
+        messages.append("{state['turn']}発目\nこめかみに銃口を当てた。")
         if chambers[turn] == 1:
             state['player_hp'] -= 1
             messages.append(f"💥 実弾だ!⚡️ アドレナリンが全身を駆け巡る。残りHP: {state['player_hp']}")
@@ -128,7 +128,7 @@ def handle_message(event):
         state['turn'] += 1
 
     else:  # text == '2'
-        messages.append("相手に撃った。")
+        messages.append("{state['turn']}発目\n相手に撃った。")
         if chambers[turn] == 1:
             state['bot_hp'] -= 1
             messages.append(f"💥 DEALERを撃ち抜いた! DEALER残りHP: {state['bot_hp']}")
@@ -147,7 +147,7 @@ def handle_message(event):
         messages.append("\n\nDEALERのターン")
         bot_act = bot_action(state)
         if bot_act == '1':
-            messages.append("DEALERはこめかみに銃口を当てた。")
+            messages.append("{state['turn']}発目\nDEALERはこめかみに銃口を当てた。")
             if chambers[state['turn']] == 1:
                 state['bot_hp'] -= 1
                 messages.append(f"💥 DEALERが被弾！DEALER残りHP: {state['bot_hp']}")
@@ -161,7 +161,7 @@ def handle_message(event):
                 messages.append("カチッ。空砲だ。DEALERのターン続行。")
             state['turn'] += 1
         else:
-            messages.append("DEALERはあなたに撃った！")
+            messages.append("{state['turn']}発目\nDEALERはあなたに撃った！")
             if chambers[state['turn']] == 1:
                 state['player_hp'] -= 1
                 messages.append(f"💥 あなたが被弾！⚡️ アドレナリンが全身を駆け巡る。残りHP: {state['player_hp']}")
