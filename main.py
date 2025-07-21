@@ -87,7 +87,7 @@ def handle_message(event):
                  f"6発中...実弾{state['bullet_count']}発.\n"
                  f"📱古い携帯から声が聞こえる...\n{state['known_safe'] + 1}発目...空砲.\n\n"
                  f"{state['turn'] + 1}発目\n"
-                 f"PLAYER        DEALER\n{'⚡' * state['player_hp']}          {'⚡' * state['bot_hp']}"
+                 f"PLAYER        DEALER\n{'⚡' * state['player_hp']}          {'⚡' * state['bot_hp']}\n"
                  "自分に撃つ(1) / 相手に撃つ(2)")
         line_bot_api.reply_message(event.reply_token, TextSendMessage(text=reply))
         return
@@ -115,7 +115,7 @@ def handle_message(event):
         messages.append("{turn + 1}発目\nこめかみに銃口を当てた。")
         if chambers[turn] == 1:
             state['player_hp'] -= 1
-            messages.append(f"💥 実弾だ!⚡️ アドレナリンが全身を駆け巡る.\nPLAYER: {'⚡' * state['player_hp']}　DEALER: {'⚡' * state['bot_hp']}\n")
+            messages.append(f"💥 実弾だ!アドレナリンが全身を駆け巡る.\nPLAYER: {'⚡' * state['player_hp']}　DEALER: {'⚡' * state['bot_hp']}\n")
             if state['player_hp'] == 0:
                 messages.append("HPが0になった。起きろ。夜はまだ浅い。")
                 user_sessions.pop(user_id)  # セッション削除
