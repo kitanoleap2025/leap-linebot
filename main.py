@@ -112,7 +112,7 @@ def handle_message(event):
 
     # プレイヤーのターン処理
     if text == '1':
-        messages.append("{state['turn']}発目\nこめかみに銃口を当てた。")
+        messages.append("{state['turn'] + 1}発目\nこめかみに銃口を当てた。")
         if chambers[turn] == 1:
             state['player_hp'] -= 1
             messages.append(f"💥 実弾だ!⚡️ アドレナリンが全身を駆け巡る。残りHP: {state['player_hp']}")
@@ -128,7 +128,7 @@ def handle_message(event):
         state['turn'] += 1
 
     else:  # text == '2'
-        messages.append("{state['turn']}発目\n相手に撃った。")
+        messages.append("{state['turn'] + 1}発目\n相手に撃った。")
         if chambers[turn] == 1:
             state['bot_hp'] -= 1
             messages.append(f"💥 DEALERを撃ち抜いた! DEALER残りHP: {state['bot_hp']}")
@@ -144,10 +144,10 @@ def handle_message(event):
 
     # ボットのターン処理
     if not state['player_turn'] and state['turn'] < 6:
-        messages.append("\n\nDEALERのターン")
+        messages.append("\n\n{state['turn'] + 1}発目\nDEALERのターン")
         bot_act = bot_action(state)
         if bot_act == '1':
-            messages.append("{state['turn']}発目\nDEALERはこめかみに銃口を当てた。")
+            messages.append("DEALERはこめかみに銃口を当てた。")
             if chambers[state['turn']] == 1:
                 state['bot_hp'] -= 1
                 messages.append(f"💥 DEALERが被弾！DEALER残りHP: {state['bot_hp']}")
@@ -161,7 +161,7 @@ def handle_message(event):
                 messages.append("カチッ。空砲だ。DEALERのターン続行。")
             state['turn'] += 1
         else:
-            messages.append("{state['turn']}発目\nDEALERはあなたに撃った！")
+            messages.append("DEALERはあなたに撃った！")
             if chambers[state['turn']] == 1:
                 state['player_hp'] -= 1
                 messages.append(f"💥 あなたが被弾！⚡️ アドレナリンが全身を駆け巡る。残りHP: {state['player_hp']}")
