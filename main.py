@@ -210,23 +210,23 @@ def build_result_text(user_id):
             continue
 
         avg_score = round(total_score / count, 2)
-        rate = round((total_score / count) * 10000)
-        if rate >= 9700:
+        rate = round((total_score / count) * 2500)
+        if rate >= 9900:
             rank = "S"
-        elif rate >= 9000:
+        elif rate >= 7500:
             rank = "A"
-        elif rate >= 8000:
-            rank = "B"
         elif rate >= 5000:
+            rank = "B"
+        elif rate >= 2500:
             rank = "C"
         else:
             rank = "D"
 
         text += (
-            f"📊 成績（{title}）\n"
-            f"✅ 総正解数 / 総出題数\n　{filtered_correct} / {filtered_total}\n"
-            f"📈 レート（10000点満点）\n　{rate}\n"
-            f"🏅 ランク\n　{rank}\n\n"
+            f"📝 PERFORMANCE（{title})\n"
+            f"✅正解数/出題数 {filtered_correct}/{filtered_total}\n"
+            f"📈RATING(MAX10000) {rate}\n"
+            f"🏅GRADE {rank}"
         )
     return text.strip()
 
