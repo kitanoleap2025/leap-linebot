@@ -206,7 +206,7 @@ def build_result_text(user_id):
             filtered_total = sum(1 for ans in relevant_answers if ans in scores)
 
         if filtered_total == 0:
-            text += f"📊 成績（{title}）\nNo data yet.\n\n"
+            text += f"（📝Performance{title}）\nNo data yet.\n\n"
             continue
 
         avg_score = round(total_score / count, 2)
@@ -223,10 +223,10 @@ def build_result_text(user_id):
             rank = "D"
 
         text += (
-            f"📝 PERFORMANCE（{title})\n"
-            f"✅正解数/出題数 {filtered_correct}/{filtered_total}\n"
-            f"📈RATING(MAX10000) {rate}\n"
-            f"🏅GRADE {rank}"
+            f"Performance（{title})\n"
+            f"✅正解数/出題数\n{filtered_correct}/{filtered_total}\n"
+            f"📈Rating(max10000)\n{rate}\n"
+            f"🏅Grade\n{rank}RANK\n\n"
         )
     return text.strip()
 
