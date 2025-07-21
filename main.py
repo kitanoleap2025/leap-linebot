@@ -82,19 +82,19 @@ def handle_message(event):
     if state is None:
         state = new_game_state()
         user_sessions[user_id] = state
-        reply = ("=== Russian Roulette Game Start ===\n"
-                 "6発装填のショットガンを交互に撃ち合う.ライフは1人1つ.\n"
+        reply = ("=== Russian Roulette ===\n"
+                 "6発装填のショットガンを交互に撃ち合う.ライフは1人1つ.\n\n"
                  f"6発中...実弾{state['bullet_count']}発.\n"
-                 f"📱古い携帯から声が聞こえる...{state['known_safe'] + 1}発目...空砲.\n"
+                 f"📱古い携帯から声が聞こえる...\n{state['known_safe'] + 1}発目...空砲.\n\n"
                  f"{state['turn'] + 1}発目\n"
-                 f"PLAYERのHP: {state['player_hp']}, DEALERのHP: {state['bot_hp']}\n"
-                 "自分に撃つ(1) / 相手に撃つ(2) を入力してください。")
+                 f"HP-PLAYER: {state['player_hp']}/DEALER: {state['bot_hp']}\n"
+                 "自分に撃つ(1) / 相手に撃つ(2)")
         line_bot_api.reply_message(event.reply_token, TextSendMessage(text=reply))
         return
 
     # プレイヤーの入力処理
     if text not in ['1', '2']:
-        line_bot_api.reply_message(event.reply_token, TextSendMessage(text="自分に撃つ(1) / 相手に撃つ(2) のどちらかを入力してください。"))
+        line_bot_api.reply_message(event.reply_token, TextSendMessage(text="1か2"))
         return
 
     turn = state['turn']
