@@ -42,21 +42,15 @@ def score_to_weight(score):
 
 def build_result_text(user_id):
     text = ""
-
     for title, questions in [("1-1000", questions_1_1000), ("1001-1935", questions_1001_1935)]:
         scores = user_scores.get(user_id, {})
         relevant_answers = [q["answer"] for q in questions]
         total_score = sum(scores.get(ans, 0) for ans in relevant_answers)
         count = len(relevant_answers)
-
         stat = user_stats.get(user_id, {})
-        correct = stat.get("correct", 0)
-        total = stat.get("total", 0)
-
         if count == 0:
             text += f"（📝Performance{title}）\nNo data yet.\n\n"
             continue
-
         avg_score = round(total_score / count, 2)
         rate = round((total_score / count) * 2500)
         if rate >= 9900:
@@ -66,13 +60,11 @@ def build_result_text(user_id):
         elif rate >= 5000:
             rank = "B😍"
         elif rate >= 2500:
-            rank = "C😶‍🌫️"
+            rank = "C😶‍\u200d🌫️"
         else:
             rank = "D😴"
-
         filtered_correct = sum(1 for ans in relevant_answers if scores.get(ans, 0) > 0)
         filtered_total = sum(1 for ans in relevant_answers if ans in scores)
-
         text += (
             f"Performance（{title})\n"
             f"✅正解数/出題数\n{filtered_correct}/{filtered_total}\n"
@@ -85,11 +77,9 @@ def build_grasp_text(user_id):
     scores = user_scores.get(user_id, {})
     rank_counts = {"S": 0, "A": 0, "B": 0, "C": 0, "D": 0}
     all_answers = [q["answer"] for q in questions_1_1000 + questions_1001_1935]
-
     for word in all_answers:
         score = scores.get(word, 0)
         rank_counts[get_rank(score)] += 1
-
     text = "【単語把握度】\n"
     for rank in ["S", "A", "B", "C", "D"]:
         text += f"{rank}ランク: {rank_counts[rank]}語\n"
@@ -126,7 +116,6 @@ def bot_action(state):
     turn = state['turn']
     chambers = state['chambers']
     bot_hp = state['bot_hp']
-
     bullets_left = sum(chambers[turn:])
     if bot_hp == 1 or bullets_left == 1:
         return '2'
@@ -134,6 +123,9 @@ def bot_action(state):
         return random.choices(['2', '1'], weights=[0.8, 0.2])[0]
     else:
         return random.choice(['1', '2'])
+
+# --- 以下、LINEハンドラ（略）---
+
 
 # --- Flask / LINE webhook ---
 @app.route("/callback", methods=["POST"])
