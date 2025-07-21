@@ -212,15 +212,15 @@ def build_result_text(user_id):
         avg_score = round(total_score / count, 2)
         rate = round((total_score / count) * 2500)
         if rate >= 9900:
-            rank = "S"
+            rank = "S🤩"
         elif rate >= 7500:
-            rank = "A"
+            rank = "A😎"
         elif rate >= 5000:
-            rank = "B"
+            rank = "B😍"
         elif rate >= 2500:
-            rank = "C"
+            rank = "C😶‍🌫️"
         else:
-            rank = "D"
+            rank = "D😴"
 
         text += (
             f"Performance（{title})\n"
