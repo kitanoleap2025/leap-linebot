@@ -117,7 +117,7 @@ def handle_message(event):
             state['player_hp'] -= 1
             messages.append(f"💥 実弾だ!アドレナリンが全身を駆け巡る.\nPLAYER: {'⚡' * state['player_hp']}　DEALER: {'⚡' * state['bot_hp']}\n")
             if state['player_hp'] == 0:
-                messages.append("HPが0になった。起きろ。夜はまだ浅い。")
+                messages.append("HPが0になった。")
                 user_sessions.pop(user_id)  # セッション削除
                 line_bot_api.reply_message(event.reply_token, TextSendMessage(text="\n".join(messages)))
                 return
