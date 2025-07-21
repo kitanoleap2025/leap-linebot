@@ -151,110 +151,116 @@ def handle_message(event):
     user_id = event.source.user_id
     msg = event.message.text.strip()
 
-    # 1. ロシアンルーレットプレイ中はそちらの処理のみ行う
+    # 1. ロシアンルーレットプレイ中はそちらの処理のみ行う（ただし英単語コマンドが来たらゲーム強制終了）
     if user_id in user_sessions:
-        state = user_sessions[user_id]
-        messages = []
+        if msg in ["1-1000", "1001-1935"]:
+            # ロシアンゲーム強制終了
+            user_sessions.pop(user_id)
+            # ここでreturnしない＝続けて英単語Bot処理を実行
+        else:
+            state = user_sessions[user_id]
+            messages = []
 
-        # 入力は「1」か「2」のみ有効
-        if msg not in ['1', '2']:
-            line_bot_api.reply_message(event.reply_token, TextSendMessage(text="1か2で答えてください。"))
-            return
+            # 入力は「1」か「2」のみ有効
+            if msg not in ['1', '2']:
+                line_bot_api.reply_message(event.reply_token, TextSendMessage(text="1か2で答えてください。"))
+                return
 
-        turn = state['turn']
-        chambers = state['chambers']
-        player_hp = state['player_hp']
-        bot_hp = state['bot_hp']
-        player_turn = state['player_turn']
+            turn = state['turn']
+            chambers = state['chambers']
+            player_hp = state['player_hp']
+            bot_hp = state['bot_hp']
+            player_turn = state['player_turn']
 
-        if not player_turn:
-            messages.append("今はあなたのターンではありません。")
-            line_bot_api.reply_message(event.reply_token, TextSendMessage(text="\n".join(messages)))
-            return
+            if not player_turn:
+                messages.append("今はあなたのターンではありません。")
+                line_bot_api.reply_message(event.reply_token, TextSendMessage(text="\n".join(messages)))
+                return
 
-        # プレイヤーのターン処理
-        if msg == '1':
-            messages.append(f"{state['turn'] + 1}発目")
-            messages.append("こめかみに銃口を当てた。")
-            if chambers[turn] == 1:
-                state['player_hp'] -= 1
-                messages.append(f"💥 実弾だ!アドレナリンが全身を駆け巡る。\nPLAYER: {'⚡' * state['player_hp']}　DEALER: {'⚡' * state['bot_hp']}\n")
-                if state['player_hp'] == 0:
-                    messages.append("HPが0になった。ゲーム終了。")
-                    user_sessions.pop(user_id)  # セッション削除
-                    line_bot_api.reply_message(event.reply_token, TextSendMessage(text="\n".join(messages)))
-                    return
-                state['player_turn'] = False
-            else:
-                messages.append("カチッ。空砲だ。あなたのターン続行！")
-                # player_turnは変えず
-            state['turn'] += 1
+            # プレイヤーのターン処理
+            if msg == '1':
+                messages.append(f"{state['turn'] + 1}発目")
+                messages.append("こめかみに銃口を当てた。")
+                if chambers[turn] == 1:
+                    state['player_hp'] -= 1
+                    messages.append(f"💥 実弾だ!アドレナリンが全身を駆け巡る。\nPLAYER: {'⚡' * state['player_hp']}　DEALER: {'⚡' * state['bot_hp']}\n")
+                    if state['player_hp'] == 0:
+                        messages.append("HPが0になった。ゲーム終了。")
+                        user_sessions.pop(user_id)  # セッション削除
+                        line_bot_api.reply_message(event.reply_token, TextSendMessage(text="\n".join(messages)))
+                        return
+                    state['player_turn'] = False
+                else:
+                    messages.append("カチッ。空砲だ。あなたのターン続行！")
+                    # player_turnは変えず
+                state['turn'] += 1
 
-        else:  # msg == '2'
-            messages.append(f"{state['turn'] + 1}発目")
-            messages.append("相手に撃った。")
-            if chambers[turn] == 1:
-                state['bot_hp'] -= 1
-                messages.append(f"💥 DEALERを撃ち抜いた!\nPLAYER: {'⚡' * state['player_hp']}　DEALER: {'⚡' * state['bot_hp']}\n")
-                if state['bot_hp'] == 0:
-                    messages.append("DEALERに勝った！ゲーム終了。")
-                    user_sessions.pop(user_id)
-                    line_bot_api.reply_message(event.reply_token, TextSendMessage(text="\n".join(messages)))
-                    return
-            else:
-                messages.append("カチッ。空砲だ。")
-            state['player_turn'] = False
-            state['turn'] += 1
-
-        # ボットのターン処理
-        if not state['player_turn'] and state['turn'] < 6:
-            messages.append(f"{state['turn'] + 1}発目")
-            messages.append("DEALERのターン")
-            bot_act = bot_action(state)
-            if bot_act == '1':
-                messages.append("DEALERはこめかみに銃口を当てた。")
-                if chambers[state['turn']] == 1:
+            else:  # msg == '2'
+                messages.append(f"{state['turn'] + 1}発目")
+                messages.append("相手に撃った。")
+                if chambers[turn] == 1:
                     state['bot_hp'] -= 1
-                    messages.append(f"💥 DEALERが被弾！\nPLAYER: {'⚡' * state['player_hp']}　DEALER: {'⚡' * state['bot_hp']}\n")
+                    messages.append(f"💥 DEALERを撃ち抜いた!\nPLAYER: {'⚡' * state['player_hp']}　DEALER: {'⚡' * state['bot_hp']}\n")
                     if state['bot_hp'] == 0:
                         messages.append("DEALERに勝った！ゲーム終了。")
                         user_sessions.pop(user_id)
                         line_bot_api.reply_message(event.reply_token, TextSendMessage(text="\n".join(messages)))
                         return
-                    state['player_turn'] = True
-                else:
-                    messages.append("カチッ。空砲だ。DEALERのターン続行。")
-                state['turn'] += 1
-            else:
-                messages.append("DEALERはあなたに撃った！")
-                if chambers[state['turn']] == 1:
-                    state['player_hp'] -= 1
-                    messages.append(f"💥 あなたが被弾！アドレナリンが全身を駆け巡る。\nPLAYER: {'⚡' * state['player_hp']}　DEALER: {'⚡' * state['bot_hp']}\n")
-                    if state['player_hp'] == 0:
-                        messages.append("HPが0になった。ゲーム終了。")
-                        user_sessions.pop(user_id)
-                        line_bot_api.reply_message(event.reply_token, TextSendMessage(text="\n".join(messages)))
-                        return
                 else:
                     messages.append("カチッ。空砲だ。")
-                state['player_turn'] = True
+                state['player_turn'] = False
                 state['turn'] += 1
 
-        # 6発終了でリロード
-        if state['turn'] >= 6:
-            messages.append("\n💥 リロードします...\n")
-            chambers, bullet_count, known_safe = setup_chambers()
-            state['chambers'] = chambers
-            state['bullet_count'] = bullet_count
-            state['known_safe'] = known_safe
-            state['turn'] = 0
-            state['player_turn'] = True
+            # ボットのターン処理
+            if not state['player_turn'] and state['turn'] < 6:
+                messages.append(f"{state['turn'] + 1}発目")
+                messages.append("DEALERのターン")
+                bot_act = bot_action(state)
+                if bot_act == '1':
+                    messages.append("DEALERはこめかみに銃口を当てた。")
+                    if chambers[state['turn']] == 1:
+                        state['bot_hp'] -= 1
+                        messages.append(f"💥 DEALERが被弾！\nPLAYER: {'⚡' * state['player_hp']}　DEALER: {'⚡' * state['bot_hp']}\n")
+                        if state['bot_hp'] == 0:
+                            messages.append("DEALERに勝った！ゲーム終了。")
+                            user_sessions.pop(user_id)
+                            line_bot_api.reply_message(event.reply_token, TextSendMessage(text="\n".join(messages)))
+                            return
+                        state['player_turn'] = True
+                    else:
+                        messages.append("カチッ。空砲だ。DEALERのターン続行。")
+                    state['turn'] += 1
+                else:
+                    messages.append("DEALERはあなたに撃った！")
+                    if chambers[state['turn']] == 1:
+                        state['player_hp'] -= 1
+                        messages.append(f"💥 あなたが被弾！アドレナリンが全身を駆け巡る。\nPLAYER: {'⚡' * state['player_hp']}　DEALER: {'⚡' * state['bot_hp']}\n")
+                        if state['player_hp'] == 0:
+                            messages.append("HPが0になった。ゲーム終了。")
+                            user_sessions.pop(user_id)
+                            line_bot_api.reply_message(event.reply_token, TextSendMessage(text="\n".join(messages)))
+                            return
+                    else:
+                        messages.append("カチッ。空砲だ。")
+                    state['player_turn'] = True
+                    state['turn'] += 1
 
-        user_sessions[user_id] = state
-        line_bot_api.reply_message(event.reply_token, TextSendMessage(text="\n".join(messages)))
-        return
+            # 6発終了でリロード
+            if state['turn'] >= 6:
+                messages.append("\n💥 リロードします...\n")
+                chambers, bullet_count, known_safe = setup_chambers()
+                state['chambers'] = chambers
+                state['bullet_count'] = bullet_count
+                state['known_safe'] = known_safe
+                state['turn'] = 0
+                state['player_turn'] = True
+
+            user_sessions[user_id] = state
+            line_bot_api.reply_message(event.reply_token, TextSendMessage(text="\n".join(messages)))
+            return
 
     # 2. ここから英単語Bot処理
+
     # 「成績」連打でロシアンルーレットを開始判定
     if msg == "成績":
         user_hidden_counter[user_id] += 1
