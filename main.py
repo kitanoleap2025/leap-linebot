@@ -117,7 +117,7 @@ def handle_message(event):
             state['player_hp'] -= 1
             messages.append(f"💥 実弾だ!⚡️ アドレナリンが全身を駆け巡る。残りHP: {state['player_hp']}")
             if state['player_hp'] == 0:
-                messages.append("HPが0になった。起きろ。夜はまだ浅い。ゲームオーバー。")
+                messages.append("HPが0になった。起きろ。夜はまだ浅い。")
                 user_sessions.pop(user_id)  # セッション削除
                 line_bot_api.reply_message(event.reply_token, TextSendMessage(text="\n".join(messages)))
                 return
@@ -133,7 +133,7 @@ def handle_message(event):
             state['bot_hp'] -= 1
             messages.append(f"💥 DEALERを撃ち抜いた! DEALER残りHP: {state['bot_hp']}")
             if state['bot_hp'] == 0:
-                messages.append("DEALERに勝った！ゲームクリア！")
+                messages.append("DEALERに勝った")
                 user_sessions.pop(user_id)
                 line_bot_api.reply_message(event.reply_token, TextSendMessage(text="\n".join(messages)))
                 return
@@ -144,7 +144,7 @@ def handle_message(event):
 
     # ボットのターン処理
     if not state['player_turn'] and state['turn'] < 6:
-        messages.append("...ボットのターン...")
+        messages.append("\n\nDEALERのターン")
         bot_act = bot_action(state)
         if bot_act == '1':
             messages.append("DEALERはこめかみに銃口を当てた。")
@@ -152,7 +152,7 @@ def handle_message(event):
                 state['bot_hp'] -= 1
                 messages.append(f"💥 DEALERが被弾！DEALER残りHP: {state['bot_hp']}")
                 if state['bot_hp'] == 0:
-                    messages.append("DEALERに勝った！ゲームクリア！")
+                    messages.append("DEALERに勝った")
                     user_sessions.pop(user_id)
                     line_bot_api.reply_message(event.reply_token, TextSendMessage(text="\n".join(messages)))
                     return
@@ -166,7 +166,7 @@ def handle_message(event):
                 state['player_hp'] -= 1
                 messages.append(f"💥 あなたが被弾！⚡️ アドレナリンが全身を駆け巡る。残りHP: {state['player_hp']}")
                 if state['player_hp'] == 0:
-                    messages.append("HPが0になった。起きろ。夜はまだ浅い。ゲームオーバー。")
+                    messages.append("HPが0になった。起きろ。夜はまだ浅い。")
                     user_sessions.pop(user_id)
                     line_bot_api.reply_message(event.reply_token, TextSendMessage(text="\n".join(messages)))
                     return
