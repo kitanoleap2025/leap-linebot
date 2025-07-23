@@ -215,21 +215,21 @@ def build_result_text(user_id):
         filtered_total = sum(1 for ans in relevant_answers if ans in scores)
 
         if filtered_total == 0:
-            text += f"（📝Performance{title}）\nNo data yet.\n\n"
+            text += f"📝Performance({title}）\nNo data yet.\n\n"
             continue
 
         avg_score = round(total_score / count, 2)
         rate = round((total_score / count) * 2500)
         if rate >= 9900:
-            rank = "S🤩"
+            rank = "🖊️S🤯"
         elif rate >= 7500:
-            rank = "A😎"
+            rank = "🖋️A🤩"
         elif rate >= 5000:
-            rank = "B😍"
+            rank = "🖌️B😎"
         elif rate >= 2500:
-            rank = "C😶‍🌫️"
+            rank = "✏️C😀"
         else:
-            rank = "D😴"
+            rank = "🖍️D🫠"
 
         text += (
             f"Performance（{title})\n"
