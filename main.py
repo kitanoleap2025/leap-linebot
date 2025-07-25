@@ -243,6 +243,8 @@ questions_1_1000 = [
 questions_1001_1935 = [
     {"text": "1001 The ___ made a critical discovery in the lab.\nその科学者は研究室で重大な発見をした。",
      "answer": "scientist"},
+    {"text": "ooo\nた。",
+     "answer": "sist"}
 ]
 
 # --- ユーティリティ関数 ---
