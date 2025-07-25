@@ -236,7 +236,7 @@ questions_1_1000 = [
      "answer": "necessary"},
     {"text": "1000 ___ __ capitalism, your value peaks at checkout.\n資本主義によると,あなたの価値はチェックアウト時にピークに達する.",
      "answer": "according to"},
-    {"text": "782 ___ woman\n熟女",
+    {"text": "782 \n熟女",
      "answer": "mature"}
 
 ]
