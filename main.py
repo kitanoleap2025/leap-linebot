@@ -209,7 +209,7 @@ questions_1_1000 = [
     {"text": "033 Eurasia developed faster because it ___ east to west, so crops could spread in similar climates.\nユーラシアは東西に広がっているため、作物が似た気候の中で広まりやすく、より早く発展した。",
      "answer": "stretches"},
     {"text": "639 ___ while the iron is hot\n鉄は熱いうちに打て",
-     "answer": "strike"}
+     "answer": "strike"},
     {"text": "673 The price is ___ by supply and demand.\n価格は需要と供給で決まる.",
      "answer": "determined"},
     {"text": "694 What is taken for ___ today was once a revolutionary idea.\n今日当たり前のように考えられているものは,かつては革新的なアイデアでした.",
