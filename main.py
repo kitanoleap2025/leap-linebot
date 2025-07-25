@@ -5,6 +5,7 @@ from linebot.exceptions import InvalidSignatureError
 import os
 import random
 import json
+import threading
 from dotenv import load_dotenv
 from collections import defaultdict, deque
 
@@ -14,51 +15,63 @@ app = Flask(__name__)
 line_bot_api = LineBotApi(os.getenv("LINE_CHANNEL_ACCESS_TOKEN"))
 handler = WebhookHandler(os.getenv("LINE_CHANNEL_SECRET"))
 
-# --- JSONファイル保存用 ---
-SAVE_FILE = "scores.json"
-
-# --- 初期化 ---
 user_states = {}  # user_id: (range_str, correct_answer)
-user_scores = defaultdict(dict)
-user_stats = defaultdict(lambda: {"correct": 0, "total": 0})
-user_recent_questions = defaultdict(lambda: deque(maxlen=10))
+user_scores = defaultdict(dict)  # user_id: {word: score}
+user_stats = defaultdict(lambda: {"correct": 0, "total": 0})  # user_id: {"correct": x, "total": y}
+user_recent_questions = defaultdict(lambda: deque(maxlen=10))  # 直近出題除外用
 
-# --- 問題リスト ---
+DATA_DIR = "./user_data"
+os.makedirs(DATA_DIR, exist_ok=True)
+
+def user_data_path(user_id):
+    return os.path.join(DATA_DIR, f"{user_id}.json")
+
+def load_user_data(user_id):
+    path = user_data_path(user_id)
+    if os.path.exists(path):
+        try:
+            with open(path, "r", encoding="utf-8") as f:
+                data = json.load(f)
+                user_scores[user_id] = defaultdict(int, data.get("scores", {}))
+                user_stats[user_id] = data.get("stats", {"correct": 0, "total": 0})
+                recent_list = data.get("recent", [])
+                user_recent_questions[user_id] = deque(recent_list, maxlen=10)
+        except Exception as e:
+            print(f"Error loading user data for {user_id}: {e}")
+
+def save_user_data(user_id):
+    path = user_data_path(user_id)
+    data = {
+        "scores": user_scores[user_id],
+        "stats": user_stats[user_id],
+        "recent": list(user_recent_questions[user_id]),
+    }
+    try:
+        with open(path, "w", encoding="utf-8") as f:
+            json.dump(data, f, ensure_ascii=False, indent=2)
+    except Exception as e:
+        print(f"Error saving user data for {user_id}: {e}")
+
+def async_save_user_data(user_id):
+    # 保存を別スレッドで行い応答をブロックしないように
+    threading.Thread(target=save_user_data, args=(user_id,), daemon=True).start()
+
+# --- 問題リスト（簡略版） ---
 questions_1_1000 = [
-    {"text": "001 I ___ with the idea that students should not be given too much homework.\n生徒に宿題を与えすぎるべきではないという考えに賛成です.", "answer": "agree"}
+    {"text": "001 I ___ with the idea that students should not be given too much homework.\n生徒に宿題を与えすぎるべきではないという考えに賛成です.",
+     "answer": "agree"}
 ]
 questions_1001_1935 = [
-    {"text": "1001 The ___ made a critical discovery in the lab.\nその科学者は研究室で重大な発見をした。", "answer": "scientist"}
+    {"text": "1001 The ___ made a critical discovery in the lab.\nその科学者は研究室で重大な発見をした。",
+     "answer": "scientist"},
 ]
 
-# --- 成績データの読み書き ---
-def load_data():
-    if os.path.exists(SAVE_FILE):
-        with open(SAVE_FILE, "r", encoding="utf-8") as f:
-            data = json.load(f)
-            for user_id, scores in data.get("user_scores", {}).items():
-                user_scores[user_id] = scores
-            for user_id, stats in data.get("user_stats", {}).items():
-                user_stats[user_id] = stats
-        print("✅ 成績データを読み込みました")
-
-def save_data():
-    data = {
-        "user_scores": dict(user_scores),
-        "user_stats": dict(user_stats)
-    }
-    with open(SAVE_FILE, "w", encoding="utf-8") as f:
-        json.dump(data, f, ensure_ascii=False, indent=2)
-    print("💾 成績データを保存しました")
-
-# 起動時に読み込む
-load_data()
-
-# --- ユーティリティ ---
+# --- ユーティリティ関数 ---
 def get_rank(score):
     return {0: "D", 1: "C", 2: "B", 3: "A", 4: "S"}.get(score, "D")
 
 def score_to_weight(score):
+    # 段階的減少型重み（スコア0が最も重み大＝頻出）
     return {0: 16, 1: 8, 2: 4, 3: 2, 4: 1}.get(score, 5)
 
 def build_result_text(user_id):
@@ -70,6 +83,9 @@ def build_result_text(user_id):
         count = len(relevant_answers)
 
         stat = user_stats.get(user_id, {})
+        correct = stat.get("correct", 0)
+        total = stat.get("total", 0)
+
         filtered_correct = sum(1 for ans in relevant_answers if scores.get(ans, 0) > 0)
         filtered_total = sum(1 for ans in relevant_answers if ans in scores)
 
@@ -77,14 +93,18 @@ def build_result_text(user_id):
             text += f"📝Performance({title}）\nNo data yet.\n\n"
             continue
 
+        avg_score = round(total_score / count, 2)
         rate = round((total_score / count) * 2500)
-        rank = (
-            "S🤯" if rate >= 9900 else
-            "A🤩" if rate >= 7500 else
-            "B😎" if rate >= 5000 else
-            "C😀" if rate >= 2500 else
-            "D🫠"
-        )
+        if rate >= 9900:
+            rank = "S🤯"
+        elif rate >= 7500:
+            rank = "A🤩"
+        elif rate >= 5000:
+            rank = "B😎"
+        elif rate >= 2500:
+            rank = "C😀"
+        else:
+            rank = "D🫠"
 
         text += (
             f"Performance（{title})\n"
@@ -112,15 +132,18 @@ def choose_weighted_question(user_id, questions):
     scores = user_scores.get(user_id, {})
     recent = user_recent_questions[user_id]
 
-    candidates, weights = [], []
+    # 直近除外しつつ重みづけで選択
+    candidates = []
+    weights = []
     for q in questions:
         if q["answer"] in recent:
-            continue
+            continue  # 直近10問に出した問題は除外
         weight = score_to_weight(scores.get(q["answer"], 0))
         candidates.append(q)
         weights.append(weight)
 
     if not candidates:
+        # 直近除外で候補なし → recentクリアして再挑戦
         user_recent_questions[user_id].clear()
         for q in questions:
             weight = score_to_weight(scores.get(q["answer"], 0))
@@ -131,7 +154,7 @@ def choose_weighted_question(user_id, questions):
     user_recent_questions[user_id].append(chosen["answer"])
     return chosen
 
-# --- Flask ルーティング ---
+# --- Flask / LINE webhook ---
 @app.route("/callback", methods=["POST"])
 def callback():
     signature = request.headers.get("X-Line-Signature", "")
@@ -147,8 +170,16 @@ def handle_message(event):
     user_id = event.source.user_id
     msg = event.message.text.strip()
 
+    # 初回アクセスならファイルからロード
+    if user_id not in user_scores:
+        load_user_data(user_id)
+
+    # 特別コマンド優先
     if msg in ["1-1000", "1001-1935"]:
-        q = choose_weighted_question(user_id, questions_1_1000 if msg == "1-1000" else questions_1001_1935)
+        if msg == "1-1000":
+            q = choose_weighted_question(user_id, questions_1_1000)
+        else:
+            q = choose_weighted_question(user_id, questions_1001_1935)
         user_states[user_id] = (msg, q["answer"])
         line_bot_api.reply_message(event.reply_token, TextSendMessage(text=q["text"]))
         return
@@ -163,10 +194,12 @@ def handle_message(event):
         line_bot_api.reply_message(event.reply_token, TextSendMessage(text=text))
         return
 
+    # 回答処理
     if user_id in user_states:
         range_str, correct_answer = user_states[user_id]
         is_correct = (msg.lower() == correct_answer.lower())
 
+        # スコア処理
         score = user_scores[user_id].get(correct_answer, 0)
         if is_correct:
             user_scores[user_id][correct_answer] = min(4, score + 1)
@@ -175,12 +208,16 @@ def handle_message(event):
             user_scores[user_id][correct_answer] = max(0, score - 1)
         user_stats[user_id]["total"] += 1
 
-        feedback = "Correct✅\n\nNext:" if is_correct else f"Wrong❌\nAnswer: {correct_answer}\n\nNext:"
+        # 保存は非同期で実行
+        async_save_user_data(user_id)
+
+        feedback = (
+            "Correct✅\n\nNext:" if is_correct else f"Wrong❌\nAnswer: {correct_answer}\n\nNext:"
+        )
+
         questions = questions_1_1000 if range_str == "1-1000" else questions_1001_1935
         next_q = choose_weighted_question(user_id, questions)
         user_states[user_id] = (range_str, next_q["answer"])
-
-        save_data()  # 成績保存！
 
         line_bot_api.reply_message(
             event.reply_token,
@@ -198,7 +235,4 @@ def handle_message(event):
 
 if __name__ == "__main__":
     port = int(os.environ.get("PORT", 8000))
-    try:
-        app.run(host="0.0.0.0", port=port)
-    finally:
-        save_data()  # シャットダウン時も保存
+    app.run(host="0.0.0.0", port=port)
