@@ -114,7 +114,7 @@ questions_1_1000 = [
      "answer": "established"},
     {"text": "066 Even a small change can have a great effect on ___.\n小さな変化でも社会に大きな影響を与える.",
      "answer": "society"},
-    {"text": "068 We do not inherit the Earth from our ancestors; we borrow it from our children.\n私たちは先祖から地球を受け継ぐのではなく,子供たちから借りています.",
+    {"text": "068 We do not inherit the Earth from our ___, we borrow it from our children.\n私たちは先祖から地球を受け継ぐのではなく,子供たちから借りています.",
      "answer": "ancestors"},
     {"text": "074 the key ___ that led to the suspension \n停学への決定打となる証拠",
      "answer": "evidence"},
@@ -286,7 +286,7 @@ def build_grasp_text(user_id):
 
     text = "【単語把握度】\n"
     for rank in ["S", "A", "B", "C", "D"]:
-        text += f"{rank}ランク: {rank_counts[rank]}語\n"
+        text += f"S-D 覚えている-覚えていない\n{rank}ランク: {rank_counts[rank]}語\n"
     return text
 
 def choose_weighted_question(user_id, questions):
@@ -391,7 +391,7 @@ def handle_message(event):
 
     line_bot_api.reply_message(
         event.reply_token,
-        TextSendMessage(text="1-1000 または 1001-1935 を送信してね！")
+        TextSendMessage(text="1-1000 または 1001-1935 を押してね。")
     )
 
 if __name__ == "__main__":
