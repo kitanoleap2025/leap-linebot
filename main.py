@@ -122,7 +122,7 @@ questions_1_1000 = [
      "answer": "evidence"},
     {"text": "079 They ___ for confidence without thinking.\n彼らは考えずに信任に投票した.",
      "answer": "voted"},
-    {"text": "085 The price is determined by supply and demand.\n価格は需要と供給で決まる.",
+    {"text": "085 The ___ is determined by supply and demand.\n価格は需要と供給で決まる.",
      "answer": "price"},
     {"text": "098 What you said ___ more than you think.\n君が言ったことは,君が思っているよりも傷ついたよ.",
      "answer": "hurt"},
