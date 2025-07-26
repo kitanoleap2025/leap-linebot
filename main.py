@@ -1,148 +1,230 @@
-import os
-import json
-import random
-import threading
 from flask import Flask, request, abort
 from linebot import LineBotApi, WebhookHandler
 from linebot.models import MessageEvent, TextMessage, TextSendMessage
-from firebase_config import db
+from linebot.exceptions import InvalidSignatureError
+import os
+import random
+import threading
+from dotenv import load_dotenv
+from collections import defaultdict, deque
+import firebase_admin
+from firebase_admin import credentials, firestore
 
+load_dotenv()
 app = Flask(__name__)
+
 line_bot_api = LineBotApi(os.getenv("LINE_CHANNEL_ACCESS_TOKEN"))
 handler = WebhookHandler(os.getenv("LINE_CHANNEL_SECRET"))
 
-# 単語データ読み込み
-with open("leap_words.json", "r", encoding="utf-8") as f:
-    leap_words = json.load(f)
+# Firebase Admin SDK初期化
+if not firebase_admin._apps:
+    cred = credentials.Certificate("path/to/your/firebase-adminsdk.json")  # ←Firebase管理画面で取得したJSONパスに置き換えて
+    firebase_admin.initialize_app(cred)
+db = firestore.client()
 
-# 出題対象：LEAP1〜1000
-LEAP_RANGE = list(range(0, 1000))
+user_states = {}  # user_id: (range_str, correct_answer)
+user_scores = defaultdict(dict)  # user_id: {word: score}
+user_stats = defaultdict(lambda: {"correct": 0, "total": 0})
+user_recent_questions = defaultdict(lambda: deque(maxlen=10))
 
-# スコア別重み（段階的減少型）
-def get_weight(score):
-    return {0: 16, 1: 8, 2: 4, 3: 2, 4: 1}.get(score, 16)
-
-# Firestoreから読み込み
+# --- Firestore関連関数 ---
 def load_user_data(user_id):
     doc_ref = db.collection("users").document(user_id)
     doc = doc_ref.get()
     if doc.exists:
-        return doc.to_dict()
+        data = doc.to_dict()
+        user_scores[user_id] = defaultdict(int, data.get("scores", {}))
+        user_stats[user_id] = data.get("stats", {"correct": 0, "total": 0})
+        recent_list = data.get("recent", [])
+        user_recent_questions[user_id] = deque(recent_list, maxlen=10)
     else:
-        return {
-            "scores": {},
-            "correct_count": 0,
-            "total_count": 0,
-            "recent_words": [],
-            "current_word": None,
-        }
+        user_scores[user_id] = defaultdict(int)
+        user_stats[user_id] = {"correct": 0, "total": 0}
+        user_recent_questions[user_id] = deque(maxlen=10)
 
-# Firestoreに保存（非同期）
-def save_user_data(user_id, data):
-    def save():
-        db.collection("users").document(user_id).set(data)
-    threading.Thread(target=save).start()
+def save_user_data(user_id):
+    data = {
+        "scores": dict(user_scores[user_id]),
+        "stats": user_stats[user_id],
+        "recent": list(user_recent_questions[user_id]),
+    }
+    doc_ref = db.collection("users").document(user_id)
+    doc_ref.set(data)
 
-# 出題処理
-def select_word(user_data):
-    weights = []
-    candidates = []
+def async_save_user_data(user_id):
+    threading.Thread(target=save_user_data, args=(user_id,), daemon=True).start()
 
-    for i in LEAP_RANGE:
-        if i in user_data.get("recent_words", []):
+# --- 問題リスト（簡略版） ---
+questions_1_1000 = [
+    {"text": "001 I ___ with the idea that students should not be given too much homework.\n生徒に宿題を与えすぎるべきではないという考えに賛成です.",
+     "answer": "agree"}
+]
+questions_1001_1935 = [
+    {"text": "1001 The ___ made a critical discovery in the lab.\nその科学者は研究室で重大な発見をした。",
+     "answer": "scientist"},
+    {"text": "ooo\nた。",
+     "answer": "sist"}
+]
+
+# --- ユーティリティ関数 ---
+def get_rank(score):
+    return {0: "D", 1: "C", 2: "B", 3: "A", 4: "S"}.get(score, "D")
+
+def score_to_weight(score):
+    return {0: 16, 1: 8, 2: 4, 3: 2, 4: 1}.get(score, 5)
+
+def build_result_text(user_id):
+    text = ""
+    for title, questions in [("1-1000", questions_1_1000), ("1001-1935", questions_1001_1935)]:
+        scores = user_scores.get(user_id, {})
+        relevant_answers = [q["answer"] for q in questions]
+        total_score = sum(scores.get(ans, 0) for ans in relevant_answers)
+        count = len(relevant_answers)
+
+        stat = user_stats.get(user_id, {})
+        correct = stat.get("correct", 0)
+        total = stat.get("total", 0)
+
+        filtered_correct = sum(1 for ans in relevant_answers if scores.get(ans, 0) > 0)
+        filtered_total = sum(1 for ans in relevant_answers if ans in scores)
+
+        if filtered_total == 0:
+            text += f"📝Performance({title}）\nNo data yet.\n\n"
             continue
-        score = user_data.get("scores", {}).get(str(i), 0)
-        weight = get_weight(score)
+
+        avg_score = round(total_score / count, 2)
+        rate = round((total_score / count) * 2500)
+        if rate >= 9900:
+            rank = "S🤯"
+        elif rate >= 7500:
+            rank = "A🤩"
+        elif rate >= 5000:
+            rank = "B😎"
+        elif rate >= 2500:
+            rank = "C😀"
+        else:
+            rank = "D🫠"
+
+        text += (
+            f"Performance（{title})\n"
+            f"✅正解数/出題数\n{filtered_correct}/{filtered_total}\n"
+            f"📈Rating(max10000)\n{rate}\n"
+            f"🏅Grade\n{rank}RANK\n\n"
+        )
+    return text.strip()
+
+def build_grasp_text(user_id):
+    scores = user_scores.get(user_id, {})
+    rank_counts = {"S": 0, "A": 0, "B": 0, "C": 0, "D": 0}
+    all_answers = [q["answer"] for q in questions_1_1000 + questions_1001_1935]
+
+    for word in all_answers:
+        score = scores.get(word, 0)
+        rank_counts[get_rank(score)] += 1
+
+    text = "【単語把握度】\n"
+    for rank in ["S", "A", "B", "C", "D"]:
+        text += f"S-D 覚えている-覚えていない\n{rank}ランク: {rank_counts[rank]}語\n"
+    return text
+
+def choose_weighted_question(user_id, questions):
+    scores = user_scores.get(user_id, {})
+    recent = user_recent_questions[user_id]
+
+    candidates = []
+    weights = []
+    for q in questions:
+        if q["answer"] in recent:
+            continue
+        weight = score_to_weight(scores.get(q["answer"], 0))
+        candidates.append(q)
         weights.append(weight)
-        candidates.append(i)
 
     if not candidates:
-        return random.choice(LEAP_RANGE)
+        user_recent_questions[user_id].clear()
+        for q in questions:
+            weight = score_to_weight(scores.get(q["answer"], 0))
+            candidates.append(q)
+            weights.append(weight)
 
-    return random.choices(candidates, weights=weights, k=1)[0]
+    chosen = random.choices(candidates, weights=weights, k=1)[0]
+    user_recent_questions[user_id].append(chosen["answer"])
+    return chosen
 
-# 正答チェック
-def check_answer(user_data, word_index, user_input):
-    correct_answer = leap_words[word_index]["意味"].lower()
-    is_correct = user_input.strip().lower() == correct_answer
-
-    scores = user_data.setdefault("scores", {})
-    current_score = scores.get(str(word_index), 0)
-
-    if is_correct:
-        scores[str(word_index)] = min(current_score + 1, 4)
-        user_data["correct_count"] = user_data.get("correct_count", 0) + 1
-    else:
-        scores[str(word_index)] = max(current_score - 1, 0)
-
-    user_data["total_count"] = user_data.get("total_count", 0) + 1
-    user_data["recent_words"] = (user_data.get("recent_words", []) + [word_index])[-10:]
-    return is_correct, correct_answer
-
-# 成績表示
-def generate_stats(user_data):
-    scores = user_data.get("scores", {})
-    total = user_data.get("total_count", 0)
-    correct = user_data.get("correct_count", 0)
-    percent = round(correct / total * 100, 1) if total else 0.0
-
-    rank_counts = {i: 0 for i in range(5)}
-    for score in scores.values():
-        rank_counts[score] += 1
-
-    return (
-        f"📊 あなたの成績\n"
-        f"正解数: {correct} / {total}（正答率: {percent}%）\n\n"
-        f"🔥 LEAP把握度\n"
-        f"Sランク(4): {rank_counts[4]}\n"
-        f"Aランク(3): {rank_counts[3]}\n"
-        f"Bランク(2): {rank_counts[2]}\n"
-        f"Cランク(1): {rank_counts[1]}\n"
-        f"Dランク(0): {rank_counts[0]}"
-    )
-
+# --- Flask / LINE webhook ---
 @app.route("/callback", methods=["POST"])
 def callback():
-    signature = request.headers["X-Line-Signature"]
+    signature = request.headers.get("X-Line-Signature", "")
     body = request.get_data(as_text=True)
     try:
         handler.handle(body, signature)
-    except Exception as e:
+    except InvalidSignatureError:
         abort(400)
     return "OK"
 
 @handler.add(MessageEvent, message=TextMessage)
 def handle_message(event):
     user_id = event.source.user_id
-    text = event.message.text.strip()
-    user_data = load_user_data(user_id)
+    msg = event.message.text.strip()
 
-    if text == "1-1000":
-        word_index = select_word(user_data)
-        word = leap_words[word_index]["単語"]
-        user_data["current_word"] = word_index
-        save_user_data(user_id, user_data)
-        line_bot_api.reply_message(event.reply_token, TextSendMessage(text=f"【問題】\n{word} の意味は？"))
+    if user_id not in user_scores:
+        load_user_data(user_id)
 
-    elif text == "成績":
-        result = generate_stats(user_data)
-        line_bot_api.reply_message(event.reply_token, TextSendMessage(text=result))
-
-    elif user_data.get("current_word") is not None:
-        word_index = user_data["current_word"]
-        is_correct, correct_answer = check_answer(user_data, word_index, text)
-        user_data["current_word"] = None
-        save_user_data(user_id, user_data)
-
-        if is_correct:
-            reply = f"⭕️ 正解！"
+    if msg in ["1-1000", "1001-1935"]:
+        if msg == "1-1000":
+            q = choose_weighted_question(user_id, questions_1_1000)
         else:
-            reply = f"❌ 不正解\n正解: {correct_answer}"
+            q = choose_weighted_question(user_id, questions_1001_1935)
+        user_states[user_id] = (msg, q["answer"])
+        line_bot_api.reply_message(event.reply_token, TextSendMessage(text=q["text"]))
+        return
 
-        line_bot_api.reply_message(event.reply_token, TextSendMessage(text=reply))
+    if msg == "成績":
+        text = build_result_text(user_id)
+        line_bot_api.reply_message(event.reply_token, TextSendMessage(text=text))
+        return
 
-    else:
-        line_bot_api.reply_message(event.reply_token, TextSendMessage(text="「1-1000」と送って問題を始めよう！"))
+    if msg == "把握度":
+        text = build_grasp_text(user_id)
+        line_bot_api.reply_message(event.reply_token, TextSendMessage(text=text))
+        return
+
+    if user_id in user_states:
+        range_str, correct_answer = user_states[user_id]
+        is_correct = (msg.lower() == correct_answer.lower())
+
+        score = user_scores[user_id].get(correct_answer, 0)
+        if is_correct:
+            user_scores[user_id][correct_answer] = min(4, score + 1)
+            user_stats[user_id]["correct"] += 1
+        else:
+            user_scores[user_id][correct_answer] = max(0, score - 1)
+        user_stats[user_id]["total"] += 1
+
+        async_save_user_data(user_id)
+
+        feedback = (
+            "Correct✅\n\nNext:" if is_correct else f"Wrong❌\nAnswer: {correct_answer}\n\nNext:"
+        )
+
+        questions = questions_1_1000 if range_str == "1-1000" else questions_1001_1935
+        next_q = choose_weighted_question(user_id, questions)
+        user_states[user_id] = (range_str, next_q["answer"])
+
+        line_bot_api.reply_message(
+            event.reply_token,
+            messages=[
+                TextSendMessage(text=feedback),
+                TextSendMessage(text=next_q["text"])
+            ]
+        )
+        return
+
+    line_bot_api.reply_message(
+        event.reply_token,
+        TextSendMessage(text="1-1000 または 1001-1935 を押してね。")
+    )
 
 if __name__ == "__main__":
-    app.run()
+    port = int(os.environ.get("PORT", 8000))
+    app.run(host="0.0.0.0", port=port)
