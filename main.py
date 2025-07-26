@@ -158,10 +158,14 @@ def choose_weighted_question(user_id, questions):
 
 # 雑学メッセージ例（好きに追加してください）
 trivia_messages = [
-    "Did you know? The word 'quiz' was invented in the late 18th century as a bet!",
-    "Trivia: Honey never spoils. Archaeologists have found edible honey in ancient tombs.",
-    "Fun fact: Octopuses have three hearts and blue blood!",
-    "Did you know? The shortest complete sentence in English is 'I am.'",
+    "あなたが今電車の中なら、外の景色を見てみて下さい。",
+    "このBOTは時間割ろぼっとに大きな影響を受けました。青は藍よりも青し・・・",
+    "Sランクに到達するためには、少なくとも4000問解く必要があります。",
+    "木々は栄養を分け合ったり、病気の木に助け舟を出したりします。",
+    "ゆっくり行くものは、遠くまで行ける。",
+    "WBGTをチェックして、熱中症に気を付けて下さい。",
+    "すべての単語には5段階の把握度が付けられています。",
+    "木々は栄養を分け合ったり、病気の木に助け舟を出したりします。",
 ]
 
 @app.route("/callback", methods=["POST"])
