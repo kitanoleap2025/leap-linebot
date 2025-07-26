@@ -4,6 +4,7 @@ from linebot.models import MessageEvent, TextMessage, TextSendMessage
 from linebot.exceptions import InvalidSignatureError
 import os
 import random
+import json
 import threading
 from dotenv import load_dotenv
 from collections import defaultdict, deque
@@ -13,43 +14,45 @@ from firebase_admin import credentials, firestore
 load_dotenv()
 app = Flask(__name__)
 
+# Firebase Admin SDK初期化（環境変数からJSON文字列を読み込み）
+cred_json = os.getenv("FIREBASE_CREDENTIALS")
+cred_dict = json.loads(cred_json)
+cred = credentials.Certificate(cred_dict)
+firebase_admin.initialize_app(cred)
+db = firestore.client()
+
 line_bot_api = LineBotApi(os.getenv("LINE_CHANNEL_ACCESS_TOKEN"))
 handler = WebhookHandler(os.getenv("LINE_CHANNEL_SECRET"))
 
-# Firebase Admin SDK初期化
-if not firebase_admin._apps:
-    cred = credentials.Certificate("path/to/your/firebase-adminsdk.json")  # ←Firebase管理画面で取得したJSONパスに置き換えて
-    firebase_admin.initialize_app(cred)
-db = firestore.client()
-
 user_states = {}  # user_id: (range_str, correct_answer)
 user_scores = defaultdict(dict)  # user_id: {word: score}
-user_stats = defaultdict(lambda: {"correct": 0, "total": 0})
-user_recent_questions = defaultdict(lambda: deque(maxlen=10))
+user_stats = defaultdict(lambda: {"correct": 0, "total": 0})  # user_id: {"correct": x, "total": y}
+user_recent_questions = defaultdict(lambda: deque(maxlen=10))  # 直近出題除外用
 
-# --- Firestore関連関数 ---
+# --- Firestoreからユーザーデータ読み込み ---
 def load_user_data(user_id):
-    doc_ref = db.collection("users").document(user_id)
-    doc = doc_ref.get()
-    if doc.exists:
-        data = doc.to_dict()
-        user_scores[user_id] = defaultdict(int, data.get("scores", {}))
-        user_stats[user_id] = data.get("stats", {"correct": 0, "total": 0})
-        recent_list = data.get("recent", [])
-        user_recent_questions[user_id] = deque(recent_list, maxlen=10)
-    else:
-        user_scores[user_id] = defaultdict(int)
-        user_stats[user_id] = {"correct": 0, "total": 0}
-        user_recent_questions[user_id] = deque(maxlen=10)
+    try:
+        doc = db.collection("users").document(user_id).get()
+        if doc.exists:
+            data = doc.to_dict()
+            user_scores[user_id] = defaultdict(int, data.get("scores", {}))
+            user_stats[user_id] = data.get("stats", {"correct": 0, "total": 0})
+            recent_list = data.get("recent", [])
+            user_recent_questions[user_id] = deque(recent_list, maxlen=10)
+    except Exception as e:
+        print(f"Error loading user data for {user_id}: {e}")
 
+# --- Firestoreにユーザーデータ保存 ---
 def save_user_data(user_id):
     data = {
         "scores": dict(user_scores[user_id]),
         "stats": user_stats[user_id],
         "recent": list(user_recent_questions[user_id]),
     }
-    doc_ref = db.collection("users").document(user_id)
-    doc_ref.set(data)
+    try:
+        db.collection("users").document(user_id).set(data)
+    except Exception as e:
+        print(f"Error saving user data for {user_id}: {e}")
 
 def async_save_user_data(user_id):
     threading.Thread(target=save_user_data, args=(user_id,), daemon=True).start()
