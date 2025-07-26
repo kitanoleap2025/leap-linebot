@@ -1,3 +1,5 @@
+# 冒頭は同じ（省略せずに記述）
+
 from flask import Flask, request, abort
 from linebot import LineBotApi, WebhookHandler
 from linebot.models import MessageEvent, TextMessage, TextSendMessage
@@ -14,14 +16,9 @@ from firebase_admin import credentials, firestore
 load_dotenv()
 app = Flask(__name__)
 
-# Firebase Admin SDK初期化（環境変数からJSON文字列を読み込み）
 cred_json = os.getenv("FIREBASE_CREDENTIALS")
 cred_dict = json.loads(cred_json)
-print("FIREBASE_CREDENTIALS raw:", cred_json)
-# private_keyの改行を正しく置換（もしされていなければ）
 cred_dict["private_key"] = cred_dict["private_key"].replace("\\n", "\n")
-print("private_key (repr):", repr(cred_dict["private_key"]))
-
 cred = credentials.Certificate(cred_dict)
 firebase_admin.initialize_app(cred)
 db = firestore.client()
@@ -30,24 +27,35 @@ line_bot_api = LineBotApi(os.getenv("LINE_CHANNEL_ACCESS_TOKEN"))
 handler = WebhookHandler(os.getenv("LINE_CHANNEL_SECRET"))
 
 user_states = {}  # user_id: (range_str, correct_answer)
-user_scores = defaultdict(dict)  # user_id: {word: score}
-user_stats = defaultdict(lambda: {"correct": 0, "total": 0})  # user_id: {"correct": x, "total": y}
-user_recent_questions = defaultdict(lambda: deque(maxlen=10))  # 直近出題除外用
+user_scores = defaultdict(dict)
+user_stats = defaultdict(lambda: {
+    "1-1000": {"correct": 0, "total": 0},
+    "1001-1935": {"correct": 0, "total": 0}
+})
+user_recent_questions = defaultdict(lambda: deque(maxlen=10))
 
-# --- Firestoreからユーザーデータ読み込み ---
 def load_user_data(user_id):
     try:
         doc = db.collection("users").document(user_id).get()
         if doc.exists:
             data = doc.to_dict()
             user_scores[user_id] = defaultdict(int, data.get("scores", {}))
-            user_stats[user_id] = data.get("stats", {"correct": 0, "total": 0})
+
+            raw_stats = data.get("stats", {})
+            if "1-1000" in raw_stats and "1001-1935" in raw_stats:
+                user_stats[user_id] = raw_stats
+            else:
+                # 旧形式との互換性確保
+                user_stats[user_id] = {
+                    "1-1000": {"correct": raw_stats.get("correct", 0), "total": raw_stats.get("total", 0)},
+                    "1001-1935": {"correct": 0, "total": 0}
+                }
+
             recent_list = data.get("recent", [])
             user_recent_questions[user_id] = deque(recent_list, maxlen=10)
     except Exception as e:
         print(f"Error loading user data for {user_id}: {e}")
 
-# --- Firestoreにユーザーデータ保存 ---
 def save_user_data(user_id):
     data = {
         "scores": dict(user_scores[user_id]),
@@ -62,7 +70,6 @@ def save_user_data(user_id):
 def async_save_user_data(user_id):
     threading.Thread(target=save_user_data, args=(user_id,), daemon=True).start()
 
-# --- 問題リスト（簡略版） ---
 questions_1_1000 = [
     {"text": "001 I ___ with the idea that students should not be given too much homework.\n生徒に宿題を与えすぎるべきではないという考えに賛成です.",
      "answer": "agree"}
@@ -70,11 +77,9 @@ questions_1_1000 = [
 questions_1001_1935 = [
     {"text": "1001 The ___ made a critical discovery in the lab.\nその科学者は研究室で重大な発見をした。",
      "answer": "scientist"},
-    {"text": "ooo\nた。",
-     "answer": "sist"}
+    {"text": "ooo\nた。", "answer": "sist"}
 ]
 
-# --- ユーティリティ関数 ---
 def get_rank(score):
     return {0: "D", 1: "C", 2: "B", 3: "A", 4: "S"}.get(score, "D")
 
@@ -89,19 +94,9 @@ def build_result_text(user_id):
         total_score = sum(scores.get(ans, 0) for ans in relevant_answers)
         count = len(relevant_answers)
 
-        stat = user_stats.get(user_id, {"correct": 0, "total": 0})
-        correct = stat.get("correct", 0)
-        total = stat.get("total", 0)
-
-        # ここを修正:
-        # filtered_correct = 出題区間の問題中正解した数に合わせたいが、user_statsでは全体正解数なので
-        # 代わりに区間内で正解した問題のスコアが0より大きい数を使うのは良いが、
-        # もともとuser_stats["correct"]は全体で使っているため区間別に分けていない
-        # なので単純に filtered_correct = sum(1 for ans in relevant_answers if scores.get(ans, 0) > 0)
-        # filtered_total = len(relevant_answers) とする（全問題が出題済みと仮定）
-
-        filtered_correct = sum(1 for ans in relevant_answers if scores.get(ans, 0) > 0)
-        filtered_total = len(relevant_answers)
+        stat = user_stats.get(user_id, {}).get(title, {"correct": 0, "total": 0})
+        filtered_correct = stat["correct"]
+        filtered_total = stat["total"]
 
         if filtered_total == 0:
             text += f"📝Performance({title}）\nNo data yet.\n\n"
@@ -132,20 +127,17 @@ def build_grasp_text(user_id):
     scores = user_scores.get(user_id, {})
     rank_counts = {"S": 0, "A": 0, "B": 0, "C": 0, "D": 0}
     all_answers = [q["answer"] for q in questions_1_1000 + questions_1001_1935]
-
     for word in all_answers:
         score = scores.get(word, 0)
         rank_counts[get_rank(score)] += 1
-
-    text = "【単語把握度】\n"
+    text = "【単語把握度】\nS-D 覚えている-覚えていない\n"
     for rank in ["S", "A", "B", "C", "D"]:
-        text += f"S-D 覚えている-覚えていない\n{rank}ランク: {rank_counts[rank]}語\n"
+        text += f"{rank}ランク: {rank_counts[rank]}語\n"
     return text
 
 def choose_weighted_question(user_id, questions):
     scores = user_scores.get(user_id, {})
     recent = user_recent_questions[user_id]
-
     candidates = []
     weights = []
     for q in questions:
@@ -154,19 +146,16 @@ def choose_weighted_question(user_id, questions):
         weight = score_to_weight(scores.get(q["answer"], 0))
         candidates.append(q)
         weights.append(weight)
-
     if not candidates:
         user_recent_questions[user_id].clear()
         for q in questions:
             weight = score_to_weight(scores.get(q["answer"], 0))
             candidates.append(q)
             weights.append(weight)
-
     chosen = random.choices(candidates, weights=weights, k=1)[0]
     user_recent_questions[user_id].append(chosen["answer"])
     return chosen
 
-# --- Flask / LINE webhook ---
 @app.route("/callback", methods=["POST"])
 def callback():
     signature = request.headers.get("X-Line-Signature", "")
@@ -186,10 +175,8 @@ def handle_message(event):
         load_user_data(user_id)
 
     if msg in ["1-1000", "1001-1935"]:
-        if msg == "1-1000":
-            q = choose_weighted_question(user_id, questions_1_1000)
-        else:
-            q = choose_weighted_question(user_id, questions_1001_1935)
+        questions = questions_1_1000 if msg == "1-1000" else questions_1001_1935
+        q = choose_weighted_question(user_id, questions)
         user_states[user_id] = (msg, q["answer"])
         line_bot_api.reply_message(event.reply_token, TextSendMessage(text=q["text"]))
         return
@@ -207,15 +194,15 @@ def handle_message(event):
     if user_id in user_states:
         range_str, correct_answer = user_states[user_id]
         is_correct = (msg.lower() == correct_answer.lower())
-
         score = user_scores[user_id].get(correct_answer, 0)
+
         if is_correct:
             user_scores[user_id][correct_answer] = min(4, score + 1)
-            user_stats[user_id]["correct"] += 1
+            user_stats[user_id][range_str]["correct"] += 1
         else:
             user_scores[user_id][correct_answer] = max(0, score - 1)
-        user_stats[user_id]["total"] += 1
 
+        user_stats[user_id][range_str]["total"] += 1
         async_save_user_data(user_id)
 
         feedback = (
