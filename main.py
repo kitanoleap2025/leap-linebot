@@ -89,12 +89,19 @@ def build_result_text(user_id):
         total_score = sum(scores.get(ans, 0) for ans in relevant_answers)
         count = len(relevant_answers)
 
-        stat = user_stats.get(user_id, {})
+        stat = user_stats.get(user_id, {"correct": 0, "total": 0})
         correct = stat.get("correct", 0)
         total = stat.get("total", 0)
 
+        # ここを修正:
+        # filtered_correct = 出題区間の問題中正解した数に合わせたいが、user_statsでは全体正解数なので
+        # 代わりに区間内で正解した問題のスコアが0より大きい数を使うのは良いが、
+        # もともとuser_stats["correct"]は全体で使っているため区間別に分けていない
+        # なので単純に filtered_correct = sum(1 for ans in relevant_answers if scores.get(ans, 0) > 0)
+        # filtered_total = len(relevant_answers) とする（全問題が出題済みと仮定）
+
         filtered_correct = sum(1 for ans in relevant_answers if scores.get(ans, 0) > 0)
-        filtered_total = sum(1 for ans in relevant_answers if ans in scores)
+        filtered_total = len(relevant_answers)
 
         if filtered_total == 0:
             text += f"📝Performance({title}）\nNo data yet.\n\n"
