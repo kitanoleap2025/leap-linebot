@@ -17,6 +17,11 @@ app = Flask(__name__)
 # Firebase Admin SDK初期化（環境変数からJSON文字列を読み込み）
 cred_json = os.getenv("FIREBASE_CREDENTIALS")
 cred_dict = json.loads(cred_json)
+print("FIREBASE_CREDENTIALS raw:", cred_json)
+# private_keyの改行を正しく置換（もしされていなければ）
+cred_dict["private_key"] = cred_dict["private_key"].replace("\\n", "\n")
+print("private_key (repr):", repr(cred_dict["private_key"]))
+
 cred = credentials.Certificate(cred_dict)
 firebase_admin.initialize_app(cred)
 db = firestore.client()
