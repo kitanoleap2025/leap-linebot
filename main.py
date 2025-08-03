@@ -282,7 +282,7 @@ def build_result_text(user_id):
             continue
 
         avg_score = round(total_score / count, 2)
-        rate = round((total_score / count) * 25)
+        rate = round((total_score / count) * 2500)
         if rate >= 9900:
             rank = "S🤯"
         elif rate >= 7500:
@@ -297,7 +297,7 @@ def build_result_text(user_id):
         text += (
             f"Performance（{title})\n"
             f"✅正解数/出題数\n{filtered_correct}/{filtered_total}\n"
-            f"📈Rating\n{rate}%\n"
+            f"📈Rating(max10000🧑‍🎄🎅)\n{rate}\n"
             f"🏅Grade\n{rank}RANK\n\n"
         )
     return text.strip()
