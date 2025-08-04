@@ -115,33 +115,33 @@ def build_result_text(user_id):
 
         rate = round((total_score / count) * 2500)
         if rate >= 9900:
-            rank = "S🤯"       # 超高難度・満点級
+            rank = "S🤯"      
         elif rate >= 9000:
-            rank = "A+🤩"      # とても優秀
+            rank = "A+🤩"     
         elif rate >= 8000:
-            rank = "A😎"       # 優秀
+            rank = "A😎"
         elif rate >= 7000:
-            rank = "A-😍"      # 良い
+            rank = "A-😍"      
         elif rate >= 6000:
-            rank = "B+🤑"      # まずまず
+            rank = "B+🤑"      
         elif rate >= 5000:
-            rank = "B😤"       # 普通
+            rank = "B🤠"      
         elif rate >= 4000:
-            rank = "B-😇"      # 少し物足りない
+            rank = "B-😇"      
         elif rate >= 3000:
-            rank = "C+🤠"      # かなり苦戦気味
+            rank = "C+😤"      
         elif rate >= 2000:
             rank = "C🤫"    
         elif rate >= 1000:
             rank = "C-😶‍🌫️"    
         else:
-            rank = "D🫠"       # 要努力
+            rank = "D🫠"       
 
         text += (
             f"Performance（{title})\n"
             f"✅正解数/出題数\n{filtered_correct}/{filtered_total}\n"
             f"📈Rating(max10000)\n{rate}\n"
-            f"🏅Grade\n{rank}RANK\n\n"
+            f"{rank}RANK\n\n"
         )
     # 総合レート計算と表示
     rate1 = 0
@@ -157,7 +157,7 @@ def build_result_text(user_id):
         total_score2 = sum(scores2.get(q["answer"], 0) for q in questions_1001_1935)
         rate2 = round((total_score2 / c2) * 2500)
     total_rate = round((rate1 + rate2) / 2)
-    text += f"🏆総合レート\n{total_rate}\n\n"
+    text += f"🏆総合レート🏆\n{total_rate}\n\n"
     text += "名前変更は「@(新しい名前)」で送信してください。"
     return text.strip()
 
@@ -197,7 +197,7 @@ def choose_weighted_question(user_id, questions):
 # 雑学メッセージ例（うざいサンタ）
 trivia_messages = [
     "🎅うざいサンタ\nあなたが今電車の中なら、外の景色を見てみて下さい。",
-    "🎅うざいサンタ\nSランクに到達するためには、少なくとも4000問解く必要があります。",
+    "🎅うざいサンタ\n最高のSランクに到達するためには、少なくとも2000問解く必要があります。",
     "🎅うざいサンタ\n木々は栄養を分け合ったり、病気の木に助け舟を出したりします。",
     "🎅うざいサンタ\n「ゆっくり行くものは、遠くまで行ける」ということわざがあります。",
     "🎅うざいサンタ\nWBGTをチェックして、熱中症に気を付けて下さい。",
