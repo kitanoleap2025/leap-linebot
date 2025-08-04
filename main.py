@@ -302,7 +302,7 @@ def handle_message(event):
         score = user_scores[user_id].get(correct_answer, 0)
 
         if is_correct:
-            user_scores[user_id][correct_answer] = min(4, score + 1)
+            user_scores[user_id][correct_answer] = min(4, score + 2)
             user_stats[user_id][range_str]["correct"] += 1
         else:
             user_scores[user_id][correct_answer] = max(0, score - 1)
