@@ -91,8 +91,14 @@ questions_1_1000 = [
      "answer": "complained"},
     {"text": "010 The company ___ him a job after the interview.\n面接の後,会社は彼に仕事を申し出た.",
      "answer": "offered"},
+    {"text": "011 He ___ that he was gay.\n彼は自身がゲイであることをほのめかした。",
+     "answer": "suggested"},
+    {"text": "012 I was ___ to the local volunteer club.\n私は地元のボランティアクラブに推薦された。",
+     "answer": "recommended"},
     {"text": "013 He said he was ___ to her for the feedback, but he ignored all of it.\n彼は彼女のフィードバックに感謝していると言ったが,すべて無視した.",
      "answer": "grateful"},
+    {"text": "014 I ___ for criticizing.\n私は批判したことを謝った.",
+     "answer": "apologized"},
     {"text": "016 His family ___ his finally being accepted into college.\n彼の家族は,彼がついに大学に合格したことを祝った.",
      "answer": "celebrated"},
     {"text": """019 She was ___ "Best Excuse Maker" for always avoiding responsibility.\n彼女は常に責任を避けたことで「最高の言い訳メーカー」を受賞した.""",
@@ -205,6 +211,8 @@ questions_1_1000 = [
      "answer": "even"},
     {"text": "400 With modern technology, we can talk to anyone in the world ___ the person next to you.\n現代のテクノロジーでは,隣にいる人以外の誰とでも話すことができる.",
      "answer": "except"},
+    {"text": "402 I apologized for ___.\n私は批判したことを謝った.",
+     "answer": "criticizing"},
     {"text": "420 It is not what happened that matters. It is how you ___.\n大事なのは何が起きたかではない.どう応じるかだ.",
      "answer": "respond"},
     {"text": "434 He’s been ___ her aunt for months\n彼は何か月も彼女のおばを狙っています.",
@@ -252,7 +260,7 @@ questions_1_1000 = [
     {"text": "1000 ___ __ capitalism, your value peaks at checkout.\n資本主義によると,あなたの価値はチェックアウト時にピークに達する.",
      "answer": "according to"},
     {"text": "782 \n熟女",
-     "answer": "mature"}
+     "answer": "mature"},
 
 ]
 questions_1001_1935 = [
