@@ -177,6 +177,8 @@ questions_1_1000 = [
      "answer": "familiar"},
     {"text": "259 Eurasia developed faster because it stretches east to west, so crops could spread in ___ climates.\nユーラシアは東西に広がっているため、作物が似た気候の中で広まりやすく、より早く発展した。",
      "answer": "similar"},
+    {"text": "269 Don’t ___ your chickens before they hatch.\n卵がかえる前にヒヨコを数えるな",
+     "answer": "count"},
     {"text": "311 If you put ___ on a grandma, can you call it a bicycle?\nおばあちゃんに車輪を付けたら,自転車と呼べるのか.",
      "answer": "wheels"},
     {"text":"335 __, __, __ your boat\nGently down the stream\nMerrily, merrily, merrily, merrily\nLife is but a dream\n\nボートを漕げ、漕げ、漕げ\nそっと流れを下って\n陽気に、陽気に、陽気に、陽気に\n人生は夢に過ぎない",
@@ -256,7 +258,8 @@ questions_1_1000 = [
 questions_1001_1935 = [
     {"text": "1001 The ___ made a critical discovery in the lab.\nその科学者は研究室で重大な発見をした。",
      "answer": "scientist"},
-    {"text": "ooo\nた。", "answer": "sist"}
+    {"text": "1247 Don’t count your chickens before they ___.\n卵がかえる前にヒヨコを数えるな",
+     "answer": "hatch"},
 ]
 
 def get_rank(score):
