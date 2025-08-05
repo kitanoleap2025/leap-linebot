@@ -419,7 +419,7 @@ def build_ranking_text():
         total_rate = round((rate1 + rate2) / 2)
         ranking.append((name, total_rate))
     ranking.sort(key=lambda x: x[1], reverse=True)
-    text = "全体Ratingランキング\n"
+    text = "Rating Ranking\n"
     for i, (name, rate) in enumerate(ranking[:10], 1):
         text += f"{i}. {name} - {rate}\n"
     if not ranking:
