@@ -330,7 +330,7 @@ def build_result_text(user_id):
             f"[{title}]\n"
             f"正解数/出題数:{filtered_correct}/{filtered_total}\n"
             f"Rating:{rate}\n"
-            f"{rank}RANK\n\n"
+            f"RANK:{rank}\n\n"
         )
     # 総合レート計算と表示
     rate1 = 0
