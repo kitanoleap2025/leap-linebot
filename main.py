@@ -138,9 +138,9 @@ def build_result_text(user_id):
             rank = "D🫠"       
 
         text += (
-            f"Performance（{title})\n"
-            f"✅正解数/出題数\n{filtered_correct}/{filtered_total}\n"
-            f"📈Rating(max10000)\n{rate}\n"
+            f"[{title}]\n"
+            f"正解数/出題数:{filtered_correct}/{filtered_total}\n"
+            f"Rating:{rate}\n"
             f"{rank}RANK\n\n"
         )
     # 総合レート計算と表示
