@@ -384,7 +384,7 @@ def handle_message(event):
         if user_id not in user_stats:
             user_stats[user_id] = {"correct": 0, "incorrect": 0}
         if user_id not in user_quiz_progress:
-            user_quiz_progress[user_id] = {"count": 1, "start_time": None, "penalty_time": 0}
+            user_quiz_progress[user_id] = {"count": 0, "start_time": None, "penalty_time": 0}
 
         progress = user_quiz_progress[user_id]
 
@@ -405,7 +405,7 @@ def handle_message(event):
         count = user_quiz_progress[user_id]["count"]
 
         elapsed_time = time.time() - user_quiz_progress[user_id]["start_time"] + user_quiz_progress[user_id]["penalty_time"]
-        response += f"\n現在の問題: {count}/10\n経過時間: {elapsed_time:.2f}秒"
+        response += f"\n現在の問題: {count + 1}/10\n経過時間: {elapsed_time:.2f}秒"
 
         if count >= 10:
                 total_time = elapsed_time
