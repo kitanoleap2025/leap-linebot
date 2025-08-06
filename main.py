@@ -381,4 +381,4 @@ def handle_message(event):
         else:
             user_scores[user_id][correct_answer] = max(0, score - 1)
             progress["penalty_time"] += 10  # ペナルティ10秒
-            reply_msg = f"
+            reply_msg = "f"
