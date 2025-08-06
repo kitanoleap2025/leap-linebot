@@ -232,7 +232,7 @@ def build_ranking_text(user_id=None):
     user_index = None
     for i, (uid, name, rate) in enumerate(ranking):
         if i < 10:
-            text += f"{i+1}. {name} - {rate}\n"
+            text += f"{rate}  {name}\n"
         if user_id and uid == user_id:
             user_index = i
 
@@ -241,14 +241,18 @@ def build_ranking_text(user_id=None):
         my_name = ranking[user_index][1]
         my_rate = ranking[user_index][2]
         text += "\n---------------------\n"
-        text += f"あなたの順位: {my_rank}位 - {my_name} ({my_rate})\n"
+        text += f"あなたの順位: {my_rank}位  {my_rate}\n"
 
-        if my_rank > 10:
+        if my_rank <= 10:
+            text += "あなたは表彰台に乗っています！\n"
+        else:
+            above_name = ranking[user_index - 1][1]
             above_rate = ranking[user_index - 1][2]
             diff = above_rate - my_rate
-            text += f"↑次の順位まで {diff} レート差\n"
+            text += f"↑次の順位の {above_name} まで {diff} レート差\n"
 
     return text.strip()
+
 
 # —————— ここからLINEイベントハンドラ部分 ——————
 
