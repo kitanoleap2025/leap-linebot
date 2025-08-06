@@ -386,51 +386,50 @@ def handle_message(event):
         progress = user_quiz_progress[user_id]
 
         response = ""
+
         if user_answer == correct_answer:
-            user_stats[user_id]["correct"] += 1
-            response = "正解！"
+                user_stats[user_id][range_str]["correct"] += 1
+                response = "正解！"
         else:
-            user_stats[user_id]["incorrect"] += 1
-            penalty = 5
-            user_quiz_progress[user_id]["penalty_time"] += penalty
-            response = f"不正解！ +{penalty}秒ペナルティ"
+                penalty = 10
+                user_quiz_progress[user_id]["penalty_time"] += penalty
+                response = f"不正解！ +{penalty}秒ペナルティ"
 
-        reply_msg = response  # まず reply_msg を初期化
+        user_stats[user_id][range_str]["total"] += 1
 
-        # ✅ 正誤問わずカウントを進める
+        # 正誤問わずカウント進める
         user_quiz_progress[user_id]["count"] += 1
         count = user_quiz_progress[user_id]["count"]
 
         elapsed_time = time.time() - user_quiz_progress[user_id]["start_time"] + user_quiz_progress[user_id]["penalty_time"]
         response += f"\n現在の問題: {count}/10\n経過時間: {elapsed_time:.2f}秒"
 
-        # 10問終了判定
-        if progress["count"] >= 10:
-            total_time = elapsed_time
-            best_time = user_times.get(user_id, float('inf'))
-            if total_time < best_time:
-                user_times[user_id] = total_time
-                async_save_user_data(user_id)
-                reply_msg += f"\n🎉おめでとう！ベストタイム更新: {total_time:.2f}秒"
+        if count >= 10:
+                total_time = elapsed_time
+                best_time = user_times.get(user_id, float('inf'))
+                if total_time < best_time:
+                        user_times[user_id] = total_time
+                        async_save_user_data(user_id)
+                        response += f"\n🎉おめでとう！ベストタイム更新: {total_time:.2f}秒"
 
-            reply_msg += f"\n\n10問終了！\n合計時間: {total_time:.2f}秒"
-            reply_msg += "\n「ランキング」でランキング表示、「1-1000」か「1001-1935」で新しいクイズ開始。"
-            user_states.pop(user_id, None)
-            user_quiz_progress.pop(user_id, None)
+                response += f"\n\n10問終了！\n合計時間: {total_time:.2f}秒"
+                response += "\n「ランキング」でランキング表示、「1-1000」か「1001-1935」で新しいクイズ開始。"
+                user_states.pop(user_id, None)
+                user_quiz_progress.pop(user_id, None)
 
-            line_bot_api.reply_message(event.reply_token, TextSendMessage(text=reply_msg))
-            return
+                line_bot_api.reply_message(event.reply_token, TextSendMessage(text=response))
+                return
 
-        # 次の問題を出題
+        # 次の問題出題
         questions = questions_1_1000 if range_str == "1-1000" else questions_1001_1935
         next_q = choose_weighted_question(user_id, questions)
         user_states[user_id] = (range_str, next_q["answer"])
 
-        progress_text = f"\n{progress['count']+1}/10\n{elapsed_time:.2f}s"
+        progress_text = f"\n{count + 1}/10\n{elapsed_time:.2f}s"
 
         line_bot_api.reply_message(
-            event.reply_token,
-            TextSendMessage(text=reply_msg + progress_text + "\n\n" + next_q["text"])
+                event.reply_token,
+                TextSendMessage(text=response + progress_text + "\n\n" + next_q["text"])
         )
         return
 
