@@ -359,7 +359,7 @@ def build_result_text(user_id):
         rate2 = round((total_score2 / c2) * 2500)
     total_rate = round((rate1 + rate2) / 2)
     text += "Total Rating\n"
-    text += f"{total_rate}\n"
+    text += f"{total_rate}\n\n"
     text += "名前変更は「@(新しい名前)」で送信してください。"
     return text.strip()
 
