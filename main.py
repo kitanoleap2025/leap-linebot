@@ -299,7 +299,7 @@ def score_to_weight(score):
 
 def build_result_text(user_id):
     name = user_names.get(user_id, DEFAULT_NAME)
-    text = f"ユーザー名：{name}\n\n"
+    text = f"""{name}"["{total_rate}"]"\n\n"""
     for title, questions in [("1-1000", questions_1_1000), ("1001-1935", questions_1001_1935)]:
         scores = user_scores.get(user_id, {})
         relevant_answers = [q["answer"] for q in questions]
@@ -311,7 +311,7 @@ def build_result_text(user_id):
         filtered_total = stat["total"]
 
         if filtered_total == 0:
-            text += f"📝Performance({title}）\nNo data yet.\n\n"
+            text += f"{title}\nNo data yet.\n\n"
             continue
 
         rate = round((total_score / count) * 2500)
@@ -340,9 +340,9 @@ def build_result_text(user_id):
 
         text += (
             f"[{title}]\n"
-            f"正解数/出題数:{filtered_correct}/{filtered_total}\n"
+            f"Correct/Total:{filtered_correct}/{filtered_total}\n"
             f"Rating:{rate}\n"
-            f"RANK:{rank}\n\n"
+            f"Rank:{rank}\n\n"
         )
     # 総合レート計算と表示
     rate1 = 0
@@ -358,7 +358,6 @@ def build_result_text(user_id):
         total_score2 = sum(scores2.get(q["answer"], 0) for q in questions_1001_1935)
         rate2 = round((total_score2 / c2) * 2500)
     total_rate = round((rate1 + rate2) / 2)
-    text += f"🏆総合レート🏆\n{total_rate}\n\n"
     text += "名前変更は「@(新しい名前)」で送信してください。"
     return text.strip()
 
