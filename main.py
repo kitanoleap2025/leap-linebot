@@ -340,7 +340,7 @@ def build_result_text(user_id):
 
         text += (
             f"[{title}]\n"
-            f"Correct/Total:{filtered_correct}/{filtered_total}\n"
+            f"Correct:{filtered_correct}/Total:{filtered_total}\n"
             f"Rating:{rate}\n"
             f"Rank:{rank}\n\n"
         )
