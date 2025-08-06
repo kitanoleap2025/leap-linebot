@@ -358,6 +358,8 @@ def build_result_text(user_id):
         total_score2 = sum(scores2.get(q["answer"], 0) for q in questions_1001_1935)
         rate2 = round((total_score2 / c2) * 2500)
     total_rate = round((rate1 + rate2) / 2)
+    text += "Total Rating\n"
+    text += f"{total_rate}\n"
     text += "名前変更は「@(新しい名前)」で送信してください。"
     return text.strip()
 
