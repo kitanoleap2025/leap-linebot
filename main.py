@@ -34,7 +34,7 @@ user_stats = defaultdict(lambda: {
 })
 user_recent_questions = defaultdict(lambda: deque(maxlen=10))
 user_names = {}  # user_id: name
-user_times = defaultdict(lambda: float('inf'))  # user_id: best_time in seconds (float)
+user_times = defaultdict(lambda: float('inf'))  # ベストタイムはユーザー単位でfloat管理
 
 DEFAULT_NAME = "名無し"
 
@@ -62,6 +62,8 @@ def load_user_data(user_id):
             best_time = data.get("best_time")
             if best_time is not None:
                 user_times[user_id] = float(best_time)
+            else:
+                user_times[user_id] = float('inf')
         else:
             user_names[user_id] = DEFAULT_NAME
     except Exception as e:
@@ -74,7 +76,7 @@ def save_user_data(user_id):
         "stats": user_stats[user_id],
         "recent": list(user_recent_questions[user_id]),
         "name": user_names.get(user_id, DEFAULT_NAME),
-        "best_time": user_times.get(user_id, None)
+        "best_time": user_times.get(user_id, float('inf'))
     }
     try:
         db.collection("users").document(user_id).set(data)
@@ -84,10 +86,11 @@ def save_user_data(user_id):
 def async_save_user_data(user_id):
     threading.Thread(target=save_user_data, args=(user_id,), daemon=True).start()
 
+# ここに問題リストを入れてください
 questions_1_1000 = [
     {"text": "001 I ___ with the idea that students should not be given too much homework.\n生徒に宿題を与えすぎるべきではないという考えに賛成です.",
      "answer": "agree"},
-    # ... 他の問題もここに追加してください ...
+    # 他の問題...
 ]
 questions_1001_1935 = [
     {"text": "1001 The ___ made a critical discovery in the lab.\nその科学者は研究室で重大な発見をした。",
@@ -373,6 +376,8 @@ def handle_message(event):
         if progress["start_time"] is None:
             progress["start_time"] = time.time()
 
+        elapsed_time = time.time() - progress["start_time"] + progress["penalty_time"]
+
         if is_correct:
             user_scores[user_id][correct_answer] = min(4, score + 2)
             user_stats[user_id][range_str]["correct"] += 1
@@ -380,25 +385,52 @@ def handle_message(event):
             reply_msg = "正解✅"
         else:
             user_scores[user_id][correct_answer] = max(0, score - 1)
-            progress["penalty_time"] += 10  # ペナルティ10秒
-            reply_msg = f"残念❌ 答え: {correct_answer}"
+            progress["penalty_time"] += 3  # 間違えたら3秒のペナルティ
+            reply_msg = "不正解❌ 3秒のペナルティが加算されました。"
 
-        # 10問終わったかどうか確認
+        user_stats[user_id][range_str]["total"] += 1
+        async_save_user_data(user_id)
+
+        # 10問終了判定
         if progress["count"] >= 10:
-            total_time = time.time() - progress["start_time"] + progress["penalty_time"]
-            user_times[user_id][range_str].append(total_time)
-            async_save_user_data(user_id)
-            reply_msg += f"\n10問終了！記録: {round(total_time, 2)} 秒"
+            total_time = elapsed_time
+            best_time = user_times.get(user_id, float('inf'))
+            if total_time < best_time:
+                user_times[user_id] = total_time
+                async_save_user_data(user_id)
+                reply_msg += f"\n🎉おめでとう！ベストタイム更新: {total_time:.2f}秒"
+
+            reply_msg += f"\n\n10問終了！\n合計時間: {total_time:.2f}秒"
+            reply_msg += "\n「ランキング」でランキング表示、「1-1000」か「1001-1935」で新しいクイズ開始。"
             user_states.pop(user_id, None)
             user_quiz_progress.pop(user_id, None)
-        else:
-            questions = questions_1_1000 if range_str == "1-1000" else questions_1001_1935
-            q = choose_weighted_question(user_id, questions)
-            user_states[user_id] = (range_str, q["answer"])
-            reply_msg += f"\n\n次の問題:\n{q['text']}"
 
-        line_bot_api.reply_message(event.reply_token, TextSendMessage(text=reply_msg))
+            line_bot_api.reply_message(event.reply_token, TextSendMessage(text=reply_msg))
+            return
+
+        # 次の問題を出題
+        questions = questions_1_1000 if range_str == "1-1000" else questions_1001_1935
+        next_q = choose_weighted_question(user_id, questions)
+        user_states[user_id] = (range_str, next_q["answer"])
+
+        progress_text = f"\n現在の問題: {progress['count']+1}/10\n経過時間: {elapsed_time:.2f}秒"
+
+        line_bot_api.reply_message(
+            event.reply_token,
+            TextSendMessage(text=reply_msg + progress_text + "\n\n" + next_q["text"])
+        )
         return
+
+    # 未知のメッセージはヘルプ案内
+    help_text = (
+        "コマンド一覧:\n"
+        "「1-1000」または「1001-1935」でクイズ開始\n"
+        "「成績」で現在の成績表示\n"
+        "「把握度」で単語把握度表示\n"
+        "「ランキング」でランキング表示\n"
+        "「@(名前)」で名前変更\n"
+    )
+    line_bot_api.reply_message(event.reply_token, TextSendMessage(text=help_text))
 
 if __name__ == "__main__":
     port = int(os.environ.get("PORT", 8000))
