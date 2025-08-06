@@ -10,10 +10,12 @@ from dotenv import load_dotenv
 from collections import defaultdict, deque
 import firebase_admin
 from firebase_admin import credentials, firestore
+import time
 
 load_dotenv()
 app = Flask(__name__)
 
+# Firebase初期化
 cred_json = os.getenv("FIREBASE_CREDENTIALS")
 cred_dict = json.loads(cred_json)
 cred_dict["private_key"] = cred_dict["private_key"].replace("\\n", "\n")
@@ -31,7 +33,6 @@ user_stats = defaultdict(lambda: {
     "1001-1935": {"correct": 0, "total": 0}
 })
 user_recent_questions = defaultdict(lambda: deque(maxlen=10))
-user_answer_counts = defaultdict(int)
 user_names = {}  # user_id: name
 user_times = defaultdict(lambda: float('inf'))  # user_id: best_time in seconds (float)
 
@@ -58,11 +59,9 @@ def load_user_data(user_id):
 
             user_names[user_id] = data.get("name", DEFAULT_NAME)
 
-            # タイムデータ読み込み（存在すれば）
             best_time = data.get("best_time")
             if best_time is not None:
                 user_times[user_id] = float(best_time)
-
         else:
             user_names[user_id] = DEFAULT_NAME
     except Exception as e:
@@ -164,7 +163,6 @@ def build_result_text(user_id):
         rate2 = round((total_score2 / c2) * 2500)
     total_rate = round((rate1 + rate2) / 2)
 
-    # ベストタイムも表示（無限ならまだ未記録）
     best_time = user_times.get(user_id, float('inf'))
     time_text = f"{best_time:.2f}秒" if best_time != float('inf') else "未記録"
 
@@ -302,9 +300,8 @@ def build_ranking_text(user_id=None):
 
     return text.strip()
 
-# —————— ここからLINEイベントハンドラ部分 ——————
-
-import time
+# 10問クイズの進捗とペナルティ時間を管理
+user_quiz_progress = defaultdict(lambda: {"count": 0, "start_time": None, "penalty_time": 0})
 
 @app.route("/callback", methods=['POST'])
 def callback():
@@ -317,9 +314,6 @@ def callback():
         abort(400)
 
     return "OK"
-
-# 10問カウント＆開始時間記録用
-user_quiz_progress = defaultdict(lambda: {"count": 0, "start_time": None})
 
 @handler.add(MessageEvent, message=TextMessage)
 def handle_message(event):
@@ -353,9 +347,8 @@ def handle_message(event):
         q = choose_weighted_question(user_id, questions)
         user_states[user_id] = (msg, q["answer"])
 
-        # 10問クイズ開始時の開始時間とカウントリセット
-        user_quiz_progress[user_id]["count"] = 0
-        user_quiz_progress[user_id]["start_time"] = time.time()
+        # 10問クイズ開始時に進捗リセット・開始時間セット・ペナルティリセット
+        user_quiz_progress[user_id] = {"count": 0, "start_time": time.time(), "penalty_time": 0}
 
         line_bot_api.reply_message(event.reply_token, TextSendMessage(text=q["text"]))
         return
@@ -370,20 +363,21 @@ def handle_message(event):
         line_bot_api.reply_message(event.reply_token, TextSendMessage(text=text))
         return
 
+    # クイズ回答処理
     if user_id in user_states:
         range_str, correct_answer = user_states[user_id]
         is_correct = (msg.lower() == correct_answer.lower())
         score = user_scores[user_id].get(correct_answer, 0)
 
-        # タイム計測処理
         progress = user_quiz_progress[user_id]
         if progress["start_time"] is None:
             progress["start_time"] = time.time()
-        elapsed = time.time() - progress["start_time"]
 
         if is_correct:
             user_scores[user_id][correct_answer] = min(4, score + 2)
             user_stats[user_id][range_str]["correct"] += 1
+            progress["count"] += 1
+            reply_msg = "正解✅"
         else:
             user_scores[user_id][correct_answer] = max(0, score - 1)
-            # 間違えたら elapsed に +10秒加
+            progress["penalty_time"] += 10  # ペナルティ10
