@@ -395,17 +395,17 @@ def handle_message(event):
             user_quiz_progress[user_id]["penalty_time"] += penalty
             response = f"不正解！ +{penalty}秒ペナルティ"
 
-        reply_msg = response
+        reply_msg = response  # まず reply_msg を初期化
 
-# カウント進める
+        # ✅ 正誤問わずカウントを進める
         user_quiz_progress[user_id]["count"] += 1
         count = user_quiz_progress[user_id]["count"]
 
         elapsed_time = time.time() - user_quiz_progress[user_id]["start_time"] + user_quiz_progress[user_id]["penalty_time"]
+        response += f"\n現在の問題: {count}/10\n経過時間: {elapsed_time:.2f}秒"
 
-        reply_msg += f"\n現在の問題: {count}/10\n経過時間: {elapsed_time:.2f}秒"
-
-        if count >= 10:
+        # 10問終了判定
+        if progress["count"] >= 10:
             total_time = elapsed_time
             best_time = user_times.get(user_id, float('inf'))
             if total_time < best_time:
@@ -421,17 +421,17 @@ def handle_message(event):
             line_bot_api.reply_message(event.reply_token, TextSendMessage(text=reply_msg))
             return
 
+        # 次の問題を出題
         questions = questions_1_1000 if range_str == "1-1000" else questions_1001_1935
         next_q = choose_weighted_question(user_id, questions)
         user_states[user_id] = (range_str, next_q["answer"])
 
-        progress_text = f"\n{count+1}/10\n{elapsed_time:.2f}s"  # count+1ならばここだけ使うが、カウント済みなら count でOK
+        progress_text = f"\n{progress['count']+1}/10\n{elapsed_time:.2f}s"
 
         line_bot_api.reply_message(
             event.reply_token,
             TextSendMessage(text=reply_msg + progress_text + "\n\n" + next_q["text"])
         )
-
         return
 
     # 未知のメッセージはヘルプ案内
