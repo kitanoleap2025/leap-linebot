@@ -352,8 +352,12 @@ def handle_message(event):
         # クイズ進捗・開始時間などを初期化
         user_quiz_progress[user_id] = {"count": 0, "start_time": time.time(), "penalty_time": 0}
 
-        # ユーザーステータス初期化（正解数、出題数、ベストタイム）
-        user_stats[user_id] = {"correct": 0, "total": 0, "best_time": user_stats.get(user_id, {}).get("best_time", None)}
+        # 🔧 正解数・出題数のみ対象範囲の成績をリセット（他を壊さない）
+        if msg not in user_stats[user_id]:
+            user_stats[user_id][msg] = {"correct": 0, "total": 0}
+        else:
+            user_stats[user_id][msg]["correct"] = 0
+            user_stats[user_id][msg]["total"] = 0
 
         progress_text = "1/10\n"
         line_bot_api.reply_message(
@@ -361,7 +365,6 @@ def handle_message(event):
             TextSendMessage(text=f"{progress_text}\n{q['text']}")
         )
         return
-
 
     if msg == "成績":
         text = build_result_text(user_id)
