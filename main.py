@@ -353,9 +353,12 @@ def handle_message(event):
         user_quiz_progress[user_id] = {"count": 0, "start_time": time.time(), "penalty_time": 0}
 
         # 現在の問題数と経過時間表示（1問目はcount=0なので+1する）
-        progress_text = f"\n現在の問題: 1/10\n経過時間: 0.00秒"
+        progress_text = f"1/10"
 
-        line_bot_api.reply_message(event.reply_token, TextSendMessage(text=q["text"] + progress_text))
+        line_bot_api.reply_message(
+            event.reply_token, 
+            TextSendMessage(text=f"{progress_text}\n{q['text']}")
+        )
         return
 
 
@@ -368,31 +371,33 @@ def handle_message(event):
         text = build_grasp_text(user_id)
         line_bot_api.reply_message(event.reply_token, TextSendMessage(text=text))
         return
-
     # クイズ回答処理
     if user_id in user_states:
         range_str, correct_answer = user_states[user_id]
-        is_correct = (msg.lower() == correct_answer.lower())
-        score = user_scores[user_id].get(correct_answer, 0)
+        user_answer = msg.strip().lower()
+        
+        # 回答統計
+        if user_id not in user_stats:
+            user_stats[user_id] = {"correct": 0, "incorrect": 0}
+        if user_id not in user_quiz_progress:
+            user_quiz_progress[user_id] = {"count": 0, "start_time": None, "penalty_time": 0}
 
-        progress = user_quiz_progress[user_id]
-        if progress["start_time"] is None:
-            progress["start_time"] = time.time()
-
-        elapsed_time = time.time() - progress["start_time"] + progress["penalty_time"]
-
-        if is_correct:
-            user_scores[user_id][correct_answer] = min(4, score + 2)
-            user_stats[user_id][range_str]["correct"] += 1
-            progress["count"] += 1
-            reply_msg = "正解✅"
+        response = ""
+        if user_answer == correct_answer:
+            user_stats[user_id]["correct"] += 1
+            response = "正解！"
         else:
-            user_scores[user_id][correct_answer] = max(0, score - 1)
-            progress["penalty_time"] += 10  # 間違えたら10秒のペナルティ
-            reply_msg = "不正解❌ 10秒のペナルティが加算されました。"
+            user_stats[user_id]["incorrect"] += 1
+            penalty = 5
+            user_quiz_progress[user_id]["penalty_time"] += penalty
+            response = f"不正解！ +{penalty}秒ペナルティ"
 
-        user_stats[user_id][range_str]["total"] += 1
-        async_save_user_data(user_id)
+        # ✅ 正誤問わずカウントを進める
+        user_quiz_progress[user_id]["count"] += 1
+        count = user_quiz_progress[user_id]["count"]
+
+        elapsed_time = time.time() - user_quiz_progress[user_id]["start_time"] + user_quiz_progress[user_id]["penalty_time"]
+        response += f"\n現在の問題: {count}/10\n経過時間: {elapsed_time:.2f}秒"
 
         # 10問終了判定
         if progress["count"] >= 10:
