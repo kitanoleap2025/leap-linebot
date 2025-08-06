@@ -383,6 +383,8 @@ def handle_message(event):
         if user_id not in user_quiz_progress:
             user_quiz_progress[user_id] = {"count": 0, "start_time": None, "penalty_time": 0}
 
+        progress = user_quiz_progress[user_id]
+
         response = ""
         if user_answer == correct_answer:
             user_stats[user_id]["correct"] += 1
