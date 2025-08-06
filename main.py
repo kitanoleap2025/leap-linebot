@@ -405,7 +405,8 @@ def handle_message(event):
         count = user_quiz_progress[user_id]["count"]
 
         elapsed_time = time.time() - user_quiz_progress[user_id]["start_time"] + user_quiz_progress[user_id]["penalty_time"]
-        response += f"\n現在の問題: {count + 1}/10\n経過時間: {elapsed_time:.2f}秒"
+        if count < 10:
+            response += f"\n現在の問題: {count + 1}/10\n経過時間: {elapsed_time:.2f}秒"
 
         if count >= 10:
                 total_time = elapsed_time
