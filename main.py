@@ -169,9 +169,8 @@ def build_result_text(user_id):
     best_time = user_times.get(user_id, float('inf'))
     time_text = f"{best_time:.2f}秒" if best_time != float('inf') else "未記録"
 
-    text += "Total Rating\n"
-    text += f"{total_rate}\n\n"
-    text += f"ベストクリアタイム: {time_text}\n\n"
+    text += f"Total Rating:{total_rate}\n\n"
+    text += f"Best Time:{time_text}\n\n"
     text += "名前変更は「@(新しい名前)」で送信してください。"
     return text.strip()
 
@@ -274,7 +273,7 @@ def build_ranking_text(user_id=None):
             diff = above_rate - my_rate
             text += f"↑次の順位の {above_name} まで {diff} レート差\n"
 
-    text += "\n⏱️ Best Time Ranking ⏱️\n"
+    text += "\n⏱️ Time Ranking ⏱️\n"
     user_index_time = None
     for i, (uid, name, t) in enumerate(time_ranking, 1):
         if i <= 10:
@@ -389,8 +388,8 @@ def handle_message(event):
             reply_msg = "正解✅"
         else:
             user_scores[user_id][correct_answer] = max(0, score - 1)
-            progress["penalty_time"] += 3  # 間違えたら3秒のペナルティ
-            reply_msg = "不正解❌ 3秒のペナルティが加算されました。"
+            progress["penalty_time"] += 10  # 間違えたら10秒のペナルティ
+            reply_msg = "不正解❌ 10秒のペナルティが加算されました。"
 
         user_stats[user_id][range_str]["total"] += 1
         async_save_user_data(user_id)
@@ -417,7 +416,7 @@ def handle_message(event):
         next_q = choose_weighted_question(user_id, questions)
         user_states[user_id] = (range_str, next_q["answer"])
 
-        progress_text = f"\n現在の問題: {progress['count']+1}/10\n経過時間: {elapsed_time:.2f}秒"
+        progress_text = f"\n{progress['count']+1}/10\n{elapsed_time:.2f}s"
 
         line_bot_api.reply_message(
             event.reply_token,
