@@ -1,11 +1,7 @@
 from flask import Flask, request, abort
-from linebot.v3.messaging import MessagingApi
-from linebot.v3.messaging.models import TextSendMessage as V3TextSendMessage
 from linebot.v3.webhook import WebhookHandler
-from linebot.v3.webhook.models import MessageEvent as V3MessageEvent
-from linebot.v3.webhook.models import TextMessage as V3TextMessageEvent
-from linebot.v3.webhook.exceptions import InvalidSignatureError
-
+from linebot.v3.messaging import MessagingApi, TextSendMessage
+from linebot.exceptions import InvalidSignatureError
 import os
 import random
 import json
@@ -18,6 +14,7 @@ from firebase_admin import credentials, firestore
 load_dotenv()
 app = Flask(__name__)
 
+# Firebase初期化
 cred_json = os.getenv("FIREBASE_CREDENTIALS")
 cred_dict = json.loads(cred_json)
 cred_dict["private_key"] = cred_dict["private_key"].replace("\\n", "\n")
@@ -25,9 +22,11 @@ cred = credentials.Certificate(cred_dict)
 firebase_admin.initialize_app(cred)
 db = firestore.client()
 
-line_bot_api = MessagingApi(channel_access_token=os.getenv("LINE_CHANNEL_ACCESS_TOKEN"))
-handler = WebhookHandler(channel_secret=os.getenv("LINE_CHANNEL_SECRET"))
+# LINE SDK v3 初期化
+messaging_api = MessagingApi(channel_access_token=os.getenv("LINE_CHANNEL_ACCESS_TOKEN"))
+handler = WebhookHandler(os.getenv("LINE_CHANNEL_SECRET"))
 
+# ユーザーデータ管理
 user_states = {}  # user_id: (range_str, correct_answer)
 user_scores = defaultdict(dict)
 user_stats = defaultdict(lambda: {
@@ -117,27 +116,27 @@ def build_result_text(user_id):
 
         rate = round((total_score / count) * 2500)
         if rate >= 9900:
-            rank = "S🤯"      
+            rank = "S🤯"
         elif rate >= 9000:
-            rank = "A+🤩"     
+            rank = "A+🤩"
         elif rate >= 8000:
             rank = "A😎"
         elif rate >= 7000:
-            rank = "A-😍"      
+            rank = "A-😍"
         elif rate >= 6000:
-            rank = "B+🤑"      
+            rank = "B+🤑"
         elif rate >= 5000:
-            rank = "B🤠"      
+            rank = "B🤠"
         elif rate >= 4000:
-            rank = "B-😇"      
+            rank = "B-😇"
         elif rate >= 3000:
-            rank = "C+😤"      
+            rank = "C+😤"
         elif rate >= 2000:
-            rank = "C🤫"    
+            rank = "C🤫"
         elif rate >= 1000:
-            rank = "C-😶‍🌫️"    
+            rank = "C-😶‍🌫️"
         else:
-            rank = "D🫠"       
+            rank = "D🫠"
 
         text += (
             f"[{title}]\n"
@@ -145,6 +144,7 @@ def build_result_text(user_id):
             f"Rating:{rate}\n"
             f"Rank:{rank}\n\n"
         )
+    # 総合レート計算と表示
     rate1 = 0
     rate2 = 0
     c1 = len(questions_1_1000)
@@ -196,6 +196,7 @@ def choose_weighted_question(user_id, questions):
     user_recent_questions[user_id].append(chosen["answer"])
     return chosen
 
+# 雑学メッセージ例（うざいサンタ）
 trivia_messages = [
     "🎅低浮上サンタ\nあなたが今電車の中なら、外の景色を見てみて下さい。",
     "🎅低浮上サンタ\n最高のSランクに到達するためには、少なくとも2000問解く必要があります。",
@@ -247,8 +248,8 @@ def callback():
         abort(400)
     return "OK"
 
-@handler.add(V3MessageEvent, message=V3TextMessageEvent)
-def handle_message(event: V3MessageEvent):
+@handler.add("message")
+def handle_message(event):
     user_id = event.source.user_id
     msg = event.message.text.strip()
 
@@ -257,60 +258,43 @@ def handle_message(event: V3MessageEvent):
     if user_id not in user_answer_counts:
         user_answer_counts[user_id] = 0
 
+    # 名前変更コマンド @(新しい名前)
     if msg.startswith("@") and len(msg) > 1:
         new_name = msg[1:].strip()
         if new_name:
-            if len(new_name) > 20:
-                line_bot_api.reply_message(
-                    reply_token=event.reply_token,
-                    messages=[V3TextSendMessage(text="名前は20文字以内でお願いします。")]
-                )
-                return
             user_names[user_id] = new_name
             async_save_user_data(user_id)
-            line_bot_api.reply_message(
-                reply_token=event.reply_token,
-                messages=[V3TextSendMessage(text=f"名前を「{new_name}」に変更しました！")]
+            messaging_api.reply_message(
+                event.reply_token,
+                messages=[TextSendMessage(text=f"名前を「{new_name}」に変更しました！")]
             )
         else:
-            line_bot_api.reply_message(
-                reply_token=event.reply_token,
-                messages=[V3TextSendMessage(text="名前が空白です。もう一度「@(新しい名前)」で送ってください。")]
+            messaging_api.reply_message(
+                event.reply_token,
+                messages=[TextSendMessage(text="名前が空白です。もう一度「@(新しい名前)」で送ってください。")]
             )
         return
 
     if msg == "ランキング":
         text = build_ranking_text()
-        line_bot_api.reply_message(
-            reply_token=event.reply_token,
-            messages=[V3TextSendMessage(text=text)]
-        )
+        messaging_api.reply_message(event.reply_token, messages=[TextSendMessage(text=text)])
         return
 
     if msg in ["1-1000", "1001-1935"]:
         questions = questions_1_1000 if msg == "1-1000" else questions_1001_1935
         q = choose_weighted_question(user_id, questions)
         user_states[user_id] = (msg, q["answer"])
-        line_bot_api.reply_message(
-            reply_token=event.reply_token,
-            messages=[V3TextSendMessage(text=q["text"])]
-        )
+        messaging_api.reply_message(event.reply_token, messages=[TextSendMessage(text=q["text"])])
         return
 
     if msg == "成績":
         text = build_result_text(user_id)
-        line_bot_api.reply_message(
-            reply_token=event.reply_token,
-            messages=[V3TextSendMessage(text=text)]
-        )
+        messaging_api.reply_message(event.reply_token, messages=[TextSendMessage(text=text)])
         return
 
     if msg == "把握度":
         text = build_grasp_text(user_id)
-        line_bot_api.reply_message(
-            reply_token=event.reply_token,
-            messages=[V3TextSendMessage(text=text)]
-        )
+        messaging_api.reply_message(event.reply_token, messages=[TextSendMessage(text=text)])
         return
 
     if user_id in user_states:
@@ -339,27 +323,27 @@ def handle_message(event: V3MessageEvent):
 
         if user_answer_counts[user_id] % 10 == 0:
             trivia = random.choice(trivia_messages)
-            line_bot_api.reply_message(
-                reply_token=event.reply_token,
+            messaging_api.reply_message(
+                event.reply_token,
                 messages=[
-                    V3TextSendMessage(text=feedback),
-                    V3TextSendMessage(text=trivia),
-                    V3TextSendMessage(text=next_q["text"])
+                    TextSendMessage(text=feedback),
+                    TextSendMessage(text=trivia),
+                    TextSendMessage(text=next_q["text"])
                 ],
             )
         else:
-            line_bot_api.reply_message(
-                reply_token=event.reply_token,
+            messaging_api.reply_message(
+                event.reply_token,
                 messages=[
-                    V3TextSendMessage(text=feedback),
-                    V3TextSendMessage(text=next_q["text"])
+                    TextSendMessage(text=feedback),
+                    TextSendMessage(text=next_q["text"])
                 ],
             )
         return
 
-    line_bot_api.reply_message(
-        reply_token=event.reply_token,
-        messages=[V3TextSendMessage(text="1-1000 または 1001-1935 を押してね。")]
+    messaging_api.reply_message(
+        event.reply_token,
+        messages=[TextSendMessage(text="1-1000 または 1001-1935 を押してね。")]
     )
 
 if __name__ == "__main__":
