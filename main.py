@@ -428,8 +428,6 @@ def handle_message(event):
         next_q = choose_weighted_question(user_id, questions)
         user_states[user_id] = (range_str, next_q["answer"])
 
-        progress_text = f"\n{count + 1}/10\n{elapsed_time:.2f}s"
-
         line_bot_api.reply_message(
                 event.reply_token,
                 TextSendMessage(text=response + progress_text + "\n\n" + next_q["text"])
