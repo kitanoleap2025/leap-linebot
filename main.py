@@ -445,7 +445,7 @@ def build_ranking_text(user_id=None):
         my_name = ranking[user_index][1]
         my_rate = ranking[user_index][2]
         text += "\n---------------------\n"
-        text += f"あなたの順位: {my_rank}位 - {my_name} ({my_rate})\n"
+        text += f"あなたの順位: {my_rank}位\n{my_name} ({my_rate})\n"
 
         if my_rank > 10:
             above_rate = ranking[user_index - 1][2]
