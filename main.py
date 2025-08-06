@@ -381,4 +381,24 @@ def handle_message(event):
         else:
             user_scores[user_id][correct_answer] = max(0, score - 1)
             progress["penalty_time"] += 10  # ペナルティ10秒
-            reply_msg = f"あ"
+            reply_msg = f"残念❌ 答え: {correct_answer}"
+
+        # 10問終わったかどうか確認
+        if progress["count"] >= 10:
+            total_time = time.time() - progress["start_time"] + progress["penalty_time"]
+            user_times[user_id][range_str].append(total_time)
+            async_save_user_data(user_id)
+            reply_msg += f"\n10問終了！記録: {round(total_time, 2)} 秒"
+            user_states.pop(user_id, None)
+            user_quiz_progress.pop(user_id, None)
+        else:
+            questions = questions_1_1000 if range_str == "1-1000" else questions_1001_1935
+            q = choose_weighted_question(user_id, questions)
+            user_states[user_id] = (range_str, q["answer"])
+            reply_msg += f"\n\n次の問題:\n{q['text']}"
+
+        line_bot_api.reply_message(event.reply_token, TextSendMessage(text=reply_msg))
+        return
+
+if __name__ == "__main__":
+    app.run()
