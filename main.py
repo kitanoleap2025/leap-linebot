@@ -423,16 +423,18 @@ def handle_message(event):
                 line_bot_api.reply_message(event.reply_token, TextSendMessage(text=response))
                 return
 
-        # 次の問題出題
+        # 次の問題を出題
         questions = questions_1_1000 if range_str == "1-1000" else questions_1001_1935
         next_q = choose_weighted_question(user_id, questions)
         user_states[user_id] = (range_str, next_q["answer"])
 
+        # ✅ progress_text を使わず、直接テキスト構成
         line_bot_api.reply_message(
-                event.reply_token,
-                TextSendMessage(text=response + progress_text + "\n\n" + next_q["text"])
+            event.reply_token,
+            TextSendMessage(text=response + "\n\n" + next_q["text"])
         )
         return
+
 
     # 未知のメッセージはヘルプ案内
     help_text = (
