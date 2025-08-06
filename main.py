@@ -480,14 +480,16 @@ def handle_message(event):
     # 名前変更コマンド
     if msg.startswith("@"):
         new_name = msg[1:].strip()
-        if new_name:
-            user_names[user_id] = new_name
-            async_save_user_data(user_id)
-            line_bot_api.reply_message(event.reply_token, TextSendMessage(text=f"名前を「{new_name}」に変更しました。"))
-            return
-        else:
+        if not new_name:
             line_bot_api.reply_message(event.reply_token, TextSendMessage(text="名前が空です。"))
             return
+        if len(new_name) > 20:
+            line_bot_api.reply_message(event.reply_token, TextSendMessage(text="名前は20文字以内で入力してください。"))
+            return
+        user_names[user_id] = new_name
+        async_save_user_data(user_id)
+        line_bot_api.reply_message(event.reply_token, TextSendMessage(text=f"名前を「{new_name}」に変更しました。"))
+        return
 
     if msg == "ランキング":
         text = build_ranking_text(user_id)
