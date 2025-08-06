@@ -395,6 +395,8 @@ def handle_message(event):
             user_quiz_progress[user_id]["penalty_time"] += penalty
             response = f"不正解！ +{penalty}秒ペナルティ"
 
+        reply_msg = response  # まず reply_msg を初期化
+
         # ✅ 正誤問わずカウントを進める
         user_quiz_progress[user_id]["count"] += 1
         count = user_quiz_progress[user_id]["count"]
