@@ -346,18 +346,18 @@ def handle_message(event):
         return
 
     if msg in ["1-1000", "1001-1935"]:
-    questions = questions_1_1000 if msg == "1-1000" else questions_1001_1935
-    q = choose_weighted_question(user_id, questions)
-    user_states[user_id] = (msg, q["answer"])
+        questions = questions_1_1000 if msg == "1-1000" else questions_1001_1935
+        q = choose_weighted_question(user_id, questions)
+        user_states[user_id] = (msg, q["answer"])
 
-    # 10問クイズ開始時に進捗リセット・開始時間セット・ペナルティリセット
-    user_quiz_progress[user_id] = {"count": 0, "start_time": time.time(), "penalty_time": 0}
+        # 10問クイズ開始時に進捗リセット・開始時間セット・ペナルティリセット
+        user_quiz_progress[user_id] = {"count": 0, "start_time": time.time(), "penalty_time": 0}
 
-    # 現在の問題数と経過時間表示（1問目はcount=0なので+1する）
-    progress_text = f"\n現在の問題: 1/10\n経過時間: 0.00秒"
+        # 現在の問題数と経過時間表示（1問目はcount=0なので+1する）
+        progress_text = f"\n現在の問題: 1/10\n経過時間: 0.00秒"
 
-    line_bot_api.reply_message(event.reply_token, TextSendMessage(text=q["text"] + progress_text))
-    return
+        line_bot_api.reply_message(event.reply_token, TextSendMessage(text=q["text"] + progress_text))
+        return
 
 
     if msg == "成績":
