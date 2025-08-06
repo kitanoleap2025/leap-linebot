@@ -380,4 +380,5 @@ def handle_message(event):
             reply_msg = "正解✅"
         else:
             user_scores[user_id][correct_answer] = max(0, score - 1)
-            progress["penalty_time"] += 10  # ペナルティ10
+            progress["penalty_time"] += 10  # ペナルティ10秒
+            reply_msg = f"
