@@ -411,80 +411,52 @@ trivia_messages = [
     "🎅低浮上サンタ\n私は10回に1回出てきます。",
 ]
 
-def build_ranking_text():
-    # Firestoreから全ユーザー取得してランキングを作成
+def build_ranking_text(user_id=None):
     docs = db.collection("users").stream()
     ranking = []
     for doc in docs:
         data = doc.to_dict()
         name = data.get("name", DEFAULT_NAME)
         scores = data.get("scores", {})
-        total_score1 = 0
-        total_score2 = 0
+
+        total_score1 = sum(scores.get(q["answer"], 0) for q in questions_1_1000)
+        total_score2 = sum(scores.get(q["answer"], 0) for q in questions_1001_1935)
+
         c1 = len(questions_1_1000)
         c2 = len(questions_1001_1935)
-        for q in questions_1_1000:
-            total_score1 += scores.get(q["answer"], 0)
-        for q in questions_1001_1935:
-            total_score2 += scores.get(q["answer"], 0)
-        rate1 = round((total_score1 / c1) * 2500) if c1 > 0 else 0
-        rate2 = round((total_score2 / c2) * 2500) if c2 > 0 else 0
+        rate1 = round((total_score1 / c1) * 2500) if c1 else 0
+        rate2 = round((total_score2 / c2) * 2500) if c2 else 0
         total_rate = round((rate1 + rate2) / 2)
-        ranking.append((name, total_rate))
-    ranking.sort(key=lambda x: x[1], reverse=True)
-    text = "Rating Ranking\n"
-    for i, (name, rate) in enumerate(ranking[:10], 1):
-        text += f"{i}. {name} - {rate}\n"
-    if not ranking:
-        text += "まだランキングデータがありません。"
-    return text
 
-@app.route("/callback", methods=["POST"])
-def callback():
-    signature = request.headers.get("X-Line-Signature", "")
-    body = request.get_data(as_text=True)
-    try:
-        handler.handle(body, signature)
-    except InvalidSignatureError:
-        abort(400)
-    return "OK"
+        ranking.append((doc.id, name, total_rate))
 
-@handler.add(MessageEvent, message=TextMessage)
-def handle_message(event):
-    user_id = event.source.user_id
-    msg = event.message.text.strip()
+    ranking.sort(key=lambda x: x[2], reverse=True)
 
-    if user_id not in user_scores:
-        load_user_data(user_id)
-    if user_id not in user_answer_counts:
-        user_answer_counts[user_id] = 0
+    text = "\n🏆 Rating Ranking 🏆\n"
+    user_index = None
+    for i, (uid, name, rate) in enumerate(ranking):
+        if i < 10:
+            text += f"{i+1}. {name} - {rate}\n"
+        if user_id and uid == user_id:
+            user_index = i
 
-    # 名前変更コマンド @(新しい名前)
-    if msg.startswith("@") and len(msg) > 1:
-        new_name = msg[1:].strip()
-        if not new_name:
-            line_bot_api.reply_message(
-                event.reply_token,
-                TextSendMessage(text="名前が空白です。もう一度「@(新しい名前)」で送ってください。")
-            )
-            return
-        if len(new_name) > 20:
-            line_bot_api.reply_message(
-                event.reply_token,
-                TextSendMessage(text="名前は20文字以内にしてください。")
-            )
-            return
-        user_names[user_id] = new_name
-        async_save_user_data(user_id)
-        line_bot_api.reply_message(
-            event.reply_token,
-            TextSendMessage(text=f"名前を「{new_name}」に変更しました！")
-        )
-        return
+    if user_index is not None:
+        my_rank = user_index + 1
+        my_name = ranking[user_index][1]
+        my_rate = ranking[user_index][2]
+        text += "\n---------------------\n"
+        text += f"あなたの順位: {my_rank}位 - {my_name} ({my_rate})\n"
 
+        if my_rank > 10:
+            above_rate = ranking[user_index - 1][2]
+            diff = above_rate - my_rate
+            text += f"↑次の順位まで {diff} レート差\n"
 
+    return text.strip()
+
+# 🔽 ランキング呼び出し部分も変更（user_idを渡す）
     if msg == "ランキング":
-        text = build_ranking_text()
+        text = build_ranking_text(user_id)
         line_bot_api.reply_message(event.reply_token, TextSendMessage(text=text))
         return
 
