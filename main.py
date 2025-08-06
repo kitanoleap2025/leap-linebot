@@ -432,7 +432,7 @@ def build_ranking_text(user_id=None):
     text = "\n🏆 Rating Ranking 🏆\n"
     user_index = None
     for i, (uid, name, rate) in enumerate(ranking, 1):
-        if i <= 10:
+        if i <= 3:
             text += f"{i}. {name} - {rate}\n"
         if user_id and uid == user_id:
             user_index = i - 1
@@ -444,7 +444,7 @@ def build_ranking_text(user_id=None):
         text += "\n---------------------\n"
         text += f"あなたの順位: {my_rank}位  {my_rate}\n"
 
-        if my_rank <= 10:
+        if my_rank <= 3:
             text += "あなたは表彰台に乗っています！\n"
         else:
             above_name = ranking[user_index - 1][1]
