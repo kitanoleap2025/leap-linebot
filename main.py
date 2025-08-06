@@ -299,7 +299,7 @@ def score_to_weight(score):
 
 def build_result_text(user_id):
     name = user_names.get(user_id, DEFAULT_NAME)
-    text = f"""{name}"["{total_rate}"]"\n\n"""
+    text = f"{name}\n\n"
     for title, questions in [("1-1000", questions_1_1000), ("1001-1935", questions_1001_1935)]:
         scores = user_scores.get(user_id, {})
         relevant_answers = [q["answer"] for q in questions]
