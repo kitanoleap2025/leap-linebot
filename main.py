@@ -474,6 +474,7 @@ def handle_message(event):
             TextSendMessage(text="名前は20文字以内にしてください。")
         )
         return
+    # ここまで通ればOKなので名前変更処理
     user_names[user_id] = new_name
     async_save_user_data(user_id)
     line_bot_api.reply_message(
@@ -481,6 +482,7 @@ def handle_message(event):
         TextSendMessage(text=f"名前を「{new_name}」に変更しました！")
     )
     return
+
 
     if msg == "ランキング":
         text = build_ranking_text()
