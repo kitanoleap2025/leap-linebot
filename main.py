@@ -431,11 +431,11 @@ def build_ranking_text(user_id=None):
 
     text = "\n🏆 Rating Ranking 🏆\n"
     user_index = None
-    for i, (uid, name, rate) in enumerate(ranking):
-        if i < 10:
-            text += f"{rate}  {name}\n"
+    for i, (uid, name, rate) in enumerate(ranking, 1):
+        if i <= 10:
+            text += f"{i}. {name} - {rate}\n"
         if user_id and uid == user_id:
-            user_index = i
+            user_index = i - 1
 
     if user_index is not None:
         my_rank = user_index + 1
