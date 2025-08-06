@@ -345,22 +345,21 @@ def handle_message(event):
         return
 
     if msg in ["1-1000", "1001-1935"]:
+        if user_id not in user_stats:
+            user_stats[user_id] = {"correct": 0, "total": 0, "best_time": None}
+
         questions = questions_1_1000 if msg == "1-1000" else questions_1001_1935
         q = choose_weighted_question(user_id, questions)
         user_states[user_id] = (msg, q["answer"])
 
-        # 10問クイズ開始時に進捗リセット・開始時間セット・ペナルティリセット
         user_quiz_progress[user_id] = {"count": 0, "start_time": time.time(), "penalty_time": 0}
 
-        # 現在の問題数と経過時間表示（1問目はcount=0なので+1する）
-        progress_text = f"1/10"
-
+        progress_text = "現在の問題: 1/10"
         line_bot_api.reply_message(
-            event.reply_token, 
+            event.reply_token,
             TextSendMessage(text=f"{progress_text}\n{q['text']}")
         )
         return
-
 
     if msg == "成績":
         text = build_result_text(user_id)
