@@ -309,8 +309,10 @@ def score_to_weight(score):
 def build_result_text(user_id):
     name = user_names.get(user_id, DEFAULT_NAME)
     text = f"{name}\n\n"
+    
+    scores = user_scores.get(user_id, {})
+
     for title, questions in [("1-1000", questions_1_1000), ("1001-1935", questions_1001_1935)]:
-        scores = user_scores.get(user_id, {})
         relevant_answers = [q["answer"] for q in questions]
         total_score = sum(scores.get(ans, 0) for ans in relevant_answers)
         count = len(relevant_answers)
@@ -319,11 +321,8 @@ def build_result_text(user_id):
         filtered_correct = stat["correct"]
         filtered_total = stat["total"]
 
-        if filtered_total == 0:
-            text += f"{title}\nNo data yet.\n\n"
-            continue
-
-        rate = round((total_score / count) * 2500)
+        # ★ No data yet を削除して、常にレートとランクを表示
+        rate = round((total_score / count) * 2500) if count > 0 else 0
         if rate >= 9900:
             rank = "S🤯"      
         elif rate >= 9000:
@@ -353,20 +352,25 @@ def build_result_text(user_id):
             f"Rating:{rate}\n"
             f"Rank:{rank}\n\n"
         )
-    rate1 = 0
-    rate2 = 0
+
+    # 合計レート計算
+    rate1 = None
+    rate2 = None
     c1 = len(questions_1_1000)
     c2 = len(questions_1001_1935)
-    if c1 > 0:
-        scores1 = user_scores.get(user_id, {})
-        total_score1 = sum(scores1.get(q["answer"], 0) for q in questions_1_1000)
-        rate1 = round((total_score1 / c1) * 2500)
-    if c2 > 0:
-        scores2 = user_scores.get(user_id, {})
-        total_score2 = sum(scores2.get(q["answer"], 0) for q in questions_1001_1935)
-        rate2 = round((total_score2 / c2) * 2500)
-    total_rate = round((rate1 + rate2) / 2)
 
+    if c1 > 0:
+        total_score1 = sum(scores.get(q["answer"], 0) for q in questions_1_1000)
+        rate1 = round((total_score1 / c1) * 2500)
+
+    if c2 > 0:
+        total_score2 = sum(scores.get(q["answer"], 0) for q in questions_1001_1935)
+        rate2 = round((total_score2 / c2) * 2500)
+
+    valid_rates = [r for r in [rate1, rate2] if r is not None]
+    total_rate = round(sum(valid_rates) / len(valid_rates)) if valid_rates else 0
+
+    # ベストタイム
     best_time = user_times.get(user_id, float('inf'))
     time_text = f"{best_time:.2f}s" if best_time != float('inf') else "未記録"
 
