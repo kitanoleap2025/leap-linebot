@@ -397,7 +397,7 @@ def handle_message(event):
                 penalty = 10
                 user_quiz_progress[user_id]["penalty_time"] += penalty
                 correct_answer = user_states[user_id][1]  # 正解を取得
-                response = f"❌Incorrect！ +{penalty}s\nCorrect answer: {correct_answer}"
+                response = f"❌Wrong +{penalty}s\nCorrect answer: {correct_answer}"
 
         user_stats[user_id][range_str]["total"] += 1
 
