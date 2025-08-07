@@ -167,10 +167,10 @@ def build_result_text(user_id):
     total_rate = round((rate1 + rate2) / 2)
 
     best_time = user_times.get(user_id, float('inf'))
-    time_text = f"{best_time:.2f}秒" if best_time != float('inf') else "未記録"
+    time_text = f"{best_time:.2f}s" if best_time != float('inf') else "未記録"
 
-    text += f"🧭Total Rating:{total_rate}\n"
-    text += f"⏱️Best Time:{time_text}s\n\n"
+    text += f"🔥Total Rating:{total_rate}\n"
+    text += f"⏱️Best Time:{time_text}\n\n"
     text += "名前変更は「@(新しい名前)」で送信してください。"
     return text.strip()
 
@@ -408,7 +408,7 @@ def handle_message(event):
                 if total_time < best_time:
                         user_times[user_id] = total_time
                         async_save_user_data(user_id)
-                        response += f"\n🎉おめでとう！ベストタイム更新: {total_time:.2f}秒"
+                        response += f"\n🎉おめでとう！ベストタイム更新"
 
                 response += f"\n\nFINISH！\nTime: {total_time:.2f}秒"
                 response += "\n「ランキング」でランキング表示、「1-1000」か「1001-1935」で新しいクイズ開始。"
