@@ -254,7 +254,7 @@ def build_ranking_text(user_id=None):
     text = "\n🏆 Rating Ranking 🏆\n"
     user_index_rate = None
     for i, (uid, name, rate) in enumerate(rating_ranking, 1):
-        if i <= 10:
+        if i <= 3:
             text += f"{i}. {name} - {rate}\n"
         if user_id and uid == user_id:
             user_index_rate = i - 1
@@ -267,7 +267,7 @@ def build_ranking_text(user_id=None):
         text += f"あなたの順位: {my_rank}位  {my_rate}\n"
         if my_rank <= 3:
             text += "あなたは表彰台に乗っています！\n"
-        elif my_rank > 1:
+        elif my_rank > 3:
             above_name = rating_ranking[user_index_rate - 1][1]
             above_rate = rating_ranking[user_index_rate - 1][2]
             diff = above_rate - my_rate
@@ -276,7 +276,7 @@ def build_ranking_text(user_id=None):
     text += "\n⏱️ Time Ranking ⏱️\n"
     user_index_time = None
     for i, (uid, name, t) in enumerate(time_ranking, 1):
-        if i <= 10:
+        if i <= 3:
             if t == float('inf'):
                 time_display = "未記録"
             else:
@@ -294,7 +294,7 @@ def build_ranking_text(user_id=None):
         text += f"あなたの順位: {my_rank}位  {time_display}\n"
         if my_rank <= 3:
             text += "あなたは表彰台に乗っています！\n"
-        elif my_rank > 1 and my_time != float('inf'):
+        elif my_rank > 3 and my_time != float('inf'):
             above_name = time_ranking[user_index_time - 1][1]
             above_time = time_ranking[user_index_time - 1][2]
             diff = above_time - my_time
@@ -392,7 +392,7 @@ def handle_message(event):
 
         if user_answer == correct_answer:
                 user_stats[user_id][range_str]["correct"] += 1
-                response = "Correct！"
+                response = "✅Correct！"
         else:
                 penalty = 10
                 user_quiz_progress[user_id]["penalty_time"] += penalty
