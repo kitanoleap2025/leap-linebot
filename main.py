@@ -148,7 +148,7 @@ def build_result_text(user_id):
 
         text += (
             f"[{title}]\n"
-            f"Correct:{filtered_correct}/Total:{filtered_total}\n"
+            #f"Correct:{filtered_correct}/Total:{filtered_total}\n"
             f"Rating:{rate}\n"
             f"Rank:{rank}\n\n"
         )
@@ -169,8 +169,8 @@ def build_result_text(user_id):
     best_time = user_times.get(user_id, float('inf'))
     time_text = f"{best_time:.2f}秒" if best_time != float('inf') else "未記録"
 
-    text += f"Total Rating:{total_rate}\n\n"
-    text += f"Best Time:{time_text}\n\n"
+    text += f"🧭Total Rating:{total_rate}\n"
+    text += f"⏱️Best Time:{time_text}s\n\n"
     text += "名前変更は「@(新しい名前)」で送信してください。"
     return text.strip()
 
