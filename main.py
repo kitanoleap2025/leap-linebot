@@ -392,11 +392,12 @@ def handle_message(event):
 
         if user_answer == correct_answer:
                 user_stats[user_id][range_str]["correct"] += 1
-                response = "正解！"
+                response = "Correct！"
         else:
                 penalty = 10
                 user_quiz_progress[user_id]["penalty_time"] += penalty
-                response = f"不正解！ +{penalty}秒ペナルティ"
+                correct_answer = user_states[user_id][1]  # 正解を取得
+                response = f"❌Incorrect！ +{penalty}s\nCorrect answer: {correct_answer}"
 
         user_stats[user_id][range_str]["total"] += 1
 
@@ -406,7 +407,7 @@ def handle_message(event):
 
         elapsed_time = time.time() - user_quiz_progress[user_id]["start_time"] + user_quiz_progress[user_id]["penalty_time"]
         if count < 10:
-            response += f"\n現在の問題: {count + 1}/10\n経過時間: {elapsed_time:.2f}秒"
+            response += f"\n{count + 1}/10\n{elapsed_time:.2f}s"
 
         if count >= 10:
                 total_time = elapsed_time
@@ -416,7 +417,7 @@ def handle_message(event):
                         async_save_user_data(user_id)
                         response += f"\n🎉おめでとう！ベストタイム更新: {total_time:.2f}秒"
 
-                response += f"\n\n10問終了！\n合計時間: {total_time:.2f}秒"
+                response += f"\n\nFINISH！\nTime: {total_time:.2f}秒"
                 response += "\n「ランキング」でランキング表示、「1-1000」か「1001-1935」で新しいクイズ開始。"
                 user_states.pop(user_id, None)
                 user_quiz_progress.pop(user_id, None)
