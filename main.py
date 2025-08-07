@@ -349,19 +349,12 @@ def handle_message(event):
         q = choose_weighted_question(user_id, questions)
         user_states[user_id] = (msg, q["answer"])
 
-        # クイズ進捗・開始時間などを初期化
+        # クイズ進捗・開始時間などを初期化（リセットはしない）
         user_quiz_progress[user_id] = {"count": 0, "start_time": time.time(), "penalty_time": 0}
-
-        # 🔧 正解数・出題数のみ対象範囲の成績をリセット（他を壊さない）
-        if msg not in user_stats[user_id]:
-            user_stats[user_id][msg] = {"correct": 0, "total": 0}
-        else:
-            user_stats[user_id][msg]["correct"] = 0
-            user_stats[user_id][msg]["total"] = 0
 
         progress_text = "1/10\n"
         line_bot_api.reply_message(
-            event.reply_token, 
+            event.reply_token,
             TextSendMessage(text=f"{progress_text}\n{q['text']}")
         )
         return
