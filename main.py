@@ -10,12 +10,10 @@ from dotenv import load_dotenv
 from collections import defaultdict, deque
 import firebase_admin
 from firebase_admin import credentials, firestore
-import time
 
 load_dotenv()
 app = Flask(__name__)
 
-# Firebase初期化
 cred_json = os.getenv("FIREBASE_CREDENTIALS")
 cred_dict = json.loads(cred_json)
 cred_dict["private_key"] = cred_dict["private_key"].replace("\\n", "\n")
@@ -33,8 +31,8 @@ user_stats = defaultdict(lambda: {
     "1001-1935": {"correct": 0, "total": 0}
 })
 user_recent_questions = defaultdict(lambda: deque(maxlen=10))
+user_answer_counts = defaultdict(int)
 user_names = {}  # user_id: name
-user_times = defaultdict(lambda: float('inf'))  # ベストタイムはユーザー単位でfloat管理
 
 DEFAULT_NAME = "名無し"
 
@@ -58,12 +56,6 @@ def load_user_data(user_id):
             user_recent_questions[user_id] = deque(recent_list, maxlen=10)
 
             user_names[user_id] = data.get("name", DEFAULT_NAME)
-
-            best_time = data.get("best_time")
-            if best_time is not None:
-                user_times[user_id] = float(best_time)
-            else:
-                user_times[user_id] = float('inf')
         else:
             user_names[user_id] = DEFAULT_NAME
     except Exception as e:
@@ -75,8 +67,7 @@ def save_user_data(user_id):
         "scores": dict(user_scores[user_id]),
         "stats": user_stats[user_id],
         "recent": list(user_recent_questions[user_id]),
-        "name": user_names.get(user_id, DEFAULT_NAME),
-        "best_time": user_times.get(user_id, float('inf'))
+        "name": user_names.get(user_id, DEFAULT_NAME)
     }
     try:
         db.collection("users").document(user_id).set(data)
@@ -86,7 +77,6 @@ def save_user_data(user_id):
 def async_save_user_data(user_id):
     threading.Thread(target=save_user_data, args=(user_id,), daemon=True).start()
 
-# ここに問題リストを入れてください
 questions_1_1000 = [
     {"text": "001 I ___ with the idea that students should not be given too much homework.\n生徒に宿題を与えすぎるべきではないという考えに賛成です.",
      "answer": "agree"},
@@ -291,7 +281,7 @@ questions_1_1000 = [
     {"text": "782 \n熟女",
      "answer": "mature"},
 
-    # 他の問題...
+    # ここに他の問題を追加
 ]
 questions_1001_1935 = [
     {"text": "1001 The ___ made a critical discovery in the lab.\nその科学者は研究室で重大な発見をした。",
@@ -309,10 +299,8 @@ def score_to_weight(score):
 def build_result_text(user_id):
     name = user_names.get(user_id, DEFAULT_NAME)
     text = f"{name}\n\n"
-    
-    scores = user_scores.get(user_id, {})
-
     for title, questions in [("1-1000", questions_1_1000), ("1001-1935", questions_1001_1935)]:
+        scores = user_scores.get(user_id, {})
         relevant_answers = [q["answer"] for q in questions]
         total_score = sum(scores.get(ans, 0) for ans in relevant_answers)
         count = len(relevant_answers)
@@ -321,8 +309,11 @@ def build_result_text(user_id):
         filtered_correct = stat["correct"]
         filtered_total = stat["total"]
 
-        # ★ No data yet を削除して、常にレートとランクを表示
-        rate = round((total_score / count) * 2500) if count > 0 else 0
+        if filtered_total == 0:
+            text += f"{title}\nNo data yet.\n\n"
+            continue
+
+        rate = round((total_score / count) * 2500)
         if rate >= 9900:
             rank = "S🤯"      
         elif rate >= 9000:
@@ -352,30 +343,21 @@ def build_result_text(user_id):
             f"Rating:{rate}\n"
             f"Rank:{rank}\n\n"
         )
-
-    # 合計レート計算
-    rate1 = None
-    rate2 = None
+    rate1 = 0
+    rate2 = 0
     c1 = len(questions_1_1000)
     c2 = len(questions_1001_1935)
-
     if c1 > 0:
-        total_score1 = sum(scores.get(q["answer"], 0) for q in questions_1_1000)
+        scores1 = user_scores.get(user_id, {})
+        total_score1 = sum(scores1.get(q["answer"], 0) for q in questions_1_1000)
         rate1 = round((total_score1 / c1) * 2500)
-
     if c2 > 0:
-        total_score2 = sum(scores.get(q["answer"], 0) for q in questions_1001_1935)
+        scores2 = user_scores.get(user_id, {})
+        total_score2 = sum(scores2.get(q["answer"], 0) for q in questions_1001_1935)
         rate2 = round((total_score2 / c2) * 2500)
-
-    valid_rates = [r for r in [rate1, rate2] if r is not None]
-    total_rate = round(sum(valid_rates) / len(valid_rates)) if valid_rates else 0
-
-    # ベストタイム
-    best_time = user_times.get(user_id, float('inf'))
-    time_text = f"{best_time:.2f}s" if best_time != float('inf') else "未記録"
-
-    text += f"🔥Total Rating:{total_rate}\n"
-    text += f"⏱️Best Time:{time_text}\n\n"
+    total_rate = round((rate1 + rate2) / 2)
+    text += "Total Rating\n"
+    text += f"{total_rate}\n\n"
     text += "名前変更は「@(新しい名前)」で送信してください。"
     return text.strip()
 
@@ -428,8 +410,7 @@ trivia_messages = [
 
 def build_ranking_text(user_id=None):
     docs = db.collection("users").stream()
-    rating_ranking = []
-    time_ranking = []
+    ranking = []
     for doc in docs:
         data = doc.to_dict()
         name = data.get("name", DEFAULT_NAME)
@@ -444,71 +425,37 @@ def build_ranking_text(user_id=None):
         rate2 = round((total_score2 / c2) * 2500) if c2 else 0
         total_rate = round((rate1 + rate2) / 2)
 
-        best_time = data.get("best_time")
-        if best_time is None:
-            best_time_val = float('inf')
-        else:
-            best_time_val = float(best_time)
+        ranking.append((doc.id, name, total_rate))
 
-        rating_ranking.append((doc.id, name, total_rate))
-        time_ranking.append((doc.id, name, best_time_val))
-
-    rating_ranking.sort(key=lambda x: x[2], reverse=True)
-    time_ranking.sort(key=lambda x: x[2])  # タイムは小さい方が良い
+    ranking.sort(key=lambda x: x[2], reverse=True)
 
     text = "\n🏆 Rating Ranking 🏆\n"
-    user_index_rate = None
-    for i, (uid, name, rate) in enumerate(rating_ranking, 1):
+    user_index = None
+    for i, (uid, name, rate) in enumerate(ranking, 1):
         if i <= 3:
             text += f"{i}. {name} - {rate}\n"
         if user_id and uid == user_id:
-            user_index_rate = i - 1
+            user_index = i - 1
 
-    if user_index_rate is not None:
-        my_rank = user_index_rate + 1
-        my_name = rating_ranking[user_index_rate][1]
-        my_rate = rating_ranking[user_index_rate][2]
+    if user_index is not None:
+        my_rank = user_index + 1
+        my_name = ranking[user_index][1]
+        my_rate = ranking[user_index][2]
         text += "\n---------------------\n"
         text += f"あなたの順位: {my_rank}位  {my_rate}\n"
+
         if my_rank <= 3:
             text += "あなたは表彰台に乗っています！\n"
-        elif my_rank > 3:
-            above_name = rating_ranking[user_index_rate - 1][1]
-            above_rate = rating_ranking[user_index_rate - 1][2]
+        else:
+            above_name = ranking[user_index - 1][1]
+            above_rate = ranking[user_index - 1][2]
             diff = above_rate - my_rate
             text += f"↑次の順位の {above_name} まで {diff} レート差\n"
 
-    text += "\n⏱️ Time Ranking ⏱️\n"
-    user_index_time = None
-    for i, (uid, name, t) in enumerate(time_ranking, 1):
-        if i <= 3:
-            if t == float('inf'):
-                time_display = "未記録"
-            else:
-                time_display = f"{t:.2f}秒"
-            text += f"{i}. {name} - {time_display}\n"
-        if user_id and uid == user_id:
-            user_index_time = i - 1
-
-    if user_index_time is not None:
-        my_rank = user_index_time + 1
-        my_name = time_ranking[user_index_time][1]
-        my_time = time_ranking[user_index_time][2]
-        text += "\n---------------------\n"
-        time_display = "未記録" if my_time == float('inf') else f"{my_time:.2f}秒"
-        text += f"あなたの順位: {my_rank}位  {time_display}\n"
-        if my_rank <= 3:
-            text += "あなたは表彰台に乗っています！\n"
-        elif my_rank > 3 and my_time != float('inf'):
-            above_name = time_ranking[user_index_time - 1][1]
-            above_time = time_ranking[user_index_time - 1][2]
-            diff = above_time - my_time
-            text += f"↑次の順位の {above_name} まで {diff:.2f}秒差\n"
-
     return text.strip()
 
-# 10問クイズの進捗とペナルティ時間を管理
-user_quiz_progress = defaultdict(lambda: {"count": 0, "start_time": None, "penalty_time": 0})
+
+# —————— ここからLINEイベントハンドラ部分 ——————
 
 @app.route("/callback", methods=['POST'])
 def callback():
@@ -553,15 +500,7 @@ def handle_message(event):
         questions = questions_1_1000 if msg == "1-1000" else questions_1001_1935
         q = choose_weighted_question(user_id, questions)
         user_states[user_id] = (msg, q["answer"])
-
-        # クイズ進捗・開始時間などを初期化（リセットはしない）
-        user_quiz_progress[user_id] = {"count": 0, "start_time": time.time(), "penalty_time": 0}
-
-        progress_text = "🔥Go!\n1/10\n"
-        line_bot_api.reply_message(
-            event.reply_token,
-            TextSendMessage(text=f"{progress_text}\n{q['text']}")
-        )
+        line_bot_api.reply_message(event.reply_token, TextSendMessage(text=q["text"]))
         return
 
     if msg == "成績":
@@ -573,79 +512,55 @@ def handle_message(event):
         text = build_grasp_text(user_id)
         line_bot_api.reply_message(event.reply_token, TextSendMessage(text=text))
         return
-    # クイズ回答処理
+
     if user_id in user_states:
         range_str, correct_answer = user_states[user_id]
-        user_answer = msg.strip().lower()
-        
-        # 回答統計
-        if user_id not in user_stats:
-            user_stats[user_id] = {"correct": 0, "incorrect": 0}
-        if user_id not in user_quiz_progress:
-            user_quiz_progress[user_id] = {"count": 0, "start_time": None, "penalty_time": 0}
+        is_correct = (msg.lower() == correct_answer.lower())
+        score = user_scores[user_id].get(correct_answer, 0)
 
-        progress = user_quiz_progress[user_id]
-
-        response = ""
-
-        if user_answer == correct_answer:
-                user_stats[user_id][range_str]["correct"] += 1
-                response = "✅Correct！"
+        if is_correct:
+            user_scores[user_id][correct_answer] = min(4, score + 2)
+            user_stats[user_id][range_str]["correct"] += 1
         else:
-                penalty = 10
-                user_quiz_progress[user_id]["penalty_time"] += penalty
-                correct_answer = user_states[user_id][1]  # 正解を取得
-                response = f"❌Wrong +{penalty}s\nCorrect answer: {correct_answer}"
+            user_scores[user_id][correct_answer] = max(0, score - 1)
 
         user_stats[user_id][range_str]["total"] += 1
+        async_save_user_data(user_id)
 
-        # 正誤問わずカウント進める
-        user_quiz_progress[user_id]["count"] += 1
-        count = user_quiz_progress[user_id]["count"]
+        user_answer_counts[user_id] += 1
 
-        elapsed_time = time.time() - user_quiz_progress[user_id]["start_time"] + user_quiz_progress[user_id]["penalty_time"]
-        if count < 10:
-            response += f"\n{count + 1}/10\n{elapsed_time:.2f}s"
+        feedback = (
+            "Correct✅\n\nNext:" if is_correct else f"Wrong❌\nAnswer: {correct_answer}\n\nNext:"
+        )
 
-        if count >= 10:
-                total_time = elapsed_time
-                best_time = user_times.get(user_id, float('inf'))
-                if total_time < best_time:
-                        user_times[user_id] = total_time
-                        async_save_user_data(user_id)
-                        response += f"\n🎉おめでとう！ベストタイム更新"
-
-                response += f"\n\nFINISH！\nTime: {total_time:.2f}秒"
-                response += "\n「ランキング」でランキング表示、「1-1000」か「1001-1935」で新しいクイズ開始。"
-                user_states.pop(user_id, None)
-                user_quiz_progress.pop(user_id, None)
-
-                line_bot_api.reply_message(event.reply_token, TextSendMessage(text=response))
-                return
-
-        # 次の問題を出題
         questions = questions_1_1000 if range_str == "1-1000" else questions_1001_1935
         next_q = choose_weighted_question(user_id, questions)
         user_states[user_id] = (range_str, next_q["answer"])
 
-        # ✅ progress_text を使わず、直接テキスト構成
-        line_bot_api.reply_message(
-            event.reply_token,
-            TextSendMessage(text=response + "\n\n" + next_q["text"])
-        )
+        if user_answer_counts[user_id] % 10 == 0:
+            trivia = random.choice(trivia_messages)
+            line_bot_api.reply_message(
+                event.reply_token,
+                messages=[
+                    TextSendMessage(text=feedback),
+                    TextSendMessage(text=trivia),
+                    TextSendMessage(text=next_q["text"])
+                ],
+            )
+        else:
+            line_bot_api.reply_message(
+                event.reply_token,
+                messages=[
+                    TextSendMessage(text=feedback),
+                    TextSendMessage(text=next_q["text"])
+                ],
+            )
         return
 
-
-    # 未知のメッセージはヘルプ案内
-    help_text = (
-        "コマンド一覧:\n"
-        "「1-1000」または「1001-1935」でクイズ開始\n"
-        "「成績」で現在の成績表示\n"
-        "「把握度」で単語把握度表示\n"
-        "「ランキング」でランキング表示\n"
-        "「@(名前)」で名前変更\n"
+    line_bot_api.reply_message(
+        event.reply_token,
+        TextSendMessage(text="1-1000 または 1001-1935 を押してね。")
     )
-    line_bot_api.reply_message(event.reply_token, TextSendMessage(text=help_text))
 
 if __name__ == "__main__":
     port = int(os.environ.get("PORT", 8000))
