@@ -272,7 +272,7 @@ def build_ranking_flex(user_id=None):
             })
             contents.append({
                 "type": "text",
-                "text": f"{user_index}の{above_name}まで {diff} レート差",
+                "text": f"{user_index}位の{above_name}まで {diff} レート差",
                 "margin": "md",
                 "size": "sm",
                 "color": "#000000"
