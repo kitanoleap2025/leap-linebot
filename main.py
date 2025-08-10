@@ -438,7 +438,7 @@ def build_ranking_flex(user_id=None):
     contents = []
     for i, (uid, name, rate) in enumerate(ranking[:5], 1):
         if i == 1:
-            size = "lg"
+            size = "md"
             color = "#FFD700"  # 金
         elif i == 2:
             size = "md"
