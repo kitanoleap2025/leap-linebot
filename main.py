@@ -26,7 +26,6 @@ handler = WebhookHandler(os.getenv("LINE_CHANNEL_SECRET"))
 
 user_states = {}  # user_id: (range_str, correct_answer)
 user_scores = defaultdict(dict)
-})
 user_recent_questions = defaultdict(lambda: deque(maxlen=10))
 user_answer_counts = defaultdict(int)
 user_names = {}  # user_id: name
