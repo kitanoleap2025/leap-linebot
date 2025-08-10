@@ -26,9 +26,6 @@ handler = WebhookHandler(os.getenv("LINE_CHANNEL_SECRET"))
 
 user_states = {}  # user_id: (range_str, correct_answer)
 user_scores = defaultdict(dict)
-user_stats = defaultdict(lambda: {
-    "1-1000": {"correct": 0, "total": 0},
-    "1001-1935": {"correct": 0, "total": 0}
 })
 user_recent_questions = defaultdict(lambda: deque(maxlen=10))
 user_answer_counts = defaultdict(int)
@@ -43,15 +40,6 @@ def load_user_data(user_id):
             data = doc.to_dict()
             user_scores[user_id] = defaultdict(int, data.get("scores", {}))
 
-            raw_stats = data.get("stats", {})
-            if "1-1000" in raw_stats and "1001-1935" in raw_stats:
-                user_stats[user_id] = raw_stats
-            else:
-                user_stats[user_id] = {
-                    "1-1000": {"correct": raw_stats.get("correct", 0), "total": raw_stats.get("total", 0)},
-                    "1001-1935": {"correct": 0, "total": 0}
-                }
-
             recent_list = data.get("recent", [])
             user_recent_questions[user_id] = deque(recent_list, maxlen=10)
 
@@ -65,7 +53,6 @@ def load_user_data(user_id):
 def save_user_data(user_id):
     data = {
         "scores": dict(user_scores[user_id]),
-        "stats": user_stats[user_id],
         "recent": list(user_recent_questions[user_id]),
         "name": user_names.get(user_id, DEFAULT_NAME)
     }
@@ -335,14 +322,6 @@ def build_result_text(user_id):
         total_score = sum(scores.get(ans, 0) for ans in relevant_answers)
         count = len(relevant_answers)
 
-        stat = user_stats.get(user_id, {}).get(title, {"correct": 0, "total": 0})
-        filtered_correct = stat["correct"]
-        filtered_total = stat["total"]
-
-        if filtered_total == 0:
-            text += f"{title}\nNo data yet.\n\n"
-            continue
-
         rate = round((total_score / count) * 2500)
         if rate >= 9900:
             rank = "S🤯"      
@@ -369,7 +348,6 @@ def build_result_text(user_id):
 
         text += (
             f"[{title}]\n"
-            f"Correct:{filtered_correct}/Total:{filtered_total}\n"
             f"Rating:{rate}\n"
             f"Rank:{rank}\n\n"
         )
@@ -550,11 +528,9 @@ def handle_message(event):
 
         if is_correct:
             user_scores[user_id][correct_answer] = min(4, score + 2)
-            user_stats[user_id][range_str]["correct"] += 1
         else:
             user_scores[user_id][correct_answer] = max(0, score - 1)
 
-        user_stats[user_id][range_str]["total"] += 1
         async_save_user_data(user_id)
 
         user_answer_counts[user_id] += 1
