@@ -146,6 +146,8 @@ questions_1_1000 = [
      "answer": "strength"},
     {"text": "066 Even a small change can have a great effect on s___.\n小さな変化でも社会に大きな影響を与える.",
      "answer": "society"},
+    {"text": "067 The code of Hammurabi is one of the oldest l___.\nハンムラビ法典(規定)は最古の法律の一つ。",
+     "answer": "laws"},
     {"text": "068 We do not inherit the Earth from our a___, we borrow it from our children.\n私たちは先祖から地球を受け継ぐのではなく,子供たちから借りています.",
      "answer": "ancestors"},
     {"text": "074 the key e___ that led to the suspension \n停学への決定打となる証拠",
@@ -254,8 +256,10 @@ questions_1_1000 = [
      "answer": "stretches"},
     {"text": "639 s___ while the iron is hot\n鉄は熱いうちに打て",
      "answer": "strike"},
-    {"text": "659  A job that r___ constant bowing\nおじぎし続ける仕事",
+    {"text": "659 A job that r___ constant bowing\nおじぎし続ける仕事",
      "answer": "requires"},
+    {"text": "662 The shortest war l___ 38 minutes.\n最短の戦争は38分間だった.",
+     "answer": "lasted"},
     {"text": "673 The price is d___ by supply and demand.\n価格は需要と供給で決まる.",
      "answer": "determined"},
     {"text": "694 What is taken for g___ today was once a revolutionary idea.\n今日当たり前のように考えられているものは,かつては革新的なアイデアでした.",
@@ -298,6 +302,8 @@ questions_1001_1935 = [
      "answer": "scientist"},
     {"text": "1247 Don’t count your chickens before they ___.\n卵がかえる前にヒヨコを数えるな",
      "answer": "hatch"},
+    {"text": "1054 The c___ of Hammurabi is one of the oldest laws.\nハンムラビ法典(規定)は最古の法律の一つ。",
+     "answer": "code"},
 ]
 
 def get_rank(score):
