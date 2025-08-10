@@ -207,27 +207,38 @@ def build_ranking_flex(user_id=None):
 
     ranking.sort(key=lambda x: x[2], reverse=True)
 
+    # 色とサイズ設定
+    rank_styles = {
+        1: {"color": "#FFD700", "size": "lg", "weight": "bold"},  # 金
+        2: {"color": "#C0C0C0", "size": "md", "weight": "bold"},  # 銀
+        3: {"color": "#CD7F32", "size": "md", "weight": "bold"},  # 銅
+        4: {"color": "#1DB446", "size": "sm", "weight": "regular"},
+        5: {"color": "#1DB446", "size": "sm", "weight": "regular"},
+    }
+
     contents = []
-    for i, (uid, name, rate) in enumerate(ranking[:3], 1):
+    for i, (uid, name, rate) in enumerate(ranking[:5], 1):
+        style = rank_styles.get(i, {"color": "#000000", "size": "sm", "weight": "regular"})
         contents.append({
             "type": "box",
             "layout": "baseline",
             "contents": [
-                {"type": "text", "text": f"{i}位", "flex": 1, "weight": "bold", "color": "#1DB446"},
-                {"type": "text", "text": name, "flex": 4, "weight": "bold"},
-                {"type": "text", "text": str(rate), "flex": 2, "align": "end"}
+                {"type": "text", "text": f"{i}位", "flex": 1, "weight": style["weight"], "color": style["color"], "size": style["size"]},
+                {"type": "text", "text": name, "flex": 4, "weight": style["weight"], "size": style["size"]},
+                {"type": "text", "text": str(rate), "flex": 2, "align": "end", "weight": style["weight"], "size": style["size"]}
             ]
         })
-        if i < 3:
+        if i < 5:
             contents.append({"type": "separator", "margin": "md"})
 
+    # ユーザー自身の順位表示
     user_index = None
     for i, (uid, _, _) in enumerate(ranking):
         if uid == user_id:
             user_index = i
             break
 
-    if user_index is not None:
+    if user_index is not None and user_index >= 5:
         uid, name, rate = ranking[user_index]
         above_text = ""
         if user_index > 0:
@@ -278,6 +289,7 @@ def build_ranking_flex(user_id=None):
         }
     )
     return flex_message
+
 
 # —————— ここからLINEイベントハンドラ部分 ——————
 
