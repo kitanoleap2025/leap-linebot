@@ -210,10 +210,10 @@ def build_ranking_flex(user_id=None):
     # 色とサイズ設定
     rank_styles = {
         1: {"color": "#FFD700", "size": "lg", "weight": "bold"},  # 金
-        2: {"color": "#C0C0C0", "size": "md", "weight": "bold"},  # 銀
-        3: {"color": "#CD7F32", "size": "md", "weight": "bold"},  # 銅
-        4: {"color": "#1DB446", "size": "sm", "weight": "regular"},
-        5: {"color": "#1DB446", "size": "sm", "weight": "regular"},
+        2: {"color": "#C0C0C0", "size": "lg", "weight": "bold"},  # 銀
+        3: {"color": "#CD7F32", "size": "lg", "weight": "bold"},  # 銅
+        4: {"color": "#1DB446", "size": "md", "weight": "regular"},
+        5: {"color": "#1DB446", "size": "md", "weight": "regular"},
     }
 
     contents = []
