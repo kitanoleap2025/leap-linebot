@@ -272,10 +272,10 @@ def build_ranking_flex(user_id=None):
             })
             contents.append({
                 "type": "text",
-                "text": f"↑{above_name}まで {diff} レート差",
+                "text": f"{user_index}の{above_name}まで {diff} レート差",
                 "margin": "md",
                 "size": "sm",
-                "color": "#AAAAAA"
+                "color": "#000000"
             })
 
     flex_message = FlexSendMessage(
