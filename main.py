@@ -1,6 +1,6 @@
 from flask import Flask, request, abort
 from linebot import LineBotApi, WebhookHandler
-from linebot.models import MessageEvent, TextMessage, TextSendMessage
+from linebot.models import MessageEvent, TextMessage, TextSendMessage, FlexSendMessage
 from linebot.exceptions import InvalidSignatureError
 import os
 import random
@@ -66,236 +66,7 @@ def async_save_user_data(user_id):
 questions_1_1000 = [
     {"text": "001 I a___ with the idea that students should not be given too much homework.\n生徒に宿題を与えすぎるべきではないという考えに賛成です.",
      "answer": "agree"},
-    {"text": "002 He strongly o___ corruption until he was promoted.\n昇進するまでは,彼は汚職に強く反対していた.",
-     "answer": "opposed"},
-    {"text": "003 The teacher a___ me to study English vocabulary.\n先生は私に英単語を勉強するよう助言した.",
-     "answer": "advised"},
-    {"text": "004 t___: Don’t argue with fools. From a distance, people might not be able to tell who is who.\nヒント：ばかとは口論するな.遠くから見たら,どっちがどっちか分からないから.",
-     "answer": "tip"},
-    {"text": "005 We d___ the problem so much, we forgot to solve it.\n私たちはその問題についてあまりに議論しすぎて,解決するのを忘れていた.",
-     "answer": "discussed"},
-    {"text": "006 He b___ the train for his lateness.\n彼は遅刻したことを電車のせいにした.",
-     "answer": "blamed"},
-    {"text": "007 Einstein a___ that time is relative.\nアインシュタインは時間は相対的だと論じた.",
-     "answer": "argued"},
-    {"text": "008 He c___ that sleep wasn’t necessary for eaxms.\n彼は試験のために睡眠は必要ないと主張した.",
-     "answer": "claimed"},
-    {"text": "009 He c___ about having to buy a math textbook he would never use.\n彼は使うことのない数学の教科書を買わされることに不満を言っていました.",
-     "answer": "complained"},
-    {"text": "010 Einstein was o___ the presidency of Israel but he refused.\nアインシュタインはイスラエル大統領の職を申し出られたが、断った。",
-     "answer": "offered"},
-    {"text": "011 He s___ that he was gay.\n彼は自身がゲイであることをほのめかした。",
-     "answer": "suggested"},
-    {"text": "012 I was r___ to the local volunteer club.\n私は地元のボランティアクラブに推薦された。",
-     "answer": "recommended"},
-    {"text": "013 He said he was g___ to her for the feedback, but he ignored all of it.\n彼は彼女のフィードバックに感謝していると言ったが,すべて無視した.",
-     "answer": "grateful"},
-    {"text": "014 I a___ for criticizing.\n私は批判したことを謝った.",
-     "answer": "apologized"},
-    {"text": "016 His family c___ his finally being accepted into college.\n彼の家族は,彼がついに大学に合格したことを祝った.",
-     "answer": "celebrated"},
-    {"text": """019 She was a___ "Best Excuse Maker" for always avoiding responsibility.\n彼女は常に責任を避けたことで「最高の言い訳メーカー」を受賞した.""",
-     "answer": "awarded"},
-    {"text": """020 They d___ ignoring the group project as "respecting individual effort."\n彼らはグループ課題を無視することを「個人の努力を尊重する」と表現しました.""",
-     "answer": "described"},
-    {"text": "021 He e___ why he had missed the deadline.\n彼はなぜ締め切りを過ぎたのか説明した.",
-     "answer": "explained"},
-    {"text": "022 It is important to c___ effectively with others in a team.\nチームで効果的にコミュ二ケーションをとることは重要だ.",
-     "answer": "communicate"},
-    {"text": "024 The man running ahead is the one I p___ to run with.\n前を走っている男は,一緒に走ると約束した人だ.",
-     "answer": "promised"},
-    {"text": "025 He provided a lot of i___, none of which was useful.\n彼はたくさんの情報を提供したが,役に立つものはひとつもなかった.",
-     "answer": "information"},
-    {"text": "026 With modern t___, we can talk to anyone in the world except the person next to you.\n現代のテクノロジーでは,隣にいる人以外の誰とでも話すことができる.",
-     "answer": "technology"},
-    {"text": "027 r___ shows that sunlight improves mental health.\n研究によると,日光はメンタルヘルスを改善する.",
-     "answer": "research"},
-    {"text": "029 People who can be replaced by a___ Intelligence\nAIに代替可能な人.",
-     "answer": "artificial"},
-    {"text": "031 Ancient Egyptians i___ the 365-day calendar.\n古代エジプト人は365日カレンダーを発明した。",
-     "answer": "invented"},
-    {"text": "033 Eurasia d___ faster because it stretches east to west, so crops could spread in similar climates.\nユーラシアは東西に広がっているため、作物が似た気候の中で広まりやすく、より早く発展した。",
-     "answer": "developed"},
-    {"text": "034 He had the s___ to disappear whenever work started.\n彼は仕事が始まるといつも消える技術があった.",
-     "answer": "skill"},
-    {"text": "035 No less important than knowledge is the a___ to question it.\n知識に劣らず重要なのは,それを疑問視する能力です.",
-     "answer": "ability"},
-    {"text": "037 Success often comes after continuous e___.\n成功はたいてい継続的な努力の後にやってくる.",
-     "answer": "effort"},
-    {"text": "043 This machine can p___ 10 parts in one minute.\nこの機械は１分で10個の部品を生産出来る.",
-     "answer": "produce"},
-    {"text": "044 c___ LINE stickers using the teather's face\n先生の顔でLINEスタンプを作る",
-     "answer": "create"},
-    {"text": "045 Kitano high school was e___ in 1873.\n北野高校は1873年に設立された.",
-     "answer": "established"},
-    {"text": "058 War is peace. Freedom is slavery. Ignorance is s___.\n戦争は平和。自由は隷従。無知は力。(1984年)",
-     "answer": "strength"},
-    {"text": "066 Even a small change can have a great effect on s___.\n小さな変化でも社会に大きな影響を与える.",
-     "answer": "society"},
-    {"text": "067 The code of Hammurabi is one of the oldest l___.\nハンムラビ法典(規定)は最古の法律の一つ。",
-     "answer": "laws"},
-    {"text": "068 We do not inherit the Earth from our a___, we borrow it from our children.\n私たちは先祖から地球を受け継ぐのではなく,子供たちから借りています.",
-     "answer": "ancestors"},
-    {"text": "074 the key e___ that led to the suspension \n停学への決定打となる証拠",
-     "answer": "evidence"},
-    {"text": "079 They v___ for confidence without thinking.\n彼らは考えずに信任に投票した.",
-     "answer": "voted"},
-    {"text": "085 The p___ is determined by supply and demand.\n価格は需要と供給で決まる.",
-     "answer": "price"},
-    {"text": "096 During World War II, British chess masters were assigned to codebreaking t___ involving the Enigma machine.\n第二次世界大戦中,イギリスのチェスマスターたちはエニグマ機に関わる暗号解読の仕事に就いていました.",
-     "answer": "tasks"},
-    {"text": "098 What you said h___ more than you think.\n君が言ったことは,君が思っているよりも傷ついたよ.",
-     "answer": "hurt"},
-    {"text": "101 d___ the pen of the person sitting next to me\n隣の席の人のペンを破壊する",
-     "answer": "destroy"},
-    {"text": "111 The captain rescued only the p___ from his own country.\n船長は自国の乗客だけを救出しました.",
-     "answer": "passengers"},
-    {"text": "115 He climbed the ladder of success, then kicked it away so no one else could f___.\n彼は成功のはしごを登り,それを蹴飛ばし,他の誰も追随できないようにした.",
-     "answer": "follow"},
-    {"text": "116 Not all who w___ are lost.\n彷徨う人全員が迷っているわけではない.",
-     "answer": "wander"},
-    {"text": """124 She was awarded "Best Excuse Maker" for always a___ responsibility.\n彼女は常に責任を避けたことで「最高の言い訳メーカー」を受賞した.""",
-     "answer": "avoiding"},
-    {"text": "135 He explaind why he had m___ the deadline.\n彼はなぜ締め切りを過ぎたのか説明した.",
-     "answer": "missed"},
-    {"text": "137 He m___ silence for wisdom, and loudness for leadership.\n彼は沈黙を賢さと勘違いし,声の大きさをリーダーシップと勘違いした.",
-     "answer": "mistook"},
-    {"text": "150 p___ to understand\nわかっているふりをする",
-     "answer": "pretend"},
-    {"text": "154 It is not what h___ that matters. It is how you respond.\n大事なのは何が起きたかではない.どう応じるかだ.",
-     "answer": "happened"},
-    {"text": "153 e___ Juso after school\n放課後,十三を探検する",
-     "answer": "explore"},
-    {"text": "155 More and more problems a___.\nますます多くの問題が現れた.",
-     "answer": "appeared"},
-    {"text": "163 The captain rescued only the passengers from his o___ country.\n船長は自国の乗客だけを救出しました.",
-     "answer": "own"},
-    {"text": "167 h___ is written by the victors.\n歴史は勝者によって書かれる.",
-     "answer": "history"}, 
-    {"text": "170 No less important than k___ is the ability to question it.\n知識に劣らず重要なのは,それを疑問視する能力です.",
-     "answer": "knowledge"},
-    {"text": "189 His family celebrated his finally being ___ into college.\n彼の家族は,彼がついに大学に合格したことを祝った.",
-     "answer": "accepted"},
-    {"text": "197 First Olympic games a___ only naked men.\n初期オリンピックは裸の男性だけ参加できた。",
-     "answer": "allowed"},
-    {"text": "209 He s___ to side with the insects.\n彼はその虫の味方をするようだ.",
-     "answer": "seems"},
-    {"text": "241 It is not what happened that m____. It is how you respond.\n大事なのは何が起きたかではない.どう応じるかだ.",
-     "answer": "matters"},
-    {"text": "258 People tend to accept ideas not because they are true, but because they are f___.\n人々はアイデアが真実だからではなく,馴染みがあるから受け入れる傾向があります.",
-     "answer": "familiar"},
-    {"text": "259 Eurasia developed faster because it stretches east to west, so crops could spread in s___ climates.\nユーラシアは東西に広がっているため、作物が似た気候の中で広まりやすく、より早く発展した。",
-     "answer": "similar"},
-    {"text": "269 Don’t c___ your chickens before they hatch.\n卵がかえる前にヒヨコを数えるな",
-     "answer": "count"},
-    {"text": "311 If you put w___ on a grandma, can you call it a bicycle?\nおばあちゃんに車輪を付けたら,自転車と呼べるのか.",
-     "answer": "wheels"},
-    {"text":"335 r__, r__, r__ your boat\nGently down the stream\nMerrily, merrily, merrily, merrily\nLife is but a dream\n\nボートを漕げ、漕げ、漕げ\nそっと流れを下って\n陽気に、陽気に、陽気に、陽気に\n人生は夢に過ぎない",
-     "answer": "row"},
-    {"text": "323 He p___ more than just money to buy his daughter an instrument.\n彼は娘に楽器を買うためにお金以上のものを支払った。",
-     "answer": "paid"},
-    {"text": "338 I want to transfer to the a___ course.\n美術コースに転向したい.",
-     "answer": "art"},
-    {"text": "342 He paid more than just money to buy his daughter an i___.\n彼は娘に楽器を買うためにお金以上のものを支払った。",
-     "answer": "instrument"},
-    {"text": "344 the challenge of having to create example s___ to protect copyright\n著作権保護のため例文を作らなければならないという課題",
-     "answer": "sentences"},
-    {"text": "347 The teacher advised me to study English v___.\n先生は私に英単語を勉強するよう助言した.",
-     "answer": "vocabulary"},
-    {"text": "356 What we see d___ not only on what we look at, but also on where we look from.\n私たちが見るものは,何を見るかだけでなく,どこから見るかによっても異なります.",
-     "answer": "depends"},
-    {"text": "359 The locals were amazed by the car they had never seen before and b___, but it was a driverless\n現地の人々は初めての車に驚き,物乞いをしたが,無人自動車だった.",
-     "answer": "begged"},
-    {"text": "360 The truth is often simple, but people p___ complex answers.\n真実はしばしば単純ですが,人々は複雑な答えを好みます.",
-     "answer": "prefer"},
-    {"text": "378 Even a small change can have a great e___ on society.\n小さな変化でも社会に大きな影響を与える.",
-     "answer": "effect"},
-    {"text": "393 e___ a small change can have a great effect on society.\n小さな変化でも社会に大きな影響を与える.",
-     "answer": "even"},
-    {"text": "400 With modern technology, we can talk to anyone in the world e___ the person next to you.\n現代のテクノロジーでは,隣にいる人以外の誰とでも話すことができる.",
-     "answer": "except"},
-    {"text": "402 I apologized for c___.\n私は批判したことを謝った.",
-     "answer": "criticizing"},
-    {"text": "420 It is not what happened that matters. It is how you r___.\n大事なのは何が起きたかではない.どう応じるかだ.",
-     "answer": "respond"},
-    {"text": "434 He’s been p___ her aunt for months\n彼は何か月も彼女のおばを狙っています.",
-     "answer": "pursuing"},
-    {"text": "440 the c___ of having to create example sentences to protect copyright\n著作権保護のため例文を作らなければならないという課題",
-     "answer": "challenge"},
-    {"text": "443 Is his face p___ or has it always been p___?\n彼は青ざめているのか,いつも青白いのか.",
-     "answer": "pale"},
-    {"text": "479 All animals are e___, but some animals are more ___ than others.\n全ての動物は平等だが、中には他よりもっと平等な動物もいる。",
-     "answer": "equal"},
-    {"text": "500 The consumption tax should be a___.\n消費税は廃止されるべきだ.",
-     "answer": "abolished"},
-    {"text": "527 During World War II, British chess masters were a____ to codebreaking tasks involving the Enigma machine.\n第二次世界大戦中,イギリスのチェスマスターたちはエニグマ機に関わる暗号解読の仕事に就いていました.",
-     "answer": "assigned"},
-    {"text": "539 The road to success is under c___.\n成功への道は工事中だ.",
-     "answer": "construction"},
-    {"text": "567 Honey never s___.\nはちみつは腐りません.",
-     "answer": "spoils"},
-    {"text": "568 The Colosseum could hold up to 50,000 s___.\nコロッセオは5万人まで収容可能だった。",
-     "answer": "spectators"},
-    {"text": "569 [2]Einstein argued that time is r___.\nアインシュタインは時間は相対的だと論じた.",
-     "answer": "relative"},
-    {"text": "594 Einstein was offered the presidency of Israel but he r___.\nアインシュタインはイスラエル大統領の職を申し出られたが、断った。",
-     "answer": "refused"},
-    {"text": "604 Fake news s___ faster than real news.\n フェイクニュースは本当のニュースより速く拡散する.",
-     "answer": "spreads"},
-    {"text": "610 I can r___ everything except temptation.\n私は誘惑以外の全てに耐えうる.",
-     "answer": "resist"},
-    {"text": "621 Eurasia developed faster because it s___ east to west, so crops could spread in similar climates.\nユーラシアは東西に広がっているため、作物が似た気候の中で広まりやすく、より早く発展した。",
-     "answer": "stretches"},
-    {"text": "627  A job that requires constant b___\nおじぎし続ける仕事",
-     "answer": "bowing"},
-    {"text": "639 s___ while the iron is hot\n鉄は熱いうちに打て",
-     "answer": "strike"},
-    {"text": "654 Sharks e___ before trees on Earth.\nサメは地球上に木より先に存在した。",
-     "answer": "existed"},
-    {"text": "658 During World War II, British chess masters were assigned to codebreaking tasks i___ the Enigma machine.\n第二次世界大戦中,イギリスのチェスマスターたちはエニグマ機に関わる暗号解読の仕事に就いていました.",
-     "answer": "involving"},
-    {"text": "659 A job that r___ constant bowing\nおじぎし続ける仕事",
-     "answer": "requires"},
-    {"text": "662 The shortest war l___ 38 minutes.\n最短の戦争は38分間だった.",
-     "answer": "lasted"},
-    {"text": "673 The price is d___ by supply and demand.\n価格は需要と供給で決まる.",
-     "answer": "determined"},
-    {"text": "694 What is taken for g___ today was once a revolutionary idea.\n今日当たり前のように考えられているものは,かつては革新的なアイデアでした.",
-     "answer": "granted"},
-    {"text": "709 Eurasia developed faster because it stretches east to west, so c___ could spread in similar climates.\nユーラシアは東西に広がっているため、作物が似た気候の中で広まりやすく、より早く発展した。",
-     "answer": "crops"},
-    {"text": "714 Eurasia developed faster because it stretches east to west, so crops could spread in similar c___.\nユーラシアは東西に広がっているため、作物が似た気候の中で広まりやすく、より早く発展した。",
-     "answer": "climates"},
-    {"text": "762 The turtle is not s___ about who gets first in the contest. He simply finds pleasure in the steady walk.\nカメはコンテストで誰が一番になるかを気にしていません。ただ、着実な歩みを楽しんでいるのです。",
-     "answer": "serious"},
-    {"text": "763 The truth is often simple, but people prefer c___ answers.\n真実はしばしば単純ですが,人々は複雑な答えを好みます.",
-     "answer": "complex"},
-    {"text": "779 The turtle is not serious about who gets first in the contest. He simply finds pleasure in the s___ walk.\nカメはコンテストで誰が一番になるかを気にしていません。ただ、着実な歩みを楽しんでいるのです。",
-     "answer": "steady"},
-    {"text": "791 F___ news spreads faster than real news.\n フェイクニュースは本当のニュースより速く拡散する.",
-     "answer": "fake"},
-    {"text": "808 First Olympic games allowed only n___ men.\n初期オリンピックは裸の男性だけ参加できた。",
-     "answer": "naked"},
-    {"text": "820 People t___ to accept ideas not because they are true, but because they are familiar.\n人々はアイデアが真実だからではなく,馴染みがあるから受け入れる傾向があります.",
-     "answer": "tend"},
-    {"text": "860 The price is determined by s___ and demand.\n価格は需要と供給で決まる.",
-     "answer": "supply"},
-    {"text": "861 People who can be r___ by Artificial Intelligence\nAIに代替可能な人.",
-     "answer": "replaced"},
-    {"text": "901 I want to t___ to the art course.\n美術コースに転向したい.",
-     "answer": "transfer"},
-    {"text": """978 They described i___ the group project as "respecting individual effort".\n彼らはグループ課題を無視することを「個人の努力を尊重する」と表現しました.""",
-     "answer": "ignoring"},
-    {"text": "992 We shape our tools, and e___, our tools shape us.\n私たちは道具を作るが,結果として,道具が私たちを作る.",
-     "answer": "eventually"},
-    {"text": "993 He argued that sleep wasn’t n___ for eaxms.\n彼は試験のために睡眠は必要ないと主張した.",
-     "answer": "necessary"},
-    {"text": "1000 a___ t__ capitalism, your value peaks at checkout.\n資本主義によると,あなたの価値はチェックアウト時にピークに達する.",
-     "answer": "according to"},
-    {"text": "782 \n熟女",
-     "answer": "mature"},
-
-    # ここに他の問題を追加
+ 
 ]
 questions_1001_1935 = [
     {"text": "1001 The ___ made a critical discovery in the lab.\nその科学者は研究室で重大な発見をした。",
@@ -415,7 +186,7 @@ trivia_messages = [
     "🎅低浮上サンタ\n私は10回に1回出てきます。",
 ]
 
-def build_ranking_text(user_id=None):
+def build_ranking_flex(user_id=None):
     docs = db.collection("users").stream()
     ranking = []
     for doc in docs:
@@ -436,31 +207,77 @@ def build_ranking_text(user_id=None):
 
     ranking.sort(key=lambda x: x[2], reverse=True)
 
-    text = "\n🏆 Rating Ranking 🏆\n"
+    contents = []
+    for i, (uid, name, rate) in enumerate(ranking[:3], 1):
+        contents.append({
+            "type": "box",
+            "layout": "baseline",
+            "contents": [
+                {"type": "text", "text": f"{i}位", "flex": 1, "weight": "bold", "color": "#1DB446"},
+                {"type": "text", "text": name, "flex": 4, "weight": "bold"},
+                {"type": "text", "text": str(rate), "flex": 2, "align": "end"}
+            ]
+        })
+        if i < 3:
+            contents.append({"type": "separator", "margin": "md"})
+
     user_index = None
-    for i, (uid, name, rate) in enumerate(ranking, 1):
-        if i <= 3:
-            text += f"{i}. {name} - {rate}\n"
-        if user_id and uid == user_id:
-            user_index = i - 1
+    for i, (uid, _, _) in enumerate(ranking):
+        if uid == user_id:
+            user_index = i
+            break
 
     if user_index is not None:
-        my_rank = user_index + 1
-        my_name = ranking[user_index][1]
-        my_rate = ranking[user_index][2]
-        text += "\n---------------------\n"
-        text += f"あなたの順位: {my_rank}位  {my_rate}\n"
-
-        if my_rank <= 3:
-            text += "あなたは表彰台に乗っています！\n"
-        else:
+        uid, name, rate = ranking[user_index]
+        above_text = ""
+        if user_index > 0:
             above_name = ranking[user_index - 1][1]
             above_rate = ranking[user_index - 1][2]
-            diff = above_rate - my_rate
-            text += f"↑次の順位の {above_name} まで {diff} レート差\n"
+            diff = above_rate - rate
+            above_text = f"↑次の順位の {above_name} まで {diff} レート差"
 
-    return text.strip()
+        contents.append({"type": "separator", "margin": "lg"})
+        contents.append({
+            "type": "box",
+            "layout": "baseline",
+            "contents": [
+                {"type": "text", "text": "あなたの順位", "flex": 3, "weight": "bold"},
+                {"type": "text", "text": f"{user_index+1}位", "flex": 1, "align": "end"}
+            ]
+        })
+        contents.append({
+            "type": "box",
+            "layout": "baseline",
+            "contents": [
+                {"type": "text", "text": name, "flex": 3},
+                {"type": "text", "text": str(rate), "flex": 1, "align": "end"}
+            ]
+        })
+        if above_text:
+            contents.append({
+                "type": "text",
+                "text": above_text,
+                "margin": "md",
+                "size": "sm",
+                "color": "#AAAAAA"
+            })
 
+    flex_message = FlexSendMessage(
+        alt_text="🏆 Rating Ranking 🏆",
+        contents={
+            "type": "bubble",
+            "body": {
+                "type": "box",
+                "layout": "vertical",
+                "contents": [
+                    {"type": "text", "text": "🏆 Rating Ranking 🏆", "weight": "bold", "size": "lg", "align": "center"},
+                    {"type": "separator", "margin": "md"},
+                    *contents
+                ]
+            }
+        }
+    )
+    return flex_message
 
 # —————— ここからLINEイベントハンドラ部分 ——————
 
@@ -499,8 +316,8 @@ def handle_message(event):
         return
 
     if msg == "ランキング":
-        text = build_ranking_text(user_id)
-        line_bot_api.reply_message(event.reply_token, TextSendMessage(text=text))
+        flex_msg = build_ranking_flex(user_id)
+        line_bot_api.reply_message(event.reply_token, flex_msg)
         return
 
     if msg in ["1-1000", "1001-1935"]:
