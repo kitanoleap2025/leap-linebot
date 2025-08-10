@@ -207,67 +207,72 @@ def build_ranking_flex(user_id=None):
 
     ranking.sort(key=lambda x: x[2], reverse=True)
 
-    # 色とサイズ設定
-    rank_styles = {
-        1: {"color": "#FFD700", "size": "lg", "weight": "bold"},  # 金
-        2: {"color": "#C0C0C0", "size": "lg", "weight": "bold"},  # 銀
-        3: {"color": "#CD7F32", "size": "lg", "weight": "bold"},  # 銅
-        4: {"color": "#1DB446", "size": "md", "weight": "regular"},
-        5: {"color": "#1DB446", "size": "md", "weight": "regular"},
-    }
-
+    # 上位5位まで表示
     contents = []
     for i, (uid, name, rate) in enumerate(ranking[:5], 1):
-        style = rank_styles.get(i, {"color": "#000000", "size": "sm", "weight": "regular"})
+        if i == 1:
+            size = "lg"
+            color = "#FFD700"  # 金
+        elif i == 2:
+            size = "md"
+            color = "#C0C0C0"  # 銀
+        elif i == 3:
+            size = "md"
+            color = "#CD7F32"  # 銅
+        else:
+            size = "sm"
+            color = "#1DB446"  # 通常色
+
         contents.append({
             "type": "box",
             "layout": "baseline",
             "contents": [
-                {"type": "text", "text": f"{i}位", "flex": 1, "weight": style["weight"], "color": style["color"], "size": style["size"]},
-                {"type": "text", "text": name, "flex": 4, "weight": style["weight"], "size": style["size"]},
-                {"type": "text", "text": str(rate), "flex": 2, "align": "end", "weight": style["weight"], "size": style["size"]}
+                {"type": "text", "text": f"{i}位", "flex": 1, "weight": "bold", "size": size, "color": color},
+                {"type": "text", "text": name, "flex": 4, "weight": "bold", "size": size},
+                {"type": "text", "text": str(rate), "flex": 2, "align": "end", "size": size}
             ]
         })
         if i < 5:
             contents.append({"type": "separator", "margin": "md"})
 
-    # ユーザー自身の順位表示
+    # 自分の順位を取得
     user_index = None
     for i, (uid, _, _) in enumerate(ranking):
         if uid == user_id:
             user_index = i
             break
 
-    if user_index is not None and user_index >= 5:
+    if user_index is not None:
         uid, name, rate = ranking[user_index]
-        above_text = ""
-        if user_index > 0:
+        contents.append({"type": "separator", "margin": "lg"})
+
+        if user_index < 5:
+            # 5位以内 → 名前とレートのみ
+            contents.append({
+                "type": "box",
+                "layout": "baseline",
+                "contents": [
+                    {"type": "text", "text": "あなた", "flex": 3, "weight": "bold"},
+                    {"type": "text", "text": str(rate), "flex": 1, "align": "end"}
+                ]
+            })
+        else:
+            # 6位以降 → 名前とレート + 1つ上との差
             above_name = ranking[user_index - 1][1]
             above_rate = ranking[user_index - 1][2]
             diff = above_rate - rate
-            above_text = f"↑次の順位の {above_name} まで {diff} レート差"
 
-        contents.append({"type": "separator", "margin": "lg"})
-        contents.append({
-            "type": "box",
-            "layout": "baseline",
-            "contents": [
-                {"type": "text", "text": "あなたの順位", "flex": 3, "weight": "bold"},
-                {"type": "text", "text": f"{user_index+1}位", "flex": 1, "align": "end"}
-            ]
-        })
-        contents.append({
-            "type": "box",
-            "layout": "baseline",
-            "contents": [
-                {"type": "text", "text": name, "flex": 3},
-                {"type": "text", "text": str(rate), "flex": 1, "align": "end"}
-            ]
-        })
-        if above_text:
+            contents.append({
+                "type": "box",
+                "layout": "baseline",
+                "contents": [
+                    {"type": "text", "text": f"{user_index+1}位 あなた", "flex": 3, "weight": "bold"},
+                    {"type": "text", "text": str(rate), "flex": 1, "align": "end"}
+                ]
+            })
             contents.append({
                 "type": "text",
-                "text": above_text,
+                "text": f"↑{above_name}まで {diff} レート差",
                 "margin": "md",
                 "size": "sm",
                 "color": "#AAAAAA"
@@ -289,6 +294,7 @@ def build_ranking_flex(user_id=None):
         }
     )
     return flex_message
+
 
 
 # —————— ここからLINEイベントハンドラ部分 ——————
