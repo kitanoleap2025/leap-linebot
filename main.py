@@ -346,21 +346,21 @@ def build_result_flex(user_id):
         elif rate >= 9000:
             rank = "A+🤩"
         elif rate >= 8000:
-            rank = "A😎"
+            rank = "A🤩"
         elif rate >= 7000:
-            rank = "A-😍"
+            rank = "A-🤩"
         elif rate >= 6000:
-            rank = "B+🤑"
+            rank = "B+😎"
         elif rate >= 5000:
-            rank = "B🤠"
+            rank = "B😎"
         elif rate >= 4000:
-            rank = "B-😇"
+            rank = "B-😎"
         elif rate >= 3000:
-            rank = "C+😤"
+            rank = "C+😍"
         elif rate >= 2000:
-            rank = "C🤫"
+            rank = "C😍"
         elif rate >= 1000:
-            rank = "C-😶‍🌫️"
+            rank = "C-😍"
         else:
             rank = "D🫠"
 
