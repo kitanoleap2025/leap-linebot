@@ -229,7 +229,9 @@ questions_1_1000 = [
      "answer": "equal"},
     {"text": "500 The consumption tax should be a___.\n消費税は廃止されるべきだ.",
      "answer": "abolished"},
-    {"text": "527 During World War II, British chess masters were a____ to codebreaking tasks involving the Enigma machine.\n第二次世界大戦中,イギリスのチェスマスターたちはエニグマ機に関わる暗号解読の仕事に就いていました.",
+    {"text": "512 Scholarships help students pay for college tuition and e___.\n奨学金は学生が大学の授業料や費用を支払うのを助ける。",
+     "answer": "expenses"},
+    {"text": "527 During World War II, British chess masters were a___ to codebreaking tasks involving the Enigma machine.\n第二次世界大戦中,イギリスのチェスマスターたちはエニグマ機に関わる暗号解読の仕事に就いていました.",
      "answer": "assigned"},
     {"text": "539 The road to success is under c___.\n成功への道は工事中だ.",
      "answer": "construction"},
@@ -259,6 +261,10 @@ questions_1_1000 = [
      "answer": "requires"},
     {"text": "662 The shortest war l___ 38 minutes.\n最短の戦争は38分間だった.",
      "answer": "lasted"},
+    {"text": "669 r___ invitation\n同窓会の案内状",
+     "answer": "reunion"},
+    {"text": "1671 S___ help students pay for college tuition and expenses.\n奨学金は学生が大学の授業料や費用を支払うのを助ける。",
+     "answer": "scholarships"},
     {"text": "673 The price is d___ by supply and demand.\n価格は需要と供給で決まる.",
      "answer": "determined"},
     {"text": "694 What is taken for g___ today was once a revolutionary idea.\n今日当たり前のように考えられているものは,かつては革新的なアイデアでした.",
@@ -299,10 +305,12 @@ questions_1_1000 = [
 questions_1001_1935 = [
     {"text": "1001 The ___ made a critical discovery in the lab.\nその科学者は研究室で重大な発見をした。",
      "answer": "scientist"},
+    {"text": "1054 The ___ of Hammurabi is one of the oldest laws.\nハンムラビ法典(規定)は最古の法律の一つ。",
+     "answer": "code"},
     {"text": "1247 Don’t count your chickens before they ___.\n卵がかえる前にヒヨコを数えるな",
      "answer": "hatch"},
-    {"text": "1054 The c___ of Hammurabi is one of the oldest laws.\nハンムラビ法典(規定)は最古の法律の一つ。",
-     "answer": "code"},
+    {"text": "1671 Scholarships help students pay for college ___ and expenses.\n奨学金は学生が大学の授業料や費用を支払うのを助ける。",
+     "answer": "tuition"},
 ]
 
 def get_rank(score):
