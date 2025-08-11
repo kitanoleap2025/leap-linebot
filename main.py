@@ -429,7 +429,7 @@ def build_result_flex(user_id):
             }  # bodyの閉じ
         }  # contentsの閉じ
     )  # FlexSe
-
+    return flex_message
 
 def build_grasp_text(user_id):
     scores = user_scores.get(user_id, {})
