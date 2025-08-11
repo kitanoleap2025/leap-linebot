@@ -611,8 +611,8 @@ def handle_message(event):
         return
 
     if msg == "成績":
-        text = build_result_text(user_id)
-        line_bot_api.reply_message(event.reply_token, TextSendMessage(text=text))
+        flex_msg = build_result_flex(user_id)
+        line_bot_api.reply_message(event.reply_token, flex_msg)
         return
 
     if msg == "把握度":
