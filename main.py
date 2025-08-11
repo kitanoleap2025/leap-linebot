@@ -329,21 +329,21 @@ def build_result_flex(user_id):
         elif rate >= 9000:
             rank = "A+🤩"
         elif rate >= 8000:
-            rank = "A😎"
+            rank = "A🤩"
         elif rate >= 7000:
-            rank = "A-😍"
+            rank = "A-🤩"
         elif rate >= 6000:
-            rank = "B+🤑"
+            rank = "B+😎"
         elif rate >= 5000:
-            rank = "B🤠"
+            rank = "B😎"
         elif rate >= 4000:
-            rank = "B-😇"
+            rank = "B-😎"
         elif rate >= 3000:
-            rank = "C+😤"
+            rank = "C+😍"
         elif rate >= 2000:
-            rank = "C🤫"
+            rank = "C😍"
         elif rate >= 1000:
-            rank = "C-😶‍🌫️"
+            rank = "C-😍"
         else:
             rank = "D🫠"
 
@@ -366,14 +366,14 @@ def build_result_flex(user_id):
     total_rate = round((rate1 + rate2) / 2)
 
     flex_message = FlexSendMessage(
-        alt_text=f"{name} の成績",
+        alt_text=f"{name}",
         contents={
             "type": "bubble",
             "body": {
                 "type": "box",
                 "layout": "vertical",
                 "contents": [
-                    {"type": "text", "text": f"{name} の成績", "weight": "bold", "size": "xl", "color": "#000000", "align": "center"},
+                    {"type": "text", "text": f"{name}", "weight": "bold", "size": "xl", "color": "#000000", "align": "center"},
                     *parts,
                     {
                         "type": "separator",
