@@ -426,7 +426,9 @@ def build_result_flex(user_id):
                         "wrap": True
                     }
                 ]
-
+            }  # bodyの閉じ
+        }  # contentsの閉じ
+    )  # FlexSe
 
 
 def build_grasp_text(user_id):
