@@ -327,6 +327,8 @@ def get_rank(score):
 def score_to_weight(score):
     return {0: 16, 1: 8, 2: 4, 3: 2, 4: 1}.get(score, 5)
 
+from linebot.models import BoxComponent, TextComponent
+
 def build_result_flex(user_id):
     name = user_names.get(user_id, DEFAULT_NAME)
 
@@ -344,46 +346,32 @@ def build_result_flex(user_id):
         elif rate >= 9000:
             rank = "A+🤩"
         elif rate >= 8000:
-            rank = "A🤩"
+            rank = "A😎"
         elif rate >= 7000:
-            rank = "A-🤩"
+            rank = "A-😍"
         elif rate >= 6000:
-            rank = "B+😎"
+            rank = "B+🤑"
         elif rate >= 5000:
-            rank = "B😎"
+            rank = "B🤠"
         elif rate >= 4000:
-            rank = "B-😎"
+            rank = "B-😇"
         elif rate >= 3000:
-            rank = "C+😍"
+            rank = "C+😤"
         elif rate >= 2000:
-            rank = "C😍"
+            rank = "C🤫"
         elif rate >= 1000:
-            rank = "C-😍"
+            rank = "C-😶‍🌫️"
         else:
             rank = "D🫠"
 
         parts.append({
             "type": "box",
-            "layout": "horizontal",
+            "layout": "vertical",
             "margin": "md",
             "contents": [
-                {
-                    "type": "box",
-                    "layout": "vertical",
-                    "flex": 3,
-                    "contents": [
-                        {"type": "text", "text": title, "weight": "bold", "size": "md", "color": "#000000"},
-                    ],
-                },
-                {
-                    "type": "box",
-                    "layout": "vertical",
-                    "flex": 2,
-                    "contents": [
-                        {"type": "text", "text": f"Rating: {rate}", "size": "lg", "color": "#333333", "align": "end", "weight": "bold"},
-                        {"type": "text", "text": f"Rank: {rank}", "size": "lg", "color": "#333333", "align": "end", "weight": "bold"},
-                    ],
-                },
+                {"type": "text", "text": title, "weight": "bold", "size": "md", "color": "#000000"},
+                {"type": "text", "text": f"Rating: {rate}", "size": "sm", "color": "#333333"},
+                {"type": "text", "text": f"Rank: {rank}", "size": "sm", "color": "#333333"},
             ],
         })
 
@@ -395,14 +383,14 @@ def build_result_flex(user_id):
     total_rate = round((rate1 + rate2) / 2)
 
     flex_message = FlexSendMessage(
-        alt_text=f"{name}",
+        alt_text=f"{name} の成績",
         contents={
             "type": "bubble",
             "body": {
                 "type": "box",
                 "layout": "vertical",
                 "contents": [
-                    {"type": "text", "text": f"{name}", "weight": "bold", "size": "xl", "color": "#000000", "align": "center"},
+                    {"type": "text", "text": f"{name} の成績", "weight": "bold", "size": "xl", "color": "#000000", "align": "center"},
                     *parts,
                     {
                         "type": "separator",
@@ -414,8 +402,7 @@ def build_result_flex(user_id):
                         "weight": "bold",
                         "size": "md",
                         "color": "#000000",
-                        "margin": "md",
-                        "align": "center"
+                        "margin": "md"
                     },
                     {
                         "type": "text",
@@ -426,10 +413,11 @@ def build_result_flex(user_id):
                         "wrap": True
                     }
                 ]
-            }  # bodyの閉じ
-        }  # contentsの閉じ
-    )  # FlexSe
+            }
+        }
+    )
     return flex_message
+
 
 def build_grasp_text(user_id):
     scores = user_scores.get(user_id, {})
