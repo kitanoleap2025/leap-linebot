@@ -327,7 +327,6 @@ def get_rank(score):
 def score_to_weight(score):
     return {0: 16, 1: 8, 2: 4, 3: 2, 4: 1}.get(score, 5)
 
-
 def build_result_flex(user_id):
     name = user_names.get(user_id, DEFAULT_NAME)
 
@@ -365,12 +364,26 @@ def build_result_flex(user_id):
 
         parts.append({
             "type": "box",
-            "layout": "vertical",
+            "layout": "horizontal",
             "margin": "md",
             "contents": [
-                {"type": "text", "text": title, "weight": "bold", "size": "md", "color": "#000000"},
-                {"type": "text", "text": f"Rating: {rate}", "size": "sm", "color": "#333333"},
-                {"type": "text", "text": f"Rank: {rank}", "size": "sm", "color": "#333333"},
+                {
+                    "type": "box",
+                    "layout": "vertical",
+                    "flex": 3,
+                    "contents": [
+                        {"type": "text", "text": title, "weight": "bold", "size": "md", "color": "#000000"},
+                    ],
+                },
+                {
+                    "type": "box",
+                    "layout": "vertical",
+                    "flex": 2,
+                    "contents": [
+                        {"type": "text", "text": f"Rating: {rate}", "size": "lg", "color": "#333333", "align": "end", "weight": "bold"},
+                        {"type": "text", "text": f"Rank: {rank}", "size": "lg", "color": "#333333", "align": "end", "weight": "bold"},
+                    ],
+                },
             ],
         })
 
@@ -401,7 +414,8 @@ def build_result_flex(user_id):
                         "weight": "bold",
                         "size": "md",
                         "color": "#000000",
-                        "margin": "md"
+                        "margin": "md",
+                        "align": "center"
                     },
                     {
                         "type": "text",
@@ -412,10 +426,8 @@ def build_result_flex(user_id):
                         "wrap": True
                     }
                 ]
-            }
-        }
-    )
-    return flex_message
+
+
 
 def build_grasp_text(user_id):
     scores = user_scores.get(user_id, {})
