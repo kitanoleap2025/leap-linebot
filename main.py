@@ -1,6 +1,6 @@
 from flask import Flask, request, abort
 from linebot import LineBotApi, WebhookHandler
-from linebot.models import MessageEvent, TextMessage, TextSendMessage, FlexSendMessage
+from linebot.models import MessageEvent, TextMessage, TextSendMessage, FlexSendMessage,BoxComponent, TextComponent
 from linebot.exceptions import InvalidSignatureError
 import os
 import random
@@ -10,6 +10,7 @@ from dotenv import load_dotenv
 from collections import defaultdict, deque
 import firebase_admin
 from firebase_admin import credentials, firestore
+
 
 load_dotenv()
 app = Flask(__name__)
@@ -310,61 +311,95 @@ def get_rank(score):
 def score_to_weight(score):
     return {0: 16, 1: 8, 2: 4, 3: 2, 4: 1}.get(score, 5)
 
-def build_result_text(user_id):
+
+def build_result_flex(user_id):
     name = user_names.get(user_id, DEFAULT_NAME)
-    text = f"{name}\n\n"
+
+    # 各範囲の評価計算
+    parts = []
     for title, questions in [("1-1000", questions_1_1000), ("1001-1935", questions_1001_1935)]:
         scores = user_scores.get(user_id, {})
         relevant_answers = [q["answer"] for q in questions]
         total_score = sum(scores.get(ans, 0) for ans in relevant_answers)
         count = len(relevant_answers)
 
-        rate = round((total_score / count) * 2500)
+        rate = round((total_score / count) * 2500) if count else 0
         if rate >= 9900:
-            rank = "S🤯"      
+            rank = "S🤯"
         elif rate >= 9000:
-            rank = "A+🤩"     
+            rank = "A+🤩"
         elif rate >= 8000:
             rank = "A😎"
         elif rate >= 7000:
-            rank = "A-😍"      
+            rank = "A-😍"
         elif rate >= 6000:
-            rank = "B+🤑"      
+            rank = "B+🤑"
         elif rate >= 5000:
-            rank = "B🤠"      
+            rank = "B🤠"
         elif rate >= 4000:
-            rank = "B-😇"      
+            rank = "B-😇"
         elif rate >= 3000:
-            rank = "C+😤"      
+            rank = "C+😤"
         elif rate >= 2000:
-            rank = "C🤫"    
+            rank = "C🤫"
         elif rate >= 1000:
-            rank = "C-😶‍🌫️"    
+            rank = "C-😶‍🌫️"
         else:
-            rank = "D🫠"       
+            rank = "D🫠"
 
-        text += (
-            f"[{title}]\n"
-            f"Rating:{rate}\n"
-            f"Rank:{rank}\n\n"
-        )
-    rate1 = 0
-    rate2 = 0
+        parts.append({
+            "type": "box",
+            "layout": "vertical",
+            "margin": "md",
+            "contents": [
+                {"type": "text", "text": title, "weight": "bold", "size": "md", "color": "#000000"},
+                {"type": "text", "text": f"Rating: {rate}", "size": "sm", "color": "#333333"},
+                {"type": "text", "text": f"Rank: {rank}", "size": "sm", "color": "#333333"},
+            ],
+        })
+
+    # 合計レート計算
     c1 = len(questions_1_1000)
     c2 = len(questions_1001_1935)
-    if c1 > 0:
-        scores1 = user_scores.get(user_id, {})
-        total_score1 = sum(scores1.get(q["answer"], 0) for q in questions_1_1000)
-        rate1 = round((total_score1 / c1) * 2500)
-    if c2 > 0:
-        scores2 = user_scores.get(user_id, {})
-        total_score2 = sum(scores2.get(q["answer"], 0) for q in questions_1001_1935)
-        rate2 = round((total_score2 / c2) * 2500)
+    rate1 = round((sum(user_scores.get(user_id, {}).get(q["answer"], 0) for q in questions_1_1000) / c1) * 2500) if c1 else 0
+    rate2 = round((sum(user_scores.get(user_id, {}).get(q["answer"], 0) for q in questions_1001_1935) / c2) * 2500) if c2 else 0
     total_rate = round((rate1 + rate2) / 2)
-    text += "Total Rating\n"
-    text += f"{total_rate}\n\n"
-    text += "名前変更は「@(新しい名前)」で送信してください。"
-    return text.strip()
+
+    flex_message = FlexSendMessage(
+        alt_text=f"{name} の成績",
+        contents={
+            "type": "bubble",
+            "body": {
+                "type": "box",
+                "layout": "vertical",
+                "contents": [
+                    {"type": "text", "text": f"{name} の成績", "weight": "bold", "size": "xl", "color": "#000000", "align": "center"},
+                    *parts,
+                    {
+                        "type": "separator",
+                        "margin": "md"
+                    },
+                    {
+                        "type": "text",
+                        "text": f"Total Rating: {total_rate}",
+                        "weight": "bold",
+                        "size": "md",
+                        "color": "#000000",
+                        "margin": "md"
+                    },
+                    {
+                        "type": "text",
+                        "text": "名前変更は「@(新しい名前)」で送信してください。",
+                        "size": "sm",
+                        "color": "#666666",
+                        "margin": "lg",
+                        "wrap": True
+                    }
+                ]
+            }
+        }
+    )
+    return flex_message
 
 def build_grasp_text(user_id):
     scores = user_scores.get(user_id, {})
@@ -509,14 +544,14 @@ def build_ranking_flex(user_id=None):
             })
 
     flex_message = FlexSendMessage(
-        alt_text="🏆 Rating 🏆",
+        alt_text="Rating",
         contents={
             "type": "bubble",
             "body": {
                 "type": "box",
                 "layout": "vertical",
                 "contents": [
-                    {"type": "text", "text": "🏆 Rating 🏆", "weight": "bold", "size": "lg", "align": "center"},
+                    {"type": "text", "text": "Rating", "weight": "bold", "size": "xl", "align": "center"},
                     {"type": "separator", "margin": "md"},
                     *contents
                 ]
