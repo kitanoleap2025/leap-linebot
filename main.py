@@ -30,7 +30,7 @@ user_recent_questions = defaultdict(lambda: deque(maxlen=10))
 user_answer_counts = defaultdict(int)
 user_names = {}  # user_id: name
 
-DEFAULT_NAME = "名無し"
+DEFAULT_NAME = "名前はまだない。"
 
 def load_user_data(user_id):
     try:
@@ -411,6 +411,9 @@ trivia_messages = [
     "🎅低浮上サンタ\n聖書は世界的なベストセラーフィクション作品です。",
     "🎅低浮上サンタ\nアメリカはルークを失い、イギリスはクイーンを失いました。",
     "🎅低浮上サンタ\n私は10回に1回出てきます。",
+    "🎅低浮上サンタ\n継続は力なり。",
+    "🎅低浮上サンタ\n私は10回に1回出てきます。",
+    "🎅低浮上サンタ\n継続は力なり。",
 ]
 
 def build_ranking_flex(user_id=None):
@@ -479,7 +482,7 @@ def build_ranking_flex(user_id=None):
                 "type": "box",
                 "layout": "baseline",
                 "contents": [
-                    {"type": "text", "text": "あなた", "flex": 3, "weight": "bold"},
+                    {"type": "text", "text": "あなたは表彰台に乗っています!", "flex": 3, "weight": "bold"},
                     {"type": "text", "text": str(rate), "flex": 1, "align": "end"}
                 ]
             })
@@ -493,7 +496,7 @@ def build_ranking_flex(user_id=None):
                 "type": "box",
                 "layout": "baseline",
                 "contents": [
-                    {"type": "text", "text": f"{user_index+1}位 あなた", "flex": 3, "weight": "bold"},
+                    {"type": "text", "text": f"{user_index+1}位 {name}", "flex": 3, "weight": "bold"},
                     {"type": "text", "text": str(rate), "flex": 1, "align": "end"}
                 ]
             })
