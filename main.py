@@ -369,9 +369,9 @@ def build_result_flex(user_id):
             "layout": "vertical",
             "margin": "md",
             "contents": [
-                {"type": "text", "text": title, "weight": "bold", "size": "md", "color": "#000000"},
-                {"type": "text", "text": f"Rating: {rate}", "size": "sm", "color": "#333333"},
-                {"type": "text", "text": f"Rank: {rank}", "size": "sm", "color": "#333333"},
+                {"type": "text", "text": title, "weight": "bold", "size": "sm", "color": "#000000"},
+                {"type": "text", "text": f"Rating: {rate}", "size": "md", "color": "#333333"},
+                {"type": "text", "text": f"{rank}", "size": "md", "color": "#333333"},
             ],
         })
 
@@ -383,14 +383,14 @@ def build_result_flex(user_id):
     total_rate = round((rate1 + rate2) / 2)
 
     flex_message = FlexSendMessage(
-        alt_text=f"{name} の成績",
+        alt_text=f"{name}",
         contents={
             "type": "bubble",
             "body": {
                 "type": "box",
                 "layout": "vertical",
                 "contents": [
-                    {"type": "text", "text": f"{name} の成績", "weight": "bold", "size": "xl", "color": "#000000", "align": "center"},
+                    {"type": "text", "text": f"{name}", "weight": "bold", "size": "xl", "color": "#000000", "align": "center"},
                     *parts,
                     {
                         "type": "separator",
