@@ -223,7 +223,7 @@ questions_1_1000 = [
      "answer": "pale"},
     {"text": "449 He was conscious during the entire s___.\n彼は手術中ずっと意識があった.\n😱",
      "answer": "surgery"},
-    {"text": "479 All animals are e___, but some animals are more ___ than others.\n全ての動物は平等だが、中には他よりもっと平等な動物もいる。",
+    {"text": "479 All animals are e___, but some animals are more e___ than others.\n全ての動物は平等だが、中には他よりもっと平等な動物もいる。",
      "answer": "equal"},
     {"text": "500 The consumption tax should be a___.\n消費税は廃止されるべきだ.",
      "answer": "abolished"},
