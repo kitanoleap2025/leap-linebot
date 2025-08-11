@@ -457,7 +457,7 @@ def build_ranking_flex(user_id=None):
             "type": "box",
             "layout": "baseline",
             "contents": [
-                {"type": "text", "text": f"{i}位", "flex": 1, "weight": "bold", "size": size, "color": color},
+                {"type": "text", "text": f"#{i}", "flex": 1, "weight": "bold", "size": size, "color": color},
                 {"type": "text", "text": name, "flex": 4, "weight": "bold", "size": size},
                 {"type": "text", "text": str(rate), "flex": 2, "align": "end", "size": size}
             ]
@@ -509,14 +509,14 @@ def build_ranking_flex(user_id=None):
             })
 
     flex_message = FlexSendMessage(
-        alt_text="🏆 Rating Ranking 🏆",
+        alt_text="🏆 Rating 🏆",
         contents={
             "type": "bubble",
             "body": {
                 "type": "box",
                 "layout": "vertical",
                 "contents": [
-                    {"type": "text", "text": "🏆 Rating Ranking 🏆", "weight": "bold", "size": "lg", "align": "center"},
+                    {"type": "text", "text": "🏆 Rating 🏆", "weight": "bold", "size": "lg", "align": "center"},
                     {"type": "separator", "margin": "md"},
                     *contents
                 ]
