@@ -474,7 +474,7 @@ def build_ranking_flex(user_id=None):
 
     if user_index is not None:
         uid, name, rate = ranking[user_index]
-        contents.append({"type": "separator", "margin": "md"})
+        contents.append({"type": "separator", "margin": "lg"})
 
         if user_index < 5:
             # 5位以内 → 名前とレートのみ
@@ -482,7 +482,7 @@ def build_ranking_flex(user_id=None):
                 "type": "box",
                 "layout": "baseline",
                 "contents": [
-                    {"type": "text", "text": "あなたは表彰台に乗っています!", "flex": 3, "weight": "bold"},
+                    {"type": "text", "text": "あなたは表彰台に乗っています!", "flex": 3, "weight": "bold","size": "sm"},
                     {"type": "text", "text": str(rate), "flex": 1, "align": "end"}
                 ]
             })
