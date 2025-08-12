@@ -438,6 +438,67 @@ def build_result_flex(user_id):
     )
     return flex_message
 
+#FEEDBACK　flex
+def build_feedback_flex(is_correct, score, elapsed, rank, correct_answer=None, total_point=None):
+    body_contents = []
+
+    if is_correct:
+        if total_point is None:
+            label, color = "??", "#000000"
+        elif total_point > 6:
+            label, color = "‼️Brilliant", "#00BFFF"  # 空色
+        elif total_point > 4:
+            label, color = "!Great", "#0000FF"        # 青
+        else:
+            label, color = "?Mediocre", "#FF0000"     # 赤
+
+        body_contents.append({
+            "type": "text",
+            "text": label,
+            "weight": "bold",
+            "size": "lg",
+            "color": color,
+            "align": "center"
+        })
+    else:
+        body_contents.append({
+            "type": "text",
+            "text": f"Wrong❌\nAnswer: {correct_answer}",
+            "size": "md",
+            "color": "#FF5555",
+            "wrap": True,
+            "margin": "md"
+        })
+
+    body_contents.extend([
+        {
+            "type": "text",
+            "text": f"解く前の把握度: {rank}ランク",
+            "size": "md",
+            "color": "#000000",
+            "margin": "md"
+        },
+        {
+            "type": "text",
+            "text": f"解答時間: {elapsed:.1f}秒",
+            "size": "md",
+            "color": "#000000",
+            "margin": "sm"
+        }
+    ])
+
+    return FlexSendMessage(
+        alt_text="回答フィードバック",
+        contents={
+            "type": "bubble",
+            "body": {
+                "type": "box",
+                "layout": "vertical",
+                "contents": body_contents
+            }
+        }
+    )
+
 
 def build_grasp_text(user_id):
     scores = user_scores.get(user_id, {})
@@ -714,16 +775,13 @@ def handle_message(event):
         if is_correct:
         # 正解判定前のスコアを元にランクを決定
             rank = get_rank(score)
-            feedback = f"{eval_msg} (解く前の把握度: {rank}ランク, 解答時間: {elapsed:.1f}秒)\n\nNext:"
             user_scores[user_id][correct_answer] = min(4, score + delta)
         else:
             rank = get_rank(score)
-            feedback = f"Wrong❌\nAnswer: {correct_answer}\n解く前の把握度: {rank}ランク, 解答時間: {elapsed:.1f}秒\n\nNext:"
             user_scores[user_id][correct_answer] = max(0, score - 1)
 
-        async_save_user_data(user_id)
-        user_answer_counts[user_id] += 1
-        
+        flex_feedback = build_feedback_flex(is_correct, score, elapsed, rank, correct_answer, total_point if is_correct else None)
+
         questions = questions_1_1000 if range_str == "1-1000" else questions_1001_1935
         next_q = choose_weighted_question(user_id, questions)
         user_states[user_id] = (range_str, next_q["answer"])
@@ -734,7 +792,7 @@ def handle_message(event):
             line_bot_api.reply_message(
                 event.reply_token,
                 messages=[
-                    TextSendMessage(text=feedback),
+                    flex_feedback,
                     TextSendMessage(text=trivia),
                     TextSendMessage(text=next_q["text"])
                 ],
@@ -743,7 +801,7 @@ def handle_message(event):
             line_bot_api.reply_message(
                 event.reply_token,
                 messages=[
-                    TextSendMessage(text=feedback),
+                    flex_feedback,
                     TextSendMessage(text=next_q["text"])
                 ],
             )
