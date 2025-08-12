@@ -744,7 +744,6 @@ def handle_message(event):
         else:
             elapsed = time.time() - start_time
 
-            
         # ポイント計算ロジック
         if elapsed <= 5:             
             time_point = 5
@@ -758,35 +757,35 @@ def handle_message(event):
         grasp_point = {0:4, 1:3, 2:2, 3:1, 4:0}.get(score, 0)
         total_point = time_point + grasp_point
 
-        # 評価判定
+        # delta計算（評価テキストは削除）
         if total_point <= 2:
-            eval_msg = "✅correct\n❓mediocre"
             delta = 0
         elif total_point <= 4:
-            eval_msg = "✅correct"
             delta = 1
         elif total_point <= 6:
-            eval_msg = "✅correct\n❗𝕘𝕣𝕖𝕒𝕥"
             delta = 2
         else:
-            eval_msg = "✅correct\n‼️𝕓𝕣𝕚𝕝𝕝𝕚𝕒𝕟𝕥"
             delta = 3
 
         if is_correct:
-        # 正解判定前のスコアを元にランクを決定
+            # 正解判定前のスコアを元にランクを決定
             rank = get_rank(score)
             user_scores[user_id][correct_answer] = min(4, score + delta)
         else:
             rank = get_rank(score)
             user_scores[user_id][correct_answer] = max(0, score - 1)
 
-        flex_feedback = build_feedback_flex(is_correct, score, elapsed, rank, correct_answer, total_point if is_correct else None)
+        flex_feedback = build_feedback_flex(
+            is_correct, score, elapsed, rank,
+            correct_answer, total_point if is_correct else None
+        )
 
         questions = questions_1_1000 if range_str == "1-1000" else questions_1001_1935
         next_q = choose_weighted_question(user_id, questions)
         user_states[user_id] = (range_str, next_q["answer"])
         user_answer_start_times[user_id] = time.time()
-
+        user_answer_counts[user_id] += 1
+        
         if user_answer_counts[user_id] % 5 == 0:
             trivia = random.choice(trivia_messages)
             line_bot_api.reply_message(
