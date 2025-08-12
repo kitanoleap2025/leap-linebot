@@ -675,7 +675,13 @@ def handle_message(event):
         range_str, correct_answer = user_states[user_id]
         is_correct = (msg.lower() == correct_answer.lower())
         score = user_scores[user_id].get(correct_answer, 0)
-        elapsed = time.time() - user_answer_start_times.get(user_id, time.time())
+
+        start_time = user_answer_start_times.get(user_id)
+        if start_time is None:
+            elapsed = 0
+        else:
+            elapsed = time.time() - start_time
+
             
         # ポイント計算ロジック
         if elapsed <= 5:             
