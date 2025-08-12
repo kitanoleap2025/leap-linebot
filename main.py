@@ -727,6 +727,7 @@ def handle_message(event):
         questions = questions_1_1000 if range_str == "1-1000" else questions_1001_1935
         next_q = choose_weighted_question(user_id, questions)
         user_states[user_id] = (range_str, next_q["answer"])
+        user_answer_start_times[user_id] = time.time()
 
         if user_answer_counts[user_id] % 5 == 0:
             trivia = random.choice(trivia_messages)
