@@ -453,6 +453,12 @@ def choose_weighted_question(user_id, questions):
     return chosen
 
 trivia_messages = [
+    "🎅低浮上サンタ\n私は5回に1回出てきます。",
+    "🎅低浮上サンタ\n私は5回に1回出てきます。",
+    "🎅低浮上サンタ\n私は5回に1回出てきます。",
+    "🎅低浮上サンタ\n継続は力なり。",
+    "🎅低浮上サンタ\n継続は力なり。",
+    "🎅低浮上サンタ\n継続は力なり。",
     "🎅低浮上サンタ\nあなたが今電車の中なら、外の景色を見てみて下さい。",
     "🎅低浮上サンタ\n最高のSランクに到達するためには、少なくとも2000問解く必要があります。",
     "🎅低浮上サンタ\n木々は栄養を分け合ったり、病気の木に助け舟を出したりします。",
@@ -463,10 +469,8 @@ trivia_messages = [
     "🎅低浮上サンタ\nサンタはいないです。",
     "🎅低浮上サンタ\n聖書は世界的なベストセラーフィクション作品です。",
     "🎅低浮上サンタ\nアメリカはルークを失い、イギリスはクイーンを失いました。",
-    "🎅低浮上サンタ\n私は10回に1回出てきます。",
-    "🎅低浮上サンタ\n継続は力なり。",
-    "🎅低浮上サンタ\n私は10回に1回出てきます。",
-    "🎅低浮上サンタ\n継続は力なり。",
+    "🎅低浮上サンタ\n{name},{name},{name}!",
+    "🎅低浮上サンタ\n現在{time}時です。",
 ]
 
 def build_ranking_flex(user_id=None):
@@ -660,7 +664,7 @@ def handle_message(event):
         next_q = choose_weighted_question(user_id, questions)
         user_states[user_id] = (range_str, next_q["answer"])
 
-        if user_answer_counts[user_id] % 10 == 0:
+        if user_answer_counts[user_id] % 5 == 0:
             trivia = random.choice(trivia_messages)
             line_bot_api.reply_message(
                 event.reply_token,
