@@ -345,7 +345,7 @@ def get_rank(score):
     return {0: "D", 1: "C", 2: "B", 3: "A", 4: "S"}.get(score, "D")
 
 def score_to_weight(score):
-    return {0: 16, 1: 8, 2: 4, 3: 2, 4: 1}.get(score, 5)
+    return {0: 16, 1: 8, 2: 4, 3: 2, 4: 1}.get(score, 16)
 
 from linebot.models import BoxComponent, TextComponent
 
@@ -658,6 +658,7 @@ def handle_message(event):
         questions = questions_1_1000 if msg == "1-1000" else questions_1001_1935
         q = choose_weighted_question(user_id, questions)
         user_states[user_id] = (msg, q["answer"])
+        user_answer_start_times[user_id] = time.time() 
         line_bot_api.reply_message(event.reply_token, TextSendMessage(text=q["text"]))
         return
 
@@ -698,7 +699,7 @@ def handle_message(event):
 
         # 評価判定
         if total_point <= 2:
-            eval_msg = "✅correct\n❓🅼🅴🅳🅸🅾🅲🆁🅴"
+            eval_msg = "✅correct\n❓mediocre"
             delta = 0
         elif total_point <= 4:
             eval_msg = "✅correct"
