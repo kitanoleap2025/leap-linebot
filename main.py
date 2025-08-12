@@ -446,17 +446,17 @@ def build_feedback_flex(is_correct, score, elapsed, rank, correct_answer=None, t
         if total_point is None:
             label, color = "??", "#000000"
         elif total_point > 6:
-            label, color = "‼️Brilliant", "#00BFFF"  # 空色
+            label, color = "‼Brilliant", "#40e0d0"  # 空色
         elif total_point > 4:
-            label, color = "!Great", "#0000FF"        # 青
+            label, color = "!Great", "#6495ed"        # 青
         else:
-            label, color = "?Mediocre", "#FF0000"     # 赤
+            label, color = "?Mediocre", "#ffd700"     # 黄
 
         body_contents.append({
             "type": "text",
             "text": label,
             "weight": "bold",
-            "size": "lg",
+            "size": "xl",
             "color": color,
             "align": "center"
         })
@@ -465,7 +465,7 @@ def build_feedback_flex(is_correct, score, elapsed, rank, correct_answer=None, t
             "type": "text",
             "text": f"Wrong❌\nAnswer: {correct_answer}",
             "size": "md",
-            "color": "#FF5555",
+            "color": "#ff4500",
             "wrap": True,
             "margin": "md"
         })
@@ -473,14 +473,14 @@ def build_feedback_flex(is_correct, score, elapsed, rank, correct_answer=None, t
     body_contents.extend([
         {
             "type": "text",
-            "text": f"解く前の把握度: {rank}ランク",
+            "text": f"解く前:{rank}",
             "size": "md",
             "color": "#000000",
             "margin": "md"
         },
         {
             "type": "text",
-            "text": f"解答時間: {elapsed:.1f}秒",
+            "text": f"{elapsed:.1f}s",
             "size": "md",
             "color": "#000000",
             "margin": "sm"
