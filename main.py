@@ -692,16 +692,16 @@ def handle_message(event):
 
         # 評価判定
         if total_point <= 2:
-            eval_msg = "❓mediocre"
+            eval_msg = "✅❓🅼🅴🅳🅸🅾🅲🆁🅴"
             delta = 0
         elif total_point <= 4:
             eval_msg = "✅correct"
             delta = 1
         elif total_point <= 6:
-            eval_msg = "❗great"
+            eval_msg = "✅❗𝕘𝕣𝕖𝕒𝕥"
             delta = 2
         else:
-            eval_msg = "‼️brilliant"
+            eval_msg = "✅‼️𝕓𝕣𝕚𝕝𝕝𝕚𝕒𝕟𝕥"
             delta = 3
 
         if is_correct:
