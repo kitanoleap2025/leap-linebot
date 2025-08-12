@@ -10,6 +10,7 @@ from dotenv import load_dotenv
 from collections import defaultdict, deque
 import firebase_admin
 from firebase_admin import credentials, firestore
+import time
 
 
 load_dotenv()
@@ -30,6 +31,7 @@ user_scores = defaultdict(dict)
 user_recent_questions = defaultdict(lambda: deque(maxlen=10))
 user_answer_counts = defaultdict(int)
 user_names = {}  # user_id: name
+user_answer_start_times = {}  # 問題出題時刻を記録
 
 DEFAULT_NAME = "名前はまだない。"
 
@@ -619,6 +621,12 @@ def callback():
 
     return "OK"
 
+def send_question(user_id, reply_token, questions, range_str):
+    q = choose_weighted_question(user_id, questions)
+    user_states[user_id] = (range_str, q["answer"])
+    user_answer_start_times[user_id] = time.time()  # 出題時刻記録
+    line_bot_api.reply_message(reply_token, TextSendMessage(text=q["text"]))
+
 @handler.add(MessageEvent, message=TextMessage)
 def handle_message(event):
     user_id = event.source.user_id
@@ -667,20 +675,45 @@ def handle_message(event):
         range_str, correct_answer = user_states[user_id]
         is_correct = (msg.lower() == correct_answer.lower())
         score = user_scores[user_id].get(correct_answer, 0)
+        elapsed = time.time() - user_answer_start_times.get(user_id, time.time())
+            
+        # ポイント計算ロジック
+        if elapsed <= 5:             
+            time_point = 5
+        elif elapsed <= 10:
+            time_point = 3
+        elif elapsed <= 20:
+            time_point = 2
+        else:
+            time_point = 0
 
+        grasp_point = {0:4, 1:3, 2:2, 3:1, 4:0}.get(score, 0)
+        total_point = time_point + grasp_point
+
+        # 評価判定
+        if total_point <= 2:
+            eval_msg = "❓mediocre"
+            delta = 0
+        elif total_point <= 4:
+            eval_msg = "✅correct"
+            delta = 1
+        elif total_point <= 6:
+            eval_msg = "❗great"
+            delta = 2
+        else:
+            eval_msg = "‼️brilliant"
+            delta = 3
+            
         if is_correct:
-            user_scores[user_id][correct_answer] = min(4, score + 2)
+            user_scores[user_id][correct_answer] = min(4, score + delta)
         else:
             user_scores[user_id][correct_answer] = max(0, score - 1)
 
         async_save_user_data(user_id)
-
         user_answer_counts[user_id] += 1
 
-        feedback = (
-            "Correct✅\n\nNext:" if is_correct else f"Wrong❌\nAnswer: {correct_answer}\n\nNext:"
-        )
-
+        feedback = f"{eval_msg}\n\nNext:" if is_correct else f"Wrong❌\nAnswer: {correct_answer}\n\nNext:"
+        
         questions = questions_1_1000 if range_str == "1-1000" else questions_1001_1935
         next_q = choose_weighted_question(user_id, questions)
         user_states[user_id] = (range_str, next_q["answer"])
