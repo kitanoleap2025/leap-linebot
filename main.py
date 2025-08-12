@@ -716,8 +716,6 @@ def handle_message(event):
 
         async_save_user_data(user_id)
         user_answer_counts[user_id] += 1
-
-        feedback = f"{eval_msg}\n\nNext:" if is_correct else f"Wrong❌\nAnswer: {correct_answer}\n\nNext:"
         
         questions = questions_1_1000 if range_str == "1-1000" else questions_1001_1935
         next_q = choose_weighted_question(user_id, questions)
