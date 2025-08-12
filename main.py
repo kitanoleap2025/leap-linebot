@@ -185,6 +185,8 @@ questions_1_1000 = [
      "answer": "familiar"},
     {"text": "269 Don’t c___ your chickens before they hatch.\n卵がかえる前にヒヨコを数えるな",
      "answer": "count"},
+    {"text": "284 A:What movie has no kissing s___?\nB:Your life.\n\nA:キスシーンの無い映画は？",
+     "answer": "scenes"},
     {"text": "311 If you put w___ on a grandma, can you call it a bicycle?\nおばあちゃんに車輪を付けたら,自転車と呼べるのか.",
      "answer": "wheels"},
     {"text":"335 r__, r__, r__ your boat\nGently down the stream\nMerrily, merrily, merrily, merrily\nLife is but a dream\n\nボートを漕げ、漕げ、漕げ\nそっと流れを下って\n陽気に、陽気に、陽気に、陽気に\n人生は夢に過ぎない",
@@ -293,6 +295,8 @@ questions_1_1000 = [
      "answer": "supply"},
     {"text": "861 People who can be r___ by Artificial Intelligence\nAIに代替可能な人.",
      "answer": "replaced"},
+    {"text": "892 v___ m___\n 自動販売機",
+     "answer": "vending machine"},
     {"text": "901 I want to t___ to the art course.\n美術コースに転向したい.",
      "answer": "transfer"},
     {"text": """978 They described i___ the group project as "respecting individual effort".\n彼らはグループ課題を無視することを「個人の努力を尊重する」と表現しました.""",
@@ -319,7 +323,9 @@ questions_1001_1935 = [
      "answer": "entire"},
     {"text": "1671 Scholarships help students pay for college ___ and expenses.\n奨学金は学生が大学の授業料や費用を支払うのを助ける。",
      "answer": "tuition"},
+    
 ]
+#Dreams are free; reality charges you interest every day.
 
 def get_rank(score):
     return {0: "D", 1: "C", 2: "B", 3: "A", 4: "S"}.get(score, "D")
@@ -469,8 +475,8 @@ trivia_messages = [
     "🎅低浮上サンタ\nサンタはいないです。",
     "🎅低浮上サンタ\n聖書は世界的なベストセラーフィクション作品です。",
     "🎅低浮上サンタ\nアメリカはルークを失い、イギリスはクイーンを失いました。",
-    "🎅低浮上サンタ\n{name},{name},{name}!",
-    "🎅低浮上サンタ\n現在{time}時です。"
+    f"🎅低浮上サンタ\n{name},{name},{name}!",
+    f"🎅低浮上サンタ\n現在{time}時です。",
     "🎅低浮上サンタ\n@新しい名前　でランキングに表示される名前を変更できます。",
     "🎅低浮上サンタ\n辞書に載っている最長単語は「pneumonoultramicroscopicsilicovolcanoconiosis」（超微細な火山性シリカの粉塵による肺の病気）。",
     "🎅低浮上サンタ\n「set」は約430の意味を持っていて、最も多様な意味を持つ英単語と言われています。",
