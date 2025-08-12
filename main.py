@@ -445,10 +445,12 @@ def build_feedback_flex(is_correct, score, elapsed, rank, correct_answer=None, t
     if is_correct:
         if total_point is None:
             label, color = "??", "#000000"
-        elif total_point > 6:
+        elif total_point >= 7:
             label, color = "(!!) Brilliant", "#40e0d0"  # 空色
-        elif total_point > 4:
+        elif total_point >= 5:
             label, color = "(!) Great", "#6495ed"        # 青
+        elif total_point >= 3:
+            label, color = "✅ Correct", "#32cd32"      # 緑
         else:
             label, color = "(?) Mediocre", "#ffd700"     # 黄
 
