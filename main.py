@@ -707,11 +707,11 @@ def handle_message(event):
         if is_correct:
         # 正解判定前のスコアを元にランクを決定
             rank = get_rank(score)
-            feedback = f"{eval_msg} (元の把握度: {rank}ランク)\n\nNext:"
+            feedback = f"{eval_msg} (解く前の把握度: {rank}ランク, 解答時間: {elapsed:.1f}秒)\n\nNext:"
             user_scores[user_id][correct_answer] = min(4, score + delta)
         else:
             rank = get_rank(score)
-            feedback = f"Wrong❌\nAnswer: {correct_answer}\n元の把握度: {rank}ランク\n\nNext:"
+            feedback = f"Wrong❌\nAnswer: {correct_answer}\n解く前の把握度: {rank}ランク, 解答時間: {elapsed:.1f}秒\n\nNext:"
             user_scores[user_id][correct_answer] = max(0, score - 1)
 
         async_save_user_data(user_id)
