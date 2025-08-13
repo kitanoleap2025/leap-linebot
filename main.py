@@ -756,44 +756,42 @@ def handle_message(event):
         score = user_scores[user_id].get(correct_answer, 0)
 
         start_time = user_answer_start_times.get(user_id)
-        if start_time is None:
-            elapsed = 0
-        else:
-            elapsed = time.time() - start_time
+        elapsed = time.time() - start_time if start_time else 0
 
-        # ポイント計算ロジック
+        # grasp_point を計算
         grasp_point = {0:4, 1:3, 2:2, 3:1, 4:0}.get(score, 0)
         label, X_value = evaluate_X(elapsed, grasp_point, length=7)
 
-        # delta計算（評価テキストは削除）
-        if total_point <= 2:
+        # deltaはX_valueを元に決める
+        if X_value <= 11:
             delta = 0
-        elif total_point <= 4:
+        elif X_value <= 20:
             delta = 1
-        elif total_point <= 6:
+        elif X_value <= 200:
             delta = 2
         else:
             delta = 3
 
         if is_correct:
-            # 正解判定前のスコアを元にランクを決定
             rank = get_rank(score)
             user_scores[user_id][correct_answer] = min(4, score + delta)
         else:
             rank = get_rank(score)
             user_scores[user_id][correct_answer] = max(0, score - 1)
 
+        # フィードバックを作成
         flex_feedback = build_feedback_flex(
             is_correct, score, elapsed, rank,
-            correct_answer, total_point if is_correct else None
+            correct_answer, label if is_correct else None
         )
 
+        # 次の問題を出題
         questions = questions_1_1000 if range_str == "1-1000" else questions_1001_1935
         next_q = choose_weighted_question(user_id, questions)
         user_states[user_id] = (range_str, next_q["answer"])
         user_answer_start_times[user_id] = time.time()
         user_answer_counts[user_id] += 1
-        
+
         if user_answer_counts[user_id] % 5 == 0:
             trivia = random.choice(trivia_messages)
             line_bot_api.reply_message(
@@ -813,6 +811,7 @@ def handle_message(event):
                 ],
             )
         return
+
 
     line_bot_api.reply_message(
         event.reply_token,
