@@ -446,7 +446,7 @@ def build_feedback_flex(is_correct, score, elapsed, rank, correct_answer=None, l
         if label is None:
             label, color = "?", "#000000"
         else:
-            color_map = {"!!":"#40e0d0", "!":"#6495ed", "✓":"#32cd32", "?":"#ffd700"}
+            color_map = {"!!Brilliant":"#40e0d0", "!Great":"#6495ed", "✓Correct":"#32cd32", "✓?Mediocre":"#ffd700"}
             color = color_map.get(label, "#000000")
 
         body_contents.append({
@@ -566,13 +566,13 @@ def evaluate_X(elapsed, score, answer):
     X = elapsed**1.7 + score**1.5 - len(answer)
 
     if X <= 11:
-        return "!!", 3
-    elif X <= 20:
-        return "!", 2
+        return "!!Brilliant", 3
+    elif X <= 25:
+        return "!Great", 2
     elif X <= 200:
-        return "✓", 1
+        return "✓Correct", 1
     else:
-        return "?", 0
+        return "✓?Mediocre", 0
 
 
 def build_ranking_flex(user_id=None):
