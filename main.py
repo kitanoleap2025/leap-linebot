@@ -191,7 +191,7 @@ questions_1_1000 = [
      "answer": "count"},
     {"text": "284 A:What movie has no kissing s___?\nB:Your life.\n\nA:キスシーンの無い映画は？",
      "answer": "scenes"},
-    {"text": "309 Where is the g___ can?\nゴミ箱はどこ？",
+    {"text": "309 A:Teacher, I feel like I might be a g___ can.\nB:What a trashy joke.\n\nA:先生、私は自分がゴミ箱なんじゃないかと思っているのですが。\nB:そんなゴミみたいな冗談を。",
      "answer": "garbage"},
     {"text": "311 If you put w___ on a grandma, can you call it a bicycle?\nおばあちゃんに車輪を付けたら,自転車と呼べるのか.",
      "answer": "wheels"},
