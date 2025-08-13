@@ -555,21 +555,24 @@ trivia_messages = [
     "🎅低浮上サンタ\n昔の英語では「knight」は「k」をちゃんと発音していました。",
 ]
 
-def evaluate_label(elapsed, score):
+def evaluate_X(elapsed, score, answer):
     """
-    ラベルと加算deltaを返す
-    elapsed: 回答までの秒数
-    score: 現在のスコア
+    元の総合評価アルゴリズム
+    elapsed: 回答にかかった時間（秒）
+    score: 現在の単語スコア（0〜4）
+    answer: 正解文字列
     """
-    # 例: 超高速は !!、速めは !、普通は ✓、遅いと ?
-    if elapsed < 5:
+    # Xを計算（elapsed が長いほど大きく、score が高いほど大きく、answer が長いほど小さく）
+    X = elapsed**1.7 + score**1.5 - len(answer)
+
+    if X <= 11:
         return "!!", 3
-    elif elapsed < 20:
+    elif X <= 20:
         return "!", 2
-    elif elapsed > 60:
-        return "?", 0
-    else:
+    elif X <= 200:
         return "✓", 1
+    else:
+        return "?", 0
 
 
 def build_ranking_flex(user_id=None):
@@ -756,8 +759,8 @@ def handle_message(event):
         start_time = user_answer_start_times.get(user_id)
         elapsed = time.time() - start_time if start_time else 0
 
-    # ここを evaluate_X → evaluate_label に変更
-        label, delta = evaluate_label(elapsed, score)
+        # ここを evaluate_label → evaluate_X に変更
+        label, delta = evaluate_X(elapsed, score, correct_answer)
 
         if is_correct:
             rank = get_rank(score)
