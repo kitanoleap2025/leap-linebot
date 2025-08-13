@@ -439,20 +439,15 @@ def build_result_flex(user_id):
     return flex_message
 
 #FEEDBACK　flex
-def build_feedback_flex(is_correct, score, elapsed, rank, correct_answer=None, total_point=None):
+def build_feedback_flex(is_correct, score, elapsed, rank, correct_answer=None, label=None):
     body_contents = []
 
     if is_correct:
-        if total_point is None:
-            label, color = "??", "#000000"
-        elif total_point >= 7:
-            label, color = "(!!) Brilliant", "#40e0d0"  # 空色
-        elif total_point >= 5:
-            label, color = "(!) Great", "#6495ed"        # 青
-        elif total_point >= 3:
-            label, color = "✅ Correct", "#32cd32"      # 緑
+        if label is None:
+            label, color = "?", "#000000"
         else:
-            label, color = "(?) Mediocre", "#ffd700"     # 黄
+            color_map = {"!!":"#40e0d0", "!":"#6495ed", "✓":"#32cd32", "?":"#ffd700"}
+            color = color_map.get(label, "#000000")
 
         body_contents.append({
             "type": "text",
@@ -462,6 +457,7 @@ def build_feedback_flex(is_correct, score, elapsed, rank, correct_answer=None, t
             "color": color,
             "align": "center"
         })
+        
     else:
         body_contents.append({
             "type": "text",
@@ -558,6 +554,25 @@ trivia_messages = [
     "🎅低浮上サンタ\n口を大きく開けずに済むので「I am」→「I'm」となりました。",
     "🎅低浮上サンタ\n昔の英語では「knight」は「k」をちゃんと発音していました。",
 ]
+
+def evaluate_X(elapsed, grasp, length=7):
+    """
+    X = elapsed^1.7 + grasp^1.5 - length
+    評価:
+        X <= 11  -> '!!'
+        X <= 20  -> '!'
+        X <= 200 -> '✓'
+        X > 200  -> '?'
+    """
+    X = round(elapsed ** 1.7 + grasp ** 1.5 - length, 1)
+    if X <= 11:
+        return "!!", X
+    elif X <= 20:
+        return "!", X
+    elif X <= 200:
+        return "✓", X
+    else:
+        return "?", X
 
 def build_ranking_flex(user_id=None):
     docs = db.collection("users").stream()
@@ -747,17 +762,8 @@ def handle_message(event):
             elapsed = time.time() - start_time
 
         # ポイント計算ロジック
-        if elapsed <= 5:             
-            time_point = 5
-        elif elapsed <= 10:
-            time_point = 3
-        elif elapsed <= 20:
-            time_point = 2
-        else:
-            time_point = 0
-
         grasp_point = {0:4, 1:3, 2:2, 3:1, 4:0}.get(score, 0)
-        total_point = time_point + grasp_point
+        label, X_value = evaluate_X(elapsed, grasp_point, length=7)
 
         # delta計算（評価テキストは削除）
         if total_point <= 2:
