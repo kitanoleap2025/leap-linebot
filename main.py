@@ -555,24 +555,24 @@ trivia_messages = [
     "🎅低浮上サンタ\n昔の英語では「knight」は「k」をちゃんと発音していました。",
 ]
 
-def evaluate_X(elapsed, grasp, length=7):
+def evaluate_X(elapsed, score, answer_len):
     """
-    X = elapsed^1.7 + grasp^1.5 - length
-    評価:
-        X <= 11  -> '(!!)Brilliant'
-        X <= 20  -> '(!)Great'
-        X <= 200 -> '(✓)Correct'
-        X > 200  -> '(?)Mediocre'
+    X = elapsed^1.7 + score^1.5 - len(answer)
+    ラベル:
+        X <= 11  -> (!!)Brilliant
+        X <= 20  -> (!)Great
+        X <= 200 -> (✓)Correct
+        X > 200  -> (?)Mediocre
     """
-    X = round(elapsed ** 1.7 + grasp ** 1.5 - length, 1)
+    X = round(elapsed ** 1.7 + score ** 1.5 - answer_len, 1)
     if X <= 11:
-        return "(!!)Brilliant", X
+        return "(!!)Brilliant", 3   # delta=3
     elif X <= 20:
-        return "(!)Great", X
+        return "(!)Great", 2        # delta=2
     elif X <= 200:
-        return "(✓)Correct", X
+        return "(✓)Correct", 1      # delta=1
     else:
-        return "(?)Mediocre", X
+        return "(?)Mediocre", 0     # delta=0
 
 def build_ranking_flex(user_id=None):
     docs = db.collection("users").stream()
@@ -758,19 +758,7 @@ def handle_message(event):
         start_time = user_answer_start_times.get(user_id)
         elapsed = time.time() - start_time if start_time else 0
 
-        # grasp_point を計算
-        grasp_point = {0:4, 1:3, 2:2, 3:1, 4:0}.get(score, 0)
-        label, X_value = evaluate_X(elapsed, grasp_point, length=7)
-
-        # deltaはX_valueを元に決める
-        if X_value <= 11:
-            delta = 0
-        elif X_value <= 20:
-            delta = 1
-        elif X_value <= 200:
-            delta = 2
-        else:
-            delta = 3
+        label, delta = evaluate_X(elapsed, score, len(correct_answer))
 
         if is_correct:
             rank = get_rank(score)
