@@ -559,20 +559,20 @@ def evaluate_X(elapsed, grasp, length=7):
     """
     X = elapsed^1.7 + grasp^1.5 - length
     評価:
-        X <= 11  -> '!!'
-        X <= 20  -> '!'
-        X <= 200 -> '✓'
-        X > 200  -> '?'
+        X <= 11  -> '(!!)Brilliant'
+        X <= 20  -> '(!)Great'
+        X <= 200 -> '(✓)Correct'
+        X > 200  -> '(?)Mediocre'
     """
     X = round(elapsed ** 1.7 + grasp ** 1.5 - length, 1)
     if X <= 11:
-        return "!!", X
+        return "(!!)Brilliant", X
     elif X <= 20:
-        return "!", X
+        return "(!)Great", X
     elif X <= 200:
-        return "✓", X
+        return "(✓)Correct", X
     else:
-        return "?", X
+        return "(?)Mediocre", X
 
 def build_ranking_flex(user_id=None):
     docs = db.collection("users").stream()
