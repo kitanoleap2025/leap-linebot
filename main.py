@@ -433,14 +433,14 @@ def build_result_flex(user_id):
             "type": "box",
             "layout": "horizontal",
             "contents": [
-                {"type": "text", "text": rank, "size": "sm", "flex": 1},
-                {"type": "box",
-                 "layout": "vertical",
-                 "contents": [],
-                 "backgroundColor": "#6495ED",
-                 "flex": max(1, int(rank_ratios[rank]*10)),
-                 "height": "12px"},
-                {"type": "text", "text": f"{rank_counts[rank]}語", "size": "sm", "flex": 1, "align": "end"}
+            {"type": "text", "text": rank, "size": "sm", "width": "30px", "align": "start"},  # 左端ランク
+            {"type": "box",
+             "layout": "vertical",
+             "contents": [],
+             "backgroundColor": color_map[rank],
+             "flex": max(1, int(rank_ratios[rank]*10)),  # 真ん中グラフ
+             "height": "12px"},
+            {"type": "text", "text": f"{rank_counts[rank]}語", "size": "sm", "width": "40px", "align": "end"}  # 右端語数
             ],
             "margin": "xs"
         })
