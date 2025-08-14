@@ -437,10 +437,12 @@ def build_result_flex(user_id):
                  "layout": "vertical",
                  "contents": [],
                  "backgroundColor": "#6495ED",
-                 "width": f"{width_percent}%",
-                 "height": "12px"}
+                 "flex": width_percent,
+                 "height": "12px"},
+                {"type": "text", "text": f"{rank_counts[rank]}語", "size": "sm", "flex": 1, "align": "end"}
             ],
-            "margin": "xs"
+            "margin": "xs",
+            "justifyContent": "start"
         })
 
     # 合計レート計算
