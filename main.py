@@ -449,7 +449,7 @@ def build_result_flex(user_id):
                     "layout": "vertical",
                     "contents": [],
                     "backgroundColor": color_map[rank],
-                    "flex": max(1, int(rank_ratios[rank]*10)),
+                    "flex": max(1, int(rank_ratios[rank]*3)),
                     "height": "12px"
                 }
             ],
@@ -601,7 +601,7 @@ def evaluate_X(elapsed, score, answer):
     # Xを計算（elapsed が長いほど大きく、score が高いほど大きく、answer が長いほど小さく）
     X = elapsed**1.7 + score**1.5 - len(answer)
 
-    if X <= 10:
+    if X <= 9:
         return "!!Brilliant", 3
     elif X <= 25:
         return "!Great", 2
