@@ -449,7 +449,7 @@ def build_result_flex(user_id):
                     "layout": "vertical",
                     "contents": [],
                     "backgroundColor": color_map[rank],
-                    "flex": max(1, int(rank_ratios[rank]*1)),
+                    "flex": max(1, int(rank_ratios[rank]*20)),
                     "height": "12px"
                 }
             ],
