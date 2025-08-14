@@ -475,11 +475,9 @@ def build_result_flex(user_id):
                 "layout": "vertical",
                 "contents": [
                     {"type": "text", "text": f"{name}", "weight": "bold", "size": "xl", "color": "#000000", "align": "center"},
-                    {"type": "text","text": "レート","size": "md","color": "#000000","margin": "lg","wrap": True},
                     *parts,
                     {"type": "text","text": f"Total Rating: {total_rate}","weight": "bold","size": "lg","color": "#000000","margin": "md"},
                     {"type": "separator",  "margin": "md"},
-                    {"type": "text","text": "把握度別単語数","size": "md","color": "#000000","margin": "lg","wrap": True},
                     *graph_components,  
                     {"type": "separator",  "margin": "md"},
                     {"type": "text","text": "名前変更は「@(新しい名前)」で送信してください。","size": "sm","color": "#666666","margin": "lg","wrap": True}
