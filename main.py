@@ -337,6 +337,8 @@ questions_1_1000 = [
      "answer": "vending machine"},
     {"text": "901 I want to t___ to the art course.\n美術コースに転向したい.",
      "answer": "transfer"},
+    {"text": "949 be a___ in programming\nプログラミングに没頭する",
+     "answer": "absorbed"},
     {"text": """978 They described i___ the group project as "respecting individual effort".\n彼らはグループ課題を無視することを「個人の努力を尊重する」と表現しました.""",
      "answer": "ignoring"},
     {"text": "992 We shape our tools, and e___, our tools shape us.\n私たちは道具を作るが,結果として,道具が私たちを作る.",
