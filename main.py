@@ -428,6 +428,7 @@ def build_result_flex(user_id):
     graph_components = []
     for rank in ["S", "A", "B", "C", "D"]:
         width_percent = int(rank_ratios[rank]*100)  # 0〜100%
+        color_map = {"S": "#800080", "A": "#87CEEB", "B": "#0000FF", "C": "#FF0000", "D": "#000000"}
         graph_components.append({
             "type": "box",
             "layout": "horizontal",
@@ -437,7 +438,7 @@ def build_result_flex(user_id):
                  "layout": "vertical",
                  "contents": [],
                  "backgroundColor": "#6495ED",
-                 "flex": width_percent,
+                 "flex": max(1, int(rank_ratios[rank]*10)),
                  "height": "12px"},
                 {"type": "text", "text": f"{rank_counts[rank]}語", "size": "sm", "flex": 1, "align": "end"}
             ],
