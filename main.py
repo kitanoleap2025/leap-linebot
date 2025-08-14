@@ -601,7 +601,7 @@ def evaluate_X(elapsed, score, answer):
     # Xを計算（elapsed が長いほど大きく、score が高いほど大きく、answer が長いほど小さく）
     X = elapsed**1.7 + score**1.5 - len(answer)
 
-    if X <= 9:
+    if X <= 8:
         return "!!Brilliant", 3
     elif X <= 25:
         return "!Great", 2
