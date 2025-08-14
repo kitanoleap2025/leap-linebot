@@ -426,9 +426,11 @@ def build_result_flex(user_id):
 
     # ランク別割合グラフ
     graph_components = []
+    max_width = 200  # 最大横幅 px
     for rank in ["S", "A", "B", "C", "D"]:
         width_percent = int(rank_ratios[rank]*100)  # 0〜100%
         color_map = {"S": "#40e0d0", "A": "#6495ed", "B": "#32cd32", "C": "#ffff00", "D": "#ff0000"}
+        width_px = max(5, int(rank_ratios[rank] * max_width)) 
         graph_components.append({
             "type": "box",
             "layout": "horizontal",
@@ -449,7 +451,7 @@ def build_result_flex(user_id):
                     "layout": "vertical",
                     "contents": [],
                     "backgroundColor": color_map[rank],
-                    "flex": max(1, int(rank_ratios[rank]*20)),
+                    "width": f"{width_px}px",  # ← ここを flex から width に変更
                     "height": "12px"
                 }
             ],
