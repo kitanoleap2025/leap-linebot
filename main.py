@@ -372,7 +372,7 @@ questions_1001_1935 = [
 #Dreams are free; reality charges you interest every day.
 
 def get_rank(score):
-    return {0: "D", 1: "C", 2: "B", 3: "A", 4: "S"}.get(score, "D")
+    return {0: "0%", 1: "25%", 2: "50%", 3: "75%", 4: "100%"}.get(score, "0%")
 
 def score_to_weight(score):
     return {0: 16, 1: 8, 2: 4, 3: 2, 4: 1}.get(score, 16)
@@ -415,7 +415,7 @@ def build_result_flex(user_id):
 
     # ランク別単語数・割合計算
     scores = user_scores.get(user_id, {})
-    rank_counts = {"S": 0, "A": 0, "B": 0, "C": 0, "D": 0}
+    rank_counts = {"100%": 0, "75%": 0, "50%": 0, "25%": 0, "0%": 0}
     all_answers = [q["answer"] for q in questions_1_1000 + questions_1001_1935]
     for word in all_answers:
         score = scores.get(word, 0)
@@ -427,9 +427,9 @@ def build_result_flex(user_id):
     # ランク別割合グラフ
     graph_components = []
     max_width = 200  # 最大横幅 px
-    for rank in ["S", "A", "B", "C", "D"]:
+    for rank in ["100%", "75%", "50%", "25%", "0%"]:
         width_percent = int(rank_ratios[rank]*100)  # 0〜100%
-        color_map = {"S": "#000000", "A": "#b22222", "B": "#4682b4", "C": "#ffd700", "D": "#c0c0c0"}
+        color_map = {"100%": "#000000", "75%": "#b22222", "50%": "#4682b4", "25%": "#ffd700", "0%": "#c0c0c0"}
         width_px = max(5, int(rank_ratios[rank] * max_width)) 
         graph_components.append({
             "type": "box",
