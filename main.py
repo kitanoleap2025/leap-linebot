@@ -499,7 +499,7 @@ def build_feedback_flex(is_correct, score, elapsed, rank, correct_answer=None, l
         if label is None:
             label, color = "?", "#000000"
         else:
-            color_map = {"!!Brilliant":"#40e0d0", "!Great":"#6495ed", "✓Correct":"#32cd32", "✓?Mediocre":"#ffd700"}
+            color_map = {"!!Brilliant":"#40e0d0", "!Great":"#6495ed", "✓Correct":"#32cd32"}
             color = color_map.get(label, "#000000")
 
         body_contents.append({
@@ -549,19 +549,6 @@ def build_feedback_flex(is_correct, score, elapsed, rank, correct_answer=None, l
             }
         }
     )
-
-
-def build_grasp_text(user_id):
-    scores = user_scores.get(user_id, {})
-    rank_counts = {"S": 0, "A": 0, "B": 0, "C": 0, "D": 0}
-    all_answers = [q["answer"] for q in questions_1_1000 + questions_1001_1935]
-    for word in all_answers:
-        score = scores.get(word, 0)
-        rank_counts[get_rank(score)] += 1
-    text = "【単語把握度】\nS-D 覚えている-覚えていない\n"
-    for rank in ["S", "A", "B", "C", "D"]:
-        text += f"{rank}ランク: {rank_counts[rank]}語\n"
-    return text
 
 def choose_weighted_question(user_id, questions):
     scores = user_scores.get(user_id, {})
@@ -618,14 +605,12 @@ def evaluate_X(elapsed, score, answer):
     # Xを計算（elapsed が長いほど大きく、score が高いほど大きく、answer が長いほど小さく）
     X = elapsed**1.7 + score**1.5 - len(answer)
 
-    if X <= 11:
+    if X <= 10:
         return "!!Brilliant", 3
     elif X <= 25:
         return "!Great", 2
-    elif X <= 200:
-        return "✓Correct", 1
     else:
-        return "✓?Mediocre", 0
+        return "✓Correct", 1
 
 
 def build_ranking_flex(user_id=None):
