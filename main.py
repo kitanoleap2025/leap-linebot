@@ -428,7 +428,7 @@ def build_result_flex(user_id):
     graph_components = []
     for rank in ["S", "A", "B", "C", "D"]:
         width_percent = int(rank_ratios[rank]*100)  # 0〜100%
-        color_map = {"S": "#800080", "A": "#87CEEB", "B": "#0000FF", "C": "#FF0000", "D": "#000000"}
+        color_map = {"S": "#40e0d0", "A": "#6495ed", "B": "#32cd32", "C": "#ffff00", "D": "#ff0000"}
         graph_components.append({
             "type": "box",
             "layout": "horizontal",
