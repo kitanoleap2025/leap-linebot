@@ -429,7 +429,7 @@ def build_result_flex(user_id):
     max_width = 200  # 最大横幅 px
     for rank in ["S", "A", "B", "C", "D"]:
         width_percent = int(rank_ratios[rank]*100)  # 0〜100%
-        color_map = {"S": "#40e0d0", "A": "#6495ed", "B": "#32cd32", "C": "#ffff00", "D": "#ff0000"}
+        color_map = {"S": "#4b0082", "A": "#800000", "B": "#4682b4", "C": "#ffd700", "D": "#c0c0c0"}
         width_px = max(5, int(rank_ratios[rank] * max_width)) 
         graph_components.append({
             "type": "box",
@@ -497,7 +497,7 @@ def build_feedback_flex(is_correct, score, elapsed, rank, correct_answer=None, l
         if label is None:
             label, color = "?", "#000000"
         else:
-            color_map = {"!!Brilliant":"#40e0d0", "!Great":"#6495ed", "✓Correct":"#32cd32"}
+            color_map = {"!!Brilliant":"#40e0d0", "!Great":"#4682b4", "✓Correct":"#00ff00"}
             color = color_map.get(label, "#000000")
 
         body_contents.append({
