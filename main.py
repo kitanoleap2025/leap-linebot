@@ -391,26 +391,14 @@ def build_result_flex(user_id):
         count = len(relevant_answers)
 
         rate = round((total_score / count) * 2500) if count else 0
-        if rate >= 9900:
+        if rate >= 9000:
             rank = "S🤯"
-        elif rate >= 9000:
-            rank = "A+🤩"
-        elif rate >= 8000:
-            rank = "A🤩"
         elif rate >= 7000:
-            rank = "A-🤩"
-        elif rate >= 6000:
-            rank = "B+😎"
-        elif rate >= 5000:
-            rank = "B😎"
+            rank = "A🤩"
         elif rate >= 4000:
-            rank = "B-😎"
-        elif rate >= 3000:
-            rank = "C+😍"
-        elif rate >= 2000:
-            rank = "C😍"
+            rank = "B😎"
         elif rate >= 1000:
-            rank = "C-😍"
+            rank = "C😍"
         else:
             rank = "D🫠"
 
@@ -423,6 +411,36 @@ def build_result_flex(user_id):
                 {"type": "text", "text": f"Rating: {rate}", "size": "md", "color": "#333333"},
                 {"type": "text", "text": f"{rank}", "size": "md", "color": "#333333"},
             ],
+        })
+
+    # ランク別単語数・割合計算
+    scores = user_scores.get(user_id, {})
+    rank_counts = {"S": 0, "A": 0, "B": 0, "C": 0, "D": 0}
+    all_answers = [q["answer"] for q in questions_1_1000 + questions_1001_1935]
+    for word in all_answers:
+        score = scores.get(word, 0)
+        rank_counts[get_rank(score)] += 1
+
+    total_words = sum(rank_counts.values())
+    rank_ratios = {rank: rank_counts[rank]/total_words for rank in rank_counts}
+
+    # ランク別割合グラフ
+    graph_components = []
+    for rank in ["S", "A", "B", "C", "D"]:
+        width_percent = int(rank_ratios[rank]*100)  # 0〜100%
+        graph_components.append({
+            "type": "box",
+            "layout": "horizontal",
+            "contents": [
+                {"type": "text", "text": rank, "size": "sm", "flex": 1},
+                {"type": "box",
+                 "layout": "vertical",
+                 "contents": [],
+                 "backgroundColor": "#6495ED",
+                 "width": f"{width_percent}%",
+                 "height": "12px"}
+            ],
+            "margin": "xs"
         })
 
     # 合計レート計算
@@ -442,18 +460,9 @@ def build_result_flex(user_id):
                 "contents": [
                     {"type": "text", "text": f"{name}", "weight": "bold", "size": "xl", "color": "#000000", "align": "center"},
                     *parts,
-                    {
-                        "type": "separator",
-                        "margin": "md"
-                    },
-                    {
-                        "type": "text",
-                        "text": f"Total Rating: {total_rate}",
-                        "weight": "bold",
-                        "size": "md",
-                        "color": "#000000",
-                        "margin": "md"
-                    },
+                    {"type": "separator",  "margin": "md"},
+                    *graph_components,  
+                    {"type": "text","text": f"Total Rating: {total_rate}","weight": "bold","size": "md","color": "#000000","margin": "md"},
                     {
                         "type": "text",
                         "text": "名前変更は「@(新しい名前)」で送信してください。",
