@@ -603,7 +603,7 @@ def evaluate_X(elapsed, score, answer):
 
     if X <= 8:
         return "!!Brilliant", 3
-    elif X <= 25:
+    elif X <= 20:
         return "!Great", 2
     else:
         return "✓Correct", 1
