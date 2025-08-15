@@ -517,22 +517,21 @@ def build_feedback_flex(is_correct, score, elapsed, rank, correct_answer=None, l
             "margin": "md"
         })
 
-    body_contents.extend([
-        {
-            "type": "text",
-            "text": f"解く前:{rank}",
-            "size": "md",
-            "color": "#000000",
-            "margin": "md"
-        },
-        {
-            "type": "text",
-            "text": f"{elapsed:.1f}s",
-            "size": "md",
-            "color": "#000000",
-            "margin": "sm"
-        }
-    ])
+#    body_contents.extend([
+#       {
+#            "type": "text",
+#            "text": f"解く前:{rank}",
+#            "size": "md",
+#            "color": "#000000"            "margin": "md"
+#        },
+#        {
+#            "type": "text",
+#            "text": f"{elapsed:.1f}s",
+#            "size": "md",
+#            "color": "#000000",
+#            "margin": "sm"
+#        }
+#    ])
 
     return FlexSendMessage(
         alt_text="回答フィードバック",
