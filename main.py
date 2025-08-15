@@ -33,7 +33,7 @@ user_answer_counts = defaultdict(int)
 user_names = {}  # user_id: name
 user_answer_start_times = {}  # 問題出題時刻を記録
 
-DEFAULT_NAME = "名前はまだない。"
+DEFAULT_NAME = "河野玄斗"
 
 def load_user_data(user_id):
     try:
