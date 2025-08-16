@@ -645,15 +645,9 @@ def choose_multiple_choice_question(user_id, questions):
     question_text = q["text"] + "\n\n" + "\n".join(choice_texts)
     return q, question_text
 
-def evaluate_X(elapsed, score, answer):
-    """
-    元の総合評価アルゴリズム
-    elapsed: 回答にかかった時間（秒）
-    score: 現在の単語スコア（0〜4）
-    answer: 正解文字列
-    """
-    # Xを計算（elapsed が長いほど大きく、score が高いほど大きく、answer が長いほど小さく）
-    X = elapsed**1.7 + score**1.5 - len(answer)
+def evaluate_X(elapsed, score, answer, is_multiple_choice=False):
+    answer_length = 0 if is_multiple_choice else len(answer)
+    X = elapsed**1.7 + score**1.5 - answer_length
 
     if X <= 8:
         return "!!Brilliant", 3
@@ -831,7 +825,8 @@ def handle_message(event):
         score = user_scores[user_id].get(correct_answer, 0)
 
         elapsed = time.time() - user_answer_start_times.get(user_id, time.time())
-        label, delta = evaluate_X(elapsed, score, correct_answer)
+        is_multiple_choice = (range_str == "1001-1935")
+        label, delta = evaluate_X(elapsed, score, correct_answer, is_multiple_choice=is_multiple_choice)
 
         if is_correct:
             rank = get_rank(score)
