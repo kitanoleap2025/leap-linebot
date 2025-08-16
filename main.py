@@ -314,6 +314,8 @@ questions_1_1000 = [
      "answer": "solar"},
     {"text": "751 a___ clock\n正確な時計",
      "answer": "accurate"},
+    {"text": "761 The scientist made a c___ discovery in the laboratory.\nその科学者は研究室で重大な発見をした,",
+     "answer": "critical"},
     {"text": "762 The turtle is not s___ about who gets first in the contest.\nカメはコンテストで誰が一番になるかを気にしていません.",
      "answer": "serious"},
     {"text": "763 C___ issues compose themselves of simple, ignored mistakes.\n複雑な問題は,無視された単純なミスから成り立っている.",
@@ -358,8 +360,8 @@ questions_1_1000 = [
      "answer": "mature"},
 ]
 questions_1001_1935 = [
-    {"text": "1001 The ___ made a critical discovery in the lab.\nその科学者は研究室で重大な発見をした。",
-     "answer": "scientist"},
+    {"text": "1016 The scientist made a critical discovery in the l___.\nその科学者は研究室で重大な発見をした,",
+     "answer": "laboratory"},
     {"text": "1054 The ___ of Hammurabi is one of the oldest laws.\nハンムラビ法典(規定)は最古の法律の一つ。",
      "answer": "code"},
     {"text": "1110 Logic is the ___ of clear thinking and good arguments.\n論理は明晰な思考と良い議論の基礎である。",
