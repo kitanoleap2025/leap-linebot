@@ -592,6 +592,26 @@ trivia_messages = [
     "ヒント\n昔の英語では「knight」は「k」をちゃんと発音していました。",
 ]
 
+def choose_multiple_choice_question(user_id, questions):
+    q = choose_weighted_question(user_id, questions)
+    correct_answer = q["answer"]
+
+    # 誤答候補をquestions全体からランダムに抽出
+    other_answers = [item["answer"] for item in questions if item["answer"] != correct_answer]
+    wrong_choices = random.sample(other_answers, k=min(3, len(other_answers)))
+
+    # シャッフルして選択肢作成
+    choices = wrong_choices + [correct_answer]
+    random.shuffle(choices)
+
+    # 選択肢を文字ラベルに変換（A, B, C, D）
+    labels = ["A", "B", "C", "D"]
+    choice_texts = [f"{labels[i]}: {choices[i]}" for i in range(len(choices))]
+
+    # 問題文を作成
+    question_text = q["text"] + "\n\n" + "\n".join(choice_texts)
+    return q, question_text
+
 def evaluate_X(elapsed, score, answer):
     """
     元の総合評価アルゴリズム
@@ -769,11 +789,18 @@ def handle_message(event):
         return
 
     if msg in ["1-1000", "1001-1935"]:
-        questions = questions_1_1000 if msg == "1-1000" else questions_1001_1935
-        q = choose_weighted_question(user_id, questions)
-        user_states[user_id] = (msg, q["answer"])
-        user_answer_start_times[user_id] = time.time() 
-        line_bot_api.reply_message(event.reply_token, TextSendMessage(text=q["text"]))
+        if msg == "1-1000":
+            # 1-1000は従来通り
+            q = choose_weighted_question(user_id, questions_1_1000)
+            user_states[user_id] = (msg, q["answer"])
+            user_answer_start_times[user_id] = time.time() 
+            line_bot_api.reply_message(event.reply_token, TextSendMessage(text=q["text"]))
+        else:
+            # 1001-1935は4択問題
+            q, question_text = choose_multiple_choice_question(user_id, questions_1001_1935)
+            user_states[user_id] = (msg, q["answer"])
+            user_answer_start_times[user_id] = time.time() 
+            line_bot_api.reply_message(event.reply_token, TextSendMessage(text=question_text))
         return
 
     if msg == "成績":
