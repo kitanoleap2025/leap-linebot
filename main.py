@@ -11,6 +11,7 @@ from collections import defaultdict, deque
 import firebase_admin
 from firebase_admin import credentials, firestore
 import time
+from linebot.models import QuickReply, QuickReplyButton, MessageAction
 
 
 load_dotenv()
@@ -546,7 +547,7 @@ def build_feedback_flex(is_correct, score, elapsed, rank, correct_answer=None, l
     )
 
 #1001-1935を4択
-def send_question(user_id, reply_token, range_str):
+def send_question(user_id, range_str):
     questions = questions_1_1000 if range_str == "1-1000" else questions_1001_1935
 
     if range_str == "1001-1935":
@@ -555,31 +556,27 @@ def send_question(user_id, reply_token, range_str):
         user_states[user_id] = (range_str, q["answer"])
         user_answer_start_times[user_id] = time.time()
 
-        # 選択肢を QuickReplyButton に変換
         correct_answer = q["answer"]
         other_answers = [item["answer"] for item in questions if item["answer"] != correct_answer]
         wrong_choices = random.sample(other_answers, k=min(3, len(other_answers)))
         choices = wrong_choices + [correct_answer]
         random.shuffle(choices)
 
-        quick_buttons = [
-            QuickReplyButton(action=MessageAction(label=choice, text=choice))
-            for choice in choices
-        ]
+        quick_buttons = [QuickReplyButton(action=MessageAction(label=choice, text=choice))
+                         for choice in choices]
 
         message = TextSendMessage(
             text=q["text"],
             quick_reply=QuickReply(items=quick_buttons)
         )
 
-        line_bot_api.reply_message(reply_token, message)
-
     else:
-        # 従来のテキスト問題
         q = choose_weighted_question(user_id, questions)
         user_states[user_id] = (range_str, q["answer"])
         user_answer_start_times[user_id] = time.time()
-        line_bot_api.reply_message(reply_token, TextSendMessage(text=q["text"]))
+        message = TextSendMessage(text=q["text"])
+
+    return message
 
 def choose_weighted_question(user_id, questions):
     scores = user_scores.get(user_id, {})
@@ -819,23 +816,21 @@ def handle_message(event):
         return
 
     if msg in ["1-1000", "1001-1935"]:
-        send_question(user_id, event.reply_token, msg)
+        question_msg = send_question(user_id, msg)
+        line_bot_api.reply_message(event.reply_token, question_msg)
         return
-
+        
     if msg == "成績":
         flex_msg = build_result_flex(user_id)
         line_bot_api.reply_message(event.reply_token, flex_msg)
         return
-        
+
     if user_id in user_states:
         range_str, correct_answer = user_states[user_id]
         is_correct = (msg.lower() == correct_answer.lower())
         score = user_scores[user_id].get(correct_answer, 0)
 
-        start_time = user_answer_start_times.get(user_id)
-        elapsed = time.time() - start_time if start_time else 0
-
-        # ここを evaluate_label → evaluate_X に変更
+        elapsed = time.time() - user_answer_start_times.get(user_id, time.time())
         label, delta = evaluate_X(elapsed, score, correct_answer)
 
         if is_correct:
@@ -845,37 +840,29 @@ def handle_message(event):
             rank = get_rank(score)
             user_scores[user_id][correct_answer] = max(0, score - 1)
 
-        # フィードバックを作成
+        # フィードバック
         flex_feedback = build_feedback_flex(
             is_correct, score, elapsed, rank,
             correct_answer, label if is_correct else None
         )
 
-        # 次の問題を出題
+        # 次の問題
+        next_question_msg = send_question(user_id, range_str)
+
         user_answer_counts[user_id] += 1
+        messages_to_send = [flex_feedback]
 
         if user_answer_counts[user_id] % 5 == 0:
             trivia = random.choice(trivia_messages)
-            send_question(user_id, event.reply_token, range_str)  # ← 4択対応
-            line_bot_api.reply_message(
-                event.reply_token,
-                messages=[
-                    flex_feedback,
-                    TextSendMessage(text=trivia),
-                    # send_questionで次の問題を送信
-                ],
-            )
-        else:
-            send_question(user_id, event.reply_token, range_str)  # ← 4択対応
-            line_bot_api.reply_message(
-                event.reply_token,
-                messages=[
-                    flex_feedback,
-                    # send_questionで次の問題を送信
-                ],
-            )
-            return
+            messages_to_send.append(TextSendMessage(text=trivia))
 
+        messages_to_send.append(next_question_msg)
+
+        line_bot_api.reply_message(
+            event.reply_token,
+            messages=messages_to_send
+        )
+        return
 
     line_bot_api.reply_message(
         event.reply_token,
