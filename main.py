@@ -164,6 +164,8 @@ questions_1_1000 = [
      "answer": "missed"},
     {"text": "137 He m___ silence for wisdom, and loudness for leadership.\n彼は沈黙を賢さと勘違いし,声の大きさをリーダーシップと勘違いした.",
      "answer": "mistook"},
+    {"text": "146 At dawn, the LGBTQ flag was r___ from his house.\n夜が明けると、彼の家からLGBTQフラッグが上がった。",
+     "answer": "raised"},
     {"text": "150 p___ to understand\nわかっているふりをする",
      "answer": "pretend"},
     {"text": "154 It is not what h___ that matters. It is how you respond.\n大事なのは何が起きたかではない.どう応じるかだ.",
@@ -366,8 +368,10 @@ questions_1001_1935 = [
      "answer": "hatch"},
     {"text": "1386 He was conscious during the ___ surgery.\n彼は手術中ずっと意識があった.\n😱",
      "answer": "entire"},
-    {"text": "1671 Scholarships help students pay for college ___ and expenses.\n奨学金は学生が大学の授業料や費用を支払うのを助ける。",
+    {"text": "1671 Scholarships help students pay for college ___ and expenses.\n奨学金は学生が大学の授業料や費用を支払うのを助ける.",
      "answer": "tuition"},
+    {"text": "1830 At d___, the LGBTQ flag was raised from his house.\n夜が明けると、彼の家からLGBTQフラッグが上がった。",
+     "answer": "dawn"},
     
 ]
 #Dreams are free; reality charges you interest every day.
