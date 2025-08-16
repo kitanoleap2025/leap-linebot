@@ -545,6 +545,23 @@ def build_feedback_flex(is_correct, score, elapsed, rank, correct_answer=None, l
         }
     )
 
+#1001-1935を4択
+def send_question(user_id, reply_token, range_str):
+    questions = questions_1_1000 if range_str == "1-1000" else questions_1001_1935
+
+    if range_str == "1001-1935":
+        # 4択問題
+        q, question_text = choose_multiple_choice_question(user_id, questions)
+        user_states[user_id] = (range_str, q["answer"])
+        user_answer_start_times[user_id] = time.time()
+        line_bot_api.reply_message(reply_token, TextSendMessage(text=question_text))
+    else:
+        # 従来のテキスト問題
+        q = choose_weighted_question(user_id, questions)
+        user_states[user_id] = (range_str, q["answer"])
+        user_answer_start_times[user_id] = time.time()
+        line_bot_api.reply_message(reply_token, TextSendMessage(text=q["text"]))
+
 def choose_weighted_question(user_id, questions):
     scores = user_scores.get(user_id, {})
     recent = user_recent_questions[user_id]
@@ -789,18 +806,7 @@ def handle_message(event):
         return
 
     if msg in ["1-1000", "1001-1935"]:
-        if msg == "1-1000":
-            # 1-1000は従来通り
-            q = choose_weighted_question(user_id, questions_1_1000)
-            user_states[user_id] = (msg, q["answer"])
-            user_answer_start_times[user_id] = time.time() 
-            line_bot_api.reply_message(event.reply_token, TextSendMessage(text=q["text"]))
-        else:
-            # 1001-1935は4択問題
-            q, question_text = choose_multiple_choice_question(user_id, questions_1001_1935)
-            user_states[user_id] = (msg, q["answer"])
-            user_answer_start_times[user_id] = time.time() 
-            line_bot_api.reply_message(event.reply_token, TextSendMessage(text=question_text))
+        send_question(user_id, event.reply_token, msg)
         return
 
     if msg == "成績":
@@ -833,31 +839,29 @@ def handle_message(event):
         )
 
         # 次の問題を出題
-        questions = questions_1_1000 if range_str == "1-1000" else questions_1001_1935
-        next_q = choose_weighted_question(user_id, questions)
-        user_states[user_id] = (range_str, next_q["answer"])
-        user_answer_start_times[user_id] = time.time()
         user_answer_counts[user_id] += 1
 
         if user_answer_counts[user_id] % 5 == 0:
             trivia = random.choice(trivia_messages)
+            send_question(user_id, event.reply_token, range_str)  # ← 4択対応
             line_bot_api.reply_message(
                 event.reply_token,
                 messages=[
                     flex_feedback,
                     TextSendMessage(text=trivia),
-                    TextSendMessage(text=next_q["text"])
+                    # send_questionで次の問題を送信
                 ],
             )
         else:
+            send_question(user_id, event.reply_token, range_str)  # ← 4択対応
             line_bot_api.reply_message(
                 event.reply_token,
                 messages=[
                     flex_feedback,
-                    TextSendMessage(text=next_q["text"])
+                    # send_questionで次の問題を送信
                 ],
             )
-        return
+            return
 
 
     line_bot_api.reply_message(
