@@ -550,11 +550,30 @@ def send_question(user_id, reply_token, range_str):
     questions = questions_1_1000 if range_str == "1-1000" else questions_1001_1935
 
     if range_str == "1001-1935":
-        # 4択問題
-        q, question_text = choose_multiple_choice_question(user_id, questions)
+        # 4択問題 QuickReply版
+        q, _ = choose_multiple_choice_question(user_id, questions)
         user_states[user_id] = (range_str, q["answer"])
         user_answer_start_times[user_id] = time.time()
-        line_bot_api.reply_message(reply_token, TextSendMessage(text=question_text))
+
+        # 選択肢を QuickReplyButton に変換
+        correct_answer = q["answer"]
+        other_answers = [item["answer"] for item in questions if item["answer"] != correct_answer]
+        wrong_choices = random.sample(other_answers, k=min(3, len(other_answers)))
+        choices = wrong_choices + [correct_answer]
+        random.shuffle(choices)
+
+        quick_buttons = [
+            QuickReplyButton(action=MessageAction(label=choice, text=choice))
+            for choice in choices
+        ]
+
+        message = TextSendMessage(
+            text=q["text"],
+            quick_reply=QuickReply(items=quick_buttons)
+        )
+
+        line_bot_api.reply_message(reply_token, message)
+
     else:
         # 従来のテキスト問題
         q = choose_weighted_question(user_id, questions)
@@ -771,12 +790,6 @@ def callback():
         abort(400)
 
     return "OK"
-
-def send_question(user_id, reply_token, questions, range_str):
-    q = choose_weighted_question(user_id, questions)
-    user_states[user_id] = (range_str, q["answer"])
-    user_answer_start_times[user_id] = time.time()  # 出題時刻記録
-    line_bot_api.reply_message(reply_token, TextSendMessage(text=q["text"]))
 
 @handler.add(MessageEvent, message=TextMessage)
 def handle_message(event):
