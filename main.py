@@ -782,6 +782,7 @@ def handle_message(event):
         return
         
     if msg == "成績":
+        total_rate = update_total_rate(user_id)
         flex_msg = build_result_flex(user_id)
         line_bot_api.reply_message(event.reply_token, flex_msg)
         return
