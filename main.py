@@ -360,7 +360,7 @@ questions_1_1000 = [
      "answer": "mature"},
 ]
 questions_1001_1935 = [
-    {"text": "1016 The scientist made a critical discovery in the l___.\nその科学者は研究室で重大な発見をした,",
+    {"text": "1016 The scientist made a critical discovery in the ___.\nその科学者は研究室で重大な発見をした,",
      "answer": "laboratory"},
     {"text": "1054 The ___ of Hammurabi is one of the oldest laws.\nハンムラビ法典(規定)は最古の法律の一つ。",
      "answer": "code"},
@@ -372,7 +372,7 @@ questions_1001_1935 = [
      "answer": "entire"},
     {"text": "1671 Scholarships help students pay for college ___ and expenses.\n奨学金は学生が大学の授業料や費用を支払うのを助ける.",
      "answer": "tuition"},
-    {"text": "1830 At d___, the LGBTQ flag was raised from his house.\n夜が明けると、彼の家からLGBTQフラッグが上がった。",
+    {"text": "1830 At ___, the LGBTQ flag was raised from his house.\n夜が明けると、彼の家からLGBTQフラッグが上がった。",
      "answer": "dawn"},
     
 ]
