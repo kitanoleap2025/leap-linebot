@@ -806,6 +806,10 @@ def handle_message(event):
         flex_feedback = build_feedback_flex(
             is_correct, score, elapsed, rank,
             correct_answer, label if is_correct else None
+        # 総合レートを計算してFirestoreに保存
+        total_rate = sum(user_scores[user_id].values())
+        db.collection("users").document(user_id).set(
+            {"total_rate": total_rate}, merge=True
         )
 
         # 次の問題
