@@ -772,7 +772,7 @@ def handle_message(event):
         return
 
     if msg == "ランキング":
-        flex_msg = build_ranking_flex(user_id)
+        flex_msg = build_ranking_flex_fast()  
         line_bot_api.reply_message(event.reply_token, flex_msg)
         return
 
