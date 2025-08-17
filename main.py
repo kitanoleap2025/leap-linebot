@@ -494,6 +494,28 @@ def build_result_flex(user_id):
     )
     return flex_message
 
+#総合レート更新
+def update_total_rate(user_id):
+    scores = user_scores.get(user_id, {})
+    total_score1 = sum(scores.get(q["answer"], 0) for q in questions_1_1000)
+    total_score2 = sum(scores.get(q["answer"], 0) for q in questions_1001_1935)
+
+    c1 = len(questions_1_1000)
+    c2 = len(questions_1001_1935)
+
+    rate1 = round((total_score1 / c1) * 2500) if c1 else 0
+    rate2 = round((total_score2 / c2) * 2500) if c2 else 0
+
+    total_rate = round((rate1 + rate2) / 2)
+
+    try:
+        db.collection("users").document(user_id).update({"total_rate": total_rate})
+    except Exception as e:
+        print(f"Error updating total_rate for {user_id}: {e}")
+
+    return total_rate
+
+
 #FEEDBACK　flex
 def build_feedback_flex(is_correct, score, elapsed, rank, correct_answer=None, label=None):
     body_contents = []
@@ -662,108 +684,47 @@ def evaluate_X(elapsed, score, answer, is_multiple_choice=False):
     else:
         return "✓Correct", 1
 
-
-def build_ranking_flex(user_id=None):
+#高速ランキング
+def build_ranking_flex_fast():
     docs = db.collection("users").stream()
     ranking = []
+
     for doc in docs:
         data = doc.to_dict()
         name = data.get("name", DEFAULT_NAME)
-        scores = data.get("scores", {})
-
-        total_score1 = sum(scores.get(q["answer"], 0) for q in questions_1_1000)
-        total_score2 = sum(scores.get(q["answer"], 0) for q in questions_1001_1935)
-
-        c1 = len(questions_1_1000)
-        c2 = len(questions_1001_1935)
-        rate1 = round((total_score1 / c1) * 2500) if c1 else 0
-        rate2 = round((total_score2 / c2) * 2500) if c2 else 0
-        total_rate = round((rate1 + rate2) / 2)
-
+        total_rate = data.get("total_rate", 0)
         ranking.append((doc.id, name, total_rate))
 
     ranking.sort(key=lambda x: x[2], reverse=True)
 
-    # 上位5位まで表示
     contents = []
     for i, (uid, name, rate) in enumerate(ranking[:5], 1):
-        if i == 1:
-            size = "md"
-            color = "#FFD700"  # 金
-        elif i == 2:
-            size = "md"
-            color = "#C0C0C0"  # 銀
-        elif i == 3:
-            size = "md"
-            color = "#CD7F32"  # 銅
-        else:
-            size = "sm"
-            color = "#1DB446"  # 通常色
+        if i == 1: color = "#FFD700"
+        elif i == 2: color = "#C0C0C0"
+        elif i == 3: color = "#CD7F32"
+        else: color = "#1DB446"
 
         contents.append({
             "type": "box",
             "layout": "baseline",
             "contents": [
-                {"type": "text", "text": f"#{i}", "flex": 1, "weight": "bold", "size": size, "color": color},
-                {"type": "text", "text": name, "flex": 4, "weight": "bold", "size": size},
-                {"type": "text", "text": str(rate), "flex": 2, "align": "end", "size": size}
+                {"type": "text", "text": f"#{i}", "flex": 1, "weight": "bold", "size": "md", "color": color},
+                {"type": "text", "text": name, "flex": 4, "weight": "bold", "size": "md"},
+                {"type": "text", "text": str(rate), "flex": 2, "align": "end", "size": "md"}
             ]
         })
         if i < 5:
             contents.append({"type": "separator", "margin": "md"})
 
-    # 自分の順位を取得
-    user_index = None
-    for i, (uid, _, _) in enumerate(ranking):
-        if uid == user_id:
-            user_index = i
-            break
-
-    if user_index is not None:
-        uid, name, rate = ranking[user_index]
-        contents.append({"type": "separator", "margin": "lg"})
-
-        if user_index < 5:
-            # 5位以内 → 名前とレートのみ
-            contents.append({
-                "type": "box",
-                "layout": "baseline",
-                "contents": [
-                    {"type": "text", "text": "あなたは表彰台に乗っています!", "flex": 3, "weight": "bold","size": "sm"},
-                    {"type": "text", "text": str(rate), "flex": 1, "align": "end"}
-                ]
-            })
-        else:
-            # 6位以降 → 名前とレート + 1つ上との差
-            above_name = ranking[user_index - 1][1]
-            above_rate = ranking[user_index - 1][2]
-            diff = above_rate - rate
-
-            contents.append({
-                "type": "box",
-                "layout": "baseline",
-                "contents": [
-                    {"type": "text", "text": f"{user_index+1}位 {name}", "flex": 3, "weight": "bold"},
-                    {"type": "text", "text": str(rate), "flex": 1, "align": "end"}
-                ]
-            })
-            contents.append({
-                "type": "text",
-                "text": f"{user_index}位の{above_name}まで {diff} 差",
-                "margin": "md",
-                "size": "sm",
-                "color": "#000000"
-            })
-
     flex_message = FlexSendMessage(
-        alt_text="Rating",
+        alt_text="Ranking",
         contents={
             "type": "bubble",
             "body": {
                 "type": "box",
                 "layout": "vertical",
                 "contents": [
-                    {"type": "text", "text": "Rating", "weight": "bold", "size": "xl", "align": "center"},
+                    {"type": "text", "text": "Ranking", "weight": "bold", "size": "xl", "align": "center"},
                     {"type": "separator", "margin": "md"},
                     *contents
                 ]
@@ -859,6 +820,8 @@ def handle_message(event):
 
         messages_to_send.append(next_question_msg)
 
+        total_rate = update_total_rate(user_id)
+        
         line_bot_api.reply_message(
             event.reply_token,
             messages=messages_to_send
