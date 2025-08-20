@@ -99,7 +99,7 @@ questions_1_1000 = [
     {"text": "016 His family c___ his finally being accepted into college.\n彼の家族は,彼がついに大学に合格したことを祝った.",
      "answer": "celebrated"},
     {"text": """019 She was a___ "Best Excuse Maker" for always avoiding responsibility.\n彼女は常に責任を避けたことで「最高の言い訳メーカー」を受賞した.🏆""",
-     "answer": "awarded",
+     "answer": "awarded"},
     {"text": """020 They d___ ignoring the group project as "respecting individual effort."\n彼らはグループ課題を無視することを「個人の努力を尊重する」と表現しました.""",
      "answer": "described"},
     {"text": "021 He e___ why he had missed the deadline.\n彼はなぜ締め切りを過ぎたのか説明した.",
