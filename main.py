@@ -920,10 +920,7 @@ def handle_message(event):
             correct_answer, label if is_correct else None
         )
         # 総合レートを計算してFirestoreに保存
-        total_rate = sum(user_scores[user_id].values())
-        db.collection("users").document(user_id).set(
-            {"total_rate": total_rate}, merge=True
-        )
+        total_rate = update_total_rate(user_id)
 
         # 次の問題
         next_question_msg = send_question(user_id, range_str)
