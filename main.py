@@ -13,6 +13,7 @@ from firebase_admin import credentials, firestore
 import time
 from linebot.models import QuickReply, QuickReplyButton, MessageAction, AudioSendMessage
 from urllib.parse import quote
+from linebot.models import URIAction
 
 load_dotenv()
 app = Flask(__name__)
@@ -656,7 +657,6 @@ def build_feedback_flex(is_correct, score, elapsed, rank, correct_answer=None, l
             "color": color,
             "align": "center"
         })
-        
     else:
         body_contents.append({
             "type": "text",
@@ -667,10 +667,18 @@ def build_feedback_flex(is_correct, score, elapsed, rank, correct_answer=None, l
             "margin": "md"
         })
 
-    # ✅ QuickReplyを常に追加（正解・不正解問わず）
-    quick = QuickReply(items=[
-        QuickReplyButton(action=MessageAction(label="音声を聞く", text=f"音声:{correct_answer}"))
-    ])
+    # Flex内に音声再生ボタン追加（正解・不正解共通）
+    if correct_answer:
+        body_contents.append({
+            "type": "button",
+            "action": URIAction(
+                label="音声を聞く",
+                uri=generate_pronunciation_url(correct_answer)
+            ),
+            "style": "primary",
+            "color": "#00aaff",
+            "margin": "md"
+        })
 
     flex_msg = FlexSendMessage(
         alt_text="回答フィードバック",
@@ -681,8 +689,7 @@ def build_feedback_flex(is_correct, score, elapsed, rank, correct_answer=None, l
                 "layout": "vertical",
                 "contents": body_contents
             }
-        },
-        quick_reply=quick
+        }
     )
     return flex_msg
 
