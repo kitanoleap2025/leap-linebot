@@ -34,7 +34,7 @@ user_answer_counts = defaultdict(int)
 user_names = {}  # user_id: name
 user_answer_start_times = {}  # 問題出題時刻を記録
 
-DEFAULT_NAME = "河野玄斗"
+DEFAULT_NAME = "イキイキした毎日"
 
 def load_user_data(user_id):
     try:
@@ -497,8 +497,6 @@ def get_rank(score):
 
 def score_to_weight(score):
     return {0: 16, 1: 8, 2: 4, 3: 2, 4: 1}.get(score, 16)
-
-from linebot.models import BoxComponent, TextComponent
 
 def build_result_flex(user_id):
     name = user_names.get(user_id, DEFAULT_NAME)
