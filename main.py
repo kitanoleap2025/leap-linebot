@@ -44,54 +44,6 @@ def generate_pronunciation_url(word: str) -> str:
     # 英語を想定（tl=en）
     url = f"https://translate.google.com/translate_tts?ie=UTF-8&client=tw-ob&q={word_encoded}&tl=en"
     return url
-
-def build_feedback_flex(is_correct, score, elapsed, rank, correct_answer=None, label=None):
-    body_contents = []
-
-    if is_correct:
-        if label is None:
-            label, color = "?", "#000000"
-        else:
-            color_map = {"!!Brilliant":"#40e0d0", "!Great":"#4682b4", "✓Correct":"#00ff00"}
-            color = color_map.get(label, "#000000")
-
-        body_contents.append({
-            "type": "text",
-            "text": label,
-            "weight": "bold",
-            "size": "xl",
-            "color": color,
-            "align": "center"
-        })
-        
-    else:
-        body_contents.append({
-            "type": "text",
-            "text": f"Wrong❌\nAnswer: {correct_answer}",
-            "size": "md",
-            "color": "#ff4500",
-            "wrap": True,
-            "margin": "md"
-        })
-
-    # ✅ Quick Replyを常に追加（正解・不正解問わず）
-    quick = QuickReply(items=[
-        QuickReplyButton(action=MessageAction(label="音声を聞く", text=f"音声:{correct_answer}"))
-    ])
-
-    flex_msg = FlexSendMessage(
-        alt_text="回答フィードバック",
-        contents={
-            "type": "bubble",
-            "body": {
-                "type": "box",
-                "layout": "vertical",
-                "contents": body_contents
-            }
-        },
-        quick_reply=quick
-    )
-    return flex_msg
     
 def load_user_data(user_id):
     try:
@@ -715,23 +667,12 @@ def build_feedback_flex(is_correct, score, elapsed, rank, correct_answer=None, l
             "margin": "md"
         })
 
-#    body_contents.extend([
-#       {
-#            "type": "text",
-#            "text": f"解く前:{rank}",
-#            "size": "md",
-#            "color": "#000000"            "margin": "md"
-#        },
-#        {
-#            "type": "text",
-#            "text": f"{elapsed:.1f}s",
-#            "size": "md",
-#            "color": "#000000",
-#            "margin": "sm"
-#        }
-#    ])
+    # ✅ Quick Replyを常に追加（正解・不正解問わず）
+    quick = QuickReply(items=[
+        QuickReplyButton(action=MessageAction(label="音声を聞く", text=f"音声:{correct_answer}"))
+    ])
 
-    return FlexSendMessage(
+    flex_msg = FlexSendMessage(
         alt_text="回答フィードバック",
         contents={
             "type": "bubble",
@@ -740,8 +681,10 @@ def build_feedback_flex(is_correct, score, elapsed, rank, correct_answer=None, l
                 "layout": "vertical",
                 "contents": body_contents
             }
-        }
+        },
+        quick_reply=quick
     )
+    return flex_msg
 
 #1001-1935を4択
 def send_question(user_id, range_str):
@@ -941,14 +884,14 @@ def handle_message(event):
         return
 
     if msg.startswith("音声:"):
-    word = msg.split("音声:")[1].strip()
-    audio_url = generate_pronunciation_url(word)
-    audio_msg = AudioSendMessage(
-        original_content_url=audio_url,
-        duration=3000  # 再生時間(ms)、目安
-    )
-    line_bot_api.reply_message(event.reply_token, audio_msg)
-    return
+        word = msg.split("音声:")[1].strip()
+        audio_url = generate_pronunciation_url(word)
+        audio_msg = AudioSendMessage(
+            original_content_url=audio_url,
+            duration=3000  # 再生時間(ms)、目安
+        )
+        line_bot_api.reply_message(event.reply_token, audio_msg)
+        return
     
     if msg == "ランキング":
         flex_msg = build_ranking_flex_fast()  
