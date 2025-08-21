@@ -642,10 +642,10 @@ def build_feedback_flex(is_correct, score, elapsed, rank, correct_answer=None, l
     body_contents = []
 
     if is_correct:
+        color_map = {"!!Brilliant":"#40e0d0", "!Great":"#4682b4", "✓Correct":"#00ff00"}
         if label is None:
-            label, color = "?", "#000000"
+            label, color = "✓Correct", "#00ff00"
         else:
-            color_map = {"!!Brilliant":"#40e0d0", "!Great":"#4682b4", "✓Correct":"#00ff00"}
             color = color_map.get(label, "#000000")
 
         body_contents.append({
@@ -667,7 +667,7 @@ def build_feedback_flex(is_correct, score, elapsed, rank, correct_answer=None, l
             "margin": "md"
         })
 
-    # ✅ Quick Replyを常に追加（正解・不正解問わず）
+    # ✅ QuickReplyを常に追加（正解・不正解問わず）
     quick = QuickReply(items=[
         QuickReplyButton(action=MessageAction(label="音声を聞く", text=f"音声:{correct_answer}"))
     ])
