@@ -1,6 +1,6 @@
 from flask import Flask, request, abort
 from linebot import LineBotApi, WebhookHandler
-from linebot.models import MessageEvent, TextMessage, TextSendMessage, FlexSendMessage
+from linebot.models import MessageEvent, TextMessage, TextSendMessage, FlexSendMessage,BoxComponent, TextComponent
 from linebot.exceptions import InvalidSignatureError
 import os
 import random
@@ -11,9 +11,8 @@ from collections import defaultdict, deque
 import firebase_admin
 from firebase_admin import credentials, firestore
 import time
-from linebot.models import QuickReply, QuickReplyButton, MessageAction, AudioSendMessage
-from urllib.parse import quote
-from linebot.models import URIAction
+from linebot.models import QuickReply, QuickReplyButton, MessageAction
+
 
 load_dotenv()
 app = Flask(__name__)
@@ -35,17 +34,8 @@ user_answer_counts = defaultdict(int)
 user_names = {}  # user_id: name
 user_answer_start_times = {}  # 問題出題時刻を記録
 
-DEFAULT_NAME = "イキイキした毎日"
+DEFAULT_NAME = "河野玄斗"
 
-def generate_pronunciation_url(word: str) -> str:
-    """
-    単語を受け取り、Google Translate TTSのURLを返す
-    """
-    word_encoded = quote(word)
-    # 英語を想定（tl=en）
-    url = f"https://translate.google.com/translate_tts?ie=UTF-8&client=tw-ob&q={word_encoded}&tl=en"
-    return url
-    
 def load_user_data(user_id):
     try:
         doc = db.collection("users").document(user_id).get()
@@ -498,7 +488,6 @@ questions_1001_1935 = [
      "answer": "dawn"},
     {"text": "1892 wet o___\n濡れたコンセント😱",
      "answer": "outlet"},
-    
 ]
 #Dreams are free; reality charges you interest every day.
 
@@ -643,10 +632,10 @@ def build_feedback_flex(is_correct, score, elapsed, rank, correct_answer=None, l
     body_contents = []
 
     if is_correct:
-        color_map = {"!!Brilliant":"#40e0d0", "!Great":"#4682b4", "✓Correct":"#00ff00"}
         if label is None:
-            label, color = "✓Correct", "#00ff00"
+            label, color = "?", "#000000"
         else:
+            color_map = {"!!Brilliant":"#40e0d0", "!Great":"#4682b4", "✓Correct":"#00ff00"}
             color = color_map.get(label, "#000000")
 
         body_contents.append({
@@ -657,6 +646,7 @@ def build_feedback_flex(is_correct, score, elapsed, rank, correct_answer=None, l
             "color": color,
             "align": "center"
         })
+        
     else:
         body_contents.append({
             "type": "text",
@@ -667,20 +657,23 @@ def build_feedback_flex(is_correct, score, elapsed, rank, correct_answer=None, l
             "margin": "md"
         })
 
-    # Flex内に音声再生ボタン追加（正解・不正解共通）
-    if correct_answer:
-        body_contents.append({
-            "type": "button",
-            "action": URIAction(
-                label="音声を聞く",
-                uri=generate_pronunciation_url(correct_answer)
-            ),
-            "style": "primary",
-            "color": "#00aaff",
-            "margin": "md"
-        })
+#    body_contents.extend([
+#       {
+#            "type": "text",
+#            "text": f"解く前:{rank}",
+#            "size": "md",
+#            "color": "#000000"            "margin": "md"
+#        },
+#        {
+#            "type": "text",
+#            "text": f"{elapsed:.1f}s",
+#            "size": "md",
+#            "color": "#000000",
+#            "margin": "sm"
+#        }
+#    ])
 
-    flex_msg = FlexSendMessage(
+    return FlexSendMessage(
         alt_text="回答フィードバック",
         contents={
             "type": "bubble",
@@ -691,7 +684,6 @@ def build_feedback_flex(is_correct, score, elapsed, rank, correct_answer=None, l
             }
         }
     )
-    return flex_msg
 
 #1001-1935を4択
 def send_question(user_id, range_str):
@@ -890,16 +882,6 @@ def handle_message(event):
         line_bot_api.reply_message(event.reply_token, TextSendMessage(text=f"名前を「{new_name}」に変更しました。"))
         return
 
-    if msg.startswith("音声:"):
-        word = msg.split("音声:")[1].strip()
-        audio_url = generate_pronunciation_url(word)
-        audio_msg = AudioSendMessage(
-            original_content_url=audio_url,
-            duration=3000  # 再生時間(ms)、目安
-        )
-        line_bot_api.reply_message(event.reply_token, audio_msg)
-        return
-    
     if msg == "ランキング":
         flex_msg = build_ranking_flex_fast()  
         line_bot_api.reply_message(event.reply_token, flex_msg)
@@ -937,8 +919,11 @@ def handle_message(event):
             is_correct, score, elapsed, rank,
             correct_answer, label if is_correct else None
         )
-        # 平均で算出してFirestoreに保存
-        total_rate = update_total_rate(user_id)
+        # 総合レートを計算してFirestoreに保存
+        total_rate = sum(user_scores[user_id].values())
+        db.collection("users").document(user_id).set(
+            {"total_rate": total_rate}, merge=True
+        )
 
         # 次の問題
         next_question_msg = send_question(user_id, range_str)
