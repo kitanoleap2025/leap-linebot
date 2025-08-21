@@ -11,8 +11,8 @@ from collections import defaultdict, deque
 import firebase_admin
 from firebase_admin import credentials, firestore
 import time
-from linebot.models import QuickReply, QuickReplyButton, MessageAction
-
+from linebot.models import QuickReply, QuickReplyButton, MessageAction, AudioSendMessage
+from urllib.parse import quote
 
 load_dotenv()
 app = Flask(__name__)
@@ -36,6 +36,63 @@ user_answer_start_times = {}  # 問題出題時刻を記録
 
 DEFAULT_NAME = "イキイキした毎日"
 
+def generate_pronunciation_url(word: str) -> str:
+    """
+    単語を受け取り、Google Translate TTSのURLを返す
+    """
+    word_encoded = quote(word)
+    # 英語を想定（tl=en）
+    url = f"https://translate.google.com/translate_tts?ie=UTF-8&client=tw-ob&q={word_encoded}&tl=en"
+    return url
+
+def build_feedback_flex(is_correct, score, elapsed, rank, correct_answer=None, label=None):
+    body_contents = []
+
+    if is_correct:
+        if label is None:
+            label, color = "?", "#000000"
+        else:
+            color_map = {"!!Brilliant":"#40e0d0", "!Great":"#4682b4", "✓Correct":"#00ff00"}
+            color = color_map.get(label, "#000000")
+
+        body_contents.append({
+            "type": "text",
+            "text": label,
+            "weight": "bold",
+            "size": "xl",
+            "color": color,
+            "align": "center"
+        })
+        
+    else:
+        body_contents.append({
+            "type": "text",
+            "text": f"Wrong❌\nAnswer: {correct_answer}",
+            "size": "md",
+            "color": "#ff4500",
+            "wrap": True,
+            "margin": "md"
+        })
+
+    # ✅ Quick Replyを常に追加（正解・不正解問わず）
+    quick = QuickReply(items=[
+        QuickReplyButton(action=MessageAction(label="音声を聞く", text=f"音声:{correct_answer}"))
+    ])
+
+    flex_msg = FlexSendMessage(
+        alt_text="回答フィードバック",
+        contents={
+            "type": "bubble",
+            "body": {
+                "type": "box",
+                "layout": "vertical",
+                "contents": body_contents
+            }
+        },
+        quick_reply=quick
+    )
+    return flex_msg
+    
 def load_user_data(user_id):
     try:
         doc = db.collection("users").document(user_id).get()
@@ -883,6 +940,16 @@ def handle_message(event):
         line_bot_api.reply_message(event.reply_token, TextSendMessage(text=f"名前を「{new_name}」に変更しました。"))
         return
 
+    if msg.startswith("音声:"):
+    word = msg.split("音声:")[1].strip()
+    audio_url = generate_pronunciation_url(word)
+    audio_msg = AudioSendMessage(
+        original_content_url=audio_url,
+        duration=3000  # 再生時間(ms)、目安
+    )
+    line_bot_api.reply_message(event.reply_token, audio_msg)
+    return
+    
     if msg == "ランキング":
         flex_msg = build_ranking_flex_fast()  
         line_bot_api.reply_message(event.reply_token, flex_msg)
