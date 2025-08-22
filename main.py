@@ -272,7 +272,7 @@ questions_1_1000 = [
      "answer": "challenge"},
     {"text": "443 Is his face p___ or has it always been p___?\n彼は青ざめているのか,いつも青白いのか.🥶",
      "answer": "pale"},
-    {"text": "449 He was conscious during the entire s___.\n彼は手術中ずっと意識があった.🩻",
+    {"text": "449 He was conscious during the entire s___.\n彼は手術中ずっと意識があった.😱",
      "answer": "surgery"},
     {"text": "454 Call an a___!\n救急車を呼んで!",
      "answer": "ambulance"},
@@ -360,7 +360,7 @@ questions_1_1000 = [
      "answer": "determined"},
     {"text": "685 Did you n___ the changes in the schedule?\nスケジュールの変更には気付いた？",
      "answer": "notice"},
-    {"text": "691 He was c___ during the entire surgery.\n彼は手術中ずっと意識があった.🩻",
+    {"text": "691 He was c___ during the entire surgery.\n彼は手術中ずっと意識があった.😱",
      "answer": "conscious"},
     {"text": "693 She is r___ as the best teacher in the school.\n彼女は学校で一番の教師とみなされている.",
      "answer": "regarded"},
@@ -480,25 +480,25 @@ questions_1001_1935 = [
      "answer": "bless"},
     {"text": "1004 remember the past ___\n過去の栄光を思い出す",
      "answer": "glory"},
-    {"text": "1005 I feel embarrassed when I hear ___.\n褒め言葉を聞いて照れる。",
+    {"text": "1005 I feel embarrassed when I hear ___.\n褒め言葉を聞いて照れる.",
      "answer": "compliments"},
     {"text": "1006 bored ___\nつまらない宴会",
      "answer": "feast"},
-    {"text": "1007 Takeshi ___ that he has never lied.\nタケシは嘘をついたことがないとはっきりと述べた。",
+    {"text": "1007 Takeshi ___ that he has never lied.\nタケシは嘘をついたことがないとはっきりと述べた.",
      "answer": "declared"},
     {"text": "1008 ___ an important part\n重要な部分を強調する",
      "answer": "highlight"},
-    {"text": "1009 Takeshi's attitude ___ betrayal.\nタケシは裏切りをほのめかす態度だ。",
+    {"text": "1009 Takeshi's attitude ___ betrayal.\nタケシは裏切りをほのめかす態度だ.",
      "answer": "implies"},
     {"text": "1010 ___ the school song\n校歌を暗唱する",
      "answer": "recite"},
-    {"text": "1011 research the sun's ___\n太陽光線を研究する",
+    {"text": "1011 research the sun's ___\n太陽光線を研究する🌞",
      "answer": "rays"},
-    {"text": "1012 ___ is not necessarily dangerous.\n放射線は必ずしも危険なものではない。",
+    {"text": "1012 ___ is not necessarily dangerous.\n放射線は必ずしも危険なものではない.",
      "answer": "radiation"},
     {"text": "1013 The scientist made a critical discovery in the ___.\nその科学者は研究室で重大な発見をした.",
      "answer": "laboratory"},
-    {"text": "1014 Plants produce ___.\n植物は酸素を作り出す.",
+    {"text": "1014 Plants produce ___.\n植物は酸素を作り出す.🌳",
      "answer": "oxygen"},
     {"text": "1015 You can’t see ___ with the naked eye.\n分子は肉眼で見ることができない.",
      "answer": "molecules"},
@@ -847,8 +847,8 @@ def evaluate_X(elapsed, score, answer, is_multiple_choice=False):
     else:
         return "✓Correct", 1
 
-#高速ランキング
-def build_ranking_flex_fast():
+# 高速ランキング（自分の順位も表示）
+def build_ranking_flex_fast(user_id):
     docs = db.collection("users").stream()
     ranking = []
 
@@ -858,9 +858,18 @@ def build_ranking_flex_fast():
         total_rate = data.get("total_rate", 0)
         ranking.append((doc.id, name, total_rate))
 
+    # ソート
     ranking.sort(key=lambda x: x[2], reverse=True)
 
+    # 自分の順位探す
+    user_pos = None
+    for i, (uid, _, _) in enumerate(ranking, 1):
+        if uid == user_id:
+            user_pos = i
+            break
+
     contents = []
+    # TOP5表示
     for i, (uid, name, rate) in enumerate(ranking[:5], 1):
         if i == 1: color = "#FFD700"
         elif i == 2: color = "#C0C0C0"
@@ -879,6 +888,27 @@ def build_ranking_flex_fast():
         if i < 5:
             contents.append({"type": "separator", "margin": "md"})
 
+    # 自分用メッセージ
+    if user_pos is not None:
+        my_uid, my_name, my_rate = ranking[user_pos - 1]
+        if user_pos <= 5:
+            msg_text = f"あなたは表彰台に乗っています！\n順位: #{user_pos}\nTotal Rate: {my_rate}"
+        else:
+            # 一つ上との差分
+            upper_uid, upper_name, upper_rate = ranking[user_pos - 2]
+            diff = upper_rate - my_rate
+            msg_text = f"あなたの順位: #{user_pos}\n1つ上との差: {diff}\nTotal Rate: {my_rate}"
+
+        contents.append({"type": "separator", "margin": "md"})
+        contents.append({
+            "type": "text",
+            "text": msg_text,
+            "size": "sm",
+            "wrap": True,
+            "color": "#333333",
+            "margin": "md"
+        })
+
     flex_message = FlexSendMessage(
         alt_text="Ranking",
         contents={
@@ -895,8 +925,6 @@ def build_ranking_flex_fast():
         }
     )
     return flex_message
-
-
 
 # —————— ここからLINEイベントハンドラ部分 ——————
 
