@@ -926,7 +926,7 @@ def build_ranking_flex_fast(user_id):
             diff = upper_rate - my_rate
             msg_text = (
                 f"{my_name}:#{user_pos}\nTotal Rate:{my_rate}\n"
-                f"({upper_name}) f"{my_rate-1}"まで{diff}レート差\n"
+                f"#{user_pos - 1}の({upper_name})まで{diff}レート差\n"
             )
 
         contents.append({"type": "separator", "margin": "md"})
