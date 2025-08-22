@@ -858,10 +858,10 @@ def build_ranking_flex_fast(user_id):
         total_rate = data.get("total_rate", 0)
         ranking.append((doc.id, name, total_rate))
 
-    # ソート
+    # レート順にソート
     ranking.sort(key=lambda x: x[2], reverse=True)
 
-    # 自分の順位探す
+    # 自分の順位を探す
     user_pos = None
     for i, (uid, _, _) in enumerate(ranking, 1):
         if uid == user_id:
@@ -897,7 +897,11 @@ def build_ranking_flex_fast(user_id):
             # 一つ上との差分
             upper_uid, upper_name, upper_rate = ranking[user_pos - 2]
             diff = upper_rate - my_rate
-            msg_text = f"あなたの順位: #{user_pos}\n1つ上との差: {diff}\nTotal Rate: {my_rate}"
+            msg_text = (
+                f"{my_name} さんの順位: #{user_pos}\n"
+                f"1つ上 ({upper_name}) との差: {diff}\n"
+                f"Total Rate: {my_rate}"
+            )
 
         contents.append({"type": "separator", "margin": "md"})
         contents.append({
