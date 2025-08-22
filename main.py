@@ -682,25 +682,20 @@ def update_total_rate(user_id):
 
 
 #FEEDBACK　flex
-def build_feedback_flex(is_correct, score, elapsed, rank, correct_answer=None, label=None):
+def build_feedback_flex(is_correct, score, elapsed, rank, correct_answer=None, label=None, meaning=None):
     body_contents = []
 
     if is_correct:
-        if label is None:
-            label, color = "?", "#000000"
-        else:
-            color_map = {"!!Brilliant":"#40e0d0", "!Great":"#4682b4", "✓Correct":"#00ff00"}
-            color = color_map.get(label, "#000000")
-
+        color_map = {"!!Brilliant":"#40e0d0", "!Great":"#4682b4", "✓Correct":"#00ff00"}
+        color = color_map.get(label, "#000000")
         body_contents.append({
             "type": "text",
-            "text": label,
+            "text": label or "✓Correct",
             "weight": "bold",
             "size": "xl",
             "color": color,
             "align": "center"
         })
-        
     else:
         body_contents.append({
             "type": "text",
@@ -711,21 +706,15 @@ def build_feedback_flex(is_correct, score, elapsed, rank, correct_answer=None, l
             "margin": "md"
         })
 
-#    body_contents.extend([
-#       {
-#            "type": "text",
-#            "text": f"解く前:{rank}",
-#            "size": "md",
-#            "color": "#000000"            "margin": "md"
-#        },
-#        {
-#            "type": "text",
-#            "text": f"{elapsed:.1f}s",
-#            "size": "md",
-#            "color": "#000000",
-#            "margin": "sm"
-#        }
-#    ])
+    if meaning:
+        body_contents.append({
+            "type": "text",
+            "text": f"意味: {meaning}",
+            "size": "md",
+            "color": "#000000",
+            "margin": "md",
+            "wrap": True
+        })
 
     return FlexSendMessage(
         alt_text="回答フィードバック",
@@ -984,6 +973,7 @@ def handle_message(event):
 
     if user_id in user_states:
         range_str, correct_answer = user_states[user_id]
+        # 正解かどうか判定
         is_correct = (msg.lower() == correct_answer.lower())
         score = user_scores[user_id].get(correct_answer, 0)
 
@@ -998,10 +988,15 @@ def handle_message(event):
             rank = get_rank(score)
             user_scores[user_id][correct_answer] = max(0, score - 1)
 
-        # フィードバック
+        # q を取得して meaning を渡す
+        questions = questions_1_1000 if range_str == "1-1000" else questions_1001_1935
+        q = next((x for x in questions if x["answer"] == correct_answer), None)
+
         flex_feedback = build_feedback_flex(
             is_correct, score, elapsed, rank,
-            correct_answer, label if is_correct else None
+            correct_answer=correct_answer,
+            label=label if is_correct else None,
+            meaning=q.get("meaning") if q else None
         )
 
         # 次の問題
