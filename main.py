@@ -919,15 +919,14 @@ def build_ranking_flex_fast(user_id):
     if user_pos is not None:
         my_uid, my_name, my_rate = ranking[user_pos - 1]
         if user_pos <= 5:
-            msg_text = f"あなたは表彰台に乗っています！\n順位: #{user_pos}\nTotal Rate: {my_rate}"
+            msg_text = f"{my_name}\nTotal Rate: {my_rate}\nあなたは表彰台に乗っています！"
         else:
             # 一つ上との差分
             upper_uid, upper_name, upper_rate = ranking[user_pos - 2]
             diff = upper_rate - my_rate
             msg_text = (
-                f"{my_name} さんの順位: #{user_pos}\n"
-                f"1つ上 ({upper_name}) との差: {diff}\n"
-                f"Total Rate: {my_rate}"
+                f"{my_name}:#{user_pos}\nTotal Rate:{my_rate}\n"
+                f"({upper_name}) f"{my_rate-1}"まで{diff}レート差\n"
             )
 
         contents.append({"type": "separator", "margin": "md"})
