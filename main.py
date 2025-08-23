@@ -574,28 +574,14 @@ questions_1001_1935 = [
     {"text": "1034 I will go to the nearby ___.\n私は近くの薬局に行くつもりだ.",
      "answer": "pharmacy",
     "meaning": ""}, 
-    {"text": "",
-     "answer": "",
-    "meaning": ""}, 
-    {"text": "",
-     "answer": "",
-    "meaning": ""}, 
-    {"text": "",
-     "answer": "",
-    "meaning": ""}, 
-    {"text": "",
-     "answer": "",
-    "meaning": ""}, 
-    {"text": "",
-     "answer": "",
-    "meaning": ""}, 
-    {"text": "",
-     "answer": "",
-    "meaning": ""}, 
-    
     {"text": "1052 The ___ of Hammurabi is one of the oldest laws.\nハンムラビ法典(規定)は最古の法律の一つ。",
      "answer": "code",
     "meaning": "code	[名] ①（服装などの）規定 ②暗号"},
+    
+     {"text": "",
+     "answer": "",
+    "meaning": ""}, 
+    
     {"text": "1110 Logic is the ___ of clear thinking and good arguments.\n論理は明晰な思考と良い議論の基礎である。",
      "answer": "basis",
     "meaning": "basis	[名] ①基礎，根拠 ②（on a ～ basis）（～を）基準（として）"},
@@ -614,6 +600,9 @@ questions_1001_1935 = [
     {"text": "1359 achieve my ___ to be a pilot\nパイロットになるという望みを叶える🧑‍✈️",
      "answer": "ambition",
     "meaning": "ambition	[名] （強い）願望，野望"},
+    {"text": “1370 He was allegedly ___ by the teacher\n彼は先生に怒られたらしい",
+     "answer": "scolded",
+    "meaning": ""},
     {"text": "1386 He was conscious during the ___ surgery.\n彼は手術中ずっと意識があった.😱",
      "answer": "entire",
     "meaning": "entire	[形] すべての"},
@@ -629,6 +618,21 @@ questions_1001_1935 = [
     {"text": "1892 wet ___\n濡れたコンセント😱",
      "answer": "outlet",
     "meaning": "outlet	[名] ①(電気の)コンセント ②(販売)店 ③(感情などの)はけ口"},
+    {"text": "1996 This toilet is reserved ___ for teachers\nこのトイレは教員専用です.",
+     "answer": "exclusively",
+    "meaning": ""},
+    {"text": “1997 He was sleepy, ___ his poor performance\n彼は眠かった。それゆえに成績が悪かった",
+     "answer": "hence",
+    "meaning": ""},
+    {"text": “1998 Two students were late, ___ Bob and Mike\n2人の生徒が遅刻した。すなわちボブとマイクだ",
+     "answer": "namely",
+    "meaning": ""},
+    {"text": “1999 He was ___ scolded by the teacher\n彼は先生に怒られたらしい",
+     "answer": "allegedly ",
+    "meaning": ""},
+    {"text": "2000 Some students study hard, ___ others do the bare minimum\n熱心に勉強する生徒もいれば、最低限しかしない生徒もいる",
+     "answer": "whereas",
+    "meaning": ""},
 ]
 questions_2001_2300 = [
     {"text": "2013 Don’t count your chickens before they ___.\n卵がかえる前にヒヨコを数えるな🐣",
@@ -984,7 +988,7 @@ def build_ranking_flex_fast(user_id):
             diff = upper_rate - my_rate
             msg_text = (
                 f"{my_name}:#{user_pos}\nTotal Rate:{my_rate}\n"
-                f"#{user_pos - 1}の({upper_name})まで{diff}レート差\n"
+                f"#{user_pos - 1}の({upper_name})まで{diff}"
             )
 
         contents.append({"type": "separator", "margin": "md"})
