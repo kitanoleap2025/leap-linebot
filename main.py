@@ -1128,7 +1128,7 @@ def build_ranking_flex_fast(user_id):
             upper_uid, upper_name, upper_rate = ranking[user_pos - 2]
             diff = upper_rate - my_rate
             msg_text = (
-                f"{my_name}:#{user_pos}\nTotal Rate:{my_rate}\n"
+                f"{my_name}\n#{user_pos} Total Rate:{my_rate}\n"
                 f"#{user_pos - 1}の({upper_name})まで{diff}"
             )
 
