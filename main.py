@@ -1018,7 +1018,7 @@ def build_result_flex(user_id):
     c1 = len(questions_1_1000)
     c2 = len(questions_1001_2000)
     rate1 = round((sum(user_scores.get(user_id, {}).get(q["answer"], 0) for q in questions_1_1000) / c1) * 2500) if c1 else 0
-    rate2 = round((sum(user_scores.get(user_id, {}).get(q["answer"], 0) for q in questions_1001_1935) / c2) * 2500) if c2 else 0
+    rate2 = round((sum(user_scores.get(user_id, {}).get(q["answer"], 0) for q in questions_1001_2000) / c2) * 2500) if c2 else 0
     total_rate = round((rate1 + rate2) / 2)
 
     flex_message = FlexSendMessage(
