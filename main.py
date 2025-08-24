@@ -629,7 +629,7 @@ questions_1_1000 = [
      "answer": "according to",
     "meaning": "according to	[前] ①（調査，人の話など）によれば ②（能力など）に応じて"},
 ]
-questions_1001_1935 = [
+questions_1001_2000 = [
     {"text": "1001 ___ travel plan\n旅行の計画を提案する",
      "answer": "propose",
     "meaning": "propose　[他] ①～を提案する [自] ②（to ～）（～に）結婚を申し込む"},
@@ -939,7 +939,7 @@ def build_result_flex(user_id):
 
     # 各範囲の評価計算
     parts = []
-    for title, questions in [("1-1000", questions_1_1000), ("1001-1935", questions_1001_1935)]:
+    for title, questions in [("1-1000", questions_1_1000), ("1001-2000", questions_1001_2000)]:
         scores = user_scores.get(user_id, {})
         relevant_answers = [q["answer"] for q in questions]
         total_score = sum(scores.get(ans, 0) for ans in relevant_answers)
@@ -971,7 +971,7 @@ def build_result_flex(user_id):
     # ランク別単語数・割合計算
     scores = user_scores.get(user_id, {})
     rank_counts = {"100%": 0, "75%": 0, "50%": 0, "25%": 0, "0%": 0}
-    all_answers = [q["answer"] for q in questions_1_1000 + questions_1001_1935]
+    all_answers = [q["answer"] for q in questions_1_1000 + questions_1001_2000]
     for word in all_answers:
         score = scores.get(word, 0)
         rank_counts[get_rank(score)] += 1
@@ -1016,7 +1016,7 @@ def build_result_flex(user_id):
 
     # 合計レート計算
     c1 = len(questions_1_1000)
-    c2 = len(questions_1001_1935)
+    c2 = len(questions_1001_2000)
     rate1 = round((sum(user_scores.get(user_id, {}).get(q["answer"], 0) for q in questions_1_1000) / c1) * 2500) if c1 else 0
     rate2 = round((sum(user_scores.get(user_id, {}).get(q["answer"], 0) for q in questions_1001_1935) / c2) * 2500) if c2 else 0
     total_rate = round((rate1 + rate2) / 2)
@@ -1046,10 +1046,10 @@ def build_result_flex(user_id):
 def update_total_rate(user_id):
     scores = user_scores.get(user_id, {})
     total_score1 = sum(scores.get(q["answer"], 0) for q in questions_1_1000)
-    total_score2 = sum(scores.get(q["answer"], 0) for q in questions_1001_1935)
+    total_score2 = sum(scores.get(q["answer"], 0) for q in questions_1001_2000)
 
     c1 = len(questions_1_1000)
-    c2 = len(questions_1001_1935)
+    c2 = len(questions_1001_2000)
 
     rate1 = round((total_score1 / c1) * 2500) if c1 else 0
     rate2 = round((total_score2 / c2) * 2500) if c2 else 0
@@ -1111,11 +1111,11 @@ def build_feedback_flex(is_correct, score, elapsed, rank, correct_answer=None, l
         }
     )
 
-#1001-1935を4択
+#1001-2000を4択
 def send_question(user_id, range_str):
-    questions = questions_1_1000 if range_str == "1-1000" else questions_1001_1935
+    questions = questions_1_1000 if range_str == "1-1000" else questions_1001_2000
 
-    if range_str == "1001-1935":
+    if range_str == "1001-2000":
         # 4択問題 QuickReply版
         q, _ = choose_multiple_choice_question(user_id, questions)
         user_states[user_id] = (range_str, q["answer"])
@@ -1342,7 +1342,7 @@ def handle_message(event):
         line_bot_api.reply_message(event.reply_token, flex_msg)
         return
 
-    if msg in ["1-1000", "1001-1935"]:
+    if msg in ["1-1000", "1001-2000"]:
         question_msg = send_question(user_id, msg)
         line_bot_api.reply_message(event.reply_token, question_msg)
         return
@@ -1360,7 +1360,7 @@ def handle_message(event):
         score = user_scores[user_id].get(correct_answer, 0)
 
         elapsed = time.time() - user_answer_start_times.get(user_id, time.time())
-        is_multiple_choice = (range_str == "1001-1935")
+        is_multiple_choice = (range_str == "1001-2000")
         label, delta = evaluate_X(elapsed, score, correct_answer, is_multiple_choice=is_multiple_choice)
 
         if is_correct:
@@ -1371,7 +1371,7 @@ def handle_message(event):
             user_scores[user_id][correct_answer] = max(0, score - 1)
 
         # q を取得して meaning を渡す
-        questions = questions_1_1000 if range_str == "1-1000" else questions_1001_1935
+        questions = questions_1_1000 if range_str == "1-1000" else questions_1001_2000
         q = next((x for x in questions if x["answer"] == correct_answer), None)
 
         flex_feedback = build_feedback_flex(
@@ -1403,7 +1403,7 @@ def handle_message(event):
 
     line_bot_api.reply_message(
         event.reply_token,
-        TextSendMessage(text="1-1000 または 1001-1935 を押してね。")
+        TextSendMessage(text="1-1000 または 1001-2000 を押してね。")
     )
 
 if __name__ == "__main__":
