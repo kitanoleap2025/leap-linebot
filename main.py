@@ -1063,6 +1063,14 @@ def update_total_rate(user_id):
 
     return total_rate
 
+def periodic_save():
+    while True:
+        time.sleep(60)  # 1分ごと
+        for user_id in list(user_scores.keys()):
+            save_user_data(user_id)
+
+# スレッド起動
+threading.Thread(target=periodic_save, daemon=True).start()
 
 #FEEDBACK　flex
 def build_feedback_flex(is_correct, score, elapsed, rank, correct_answer=None, label=None, meaning=None):
@@ -1362,13 +1370,6 @@ def handle_message(event):
         elapsed = time.time() - user_answer_start_times.get(user_id, time.time())
         is_multiple_choice = (range_str == "1001-2000")
         label, delta = evaluate_X(elapsed, score, correct_answer, is_multiple_choice=is_multiple_choice)
-
-        if is_correct:
-            rank = get_rank(score)
-            user_scores[user_id][correct_answer] = min(4, score + delta)
-        else:
-            rank = get_rank(score)
-            user_scores[user_id][correct_answer] = max(0, score - 1)
 
         # q を取得して meaning を渡す
         questions = questions_1_1000 if range_str == "1-1000" else questions_1001_2000
