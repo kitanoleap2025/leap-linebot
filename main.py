@@ -1073,7 +1073,7 @@ def periodic_save():
 threading.Thread(target=periodic_save, daemon=True).start()
 
 #FEEDBACK　flex
-def build_feedback_flex(is_correct, score, elapsed, rank, correct_answer=None, label=None, meaning=None):
+def build_feedback_flex(is_correct, score, elapsed, correct_answer=None, label=None, meaning=None):
     body_contents = []
 
     if is_correct:
@@ -1376,7 +1376,7 @@ def handle_message(event):
         q = next((x for x in questions if x["answer"] == correct_answer), None)
 
         flex_feedback = build_feedback_flex(
-            is_correct, score, elapsed, rank,
+            is_correct, score, elapsed,
             correct_answer=correct_answer,
             label=label if is_correct else None,
             meaning=q.get("meaning") if q else None
