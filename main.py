@@ -917,7 +917,15 @@ questions_1001_2000 = [
      "answer": "whereas",
     "meaning": "whereas	[接] ～だが一方"},
 ]
-
+questions_2001_2300 = [
+    {"text": "2013 Don’t count your chickens before they ___.\n卵がかえる前にヒヨコを数えるな🐣",
+     "answer": "hatch",
+    "meaning": "hatch	[自] ①（卵から）かえる，孵化する [他] ②（卵から）～をかえす ③（計画など）を企てる"},
+    {"text": "2043 ___ the tale of the Straw Millionaire, trying to exchange a string for a Benz.\nわらしべ長者の物語を省略して,ひもをベンツと交換しようとする.",
+     "answer": "Omitting",
+    "meaning": "omit	[他] ～を省く"},
+   
+]
 #Dreams are free; reality charges you interest every day.
 
 def get_rank(score):
@@ -1221,25 +1229,28 @@ def evaluate_X(elapsed, score, answer, is_multiple_choice=False):
 
 # 高速ランキング（自分の順位も表示）
 def build_ranking_flex_fast(user_id):
-    top_docs = db.collection("users") \
-                 .order_by("total_rate", direction=firestore.Query.DESCENDING) \
-                 .limit(5) \
-                 .stream()
+    docs = db.collection("users").stream()
+    ranking = []
 
-    top_users = [(doc.id, doc.to_dict().get("name", DEFAULT_NAME), doc.to_dict().get("total_rate", 0)) 
-                 for doc in top_docs]
+    for doc in docs:
+        data = doc.to_dict()
+        name = data.get("name", DEFAULT_NAME)
+        total_rate = data.get("total_rate", 0)
+        ranking.append((doc.id, name, total_rate))
 
-    my_doc = db.collection("users").document(user_id).get()
-    my_rate = my_doc.to_dict().get("total_rate", 0)
+    # レート順にソート
+    ranking.sort(key=lambda x: x[2], reverse=True)
 
-    higher_count_query = db.collection("users") \
-                           .where("total_rate", ">", my_rate) \
-                           .count()
-    my_rank = higher_count_query.get().value + 1
+    # 自分の順位を探す
+    user_pos = None
+    for i, (uid, _, _) in enumerate(ranking, 1):
+        if uid == user_id:
+            user_pos = i
+            break
 
     contents = []
     # TOP5表示
-    for i, (uid, name, rate) in enumerate(top_users, 1):
+    for i, (uid, name, rate) in enumerate(ranking[:5], 1):
         if i == 1: color = "#FFD700"
         elif i == 2: color = "#C0C0C0"
         elif i == 3: color = "#CD7F32"
@@ -1258,14 +1269,28 @@ def build_ranking_flex_fast(user_id):
             contents.append({"type": "separator", "margin": "md"})
 
     # 自分用メッセージ
-    contents.append({"type": "separator", "margin": "md"})
-    contents.append({
-        "type": "text",
-        "text": f"あなたの順位: #{my_rank}\nTotal Rate: {my_rate}",
-        "size": "sm",
-        "color": "#333333",
-        "margin": "md"
-    })
+    if user_pos is not None:
+        my_uid, my_name, my_rate = ranking[user_pos - 1]
+        if user_pos <= 5:
+            msg_text = f"{my_name}\nTotal Rate: {my_rate}\nあなたは表彰台に乗っています！"
+        else:
+            # 一つ上との差分
+            upper_uid, upper_name, upper_rate = ranking[user_pos - 2]
+            diff = upper_rate - my_rate
+            msg_text = (
+                f"{my_name}\n#{user_pos} Total Rate:{my_rate}\n"
+                f"#{user_pos - 1}の({upper_name})まで{diff}"
+            )
+
+        contents.append({"type": "separator", "margin": "md"})
+        contents.append({
+            "type": "text",
+            "text": msg_text,
+            "size": "sm",
+            "wrap": True,
+            "color": "#333333",
+            "margin": "md"
+        })
 
     flex_message = FlexSendMessage(
         alt_text="Ranking",
