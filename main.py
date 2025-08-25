@@ -1092,7 +1092,7 @@ def build_feedback_flex(is_correct, score, elapsed, rank, correct_answer=None, l
     if meaning:
         body_contents.append({
             "type": "text",
-            "text": f"意味: {meaning}",
+            "text": f"{meaning}",
             "size": "md",
             "color": "#000000",
             "margin": "md",
