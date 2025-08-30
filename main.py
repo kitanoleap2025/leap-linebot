@@ -33,7 +33,7 @@ user_recent_questions = defaultdict(lambda: deque(maxlen=10))
 user_answer_counts = defaultdict(int)
 user_names = {}  # user_id: name
 user_answer_start_times = {}  # 問題出題時刻を記録
-user_daily_counts = defaultdict(lambda: {"date": None, "count": 0})
+user_daily_counts = defaultdict(lambda: {"date": None, "count": 1})
 
 DEFAULT_NAME = "イキイキした毎日"
 
@@ -1518,7 +1518,7 @@ def handle_message(event):
         today = time.strftime("%Y-%m-%d")
         if user_daily_counts[user_id]["date"] != today:
             user_daily_counts[user_id]["date"] = today
-            user_daily_counts[user_id]["count"] = 0
+            user_daily_counts[user_id]["count"] = 1
             
         user_daily_counts[user_id]["count"] += 1
         
