@@ -1060,7 +1060,7 @@ def build_result_flex(user_id):
         total_score = sum(scores.get(ans, 0) for ans in relevant_answers)
         count = len(relevant_answers)
 
-        rate = round((total_score / count) * 2500) if count else 0
+        rate = round((total_score / count) * 25, 3) if count else 0
         if rate >= 9000:
             rank = "S🤯"
         elif rate >= 7000:
