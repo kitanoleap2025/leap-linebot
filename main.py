@@ -1189,7 +1189,7 @@ def periodic_save():
 threading.Thread(target=periodic_save, daemon=True).start()
 
 #FEEDBACK　flex
-def build_feedback_flex(is_correct, score, elapsed, correct_answer=None, label=None, meaning=None):
+def build_feedback_flex(user_id, is_correct, score, elapsed, correct_answer=None, label=None, meaning=None):
     body_contents = []
 
     if is_correct:
@@ -1223,14 +1223,15 @@ def build_feedback_flex(is_correct, score, elapsed, correct_answer=None, label=N
             "wrap": True
         })
 
-        count_today = user_daily_counts[user_id]["count"]
-        contents.append({
-            "type": "text",
-            "text": f"今日の解答数: {count_today}問",
-            "size": "sm",
-            "color": "#333333",
-            "margin": "md"
-        })
+    # ← ここで「今日の解答数」を追加
+    count_today = user_daily_counts[user_id]["count"]
+    body_contents.append({
+        "type": "text",
+        "text": f"今日の解答数: {count_today}問",
+        "size": "sm",
+        "color": "#333333",
+        "margin": "md"
+    })
 
     return FlexSendMessage(
         alt_text="回答フィードバック",
@@ -1243,6 +1244,7 @@ def build_feedback_flex(is_correct, score, elapsed, correct_answer=None, label=N
             }
         }
     )
+
 
 #1001-2000を4択
 def send_question(user_id, range_str):
@@ -1503,11 +1505,12 @@ def handle_message(event):
         q = next((x for x in questions if x["answer"] == correct_answer), None)
 
         flex_feedback = build_feedback_flex(
-            is_correct, score, elapsed,
+            user_id, is_correct, score, elapsed,
             correct_answer=correct_answer,
             label=label if is_correct else None,
             meaning=q.get("meaning") if q else None
         )
+
 
         # 次の問題
         next_question_msg = send_question(user_id, range_str)
