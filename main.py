@@ -33,6 +33,7 @@ user_recent_questions = defaultdict(lambda: deque(maxlen=10))
 user_answer_counts = defaultdict(int)
 user_names = {}  # user_id: name
 user_answer_start_times = {}  # 問題出題時刻を記録
+user_daily_counts = defaultdict(lambda: {"date": None, "count": 0})
 
 DEFAULT_NAME = "イキイキした毎日"
 
@@ -1222,6 +1223,15 @@ def build_feedback_flex(is_correct, score, elapsed, correct_answer=None, label=N
             "wrap": True
         })
 
+        count_today = user_daily_counts[user_id]["count"]
+        contents.append({
+            "type": "text",
+            "text": f"今日の解答数: {count_today}問",
+            "size": "sm",
+            "color": "#333333",
+            "margin": "md"
+        })
+
     return FlexSendMessage(
         alt_text="回答フィードバック",
         contents={
@@ -1502,6 +1512,12 @@ def handle_message(event):
         # 次の問題
         next_question_msg = send_question(user_id, range_str)
 
+        today = time.strftime("%Y-%m-%d")
+        if user_daily_counts[user_id]["date"] != today:
+            user_daily_counts[user_id]["date"] = today
+            user_daily_counts[user_id]["count"] = 0
+            user_daily_counts[user_id]["count"] += 1
+        
         user_answer_counts[user_id] += 1
         messages_to_send = [flex_feedback]
 
