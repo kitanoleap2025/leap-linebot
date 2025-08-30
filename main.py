@@ -1519,7 +1519,8 @@ def handle_message(event):
         if user_daily_counts[user_id]["date"] != today:
             user_daily_counts[user_id]["date"] = today
             user_daily_counts[user_id]["count"] = 0
-            user_daily_counts[user_id]["count"] += 1
+            
+        user_daily_counts[user_id]["count"] += 1
         
         user_answer_counts[user_id] += 1
         messages_to_send = [flex_feedback]
