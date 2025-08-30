@@ -1233,7 +1233,7 @@ def build_feedback_flex(user_id, is_correct, score, elapsed, correct_answer=None
     count_today = user_daily_counts[user_id]["count"]
     body_contents.append({
         "type": "text",
-        "text": f"今日の解答数: {count_today}問",
+        "text": f"🔥{count_today}",
         "size": "sm",
         "color": "#333333",
         "margin": "md"
