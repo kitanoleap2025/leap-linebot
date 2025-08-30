@@ -1522,6 +1522,19 @@ def handle_message(event):
         elapsed = time.time() - user_answer_start_times.get(user_id, time.time())
         is_multiple_choice = (range_str == "1001-2000")
         label, delta = evaluate_X(elapsed, score, correct_answer, is_multiple_choice=is_multiple_choice)
+        # ラベルに応じたスコア変化
+        delta_map = {
+            "!!Brilliant": 3,
+            "!Great": 2,
+            "✓Correct": 1
+        }
+
+        if is_correct:
+            delta_score = delta_map.get(label, 1)
+            user_scores[user_id][correct_answer] = min(user_scores[user_id].get(correct_answer, 0) + delta_score, 4)
+        else:
+            # 不正解時は -1
+            user_scores[user_id][correct_answer] = max(user_scores[user_id].get(correct_answer, 0) - 1, 0)
 
         # q を取得して meaning を渡す
         questions = questions_1_1000 if range_str == "1-1000" else questions_1001_2000
