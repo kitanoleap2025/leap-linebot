@@ -1062,10 +1062,10 @@ questions_2001_2300 = [
 #Dreams are free; reality charges you interest every day.
 
 def get_rank(score):
-    return {0: "0%", 1: "25%", 2: "50%", 3: "75%", 4: "100%"}.get(score, "0%")
+    return {0: "0%", 1: "25%", 2: "50%", 3: "75%", 4: "100%"}.get(score, "25%")
 
 def score_to_weight(score):
-    return {0: 16, 1: 8, 2: 4, 3: 2, 4: 1}.get(score, 16)
+    return {0: 16, 1: 8, 2: 4, 3: 2, 4: 1}.get(score, 8)
 
 def build_result_flex(user_id):
     name = user_names.get(user_id, DEFAULT_NAME)
@@ -1075,7 +1075,7 @@ def build_result_flex(user_id):
     for title, questions in [("1-1000", questions_1_1000), ("1001-2000", questions_1001_2000)]:
         scores = user_scores.get(user_id, {})
         relevant_answers = [q["answer"] for q in questions]
-        total_score = sum(scores.get(ans, 0) for ans in relevant_answers)
+        total_score = sum(scores.get(ans, 1) for ans in relevant_answers)
         count = len(relevant_answers)
 
         rate = round((total_score / count) * 25, 3) if count else 0
@@ -1150,8 +1150,8 @@ def build_result_flex(user_id):
     # 合計レート計算
     c1 = len(questions_1_1000)
     c2 = len(questions_1001_2000)
-    rate1 = round((sum(user_scores.get(user_id, {}).get(q["answer"], 0) for q in questions_1_1000) / c1) * 2500) if c1 else 0
-    rate2 = round((sum(user_scores.get(user_id, {}).get(q["answer"], 0) for q in questions_1001_2000) / c2) * 2500) if c2 else 0
+    rate1 = round((sum(user_scores.get(user_id, {}).get(q["answer"], 1) for q in questions_1_1000) / c1) * 2500) if c1 else 0
+    rate2 = round((sum(user_scores.get(user_id, {}).get(q["answer"], 1) for q in questions_1001_2000) / c2) * 2500) if c2 else 0
     total_rate = round((rate1 + rate2) / 2)
 
     flex_message = FlexSendMessage(
