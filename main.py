@@ -42,7 +42,7 @@ def load_user_data(user_id):
         doc = db.collection("users").document(user_id).get()
         if doc.exists:
             data = doc.to_dict()
-            user_scores[user_id] = defaultdict(lambda: 1, data.get("scores", {}))
+            user_scores[user_id] = defaultdict(int, data.get("scores", {}))
 
 
             recent_list = data.get("recent", [])
