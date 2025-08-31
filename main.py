@@ -1106,7 +1106,7 @@ def build_result_flex(user_id):
     rank_counts = {"100%": 0, "75%": 0, "50%": 0, "25%": 0, "0%": 0}
     all_answers = [q["answer"] for q in questions_1_1000 + questions_1001_2000]
     for word in all_answers:
-        score = scores.get(word, 0)
+        score = scores.get(word, 1)
         rank_counts[get_rank(score)] += 1
 
     total_words = sum(rank_counts.values())
