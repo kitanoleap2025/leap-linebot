@@ -42,8 +42,7 @@ def load_user_data(user_id):
         doc = db.collection("users").document(user_id).get()
         if doc.exists:
             data = doc.to_dict()
-            user_scores[user_id] = defaultdict(int, data.get("scores", {}))
-
+            user_scores[user_id] = defaultdict(lambda: 1, data.get("scores", {}))
 
             recent_list = data.get("recent", [])
             user_recent_questions[user_id] = deque(recent_list, maxlen=10)
@@ -1529,7 +1528,7 @@ def handle_message(event):
         range_str, correct_answer = user_states[user_id]
         # 正解かどうか判定
         is_correct = (msg.lower() == correct_answer.lower())
-        score = user_scores[user_id].get(correct_answer, 0)
+        score = user_scores[user_id].get(correct_answer, 1)
 
         elapsed = time.time() - user_answer_start_times.get(user_id, time.time())
         is_multiple_choice = (range_str == "1001-2000")
@@ -1543,10 +1542,10 @@ def handle_message(event):
 
         if is_correct:
             delta_score = delta_map.get(label, 1)
-            user_scores[user_id][correct_answer] = min(user_scores[user_id].get(correct_answer, 0) + delta_score, 4)
+            user_scores[user_id][correct_answer] = min(user_scores[user_id].get(correct_answer, 1) + delta_score, 4)
         else:
             # 不正解時は -1
-            user_scores[user_id][correct_answer] = max(user_scores[user_id].get(correct_answer, 0) - 1, 0)
+            user_scores[user_id][correct_answer] = max(user_scores[user_id].get(correct_answer, 1) - 1, 0)
 
         # q を取得して meaning を渡す
         questions = questions_1_1000 if range_str == "1-1000" else questions_1001_2000
