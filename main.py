@@ -1334,7 +1334,7 @@ def build_result_flex(user_id):
     max_width = 200  # 最大横幅 px
     for rank in ["100%", "75%", "50%", "25%", "0%"]:
         width_percent = int(rank_ratios[rank]*100)  # 0〜100%
-        color_map = {"100%": "#000000", "75%": "#b22222", "50%": "#4682b4", "25%": "#ffd700", "0%": "#c0c0c0"}
+        color_map = {"100%": "#c0c0c0", "75%": "#b22222", "50%": "#4682b4", "25%": "#ffd700", "0%": "#000000"}
         width_px = max(5, int(rank_ratios[rank] * max_width)) 
         graph_components.append({
             "type": "box",
