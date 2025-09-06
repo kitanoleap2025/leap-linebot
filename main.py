@@ -842,7 +842,7 @@ questions_1_1000 = [
     {"text": "908 The only good thing about this f___ is that the chair spins.\nこの施設の唯一良い所は,椅子が回ることだ.",
      "answer": "facility",
     "meaning": ""},
-    {"text": "910 a d___ relative, that is, a stranger",
+    {"text": "910 a d___ relative, that is, a stranger\n遠い親戚,つまり他人",
      "answer": "distant"},
     {"text": "915 Mesopotamian c___\nメソポタミア文明",
      "answer": "civilization",
