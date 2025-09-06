@@ -1482,33 +1482,29 @@ def build_feedback_flex(user_id, is_correct, score, elapsed, correct_answer=None
 
 #1001-2000を4択
 def send_question(user_id, range_str):
-    questions = questions_1_1000 if range_str == "1-1000" else questions_1001_2000
-
-    if range_str == "1001-2000":
-        # 4択問題 QuickReply版
-        q, _ = choose_multiple_choice_question(user_id, questions)
-        user_states[user_id] = (range_str, q["answer"])
-        user_answer_start_times[user_id] = time.time()
-
-        correct_answer = q["answer"]
-        other_answers = [item["answer"] for item in questions if item["answer"] != correct_answer]
-        wrong_choices = random.sample(other_answers, k=min(3, len(other_answers)))
-        choices = wrong_choices + [correct_answer]
-        random.shuffle(choices)
-
-        quick_buttons = [QuickReplyButton(action=MessageAction(label=choice, text=choice))
-                         for choice in choices]
-
-        message = TextSendMessage(
-            text=q["text"],
-            quick_reply=QuickReply(items=quick_buttons)
-        )
-
+    if range_str == "1-1000":
+        questions = questions_1_1000
     else:
-        q = choose_weighted_question(user_id, questions)
-        user_states[user_id] = (range_str, q["answer"])
-        user_answer_start_times[user_id] = time.time()
-        message = TextSendMessage(text=q["text"])
+        questions = questions_1001_2000
+
+    # 4択問題 QuickReply版
+    q, _ = choose_multiple_choice_question(user_id, questions)
+    user_states[user_id] = (range_str, q["answer"])
+    user_answer_start_times[user_id] = time.time()
+
+    correct_answer = q["answer"]
+    other_answers = [item["answer"] for item in questions if item["answer"] != correct_answer]
+    wrong_choices = random.sample(other_answers, k=min(3, len(other_answers)))
+    choices = wrong_choices + [correct_answer]
+    random.shuffle(choices)
+
+    quick_buttons = [QuickReplyButton(action=MessageAction(label=choice, text=choice))
+                     for choice in choices]
+
+    message = TextSendMessage(
+        text=q["text"],
+        quick_reply=QuickReply(items=quick_buttons)
+    )
 
     return message
 
