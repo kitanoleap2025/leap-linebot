@@ -1588,10 +1588,9 @@ def choose_multiple_choice_question(user_id, questions):
     return q, question_text
 
 def evaluate_X(elapsed, score, answer, is_multiple_choice=False):
-    answer_length = 0 if is_multiple_choice else len(answer)
-    X = elapsed**1.7 + score**1.5 - answer_length
+    X = elapsed**1.7 + score**1.5
 
-    if X <= 8:
+    if X <= 5:
         return "!!Brilliant", 3
     elif X <= 20:
         return "!Great", 2
