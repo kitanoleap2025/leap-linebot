@@ -1031,7 +1031,7 @@ questions_1001_2000 = [
     "meaning": "pregnant	[形] 妊娠した"},
     {"text": "1038 ___ research has shown that stress is harmful.\n臨床研究では、ストレスは有害であることが示されている.", 
      "answer": "clinical",
-    "meaning": "clinical	[形] 臨床の"},
+    "meaning": ""},
     {"text": "1039 ___ emotional wounds\n心の傷を回復する💗", 
      "answer": "heal",
     "meaning": "heal	[他] ①～を治す [自] ②治る"}, 
@@ -1270,10 +1270,10 @@ questions_2001_2300 = [
     "meaning": "hatch	[自] ①（卵から）かえる，孵化する [他] ②（卵から）～をかえす ③（計画など）を企てる"},
     {"text": "2043 ___ the tale of the Straw Millionaire, trying to exchange a string for a Benz.\nわらしべ長者の物語を省略して,ひもをベンツと交換しようとする.",
      "answer": "Omitting",
-    "meaning": "omit	[他] ～を省く"},
+    "meaning": "entire	[形] すべての"},
     {"text": "2131 Justice is blind, but apparently not deaf to ___.\n正義は目が見えないが、賄賂にはどうやら耳が聞こえるらしい。", 
      "answer": "bribes",
-    ""},
+    "meaning": "entire	[形] すべての"},
    
 ]
 #Dreams are free; reality charges you interest every day.
