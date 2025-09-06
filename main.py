@@ -1148,7 +1148,7 @@ questions_1001_2000 = [
     "meaning": "entire	[形] すべての"},
     {"text": "1394 Justice is blind, but ___ not deaf to bribes.\n正義は目が見えないが、賄賂にはどうやら耳が聞こえるらしい。", 
      "answer": "apparently",
-    ""},
+    "meaning": ""},
     {"text": "1395 Mary is ___ a teather.\nメアリーは1人の教師に過ぎない.(提供)",
      "answer": "merely",
     "meaning": "entire	[形] すべての"},
