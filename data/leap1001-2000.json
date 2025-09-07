@@ -1,174 +1,572 @@
 [
-
-    {"text": "1110 Logic is the ___ of clear thinking and good arguments.\\n論理は明晰な思考と良い議論の基礎である。",
-     "answer": "basis",
-     "meaning": "basis	[名] ①基礎，根拠 ②（on a ～ basis）（～を）基準（として）"},
-    {"text": "1117 succeed in escaping from ___\\n脱獄に成功する",
-     "answer": "prison",
-     "meaning": "prison	[名] 刑務所"},
-    {"text": "1122 heal emotional ___\\n 心の傷を回復する💗", 
-     "answer": "wounds",
-     "meaning": "wound	[名] ①傷 [他] ②～を傷つける"}, 
-    {"text": "1221 a pleasant ___\\n心地よいそよかぜ🍃",
-     "answer": "breeze",
-     "meaning": "breeze	[名] そよ風"},
-    {"text": "1228 The cherry blossoms are reflected in the ___\\.\\n桜が小川に反射する🌸",
-     "answer": "stream",
-     "meaning": ""},
-    {"text": "1236 I was bitten by ___ in 13 places\\.\\n蚊に13か所刺された.😱",
-     "answer": "mosquitoes",
-     "meaning": "mosquito	[名] 蚊"},
-    {"text": "1238 I got scratched on the arm by a ___\\.\\n子猫に腕をひっかかれた.😼",
-     "answer": "kitten",
-     "meaning": "kitten	[名] 子ネコ"},
-    {"text": "1265 a ___ story by a ___ person\\nつまらない人が語る、つまらない話🤓",
-     "answer": "dull",
-     "meaning": ""},
-    {"text": "1269 She’s a ___ apple\\.\\n彼女は性格が悪いよ(腐ったリンゴだ).🍏",
-     "answer": "rotten",
-     "meaning": ""},
-    {"text": "1274 His wealth was ___, but his jokes were bankrupt\\.\\n彼の富は莫大だったが,ジョークは破産状態だった.💰",
-     "answer": "huge",
-     "meaning": ""},
-    {"text": "1279 Squids have a membrane that protects their ___ organs\\.\\n イカは内臓を守る膜を持つ.🦑", 
-     "answer": "internal",
-     "meaning": "internal	[形] ①内部の，体内の ②国内の"}, 
-    {"text": "1305 calcium ___\\nカルシウム不足", 
-     "answer": "deficiency",
-     "meaning": ""}, 
-    {"text": "1321 Takeshi often bumps his forehead into utility ___\\.\\n タケシはよく電(柱)に額をぶつける.",
-     "answer": "poles",
-     "meaning": "pole	[名] ①棒，さお，柱 ②（天体，地球の）極"},
-    {"text": "1342 the ___ of Japan\\n日本の魂", 
-     "answer": "soul",
-     "meaning": ""}, 
-    {"text": "1359 achieve my ___ to be a pilot\\.\\nパイロットになるという望みを叶える🧑‍✈️",
-     "answer": "ambition",
-     "meaning": "ambition	[名] （強い）願望，野望"},
-    {"text": "1370 He was allegedly ___ by the teacher\\.\\n彼は先生に怒られたらしい",
-     "answer": "scolded",
-     "meaning": "scold	[他] ～を叱る"},
-    {"text": "1385 ___ talent\\n圧倒的な才能🧬",
-     "answer": "overwhelming",
-     "meaning": "talent	[名] 才能"},
-    {"text": "1386 He was conscious during the ___ surgery\\.\\n彼は手術中ずっと意識があった.😱",
-     "answer": "entire",
-     "meaning": "entire	[形] すべての"},
-    {"text": "1394 Justice is blind, but ___ not deaf to bribes\\.\\n正義は目が見えないが、賄賂にはどうやら耳が聞こえるらしい。", 
-     "answer": "apparently",
-     "meaning": ""},
-    {"text": "1395 Mary is ___ a teather\\.\\nメアリーは1人の教師に過ぎない.(提供)",
-     "answer": "merely",
-     "meaning": "entire	[形] すべての"},
-    {"text": "1397 Looks like spring has ___ arrived outdoors\\.\\n外では春が来たようだ.",
-     "answer": "somehow",
-     "meaning": ""},
-    {"text": "1475 appropriate clothes for an apology press ___\\n謝罪会見にふさわしい服装🦹",
-     "answer": "conference",
-     "meaning": "conference	[名] (on ～)(～に関する)会議"},
-    {"text": "1529 His wealth was huge, but his jokes were ___\\.\\n彼の富は莫大だったが,ジョークは破産状態だった.💰",
-     "answer": "bankrupt",
-     "meaning": ""},
-    {"text": "1551 Consumption tax increases economic ___\\.\\n消費税は経済格差を拡大させる.",
-     "answer": "inequality",
-     "meaning": ""},
-    {"text": "1668 The only good thing about this facility is that the chair ___\\.\\nこの施設の唯一良い所は,椅子が回ることだ.",
-     "answer": "spins",
-     "meaning": ""},
-    {"text": "1669 a non-___ globe\\n回らない地球儀",
-     "answer": "rotating",
-     "meaning": ""},
-    {"text": "1692 Scholarships help students pay for college ___ and expenses\\.\\n奨学金は学生が大学の授業料や費用を支払うのを助ける.",
-     "answer": "tuition",
-     "meaning": "tuition	[名] ①〈米〉授業料 ②(少人数での)授業"},
-    {"text": "1728 ___ education\\n義務教育",
-     "answer": "compulsory",
-     "meaning": "compulsory	[形] ①義務的な ②規定の"},
-    {"text": "1749 The world is trying to reduce dependence on ___ fuels\\.\\n世界は化石燃料への依存を減らそうとしている.", 
-     "answer": "fossil",
-     "meaning": ""},
-    {"text": "1795 He said something shallow, pretending to be ___\\.\\n彼は深そうに見せかけて浅いことを言った",
-     "answer": "profound",
-     "meaning": ""},
-    {"text": "1803 ___ woman\\n熟女👵",
-     "answer": "mature",
-     "meaning": "mature	[形] ①成熟した，熟成した [自] ②成熟する，熟成する"},
-    {"text": "1870 At ___, the LGBTQ flag was raised from his house\\.\\n夜が明けると,彼の家からLGBTQフラッグが上がった.🏳️‍🌈",
-     "answer": "dawn",
-     "meaning": "dawn	[名] ①夜明け [自] ②夜が明ける ③(on ～)(～に)わかり始める"},
-    {"text": "1892 wet ___\\n濡れたコンセント😱",
-     "answer": "outlet",
-     "meaning": "outlet	[名] ①(電気の)コンセント ②(販売)店 ③(感情などの)はけ口"},
-    {"text": "1943 Don't ___ me!\\n私をからかうな!", 
-     "answer": "tease",
-     "meaning": ""},
-    {"text": "1950 Everyone was ___ by his noisy electric eraser\\.\\n彼のうるさい電動消しゴムにみんな気を散らされた.",
-     "answer": "distracted",
-     "meaning": "electric	[形] 電気の，電動の"},
-    {"text": "1961 I tremble with ___ to see you\\.\\n会いたくて震える.🎵",
-     "answer": "longing",
-     "meaning": ""},
-    {"text": "1980 Hard work usually leads to a positive ___\\.\\n努力はたいてい良い結果につながる",
-     "answer": "outcome",
-     "meaning": "outcome	[名] 結果"},
-    {"text": "1981 Hard work was a major ___ in the success\\.\\n彼の成功における大きな要因は彼の努力だ",
-     "answer": "factor",
-     "meaning": "factor	[名] 要因"},
-    {"text": "1982 He is ___ to make mistakes when he is sleepy\\.\\n彼は眠いとき、間違いをしがちだ",
-     "answer": "liable",
-     "meaning": "liable	[形] ①（to do）～しがちだ ②（to ～）（病気などに）かかりやすい ③（for ～）（～に対して）（法的に）責任がある"},
-    {"text": "1983 She did a ___ job cleaning the house\\.\\n彼女は家の掃除を徹底的にした",
-     "answer": "thorough",
-     "meaning": "thorough	[形] 完全な，徹底的な"},
-    {"text": "1984 I don’t have ___ time to finish my homework\\.\\n私には宿題を終わらせる十分な時間がない",
-     "answer": "adequate",
-     "meaning": "adequate	[形] 十分な，適切な"},
-    {"text": "1985 ___, I’m happy the result of the exam\\.\\n全体的に見て,私は試験の結果に満足だ",
-     "answer": "overall",
-     "meaning": "overall	[形] ①全体的な，全面的な [副] ②全体的に，全面的に"},
-    {"text": "1986 We decided the ___ goal\\.\\n私たちは最終的な目標を決めた",
-     "answer": "ultimate",
-     "meaning": "ultimate	[形] 究極の，最終の"},
-    {"text": "1987 She gave me a ___ smile \\n彼女は私に心からの笑顔を見せた",
-     "answer": "genuine",
-     "meaning": "genuine	[形] ①（感情が）心からの ②（絵画などが）本物の"},
-    {"text": "1988 There is a only ___ chance that he will get a girlfriend\\.\\n彼に彼女ができる可能性はわずかしかない",
-     "answer": "slight",
-     "meaning": "slight	[形] わずかな"},
-    {"text": "1989 We decided to make a ___ change to make the school better\\.\\n私たちは学校をよりよくするために抜本的な変更をすることに決めた",
-     "answer": "radical",
-     "meaning": "radical	[形] ①根本的な，抜本的な ②過激な"},
-    {"text": "1990 The mistake was so ___\\.\\nその間違いはとても些細なものだ",
-     "answer": "trivial",
-     "meaning": "trivial	[形] ささいな"},
-    {"text": "1991 This drug is very ___\\.\\nこのクスリはとても強力だ🌿",
-     "answer": "potent",
-     "meaning": "potent	[形] 強力な"},
-    {"text": "1992 She plays tennis, and he ___ enjoys it\\.\\n彼女はテニスをし、彼も同様にテニスを楽しむ🎾",
-     "answer": "likewise",
-     "meaning": "likewise	[副] 同様に，同じように"},
-    {"text": "1993 This project is ___ impossible\\.\\nこのプロジェクトは事実上不可能だ",
-     "answer": "virtually",
-     "meaning": "virtually	[副] 事実上，ほとんど"},
-    {"text": "1994 He ___ screamed in the classroom\\.\\n彼は突然教室で叫んだ🤪",
-     "answer": "abruptly",
-     "meaning": "abruptly	[副] 不意に，突然"},
-    {"text": "1995 The door was ___ left open \\n扉は故意的に開けられたままだった",
-     "answer": "deliberately",
-     "meaning": "deliberately	[副] ①故意に ②慎重に"},
-    {"text": "1996 This toilet is reserved ___ for teachers\\.\\nこのトイレは教員専用です.",
-     "answer": "exclusively",
-     "meaning": "exclusively	[副] もっぱら，～専用で"},
-    {"text": "1997 He was sleepy, ___ his poor performance\\.\\n彼は眠かった。それゆえに成績が悪かった",
-     "answer": "hence",
-     "meaning": "hence	[副] だから，それゆえに"},
-    {"text": "1998 Two students were late, ___ Bob and Mike\\.\\n2人の生徒が遅刻した。すなわちボブとマイクだ",
-     "answer": "namely",
-     "meaning": "namely	[副] すなわち"},
-    {"text": "1999 He was ___ scolded by the teacher\\.\\n彼は先生に怒られたらしい😢",
-     "answer": "allegedly ",
-     "meaning": "allegedly	[副] (本当かどうかはわからないが)伝えられるところによると"},
-    {"text": "2000 Some students study hard, ___ others do the bare minimum\\.\\n熱心に勉強する生徒もいれば、最低限しかしない生徒もいる🤓🤪",
-     "answer": "whereas",
-     "meaning": "whereas	[接] ～だが一方"}
+    {
+        "text": "1001 ___ travel plan\\n旅行の計画を提案する",
+        "answer": "propose",
+        "meaning": "propose　[他] ①～を提案する [自] ②（to ～）（～に）結婚を申し込む"
+    },
+    {
+        "text": "1002 ___ Takeshi's idea as impossible\\n不可能だとしてタケシの考えを退ける",
+        "answer": "dismiss",
+        "meaning": "dismiss　[他] ①（意見や考えなど）を退ける ②～を解雇する"
+    },
+    {
+        "text": "1003 I ___ you.\\n私はあなたを祝福する.",
+        "answer": "bless",
+        "meaning": "bless　[他] ～を祝福する"
+    },
+    {
+        "text": "1004 remember the past ___\\n過去の栄光を思い出す",
+        "answer": "glory",
+        "meaning": "glory　[名] 栄光"
+    },
+    {
+        "text": "1005 I feel embarrassed when I hear ___.\\n褒め言葉を聞いて照れる.",
+        "answer": "compliments",
+        "meaning": "compliment　[名] ①褒め言葉，賛辞 [他] ②～を褒める"
+    },
+    {
+        "text": "1006 bored ___\\nつまらない宴会",
+        "answer": "feast",
+        "meaning": "feast　[名] ①宴会，祝宴 ②とても楽しいこと，喜ばせるもの"
+    },
+    {
+        "text": "1007 Takeshi ___ that he has never lied.\\nタケシは嘘をついたことがないとはっきりと述べた.",
+        "answer": "declared",
+        "meaning": "declare　[他] ①～を宣言する ②（税関や税務署で）～を申告する"
+    },
+    {
+        "text": "1008 ___ an important part\\n重要な部分を強調する",
+        "answer": "highlight",
+        "meaning": "highlight　[他] ①～を強調する [名] ②呼び物，目玉商品，ハイライト"
+    },
+    {
+        "text": "1009 Takeshi's attitude ___ betrayal.\\nタケシは裏切りをほのめかす態度だ.",
+        "answer": "implies",
+        "meaning": "imply　[他] ～をほのめかす，（暗に）～を意味する"
+    },
+    {
+        "text": "1010 ___ the school song\\n校歌を暗唱する",
+        "answer": "recite",
+        "meaning": "recite　[他] ～を暗唱する"
+    },
+    {
+        "text": "1011 research the sun's ___\\n太陽光線を研究する🌞",
+        "answer": "rays",
+        "meaning": "ray　[名] ①光線 ②放射線 ③（a ― of）一縷の，わずかな"
+    },
+    {
+        "text": "1012 ___ is not necessarily dangerous.\\n放射線は必ずしも危険なものではない.",
+        "answer": "radiation",
+        "meaning": "radiation　[名] 放射線"
+    },
+    {
+        "text": "1013 The scientist made a critical discovery in the ___.\\nその科学者は研究室で重大な発見をした.",
+        "answer": "laboratory",
+        "meaning": "laboratory　[名] 研究室，研究所"
+    },
+    {
+        "text": "1014 Plants produce ___.\\n植物は酸素を作り出す.🌳",
+        "answer": "oxygen",
+        "meaning": "oxygen　[名] 酸素"
+    },
+    {
+        "text": "1015 You can’t see ___ with the naked eye.\\n分子は肉眼で見ることができない.",
+        "answer": "molecules",
+        "meaning": "molecule　[名] 分子"
+    },
+    {
+        "text": "1016 A lot of substances are ___.\\n多くの物質は化合物である.",
+        "answer": "compounds",
+        "meaning": "compound　[名] ①化合物 [形] ②複合的な"
+    },
+    {
+        "text": "1017 Attempt to regenerate muscle ___.\\n筋組織の再生を試みる.",
+        "answer": "tissue",
+        "meaning": "tissue　[名] ①組織 ②ティッシュペーパー"
+    },
+    {
+        "text": "1018 There are several types of ___.\\n細胞にはいくつか種類がある.",
+        "answer": "cells",
+        "meaning": "cell　[名] ①細胞 ②電池 ③独房 （①②③いずれも〈可算〉)"
+    },
+    {
+        "text": "1019 No ___ is better or worse than another.\\n遺伝子に優劣はない.",
+        "answer": "gene",
+        "meaning": "gene　[名] 遺伝子〈可算〉"
+    },
+    {
+        "text": "1020 A lot of ___ are compounds.\\n多くの物質は化合物である.",
+        "answer": "substances",
+        "meaning": "substance　[名] ①物質 ②本質，根拠 <不可算>"
+    },
+    {
+        "text": "1021 A ___ becomes a liquid when heated.\\n固体は加熱すると液体になる.💧",
+        "answer": "solid",
+        "meaning": "solid　[形] ①固体の ②ぎっしり詰まった [名] ③固体"
+    },
+    {
+        "text": "1022 A ___ falls to Earth.\\n人工衛星が墜落する.🛰️",
+        "answer": "satellite",
+        "meaning": "satellite　[名] ①（月などの）衛星 ②人工衛星"
+    },
+    {
+        "text": "1023 The Earth’s ___ changes.\\n地球の軌道が変わる.🌍",
+        "answer": "orbit",
+        "meaning": "orbit　[名] ①軌道 [他] ②（惑星などが）～を周回する"
+    },
+    {
+        "text": "1024 ___ a plastic bottle rocket\\nペットボトルロケットを打ち上げる",
+        "answer": "launch",
+        "meaning": "launch　[他] ①（ロケットなど）を打ち上げる ②（運動，事業など）を始める [名] ③打ち上げ，開始，発売"
+    },
+    {
+        "text": "1025 ___ to regenerate muscle tissue.\\n筋組織の再生を試みる.",
+        "answer": "attempt",
+        "meaning": "attempt　[名] ①試み [他] ②（to do）（～しようと）試みる"
+    },
+    {
+        "text": "1026 Takeshi has a hidden ___.\\nタケシには隠された能力がある.",
+        "answer": "capacity",
+        "meaning": "capacity　[名] ①能力 ②容量，収容力"
+    },
+    {
+        "text": "1027 It seems that all Kitano students are ___ of studying well.\\n北野生は全員勉強がよくできるらしい.",
+        "answer": "capable",
+        "meaning": "capable　[形] ①（of ～）（～する）力がある ②有能な"
+    },
+    {
+        "text": "1028 ___ a short-term goal\\n目先の目標を達成する",
+        "answer": "attain",
+        "meaning": "attain　[他] ①（人が主語）～を達成する ②（物，人が主語）～に到達"
+    },
+    {
+        "text": "1029 be ___ to finish my homework\\n宿題を終わらせるのに必死になる",
+        "answer": "desperate",
+        "meaning": "desperate　[形] ①必死の ②（状況が）絶望的な"
+    },
+    {
+        "text": "1030 I ___ my youth to studying.\\n私は青春を勉強に捧げた.🤓",
+        "answer": "dedicated",
+        "meaning": "dedicate　[他] （A to B）（A）を（B に）捧げる"
+    },
+    {
+        "text": "1031 There is no success without __\\.\\n苦しみなくして成功なし.",
+        "answer": "pain",
+        "meaning": "pain\t[名] ①苦痛 ②（―s）苦労"
+    },
+    {
+        "text": "1032 It puts a ___ on the body.\\nそれは身体に負担がかかる.",
+        "answer": "strain",
+        "meaning": "strain\t[名] ①（心身の）負担，無理 [他] ②（目や筋肉など）を痛める"
+    },
+    {
+        "text": "1033 find a ___ for a serious illness\\n深刻な病気の治療法を見つける",
+        "answer": "remedy",
+        "meaning": "remedy\t[名] ①治療法，治療薬 ②改善策，対策（①②いずれも〈可算〉）"
+    },
+    {
+        "text": "1034 I will go to the nearby __\\.\\n私は近くの薬局に行くつもりだ.",
+        "answer": "pharmacy",
+        "meaning": "pharmacy\t[名] （調剤）薬局"
+    },
+    {
+        "text": "1035 I aspire to become a __\\.\\n 医師になることを目指す.🧑‍⚕️",
+        "answer": "physician",
+        "meaning": "physician\t[名] ①〈米〉医師 ②〈英〉内科医"
+    },
+    {
+        "text": "1037 give up my seat for a ___ woman\\n妊婦さんに席を譲る🤰",
+        "answer": "pregnant",
+        "meaning": "pregnant\t[形] 妊娠した"
+    },
+    {
+        "text": "1038 ___ research has shown that stress is harmful.\\n臨床研究では、ストレスは有害であることが示されている.",
+        "answer": "clinical",
+        "meaning": ""
+    },
+    {
+        "text": "1039 ___ emotional wounds\\n心の傷を回復する💗",
+        "answer": "heal",
+        "meaning": "heal\t[他] ①～を治す [自] ②治る"
+    },
+    {
+        "text": "1040 Takeshi was ___ with COVID-19.\\nタケシはコロナに感染した.🦠",
+        "answer": "infected",
+        "meaning": "infect\t[他] （人，動物，地域）に感染させる，伝染する"
+    },
+    {
+        "text": "1041 I twisted my ___ in P.E.\\n私は体育の授業で足首をひねった。",
+        "answer": "ankle",
+        "meaning": "ankle\t[名] 足首"
+    },
+    {
+        "text": "1042 support the body with the ___\\n親指で身体を支える",
+        "answer": "thumb",
+        "meaning": "thumb\t[名] 親指"
+    },
+    {
+        "text": "1043 Takeshi often bumps his ___ into utility poles.\\n タケシはよく電柱に額をぶつける",
+        "answer": "forehead",
+        "meaning": "forehead\t[名] 額，おでこ"
+    },
+    {
+        "text": "1044 Keep your ___ up！\\n 元気を出して！(あごをあげて！)",
+        "answer": "chin",
+        "meaning": "chin\t[名] 下あご，あごの先端"
+    },
+    {
+        "text": "1045 train the ___ muscles\\n 胸筋を鍛える",
+        "answer": "chest",
+        "meaning": "chest\t[名] ①胸（部)②（大きな木の）箱，密閉容器"
+    },
+    {
+        "text": "1046 ___ cancer screening will be offered for free.\\n 乳がんの検査が無料で提供される。",
+        "answer": "breast",
+        "meaning": "breast\t[名] （主に女性の）胸，乳房"
+    },
+    {
+        "text": "1047 I’m confident in my ___ capacity.\\n 私は肺活量に自信がある.🫁",
+        "answer": "lung",
+        "meaning": "lung\t[名] 肺〈可算〉"
+    },
+    {
+        "text": "1048 Squids have a membrane that protects their internal ___.\\n イカは内臓を守る膜を持つ.🦑",
+        "answer": "organs",
+        "meaning": "organ\t[名] ①臓器，(動植物の)器官 ②(楽器)オルガン（①②ともに<可算>）"
+    },
+    {
+        "text": "1050 draw the human ___.\\n 人の骨格を描く🦴",
+        "answer": "skeleton",
+        "meaning": "skeleton\t[名] 骸骨，骨格"
+    },
+    {
+        "text": "1051 Takeshi’s ___ is beyond the understanding of others.\\n タケシの感覚は他の人には理解できない。",
+        "answer": "sensation",
+        "meaning": "sensation\t[名] ①感覚 ②（説明し難い）感情"
+    },
+    {
+        "text": "1052 pay attention to the dress ___\\n 服装の規定に注意を払う",
+        "answer": "code",
+        "meaning": "code\t[名] ①（服装などの）規定 ②暗号"
+    },
+    {
+        "text": "1053 Environmental issues are on the ___ at the United Nations.\\n 環境問題が国連の議題に上がる。",
+        "answer": "agenda",
+        "meaning": "agenda\t[名] 議題，協議事項"
+    },
+    {
+        "text": "1054 ___ is guaranteed.\\n 自由が保障される.",
+        "answer": "liberty",
+        "meaning": "liberty\t[名] 自由"
+    },
+    {
+        "text": "1055 No one is running for the ___.\\n 誰も委員会に立候補しない.😶‍🌫️",
+        "answer": "committee",
+        "meaning": "committee\t[名] 委員会"
+    },
+    {
+        "text": "1056 Do you think Takeshi is included in ___?\\n タケシは人類に含まれると思いますか？🤔",
+        "answer": "humanity",
+        "meaning": "humanity\t[名] ①（集合的に）人類 ②（the ―ies）人文科学 ③人間性"
+    },
+    {
+        "text": "1057 ___ has achieved great prosperity over the past few centuries.\\n 人類はここ数百年で大きな繁栄を遂げた。",
+        "answer": "mankind",
+        "meaning": "mankind\t[名] （集合的に）人類"
+    },
+    {
+        "text": "1059 ___ is blind, but apparently not deaf to bribes.\\n正義は目が見えないが、賄賂にはどうやら耳が聞こえるらしい。",
+        "answer": "justice",
+        "meaning": ""
+    },
+    {
+        "text": "1072 abandon a ___ likely to fail\\n失敗するであろう企画を放棄する🚯",
+        "answer": "project",
+        "meaning": ""
+    },
+    {
+        "text": "1110 Logic is the ___ of clear thinking and good arguments.\\n論理は明晰な思考と良い議論の基礎である。",
+        "answer": "basis",
+        "meaning": "basis\t[名] ①基礎，根拠 ②（on a ～ basis）（～を）基準（として）"
+    },
+    {
+        "text": "1117 succeed in escaping from ___\\n脱獄に成功する",
+        "answer": "prison",
+        "meaning": "prison\t[名] 刑務所"
+    },
+    {
+        "text": "1122 heal emotional ___\\n 心の傷を回復する💗",
+        "answer": "wounds",
+        "meaning": "wound\t[名] ①傷 [他] ②～を傷つける"
+    },
+    {
+        "text": "1221 a pleasant ___\\n心地よいそよかぜ🍃",
+        "answer": "breeze",
+        "meaning": "breeze\t[名] そよ風"
+    },
+    {
+        "text": "1228 The cherry blossoms are reflected in the ___.\\n桜が小川に反射する🌸",
+        "answer": "stream",
+        "meaning": ""
+    },
+    {
+        "text": "1236 I was bitten by ___ in 13 places\\.\\n蚊に13か所刺された.😱",
+        "answer": "mosquitoes",
+        "meaning": "mosquito\t[名] 蚊"
+    },
+    {
+        "text": "1238 I got scratched on the arm by a ___\\.\\n子猫に腕をひっかかれた.😼",
+        "answer": "kitten",
+        "meaning": "kitten\t[名] 子ネコ"
+    },
+    {
+        "text": "1265 a ___ story by a ___ person\\nつまらない人が語る、つまらない話🤓",
+        "answer": "dull",
+        "meaning": ""
+    },
+    {
+        "text": "1269 She’s a ___ apple\\.\\n彼女は性格が悪いよ(腐ったリンゴだ).🍏",
+        "answer": "rotten",
+        "meaning": ""
+    },
+    {
+        "text": "1274 His wealth was ___, but his jokes were bankrupt\\.\\n彼の富は莫大だったが,ジョークは破産状態だった.💰",
+        "answer": "huge",
+        "meaning": ""
+    },
+    {
+        "text": "1279 Squids have a membrane that protects their ___ organs\\.\\n イカは内臓を守る膜を持つ.🦑",
+        "answer": "internal",
+        "meaning": "internal\t[形] ①内部の，体内の ②国内の"
+    },
+    {
+        "text": "1305 calcium ___\\nカルシウム不足",
+        "answer": "deficiency",
+        "meaning": ""
+    },
+    {
+        "text": "1321 Takeshi often bumps his forehead into utility ___\\.\\n タケシはよく電(柱)に額をぶつける.",
+        "answer": "poles",
+        "meaning": "pole\t[名] ①棒，さお，柱 ②（天体，地球の）極"
+    },
+    {
+        "text": "1342 the ___ of Japan\\n日本の魂",
+        "answer": "soul",
+        "meaning": ""
+    },
+    {
+        "text": "1359 achieve my ___ to be a pilot\\.\\nパイロットになるという望みを叶える🧑‍✈️",
+        "answer": "ambition",
+        "meaning": "ambition\t[名] （強い）願望，野望"
+    },
+    {
+        "text": "1370 He was allegedly ___ by the teacher\\.\\n彼は先生に怒られたらしい",
+        "answer": "scolded",
+        "meaning": "scold\t[他] ～を叱る"
+    },
+    {
+        "text": "1385 ___ talent\\n圧倒的な才能🧬",
+        "answer": "overwhelming",
+        "meaning": "talent\t[名] 才能"
+    },
+    {
+        "text": "1386 He was conscious during the ___ surgery\\.\\n彼は手術中ずっと意識があった.😱",
+        "answer": "entire",
+        "meaning": "entire\t[形] すべての"
+    },
+    {
+        "text": "1394 Justice is blind, but ___ not deaf to bribes\\.\\n正義は目が見えないが、賄賂にはどうやら耳が聞こえるらしい。",
+        "answer": "apparently",
+        "meaning": ""
+    },
+    {
+        "text": "1395 Mary is ___ a teather\\.\\nメアリーは1人の教師に過ぎない.(提供)",
+        "answer": "merely",
+        "meaning": "entire\t[形] すべての"
+    },
+    {
+        "text": "1397 Looks like spring has ___ arrived outdoors\\.\\n外では春が来たようだ.",
+        "answer": "somehow",
+        "meaning": ""
+    },
+    {
+        "text": "1475 appropriate clothes for an apology press ___\\n謝罪会見にふさわしい服装🦹",
+        "answer": "conference",
+        "meaning": "conference\t[名] (on ～)(～に関する)会議"
+    },
+    {
+        "text": "1529 His wealth was huge, but his jokes were ___\\.\\n彼の富は莫大だったが,ジョークは破産状態だった.💰",
+        "answer": "bankrupt",
+        "meaning": ""
+    },
+    {
+        "text": "1551 Consumption tax increases economic ___\\.\\n消費税は経済格差を拡大させる.",
+        "answer": "inequality",
+        "meaning": ""
+    },
+    {
+        "text": "1668 The only good thing about this facility is that the chair ___\\.\\nこの施設の唯一良い所は,椅子が回ることだ.",
+        "answer": "spins",
+        "meaning": ""
+    },
+    {
+        "text": "1669 a non-___ globe\\n回らない地球儀",
+        "answer": "rotating",
+        "meaning": ""
+    },
+    {
+        "text": "1692 Scholarships help students pay for college ___ and expenses\\.\\n奨学金は学生が大学の授業料や費用を支払うのを助ける.",
+        "answer": "tuition",
+        "meaning": "tuition\t[名] ①〈米〉授業料 ②(少人数での)授業"
+    },
+    {
+        "text": "1728 ___ education\\n義務教育",
+        "answer": "compulsory",
+        "meaning": "compulsory\t[形] ①義務的な ②規定の"
+    },
+    {
+        "text": "1749 The world is trying to reduce dependence on ___ fuels\\.\\n世界は化石燃料への依存を減らそうとしている.",
+        "answer": "fossil",
+        "meaning": ""
+    },
+    {
+        "text": "1795 He said something shallow, pretending to be ___\\.\\n彼は深そうに見せかけて浅いことを言った",
+        "answer": "profound",
+        "meaning": ""
+    },
+    {
+        "text": "1803 ___ woman\\n熟女👵",
+        "answer": "mature",
+        "meaning": "mature\t[形] ①成熟した，熟成した [自] ②成熟する，熟成する"
+    },
+    {
+        "text": "1870 At ___, the LGBTQ flag was raised from his house\\.\\n夜が明けると,彼の家からLGBTQフラッグが上がった.🏳️‍🌈",
+        "answer": "dawn",
+        "meaning": "dawn\t[名] ①夜明け [自] ②夜が明ける ③(on ～)(～に)わかり始める"
+    },
+    {
+        "text": "1892 wet ___\\n濡れたコンセント😱",
+        "answer": "outlet",
+        "meaning": "outlet\t[名] ①(電気の)コンセント ②(販売)店 ③(感情などの)はけ口"
+    },
+    {
+        "text": "1943 Don't ___ me!\\n私をからかうな!",
+        "answer": "tease",
+        "meaning": ""
+    },
+    {
+        "text": "1950 Everyone was ___ by his noisy electric eraser\\.\\n彼のうるさい電動消しゴムにみんな気を散らされた.",
+        "answer": "distracted",
+        "meaning": "electric\t[形] 電気の，電動の"
+    },
+    {
+        "text": "1961 I tremble with ___ to see you\\.\\n会いたくて震える.🎵",
+        "answer": "longing",
+        "meaning": ""
+    },
+    {
+        "text": "1980 Hard work usually leads to a positive ___\\.\\n努力はたいてい良い結果につながる",
+        "answer": "outcome",
+        "meaning": "outcome\t[名] 結果"
+    },
+    {
+        "text": "1981 Hard work was a major ___ in the success\\.\\n彼の成功における大きな要因は彼の努力だ",
+        "answer": "factor",
+        "meaning": "factor\t[名] 要因"
+    },
+    {
+        "text": "1982 He is ___ to make mistakes when he is sleepy\\.\\n彼は眠いとき、間違いをしがちだ",
+        "answer": "liable",
+        "meaning": "liable\t[形] ①（to do）～しがちだ ②（to ～）（病気などに）かかりやすい ③（for ～）（～に対して）（法的に）責任がある"
+    },
+    {
+        "text": "1983 She did a ___ job cleaning the house\\.\\n彼女は家の掃除を徹底的にした",
+        "answer": "thorough",
+        "meaning": "thorough\t[形] 完全な，徹底的な"
+    },
+    {
+        "text": "1984 I don’t have ___ time to finish my homework\\.\\n私には宿題を終わらせる十分な時間がない",
+        "answer": "adequate",
+        "meaning": "adequate\t[形] 十分な，適切な"
+    },
+    {
+        "text": "1985 ___, I’m happy the result of the exam\\.\\n全体的に見て,私は試験の結果に満足だ",
+        "answer": "overall",
+        "meaning": "overall\t[形] ①全体的な，全面的な [副] ②全体的に，全面的に"
+    },
+    {
+        "text": "1986 We decided the ___ goal\\.\\n私たちは最終的な目標を決めた",
+        "answer": "ultimate",
+        "meaning": "ultimate\t[形] 究極の，最終の"
+    },
+    {
+        "text": "1987 She gave me a ___ smile \\n彼女は私に心からの笑顔を見せた",
+        "answer": "genuine",
+        "meaning": "genuine\t[形] ①（感情が）心からの ②（絵画などが）本物の"
+    },
+    {
+        "text": "1988 There is a only ___ chance that he will get a girlfriend\\.\\n彼に彼女ができる可能性はわずかしかない",
+        "answer": "slight",
+        "meaning": "slight\t[形] わずかな"
+    },
+    {
+        "text": "1989 We decided to make a ___ change to make the school better\\.\\n私たちは学校をよりよくするために抜本的な変更をすることに決めた",
+        "answer": "radical",
+        "meaning": "radical\t[形] ①根本的な，抜本的な ②過激な"
+    },
+    {
+        "text": "1990 The mistake was so ___\\.\\nその間違いはとても些細なものだ",
+        "answer": "trivial",
+        "meaning": "trivial\t[形] ささいな"
+    },
+    {
+        "text": "1991 This drug is very ___\\.\\nこのクスリはとても強力だ🌿",
+        "answer": "potent",
+        "meaning": "potent\t[形] 強力な"
+    },
+    {
+        "text": "1992 She plays tennis, and he ___ enjoys it\\.\\n彼女はテニスをし、彼も同様にテニスを楽しむ🎾",
+        "answer": "likewise",
+        "meaning": "likewise\t[副] 同様に，同じように"
+    },
+    {
+        "text": "1993 This project is ___ impossible\\.\\nこのプロジェクトは事実上不可能だ",
+        "answer": "virtually",
+        "meaning": "virtually\t[副] 事実上，ほとんど"
+    },
+    {
+        "text": "1994 He ___ screamed in the classroom\\.\\n彼は突然教室で叫んだ🤪",
+        "answer": "abruptly",
+        "meaning": "abruptly\t[副] 不意に，突然"
+    },
+    {
+        "text": "1995 The door was ___ left open \\n扉は故意的に開けられたままだった",
+        "answer": "deliberately",
+        "meaning": "deliberately\t[副] ①故意に ②慎重に"
+    },
+    {
+        "text": "1996 This toilet is reserved ___ for teachers\\.\\nこのトイレは教員専用です.",
+        "answer": "exclusively",
+        "meaning": "exclusively\t[副] もっぱら，～専用で"
+    },
+    {
+        "text": "1997 He was sleepy, ___ his poor performance\\.\\n彼は眠かった。それゆえに成績が悪かった",
+        "answer": "hence",
+        "meaning": "hence\t[副] だから，それゆえに"
+    },
+    {
+        "text": "1998 Two students were late, ___ Bob and Mike\\.\\n2人の生徒が遅刻した。すなわちボブとマイクだ",
+        "answer": "namely",
+        "meaning": "namely\t[副] すなわち"
+    },
+    {
+        "text": "1999 He was ___ scolded by the teacher\\.\\n彼は先生に怒られたらしい😢",
+        "answer": "allegedly ",
+        "meaning": "allegedly\t[副] (本当かどうかはわからないが)伝えられるところによると"
+    },
+    {
+        "text": "2000 Some students study hard, ___ others do the bare minimum\\.\\n熱心に勉強する生徒もいれば、最低限しかしない生徒もいる🤓🤪",
+        "answer": "whereas",
+        "meaning": "whereas\t[接] ～だが一方"
+    }
 ]
