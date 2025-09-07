@@ -310,12 +310,12 @@
         "meaning": ""
     },
     {
-        "text": "1236 I was bitten by ___ in 13 places\\.\\n蚊に13か所刺された.😱",
+        "text": "1236 I was bitten by ___ in 13 places.\\n蚊に13か所刺された.😱",
         "answer": "mosquitoes",
         "meaning": "mosquito\t[名] 蚊"
     },
     {
-        "text": "1238 I got scratched on the arm by a ___\\.\\n子猫に腕をひっかかれた.😼",
+        "text": "1238 I got scratched on the arm by a ___.\\n子猫に腕をひっかかれた.😼",
         "answer": "kitten",
         "meaning": "kitten\t[名] 子ネコ"
     },
@@ -325,17 +325,17 @@
         "meaning": ""
     },
     {
-        "text": "1269 She’s a ___ apple\\.\\n彼女は性格が悪いよ(腐ったリンゴだ).🍏",
+        "text": "1269 She’s a ___ apple.\\n彼女は性格が悪いよ(腐ったリンゴだ).🍏",
         "answer": "rotten",
         "meaning": ""
     },
     {
-        "text": "1274 His wealth was ___, but his jokes were bankrupt\\.\\n彼の富は莫大だったが,ジョークは破産状態だった.💰",
+        "text": "1274 His wealth was ___, but his jokes were bankrupt.\\n彼の富は莫大だったが,ジョークは破産状態だった.💰",
         "answer": "huge",
         "meaning": ""
     },
     {
-        "text": "1279 Squids have a membrane that protects their ___ organs\\.\\n イカは内臓を守る膜を持つ.🦑",
+        "text": "1279 Squids have a membrane that protects their ___ organs.\\n イカは内臓を守る膜を持つ.🦑",
         "answer": "internal",
         "meaning": "internal\t[形] ①内部の，体内の ②国内の"
     },
@@ -345,7 +345,7 @@
         "meaning": ""
     },
     {
-        "text": "1321 Takeshi often bumps his forehead into utility ___\\.\\n タケシはよく電(柱)に額をぶつける.",
+        "text": "1321 Takeshi often bumps his forehead into utility ___.\\n タケシはよく電(柱)に額をぶつける.",
         "answer": "poles",
         "meaning": "pole\t[名] ①棒，さお，柱 ②（天体，地球の）極"
     },
@@ -355,12 +355,12 @@
         "meaning": ""
     },
     {
-        "text": "1359 achieve my ___ to be a pilot\\.\\nパイロットになるという望みを叶える🧑‍✈️",
+        "text": "1359 achieve my ___ to be a pilot.\\nパイロットになるという望みを叶える🧑‍✈️",
         "answer": "ambition",
         "meaning": "ambition\t[名] （強い）願望，野望"
     },
     {
-        "text": "1370 He was allegedly ___ by the teacher\\.\\n彼は先生に怒られたらしい",
+        "text": "1370 He was allegedly ___ by the teacher.\\n彼は先生に怒られたらしい",
         "answer": "scolded",
         "meaning": "scold\t[他] ～を叱る"
     },
@@ -370,22 +370,22 @@
         "meaning": "talent\t[名] 才能"
     },
     {
-        "text": "1386 He was conscious during the ___ surgery\\.\\n彼は手術中ずっと意識があった.😱",
+        "text": "1386 He was conscious during the ___ surgery.\\n彼は手術中ずっと意識があった.😱",
         "answer": "entire",
         "meaning": "entire\t[形] すべての"
     },
     {
-        "text": "1394 Justice is blind, but ___ not deaf to bribes\\.\\n正義は目が見えないが、賄賂にはどうやら耳が聞こえるらしい。",
+        "text": "1394 Justice is blind, but ___ not deaf to bribes.\\n正義は目が見えないが、賄賂にはどうやら耳が聞こえるらしい。",
         "answer": "apparently",
         "meaning": ""
     },
     {
-        "text": "1395 Mary is ___ a teather\\.\\nメアリーは1人の教師に過ぎない.(提供)",
+        "text": "1395 Mary is ___ a teather.\\nメアリーは1人の教師に過ぎない.(提供)",
         "answer": "merely",
         "meaning": "entire\t[形] すべての"
     },
     {
-        "text": "1397 Looks like spring has ___ arrived outdoors\\.\\n外では春が来たようだ.",
+        "text": "1397 Looks like spring has ___ arrived outdoors.\\n外では春が来たようだ.",
         "answer": "somehow",
         "meaning": ""
     },
@@ -395,17 +395,17 @@
         "meaning": "conference\t[名] (on ～)(～に関する)会議"
     },
     {
-        "text": "1529 His wealth was huge, but his jokes were ___\\.\\n彼の富は莫大だったが,ジョークは破産状態だった.💰",
+        "text": "1529 His wealth was huge, but his jokes were ___.\\n彼の富は莫大だったが,ジョークは破産状態だった.💰",
         "answer": "bankrupt",
         "meaning": ""
     },
     {
-        "text": "1551 Consumption tax increases economic ___\\.\\n消費税は経済格差を拡大させる.",
+        "text": "1551 Consumption tax increases economic ___.\\n消費税は経済格差を拡大させる.",
         "answer": "inequality",
         "meaning": ""
     },
     {
-        "text": "1668 The only good thing about this facility is that the chair ___\\.\\nこの施設の唯一良い所は,椅子が回ることだ.",
+        "text": "1668 The only good thing about this facility is that the chair ___.\\nこの施設の唯一良い所は,椅子が回ることだ.",
         "answer": "spins",
         "meaning": ""
     },
@@ -415,7 +415,7 @@
         "meaning": ""
     },
     {
-        "text": "1692 Scholarships help students pay for college ___ and expenses\\.\\n奨学金は学生が大学の授業料や費用を支払うのを助ける.",
+        "text": "1692 Scholarships help students pay for college ___ and expenses.\\n奨学金は学生が大学の授業料や費用を支払うのを助ける.",
         "answer": "tuition",
         "meaning": "tuition\t[名] ①〈米〉授業料 ②(少人数での)授業"
     },
@@ -425,12 +425,12 @@
         "meaning": "compulsory\t[形] ①義務的な ②規定の"
     },
     {
-        "text": "1749 The world is trying to reduce dependence on ___ fuels\\.\\n世界は化石燃料への依存を減らそうとしている.",
+        "text": "1749 The world is trying to reduce dependence on ___ fuels.\\n世界は化石燃料への依存を減らそうとしている.",
         "answer": "fossil",
         "meaning": ""
     },
     {
-        "text": "1795 He said something shallow, pretending to be ___\\.\\n彼は深そうに見せかけて浅いことを言った",
+        "text": "1795 He said something shallow, pretending to be ___.\\n彼は深そうに見せかけて浅いことを言った",
         "answer": "profound",
         "meaning": ""
     },
@@ -455,117 +455,117 @@
         "meaning": ""
     },
     {
-        "text": "1950 Everyone was ___ by his noisy electric eraser\\.\\n彼のうるさい電動消しゴムにみんな気を散らされた.",
+        "text": "1950 Everyone was ___ by his noisy electric eraser.\\n彼のうるさい電動消しゴムにみんな気を散らされた.",
         "answer": "distracted",
         "meaning": "electric\t[形] 電気の，電動の"
     },
     {
-        "text": "1961 I tremble with ___ to see you\\.\\n会いたくて震える.🎵",
+        "text": "1961 I tremble with ___ to see you.\\n会いたくて震える.🎵",
         "answer": "longing",
         "meaning": ""
     },
     {
-        "text": "1980 Hard work usually leads to a positive ___\\.\\n努力はたいてい良い結果につながる",
+        "text": "1980 Hard work usually leads to a positive ___.\\n努力はたいてい良い結果につながる",
         "answer": "outcome",
         "meaning": "outcome\t[名] 結果"
     },
     {
-        "text": "1981 Hard work was a major ___ in the success\\.\\n彼の成功における大きな要因は彼の努力だ",
+        "text": "1981 Hard work was a major ___ in the success.\\n彼の成功における大きな要因は彼の努力だ",
         "answer": "factor",
         "meaning": "factor\t[名] 要因"
     },
     {
-        "text": "1982 He is ___ to make mistakes when he is sleepy\\.\\n彼は眠いとき、間違いをしがちだ",
+        "text": "1982 He is ___ to make mistakes when he is sleepy.\\n彼は眠いとき、間違いをしがちだ",
         "answer": "liable",
         "meaning": "liable\t[形] ①（to do）～しがちだ ②（to ～）（病気などに）かかりやすい ③（for ～）（～に対して）（法的に）責任がある"
     },
     {
-        "text": "1983 She did a ___ job cleaning the house\\.\\n彼女は家の掃除を徹底的にした",
+        "text": "1983 She did a ___ job cleaning the house.\\n彼女は家の掃除を徹底的にした",
         "answer": "thorough",
         "meaning": "thorough\t[形] 完全な，徹底的な"
     },
     {
-        "text": "1984 I don’t have ___ time to finish my homework\\.\\n私には宿題を終わらせる十分な時間がない",
+        "text": "1984 I don’t have ___ time to finish my homework.\\n私には宿題を終わらせる十分な時間がない",
         "answer": "adequate",
         "meaning": "adequate\t[形] 十分な，適切な"
     },
     {
-        "text": "1985 ___, I’m happy the result of the exam\\.\\n全体的に見て,私は試験の結果に満足だ",
+        "text": "1985 ___, I’m happy the result of the exam.\\n全体的に見て,私は試験の結果に満足だ",
         "answer": "overall",
         "meaning": "overall\t[形] ①全体的な，全面的な [副] ②全体的に，全面的に"
     },
     {
-        "text": "1986 We decided the ___ goal\\.\\n私たちは最終的な目標を決めた",
+        "text": "1986 We decided the ___ goal.\\n私たちは最終的な目標を決めた",
         "answer": "ultimate",
         "meaning": "ultimate\t[形] 究極の，最終の"
     },
     {
-        "text": "1987 She gave me a ___ smile \\n彼女は私に心からの笑顔を見せた",
+        "text": "1987 She gave me a ___ smile.\\n彼女は私に心からの笑顔を見せた",
         "answer": "genuine",
         "meaning": "genuine\t[形] ①（感情が）心からの ②（絵画などが）本物の"
     },
     {
-        "text": "1988 There is a only ___ chance that he will get a girlfriend\\.\\n彼に彼女ができる可能性はわずかしかない",
+        "text": "1988 There is a only ___ chance that he will get a girlfriend.\\n彼に彼女ができる可能性はわずかしかない",
         "answer": "slight",
         "meaning": "slight\t[形] わずかな"
     },
     {
-        "text": "1989 We decided to make a ___ change to make the school better\\.\\n私たちは学校をよりよくするために抜本的な変更をすることに決めた",
+        "text": "1989 We decided to make a ___ change to make the school better.\\n私たちは学校をよりよくするために抜本的な変更をすることに決めた",
         "answer": "radical",
         "meaning": "radical\t[形] ①根本的な，抜本的な ②過激な"
     },
     {
-        "text": "1990 The mistake was so ___\\.\\nその間違いはとても些細なものだ",
+        "text": "1990 The mistake was so ___.\\nその間違いはとても些細なものだ",
         "answer": "trivial",
         "meaning": "trivial\t[形] ささいな"
     },
     {
-        "text": "1991 This drug is very ___\\.\\nこのクスリはとても強力だ🌿",
+        "text": "1991 This drug is very ___.\\nこのクスリはとても強力だ🌿",
         "answer": "potent",
         "meaning": "potent\t[形] 強力な"
     },
     {
-        "text": "1992 She plays tennis, and he ___ enjoys it\\.\\n彼女はテニスをし、彼も同様にテニスを楽しむ🎾",
+        "text": "1992 She plays tennis, and he ___ enjoys it.\\n彼女はテニスをし、彼も同様にテニスを楽しむ🎾",
         "answer": "likewise",
         "meaning": "likewise\t[副] 同様に，同じように"
     },
     {
-        "text": "1993 This project is ___ impossible\\.\\nこのプロジェクトは事実上不可能だ",
+        "text": "1993 This project is ___ impossible.\\nこのプロジェクトは事実上不可能だ",
         "answer": "virtually",
         "meaning": "virtually\t[副] 事実上，ほとんど"
     },
     {
-        "text": "1994 He ___ screamed in the classroom\\.\\n彼は突然教室で叫んだ🤪",
+        "text": "1994 He ___ screamed in the classroom.\\n彼は突然教室で叫んだ🤪",
         "answer": "abruptly",
         "meaning": "abruptly\t[副] 不意に，突然"
     },
     {
-        "text": "1995 The door was ___ left open \\n扉は故意的に開けられたままだった",
+        "text": "1995 The door was ___ left open.\\n扉は故意的に開けられたままだった",
         "answer": "deliberately",
         "meaning": "deliberately\t[副] ①故意に ②慎重に"
     },
     {
-        "text": "1996 This toilet is reserved ___ for teachers\\.\\nこのトイレは教員専用です.",
+        "text": "1996 This toilet is reserved ___ for teachers.\\nこのトイレは教員専用です.",
         "answer": "exclusively",
         "meaning": "exclusively\t[副] もっぱら，～専用で"
     },
     {
-        "text": "1997 He was sleepy, ___ his poor performance\\.\\n彼は眠かった。それゆえに成績が悪かった",
+        "text": "1997 He was sleepy, ___ his poor performance.\\n彼は眠かった。それゆえに成績が悪かった",
         "answer": "hence",
         "meaning": "hence\t[副] だから，それゆえに"
     },
     {
-        "text": "1998 Two students were late, ___ Bob and Mike\\.\\n2人の生徒が遅刻した。すなわちボブとマイクだ",
+        "text": "1998 Two students were late, ___ Bob and Mike.\\n2人の生徒が遅刻した。すなわちボブとマイクだ",
         "answer": "namely",
         "meaning": "namely\t[副] すなわち"
     },
     {
-        "text": "1999 He was ___ scolded by the teacher\\.\\n彼は先生に怒られたらしい😢",
+        "text": "1999 He was ___ scolded by the teacher.\\n彼は先生に怒られたらしい😢",
         "answer": "allegedly ",
         "meaning": "allegedly\t[副] (本当かどうかはわからないが)伝えられるところによると"
     },
     {
-        "text": "2000 Some students study hard, ___ others do the bare minimum\\.\\n熱心に勉強する生徒もいれば、最低限しかしない生徒もいる🤓🤪",
+        "text": "2000 Some students study hard, ___ others do the bare minimum.\\n熱心に勉強する生徒もいれば、最低限しかしない生徒もいる🤓🤪",
         "answer": "whereas",
         "meaning": "whereas\t[接] ～だが一方"
     }
