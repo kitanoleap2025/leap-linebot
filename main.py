@@ -56,6 +56,18 @@ leap_1001_2000 = load_words("data/leap1001-2000.json")
 target_1_1000 = load_words("data/target1-1000.json")
 
 
+#range_str と bot_type を使って関数化する
+def get_questions_by_range(range_str, bot_type):
+    if bot_type == "LEAP":
+        questions_1_1000 = leap_1_1000
+        questions_1001_2000 = leap_1001_2000
+    else:
+        questions_1_1000 = target_1_1000
+        questions_1001_2000 = target_1001_1900
+
+    return questions_1_1000 if range_str == "1-1000" else questions_1001_2000
+
+
 def load_user_data(user_id):
     try:
         doc = db.collection("users").document(user_id).get()
@@ -603,8 +615,9 @@ def handle_message_common(event, bot_type="LEAP"):
             user_scores[user_id][correct_answer] = max(user_scores[user_id].get(correct_answer, 1) - 1, 0)
 
         # q を取得して meaning を渡す
-        questions = questions_1_1000 if range_str == "1-1000" else questions_1001_2000
+        questions = get_questions_by_range(range_str, bot_type)
         q = next((x for x in questions if x["answer"] == correct_answer), None)
+
 
         flex_feedback = build_feedback_flex(
             user_id, is_correct, score, elapsed,
