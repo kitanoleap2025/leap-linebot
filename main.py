@@ -14,6 +14,14 @@ import time
 from linebot.models import QuickReply, QuickReplyButton, MessageAction
 
 
+# LEAP公式ライン
+line_bot_api_leap = LineBotApi(os.getenv("LINE_CHANNEL_ACCESS_TOKEN_LEAP"))
+handler_leap = WebhookHandler(os.getenv("LINE_CHANNEL_SECRET_LEAP"))
+
+# TARGET公式ライン
+line_bot_api_target = LineBotApi(os.getenv("LINE_CHANNEL_ACCESS_TOKEN_TARGET"))
+handler_target = WebhookHandler(os.getenv("LINE_CHANNEL_SECRET_TARGET"))
+
 load_dotenv()
 app = Flask(__name__)
 
@@ -23,9 +31,6 @@ cred_dict["private_key"] = cred_dict["private_key"].replace("\\n", "\n")
 cred = credentials.Certificate(cred_dict)
 firebase_admin.initialize_app(cred)
 db = firestore.client()
-
-line_bot_api = LineBotApi(os.getenv("LINE_CHANNEL_ACCESS_TOKEN"))
-handler = WebhookHandler(os.getenv("LINE_CHANNEL_SECRET"))
 
 user_states = {}  # user_id: (range_str, correct_answer)
 user_scores = defaultdict(dict)
@@ -501,17 +506,26 @@ def build_ranking_flex_fast(user_id):
 
 # —————— ここからLINEイベントハンドラ部分 ——————
 
-@app.route("/callback", methods=['POST'])
-def callback():
+@app.route("/callback/leap", methods=['POST'])
+def callback_leap():
     signature = request.headers.get("X-Line-Signature")
     body = request.get_data(as_text=True)
-
     try:
-        handler.handle(body, signature)
+        handler_leap.handle(body, signature)
     except InvalidSignatureError:
         abort(400)
-
     return "OK"
+
+@app.route("/callback/target", methods=['POST'])
+def callback_target():
+    signature = request.headers.get("X-Line-Signature")
+    body = request.get_data(as_text=True)
+    try:
+        handler_target.handle(body, signature)
+    except InvalidSignatureError:
+        abort(400)
+    return "OK"
+
 
 @handler.add(MessageEvent, message=TextMessage)
 def handle_message(event):
