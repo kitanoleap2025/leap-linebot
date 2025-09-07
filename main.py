@@ -1,17 +1,19 @@
 from flask import Flask, request, abort
-from linebot import LineBotApi, WebhookHandler
-from linebot.models import MessageEvent, TextMessage, TextSendMessage, FlexSendMessage,BoxComponent, TextComponent
-from linebot.exceptions import InvalidSignatureError
-import os
-import random
-import json
-import threading
-from dotenv import load_dotenv
+import os, json, random, threading, time
 from collections import defaultdict, deque
+from dotenv import load_dotenv
+
+# LINE Bot SDK
+from linebot import LineBotApi, WebhookHandler
+from linebot.models import (
+    MessageEvent, TextMessage, TextSendMessage, FlexSendMessage,
+    BoxComponent, TextComponent, QuickReply, QuickReplyButton, MessageAction
+)
+from linebot.exceptions import InvalidSignatureError
+
+# Firebase
 import firebase_admin
 from firebase_admin import credentials, firestore
-import time
-from linebot.models import QuickReply, QuickReplyButton, MessageAction
 
 def load_words(file_path):
     with open(file_path, encoding="utf-8") as f:
