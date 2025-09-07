@@ -1,13 +1,238 @@
 [
     {
-        "text": "001 ",
-        "answer": "agree",
-        "meaning": "agree　[自] ①賛成する ②（主語の中で 意見が一致する ③（with ～）（気候，食べ物が）（～に）合う"
+        "text": "001 c___ LINE stickers using the teather's face\n先生の顔でLINEスタンプを作る",
+        "answer": "create",
+        "meaning": "create　を創り出す；を引き起こす"
+    },
+    {
+        "text": "002 Consumption tax i___ economic inequality.\n消費税は経済格差を拡大させる.",
+        "answer": "increases",
+        "meaning": "increase　増加する（⇔ decrease ⇒ 223）；を増やす"
+    },
+    {
+        "text": "",
+        "answer": "",
+        "meaning": "improve　を向上させる；よくなる"
+    },
+    {
+        "text": "",
+        "answer": "",
+        "meaning": ""
+    },
+    {
+        "text": "",
+        "answer": "",
+        "meaning": ""
+    },
+    {
+        "text": "",
+        "answer": "",
+        "meaning": ""
+    },
+    {
+        "text": "",
+        "answer": "",
+        "meaning": ""
+    },
+    {
+        "text": "",
+        "answer": "",
+        "meaning": ""
+    },
+    {
+        "text": "",
+        "answer": "",
+        "meaning": ""
+    },
+    {
+        "text": "",
+        "answer": "",
+        "meaning": ""
+    },
+    {
+        "text": "",
+        "answer": "",
+        "meaning": ""
+    },
+    {
+        "text": "",
+        "answer": "",
+        "meaning": ""
+    },
+    {
+        "text": "",
+        "answer": "",
+        "meaning": ""
+    },
+    {
+        "text": "",
+        "answer": "",
+        "meaning": ""
+    },
+    {
+        "text": "",
+        "answer": "",
+        "meaning": ""
+    },
+    {
+        "text": "",
+        "answer": "",
+        "meaning": ""
+    },
+    {
+        "text": "",
+        "answer": "",
+        "meaning": ""
+    },
+    {
+        "text": "",
+        "answer": "",
+        "meaning": ""
+    },
+    {
+        "text": "",
+        "answer": "",
+        "meaning": ""
+    },
+    {
+        "text": "",
+        "answer": "",
+        "meaning": ""
+    },
+    {
+        "text": "",
+        "answer": "",
+        "meaning": ""
+    },
+    {
+        "text": "",
+        "answer": "",
+        "meaning": ""
+    },
+    {
+        "text": "",
+        "answer": "",
+        "meaning": ""
+    },
+    {
+        "text": "",
+        "answer": "",
+        "meaning": ""
+    },
+    {
+        "text": "",
+        "answer": "",
+        "meaning": ""
+    },
+    {
+        "text": "",
+        "answer": "",
+        "meaning": ""
+    },
+    {
+        "text": "",
+        "answer": "",
+        "meaning": ""
+    },
+    {
+        "text": "",
+        "answer": "",
+        "meaning": ""
+    },
+    {
+        "text": "",
+        "answer": "",
+        "meaning": ""
+    },
+    {
+        "text": "",
+        "answer": "",
+        "meaning": ""
+    },
+    {
+        "text": "",
+        "answer": "",
+        "meaning": ""
+    },
+    {
+        "text": "",
+        "answer": "",
+        "meaning": ""
+    },
+    {
+        "text": "",
+        "answer": "",
+        "meaning": ""
+    },
+    {
+        "text": "",
+        "answer": "",
+        "meaning": ""
+    },
+    {
+        "text": "",
+        "answer": "",
+        "meaning": ""
+    },
+    {
+        "text": "",
+        "answer": "",
+        "meaning": ""
+    },
+    {
+        "text": "",
+        "answer": "",
+        "meaning": ""
+    },
+    {
+        "text": "",
+        "answer": "",
+        "meaning": ""
+    },
+    {
+        "text": "",
+        "answer": "",
+        "meaning": ""
+    },
+    {
+        "text": "",
+        "answer": "",
+        "meaning": ""
+    },
+    {
+        "text": "",
+        "answer": "",
+        "meaning": ""
+    },
+    {
+        "text": "",
+        "answer": "",
+        "meaning": ""
+    },
+    {
+        "text": "",
+        "answer": "",
+        "meaning": ""
+    },
+    {
+        "text": "",
+        "answer": "",
+        "meaning": ""
+    },
+    {
+        "text": "",
+        "answer": "",
+        "meaning": ""
     },
 
 
 
 
 
-  
+
+
+
+
+
+    
 ]
