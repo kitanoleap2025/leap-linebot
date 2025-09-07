@@ -13,7 +13,13 @@ from firebase_admin import credentials, firestore
 import time
 from linebot.models import QuickReply, QuickReplyButton, MessageAction
 
-
+def load_words(file_path):
+    with open(file_path, encoding="utf-8") as f:
+        text = f.read()
+        # 不正文字を削除
+        text = text.replace('\n', '\\n').replace('\r', '\\r')
+        return json.loads(text)
+        
 # LEAP公式ライン
 line_bot_api_leap = LineBotApi(os.getenv("LINE_CHANNEL_ACCESS_TOKEN_LEAP"))
 handler_leap = WebhookHandler(os.getenv("LINE_CHANNEL_SECRET_LEAP"))
