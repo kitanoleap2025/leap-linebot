@@ -68,8 +68,6 @@ def save_user_data(user_id):
 def async_save_user_data(user_id):
     threading.Thread(target=save_user_data, args=(user_id,), daemon=True).start()
 
-
-questions_1001_2000 = 
 questions_2001_2300 = [
     {"text": "2013 Don’t count your chickens before they ___.\n卵がかえる前にヒヨコを数えるな🐣",
      "answer": "hatch",
