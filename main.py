@@ -298,10 +298,14 @@ def build_feedback_flex(user_id, is_correct, score, elapsed, correct_answer=None
 
 #1001-2000を4択
 def send_question(user_id, range_str):
-    if range_str == "1-1000":
-        questions = questions_1_1000
+    if range_str == "LEAP 1-1000":
+        questions = leap_1_1000
+    elif range_str == "LEAP 1001-2000":
+        questions = leap_1001_2000
+    elif range_str == "TARGET 1-1000":
+        questions = target_1_1000
     else:
-        questions = questions_1001_2000
+        questions = []  # 例外用
 
     # 4択問題 QuickReply版
     q, _ = choose_multiple_choice_question(user_id, questions)
