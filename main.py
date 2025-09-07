@@ -15,12 +15,20 @@ from linebot.exceptions import InvalidSignatureError
 import firebase_admin
 from firebase_admin import credentials, firestore
 
-def load_words(file_path):
-    with open(file_path, encoding="utf-8") as f:
-        text = f.read()
-        # 不正文字を削除
-        text = text.replace('\n', '\\n').replace('\r', '\\r')
-        return json.loads(text)
+def load_words(path):
+    """
+    JSON ファイルを安全に読み込む関数。
+    無効な制御文字を除去して json.loads に渡す。
+    """
+    with open(path, "r", encoding="utf-8") as f:
+        data = f.read()
+    
+    # ASCII 制御文字（0–31）を削除。ただし改行・タブは残す
+    clean_data = "".join(ch for ch in data if ord(ch) >= 32 or ch in "\n\r\t")
+    
+    # JSON としてパース
+    return json.loads(clean_data)
+
         
 # LEAP公式ライン
 line_bot_api_leap = LineBotApi(os.getenv("LINE_CHANNEL_ACCESS_TOKEN_LEAP"))
