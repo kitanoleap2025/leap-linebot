@@ -530,8 +530,8 @@ def handle_target_message(event):
 def handle_message_common(event, bot_type="LEAP"):
     user_id = event.source.user_id
     msg = event.message.text
-    total_rate = update_total_rate(user_id, questions_1_1000, questions_1001_2000)
 
+    # Botごとの質問リストを先に定義
     if bot_type == "LEAP":
         line_bot_api = line_bot_api_leap
         questions_1_1000 = leap_1_1000
@@ -541,8 +541,8 @@ def handle_message_common(event, bot_type="LEAP"):
         questions_1_1000 = target_1_1000
         questions_1001_2000 = []  
 
-    user_id = event.source.user_id
-    msg = event.message.text
+    # ここで total_rate を更新
+    total_rate = update_total_rate(user_id, questions_1_1000, questions_1001_2000)
 
     if user_id not in user_scores:
         load_user_data(user_id)
