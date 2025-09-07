@@ -526,9 +526,14 @@ def callback_target():
         abort(400)
     return "OK"
 
+@handler_leap.add(MessageEvent, message=TextMessage)
+def handle_message_leap(event):
+    handle_message(event, line_bot_api_leap)
 
-@handler.add(MessageEvent, message=TextMessage)
-def handle_message(event):
+@handler_target.add(MessageEvent, message=TextMessage)
+def handle_message_target(event):
+    handle_message(event, line_bot_api_target)
+
     user_id = event.source.user_id
     msg = event.message.text
 
