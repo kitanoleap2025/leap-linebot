@@ -85,18 +85,6 @@ def save_user_data(user_id):
 def async_save_user_data(user_id):
     threading.Thread(target=save_user_data, args=(user_id,), daemon=True).start()
 
-questions_2001_2300 = [
-    {"text": "2013 Don’t count your chickens before they ___.\n卵がかえる前にヒヨコを数えるな🐣",
-     "answer": "hatch",
-    "meaning": "hatch	[自] ①（卵から）かえる，孵化する [他] ②（卵から）～をかえす ③（計画など）を企てる"},
-    {"text": "2043 ___ the tale of the Straw Millionaire, trying to exchange a string for a Benz.\nわらしべ長者の物語を省略して,ひもをベンツと交換しようとする.",
-     "answer": "Omitting",
-    "meaning": "entire	[形] すべての"},
-    {"text": "2131 Justice is blind, but apparently not deaf to ___.\n正義は目が見えないが、賄賂にはどうやら耳が聞こえるらしい。", 
-     "answer": "bribes",
-    "meaning": "entire	[形] すべての"},
-   
-]
 #Dreams are free; reality charges you interest every day.
 
 def get_rank(score):
@@ -525,6 +513,16 @@ def callback_target():
     except InvalidSignatureError:
         abort(400)
     return "OK"
+
+# LEAP用
+@handler_leap.add(MessageEvent, message=TextMessage)
+def handle_leap_message(event):
+    handle_message_common(event, bot_type="LEAP")
+
+# TARGET用
+@handler_target.add(MessageEvent, message=TextMessage)
+def handle_target_message(event):
+    handle_message_common(event, bot_type="TARGET")
 
 @handler_leap.add(MessageEvent, message=TextMessage)
 def handle_message_leap(event):
