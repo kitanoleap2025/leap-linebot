@@ -15,26 +15,6 @@ from linebot.exceptions import InvalidSignatureError
 import firebase_admin
 from firebase_admin import credentials, firestore
 
-def load_words(path):
-    with open(path, "r", encoding="utf-8") as f:
-        data = f.read()
-    # 制御文字を除去
-    clean_data = "".join(ch for ch in data if ord(ch) >= 32 or ch in "\n\r\t")
-    # strict=False で多少の制御文字を許容
-    return json.loads(clean_data, strict=False)
-
-    with open("data/leap1-1000.json", "r", encoding="utf-8") as f:
-        lines = f.readlines()
-
-    clean_lines = []
-    for line in lines:
-        # 各行から \x00〜\x1F の制御文字を除去 (改行は残す)
-        clean_line = "".join(ch for ch in line if ord(ch) >= 32 or ch in "\n\r\t")
-        clean_lines.append(clean_line)
-
-    json_data = "".join(clean_lines)
-    data = json.loads(json_data, strict=False)
-
         
 # LEAP公式ライン
 line_bot_api_leap = LineBotApi(os.getenv("LINE_CHANNEL_ACCESS_TOKEN_LEAP"))
