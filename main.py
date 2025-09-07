@@ -204,7 +204,7 @@ def build_result_flex(user_id):
     return flex_message
 
 #総合レート更新
-def update_total_rate(user_id):
+def update_total_rate(user_id, questions_1_1000, questions_1001_2000):
     scores = user_scores.get(user_id, {})
     total_score1 = sum(scores.get(q["answer"], 0) for q in questions_1_1000)
     total_score2 = sum(scores.get(q["answer"], 0) for q in questions_1001_2000)
@@ -223,6 +223,7 @@ def update_total_rate(user_id):
         print(f"Error updating total_rate for {user_id}: {e}")
 
     return total_rate
+
 
 def periodic_save():
     while True:
@@ -529,6 +530,7 @@ def handle_target_message(event):
 def handle_message_common(event, bot_type="LEAP"):
     user_id = event.source.user_id
     msg = event.message.text
+    total_rate = update_total_rate(user_id, questions_1_1000, questions_1001_2000)
 
     if bot_type == "LEAP":
         line_bot_api = line_bot_api_leap
