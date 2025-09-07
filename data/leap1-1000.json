@@ -1,303 +1,66 @@
 [
     {
-        "text": "001 I ___ with the idea that students should not be given too much homework.　生徒に宿題を与えすぎるべきではないという考えに賛成です.",
+        "text": "001 I ___ with the idea that students should not be given too much homework.\\n生徒に宿題を与えすぎるべきではないという考えに賛成です.",
         "answer": "agree",
         "meaning": "agree　[自] ①賛成する ②（主語の中で 意見が一致する ③（with ～）（気候，食べ物が）（～に）合う"
     },
     {
-        "text": "002 He strongly ___ corruption until he was promoted.　昇進するまでは,彼は汚職に強く反対していた.",
+        "text": "002 He strongly ___ corruption until he was promoted.\\n昇進するまでは,彼は汚職に強く反対していた.",
         "answer": "opposed",
         "meaning": "oppose　[他] ～に反対する"
     },
     {
-        "text": "003 The teacher ___ me to study English vocabulary.　先生は私に英単語を勉強するよう助言した.",
+        "text": "003 The teacher ___ me to study English vocabulary.\\n先生は私に英単語を勉強するよう助言した.",
         "answer": "advised",
         "meaning": "advise　[他] ～に忠告する"
     },
     {
-        "text": "004 I’ll give you a __.　ヒントをあげるよ.",
+        "text": "004 I’ll give you a __.\\nヒントをあげるよ.",
         "answer": "tip",
         "meaning": "tip　[名] ①助言，ヒント ②チップ ③（足や山などの）先，先端（いずれも〈可算〉）"
     },
     {
-        "text": "005 We ___ the problem so much, we forgot to solve it.　私たちはその問題についてあまりに議論しすぎて,解決するのを忘れていた.",
+        "text": "005 We ___ the problem so much, we forgot to solve it.\\n私たちはその問題についてあまりに議論しすぎて,解決するのを忘れていた.",
         "answer": "discussed",
         "meaning": "discuss　[他] ①～について話し合う，議論する ②～を話題に出す"
     },
     {
-        "text": "006 He ___ the train for his lateness.　彼は遅刻したことを電車のせいにした.",
+        "text": "006 He ___ the train for his lateness.\\n彼は遅刻したことを電車のせいにした.",
         "answer": "blamed",
         "meaning": "blame　[他] ～に責任があるとする"
     },
     {
-        "text": "007 Ancient Greeks ___ about politics more than TikTok.　古代ギリシャ人は、TikTokよりも政治で口論していた。",
+        "text": "007 Ancient Greeks ___ about politics more than TikTok.\\n古代ギリシャ人は、TikTokよりも政治で口論していた。",
         "answer": "argued"
     },
     {
-        "text": "007 Einstein ___ that time is relative.　アインシュタインは時間は相対的だと論じた.",
+        "text": "007 Einstein ___ that time is relative.\\nアインシュタインは時間は相対的だと論じた.",
         "answer": "argued",
         "meaning": "argue　[他] ①（that SV）～と主張する [自] ②（with ～）（～と）言い争う"
     },
     {
-        "text": "008 He ___ that sleep wasn’t necessary for eaxms.　彼は試験のために睡眠は必要ないと主張した.",
+        "text": "008 He ___ that sleep wasn’t necessary for eaxms.\\n彼は試験のために睡眠は必要ないと主張した.",
         "answer": "claimed",
         "meaning": "claim　[他] ①（that SV）～と主張する ②～を要求する，主張する [名] ③主張，要求"
     },
     {
-        "text": "009 He ___ about buying a math textbook he’d never use.　彼は使うことのない数学の教科書を買うことに不満を言っていた.",
+        "text": "009 He ___ about buying a math textbook he’d never use.\\n彼は使うことのない数学の教科書を買うことに不満を言っていた.",
         "answer": "complained",
         "meaning": "complain　[自] ①文句を言う，苦情を言う ②（of ～）（病気などを）訴える"
     },
     {
-        "text": "010 Einstein was ___ the presidency of Israel.　アインシュタインはイスラエル大統領の職を申し出られた.",
+        "text": "010 Einstein was ___ the presidency of Israel.\\nアインシュタインはイスラエル大統領の職を申し出られた.",
         "answer": "offered",
         "meaning": "offer　[他] ①～を申し出る [名] ②申し出 ③値引き"
     },
-    {
-        "text": "011 He ___ that he was gay.　彼は自身がゲイであることをほのめかした。",
-        "answer": "suggested",
-        "meaning": "suggest　[他] ①～を示唆する ②～を提案する"
-    },
-    {
-        "text": "012 I was ___ to the local volunteer club.　私は地元のボランティアクラブに推薦された。",
-        "answer": "recommended",
-        "meaning": "recommend　[他] ～を推薦する，勧める"
-    },
-    {
-        "text": "013 He said he was ___ to her for the feedback, but he ignored all of it.　彼は彼女のフィードバックに感謝していると言ったが,すべて無視した.",
-        "answer": "grateful",
-        "meaning": "grateful　[形] 感謝している"
-    },
-    {
-        "text": "014 I ___ for criticizing.　私は批判したことを謝った.",
-        "answer": "apologized",
-        "meaning": "apologize　[自] （to ～）（～に）謝る"
-    },
-    {
-        "text": "015 I won’t use a disorder as an e___.　不調を言い訳にしない.",
-        "answer": "excuse",
-        "meaning": "excuse　[名] ①言い訳 [他] ②～を許す ③（A from B）（B からA）を免除する"
-    },
-    {
-        "text": "016 ___ her birthday　彼女の誕生日を祝う🎂",
-        "answer": "celebrate",
-        "meaning": "celebrate　[他] ①（特別な日、出来事）を祝う ②（儀式など）を挙行する，執り行う"
-    },
-    {
-        "text": "017 His family ___ his finally being accepted into college.　彼の家族は,彼がついに大学に合格したことを祝った.㊗️",
-        "answer": "congratulated",
-        "meaning": "congratulate　[他] （人）を祝う，～にお祝いを述べる"
-    },
-    {
-        "text": "018 Everyone ___ his remarkable idea.　誰もが彼の注目すべきアイデアに感心した.",
-        "answer": "admired",
-        "meaning": "admire　[他] ～を称賛する，～に感心する"
-    },
-    {
-        "text": "019 His outstanding presentation ___ everyone.　彼の傑出したプレゼンは,みんなに感銘を与えた.",
-        "answer": "impressed",
-        "meaning": "impress　[他] ～に感銘を与える，～を感心させる"
-    },
-    {
-        "text": "021 He ___ why he had missed the deadline.　彼はなぜ締め切りを過ぎたのか説明した.",
-        "answer": "explained",
-        "meaning": "explain　[他] ～を説明する"
-    },
-    {
-        "text": "023 It is important to ___ effectively with others in a team.　チームで効果的にコミュ二ケーションをとることは重要だ.",
-        "answer": "communicate",
-        "meaning": "communicate　[自] ①（with ～）（～と）意思の疎通をはかる [他] ②～を伝える"
-    },
-    {
-        "text": "024 This feeling I can’t ___　表せないこの気持ち",
-        "answer": "express",
-        "meaning": "express　[他] ①（意見，気持ち）を表現する [名] ②急行（列車，バス）"
-    },
-    {
-        "text": "025 The man running ahead is the one I ___ to run with.　前を走っている男は,一緒に走ると約束した人だ.🏃‍➡️",
-        "answer": "promised",
-        "meaning": "promise　[名] ①約束 [他] ②～を約束する"
-    },
-    {
-        "text": "026 He provided a lot of ___, none of which was useful.　彼はたくさんの情報を提供したが,役に立つものはひとつもなかった.",
-        "answer": "information",
-        "meaning": "information　[名] 情報〈不可算〉"
-    },
-    {
-        "text": "027 With modern ___, we can talk to anyone in the world except the person next to you.　現代のテクノロジーでは,隣にいる人以外の誰とでも話すことができる.",
-        "answer": "technology",
-        "meaning": "technology　[名] （科学）技術"
-    },
-    {
-        "text": "028 ___ shows that sunlight improves mental health.　研究によると,日光はメンタルヘルスを改善する.🌞",
-        "answer": "research",
-        "meaning": "research　[名] ①（学術）研究 [他] ②～を研究する"
-    },
-    {
-        "text": "029 We need more building ___ to finish the house.　家を完成させるにはもっと建材が必要だ.🏠",
-        "answer": "material",
-        "meaning": ""
-    },
-    {
-        "text": "030 People who can be replaced by ___ Intelligence　AIに代替可能な人.",
-        "answer": "artificial",
-        "meaning": "artificial　[形] 人工的な"
-    },
-    {
-        "text": "031 Everyone was distracted by his noisy ___ eraser.　彼のうるさい電動消しゴムにみんな気を散らされた.",
-        "answer": "electric",
-        "meaning": "electric　[形] 電気の，電動の"
-    },
-    {
-        "text": "032 Ancient Egyptians ___ the 365-day calendar.　古代エジプト人は365日カレンダーを発明した。",
-        "answer": "invented",
-        "meaning": "invent　[他] ①～を発明する ②（話など）をでっち上げる"
-    },
-    {
-        "text": "033 ___ that the speed of light is constant, regardless of the observer’s motion　光の速度は観測者の運動にかかわらず一定であることを発見する🤪",
-        "answer": "discover",
-        "meaning": "discover　[他] ①～を発見する ②（that SV）～を知る，～に気がつく ③（知るという意味で）～に出会う"
-    },
-    {
-        "text": "034 rapidly ___ city　急速に発達した都市",
-        "answer": "developing",
-        "meaning": "develop　[自] ①発達する [他] ②～を発達させる ③～を開発する ④（話，考え）を発展させる ⑤（病気）にかかる"
-    },
-    {
-        "text": "035 He had the ___ to disappear whenever work started.　彼は仕事が始まるといつも消える技術を持っていた.",
-        "answer": "skill",
-        "meaning": "skill　[名] 技術，力"
-    },
-    {
-        "text": "036 No less important than knowledge is the ___ to question it.　知識に劣らず重要なのは,それを疑問視する能力です.",
-        "answer": "ability",
-        "meaning": "ability　[名] 能力"
-    },
-    {
-        "text": "037 overwhelming ___　圧倒的な才能🧬",
-        "answer": "talent",
-        "meaning": "talent　[名] 才能"
-    },
-    {
-        "text": "038 Success often comes after continuous ___.　成功はたいてい継続的な努力の後にやってくる.",
-        "answer": "effort",
-        "meaning": "effort　[名] 努力"
-    },
-    {
-        "text": "040 ___ my ambition to be a pilot　パイロットになるという望みを叶える🧑‍✈️",
-        "answer": "achieve",
-        "meaning": "achieve　[他] ～を達成する"
-    },
-    {
-        "text": "043 This machine can ___ 10 parts in one minute.　この機械は１分で10個の部品を生産出来る.",
-        "answer": "produce",
-        "meaning": "produce　[他] ①～を生産する，産出する ②（見せるために）～を取り出す [名] ③農作物〈不可算〉"
-    },
-    {
-        "text": "044 ___ LINE stickers using the teather's face　先生の顔でLINEスタンプを作る",
-        "answer": "create",
-        "meaning": "create　[他] ①～を創造する ②～を引き起こす"
-    },
-    {
-        "text": "045 Kitano high school was ___ in 1873.　北野高校は1873年に設立された.",
-        "answer": "established",
-        "meaning": "establish　[他] ①～を確立する，定着させる ②～を設立する"
-    },
-    {
-        "text": "057 ___ beauty　肉体美💪",
-        "answer": "physical",
-        "meaning": ""
-    },
-    {
-        "text": "058 She said she had a high ___.　彼女は高熱らしい.",
-        "answer": "fever",
-        "meaning": ""
-    },
-    {
-        "text": "067 Even a small change can have a significant effect on ___.　小さな変化でも社会に大きな影響を与える.",
-        "answer": "society",
-        "meaning": "society　[名] ①社会〈不可算〉 ②（ある具体的な）社会〈可算〉 ③（one's ―）～と同席すること ④協会"
-    },
-    {
-        "text": "068 obey a __ that doesn’t even exist　ありもしない法に従う",
-        "answer": "law",
-        "meaning": "law　[名] ①（the ―）（集合的に）法律，国法 ②（個々の）法律 ③（科学などの）法則"
-    },
-    {
-        "text": "069 We don't inherit the Earth from our ___, we borrow it from our children.　私たちは先祖から地球を受け継ぐのではなく,子供たちから借りています.🌍",
-        "answer": "ancestors",
-        "meaning": "ancestor　[名] 祖先"
-    },
-    {
-        "text": "070 the estimated ___ of Japan　日本の推定人口🗾",
-        "answer": "population",
-        "meaning": ""
-    },
-    {
-        "text": "071 Does he not have a ___ language?　彼には母語がないのだろうか？😩",
-        "answer": "native",
-        "meaning": ""
-    },
-    {
-        "text": "072 I want to study ___ after graduating from high school.　高校を卒業したら留学したい.",
-        "answer": "abroad",
-        "meaning": ""
-    },
-    {
-        "text": "078 I use ___ transportation to get to school.(不可算)　私は学校に行くのに公共交通機関を利用しています.",
-        "answer": "public",
-        "meaning": "public　[名] ①（the ―）大衆 [形] ②公共の，公の"
-    },
-    {
-        "text": "079 the key ___ that led to the suspension　停学への決定打となる証拠",
-        "answer": "evidence",
-        "meaning": "evidence　[名] 証拠〈不可算〉"
-    },
-    {
-        "text": "080 They ___ for confidence without thinking.　彼らは考えずに信任に投票した.",
-        "answer": "voted",
-        "meaning": "vote　[名] ①投票（数)[自] ②投票する"
-    },
-    {
-        "text": "083 Paris is the ___ of romance, and overpriced coffee.　パリはロマンスの都であり、値段の高すぎるコーヒーの都である。",
-        "answer": "capital",
-        "meaning": ""
-    },
-    {
-        "text": "086 The ___ is determined by supply and demand.　価格は需要と供給で決まる.",
-        "answer": "price",
-        "meaning": ""
-    },
-    {
-        "text": "091 Shall we split the ___?　割り勘にしませんか?",
-        "answer": "bill",
-        "meaning": ""
-    },
-    {
-        "text": "093 His ___ was huge, but his jokes were bankrupt.　彼の富は莫大だったが,ジョークは破産状態だった.💰",
-        "answer": "wealth",
-        "meaning": ""
-    },
-    {
-        "text": "094 Consumption tax increases ___ inequality.　消費税は経済格差を拡大させる.",
-        "answer": "economic",
-        "meaning": ""
-    },
-    {
-        "text": "095 It will ___ fifty dollars extra a month.　それは毎月50ドル余分にかかる.",
-        "answer": "cost",
-        "meaning": ""
-    },
-    {
-        "text": "097 During World War II, British chess masters were assigned to codebreaking ___ involving the Enigma machine.　第二次世界大戦中,イギリスのチェスマスターたちはエニグマ機に関わる暗号解読の仕事に就いていました.",
-        "answer": "tasks",
-        "meaning": "task　[名] 仕事〈可算〉"
-    },
-    {
-        "text": "098 What you said ___ more than you think.　君が言ったことは,君が思っているよりも傷ついたよ.😢",
-        "answer": "hurt",
-        "meaning": ""
-    },
+
+
+
+
+
+
+
+    
     {
         "text": "101 ___ the pen of the person sitting next to me　隣の席の人のペンを破壊する",
         "answer": "destroy",
