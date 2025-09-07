@@ -565,7 +565,7 @@ def handle_message_common(event, bot_type="LEAP"):
         return
 
     if msg in ["1-1000", "1001-2000"]:
-        question_msg = send_question(user_id, msg)
+        question_msg = send_question(user_id, f"LEAP {msg}")  # send_question 内の条件に合わせる
         line_bot_api.reply_message(event.reply_token, question_msg)
         return
         
