@@ -204,10 +204,18 @@ def build_result_flex(user_id):
     return flex_message
 
 #総合レート更新
-def update_total_rate(user_id, questions_1_1000, questions_1001_2000):
+def update_total_rate(user_id, bot_type):
+    if bot_type == "LEAP":
+        questions_1_1000 = leap_1_1000
+        questions_1001_2000 = leap_1001_2000
+    else:
+        questions_1_1000 = target_1_1000
+        questions_1001_2000 = target_1001_1900
+
+    total_score1 = sum(user_scores[user_id].get(q["answer"], 0) for q in questions_1_1000)
+    total_score2 = sum(user_scores[user_id].get(q["answer"], 0) for q in questions_1001_2000)
+
     scores = user_scores.get(user_id, {})
-    total_score1 = sum(scores.get(q["answer"], 0) for q in questions_1_1000)
-    total_score2 = sum(scores.get(q["answer"], 0) for q in questions_1001_2000)
 
     c1 = len(questions_1_1000)
     c2 = len(questions_1001_2000)
@@ -293,15 +301,18 @@ def build_feedback_flex(user_id, is_correct, score, elapsed, correct_answer=None
 
 
 #1001-2000を4択
-def send_question(user_id, range_str):
-    if range_str == "LEAP 1-1000":
-        questions = leap_1_1000
-    elif range_str == "LEAP 1001-2000":
-        questions = leap_1001_2000
-    elif range_str == "TARGET 1-1000":
-        questions = target_1_1000
+def send_question(user_id, range_str, bot_type="LEAP"):
+    if bot_type == "LEAP":
+        questions_1_1000 = leap_1_1000
+        questions_1001_2000 = leap_1001_2000
+    else:  # TARGET
+        questions_1_1000 = target_1_1000
+        questions_1001_2000 = target_1001_1900
+
+    if range_str == "1-1000":
+        questions = questions_1_1000
     else:
-        questions = []  # 例外用
+        questions = questions_1001_2000
 
     # 4択問題 QuickReply版
     q, _ = choose_multiple_choice_question(user_id, questions)
@@ -531,18 +542,9 @@ def handle_message_common(event, bot_type="LEAP"):
     user_id = event.source.user_id
     msg = event.message.text
 
-    # Botごとの質問リストを先に定義
-    if bot_type == "LEAP":
-        line_bot_api = line_bot_api_leap
-        questions_1_1000 = leap_1_1000
-        questions_1001_2000 = leap_1001_2000
-    else:  # TARGET
-        line_bot_api = line_bot_api_target
-        questions_1_1000 = target_1_1000
-        questions_1001_2000 = []  
+    total_rate = update_total_rate(user_id, bot_type)
 
-    # ここで total_rate を更新
-    total_rate = update_total_rate(user_id, questions_1_1000, questions_1001_2000)
+# 以降の questions_1_1000, questions_1001_2000 は send_question 内で判断する
 
     if user_id not in user_scores:
         load_user_data(user_id)
