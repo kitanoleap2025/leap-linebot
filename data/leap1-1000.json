@@ -1,7 +1,7 @@
 [
     {"text": "001 I ___ with the idea that students should not be given too much homework.\\n生徒に宿題を与えすぎるべきではないという考えに賛成です.",
      "answer": "agree",
-    "meaning": "agree	[自] ①賛成する ②（主語の中で）意見が一致する ③（with ～）（気候，食べ物が）（～に）合う"},
+    "meaning": "agree　[自] ①賛成する ②（主語の中で 意見が一致する ③（with ～）（気候，食べ物が）（～に）合う"},
     {"text": "002 He strongly ___ corruption until he was promoted.\\n昇進するまでは,彼は汚職に強く反対していた.",
      "answer": "opposed",
     "meaning": "oppose	[他] ～に反対する"},
