@@ -111,11 +111,8 @@ def build_result_flex(user_id):
 
     # 各範囲の評価計算
     parts = []
-    for title, questions in [("1-1000", questions_1_1000), ("1001-2000", questions_1001_2000)]:
-        scores = user_scores.get(user_id, {})
-        relevant_answers = [q["answer"] for q in questions]
-        total_score = sum(scores.get(ans, 1) for ans in relevant_answers)
-        count = len(relevant_answers)
+    questions_1_1000 = get_questions_by_range("1-1000", bot_type)
+    questions_1001_2000 = get_questions_by_range("1001-2000", bot_type)
 
         rate = round((total_score / count) * 25, 3) if count else 0
         if rate >= 9000:
@@ -216,13 +213,8 @@ def build_result_flex(user_id):
 
 #総合レート更新
 def update_total_rate(user_id, bot_type):
-    if bot_type == "LEAP":
-        questions_1_1000 = leap_1_1000
-        questions_1001_2000 = leap_1001_2000
-    else:
-        questions_1_1000 = target_1_1000
-        questions_1001_2000 = target_1001_1900
-
+    questions_1_1000 = get_questions_by_range("1-1000", bot_type)
+    questions_1001_2000 = get_questions_by_range("1001-2000", bot_type)
     total_score1 = sum(user_scores[user_id].get(q["answer"], 0) for q in questions_1_1000)
     total_score2 = sum(user_scores[user_id].get(q["answer"], 0) for q in questions_1001_2000)
 
