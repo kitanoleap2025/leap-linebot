@@ -1,26 +1,26 @@
 [
     {
-        "text": "813 I ___ for criticizing.\\n私は批判したことを謝った.",
+        "text": "813 I ___ for criticizing.\n私は批判したことを謝った.",
         "answer": "apologized",
         "meaning": "apologize　[自] （to ～）（～に）謝る"
     },
     {
-        "text": "I won’t use a disorder as an e___.\\n不調を言い訳にしない.",
+        "text": "I won’t use a disorder as an e___.\n不調を言い訳にしない.",
         "answer": "excuse",
         "meaning": "excuse　[名] ①言い訳 [他] ②～を許す ③（A from B）（B からA）を免除する"
     },
     {
-        "text": "___ her birthday\\n彼女の誕生日を祝う🎂",
+        "text": "___ her birthday\n彼女の誕生日を祝う🎂",
         "answer": "celebrate",
         "meaning": "celebrate　[他] ①（特別な日、出来事）を祝う ②（儀式など）を挙行する，執り行う"
     },
     {
-        "text": "His family ___ his finally being accepted into college.\\n彼の家族は,彼がついに大学に合格したことを祝った.㊗️",
+        "text": "His family ___ his finally being accepted into college.\n彼の家族は,彼がついに大学に合格したことを祝った.㊗️",
         "answer": "congratulated",
         "meaning": "congratulate　[他] （人）を祝う，～にお祝いを述べる"
     },
     {
-        "text": "Everyone ___ his remarkable idea.\\n誰もが彼の注目すべきアイデアに感心した.",
+        "text": "Everyone ___ his remarkable idea.\n誰もが彼の注目すべきアイデアに感心した.",
         "answer": "admired",
         "meaning": "admire　[他] ～を称賛する，～に感心する"
     }
