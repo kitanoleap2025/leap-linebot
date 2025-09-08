@@ -323,29 +323,25 @@ def build_feedback_flex(user_id, is_correct, score, elapsed, correct_answer=None
     )
 
 
-#1001-2000を4択
 def send_question(user_id, range_str, bot_type="LEAP"):
-    questions_1_1000 = get_questions_by_range("1-1000", bot_type)
-    questions_1001_2000 = get_questions_by_range("1001-2000", bot_type)
-    questions = questions_1_1000 if range_str == "1-1000" else questions_1001_2000
+    questions = get_questions_by_range(range_str, bot_type)
 
     # 出題
     q = choose_weighted_question(user_id, questions)
     user_states[user_id] = (range_str, q["answer"])
     user_answer_start_times[user_id] = time.time()
 
-    # 1001-2000 は4択、それ以外は自由入力
-    if range_str == "1001-2000":
-        correct_answer = q["answer"]
-        other_answers = [item["answer"] for item in questions if item["answer"] != correct_answer]
-        wrong_choices = random.sample(other_answers, k=min(3, len(other_answers)))
-        choices = wrong_choices + [correct_answer]
-        random.shuffle(choices)
-        quick_buttons = [QuickReplyButton(action=MessageAction(label=choice, text=choice))
-                         for choice in choices]
-        return TextSendMessage(text=q["text"], quick_reply=QuickReply(items=quick_buttons))
-    else:
-        return TextSendMessage(text=q["text"])
+    correct_answer = q["answer"]
+    other_answers = [item["answer"] for item in questions if item["answer"] != correct_answer]
+    wrong_choices = random.sample(other_answers, k=min(3, len(other_answers)))
+    choices = wrong_choices + [correct_answer]
+    random.shuffle(choices)
+
+    quick_buttons = [QuickReplyButton(action=MessageAction(label=choice, text=choice))
+                     for choice in choices]
+
+    return TextSendMessage(text=q["text"], quick_reply=QuickReply(items=quick_buttons))
+
 
 def choose_weighted_question(user_id, questions):
     scores = user_scores.get(user_id, {})
