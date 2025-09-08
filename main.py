@@ -18,11 +18,11 @@ from firebase_admin import credentials, firestore
 
 line_bot_api = LineBotApi(CHANNEL_ACCESS_TOKEN)
 
-# LEAP公式ライン
+# LEAP公式ラインインスタンス
 line_bot_api_leap = LineBotApi(os.getenv("LINE_CHANNEL_ACCESS_TOKEN_LEAP"))
 handler_leap = WebhookHandler(os.getenv("LINE_CHANNEL_SECRET_LEAP"))
 
-# TARGET公式ライン
+# TARGET公式ラインインスタンス
 line_bot_api_target = LineBotApi(os.getenv("LINE_CHANNEL_ACCESS_TOKEN_TARGET"))
 handler_target = WebhookHandler(os.getenv("LINE_CHANNEL_SECRET_TARGET"))
 
@@ -521,42 +521,34 @@ def build_ranking_flex_fast(user_id):
     return flex_message
 
 # —————— ここからLINEイベントハンドラ部分 ——————
-
-@app.route("/callback/leap", methods=['POST'])
+# LEAP
+@app.route("/callback/leap", methods=["POST"])
 def callback_leap():
-    signature = request.headers.get("X-Line-Signature")
     body = request.get_data(as_text=True)
-    try:
-        handler_leap.handle(body, signature)
-    except InvalidSignatureError:
-        abort(400)
+    signature = request.headers["X-Line-Signature"]
+    handler_leap.handle(body, signature)
     return "OK"
-
-@app.route("/callback/target", methods=['POST'])
+#target
+@app.route("/callback/target", methods=["POST"])
 def callback_target():
-    signature = request.headers.get("X-Line-Signature")
     body = request.get_data(as_text=True)
-    try:
-        handler_target.handle(body, signature)
-    except InvalidSignatureError:
-        abort(400)
+    signature = request.headers["X-Line-Signature"]
+    handler_target.handle(body, signature)
     return "OK"
 
-# LEAP用
+# LEAP
 @handler_leap.add(MessageEvent, message=TextMessage)
 def handle_leap_message(event):
-    handle_message_common(event, bot_type="LEAP")
-
-# TARGET用
+    handle_message_common(event, bot_type="LEAP", line_bot_api=line_bot_api_leap)
+#target
 @handler_target.add(MessageEvent, message=TextMessage)
 def handle_target_message(event):
-    handle_message_common(event, bot_type="TARGET")
+    handle_message_common(event, bot_type="TARGET", line_bot_api=line_bot_api_target)
 
-def handle_message_common(event, bot_type="LEAP"):
+
+def handle_message_common(event, bot_type, line_bot_api):
     user_id = event.source.user_id
-    msg = event.message.text
-
-    total_rate = update_total_rate(user_id, bot_type)
+    msg = event.message.text.strip()
 
 # 以降の questions_1_1000, questions_1001_2000 は send_question 内で判断する
 
@@ -577,6 +569,11 @@ def handle_message_common(event, bot_type="LEAP"):
         line_bot_api.reply_message(event.reply_token, TextSendMessage(text=f"名前を「{new_name}」に変更しました。"))
         return
 
+    if msg == "ランキング":
+        flex_msg = build_ranking_flex_fast(user_id, bot_type)
+        line_bot_api.reply_message(event.reply_token, flex_msg)
+        return
+        
     if msg == "ランキング":
         flex_msg = build_ranking_flex_fast(user_id)  
         line_bot_api.reply_message(event.reply_token, flex_msg)
