@@ -1124,7 +1124,7 @@
         "meaning": ""
     },
     {
-        "text": "668 They felt that their happy life would not last long.\n彼らは,自分たちの幸せな生活が長くは続かないと感じていた.",
+        "text": "668 They felt that their happy life would not ___ long.\n彼らは,自分たちの幸せな生活が長くは続かないと感じていた.",
         "answer": "last",
         "meaning": ""
     },
