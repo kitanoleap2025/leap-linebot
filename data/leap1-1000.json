@@ -25,1386 +25,1386 @@
         "meaning": "discuss　[他] ①～について話し合う，議論する ②～を話題に出す"
     },
     {
-        "text": "006 He ___ the train for his lateness.\\n彼は遅刻したことを電車のせいにした.",
+        "text": "006 He ___ the train for his lateness.\n彼は遅刻したことを電車のせいにした.",
         "answer": "blamed",
         "meaning": "blame　[他] ～に責任があるとする"
     },
     {
-        "text": "007 Ancient Greeks ___ about politics more than TikTok.\\n古代ギリシャ人は、TikTokよりも政治で口論していた。",
+        "text": "007 Ancient Greeks ___ about politics more than TikTok.\n古代ギリシャ人は、TikTokよりも政治で口論していた。",
         "answer": "argued"
     },
     {
-        "text": "007 Einstein ___ that time is relative.\\nアインシュタインは時間は相対的だと論じた.",
+        "text": "007 Einstein ___ that time is relative.\nアインシュタインは時間は相対的だと論じた.",
         "answer": "argued",
         "meaning": "argue　[他] ①（that SV）～と主張する [自] ②（with ～）（～と）言い争う"
     },
     {
-        "text": "008 He ___ that sleep wasn’t necessary for eaxms.\\n彼は試験のために睡眠は必要ないと主張した.",
+        "text": "008 He ___ that sleep wasn’t necessary for eaxms.\n彼は試験のために睡眠は必要ないと主張した.",
         "answer": "claimed",
         "meaning": "claim　[他] ①（that SV）～と主張する ②～を要求する，主張する [名] ③主張，要求"
     },
     {
-        "text": "009 He ___ about buying a math textbook he’d never use.\\n彼は使うことのない数学の教科書を買うことに不満を言っていた.",
+        "text": "009 He ___ about buying a math textbook he’d never use.\n彼は使うことのない数学の教科書を買うことに不満を言っていた.",
         "answer": "complained",
         "meaning": "complain　[自] ①文句を言う，苦情を言う ②（of ～）（病気などを）訴える"
     },
     {
-        "text": "010 Einstein was ___ the presidency of Israel.\\nアインシュタインはイスラエル大統領の職を申し出られた.",
+        "text": "010 Einstein was ___ the presidency of Israel.\nアインシュタインはイスラエル大統領の職を申し出られた.",
         "answer": "offered",
         "meaning": "offer　[他] ①～を申し出る [名] ②申し出 ③値引き"
     },
     {
-        "text": "011 He ___ that he was gay.\\n彼は自身がゲイであることをほのめかした。",
+        "text": "011 He ___ that he was gay.\n彼は自身がゲイであることをほのめかした。",
         "answer": "suggested",
         "meaning": "suggest　[他] ①～を示唆する ②～を提案する"
     },
     {
-        "text": "012 I was ___ to the local volunteer club.\\n私は地元のボランティアクラブに推薦された。",
+        "text": "012 I was ___ to the local volunteer club.\n私は地元のボランティアクラブに推薦された。",
         "answer": "recommended",
         "meaning": "recommend　[他] ～を推薦する，勧める"
     },
     {
-        "text": "013 He said he was ___ to her for the feedback, but he ignored all of it.\\n彼は彼女のフィードバックに感謝していると言ったが,すべて無視した.",
+        "text": "013 He said he was ___ to her for the feedback, but he ignored all of it.\n彼は彼女のフィードバックに感謝していると言ったが,すべて無視した.",
         "answer": "grateful",
         "meaning": "grateful　[形] 感謝している"
     },
     {
-        "text": "014 I ___ for criticizing.\\n私は批判したことを謝った.",
+        "text": "014 I ___ for criticizing.\n私は批判したことを謝った.",
         "answer": "apologized",
         "meaning": "apologize　[自] （to ～）（～に）謝る"
     },
     {
-        "text": "015 I won’t use a disorder as an e___.\\n不調を言い訳にしない.",
+        "text": "015 I won’t use a disorder as an e___.\n不調を言い訳にしない.",
         "answer": "excuse",
         "meaning": "excuse　[名] ①言い訳 [他] ②～を許す ③（A from B）（B からA）を免除する"
     },
     {
-        "text": "016 ___ her birthday\\n彼女の誕生日を祝う🎂",
+        "text": "016 ___ her birthday\n彼女の誕生日を祝う🎂",
         "answer": "celebrate",
         "meaning": "celebrate　[他] ①（特別な日、出来事）を祝う ②（儀式など）を挙行する，執り行う"
     },
     {
-        "text": "017 His family ___ his finally being accepted into college.\\n彼の家族は,彼がついに大学に合格したことを祝った.㊗️",
+        "text": "017 His family ___ his finally being accepted into college.\n彼の家族は,彼がついに大学に合格したことを祝った.㊗️",
         "answer": "congratulated",
         "meaning": "congratulate　[他] （人）を祝う，～にお祝いを述べる"
     },
     {
-        "text": "018 Everyone ___ his remarkable idea.\\n誰もが彼の注目すべきアイデアに感心した.",
+        "text": "018 Everyone ___ his remarkable idea.\n誰もが彼の注目すべきアイデアに感心した.",
         "answer": "admired",
         "meaning": "admire　[他] ～を称賛する，～に感心する"
     },
     {
-        "text": "019 His outstanding presentation ___ everyone.\\n彼の傑出したプレゼンは,みんなに感銘を与えた.",
+        "text": "019 His outstanding presentation ___ everyone.\n彼の傑出したプレゼンは,みんなに感銘を与えた.",
         "answer": "impressed",
         "meaning": "impress　[他] ～に感銘を与える，～を感心させる"
     },
     {
-        "text": "021 He ___ why he had missed the deadline.\\n彼はなぜ締め切りを過ぎたのか説明した.",
+        "text": "021 He ___ why he had missed the deadline.\n彼はなぜ締め切りを過ぎたのか説明した.",
         "answer": "explained",
         "meaning": "explain　[他] ～を説明する"
     },
     {
-        "text": "023 It is important to ___ effectively with others in a team.\\nチームで効果的にコミュ二ケーションをとることは重要だ.",
+        "text": "023 It is important to ___ effectively with others in a team.\nチームで効果的にコミュ二ケーションをとることは重要だ.",
         "answer": "communicate",
         "meaning": "communicate　[自] ①（with ～）（～と）意思の疎通をはかる [他] ②～を伝える"
     },
     {
-        "text": "024 This feeling I can’t ___\\n表せないこの気持ち",
+        "text": "024 This feeling I can’t ___\n表せないこの気持ち",
         "answer": "express",
         "meaning": "express　[他] ①（意見，気持ち）を表現する [名] ②急行（列車，バス）"
     },
     {
-        "text": "025 The man running ahead is the one I ___ to run with.\\n前を走っている男は,一緒に走ると約束した人だ.🏃‍➡️",
+        "text": "025 The man running ahead is the one I ___ to run with.\n前を走っている男は,一緒に走ると約束した人だ.🏃‍➡️",
         "answer": "promised",
         "meaning": "promise　[名] ①約束 [他] ②～を約束する"
     },
     {
-        "text": "026 He provided a lot of ___, none of which was useful.\\n彼はたくさんの情報を提供したが,役に立つものはひとつもなかった.",
+        "text": "026 He provided a lot of ___, none of which was useful.\n彼はたくさんの情報を提供したが,役に立つものはひとつもなかった.",
         "answer": "information",
         "meaning": "information　[名] 情報〈不可算〉"
     },
     {
-        "text": "027 With modern ___, we can talk to anyone in the world except the person next to you.\\n現代のテクノロジーでは,隣にいる人以外の誰とでも話すことができる.",
+        "text": "027 With modern ___, we can talk to anyone in the world except the person next to you.\n現代のテクノロジーでは,隣にいる人以外の誰とでも話すことができる.",
         "answer": "technology",
         "meaning": "technology　[名] （科学）技術"
     },
     {
-        "text": "028 ___ shows that sunlight improves mental health.\\n研究によると,日光はメンタルヘルスを改善する.🌞",
+        "text": "028 ___ shows that sunlight improves mental health.\n研究によると,日光はメンタルヘルスを改善する.🌞",
         "answer": "research",
         "meaning": "research　[名] ①（学術）研究 [他] ②～を研究する"
     },
     {
-        "text": "029 We need more building ___ to finish the house.\\n家を完成させるにはもっと建材が必要だ.🏠",
+        "text": "029 We need more building ___ to finish the house.\n家を完成させるにはもっと建材が必要だ.🏠",
         "answer": "material",
         "meaning": ""
     },
     {
-        "text": "030 People who can be replaced by ___ Intelligence\\nAIに代替可能な人.",
+        "text": "030 People who can be replaced by ___ Intelligence\nAIに代替可能な人.",
         "answer": "artificial",
         "meaning": "artificial　[形] 人工的な"
     },
     {
-        "text": "031 Everyone was distracted by his noisy ___ eraser.\\n彼のうるさい電動消しゴムにみんな気を散らされた.",
+        "text": "031 Everyone was distracted by his noisy ___ eraser.\n彼のうるさい電動消しゴムにみんな気を散らされた.",
         "answer": "electric",
         "meaning": "electric　[形] 電気の，電動の"
     },
     {
-        "text": "032 Ancient Egyptians ___ the 365-day calendar.\\n古代エジプト人は365日カレンダーを発明した。",
+        "text": "032 Ancient Egyptians ___ the 365-day calendar.\n古代エジプト人は365日カレンダーを発明した。",
         "answer": "invented",
         "meaning": "invent　[他] ①～を発明する ②（話など）をでっち上げる"
     },
     {
-        "text": "033 ___ that the speed of light is constant, regardless of the observer’s motion\\n光の速度は観測者の運動にかかわらず一定であることを発見する🤪",
+        "text": "033 ___ that the speed of light is constant, regardless of the observer’s motion\n光の速度は観測者の運動にかかわらず一定であることを発見する🤪",
         "answer": "discover",
         "meaning": "discover　[他] ①～を発見する ②（that SV）～を知る，～に気がつく ③（知るという意味で）～に出会う"
     },
     {
-        "text": "034 rapidly ___ city\\n急速に発達した都市",
+        "text": "034 rapidly ___ city\n急速に発達した都市",
         "answer": "developing",
         "meaning": "develop　[自] ①発達する [他] ②～を発達させる ③～を開発する ④（話，考え）を発展させる ⑤（病気）にかかる"
     },
     {
-        "text": "035 He had the ___ to disappear whenever work started.\\n彼は仕事が始まるといつも消える技術を持っていた.",
+        "text": "035 He had the ___ to disappear whenever work started.\n彼は仕事が始まるといつも消える技術を持っていた.",
         "answer": "skill",
         "meaning": "skill　[名] 技術，力"
     },
     {
-        "text": "036 No less important than knowledge is the ___ to question it.\\n知識に劣らず重要なのは,それを疑問視する能力です.",
+        "text": "036 No less important than knowledge is the ___ to question it.\n知識に劣らず重要なのは,それを疑問視する能力です.",
         "answer": "ability",
         "meaning": "ability　[名] 能力"
     },
     {
-        "text": "037 overwhelming ___\\n圧倒的な才能🧬",
+        "text": "037 overwhelming ___\n圧倒的な才能🧬",
         "answer": "talent",
         "meaning": "talent　[名] 才能"
     },
     {
-        "text": "038 Success often comes after continuous ___.\\n成功はたいてい継続的な努力の後にやってくる.",
+        "text": "038 Success often comes after continuous ___.\n成功はたいてい継続的な努力の後にやってくる.",
         "answer": "effort",
         "meaning": "effort　[名] 努力"
     },
     {
-        "text": "040 ___ my ambition to be a pilot\\nパイロットになるという望みを叶える🧑‍✈️",
+        "text": "040 ___ my ambition to be a pilot\nパイロットになるという望みを叶える🧑‍✈️",
         "answer": "achieve",
         "meaning": "achieve　[他] ～を達成する"
     },
     {
-        "text": "043 This machine can ___ 10 parts in one minute.\\nこの機械は１分で10個の部品を生産出来る.",
+        "text": "043 This machine can ___ 10 parts in one minute.\nこの機械は１分で10個の部品を生産出来る.",
         "answer": "produce",
         "meaning": "produce　[他] ①～を生産する，産出する ②（見せるために）～を取り出す [名] ③農作物〈不可算〉"
     },
     {
-        "text": "044 ___ LINE stickers using the teacher's face\\n先生の顔でLINEスタンプを作る",
+        "text": "044 ___ LINE stickers using the teacher's face\n先生の顔でLINEスタンプを作る",
         "answer": "create",
         "meaning": "create　[他] ①～を創造する ②～を引き起こす"
     },
     {
-        "text": "045 Kitano high school was ___ in 1873.\\n北野高校は1873年に設立された.",
+        "text": "045 Kitano high school was ___ in 1873.\n北野高校は1873年に設立された.",
         "answer": "established",
         "meaning": "establish　[他] ①～を確立する，定着させる ②～を設立する"
     },
     {
-        "text": "057 ___ beauty\\n肉体美💪",
+        "text": "057 ___ beauty\n肉体美💪",
         "answer": "physical",
         "meaning": ""
     },
     {
-        "text": "058 She said she had a high ___.\\n彼女は高熱らしい.",
+        "text": "058 She said she had a high ___.\n彼女は高熱らしい.",
         "answer": "fever",
         "meaning": ""
     },
     {
-        "text": "067 Even a small change can have a significant effect on ___.\\n小さな変化でも社会に大きな影響を与える.",
+        "text": "067 Even a small change can have a significant effect on ___.\n小さな変化でも社会に大きな影響を与える.',
         "answer": "society",
         "meaning": "society　[名] ①社会〈不可算〉 ②（ある具体的な）社会〈可算〉 ③（one's ―）～と同席すること ④協会"
     },
     {
-        "text": "068 obey a __ that doesn’t even exist\\nありもしない法に従う",
+        "text": "068 obey a __ that doesn’t even exist\nありもしない法に従う",
         "answer": "law",
         "meaning": ""
     },
     {
-        "text": "069 We don't inherit the Earth from our ___, we borrow it from our children.\\n私たちは先祖から地球を受け継ぐのではなく,子供たちから借りています.🌍",
+        "text": "069 We don't inherit the Earth from our ___, we borrow it from our children.\n私たちは先祖から地球を受け継ぐのではなく,子供たちから借りています.🌍",
         "answer": "ancestors",
         "meaning": ""
     },
     {
-        "text": "070 the estimated ___ of Japan\\n日本の推定人口🗾",
+        "text": "070 the estimated ___ of Japan\n日本の推定人口🗾",
         "answer": "population",
         "meaning": ""
     },
     {
-        "text": "071 Does he not have a ___ language?\\n彼には母語がないのだろうか？😩",
+        "text": "071 Does he not have a ___ language?\n彼には母語がないのだろうか？😩",
         "answer": "native",
         "meaning": ""
     },
     {
-        "text": "072 I want to study ___ after graduating from high school.\\n高校を卒業したら留学したい.",
+        "text": "072 I want to study ___ after graduating from high school.\n高校を卒業したら留学したい.",
         "answer": "abroad",
         "meaning": ""
     },
     {
-        "text": "078 I use ___ transportation to get to school.(不可算)\\n私は学校に行くのに公共交通機関を利用しています.",
+        "text": "078 I use ___ transportation to get to school.(不可算)\n私は学校に行くのに公共交通機関を利用しています.",
         "answer": "public",
         "meaning": "public　[名] ①（the ―）大衆 [形] ②公共の，公の"
     },
     {
-        "text": "079 the key ___ that led to the suspension\\n停学への決定打となる証拠",
+        "text": "079 the key ___ that led to the suspension\n停学への決定打となる証拠",
         "answer": "evidence",
         "meaning": "evidence　[名] 証拠〈不可算〉"
     },
     {
-        "text": "080 They ___ for confidence without thinking.\\n彼らは考えずに信任に投票した.",
+        "text": "080 They ___ for confidence without thinking.\n彼らは考えずに信任に投票した.",
         "answer": "voted",
         "meaning": "vote　[名] ①投票（数)[自] ②投票する"
     },
     {
-        "text": "083 Paris is the ___ of romance, and overpriced coffee.\\nパリはロマンスの都であり、値段の高すぎるコーヒーの都である。",
+        "text": "083 Paris is the ___ of romance, and overpriced coffee.\nパリはロマンスの都であり、値段の高すぎるコーヒーの都である。",
         "answer": "capital",
         "meaning": ""
     },
     {
-        "text": "086 The ___ is determined by supply and demand.\\n価格は需要と供給で決まる.",
+        "text": "086 The ___ is determined by supply and demand.\n価格は需要と供給で決まる.",
         "answer": "price",
         "meaning": ""
     },
     {
-        "text": "091 Shall we split the ___?\\n割り勘にしませんか?",
+        "text": "091 Shall we split the ___?\n割り勘にしませんか?",
         "answer": "bill",
         "meaning": ""
     },
     {
-        "text": "093 His ___ was huge, but his jokes were bankrupt.\\n彼の富は莫大だったが,ジョークは破産状態だった.💰",
+        "text": "093 His ___ was huge, but his jokes were bankrupt.\n彼の富は莫大だったが,ジョークは破産状態だった.💰",
         "answer": "wealth",
         "meaning": ""
     },
     {
-        "text": "094 Consumption tax increases ___ inequality.\\n消費税は経済格差を拡大させる.",
+        "text": "094 Consumption tax increases ___ inequality.\n消費税は経済格差を拡大させる.",
         "answer": "economic",
         "meaning": ""
     },
     {
-        "text": "095 It will ___ fifty dollars extra a month.\\nそれは毎月50ドル余分にかかる.",
+        "text": "095 It will ___ fifty dollars extra a month.\nそれは毎月50ドル余分にかかる.",
         "answer": "cost",
         "meaning": ""
     },
     {
-        "text": "097 During World War II, British chess masters were assigned to codebreaking ___ involving the Enigma machine.\\n第二次世界大戦中,イギリスのチェスマスターたちはエニグマ機に関わる暗号解読の仕事に就いていました.",
+        "text": "097 During World War II, British chess masters were assigned to codebreaking ___ involving the Enigma machine.\n第二次世界大戦中,イギリスのチェスマスターたちはエニグマ機に関わる暗号解読の仕事に就いていました.",
         "answer": "tasks",
         "meaning": "task　[名] 仕事〈可算〉"
     },
     {
-        "text": "098 What you said ___ more than you think.\\n君が言ったことは,君が思っているよりも傷ついたよ.😢",
+        "text": "098 What you said ___ more than you think.\n君が言ったことは,君が思っているよりも傷ついたよ.😢",
         "answer": "hurt",
         "meaning": ""
     },
     {
-        "text": "101 ___ the pen of the person sitting next to me\\n隣の席の人のペンを破壊する",
+        "text": "101 ___ the pen of the person sitting next to me\n隣の席の人のペンを破壊する",
         "answer": "destroy",
         "meaning": ""
     },
     {
-        "text": "111 The captain rescued only the ___ from his own country.\\n船長は自国の乗客だけを救出しました.",
+        "text": "111 The captain rescued only the ___ from his own country.\n船長は自国の乗客だけを救出しました.",
         "answer": "passengers",
         "meaning": ""
     },
     {
-        "text": "116 He climbed the ladder of success, then kicked it away so no one else could ___.\\n彼は成功のはしごを登り,それを蹴飛ばし,他の誰も追随できないようにした.",
+        "text": "116 He climbed the ladder of success, then kicked it away so no one else could ___.\n彼は成功のはしごを登り,それを蹴飛ばし,他の誰も追随できないようにした.",
         "answer": "follow",
         "meaning": ""
     },
     {
-        "text": "117 Not all who ___ are lost.\\n彷徨う人全員が迷っているわけではない.",
+        "text": "117 Not all who ___ are lost.\n彷徨う人全員が迷っているわけではない.",
         "answer": "wander",
         "meaning": ""
     },
     {
-        "text": "120 abandon a project ___ to fail\\n失敗するであろう企画を放棄する🚯",
+        "text": "120 abandon a project ___ to fail\n失敗するであろう企画を放棄する🚯",
         "answer": "likely",
         "meaning": ""
     },
     {
-        "text": "128 Complex ___ compose themselves of simple, ignored mistakes.\\n複雑な問題は,無視された単純なミスから成り立っている.",
+        "text": "128 Complex ___ compose themselves of simple, ignored mistakes.\n複雑な問題は,無視された単純なミスから成り立っている.",
         "answer": "issues",
         "meaning": ""
     },
     {
-        "text": "135 ___ in escaping from prison\\n脱獄に成功する",
+        "text": "135 ___ in escaping from prison\n脱獄に成功する",
         "answer": "succeed",
         "meaning": ""
     },
     {
-        "text": "136 ___ the last train\\n終電を逃す",
+        "text": "136 ___ the last train\n終電を逃す",
         "answer": "miss",
         "meaning": ""
     },
     {
-        "text": "137 abandon a project likely to ___\\n失敗するであろう企画を放棄する🚯",
+        "text": "137 abandon a project likely to ___\n失敗するであろう企画を放棄する🚯",
         "answer": "fail",
         "meaning": ""
     },
     {
-        "text": "138 He ___ silence for wisdom, and loudness for leadership.\\n彼は沈黙を賢さと勘違いし,声の大きさをリーダーシップと勘違いした.",
+        "text": "138 He ___ silence for wisdom, and loudness for leadership.\n彼は沈黙を賢さと勘違いし,声の大きさをリーダーシップと勘違いした.",
         "answer": "mistook",
         "meaning": ""
     },
     {
-        "text": "140 They __ Jews from the Nazis.\\n彼らはナチスからユダヤ人を隠した.",
+        "text": "140 They __ Jews from the Nazis.\n彼らはナチスからユダヤ人を隠した.",
         "answer": "hid",
         "meaning": ""
     },
     {
-        "text": "141 ___ her portrait\\n彼女の似顔絵を描く🎨",
+        "text": "141 ___ her portrait\n彼女の似顔絵を描く🎨",
         "answer": "draw",
         "meaning": ""
     },
     {
-        "text": "146 At dawn, the LGBTQ flag was ___ from his house.\\n夜が明けると、彼の家からLGBTQフラッグが上がった。🏳️‍🌈",
+        "text": "146 At dawn, the LGBTQ flag was ___ from his house.\n夜が明けると、彼の家からLGBTQフラッグが上がった。🏳️‍🌈",
         "answer": "raised",
         "meaning": ""
     },
     {
-        "text": "150 ___ to understand\\nわかっているふりをする",
+        "text": "150 ___ to understand\nわかっているふりをする",
         "answer": "pretend",
         "meaning": ""
     },
     {
-        "text": "151 He said something shallow, ___ to be profound.\\n彼は深そうに見せかけて浅いことを言った",
+        "text": "151 He said something shallow, ___ to be profound.\n彼は深そうに見せかけて浅いことを言った",
         "answer": "pretending",
         "meaning": ""
     },
     {
-        "text": "153 ___ Juso after school\\n放課後,十三を探検する",
+        "text": "153 ___ Juso after school\n放課後,十三を探検する",
         "answer": "explore",
         "meaning": ""
     },
     {
-        "text": "154 It is not what ___ that matters. It is how you respond.\\n大事なのは何が起きたかではない.どう応じるかだ.",
+        "text": "154 It is not what ___ that matters. It is how you respond.\n大事なのは何が起きたかではない.どう応じるかだ.",
         "answer": "happened",
         "meaning": ""
     },
     {
-        "text": "155 More and more problems a___.\\nますます多くの問題が現れた.",
+        "text": "155 More and more problems a___.\nますます多くの問題が現れた.",
         "answer": "appeared",
         "meaning": ""
     },
     {
-        "text": "157 ___ silent\\n黙ったままでいる",
+        "text": "157 ___ silent\n黙ったままでいる",
         "answer": "remain",
         "meaning": ""
     },
     {
-        "text": "162 The list ___ her name.\\nリストには彼女の名前が含まれていた.",
+        "text": "162 The list ___ her name.\nリストには彼女の名前が含まれていた.",
         "answer": "included",
         "meaning": "include　[他] ～を含む"
     },
     {
-        "text": "163 The captain rescued only the passengers from his ___ country.\\n船長は自国の乗客だけを救出しました.",
+        "text": "163 The captain rescued only the passengers from his ___ country.\n船長は自国の乗客だけを救出しました.",
         "answer": "own",
         "meaning": ""
     },
     {
-        "text": "167 ___ is written by the victors.\\n歴史は勝者によって書かれる.",
+        "text": "167 ___ is written by the victors.\n歴史は勝者によって書かれる.",
         "answer": "History",
         "meaning": ""
     },
     {
-        "text": "170 compulsory ___\\n義務教育",
+        "text": "170 compulsory ___\n義務教育",
         "answer": "education",
         "meaning": "compulsory　[形] ①義務的な ②規定の"
     },
     {
-        "text": "171 No less important than ___ is the ability to question it.\\n知識に劣らず重要なのは,それを疑問視する能力です.",
+        "text": "171 No less important than ___ is the ability to question it.\n知識に劣らず重要なのは,それを疑問視する能力です.",
         "answer": "knowledge",
         "meaning": ""
     },
     {
-        "text": "175 I’m worried whether he can ___.\\n彼が卒業できるのか心配だ.🎓",
+        "text": "175 I’m worried whether he can ___.\n彼が卒業できるのか心配だ.🎓",
         "answer": "graduate",
         "meaning": ""
     },
     {
-        "text": "177 ___ by appearances, he is selfish.\\n見た目で判断すると、彼は自分勝手だ。",
+        "text": "177 ___ by appearances, he is selfish.\n見た目で判断すると、彼は自分勝手だ。",
         "answer": "Judging",
         "meaning": ""
     },
     {
-        "text": "182 I cannot ___ life without her.\\n彼女なしの人生なんて想像できない.😍",
+        "text": "182 I cannot ___ life without her.\n彼女なしの人生なんて想像できない.😍",
         "answer": "imagine",
         "meaning": ""
     },
     {
-        "text": "187 That ___ me that he was a bad person.\\nそれは彼が性格の悪い人だったことを思い出させた.😁",
+        "text": "187 That ___ me that he was a bad person.\nそれは彼が性格の悪い人だったことを思い出させた.😁",
         "answer": "reminded",
         "meaning": ""
     },
     {
-        "text": "189 His family celebrated his finally being ___ into college.\\n彼の家族は,彼がついに大学に合格したことを祝った.㊗️",
+        "text": "189 His family celebrated his finally being ___ into college.\n彼の家族は,彼がついに大学に合格したことを祝った.㊗️",
         "answer": "accepted",
         "meaning": ""
     },
     {
-        "text": "194 He ___ to side with the insects.\\n彼はその虫の味方をするようだ.🐛",
+        "text": "194 He ___ to side with the insects.\n彼はその虫の味方をするようだ.🐛",
         "answer": "seems",
         "meaning": ""
     },
     {
-        "text": "197 ___ on myself for now\\n今は自分のことに集中する🔥",
+        "text": "197 ___ on myself for now\n今は自分のことに集中する🔥",
         "answer": "focus",
         "meaning": ""
     },
     {
-        "text": "198 First Olympic games ___ only naked men.\\n初期オリンピックは裸の男性だけ参加できた。",
+        "text": "198 First Olympic games ___ only naked men.\n初期オリンピックは裸の男性だけ参加できた.🔥",
         "answer": "allowed",
         "meaning": ""
     },
     {
-        "text": "202 lose ___ of the destination.\\n目的地を見失う🚩",
+        "text": "202 lose ___ of the destination.\n目的地を見失う🚩",
         "answer": "sight",
         "meaning": ""
     },
     {
-        "text": "205 the delicate balance of ___\\n自然界の絶妙なバランス⚖️",
+        "text": "205 the delicate balance of ___\n自然界の絶妙なバランス⚖️",
         "answer": "nature",
         "meaning": ""
     },
     {
-        "text": "208 Morning glories ___ in the morning.\\nアサガオは朝に咲く.💮",
+        "text": "208 Morning glories ___ in the morning.\nアサガオは朝に咲く.💮",
         "answer": "bloom",
         "meaning": ""
     },
     {
-        "text": "209 This year's ___ will fall short of the average.\\n今年の収穫は平年の収穫に及ばないだろう.",
+        "text": "209 This year's ___ will fall short of the average.\n今年の収穫は平年の収穫に及ばないだろう.🧺",
         "answer": "harvest",
         "meaning": ""
     },
     {
-        "text": "211 If there is an ___, get under a table.\\n地震の際にはテーブルの下にもぐれ.",
+        "text": "211 If there is an ___, get under a table.\n地震の際にはテーブルの下にもぐれ.",
         "answer": "earthquake",
         "meaning": ""
     },
     {
-        "text": "215 The pond ___ over.\\n池が一面凍った.",
+        "text": "215 The pond ___ over.\n池が一面凍った.",
         "answer": "froze",
         "meaning": ""
     },
     {
-        "text": "216 The cherry blossoms are ___ in the stream.\\n桜が小川に反射する🌸",
+        "text": "216 The cherry blossoms are ___ in the stream.\n桜が小川に反射する🌸",
         "answer": "reflicted",
         "meaning": ""
     },
     {
-        "text": "228 an ___ that doesn’t seem guilty at all\\n罪の意識があるとは思えない態度🤪",
+        "text": "228 an ___ that doesn’t seem guilty at all\n罪の意識があるとは思えない態度🤪",
         "answer": "attitude",
         "meaning": ""
     },
     {
-        "text": "230 unique ___\\nユニークな特徴",
+        "text": "230 unique ___\nユニークな特徴",
         "answer": "characteristics",
         "meaning": ""
     },
     {
-        "text": "236 the ___ answer\\n正しい答え✅",
+        "text": "236 the ___ answer\n正しい答え✅",
         "answer": "correct",
         "meaning": ""
     },
     {
-        "text": "237 His “___ society” suspiciously looks like his bedroom.\\n彼の「理想の社会」は、怪しいくらいに彼の寝室にそっくりだ。",
+        "text": "237 His “___ society” suspiciously looks like his bedroom.\n彼の「理想の社会」は、怪しいくらいに彼の寝室にそっくりだ。",
         "answer": "ideal",
         "meaning": ""
     },
     {
-        "text": "239 ___ clothes for an apology press conference\\n謝罪会見にふさわしい服装🦹",
+        "text": "239 ___ clothes for an apology press conference\n謝罪会見にふさわしい服装🦹",
         "answer": "appropriate",
         "meaning": ""
     },
     {
-        "text": "241 recall my ___ school memories\\n小学校の思い出を思い出す",
+        "text": "241 recall my ___ school memories\n小学校の思い出を思い出す",
         "answer": "elementary",
         "meaning": ""
     },
     {
-        "text": "243 It is not what happened that ___ . It is how you respond.\\n大事なのは何が起きたかではない.どう応じるかだ.",
+        "text": "243 It is not what happened that ___ . It is how you respond.\n大事なのは何が起きたかではない.どう応じるかだ.",
         "answer": "matters",
         "meaning": ""
     },
     {
-        "text": "245 I came up with a ___ idea!\\n天才的なアイデアを思いついた!💡",
+        "text": "245 I came up with a ___ idea!\n天才的なアイデアを思いついた!💡",
         "answer": "brilliant",
         "meaning": ""
     },
     {
-        "text": "246 a ___ corpse\\n生き生きとした死体🤡",
+        "text": "246 a ___ corpse\n生き生きとした死体🤡",
         "answer": "lively",
         "meaning": ""
     },
     {
-        "text": "248 a ___ breeze\\n心地よいそよかぜ🍃",
+        "text": "248 a ___ breeze\n心地よいそよかぜ🍃",
         "answer": "pleasant",
         "meaning": ""
     },
     {
-        "text": "252 What an ___ problem!\\nなんてひどい問題だ!",
+        "text": "252 What an ___ problem!\nなんてひどい問題だ!",
         "answer": "awful",
         "meaning": ""
     },
     {
-        "text": "254 Her top looks ___.\\n彼女のトップはきつそうだ.",
+        "text": "254 Her top looks ___.\n彼女のトップはきつそうだ.",
         "answer": "tight",
         "meaning": ""
     },
     {
-        "text": "255 ___ clothes\\nゆったりとした服",
+        "text": "255 ___ clothes\nゆったりとした服",
         "answer": "loose",
         "meaning": ""
     },
     {
-        "text": "257 Is your head ___ ?\\nお前の頭の中はからっぽなのか？🤯",
+        "text": "257 Is your head ___ ?\nお前の頭の中はからっぽなのか？🤯",
         "answer": "empty",
         "meaning": ""
     },
     {
-        "text": "258 People tend to accept ideas not because they are true, but because they are ___.\\n人々はアイデアが真実だからではなく,馴染みがあるから受け入れる傾向があります.",
+        "text": "258 People tend to accept ideas not because they are true, but because they are ___.\n人々はアイデアが真実だからではなく,馴染みがあるから受け入れる傾向があります.",
         "answer": "familiar",
         "meaning": ""
     },
     {
-        "text": "268 Consumption tax ___ economic inequality.\\n消費税は経済格差を拡大させる.",
+        "text": "268 Consumption tax ___ economic inequality.\n消費税は経済格差を拡大させる.",
         "answer": "increases",
         "meaning": ""
     },
     {
-        "text": "269 The world is trying to ___ dependence on fossil fuels.\\n世界は化石燃料への依存を減らそうとしている.",
+        "text": "269 The world is trying to ___ dependence on fossil fuels.\n世界は化石燃料への依存を減らそうとしている.",
         "answer": "reduce",
         "meaning": ""
     },
     {
-        "text": "271 Don’t ___ your chickens before they hatch.\\n卵がかえる前にヒヨコを数えるな🐣",
+        "text": "271 Don’t ___ your chickens before they hatch.\n卵がかえる前にヒヨコを数えるな🐣",
         "answer": "count",
         "meaning": ""
     },
     {
-        "text": "279 It will cost fifty dollars ___ a month.\\nそれは毎月50ドル余分にかかる.",
+        "text": "279 It will cost fifty dollars ___ a month.\nそれは毎月50ドル余分にかかる.💸",
         "answer": "extra",
         "meaning": ""
     },
     {
-        "text": "280 If you're ___, let's go already!\\n準備できているなら,もう行こうよ!",
+        "text": "280 If you're ___, let's go already!\n準備できているなら,もう行こうよ!🚗",
         "answer": "ready",
         "meaning": ""
     },
     {
-        "text": "284 Did you have your hair cut? It ___ you!\\n髪切った？似合ってるよ！",
+        "text": "284 Did you have your hair cut? It ___ you!\n髪切った？似合ってるよ！✅",
         "answer": "suits",
         "meaning": ""
     },
     {
-        "text": "286 A:What movie has no kissing ___? B:Your life.\\nA:キスシーンの無い映画は？",
+        "text": "286 A:What movie has no kissing ___? B:Your life.\nA:キスシーンの無い映画は？💋",
         "answer": "scenes",
         "meaning": ""
     },
     {
-        "text": "291 Looks like ___ has somehow arrived outdoors.\\n外では春が来たようだ.",
+        "text": "291 Looks like ___ has somehow arrived outdoors.\n外では春が来たようだ.",
         "answer": "spring",
         "meaning": ""
     },
     {
-        "text": "293 Children under six must be accomanied by someone ___ 18 or older.\\n6歳未満のお子様には18歳以上の人の付き添いが必要です.",
+        "text": "293 Children under six must be accomanied by someone ___ 18 or older.\n6歳未満のお子様には18歳以上の人の付き添いが必要です.",
         "answer": "aged",
         "meaning": ""
     },
     {
-        "text": "294 a ___ gap\\n世代間格差",
+        "text": "294 a ___ gap\n世代間格差",
         "answer": "generation",
         "meaning": ""
     },
     {
-        "text": "302 ___ Greeks argued about politics more than TikTok.\\n古代ギリシャ人は、TikTokよりも政治で口論していた。",
+        "text": "302 ___ Greeks argued about politics more than TikTok.\n古代ギリシャ人は、TikTokよりも政治で口論していた.",
         "answer": "ancient",
         "meaning": ""
     },
     {
-        "text": "303 The morning will be ___ in the Airin district.\\n午前中はあいりん地区で過ごす.",
+        "text": "303 The morning will be ___ in the Airin district.\n午前中はあいりん地区で過ごす.",
         "answer": "spent",
         "meaning": ""
     },
     {
-        "text": "309 A:Teacher, I feel like I might be a ___ can. B:What a trashy joke.\\nA:先生、私は自分がゴミ箱なんじゃないかと思っているのですが。B:そんなゴミみたいな冗談を。🗑️",
+        "text": "309 A:Teacher, I feel like I might be a ___ can. B:What a trashy joke.\nA:先生、私は自分がゴミ箱なんじゃないかと思っているのですが。B:そんなゴミみたいな冗談を。🗑️",
         "answer": "garbage",
         "meaning": ""
     },
     {
-        "text": "311 If you put ___ on a grandma, can you call it a bicycle?\\nおばあちゃんに車輪を付けたら,自転車と呼べるのか.👵",
+        "text": "311 If you put ___ on a grandma, can you call it a bicycle?\nおばあちゃんに車輪を付けたら,自転車と呼べるのか.👵",
         "answer": "wheels",
         "meaning": ""
     },
     {
-        "text": "315 Omitting the tale of the Straw Millionaire, trying to exchange a ___ for a Benz.\\nわらしべ長者の物語を省略して,ひもをベンツと交換しようとする.",
+        "text": "315 Omitting the tale of the Straw Millionaire, trying to exchange a ___ for a Benz.\nわらしべ長者の物語を省略して,ひもをベンツと交換しようとする.",
         "answer": "string",
         "meaning": ""
     },
     {
-        "text": "321 This ___ is in the way.\\nこの冷蔵庫は邪魔だ.",
+        "text": "321 This ___ is in the way.\nこの冷蔵庫は邪魔だ.",
         "answer": "refrigerator",
         "meaning": ""
     },
     {
-        "text": "324 He ___ more than just money to buy his daughter an instrument.\\n彼は娘に楽器を買うためにお金以上のものを支払った。",
+        "text": "324 He ___ more than just money to buy his daughter an instrument.\n彼は娘に楽器を買うためにお金以上のものを支払った。",
         "answer": "paid",
         "meaning": ""
     },
     {
-        "text": "332 It was the ___ of many demonstrations.\\nそこは多くのデモが行われた場所だった.",
+        "text": "332 It was the ___ of many demonstrations.\nそこは多くのデモが行われた場所だった.",
         "answer": "site",
         "meaning": ""
     },
     {
-        "text": "336 ___, ___, ___ your boat\\nGently down the stream\\nMerrily, merrily, merrily, merrily\\nLife is but a dream\\nボートを漕げ、漕げ、漕げ\\nそっと流れを下って\\n陽気に、陽気に、陽気に、陽気に\\n人生は夢に過ぎない",
+        "text": "336 ___, ___, ___ your boat\nGently down the stream\nMerrily, merrily, merrily, merrily\nLife is but a dream\nボートを漕げ、漕げ、漕げ\nそっと流れを下って\n陽気に、陽気に、陽気に、陽気に\n人生は夢に過ぎない",
         "answer": "row",
         "meaning": ""
     },
     {
-        "text": "338 The rook moves in the same ___ as the hisha.\\nルークは飛車と同じ方向に進む.♟️",
+        "text": "338 The rook moves in the same ___ as the hisha.\nルークは飛車と同じ方向に進む.♟️",
         "answer": "directions",
         "meaning": ""
     },
     {
-        "text": "339 the symbol of their ___\\n彼らの文化の象徴",
+        "text": "339 the symbol of their ___\n彼らの文化の象徴",
         "answer": "culture",
         "meaning": ""
     },
     {
-        "text": "340 I want to transfer to the ___ course.\\n美術コースに転向したい.🎨",
+        "text": "340 I want to transfer to the ___ course.\n美術コースに転向したい.🎨",
         "answer": "art",
         "meaning": ""
     },
     {
-        "text": "343 He paid more than just money to buy his daughter an ___ .\\n彼は娘に楽器を買うためにお金以上のものを支払った。",
+        "text": "343 He paid more than just money to buy his daughter an ___ .\n彼は娘に楽器を買うためにお金以上のものを支払った.🫁",
         "answer": "instrument",
         "meaning": ""
     },
     {
-        "text": "345 the challenge of having to create example ___ to protect copyright\\n著作権保護のため例文を作らなければならないという課題",
+        "text": "345 the challenge of having to create example ___ to protect copyright\n著作権保護のため例文を作らなければならないという課題",
         "answer": "sentences",
         "meaning": ""
     },
     {
-        "text": "347 The teacher advised me to study English ___ .\\n先生は私に英単語を勉強するよう助言した.",
+        "text": "347 The teacher advised me to study English ___ .\n先生は私に英単語を勉強するよう助言した.",
         "answer": "vocabulary",
         "meaning": ""
     },
     {
-        "text": "351 ___ of an earthquake\\n地震の兆候",
+        "text": "351 ___ of an earthquake\n地震の兆候",
         "answer": "signs",
         "meaning": ""
     },
     {
-        "text": "356 What we see ___ not only on what we look at, but also on where we look from.\\n私たちが見るものは,何を見るかだけでなく,どこから見るかによっても異なります.",
+        "text": "356 What we see ___ not only on what we look at, but also on where we look from.\n私たちが見るものは,何を見るかだけでなく,どこから見るかによっても異なります.",
         "answer": "depends",
         "meaning": ""
     },
     {
-        "text": "361 The truth is often simple, but people ___ complex answers.\\n真実はしばしば単純ですが,人々は複雑な答えを好みます.",
+        "text": "361 The truth is often simple, but people ___ complex answers.\n真実はしばしば単純ですが,人々は複雑な答えを好みます.",
         "answer": "prefer",
         "meaning": ""
     },
     {
-        "text": "362 All America ___ .\\n全米が泣いた.😢",
+        "text": "362 All America ___ .\n全米が泣いた.😢",
         "answer": "wept",
         "meaning": ""
     },
     {
-        "text": "364 I’m ___ whether he can graduate.\\n彼が卒業できるのか心配だ.🎓",
+        "text": "364 I’m ___ whether he can graduate.\n彼が卒業できるのか心配だ.🎓",
         "answer": "worried",
         "meaning": ""
     },
     {
-        "text": "366 I am not ___ with my current salary.\\n私は今の給料に満足していない.",
+        "text": "366 I am not ___ with my current salary.\n私は今の給料に満足していない.",
         "answer": "satisfied",
         "meaning": ""
     },
     {
-        "text": "374 What a ___ .\\n残念だ。",
+        "text": "374 What a ___ .\n残念だ。",
         "answer": "pity",
         "meaning": ""
     },
     {
-        "text": "378 Even a small change can have a significant ___ on society.\\n小さな変化でも社会に大きな影響を与える.",
+        "text": "378 Even a small change can have a significant ___ on society.\n小さな変化でも社会に大きな影響を与える.",
         "answer": "effect",
         "meaning": ""
     },
     {
-        "text": "393 ___ a small change can have a significant effect on society.\\n小さな変化でも社会に大きな影響を与える.",
+        "text": "393 ___ a small change can have a significant effect on society.\n小さな変化でも社会に大きな影響を与える.",
         "answer": "even",
         "meaning": ""
     },
     {
-        "text": "400 With modern technology, we can talk to anyone in the world ___ the person next to you.\\n現代のテクノロジーでは,隣にいる人以外の誰とでも話すことができる.",
+        "text": "400 With modern technology, we can talk to anyone in the world ___ the person next to you.\n現代のテクノロジーでは,隣にいる人以外の誰とでも話すことができる.",
         "answer": "except",
         "meaning": ""
     },
     {
-        "text": "401 The ___ club is basically free entertainment for teachers.\\nディベート部は、教師にとってほぼ無料の娯楽だ。",
+        "text": "401 The ___ club is basically free entertainment for teachers.\nディベート部は、教師にとってほぼ無料の娯楽だ。🤓🥸",
         "answer": "debate",
         "meaning": ""
     },
     {
-        "text": "402 I apologized for ___ .\\n私は批判したことを謝った.",
+        "text": "402 I apologized for ___ .\n私は批判したことを謝った.",
         "answer": "criticizing",
         "meaning": ""
     },
     {
-        "text": "410 ___ something special\\n特別なことを要求する",
+        "text": "410 ___ something special\n特別なことを要求する",
         "answer": "demand",
         "meaning": ""
     },
     {
-        "text": "411 We have a strong ___ to finish our homework.\\n私たちは宿題を終わらせたいという強い願望を持っている.",
+        "text": "411 We have a strong ___ to finish our homework.\n私たちは宿題を終わらせたいという強い願望を持っている.",
         "answer": "desire",
         "meaning": ""
     },
     {
-        "text": "416 History books never ___ who cleaned up after wars.\\n歴史の本は、戦争のあとに掃除した人のことは決して書かない。",
+        "text": "416 History books never ___ who cleaned up after wars.\n歴史の本は、戦争のあとに掃除した人のことは決して書かない.",
         "answer": "mention",
         "meaning": ""
     },
     {
-        "text": "418 ___ my great wisdom\\n自分が賢いということを示す",
+        "text": "418 ___ my great wisdom\n自分が賢いということを示す",
         "answer": "demonstrate",
         "meaning": ""
     },
     {
-        "text": "420 It is not what happened that matters. It is how you ___ .\\n大事なのは何が起きたかではない.どう応じるかだ.",
+        "text": "420 It is not what happened that matters. It is how you ___ .\n大事なのは何が起きたかではない.どう応じるかだ.",
         "answer": "respond",
         "meaning": ""
     },
     {
-        "text": "432 The world is trying to reduce dependence on fossil ___ .\\n世界は化石燃料への依存を減らそうとしている.",
+        "text": "432 The world is trying to reduce dependence on fossil ___ \\n世界は化石燃料への依存を減らそうとしている.",
         "answer": "fuels",
         "meaning": ""
     },
     {
-        "text": "433 ___ pencil sharpener\\n原子力えんぴつ削り器✏️",
+        "text": "433 ___ pencil sharpener\n原子力えんぴつ削り器✏️",
         "answer": "nuclear",
         "meaning": ""
     },
     {
-        "text": "434 He’s been ___ her aunt for months\\n彼は何か月も彼女のおばを狙っています.😱",
+        "text": "434 He’s been ___ her aunt for months\n彼は何か月も彼女のおばを狙っています.😱",
         "answer": "pursuing",
         "meaning": ""
     },
     {
-        "text": "438 ___ my duties\\n義務を果たす",
+        "text": "438 ___ my duties\n義務を果たす",
         "answer": "fulfill",
         "meaning": ""
     },
     {
-        "text": "440 the ___ of having to create example sentences to protect copyright\\n著作権保護のため例文を作らなければならないという課題",
+        "text": "440 the ___ of having to create example sentences to protect copyright\n著作権保護のため例文を作らなければならないという課題",
         "answer": "challenge",
         "meaning": ""
     },
     {
-        "text": "441 I ___ at him, but the arrow hit the apple on his head.\\n私は彼を狙ったが,矢は彼の頭の上のリンゴに当たった.🍎",
+        "text": "441 I ___ at him, but the arrow hit the apple on his head.\n私は彼を狙ったが,矢は彼の頭の上のリンゴに当たった.🍎",
         "answer": "aimed",
         "meaning": ""
     },
     {
-        "text": "443 Is his face ___ or has it always been ___ ?\\n彼は青ざめているのか,いつも青白いのか.🥶",
+        "text": "443 Is his face ___ or has it always been ___ ?\n彼は青ざめているのか,いつも青白いのか.🥶",
         "answer": "pale",
         "meaning": ""
     },
     {
-        "text": "446 wait to ___ to death\\n餓死するのを待つ",
+        "text": "446 wait to ___ to death\n餓死するのを待つ🥖",
         "answer": "starve",
         "meaning": ""
     },
     {
-        "text": "448 It is best to get a lot of ___ .\\n休養を十分にとるのが一番だ.",
+        "text": "448 It is best to get a lot of ___ .\n休養を十分にとるのが一番だ.",
         "answer": "rest",
         "meaning": ""
     },
     {
-        "text": "449 He was conscious during the entire ___ .\\n彼は手術中ずっと意識があった.😱",
+        "text": "449 He was conscious during the entire ___ .\n彼は手術中ずっと意識があった.😱",
         "answer": "surgery",
         "meaning": ""
     },
     {
-        "text": "453 breast ___ screening will be offered for free.\\n乳がんの検査が無料で提供される.",
+        "text": "453 breast ___ screening will be offered for free.\n乳がんの検査が無料で提供される.",
         "answer": "cancer",
         "meaning": ""
     },
     {
-        "text": "454 Call an ___ !\\n救急車を呼んで!",
+        "text": "454 Call an ___ !\n救急車を呼んで!🚑",
         "answer": "ambulance",
         "meaning": ""
     },
     {
-        "text": "461 By the time we reached the top of the mountain, we were all e___\\n山頂に着くころまでには,私たちはみんなへとへとになっていた.",
+        "text": "461 By the time we reached the top of the mountain, we were all e___\n山頂に着くころまでには,私たちはみんなへとへとになっていた.🌄",
         "answer": "exhausted",
         "meaning": ""
     },
     {
-        "text": "465 train the chest m___\\n胸筋を鍛える",
+        "text": "465 train the chest m___\n胸筋を鍛える",
         "answer": "muscles",
         "meaning": ""
     },
     {
-        "text": "469 What g___ is that?\\nそれはなんていう性別なんだい？⚧️",
+        "text": "469 What g___ is that?\nそれはなんていう性別なんだい？⚧️",
         "answer": "gender",
         "meaning": ""
     },
     {
-        "text": "471 r___ discrimination\\n人種差別",
+        "text": "471 r___ discrimination\n人種差別",
         "answer": "racial",
         "meaning": ""
     },
     {
-        "text": "479 All animals are e___, but some animals are more e___ than others.\\n全ての動物は平等だが、中には他よりもっと平等な動物もいる。",
+        "text": "479 All animals are e___, but some animals are more e___ than others.\n全ての動物は平等だが、中には他よりもっと平等な動物もいる。",
         "answer": "equal",
         "meaning": ""
     },
     {
-        "text": "483 Social Networking S___\\nソーシャル・ネットワーキング・サービス",
+        "text": "483 Social Networking S___\nソーシャル・ネットワーキング・サービス",
         "answer": "service",
         "meaning": ""
     },
     {
-        "text": "490 Mankind has achieved great p___ over the past few centuries.\\n人類はここ数百年で大きな繁栄を遂げた.",
+        "text": "490 Mankind has achieved great p___ over the past few centuries.\n人類はここ数百年で大きな繁栄を遂げた.",
         "answer": "prosperity",
         "meaning": "prosperity [名] 繁栄"
     },
     {
-        "text": "490 racial d___\\n人種差別",
+        "text": "490 racial d___\n人種差別",
         "answer": "discrimination",
         "meaning": ""
     },
     {
-        "text": "502 People ___ with others in many ways.\\n人々はいろいろな形で他人と関わり合っている.",
+        "text": "502 People ___ with others in many ways.\n人々はいろいろな形で他人と関わり合っている.",
         "answer": "interact",
         "meaning": ""
     },
     {
-        "text": "504 The consumption tax should be ___.\\n消費税は廃止されるべきだ.",
+        "text": "504 The consumption tax should be ___.\n消費税は廃止されるべきだ.",
         "answer": "abolished",
         "meaning": ""
     },
     {
-        "text": "507 fulfill my ___\\n義務を果たす",
+        "text": "507 fulfill my ___\n義務を果たす",
         "answer": "duties",
         "meaning": ""
     },
     {
-        "text": "509 The one-child ___ in China is successful to some extent.",
+        "text": "509 The one-child ___ in China is successful to some extent.\n中国の一人っ子政策は,ある程度成功している.🐼🐼🐼",
         "answer": "policy",
         "meaning": ""
     },
     {
-        "text": "514 Consumption ___ increases economic inequality.\\n消費税は経済格差を拡大させる.",
+        "text": "514 Consumption ___ increases economic inequality.\n消費税は経済格差を拡大させる.",
         "answer": "tax",
         "meaning": ""
     },
     {
-        "text": "515 Scholarships help students pay for college tuition and ___.\\n奨学金は学生が大学の授業料や費用を支払うのを助ける.",
+        "text": "515 Scholarships help students pay for college tuition and ___.\n奨学金は学生が大学の授業料や費用を支払うのを助ける.",
         "answer": "expenses",
         "meaning": ""
     },
     {
-        "text": "516 ___ collection notice\\n借金の督促状",
+        "text": "516 ___ collection notice\n借金の督促状",
         "answer": "debt",
         "meaning": ""
     },
     {
-        "text": "522 Don't ___ your precious time.\\n貴重な時間を浪費するな.⌛",
+        "text": "522 Don't ___ your precious time.\n貴重な時間を浪費するな.⌛",
         "answer": "waste",
         "meaning": ""
     },
     {
-        "text": "527 During World War II, British chess masters were ___ to codebreaking tasks involving the Enigma machine.\\n第二次世界大戦中,イギリスのチェスマスターたちはエニグマ機に関わる暗号解読の仕事に就いていました.",
+        "text": "527 During World War II, British chess masters were ___ to codebreaking tasks involving the Enigma machine.\n第二次世界大戦中,イギリスのチェスマスターたちはエニグマ機に関わる暗号解読の仕事に就いていました.",
         "answer": "assigned",
         "meaning": ""
     },
     {
-        "text": "535 He refused to sign the ___.\\n彼はその書類にサインするのを拒んだ.",
+        "text": "535 He refused to sign the ___.\n彼はその書類にサインするのを拒んだ.",
         "answer": "document",
         "meaning": ""
     },
     {
-        "text": "536 She works in the sales ___.\\n彼女は営業部で働いている.",
+        "text": "536 She works in the sales ___.\n彼女は営業部で働いている.",
         "answer": "department",
         "meaning": ""
     },
     {
-        "text": "539 The road to success is under ___.\\n成功への道は工事中だ.🚧",
+        "text": "539 The road to success is under ___.\n成功への道は工事中だ.🚧",
         "answer": "construction",
         "meaning": ""
     },
     {
-        "text": "545 Complex issues ___ themselves of simple, ignored mistakes.\\n複雑な問題は,無視された単純なミスから成り立っている.",
+        "text": "545 Complex issues ___ themselves of simple, ignored mistakes.\n複雑な問題は,無視された単純なミスから成り立っている.",
         "answer": "compose",
         "meaning": ""
     },
     {
-        "text": "546 Ideas ___ quickest to the minds already half convinced.\\n考えは半分納得した心に一番早くくっつく.",
+        "text": "546 Ideas ___ quickest to the minds already half convinced.\n考えは半分納得した心に一番早くくっつく.",
         "answer": "attach",
         "meaning": ""
     },
     {
-        "text": "553 perfect ___\\n完全犯罪",
+        "text": "553 perfect ___\n完全犯罪",
         "answer": "crime",
         "meaning": ""
     },
     {
-        "text": "555 ___ posters on the wall\\n壁にポスターを貼る",
+        "text": "555 ___ posters on the wall\n壁にポスターを貼る",
         "answer": "stick",
         "meaning": ""
     },
     {
-        "text": "568 Instagram does more ___ than good.\\nインスタグラムは益より害になる.",
+        "text": "568 Instagram does more ___ than good.\nインスタグラムは益より害になる.",
         "answer": "harm",
         "meaning": ""
     },
     {
-        "text": "572 Honey never ___.\\nはちみつは腐りません.(台無しにならない.)🍯",
+        "text": "572 Honey never ___.\nはちみつは腐りません.(台無しにならない.)🍯",
         "answer": "spoils",
         "meaning": ""
     },
     {
-        "text": "573 The Colosseum could hold up to 50,000 ___.\\nコロッセオは5万人（の観客）まで収容可能だった.",
+        "text": "573 The Colosseum could hold up to 50,000 ___.\nコロッセオは5万人（の観客）まで収容可能だった.",
         "answer": "spectators",
         "meaning": ""
     },
     {
-        "text": "574 a distant ___ , that is, a stranger\\n遠い親戚,つまり他人",
+        "text": "574 a distant ___ , that is, a stranger\n遠い親戚,つまり他人  (誰？)",
         "answer": "relative",
         "meaning": ""
     },
     {
-        "text": "576 lose sight of the ___.\\n目的地を見失う🚩",
+        "text": "576 lose sight of the ___.\n目的地を見失う🚩",
         "answer": "destination",
         "meaning": ""
     },
     {
-        "text": "577 I use public ___ to get to school.(不可算)\\n私は学校に行くのに公共交通機関を利用しています.",
+        "text": "577 I use public ___ to get to school.(不可算)\n私は学校に行くのに公共交通機関を利用しています.",
         "answer": "transportation",
         "meaning": ""
     },
     {
-        "text": "583 like the ___ of a river\\n川の流れのように",
+        "text": "583 like the ___ of a river\n川の流れのように",
         "answer": "flow",
         "meaning": ""
     },
     {
-        "text": "586 ___ time\\n通学時間",
+        "text": "586 ___ time\n通学時間",
         "answer": "commuting",
         "meaning": ""
     },
     {
-        "text": "587 Children under six must be ___ by someone aged 18 or older.\\n6歳未満のお子様には18歳以上の人の付き添いが必要です.",
+        "text": "587 Children under six must be ___ by someone aged 18 or older.\n6歳未満のお子様には18歳以上の人の付き添いが必要です.",
         "answer": "accompanied",
         "meaning": ""
     },
     {
-        "text": "597 He was ___ to go out for nearly a decade.\\n彼は10年近く外出を禁止された.",
+        "text": "597 He was ___ to go out for nearly a decade.\n彼は10年近く外出を禁止された.",
         "answer": "forbidden",
         "meaning": ""
     },
     {
-        "text": "599 He ___ to sign the document.\\n彼はその書類にサインするのを拒んだ.",
+        "text": "599 He ___ to sign the document.\n彼はその書類にサインするのを拒んだ.",
         "answer": "refused",
         "meaning": ""
     },
     {
-        "text": "602 Ideas attach quickest to the minds already half ___.\\n考えは半分納得した心に一番早くくっつく.",
+        "text": "602 Ideas attach quickest to the minds already half ___.\n考えは半分納得した心に一番早くくっつく.",
         "answer": "convinced",
         "meaning": ""
     },
     {
-        "text": "604 ___ news ___ faster than real news.\\nフェイクニュースは本当のニュースより速く拡散する.",
+        "text": "604 ___ news ___ faster than real news.\nフェイクニュースは本当のニュースより速く拡散する.",
         "answer": "spreads",
         "meaning": ""
     },
     {
-        "text": "610 I can ___ everything except temptation.\\n私は誘惑以外の全てに耐えうる.",
+        "text": "610 I can ___ everything except temptation.\n私は誘惑以外の全てに耐えうる.",
         "answer": "resist",
         "meaning": ""
     },
     {
-        "text": "616 ___ a law that doesn’t even exist\\nありもしない法に従う🤫",
+        "text": "616 ___ a law that doesn’t even exist\nありもしない法に従う🤫",
         "answer": "obey",
         "meaning": ""
     },
     {
-        "text": "618 Takeshi often ___ his forehead into utility poles.\\nタケシはよく電柱に額をぶつける。",
+        "text": "618 Takeshi often ___ his forehead into utility poles.\nタケシはよく電柱に額をぶつける。",
         "answer": "bumps",
         "meaning": ""
     },
     {
-        "text": "626 There are times when I ___.\\nつまずく時もある.",
+        "text": "626 There are times when I ___.\nつまずく時もある.",
         "answer": "stumble",
         "meaning": ""
     },
     {
-        "text": "627 appropriate clothes for an apology ___ conference\\n謝罪会見にふさわしい服装🦹",
+        "text": "627 appropriate clothes for an apology ___ conference\n謝罪会見にふさわしい服装🦹",
         "answer": "press",
         "meaning": ""
     },
     {
-        "text": "628 ___ out a broken heart\\n失恋をずるずると引きずる",
+        "text": "628 ___ out a broken heart\n失恋をずるずると引きずる",
         "answer": "drag",
         "meaning": ""
     },
     {
-        "text": "630 I got ___ on the arm by a kitten.\\n子猫に腕をひっかかれた.😼",
+        "text": "630 I got ___ on the arm by a kitten.\n子猫に腕をひっかかれた.😼",
         "answer": "scratched",
         "meaning": ""
     },
     {
-        "text": "631 A job that requires constant ___ \\nおじぎし続ける仕事",
+        "text": "631 a job that requires constant ___\nおじぎし続ける仕事",
         "answer": "bowing",
         "meaning": ""
     },
     {
-        "text": "633 She ___.\\n彼女はためいきをついた.😮‍💨",
+        "text": "633 She ___.\n彼女はためいきをついた.😮‍💨",
         "answer": "sighed",
         "meaning": ""
     },
     {
-        "text": "638 ___ the people from the swimming make-up class\\n人々を水泳補講から解放する🏊",
+        "text": "638 ___ the people from the swimming make-up class\n人々を水泳補講から解放する🏊",
         "answer": "release",
         "meaning": ""
     },
     {
-        "text": "639 succeed in ___ from prison\\n脱獄に成功する",
+        "text": "639 succeed in ___ from prison\n脱獄に成功する",
         "answer": "escaping",
         "meaning": ""
     },
     {
-        "text": "642 The picture was ___ upside down.\\nその絵は逆さまに掛かっていた.",
+        "text": "642 The picture was ___ upside down.\nその絵は逆さまに掛かっていた.",
         "answer": "hung",
         "meaning": ""
     },
     {
-        "text": "644 ___ while the iron is hot\\n鉄は熱いうちに打て",
+        "text": "644 ___ while the iron is hot\n鉄は熱いうちに打て🔥",
         "answer": "strike",
         "meaning": ""
     },
     {
-        "text": "646 Squids have a membrane that ___ their internal organs.\\nイカは内臓を守る膜を持つ。",
+        "text": "646 Squids have a membrane that ___ their internal organs.\nイカは内臓を守る膜を持つ。",
         "answer": "protects",
         "meaning": ""
     },
     {
-        "text": "647 I ___ my ankle in P.E.\\n私は体育の授業で足首をひねった。",
+        "text": "647 I ___ my ankle in P.E.\n私は体育の授業で足首をひねった。",
         "answer": "twisted",
         "meaning": ""
     },
     {
-        "text": "648 ___ school\\n学校をサボる",
+        "text": "648 ___ school\n学校をサボる",
         "answer": "skip",
         "meaning": ""
     },
     {
-        "text": "653 make it look as if I ___",
+        "text": "653 make it look as if I ___\nまるで私が出席したかのように見せる",
         "answer": "attended",
         "meaning": ""
     },
     {
-        "text": "616 obey a law that doesn’t even ___\\nありもしない法に従う🤫",
+        "text": "616 obey a law that doesn’t even ___\nありもしない法に従う🤫",
         "answer": "exist",
         "meaning": ""
     },
     {
-        "text": "658 During World War II, British chess masters were assigned to codebreaking tasks ___ the Enigma machine.\\n第二次世界大戦中,イギリスのチェスマスターたちはエニグマ機に関わる暗号解読の仕事に就いていました.",
+        "text": "658 During World War II, British chess masters were assigned to codebreaking tasks ___ the Enigma machine.\n第二次世界大戦中,イギリスのチェスマスターたちはエニグマ機に関わる暗号解読の仕事に就いていました.",
         "answer": "involving",
         "meaning": ""
     },
     {
-        "text": "659 A job that ___ constant bowing\\nおじぎし続ける仕事",
+        "text": "659 A job that ___ constant bowing\nおじぎし続ける仕事",
         "answer": "requires",
         "meaning": ""
     },
     {
-        "text": "668 They felt that their happy life would not last long.\\n彼らは,自分たちの幸せな生活が長くは続かないと感じていた.",
+        "text": "668 They felt that their happy life would not last long.\n彼らは,自分たちの幸せな生活が長くは続かないと感じていた.",
         "answer": "last",
         "meaning": ""
     },
     {
-        "text": "669 ___ invitation\\n同窓会の案内状",
+        "text": "669 ___ invitation\n同窓会の案内状",
         "answer": "reunion",
         "meaning": ""
     },
     {
-        "text": "671 ___ is the basis of clear thinking and good arguments.\\n論理は明晰な思考と良い議論の基礎である。",
+        "text": "671 ___ is the basis of clear thinking and good arguments.\n論理は明晰な思考と良い議論の基礎である。",
         "answer": "Logic",
         "meaning": ""
     },
     {
-        "text": "673 The price is ___ by supply and demand.\\n価格は需要と供給で決まる.",
+        "text": "673 The price is ___ by supply and demand.\n価格は需要と供給で決まる.",
         "answer": "determined",
         "meaning": ""
     },
     {
-        "text": "682 the ___ population of Japan\\n日本の推定人口🗾",
+        "text": "682 the ___ population of Japan\n日本の推定人口🗾",
         "answer": "estimated",
         "meaning": ""
     },
     {
-        "text": "685 Did you ___ the changes in the schedule?\\nスケジュールの変更には気付いた？",
+        "text": "685 Did you ___ the changes in the schedule?\nスケジュールの変更には気付いた？",
         "answer": "notice",
         "meaning": ""
     },
     {
-        "text": "686 ___ that he is gay\\n彼がゲイだと決めつける",
+        "text": "686 ___ that he is gay\n彼がゲイだと決めつける✅",
         "answer": "assume",
         "meaning": ""
     },
     {
-        "text": "691 He was ___ during the entire surgery.\\n彼は手術中ずっと意識があった.😱",
+        "text": "691 He was ___ during the entire surgery.\n彼は手術中ずっと意識があった.😱",
         "answer": "conscious",
         "meaning": ""
     },
     {
-        "text": "693 She is ___ as the best teacher in the school.\\n彼女は学校で一番の教師とみなされている.",
+        "text": "693 She is ___ as the best teacher in the school.\n彼女は学校で一番の教師とみなされている.",
         "answer": "regarded",
         "meaning": ""
     },
     {
-        "text": "694 He ___ himself to finishing the marathon.\\n彼はマラソンを完走する事を決意した.",
+        "text": "694 He ___ himself to finishing the marathon.\n彼はマラソンを完走する事を決意した.",
         "answer": "committed",
         "meaning": ""
     },
     {
-        "text": "696 ___ the times tables\\n九九を暗記する",
+        "text": "696 ___ the times tables\n九九を暗記する",
         "answer": "memorize",
         "meaning": ""
     },
     {
-        "text": "697 ___ Gandhi\\nガンジーを許す",
+        "text": "697 ___ Gandhi\nガンジーを許す",
         "answer": "forgive",
         "meaning": ""
     },
     {
-        "text": "698 What is taken for ___ today was once a revolutionary idea.\\n今日当たり前のように考えられているものは,かつては革新的なアイデアでした.",
+        "text": "698 What is taken for ___ today was once a revolutionary idea.\n今日当たり前のように考えられているものは,かつては革新的なアイデアでした.",
         "answer": "granted",
         "meaning": ""
     },
     {
-        "text": "699 ___ my elementary school memories\\n小学校の思い出を思い出す",
+        "text": "699 ___ my elementary school memories\n小学校の思い出を思い出す",
         "answer": "recall",
         "meaning": ""
     },
     {
-        "text": "702 ___ a project likely to fail\\n失敗するであろう企画を放棄する🚯",
+        "text": "702 ___ a project likely to fail\n失敗するであろう企画を放棄する🚯",
         "answer": "abandon",
         "meaning": ""
     },
     {
-        "text": "717 There are ___ here and there.\\nあちらこちらに雑草がある",
+        "text": "717 There are ___ here and there.\nあちらこちらに雑草がある",
         "answer": "weeds",
         "meaning": ""
     },
     {
-        "text": "720 ___ power generation\\n太陽光発電🌞",
+        "text": "720 ___ power generation\n太陽光発電🌞",
         "answer": "solar",
         "meaning": ""
     },
     {
-        "text": "723 according to the weather ___\\n天気予報によれば",
+        "text": "723 according to the weather ___\n天気予報によれば",
         "answer": "forecast",
         "meaning": ""
     },
     {
-        "text": "724 The summer in Juso is hot and ___ .\\n十三の夏は蒸し暑い.",
+        "text": "724 The summer in Juso is hot and ___ .\n十三の夏は蒸し暑い.",
         "answer": "humid",
         "meaning": ""
     },
     {
-        "text": "725 ___ rainforests\\n熱帯雨林",
+        "text": "725 ___ rainforests\n熱帯雨林",
         "answer": "tropical",
         "meaning": ""
     },
     {
-        "text": "734 a ___ coward\\n気前の良い臆病者",
+        "text": "734 a ___ coward\n気前の良い臆病者",
         "answer": "generous",
         "meaning": ""
     },
     {
-        "text": "736 She is ___ .\\n彼女は好奇心旺盛だ.",
+        "text": "736 She is ___ .\n彼女は好奇心旺盛だ.",
         "answer": "curious",
         "meaning": ""
     },
     {
-        "text": "738 I wish we could ___ to eat whatever we want.\\n食べたいものを何でも食べられる余裕があればいいのに.",
+        "text": "738 I wish we could ___ to eat whatever we want.\n食べたいものを何でも食べられる余裕があればいいのに.",
         "answer": "afford",
         "meaning": ""
     },
     {
-        "text": "740 Judging by appearances, he is ___ .\\n見た目で判断すると、彼は自分勝手だ",
+        "text": "740 Judging by appearances, he is ___ .\n見た目で判断すると、彼は自分勝手だ✅",
         "answer": "selfish",
         "meaning": ""
     },
     {
-        "text": "743 He is ___ to alcohol.\\n彼はアルコール中毒になっている.🍺",
+        "text": "743 He is ___ to alcohol.\n彼はアルコール中毒になっている.🍺",
         "answer": "addicted",
         "meaning": ""
     },
     {
-        "text": "744 a ___ old man next door\\nお隣の頑固な老人",
+        "text": "744 a ___ old man next door\nお隣の頑固な老人👴",
         "answer": "stubborn",
         "meaning": ""
     },
     {
-        "text": "746 an attitude that doesn’t seem ___ at all\\n罪の意識があるとは思えない態度🤪",
+        "text": "746 an attitude that doesn’t seem ___ at all\n罪の意識があるとは思えない態度🤪",
         "answer": "guilty",
         "meaning": ""
     },
     {
-        "text": "747 I am ___ to you.\\n私はあなたに無関心です",
+        "text": "747 I am ___ to you.\n私はあなたに無関心です",
         "answer": "indifferent",
         "meaning": ""
     },
     {
-        "text": "751 a ___ clock\\n正確な時計⌚",
+        "text": "751 a ___ clock\n正確な時計⌚",
         "answer": "accurate",
         "meaning": ""
     },
     {
-        "text": "753 a generous ___ \\n気前の良い臆病者",
+        "text": "753 a generous ___\n気前の良い臆病者",
         "answer": "coward",
         "meaning": ""
     },
     {
-        "text": "760 Even a small change can have a ___ effect on society.\\n小さな変化でも社会に大きな影響を与える.",
+        "text": "760 Even a small change can have a ___ effect on society.\n小さな変化でも社会に大きな影響を与える.",
         "answer": "significant",
         "meaning": ""
     },
     {
-        "text": "761 Don't waste your ___ time.\\n貴重な時間を浪費するな.⌛",
+        "text": "761 Don't waste your ___ time.\n貴重な時間を浪費するな.⌛",
         "answer": "precious",
         "meaning": ""
     },
     {
-        "text": "765 The scientist made a ___ discovery in the laboratory.\\nその科学者は研究室で重大な発見をした.",
+        "text": "765 The scientist made a ___ discovery in the laboratory.\nその科学者は研究室で重大な発見をした.",
         "answer": "critical",
         "meaning": ""
     },
     {
-        "text": "766 He suddenly put on a ___ face.\\n彼は急に真剣な顔になった.😐",
+        "text": "766 He suddenly put on a ___ face.\n彼は急に真剣な顔になった.😐",
         "answer": "serious",
         "meaning": ""
     },
     {
-        "text": "767 ___ issues compose themselves of simple, ignored mistakes.\\n複雑な問題は,無視された単純なミスから成り立っている.",
+        "text": "767 ___ issues compose themselves of simple, ignored mistakes.\n複雑な問題は,無視された単純なミスから成り立っている.",
         "answer": "complex",
         "meaning": ""
     },
     {
-        "text": "768 a ___ maze\\n複雑な迷路",
+        "text": "768 a ___ maze\n複雑な迷路",
         "answer": "complicated",
         "meaning": ""
     },
     {
-        "text": "769 the ___ balance of nature\\n自然界の絶妙なバランス⚖️",
+        "text": "769 the ___ balance of nature\n自然界の絶妙なバランス⚖️",
         "answer": "delicate",
         "meaning": ""
     },
     {
-        "text": "772 Everyone admired his remarkable idea.\\n誰もが彼の注目すべきアイデアに感心した.",
+        "text": "772 Everyone admired his remarkable idea.\n誰もが彼の注目すべきアイデアに感心した.",
         "answer": "remarkable",
         "meaning": ""
     },
     {
-        "text": "773 His ___ presentation impressed everyone.\\n彼の傑出したプレゼンは,みんなに感銘を与えた.",
+        "text": "773 His ___ presentation impressed everyone.\n彼の傑出したプレゼンは,みんなに感銘を与えた.",
         "answer": "outstanding",
         "meaning": ""
     },
     {
-        "text": "803 b___ shoes\\n新品の靴👟",
+        "text": "803 b___ shoes\n新品の靴👟",
         "answer": "brand-new",
         "meaning": ""
     },
     {
-        "text": "807 He said something s___, pretending to be profound.\\n彼は深そうに見せかけて浅いことを言った",
+        "text": "807 He said something s___, pretending to be profound.\n彼は深そうに見せかけて浅いことを言った",
         "answer": "shallow",
         "meaning": ""
     },
     {
-        "text": "808 First Olympic games allowed only ___ men.\\n初期オリンピックは裸の男性だけ参加できた.🔥",
+        "text": "808 First Olympic games allowed only ___ men.\n初期オリンピックは裸の男性だけ参加できた.🔥",
         "answer": "naked",
         "meaning": ""
     },
     {
-        "text": "811 Many African countries became ___ in 1960.\\n1960年に多くのアフリカの国が独立した",
+        "text": "811 Many African countries became ___ in 1960.\n1960年に多くのアフリカの国が独立した🌍",
         "answer": "independent",
         "meaning": ""
     },
     {
-        "text": "816 an ___ walk\\nぎこちない歩き方",
+        "text": "816 an ___ walk\nぎこちない歩き方",
         "answer": "awkward",
         "meaning": ""
     },
     {
-        "text": "819 Those twins look ___.\\nそのふたごはよく似ている.👦👦",
+        "text": "819 Those twins look ___.\nそのふたごはよく似ている.👦👦",
         "answer": "alike",
         "meaning": ""
     },
     {
-        "text": "820 People ___ to accept ideas not because they are true, but because they are familiar.\\n人々はアイデアが真実だからではなく,馴染みがあるから受け入れる傾向がある.",
+        "text": "820 People ___ to accept ideas not because they are true, but because they are familiar.\n人々はアイデアが真実だからではなく,馴染みがあるから受け入れる傾向がある.",
         "answer": "tend",
         "meaning": ""
     },
     {
-        "text": "823 glass ___\\nガラスの破片",
+        "text": "823 glass ___\nガラスの破片",
         "answer": "fragments",
         "meaning": ""
     },
     {
-        "text": "826 ___ characteristics\\nユニークな特徴",
+        "text": "826 ___ characteristics\nユニークな特徴",
         "answer": "unique",
         "meaning": ""
     },
     {
-        "text": "835 Shall we ___ the bill?\\n割り勘にしませんか?💰💰",
+        "text": "835 Shall we ___ the bill?\n割り勘にしませんか?💰💰",
         "answer": "split",
         "meaning": ""
     },
     {
-        "text": "839 an enormous ___ of fat\\n莫大な(量の)脂肪",
+        "text": "839 an enormous ___ of fat\n莫大な(量の)脂肪",
         "answer": "amount",
         "meaning": ""
     },
     {
-        "text": "840 ___ food waste\\n大量の食品廃棄🍟🍟🍟🍟",
+        "text": "840 ___ food waste\n大量の食品廃棄🍟🍟🍟🍟",
         "answer": "mass",
         "meaning": ""
     },
     {
-        "text": "842 an e___ amount of fat\\n莫大な(量の)脂肪",
+        "text": "842 an e___ amount of fat\n莫大な(量の)脂肪",
         "answer": "enormous",
         "meaning": ""
     },
     {
-        "text": "848 Go out through the e___ exit on the right.\\n右の非常口から出てください.",
+        "text": "848 Go out through the e___ exit on the right.\n右の非常口から出てください.",
         "answer": "emergency",
         "meaning": ""
     },
     {
-        "text": "851 I am not satisfied with my c___ salary.\\n私は今の給料に満足していない.",
+        "text": "851 I am not satisfied with my c___ salary.\n私は今の給料に満足していない.",
         "answer": "current",
         "meaning": ""
     },
     {
-        "text": "854 from the p___ year\\n前の年から",
+        "text": "854 from the p___ year\n前の年から",
         "answer": "previous",
         "meaning": ""
     },
     {
-        "text": "856 ___ Japanese society\\n現代の日本社会🏙️",
+        "text": "856 c___ Japanese society\n現代の日本社会🏙️",
         "answer": "contemporary",
         "meaning": ""
     },
     {
-        "text": "857 I have noy heard from her ___.\\n最近彼女から連絡がない.",
+        "text": "857 I have noy heard from her ___.\n最近彼女から連絡がない.",
         "answer": "lately",
         "meaning": ""
     },
