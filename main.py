@@ -15,7 +15,15 @@ from linebot.exceptions import InvalidSignatureError
 import firebase_admin
 from firebase_admin import credentials, firestore
 
-load_dotenv()  # ← 先に読む
+load_dotenv()
+def load_words(path):
+    """
+    指定されたJSONファイルを読み込み、
+    Pythonのリストとして返す
+    """
+    with open(path, "r", encoding="utf-8") as f:
+        return json.load(f)
+
 
 # LEAP公式ラインインスタンス
 line_bot_api_leap = LineBotApi(os.getenv("LINE_CHANNEL_ACCESS_TOKEN_LEAP"))
