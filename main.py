@@ -106,7 +106,7 @@ def get_rank(score):
 def score_to_weight(score):
     return {0: 16, 1: 8, 2: 4, 3: 2, 4: 1}.get(score, 8)
 
-def build_result_flex(user_id):
+def build_result_flex(user_id, bot_type):
     name = user_names.get(user_id, DEFAULT_NAME)
 
     # 各範囲の評価計算
@@ -305,17 +305,8 @@ def build_feedback_flex(user_id, is_correct, score, elapsed, correct_answer=None
 
 #1001-2000を4択
 def send_question(user_id, range_str, bot_type="LEAP"):
-    if bot_type == "LEAP":
-        questions_1_1000 = leap_1_1000
-        questions_1001_2000 = leap_1001_2000
-    else:  # TARGET
-        questions_1_1000 = target_1_1000
-        questions_1001_2000 = target_1001_1900
-
-    if range_str == "1-1000":
-        questions = questions_1_1000
-    else:
-        questions = questions_1001_2000
+    questions_1_1000 = get_questions_by_range("1-1000", bot_type)
+    questions_1001_2000 = get_questions_by_range("1001-2000", bot_type)
 
     # 4択問題 QuickReply版
     q, _ = choose_multiple_choice_question(user_id, questions)
