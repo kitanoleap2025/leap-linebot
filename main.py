@@ -15,6 +15,8 @@ from linebot.exceptions import InvalidSignatureError
 import firebase_admin
 from firebase_admin import credentials, firestore
 
+load_dotenv()  # ← 先に読む
+
 # LEAP公式ラインインスタンス
 line_bot_api_leap = LineBotApi(os.getenv("LINE_CHANNEL_ACCESS_TOKEN_LEAP"))
 handler_leap = WebhookHandler(os.getenv("LINE_CHANNEL_SECRET_LEAP"))
@@ -22,8 +24,12 @@ handler_leap = WebhookHandler(os.getenv("LINE_CHANNEL_SECRET_LEAP"))
 # TARGET公式ラインインスタンス
 line_bot_api_target = LineBotApi(os.getenv("LINE_CHANNEL_ACCESS_TOKEN_TARGET"))
 handler_target = WebhookHandler(os.getenv("LINE_CHANNEL_SECRET_TARGET"))
+user_daily_counts = defaultdict(lambda: {"date": None, "count": 0}) 
 
-load_dotenv()
+ # TARGET
+target_1001_1900 = load_words("data/target1001-1900.json") 
+
+
 app = Flask(__name__)
 
 cred_json = os.getenv("FIREBASE_CREDENTIALS")
@@ -114,25 +120,31 @@ def build_result_flex(user_id, bot_type):
     questions_1_1000 = get_questions_by_range("1-1000", bot_type)
     questions_1001_2000 = get_questions_by_range("1001-2000", bot_type)
 
-        rate = round((total_score / count) * 25, 3) if count else 0
-        if rate >= 9000:
+    for title, qs in [("1-1000", questions_1_1000), ("1001-2000", questions_1001_2000)]:
+        count = len(qs)
+        total_score = sum(user_scores.get(user_id, {}).get(q["answer"], 1) for q in qs)
+        # 平均スコア(0〜4)→把握率(0〜100%)
+        rate_percent = round((total_score / (count * 4)) * 100, 1) if count else 0.0
+        if rate_percent >= 90:
             rank = "S🤯"
-        elif rate >= 7000:
+        elif rate_percent >= 70:
             rank = "A🤩"
-        elif rate >= 4000:
+        elif rate_percent >= 40:
             rank = "B😎"
-        elif rate >= 1000:
+        elif rate_percent >= 10:
             rank = "C😍"
         else:
             rank = "D🫠"
 
         parts.append({
+    
+
             "type": "box",
             "layout": "vertical",
             "margin": "md",
             "contents": [
                 {"type": "text", "text": title, "weight": "bold", "size": "sm", "color": "#000000"},
-                {"type": "text", "text": f"把握率: {rate} %", "size": "md", "color": "#333333"},
+                {"type": "text", "text": f"把握率: {rate_percent} %", "size": "md", "color": "#333333"},
                 {"type": "text", "text": f"{rank}", "size": "md", "color": "#333333"},
             ],
         })
@@ -146,7 +158,7 @@ def build_result_flex(user_id, bot_type):
         rank_counts[get_rank(score)] += 1
 
     total_words = sum(rank_counts.values())
-    rank_ratios = {rank: rank_counts[rank]/total_words for rank in rank_counts}
+    rank_ratios = {rank: (rank_counts[rank]/total_words if total_words else 0) for rank in rank_counts}
 
     # ランク別割合グラフ
     graph_components = []
@@ -307,27 +319,25 @@ def build_feedback_flex(user_id, is_correct, score, elapsed, correct_answer=None
 def send_question(user_id, range_str, bot_type="LEAP"):
     questions_1_1000 = get_questions_by_range("1-1000", bot_type)
     questions_1001_2000 = get_questions_by_range("1001-2000", bot_type)
+    questions = questions_1_1000 if range_str == "1-1000" else questions_1001_2000
 
-    # 4択問題 QuickReply版
-    q, _ = choose_multiple_choice_question(user_id, questions)
+    # 出題
+    q = choose_weighted_question(user_id, questions)
     user_states[user_id] = (range_str, q["answer"])
     user_answer_start_times[user_id] = time.time()
 
-    correct_answer = q["answer"]
-    other_answers = [item["answer"] for item in questions if item["answer"] != correct_answer]
-    wrong_choices = random.sample(other_answers, k=min(3, len(other_answers)))
-    choices = wrong_choices + [correct_answer]
-    random.shuffle(choices)
-
-    quick_buttons = [QuickReplyButton(action=MessageAction(label=choice, text=choice))
-                     for choice in choices]
-
-    message = TextSendMessage(
-        text=q["text"],
-        quick_reply=QuickReply(items=quick_buttons)
-    )
-
-    return message
+    # 1001-2000 は4択、それ以外は自由入力
+    if range_str == "1001-2000":
+        correct_answer = q["answer"]
+        other_answers = [item["answer"] for item in questions if item["answer"] != correct_answer]
+        wrong_choices = random.sample(other_answers, k=min(3, len(other_answers)))
+        choices = wrong_choices + [correct_answer]
+        random.shuffle(choices)
+        quick_buttons = [QuickReplyButton(action=MessageAction(label=choice, text=choice))
+                         for choice in choices]
+        return TextSendMessage(text=q["text"], quick_reply=QuickReply(items=quick_buttons))
+    else:
+        return TextSendMessage(text=q["text"])
 
 def choose_weighted_question(user_id, questions):
     scores = user_scores.get(user_id, {})
@@ -564,7 +574,7 @@ def handle_message_common(event, bot_type, line_bot_api):
 
     # ランキング
     if msg == "ランキング":
-        flex_msg = build_ranking_flex_fast(user_id, bot_type=bot_type)
+        flex_msg = build_ranking_flex_fast(user_id)
         line_bot_api.reply_message(event.reply_token, flex_msg)
         return
 
@@ -623,7 +633,7 @@ def handle_message_common(event, bot_type, line_bot_api):
 
         messages_to_send.append(next_question_msg)
 
-        total_rate = update_total_rate(user_id)
+        total_rate = update_total_rate(user_id, bot_type)
         
         line_bot_api.reply_message(
             event.reply_token,
