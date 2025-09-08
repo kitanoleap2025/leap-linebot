@@ -15,7 +15,9 @@ from linebot.exceptions import InvalidSignatureError
 import firebase_admin
 from firebase_admin import credentials, firestore
 
-        
+
+line_bot_api = LineBotApi(CHANNEL_ACCESS_TOKEN)
+
 # LEAP公式ライン
 line_bot_api_leap = LineBotApi(os.getenv("LINE_CHANNEL_ACCESS_TOKEN_LEAP"))
 handler_leap = WebhookHandler(os.getenv("LINE_CHANNEL_SECRET_LEAP"))
