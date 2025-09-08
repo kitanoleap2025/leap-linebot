@@ -566,24 +566,22 @@ def handle_message_common(event, bot_type, line_bot_api):
         line_bot_api.reply_message(event.reply_token, TextSendMessage(text=f"名前を「{new_name}」に変更しました。"))
         return
 
-    if msg == "ランキング":
-        flex_msg = build_ranking_flex_fast(user_id, bot_type)
-        line_bot_api.reply_message(event.reply_token, flex_msg)
+    # 質問送信
+    if msg in ["1-1000", "1001-2000"]:
+        question_msg = send_question(user_id, msg, bot_type=bot_type)
+        line_bot_api.reply_message(event.reply_token, question_msg)
         return
-        
-    if msg == "ランキング":
-        flex_msg = build_ranking_flex_fast(user_id)  
+
+    # 成績表示
+    if msg == "成績":
+        total_rate = update_total_rate(user_id, bot_type=bot_type)
+        flex_msg = build_result_flex(user_id, bot_type=bot_type)
         line_bot_api.reply_message(event.reply_token, flex_msg)
         return
 
-    if msg in ["1-1000", "1001-2000"]:
-        question_msg = send_question(user_id, f"LEAP {msg}")  # send_question 内の条件に合わせる
-        line_bot_api.reply_message(event.reply_token, question_msg)
-        return
-        
-    if msg == "成績":
-        total_rate = update_total_rate(user_id)
-        flex_msg = build_result_flex(user_id)
+    # ランキング
+    if msg == "ランキング":
+        flex_msg = build_ranking_flex_fast(user_id, bot_type=bot_type)
         line_bot_api.reply_message(event.reply_token, flex_msg)
         return
 
