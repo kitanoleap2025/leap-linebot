@@ -1,26 +1,26 @@
 [
     {
-        "text": "001 I ___ with the idea that students should not be given too much homework.\\n生徒に宿題を与えすぎるべきではないという考えに賛成です.",
+        "text": "001 I ___ with the idea that students should not be given too much homework.\n生徒に宿題を与えすぎるべきではないという考えに賛成です.",
         "answer": "agree",
         "meaning": "agree　[自] ①賛成する ②（主語の中で 意見が一致する ③（with ～）（気候，食べ物が）（～に）合う"
     },
     {
-        "text": "002 He strongly ___ corruption until he was promoted.\\n昇進するまでは,彼は汚職に強く反対していた.",
+        "text": "002 He strongly ___ corruption until he was promoted.\n昇進するまでは,彼は汚職に強く反対していた.",
         "answer": "opposed",
         "meaning": "oppose　[他] ～に反対する"
     },
     {
-        "text": "003 The teacher ___ me to study English vocabulary.\\n先生は私に英単語を勉強するよう助言した.",
+        "text": "003 The teacher ___ me to study English vocabulary.\n先生は私に英単語を勉強するよう助言した.",
         "answer": "advised",
         "meaning": "advise　[他] ～に忠告する"
     },
     {
-        "text": "004 I’ll give you a __.\\nヒントをあげるよ.",
+        "text": "004 I’ll give you a __.\nヒントをあげるよ.",
         "answer": "tip",
         "meaning": "tip　[名] ①助言，ヒント ②チップ ③（足や山などの）先，先端（いずれも〈可算〉）"
     },
     {
-        "text": "005 We ___ the problem so much, we forgot to solve it.\\n私たちはその問題についてあまりに議論しすぎて,解決するのを忘れていた.",
+        "text": "005 We ___ the problem so much, we forgot to solve it.\n私たちはその問題についてあまりに議論しすぎて,解決するのを忘れていた.",
         "answer": "discussed",
         "meaning": "discuss　[他] ①～について話し合う，議論する ②～を話題に出す"
     },
