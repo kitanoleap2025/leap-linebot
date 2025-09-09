@@ -422,7 +422,7 @@ def choose_multiple_choice_question(user_id, questions):
     question_text = q["text"] + "\n\n" + "\n".join(choice_texts)
     return q, question_text
 
-def evaluate_X(elapsed, score, answer, is_multiple_choice=False):
+def evaluate_X(elapsed, score, is_multiple_choice=False):
     X = elapsed**1.7 + score**1.5
 
     if X <= 5:
@@ -619,7 +619,7 @@ def handle_message_common(event, bot_type, line_bot_api):
 
 
         # 次の問題
-        next_question_msg = send_question(user_id, range_str)
+        next_question_msg = send_question(user_id, range_str, bot_type=bot_type)
 
         today = time.strftime("%Y-%m-%d")
         if user_daily_counts[user_id]["date"] != today:
