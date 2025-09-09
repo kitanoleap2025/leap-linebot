@@ -620,7 +620,7 @@
     },
     {
         "text": "302 ___ Greeks argued about politics more than TikTok.\n古代ギリシャ人は、TikTokよりも政治で口論していた.",
-        "answer": "ancient",
+        "answer": "Ancient",
         "meaning": ""
     },
     {
@@ -1019,7 +1019,7 @@
         "meaning": ""
     },
     {
-        "text": "604 ___ news ___ faster than real news.\nフェイクニュースは本当のニュースより速く拡散する.",
+        "text": "604 Fake news ___ faster than real news.\nフェイクニュースは本当のニュースより速く拡散する.",
         "answer": "spreads",
         "meaning": ""
     },
@@ -1264,7 +1264,7 @@
         "meaning": ""
     },
     {
-        "text": "751 a ___ clock\n正確な時計⌚",
+        "text": "751 an ___ clock\n正確な時計⌚",
         "answer": "accurate",
         "meaning": ""
     },
@@ -1379,7 +1379,7 @@
         "meaning": ""
     },
     {
-        "text": "842 an e___ amount of fat\n莫大な(量の)脂肪",
+        "text": "842 an ___ amount of fat\n莫大な(量の)脂肪",
         "answer": "enormous",
         "meaning": ""
     },
@@ -1519,7 +1519,7 @@
         "meaning": ""
     },
     {
-        "text": "942 The pop star’s cheating scandal ___ media attention.\nポップスターの不倫騒動はマスコミの関心を引き付けた.🔴🔵🟡",
+        "text": "942 The pop star’s cheating scandal ___ media attention.\nその人気スターの不倫騒動はマスコミの関心を引き付けた.",
         "answer": "attracted",
         "meaning": ""
     },
@@ -1610,7 +1610,7 @@
     },
     {
         "text": "1000 ___ capitalism, your value peaks at checkout.\n資本主義によると,あなたの価値はチェックアウト時にピークに達する.",
-        "answer": "according to",
+        "answer": "According to",
         "meaning": "according to\t[前] ①（調査，人の話など）によれば ②（能力など）に応じて"
     }
 ]
