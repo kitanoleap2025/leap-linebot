@@ -315,7 +315,7 @@
         "meaning": ""
     },
     {
-        "text": "1068 In ___, club activities are not allowed during exam periods.\n原則として、部活動はテスト期間中は許可されていません。", 
+        "text": "1068 In ___, club activities are not allowed during exam periods.\n原則として,部活動はテスト期間中は許可されていません.❌", 
         "answer": "principle",
         "meaning": ""
     }, 
@@ -325,18 +325,13 @@
         "meaning": ""
     },
     {
-        "text": "1070 The library is the perfect ___ for reading books.\n図書室は本を読むのに最適な環境だ。", 
+        "text": "1070 The library is the perfect ___ for reading books.\n図書室は本を読むのに最適な環境だ.📚", 
         "answer": "setting",
         "meaning": ""
     },
     {
-        "text": "1071 Our ___ is to protect the environment.\n私たちの使命は環境を守ることです。", 
+        "text": "1071 Our ___ is to protect the environment.\n私たちの使命は環境を守ることです.", 
         "answer": "mission",
-        "meaning": ""
-    },
-    {
-        "text": "1059 ___ is blind, but apparently not deaf to bribes.\n正義は目が見えないが、賄賂にはどうやら耳が聞こえるらしい。",
-        "answer": "justice",
         "meaning": ""
     },
     {
