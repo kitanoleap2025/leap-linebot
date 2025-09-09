@@ -1109,8 +1109,8 @@
         "meaning": ""
     },
     {
-        "text": "646 Squids have a membrane that ___ their internal organs.\nイカは内臓を守る膜を持つ。",
-        "answer": "protects",
+        "text": "646 Is our mission to ___ the environment?\n私たちの使命は環境を守ることですか?",
+        "answer": "protect",
         "meaning": ""
     },
     {
@@ -1216,6 +1216,11 @@
     {
         "text": "702 ___ a project likely to fail\n失敗するであろう企画を放棄する🚯",
         "answer": "abandon",
+        "meaning": ""
+    },
+    {
+        "text": "711 Is our mission to protect the ___?\n私たちの使命は環境を守ることですか?",
+        "answer": "environment",
         "meaning": ""
     },
     {
