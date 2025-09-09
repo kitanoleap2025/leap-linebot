@@ -734,6 +734,11 @@
         "meaning": ""
     },
     {
+        "text": "381 It was revealed that he had failed three years, and the classroom descended into chaos.",
+        "answer": "effect",
+        "meaning": ""
+    },
+    {
         "text": "393 ___ a small change can have a significant effect on society.\n小さな変化でも社会に大きな影響を与える.",
         "answer": "even",
         "meaning": ""
@@ -892,6 +897,11 @@
         "text": "507 fulfill my ___\n義務を果たす",
         "answer": "duties",
         "meaning": ""
+    },
+    {
+        "text": "508 The wealthy also bear some ___ for poverty.\n裕福な人々にも貧困に対する責任の一端がある.",
+        "answer": "responsibility",
+        "meaning": "responsible　[形] ①（人が主語）責任がある ②（物が主語）原因となっている"
     },
     {
         "text": "509 The one-child ___ in China is successful to some extent.\n中国の一人っ子政策は,ある程度成功している.🐼🐼🐼",
@@ -1124,7 +1134,7 @@
         "meaning": ""
     },
     {
-        "text": "668 They felt that their happy life would not ___ long.\n彼らは,自分たちの幸せな生活が長くは続かないと感じていた.",
+        "text": "668 Authority does not ___ long.\n権威は長く続かない.", 
         "answer": "last",
         "meaning": ""
     },
