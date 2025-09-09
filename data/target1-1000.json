@@ -10,6 +10,11 @@
         "meaning": "increase　増加する（⇔ decrease ⇒ 223）；を増やす"
     },
     {
+        "text": "010 try to eat food ___ in the local region\n 地域で生産された食べ物を食べるように努める",
+        "answer": "produced",
+        "meaning": "produce　を生産する；を取り出す"
+    },
+    {
         "text": "1063 The revelation that he had ___ three grades caused chaos in the classroom.\n彼が3留だったことが発覚し,教室は大混乱となった.💮💮💮", 
         "answer": "repeated",
         "meaning": "repeat　（を）繰り返す；を復唱する"
