@@ -799,6 +799,11 @@
         "meaning": ""
     },
     {
+        "text": "421 I've got to ___ to a message from my friend.\n友人からのメッセージに返信しなければならない。",
+        "answer": "reply",
+        "meaning": ""
+    },
+    {
         "text": "432 The world is trying to reduce dependence on fossil ___ \\n世界は化石燃料への依存を減らそうとしている.",
         "answer": "fuels",
         "meaning": ""
