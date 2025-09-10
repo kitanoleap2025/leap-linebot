@@ -599,6 +599,11 @@
         "meaning": ""
     },
     {
+        "text": "262 Swizerland is a country whose languages and cultures ___ over short distances.\nスイスは短距離間で言語と文化が異なる国だ。",
+        "answer": "differ",
+        "meaning": ""
+    },
+    {
         "text": "268 Consumption tax ___ economic inequality.\n消費税は経済格差を拡大させる.",
         "answer": "increases",
         "meaning": ""
