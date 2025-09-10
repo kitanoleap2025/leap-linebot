@@ -1259,6 +1259,11 @@
         "meaning": ""
     },
     {
+        "text": "706 Japan is a country with few energy ___.\n日本はエネルギー源がほとんどない国だ。",
+        "answer": "resources",
+        "meaning": ""
+    },
+    {
         "text": "711 Is our mission to protect the ___?\n私たちの使命は環境を守ることですか?",
         "answer": "environment",
         "meaning": ""
