@@ -804,6 +804,11 @@
         "meaning": ""
     },
     {
+        "text": "437 Life has many challenges, and we learn by ___ them.\n人生は困難がたくさんあり,私たちはそれらを乗り越えることで学ぶのである.",
+        "answer": "overcoming",
+        "meaning": ""
+    },
+    {
         "text": "438 ___ my duties\n義務を果たす",
         "answer": "fulfill",
         "meaning": ""
@@ -816,6 +821,11 @@
     {
         "text": "441 I ___ at him, but the arrow hit the apple on his head.\n私は彼を狙ったが,矢は彼の頭の上のリンゴに当たった.🍎",
         "answer": "aimed",
+        "meaning": ""
+    },
+    {
+        "text": "442 Life has many ___, and we learn by overcoming them.\n人生は困難がたくさんあり,私たちはそれらを乗り越えることで学ぶのである.",
+        "answer": "challenges",
         "meaning": ""
     },
     {
