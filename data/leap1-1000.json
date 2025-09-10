@@ -239,7 +239,7 @@
         "meaning": ""
     },
     {
-        "text": "072 I want to study ___ after graduating from high school.\n高校を卒業したら留学したい.",
+        "text": "072 Studying ___ will be a unique and rewarding experience.\n留学することは珍しい価値のある経験になるだろう。",
         "answer": "abroad",
         "meaning": ""
     },
@@ -414,7 +414,7 @@
         "meaning": "include　[他] ～を含む"
     },
     {
-        "text": "163 The captain rescued only the passengers from his ___ country.\n船長は自国の乗客だけを救出しました.",
+        "text": "164 The captain rescued only the passengers from his ___ country.\n船長は自国の乗客だけを救出しました.",
         "answer": "own",
         "meaning": ""
     },
@@ -1491,6 +1491,11 @@
     {
         "text": "877 answer a ___\nアンケートに答える",
         "answer": "questionnaire",
+        "meaning": ""
+    },
+    {
+        "text": "880 Studying abroad will be a unique and ___ experience.\n留学することは珍しい価値のある経験になるだろう。",
+        "answer": "rewarding",
         "meaning": ""
     },
     {
