@@ -719,7 +719,7 @@
         "meaning": ""
     },
     {
-        "text": "356 What we see ___ not only on what we look at, but also on where we look from.\n私たちが見るものは,何を見るかだけでなく,どこから見るかによっても異なります.",
+        "text": "357 What we see ___ not only on what we look at, but also on where we look from.\n私たちが見るものは,何を見るかだけでなく,どこから見るかによっても異なります.",
         "answer": "depends",
         "meaning": ""
     },
@@ -961,6 +961,11 @@
     {
         "text": "522 Don't ___ your precious time.\n貴重な時間を浪費するな.⌛",
         "answer": "waste",
+        "meaning": ""
+    },
+    {
+        "text": "524 This country might still have to depend on ___ oil in the future.\nこの国は将来においても輸入された石油に頼る必要があるかもしれない。",
+        "answer": "imported",
         "meaning": ""
     },
     {
