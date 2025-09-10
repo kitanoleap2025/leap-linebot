@@ -1214,6 +1214,11 @@
         "meaning": ""
     },
     {
+        "text": "692 There is growing ___ about climate change.\n気候変動について懸念が高まっている。",
+        "answer": "concern",
+        "meaning": ""
+    },
+    {
         "text": "693 She is ___ as the best teacher in the school.\n彼女は学校で一番の教師とみなされている.",
         "answer": "regarded",
         "meaning": ""
@@ -1262,6 +1267,11 @@
         "text": "720 ___ power generation\n太陽光発電🌞",
         "answer": "solar",
         "meaning": ""
+    },
+    {
+        "text": "721 There is growing concern about ___ change.\n気候変動について懸念が高まっている。",
+        "answer": "climate",
+        "meaning": "concerned　[形] ①（with［about］～）（～に）関心を持っている，重視している ②（with ～）（～を）扱っている ③（about［for］～）（～を）懸念している"
     },
     {
         "text": "723 according to the weather ___\n天気予報によれば",
