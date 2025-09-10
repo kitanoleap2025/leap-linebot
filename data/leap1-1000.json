@@ -154,7 +154,7 @@
         "meaning": "invent　[他] ①～を発明する ②（話など）をでっち上げる"
     },
     {
-        "text": "033 ___ that the speed of light is constant, regardless of the observer’s motion\n光の速度は観測者の運動にかかわらず一定であることを発見する🤪",
+        "text": "033 ___ that the speed of light is constant, regardless of the observer’s motion\n光の速度は観測者の運動にかかわらず一定であることを発見する",
         "answer": "discover",
         "meaning": "discover　[他] ①～を発見する ②（that SV）～を知る，～に気がつく ③（知るという意味で）～に出会う"
     },
@@ -449,7 +449,7 @@
         "meaning": ""
     },
     {
-        "text": "187 That ___ me that he was a bad person.\nそれは彼が性格の悪い人だったことを思い出させた.😁",
+        "text": "187 That ___ me that he was a bad person.\nそれは彼が性格の悪い人だったことを思い出させた.",
         "answer": "reminded",
         "meaning": ""
     },
@@ -699,11 +699,6 @@
         "meaning": ""
     },
     {
-        "text": "345 the challenge of having to create example ___ to protect copyright\n著作権保護のため例文を作らなければならないという課題",
-        "answer": "sentences",
-        "meaning": ""
-    },
-    {
         "text": "347 The teacher advised me to study English ___ .\n先生は私に英単語を勉強するよう助言した.",
         "answer": "vocabulary",
         "meaning": ""
@@ -749,8 +744,8 @@
         "meaning": ""
     },
     {
-        "text": "381 It was revealed that he had failed three years, and the classroom descended into chaos.",
-        "answer": "cause",
+        "text": "381 The revelation that he had repeated three grades ___ chaos in the classroom.\n彼が3留だったことが発覚し、教室は大混乱となった.💮💮💮", 
+        "answer": "caused",
         "meaning": ""
     },
     {
@@ -1579,7 +1574,7 @@
         "meaning": ""
     },
     {
-        "text": "960 I’m r___ to study Japanese.\n国語を勉強するのは気が進まない.",
+        "text": "960 I’m ___ to study Japanese.\n国語を勉強するのは気が進まない.",
         "answer": "reluctant",
         "meaning": ""
     },
