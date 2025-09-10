@@ -750,7 +750,7 @@
     },
     {
         "text": "381 It was revealed that he had failed three years, and the classroom descended into chaos.",
-        "answer": "effect",
+        "answer": "cause",
         "meaning": ""
     },
     {
@@ -889,12 +889,12 @@
         "meaning": ""
     },
     {
-        "text": "490 Mankind has achieved great p___ over the past few centuries.\n人類はここ数百年で大きな繁栄を遂げた.",
+        "text": "490 Mankind has achieved great ___ over the past few centuries.\n人類はここ数百年で大きな繁栄を遂げた.",
         "answer": "prosperity",
         "meaning": "prosperity [名] 繁栄"
     },
     {
-        "text": "490 racial d___\n人種差別",
+        "text": "493 racial d___\n人種差別",
         "answer": "discrimination",
         "meaning": ""
     },
@@ -1339,7 +1339,7 @@
         "meaning": ""
     },
     {
-        "text": "772 Everyone admired his remarkable idea.\n誰もが彼の注目すべきアイデアに感心した.",
+        "text": "772 Everyone admired his ___ idea.\n誰もが彼の注目すべきアイデアに感心した.",
         "answer": "remarkable",
         "meaning": ""
     },
