@@ -339,6 +339,11 @@
         "meaning": ""
     },
     {
+        "text": "131 We couldn't find enough evidence to ___ our theory.\n私たちの理論を支えるのに十分な証拠を見つけられなかった。",
+        "answer": "issues",
+        "meaning": ""
+    },
+    {
         "text": "134 The internet ___ us to find information quickly about various jobs.\nインターネットで様々な職業についての情報を素早く見つけることができます。",
         "answer": "enables",
         "meaning": ""
@@ -806,6 +811,11 @@
     {
         "text": "421 I've got to ___ to a message from my friend.\n友人からのメッセージに返信しなければならない。",
         "answer": "reply",
+        "meaning": ""
+    },
+    {
+        "text": "426 We couldn't find enough evidence to support our ___.\n私たちの理論を支えるのに十分な証拠を見つけられなかった。",
+        "answer": "theory",
         "meaning": ""
     },
     {
