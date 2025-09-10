@@ -609,8 +609,13 @@
         "meaning": ""
     },
     {
-        "text": "286 A:What movie has no kissing ___? B:Your life.\nA:キスシーンの無い映画は？💋",
+        "text": "286 A:What movie has no kissing ___? B:Your life.\nA:キスシーンの無い映画は？",
         "answer": "scenes",
+        "meaning": ""
+    },
+    {
+        "text": "289 We will ___ many technological advances in our life.\n私たちは生活の中で多くの技術の進歩を経験するだろう。",
+        "answer": "experience",
         "meaning": ""
     },
     {
@@ -1026,6 +1031,11 @@
     {
         "text": "587 Children under six must be ___ by someone aged 18 or older.\n6歳未満のお子様には18歳以上の人の付き添いが必要です.",
         "answer": "accompanied",
+        "meaning": ""
+    },
+    {
+        "text": "590 We will experience many technological ___ in our life.\n私たちは生活の中で多くの技術の進歩を経験するだろう。",
+        "answer": "advances",
         "meaning": ""
     },
     {
