@@ -799,6 +799,11 @@
         "meaning": ""
     },
     {
+        "text": "390 ___ all the students in this class use AI.\nこのクラスのほとんどすべての生徒がAIを使っている。", 
+        "answer": "Almost",
+        "meaning": ""
+    },
+    {
         "text": "393 ___ a small change can have a significant effect on society.\n小さな変化でも社会に大きな影響を与える.",
         "answer": "even",
         "meaning": ""
