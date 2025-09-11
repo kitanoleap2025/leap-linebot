@@ -57,10 +57,6 @@ user_daily_counts = defaultdict(lambda: {"date": None, "count": 1})
 
 DEFAULT_NAME = "イキイキした毎日"
 
-def load_words(filename):
-    with open(filename, "r", encoding="utf-8") as f:
-        return json.load(f)
-
 #LEAP
 leap_1_1000 = load_words("data/leap1-1000.json")
 leap_1001_2000 = load_words("data/leap1001-2000.json")
