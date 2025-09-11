@@ -124,9 +124,9 @@
         "meaning": "information　[名] 情報〈不可算〉"
     },
     {
-        "text": "027 With modern ___, we can talk to anyone in the world except the person next to you.\n現代のテクノロジーでは,隣にいる人以外の誰とでも話すことができる.",
-        "answer": "technology",
-        "meaning": "technology　[名] （科学）技術"
+        "text": "027 ___ will improve dramatically within a few years.\n技術は数年のうちに劇的に進化するだろう。",
+        "answer": "Technology",
+        "meaning": ""
     },
     {
         "text": "028 ___ shows that sunlight improves mental health.\n研究によると,日光はメンタルヘルスを改善する.🌞",
@@ -187,6 +187,11 @@
         "text": "040 ___ my ambition to be a pilot\nパイロットになるという望みを叶える🧑‍✈️",
         "answer": "achieve",
         "meaning": "achieve　[他] ～を達成する"
+    },
+    {
+        "text": "042 Technology will ___ dramatically within a few years.\n技術は数年のうちに劇的に進化するだろう。",
+        "answer": "improve",
+        "meaning": ""
     },
     {
         "text": "043 This machine can ___ 10 parts in one minute.\nこの機械は１分で10個の部品を生産出来る.",
