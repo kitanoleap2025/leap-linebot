@@ -504,12 +504,37 @@
         "meaning": ""
     },
     {
+        "text": "176 He ___ to quit his job.\n彼は仕事を辞めることに決めた。",
+        "answer": "decided",
+        "meaning": ""
+    },
+    {
         "text": "177 ___ by appearances, he is selfish.\n見た目で判断すると、彼は自分勝手だ。",
         "answer": "Judging",
         "meaning": ""
     },
     {
-        "text": "182 I cannot ___ life without her.\n彼女なしの人生なんて想像できない.😍",
+        "text": "178 He decided to ___ his job.\n彼は仕事を辞めることに決めた。",
+        "answer": "quit",
+        "meaning": ""
+    },
+    {
+        "text": "179 My father will ___ next year.\n父は来年引退する予定だ。",
+        "answer": "retire",
+        "meaning": ""
+    },
+    {
+        "text": "180 Let's ___ the notes before the test.\nテスト前にノートを復習しよう。",
+        "answer": "review",
+        "meaning": ""
+    },
+    {
+        "text": "181 You can ___ any book you like.\n好きな本をどれでも選んでいいよ。",
+        "answer": "choose",
+        "meaning": ""
+    },
+    {
+        "text": "182 I cannot ___ life without her.\n彼女なしの人生なんて想像できない。😍",
         "answer": "imagine",
         "meaning": ""
     },
