@@ -809,6 +809,11 @@
         "meaning": ""
     },
     {
+        "text": "395 The amount of face-to-face communication is ___ decreasing.\n対面のコミュニケーションの量がだんだんと少なくなっている。",
+        "answer": "gradually",
+        "meaning": ""
+    },
+    {
         "text": "400 With modern technology, we can talk to anyone in the world ___ the person next to you.\n現代のテクノロジーでは,隣にいる人以外の誰とでも話すことができる.",
         "answer": "except",
         "meaning": ""
