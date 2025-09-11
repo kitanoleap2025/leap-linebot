@@ -294,6 +294,26 @@
         "meaning": ""
     },
     {
+        "text": "087 He paid a large ___ of money.\n彼は多額のお金を支払った。",
+        "answer": "sum",
+        "meaning": ""
+    },
+    {
+        "text": "088 We need to stay within our ___.\n私たちは予算内に収める必要がある。",
+        "answer": "budget",
+        "meaning": ""
+    },
+    {
+        "text": "089 There is an entrance ___ for the museum.\nその博物館には入場料がかかる。",
+        "answer": "fee",
+        "meaning": ""
+    },
+    {
+        "text": "090 The bus ___ to the airport is 500 yen.\n空港までのバス料金は500円だ。",
+        "answer": "fare",
+        "meaning": ""
+    },
+    {
         "text": "091 Shall we split the ___?\n割り勘にしませんか?",
         "answer": "bill",
         "meaning": ""
