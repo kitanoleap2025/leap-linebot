@@ -1114,8 +1114,18 @@
         "meaning": ""
     },
     {
+        "text": "589 AI has made a great deal of ___.\nAIはかなりの進歩を遂げた。",
+        "answer": "progress",
+        "meaning": ""
+    },
+    {
         "text": "590 We will experience many technological ___ in our life.\n私たちは生活の中で多くの技術の進歩を経験するだろう。",
         "answer": "advances",
+        "meaning": ""
+    },
+    {
+        "text": "591 AI has made a great ___ of progress.\nAIはかなりの進歩を遂げた。",
+        "answer": "deal",
         "meaning": ""
     },
     {
