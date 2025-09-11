@@ -224,6 +224,11 @@
         "meaning": ""
     },
     {
+        "text": "061 The medicine ___ bitter.\nその薬は苦い味がする。",
+        "answer": "tastes",
+        "meaning": ""
+    },
+    {
         "text": "067 Even a small change can have a significant effect on ___.\n小さな変化でも社会に大きな影響を与える",
         "answer": "society",
         "meaning": "society　[名] ①社会〈不可算〉　②（ある具体的な）社会〈可算〉 ③（one's ―）～と同席すること ④協会"
@@ -1634,22 +1639,57 @@
         "meaning": ""
     },
     {
+        "text": "897 I want to ___ to the art course.\n美術コースに転向したい.🎨",
+        "answer": "transfer",
+        "meaning": ""
+    },
+    {
         "text": "898 get ___ at 21\n21で離婚する🤰",
         "answer": "divorced",
         "meaning": ""
     },
     {
-        "text": "901 I want to ___ to the art course.\n美術コースに転向したい.🎨",
-        "answer": "transfer",
+        "text": "899 ___ led them to meet again.\n運命が2人を再会させた。",
+        "answer": "fate",
+        "meaning": ""
+    }, 
+    {
+        "text": "900 It was her ___ to become a great leader.\n彼女が偉大な指導者になるのは運命だった。",
+        "answer": "destiny",
         "meaning": ""
     },
     {
-        "text": "906 cover one’s ___\n足跡を消す👣",
+        "text": "901 This soup has a rich ___.\nこのスープは豊かな風味がある。",
+        "answer": "flavor",
+        "meaning": ""
+    },
+    {
+        "text": "902 She wore a sweet ___.\n彼女は甘い香水をつけていた。💐",
+        "answer": "perfume",
+        "meaning": ""
+    },
+    {
+        "text": "903 Sugar is an important ___ in this recipe.\n砂糖はこのレシピで重要な材料だ。",
+        "answer": "ingredient",
+        "meaning": ""
+    },
+    {
+        "text": "904 The medicine tastes ___\nその薬は苦い味がする。",
+        "answer": "bitter",
+        "meaning": ""
+    },
+    {
+        "text": "905 He walked down the snack ___\n彼はスナック売り場の通路を歩いた。",
+        "answer": "aisle",
+        "meaning": ""
+    },
+    {
+        "text": "906 cover one’s ___\n足跡を消す。👣",
         "answer": "tracks",
         "meaning": ""
     },
     {
-        "text": "907 The morning will be spent in the Airin d___.\n午前中はあいりん地区で過ごす.",
+        "text": "907 The morning will be spent in the Airin d___.\n午前中はあいりん地区で過ごす。",
         "answer": "district",
         "meaning": ""
     },
@@ -1744,8 +1784,8 @@
         "meaning": ""
     },
     {
-        "text": "978 They described ___ the group project as \"respecting individual effort\".\n彼らはグループ課題を無視することを「個人の努力を尊重する」と表現しました.",
-        "answer": "ignoring",
+        "text": "978 Complex issues compose themselves of simple, ___ mistakes.\n複雑な問題は,無視された単純なミスから成り立っている.",
+        "answer": "ignored",
         "meaning": ""
     },
     {
@@ -1754,23 +1794,18 @@
         "meaning": ""
     },
     {
-        "text": "992 We shape our tools, and ___, our tools shape us.\n私たちは道具を作るが,結果として,道具が私たちを作る.",
+        "text": "991 We shape our tools, and ___, our tools shape us.\n私たちは道具を作るが,結果として,道具が私たちを作る.",
         "answer": "eventually",
         "meaning": ""
     },
     {
-        "text": "993 He argued that sleep wasn’t ___ for eaxms.\n彼は試験のために睡眠は必要ないと主張した.",
+        "text": "992 He argued that sleep wasn’t ___ for eaxms.\n彼は試験のために睡眠は必要ないと主張した.",
         "answer": "necessary",
         "meaning": ""
     },
     {
-        "text": "994 ___ speaking,\n率直に言うと,",
+        "text": "993 ___ speaking,\n率直に言うと,",
         "answer": "Frankly",
-        "meaning": ""
-    },
-    {
-        "text": "978 Complex issues compose themselves of simple, ___ mistakes.\n複雑な問題は,無視された単純なミスから成り立っている.",
-        "answer": "ignored",
         "meaning": ""
     },
     {
