@@ -609,8 +609,8 @@
         "meaning": ""
     },
     {
-        "text": "268 Consumption tax ___ economic inequality.\n消費税は経済格差を拡大させる.",
-        "answer": "increases",
+        "text": "268 It is said that the crime rate in the city has ___ this year.\n今年,この街の犯罪率は増加したと言われている。🔪",
+        "answer": "increased",
         "meaning": ""
     },
     {
@@ -621,6 +621,11 @@
     {
         "text": "271 Don’t ___ your chickens before they hatch.\n卵がかえる前にヒヨコを数えるな🐣",
         "answer": "count",
+        "meaning": ""
+    },
+    {
+        "text": "276 It is said that the crime ___ in the city has increased this year.\n今年,この街の犯罪率は増加したと言われている。🔪",
+        "answer": "rate",
         "meaning": ""
     },
     {
@@ -1039,13 +1044,13 @@
         "meaning": ""
     },
     {
-        "text": "553 perfect ___\n完全犯罪",
-        "answer": "crime",
+        "text": "555 ___ posters on the wall\n壁にポスターを貼る",
+        "answer": "stick",
         "meaning": ""
     },
     {
-        "text": "555 ___ posters on the wall\n壁にポスターを貼る",
-        "answer": "stick",
+        "text": "557 It is said that the ___ rate in the city has increased this year.\n今年,この街の犯罪率は増加したと言われている。🔪",
+        "answer": "crime",
         "meaning": ""
     },
     {
