@@ -724,6 +724,11 @@
         "meaning": ""
     },
     {
+        "text": "342 Written in plain English, this ___ is good for beginners in the language.\nわかりやすい英語で書かれているので,この小説は英語初心者に良い。",
+        "answer": "novel",
+        "meaning": ""
+    },
+    {
         "text": "343 He paid more than just money to buy his daughter an ___ .\n彼は娘に楽器を買うためにお金以上のものを支払った.🫁",
         "answer": "instrument",
         "meaning": ""
@@ -1416,6 +1421,11 @@
     {
         "text": "769 the ___ balance of nature\n自然界の絶妙なバランス⚖️",
         "answer": "delicate",
+        "meaning": ""
+    },
+    {
+        "text": "770 Written in ___ English, this novel is good for beginners in the language.\nわかりやすい英語で書かれているので,この小説は英語初心者に良い。",
+        "answer": "plain",
         "meaning": ""
     },
     {
