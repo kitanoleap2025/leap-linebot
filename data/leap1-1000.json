@@ -349,6 +349,11 @@
         "meaning": ""
     },
     {
+        "text": "133 English is so widespread that it is hard to ___ its usefulness.\n英語はとても普及しているのでどの有用性を否定するのは難しい。",
+        "answer": "deny",
+        "meaning": ""
+    },
+    {
         "text": "134 The internet ___ us to find information quickly about various jobs.\nインターネットで様々な職業についての情報を素早く見つけることができます。",
         "answer": "enables",
         "meaning": ""
@@ -926,6 +931,11 @@
     {
         "text": "483 Social Networking S___\nソーシャル・ネットワーキング・サービス",
         "answer": "service",
+        "meaning": ""
+    },
+    {
+        "text": "487 India is a country where a wide variety of ___ and cultures can be found.\nインドは多種多様な宗教や文化が見られる国だ。",
+        "answer": "religions",
         "meaning": ""
     },
     {
