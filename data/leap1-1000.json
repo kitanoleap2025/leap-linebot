@@ -354,6 +354,11 @@
         "meaning": "" 
     },
     {
+        "text": "106 His speech had a big impact on the ___.\n彼のスピーチは聴衆に大きな影響を与えた。",
+        "answer": "audience",
+        "meaning": ""
+    },
+    {
         "text": "111 The captain rescued only the ___ from his own country.\n船長は自国の乗客だけを救出しました.",
         "answer": "passengers",
         "meaning": ""
@@ -1004,17 +1009,57 @@
         "meaning": ""
     },
     {
-        "text": "471 r___ discrimination\n人種差別",
+        "text": "473 r___ discrimination\n人種差別",
         "answer": "racial",
         "meaning": ""
     },
     {
-        "text": "479 All animals are e___, but some animals are more e___ than others.\n全ての動物は平等だが、中には他よりもっと平等な動物もいる。",
+        "text": "474 He grew up in a quiet ___ village where the stars were clearly visible.\n彼は星が良く見える静かな田舎の村で育った。🌟",
+        "answer": "rural",
+        "meaning": ""
+    },
+    {
+        "text": "475 They share the ___ chores at home.\n彼らは家で家事を分担している。",
+        "answer": "domestic",
+        "meaning": ""
+    },
+    {
+        "text": "476 We must think about ___ problems like climate change.\n私たちは気候変動のような世界的な問題について考えなければならない。",
+        "answer": "global",
+        "meaning": ""
+    },
+    {
+        "text": "477 She moved to a ___ near the city.\n彼女は都市の近くの郊外に引っ越した。",
+        "answer": "suburb",
+        "meaning": ""
+    },
+    {
+        "text": "478 There is a river along the ___ between the two countries.\n2つの国の国境には川が流れている。",
+        "answer": "border",
+        "meaning": ""
+    },
+    {
+        "text": "479 He feels a heavy ___ of responsibility.\n彼は重い責任の重荷を感じている。",
+        "answer": "burden",
+        "meaning": ""
+    },
+    {
+        "text": "480 His speech had a big ___ on the audience.\n彼のスピーチは聴衆に大きな影響を与えた。",
+        "answer": "impact",
+        "meaning": ""
+    },
+    {
+        "text": "481 She wants to improve her social ___.\n彼女は社会的地位を向上させたいと思っている。",
+        "answer": "status",
+        "meaning": ""
+    },
+    {
+        "text": "482 All animals are e___, but some animals are more e___ than others.\n全ての動物は平等だが、中には他よりもっと平等な動物もいる。",
         "answer": "equal",
         "meaning": ""
     },
     {
-        "text": "483 Social Networking S___\nソーシャル・ネットワーキング・サービス",
+        "text": "486 Social Networking S___\nソーシャル・ネットワーキング・サービス",
         "answer": "service",
         "meaning": ""
     },
