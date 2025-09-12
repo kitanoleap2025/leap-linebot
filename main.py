@@ -5,7 +5,7 @@ from dotenv import load_dotenv
 
 # LINE Bot SDK
 from linebot.v3.messaging import MessagingApi, Configuration, ApiClient, TextMessage, FlexMessage
-from linebot.v3.messaging.models import QuickReply, QuickReplyButton, MessageAction
+from linebot.v3.messaging.models import QuickReply, MessageAction
 from linebot.v3.webhooks import MessageEvent, TextMessageContent
 from linebot.v3.webhook import WebhookHandler
 from linebot.v3.exceptions import InvalidSignatureError
@@ -320,11 +320,12 @@ def send_question(user_id, range_str, bot_type="LEAP"):
     choices = wrong_choices + [correct_answer]
     random.shuffle(choices)
 
-    quick_buttons = [QuickReplyButton(action=MessageAction(label=choice, text=choice))
-                     for choice in choices]
 
-    return TextMessage(text=q["text"], quick_reply=QuickReply(items=quick_buttons))
+    quick_reply = QuickReply(
+        items=[MessageAction(label=choice, text=choice) for choice in choices]
+    )
 
+    return TextMessage(text=q["text"], quick_reply=quick_reply)
 
 def choose_weighted_question(user_id, questions):
     scores = user_scores.get(user_id, {})
