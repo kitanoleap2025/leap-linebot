@@ -859,6 +859,41 @@
         "meaning": ""
     },
     {
+        "text": "382 The weather can ___ your mood.\n天気が気分に影響することがある。☁️",
+        "answer": "affect",
+        "meaning": ""
+    },
+    {
+        "text": "383 He found a new ___ to solve the problem.\n彼は問題を解決する新しい方法を見つけた。💡",
+        "answer": "way",
+        "meaning": ""
+    },
+    {
+        "text": "384 She spoke in a polite ___.\n彼女は丁寧な話し方をした。",
+        "answer": "manner",
+        "meaning": ""
+    },
+    {
+        "text": "What is the ___ of this meeting?\nこの会議の目的は何ですか？",
+        "answer": "purpose",
+        "meaning": ""
+    },
+    {
+        "text": "386 He did it for the ___ of his family.\n彼は家族のためにそれをした。",
+        "answer": "sake",
+        "meaning": ""
+    },
+    {
+        "text": "388 The project is now ___ finished.\nプロジェクトは今,完全に終わった。👍",
+        "answer": "complete",
+        "meaning": ""
+    },
+    {
+        "text": "389 He ___ knew about the meeting.\n彼はその会議についてほとんど知らなかった。",
+        "answer": "hardly",
+        "meaning": ""
+    },
+    {
         "text": "390 ___ all the students in this class use AI.\nこのクラスのほとんどすべての生徒がAIを使っている。", 
         "answer": "Almost",
         "meaning": ""
