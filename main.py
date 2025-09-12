@@ -32,7 +32,6 @@ handler_leap = WebhookHandler(os.getenv("LINE_CHANNEL_SECRET_LEAP"))
 # TARGET公式ラインインスタンス
 line_bot_api_target = LineBotApi(os.getenv("LINE_CHANNEL_ACCESS_TOKEN_TARGET"))
 handler_target = WebhookHandler(os.getenv("LINE_CHANNEL_SECRET_TARGET"))
-user_daily_counts = defaultdict(lambda: {"date": None, "count": 0}) 
 
  # TARGET
 target_1001_1900 = load_words("data/target1001-1900.json") 
