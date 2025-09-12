@@ -6,7 +6,7 @@ from dotenv import load_dotenv
 # LINE Bot SDK
 from linebot.v3.messaging import (
     MessagingApi, Configuration, ApiClient,
-    TextMessage, FlexMessage, TextSendMessage,
+    TextMessage, FlexMessage,
     QuickReply, QuickReplyButton, MessageAction
 )
 from linebot.v3.webhooks import MessageEvent, TextMessageContent  # webhook 側のイベント/コンテンツ
