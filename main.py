@@ -4,14 +4,12 @@ from collections import defaultdict, deque
 from dotenv import load_dotenv
 
 # LINE Bot SDK
-from linebot.v3.messaging import (
-    MessagingApi, Configuration, ApiClient,
-    TextMessage, FlexMessage,
-    QuickReply, QuickReplyButton, MessageAction
-)
-from linebot.v3.webhooks import MessageEvent, TextMessageContent  # webhook 側のイベント/コンテンツ
+from linebot.v3.messaging import MessagingApi, Configuration, ApiClient, TextMessage, FlexMessage
+from linebot.v3.messaging.models import QuickReply, QuickReplyButton, MessageAction
+from linebot.v3.webhooks import MessageEvent, TextMessageContent
 from linebot.v3.webhook import WebhookHandler
 from linebot.v3.exceptions import InvalidSignatureError
+
 
 # Firebase
 import firebase_admin
