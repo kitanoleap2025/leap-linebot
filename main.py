@@ -128,27 +128,14 @@ def build_result_flex(user_id, bot_type):
         total_score = sum(user_scores.get(user_id, {}).get(q["answer"], 1) for q in qs)
         # 平均スコア(0〜4)→把握率(0〜100%)
         rate_percent = round((total_score / (count * 4)) * 100, 1) if count else 0.0
-        if rate_percent >= 90:
-            rank = "S🤯"
-        elif rate_percent >= 70:
-            rank = "A🤩"
-        elif rate_percent >= 40:
-            rank = "B😎"
-        elif rate_percent >= 10:
-            rank = "C😍"
-        else:
-            rank = "D🫠"
-
+       
         parts.append({
-    
-
             "type": "box",
             "layout": "vertical",
             "margin": "md",
             "contents": [
                 {"type": "text", "text": title, "weight": "bold", "size": "sm", "color": "#000000"},
                 {"type": "text", "text": f"把握率: {rate_percent} %", "size": "md", "color": "#333333"},
-                {"type": "text", "text": f"{rank}", "size": "md", "color": "#333333"},
             ],
         })
 
