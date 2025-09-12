@@ -1194,12 +1194,12 @@
         "meaning": ""
     },
     {
-        "text": "545 Complex issues ___ themselves of simple, ignored mistakes.\n複雑な問題は,無視された単純なミスから成り立っている.",
+        "text": "550 Complex issues ___ themselves of simple, ignored mistakes.\n複雑な問題は,無視された単純なミスから成り立っている.",
         "answer": "compose",
         "meaning": ""
     },
     {
-        "text": "546 Ideas ___ quickest to the minds already half convinced.\n考えは半分納得した心に一番早くくっつく.",
+        "text": "551 Ideas ___ quickest to the minds already half convinced.\n考えは半分納得した心に一番早くくっつく.",
         "answer": "attach",
         "meaning": ""
     },
@@ -1289,12 +1289,12 @@
         "meaning": ""
     },
     {
-        "text": "604 Fake news ___ faster than real news.\nフェイクニュースは本当のニュースより速く拡散する.",
+        "text": "610 Fake news ___ faster than real news.\nフェイクニュースは本当のニュースより速く拡散する.",
         "answer": "spreads",
         "meaning": ""
     },
     {
-        "text": "610 I can ___ everything except temptation.\n私は誘惑以外の全てに耐えうる.",
+        "text": "615 I can ___ everything except temptation.\n私は誘惑以外の全てに耐えうる.",
         "answer": "resist",
         "meaning": ""
     },
@@ -1631,11 +1631,6 @@
     {
         "text": "778 He stays ___ even during Monday morning meetings.\n月曜朝の会議でも彼は活発に動いている。🤖",
         "answer": "active",
-        "meaning": ""
-    },
-    {
-        "text": "Having a ___ attitude helps when you spill coffee on your laptop.\nコーヒーをノートにこぼしても前向きな態度が役立つ。☕",
-        "answer": "positive",
         "meaning": ""
     },
     {
