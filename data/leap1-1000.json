@@ -379,8 +379,8 @@
         "meaning": ""
     },
     {
-        "text": "126 ",
-        "answer": "likely",
+        "text": "126 He found a new way to ___ the problem.\n彼は問題を解決する新しい方法を見つけた。💡",
+        "answer": "solve",
         "meaning": ""
     },
     {
@@ -596,6 +596,11 @@
     {
         "text": "216 The cherry blossoms are ___ in the stream.\n桜が小川に反射する🌸",
         "answer": "reflicted",
+        "meaning": ""
+    },
+    {
+        "text": "217 She spoke in a ___ manner.\n彼女は丁寧な話し方をした。",
+        "answer": "polite",
         "meaning": ""
     },
     {
