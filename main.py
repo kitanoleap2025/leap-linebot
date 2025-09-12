@@ -4,7 +4,8 @@ from collections import defaultdict, deque
 from dotenv import load_dotenv
 
 # LINE Bot SDK
-from linebot import LineBotApi, WebhookHandler
+from linebot.v3.messaging import MessagingApi, Configuration, ApiClient, ReplyMessageRequest, PushMessageRequest, TextMessage
+from linebot.v3.webhook import WebhookHandler
 from linebot.models import (
     MessageEvent, TextMessage, TextSendMessage, FlexSendMessage,
     BoxComponent, TextComponent, QuickReply, QuickReplyButton, MessageAction
@@ -24,18 +25,19 @@ def load_words(path):
     with open(path, "r", encoding="utf-8") as f:
         return json.load(f)
 
-
-# LEAP公式ラインインスタンス
-line_bot_api_leap = LineBotApi(os.getenv("LINE_CHANNEL_ACCESS_TOKEN_LEAP"))
+# LEAP
+config_leap = Configuration(access_token=os.getenv("LINE_CHANNEL_ACCESS_TOKEN_LEAP"))
+api_client_leap = ApiClient(config_leap)
+line_bot_api_leap = MessagingApi(api_client_leap)
 handler_leap = WebhookHandler(os.getenv("LINE_CHANNEL_SECRET_LEAP"))
 
-# TARGET公式ラインインスタンス
-line_bot_api_target = LineBotApi(os.getenv("LINE_CHANNEL_ACCESS_TOKEN_TARGET"))
+# TARGET
+config_target = Configuration(access_token=os.getenv("LINE_CHANNEL_ACCESS_TOKEN_TARGET"))
+api_client_target = ApiClient(config_target)
+line_bot_api_target = MessagingApi(api_client_target)
 handler_target = WebhookHandler(os.getenv("LINE_CHANNEL_SECRET_TARGET"))
-
  # TARGET
 target_1001_1900 = load_words("data/target1001-1900.json") 
-
 
 app = Flask(__name__)
 
@@ -192,7 +194,7 @@ def build_result_flex(user_id, bot_type):
     rate2 = round((sum(user_scores.get(user_id, {}).get(q["answer"], 1) for q in questions_1001_2000) / c2) * 2500) if c2 else 0
     total_rate = round((rate1 + rate2) / 2)
 
-    flex_message = FlexSendMessage(
+    flex_message = FlexMessage(
         alt_text=f"{name}",
         contents={
             "type": "bubble",
@@ -292,7 +294,7 @@ def build_feedback_flex(user_id, is_correct, score, elapsed, correct_answer=None
         "margin": "md"
     })
 
-    return FlexSendMessage(
+    return FlexMessage(
         alt_text="回答フィードバック",
         contents={
             "type": "bubble",
@@ -322,7 +324,7 @@ def send_question(user_id, range_str, bot_type="LEAP"):
     quick_buttons = [QuickReplyButton(action=MessageAction(label=choice, text=choice))
                      for choice in choices]
 
-    return TextSendMessage(text=q["text"], quick_reply=QuickReply(items=quick_buttons))
+    return TextMessage(text=q["text"], quick_reply=QuickReply(items=quick_buttons))
 
 
 def choose_weighted_question(user_id, questions):
@@ -478,7 +480,7 @@ def build_ranking_flex_fast(user_id):
             "margin": "md"
         })
 
-    flex_message = FlexSendMessage(
+    flex_message = FlexMessage(
         alt_text="Ranking",
         contents={
             "type": "bubble",
@@ -534,14 +536,14 @@ def handle_message_common(event, bot_type, line_bot_api):
     if msg.startswith("@"):
         new_name = msg[1:].strip()
         if not new_name:
-            line_bot_api.reply_message(event.reply_token, TextSendMessage(text="名前が空です。"))
+            line_bot_api.reply_message(event.reply_token, TextMessage(text="名前が空です。"))
             return
         if len(new_name) > 10:
-            line_bot_api.reply_message(event.reply_token, TextSendMessage(text="名前は10文字以内で入力してください。"))
+            line_bot_api.reply_message(event.reply_token, TextMessage(text="名前は10文字以内で入力してください。"))
             return
         user_names[user_id] = new_name
         async_save_user_data(user_id)
-        line_bot_api.reply_message(event.reply_token, TextSendMessage(text=f"名前を「{new_name}」に変更しました。"))
+        line_bot_api.reply_message(event.reply_token, TextMessage(text=f"名前を「{new_name}」に変更しました。"))
         return
 
     # 質問送信
@@ -614,7 +616,7 @@ def handle_message_common(event, bot_type, line_bot_api):
 
         if user_answer_counts[user_id] % 5 == 0:
             trivia = random.choice(trivia_messages)
-            messages_to_send.append(TextSendMessage(text=trivia))
+            messages_to_send.append(TextMessage(text=trivia))
 
         messages_to_send.append(next_question_msg)
 
@@ -628,7 +630,7 @@ def handle_message_common(event, bot_type, line_bot_api):
 
     line_bot_api.reply_message(
         event.reply_token,
-        TextSendMessage(text="1-1000 または 1001-2000 を押してね。")
+        TextMessage(text="1-1000 または 1001-2000 を押してね。")
     )
 
 if __name__ == "__main__":
