@@ -234,6 +234,11 @@
         "meaning": ""
     },
     {
+        "text": "064 He has an odd ___ of talking to plants.\n彼は植物に話しかける奇妙な習慣がある。🌷",
+        "answer": "habit",
+        "meaning": ""
+    },
+    {
         "text": "067 Even a small change can have a significant effect on ___.\n小さな変化でも社会に大きな影響を与える",
         "answer": "society",
         "meaning": "society　[名] ①社会〈不可算〉　②（ある具体的な）社会〈可算〉 ③（one's ―）～と同席すること ④協会"
@@ -344,7 +349,12 @@
         "meaning": ""
     },
     {
-        "text": "101 ___ the pen of the person sitting next to me\n隣の席の人のペンを破壊する",
+        "text": "101 The storm caused severe ___ to the village.\n嵐は村にひどい被害をもたらした。🍃",
+        "answer": "damage",
+        "meaning": ""
+    },
+    {
+        "text": "102 ___ the pen of the person sitting next to me\n隣の席の人のペンを破壊する",
         "answer": "destroy",
         "meaning": ""
     },
@@ -571,6 +581,11 @@
     {
         "text": "205 the delicate balance of ___\n自然界の絶妙なバランス⚖️",
         "answer": "nature",
+        "meaning": ""
+    },
+    {
+        "text": "207 He has an odd habit of talking to ___.\n彼は植物に話しかける奇妙な習慣がある。🌷",
+        "answer": "plants",
         "meaning": ""
     },
     {
@@ -1194,6 +1209,12 @@
         "meaning": ""
     },
     {
+        "text": "545 The ___ of the table felt rough and unfinished.\nそのテーブルの表面は粗く,未完成の感じがした。",
+        "answer": "surface",
+        "meaning": ""
+    },
+
+    {
         "text": "550 Complex issues ___ themselves of simple, ignored mistakes.\n複雑な問題は,無視された単純なミスから成り立っている.",
         "answer": "compose",
         "meaning": ""
@@ -1624,12 +1645,12 @@
         "meaning": ""
     },
     {
-        "text": "777 She had a ___ idea to eat pizza for breakfast.\n彼女は朝食にピザを食べるという素晴らしいアイデアを思いついた。💡",
+        "text": "777 She had a ___ idea to eat ramen for breakfast.\n彼女は朝食にラーメンを食べるという素晴らしいアイデアを思いついた。🍜💡",
         "answer": "marvelous",
         "meaning": ""
     },
     {
-        "text": "778 He stays ___ even during Monday morning meetings.\n月曜朝の会議でも彼は活発に動いている。🤖",
+        "text": "778 He stays ___ even during Monday morning meetings.\n彼は月曜朝の会議でも活発に動いている。🤖",
         "answer": "active",
         "meaning": ""
     },
