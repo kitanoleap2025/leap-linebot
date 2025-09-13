@@ -215,28 +215,24 @@ def build_result_flex(user_id, bot_type):
 
 #総合レート更新
 def update_total_rate(user_id, bot_type):
-    questions_1_1000 = get_questions_by_range("1-1000", bot_type)
-    questions_1001_2000 = get_questions_by_range("1001-2000", bot_type)
-    total_score1 = sum(user_scores[user_id].get(q["answer"], 0) for q in questions_1_1000)
-    total_score2 = sum(user_scores[user_id].get(q["answer"], 0) for q in questions_1001_2000)
+    if bot_type == "leap":
+        q1 = get_questions_by_range("1-1000", "leap")
+        q2 = get_questions_by_range("1001-2000", "leap")
+    else:
+        q1 = get_questions_by_range("1-1000", "target")
+        q2 = get_questions_by_range("1001-1900", "target")  # ←ファイルは1900までだったよな
 
-    scores = user_scores.get(user_id, {})
+    rate1 = compute_rate_percent_for_questions(user_id, q1)
+    rate2 = compute_rate_percent_for_questions(user_id, q2)
+    total_rate = round((rate1 + rate2) / 2, 1)
 
-    c1 = len(questions_1_1000)
-    c2 = len(questions_1001_2000)
-
-    rate1 = round((total_score1 / c1) * 2500) if c1 else 0
-    rate2 = round((total_score2 / c2) * 2500) if c2 else 0
-
-    total_rate = round((rate1 + rate2) / 2)
-
+    field_name = f"total_rate_{bot_type}"
     try:
-        db.collection("users").document(user_id).update({"total_rate": total_rate})
+        db.collection("users").document(user_id).update({field_name: total_rate})
     except Exception as e:
-        print(f"Error updating total_rate for {user_id}: {e}")
+        print(f"Error updating {field_name} for {user_id}: {e}")
 
     return total_rate
-
 
 def periodic_save():
     while True:
