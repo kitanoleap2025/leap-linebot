@@ -214,13 +214,22 @@ def build_result_flex(user_id, bot_type):
     return flex_message
 
 #総合レート更新
+def compute_rate_percent_for_questions(user_id, questions):
+    if not questions:
+        return 0.0
+    scores = user_scores.get(user_id, {})
+    total_score = sum(scores.get(q["answer"], 0) for q in questions)
+    avg_score = total_score / len(questions)  # 0..4
+    return round((avg_score / 4) * 100, 1)  # 0..100%
+    
+
 def update_total_rate(user_id, bot_type):
     if bot_type == "leap":
         q1 = get_questions_by_range("1-1000", "leap")
         q2 = get_questions_by_range("1001-2000", "leap")
     else:
         q1 = get_questions_by_range("1-1000", "target")
-        q2 = get_questions_by_range("1001-1900", "target")  # ←ファイルは1900までだったよな
+        q2 = get_questions_by_range("1001-1900", "target")  # ←ファイル名要確認
 
     rate1 = compute_rate_percent_for_questions(user_id, q1)
     rate2 = compute_rate_percent_for_questions(user_id, q2)
@@ -231,8 +240,8 @@ def update_total_rate(user_id, bot_type):
         db.collection("users").document(user_id).update({field_name: total_rate})
     except Exception as e:
         print(f"Error updating {field_name} for {user_id}: {e}")
-
     return total_rate
+
 
 def periodic_save():
     while True:
