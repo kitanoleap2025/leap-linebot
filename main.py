@@ -223,24 +223,24 @@ def compute_rate_percent_for_questions(user_id, questions):
     return round((avg_score / 4) * 100, 2)  # ←小数点2位まで
 
 def update_total_rate(user_id, bot_type):
-    if bot_type == "leap":
-        q1 = get_questions_by_range("1-1000", "leap")
-        q2 = get_questions_by_range("1001-2000", "leap")
+    bot_type_upper = bot_type.upper()
+    if bot_type_upper == "LEAP":
+        q1 = get_questions_by_range("1-1000", "LEAP")
+        q2 = get_questions_by_range("1001-2000", "LEAP")
     else:
-        q1 = get_questions_by_range("1-1000", "target")
-        q2 = get_questions_by_range("1001-1900", "target")  # ←ファイル名要確認
+        q1 = get_questions_by_range("1-1000", "TARGET")
+        q2 = get_questions_by_range("1001-2000", "TARGET")  # ファイル名に注意
 
     rate1 = compute_rate_percent_for_questions(user_id, q1)
     rate2 = compute_rate_percent_for_questions(user_id, q2)
-    total_rate = round((rate1 + rate2) / 2, 1)
+    total_rate = round((rate1 + rate2) / 2, 2)  # 小数点2位
 
-    field_name = f"total_rate_{bot_type}"
+    field_name = f"total_rate_{bot_type.lower()}"
     try:
         db.collection("users").document(user_id).update({field_name: total_rate})
     except Exception as e:
         print(f"Error updating {field_name} for {user_id}: {e}")
     return total_rate
-
 
 def periodic_save():
     while True:
@@ -367,6 +367,7 @@ trivia_messages = [
     "ヒント🤖\n1回スカイダビングしたいのならばパラシュートは不要ですが、2回なら必要です。",
     "ヒント🤖\n@新しい名前　でランキングに表示される名前を変更できます。",
     "ヒント🤖\n口を大きく開けずに済むので「I am」→「I'm」となりました。",
+    "ヒント🤖\n若さは、ニュースを楽しめるようになった日で終わる。",
     
     "ヒント🤖\n to begin with「まず初めに」",
     "ヒント🤖\n strange to say「奇妙なことに」",
@@ -433,16 +434,18 @@ def build_ranking_flex_fast(bot_type):
         ranking_data = []
 
     bubbles = []
-    for i, (name, rate) in enumerate(ranking_data, 1):
-        bubbles.append({
+    for i, (name, rate) in enumerate(ranking_data[:10], 1):
+         rate_str = f"{rate:.2f}%"  # 小数点2位まで
+         bubbles.append({
             "type": "box",
             "layout": "baseline",
             "contents": [
                 {"type": "text", "text": f"{i}位", "flex": 1, "size": "sm"},
                 {"type": "text", "text": name, "flex": 3, "size": "sm"},
-                {"type": "text", "text": f"{rate}%", "flex": 1, "size": "sm", "align": "end"}
+                {"type": "text", "text": rate_str, "flex": 1, "size": "sm", "align": "end"}
             ]
         })
+
 
     return {
         "type": "bubble",
