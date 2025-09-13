@@ -223,21 +223,22 @@ def compute_rate_percent_for_questions(user_id, questions):
     return round((avg_score / 4) * 100, 2)  # ←小数点2位まで
 
 def update_total_rate(user_id, bot_type):
-    bot_type_upper = bot_type.upper()
-    if bot_type_upper == "LEAP":
+    bot_type_lower = bot_type.lower()
+    field_name = f"total_rate_{bot_type_lower}"
+
+    if bot_type_lower == "leap":
         q1 = get_questions_by_range("1-1000", "LEAP")
         q2 = get_questions_by_range("1001-2000", "LEAP")
     else:
         q1 = get_questions_by_range("1-1000", "TARGET")
-        q2 = get_questions_by_range("1001-2000", "TARGET")  # ファイル名に注意
+        q2 = get_questions_by_range("1001-2000", "TARGET")
 
     rate1 = compute_rate_percent_for_questions(user_id, q1)
     rate2 = compute_rate_percent_for_questions(user_id, q2)
-    total_rate = round((rate1 + rate2) / 2, 2)  # 小数点2位
+    total_rate = round((rate1 + rate2) / 2, 2)
 
-    field_name = f"total_rate_{bot_type.lower()}"
     try:
-        db.collection("users").document(user_id).update({field_name: total_rate})
+        db.collection("users").document(user_id).set({field_name: total_rate}, merge=True)
     except Exception as e:
         print(f"Error updating {field_name} for {user_id}: {e}")
     return total_rate
@@ -252,62 +253,49 @@ def periodic_save():
 threading.Thread(target=periodic_save, daemon=True).start()
 
 #FEEDBACK　flex
-def build_feedback_flex(user_id, is_correct, score, elapsed, correct_answer=None, label=None, meaning=None):
-    body_contents = []
+def build_ranking_flex_fast(bot_type):
+    field_name = f"total_rate_{bot_type.lower()}"  # bot_type を小文字で統一
+    try:
+        # 全ユーザーのランキングを取得
+        docs = db.collection("users")\
+            .order_by(field_name, direction=firestore.Query.DESCENDING)\
+            .limit(10).stream()
+        
+        ranking_data = []
+        for doc in docs:
+            data = doc.to_dict()
+            name = data.get("name", DEFAULT_NAME)
+            rate = data.get(field_name, 0)  # データがなければ 0
+            ranking_data.append((name, rate))
+    except Exception as e:
+        print(f"Error fetching ranking for {bot_type}: {e}")
+        ranking_data = []
 
-    if is_correct:
-        color_map = {"!!Brilliant":"#40e0d0", "!Great":"#4682b4", "✓Correct":"#00ff00"}
-        color = color_map.get(label, "#000000")
-        body_contents.append({
-            "type": "text",
-            "text": label or "✓Correct",
-            "weight": "bold",
-            "size": "xl",
-            "color": color,
-            "align": "center"
-        })
-    else:
-        body_contents.append({
-            "type": "text",
-            "text": f"Wrong❌\nAnswer: {correct_answer}",
-            "size": "md",
-            "color": "#ff4500",
-            "wrap": True,
-            "margin": "md"
-        })
-
-    if meaning:
-        body_contents.append({
-            "type": "text",
-            "text": f"{meaning}",
-            "size": "md",
-            "color": "#000000",
-            "margin": "md",
-            "wrap": True
+    bubbles = []
+    for i, (name, rate) in enumerate(ranking_data[:10], 1):
+        rate_str = f"{rate:.2f}%"  # 小数点2位まで
+        bubbles.append({
+            "type": "box",
+            "layout": "baseline",
+            "contents": [
+                {"type": "text", "text": f"{i}位", "flex": 1, "size": "sm"},
+                {"type": "text", "text": name, "flex": 3, "size": "sm"},
+                {"type": "text", "text": rate_str, "flex": 1, "size": "sm", "align": "end"}
+            ]
         })
 
-    # ← ここで「今日の解答数」を追加
-    count_today = user_daily_counts[user_id]["count"]
-    body_contents.append({
-        "type": "text",
-        "text": f"🔥{count_today}",
-        "size": "sm",
-        "color": "#333333",
-        "margin": "md"
-    })
-
-    return FlexSendMessage(
-        alt_text="回答フィードバック",
-        contents={
-            "type": "bubble",
-            "body": {
-                "type": "box",
-                "layout": "vertical",
-                "contents": body_contents
-            }
+    return {
+        "type": "bubble",
+        "body": {
+            "type": "box",
+            "layout": "vertical",
+            "contents": [
+                {"type": "text", "text": f"{bot_type.lower()}ランキング", "weight": "bold", "size": "md"},
+                {"type": "separator", "margin": "md"},
+                *bubbles
+            ]
         }
-    )
-
+    }
 
 def send_question(user_id, range_str, bot_type="LEAP"):
     questions = get_questions_by_range(range_str, bot_type)
