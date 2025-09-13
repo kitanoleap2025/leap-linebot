@@ -254,9 +254,8 @@ threading.Thread(target=periodic_save, daemon=True).start()
 
 #FEEDBACK　flex
 def build_ranking_flex_fast(bot_type):
-    field_name = f"total_rate_{bot_type.lower()}"  # bot_type を小文字で統一
+    field_name = f"total_rate_{bot_type.lower()}"  # 小文字で統一
     try:
-        # 全ユーザーのランキングを取得
         docs = db.collection("users")\
             .order_by(field_name, direction=firestore.Query.DESCENDING)\
             .limit(10).stream()
@@ -265,7 +264,7 @@ def build_ranking_flex_fast(bot_type):
         for doc in docs:
             data = doc.to_dict()
             name = data.get("name", DEFAULT_NAME)
-            rate = data.get(field_name, 0)  # データがなければ 0
+            rate = data.get(field_name, 0)
             ranking_data.append((name, rate))
     except Exception as e:
         print(f"Error fetching ranking for {bot_type}: {e}")
@@ -273,7 +272,7 @@ def build_ranking_flex_fast(bot_type):
 
     bubbles = []
     for i, (name, rate) in enumerate(ranking_data[:10], 1):
-        rate_str = f"{rate:.2f}%"  # 小数点2位まで
+        rate_str = f"{rate:.2f}%"
         bubbles.append({
             "type": "box",
             "layout": "baseline",
@@ -284,7 +283,7 @@ def build_ranking_flex_fast(bot_type):
             ]
         })
 
-    return {
+    flex_content = {
         "type": "bubble",
         "body": {
             "type": "box",
@@ -296,6 +295,9 @@ def build_ranking_flex_fast(bot_type):
             ]
         }
     }
+
+    # FlexSendMessage でラップする
+    return FlexSendMessage(alt_text=f"{bot_type.lower()}ランキング", contents=flex_content)
 
 def send_question(user_id, range_str, bot_type="LEAP"):
     questions = get_questions_by_range(range_str, bot_type)
