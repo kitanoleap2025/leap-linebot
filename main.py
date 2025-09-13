@@ -220,8 +220,7 @@ def compute_rate_percent_for_questions(user_id, questions):
     scores = user_scores.get(user_id, {})
     total_score = sum(scores.get(q["answer"], 0) for q in questions)
     avg_score = total_score / len(questions)  # 0..4
-    return round((avg_score / 4) * 100, 1)  # 0..100%
-    
+    return round((avg_score / 4) * 100, 2)  # ←小数点2位まで
 
 def update_total_rate(user_id, bot_type):
     if bot_type == "leap":
@@ -419,86 +418,45 @@ def evaluate_X(elapsed, score, answer, is_multiple_choice=False):
         return "✓Correct", 1
 
 # 高速ランキング（自分の順位も表示）
-def build_ranking_flex_fast(user_id):
-    docs = db.collection("users").stream()
-    ranking = []
+def build_ranking_flex_fast(bot_type):
+    field_name = f"total_rate_{bot_type}"
+    try:
+        docs = db.collection("users")\
+            .order_by(field_name, direction=firestore.Query.DESCENDING)\
+            .limit(10).stream()
+        ranking_data = [
+            (doc.to_dict().get("name", DEFAULT_NAME), doc.to_dict().get(field_name, 0))
+            for doc in docs
+        ]
+    except Exception as e:
+        print(f"Error fetching ranking for {bot_type}: {e}")
+        ranking_data = []
 
-    for doc in docs:
-        data = doc.to_dict()
-        name = data.get("name", DEFAULT_NAME)
-        total_rate = data.get("total_rate", 0)
-        ranking.append((doc.id, name, total_rate))
-
-    # レート順にソート
-    ranking.sort(key=lambda x: x[2], reverse=True)
-
-    # 自分の順位を探す
-    user_pos = None
-    for i, (uid, _, _) in enumerate(ranking, 1):
-        if uid == user_id:
-            user_pos = i
-            break
-
-    contents = []
-    # TOP5表示
-    for i, (uid, name, rate) in enumerate(ranking[:5], 1):
-        if i == 1: color = "#FFD700"
-        elif i == 2: color = "#C0C0C0"
-        elif i == 3: color = "#CD7F32"
-        else: color = "#1DB446"
-
-        contents.append({
+    bubbles = []
+    for i, (name, rate) in enumerate(ranking_data, 1):
+        bubbles.append({
             "type": "box",
             "layout": "baseline",
             "contents": [
-                {"type": "text", "text": f"#{i}", "flex": 1, "weight": "bold", "size": "md", "color": color},
-                {"type": "text", "text": name, "flex": 4, "weight": "bold", "size": "md"},
-                {"type": "text", "text": str(rate), "flex": 2, "align": "end", "size": "md"}
+                {"type": "text", "text": f"{i}位", "flex": 1, "size": "sm"},
+                {"type": "text", "text": name, "flex": 3, "size": "sm"},
+                {"type": "text", "text": f"{rate}%", "flex": 1, "size": "sm", "align": "end"}
             ]
         })
-        if i < 5:
-            contents.append({"type": "separator", "margin": "md"})
 
-    # 自分用メッセージ
-    if user_pos is not None:
-        my_uid, my_name, my_rate = ranking[user_pos - 1]
-        if user_pos <= 5:
-            msg_text = f"{my_name}\nTotal Rate: {my_rate}\nあなたは表彰台に乗っています！"
-        else:
-            # 一つ上との差分
-            upper_uid, upper_name, upper_rate = ranking[user_pos - 2]
-            diff = upper_rate - my_rate
-            msg_text = (
-                f"{my_name}\n#{user_pos} Total Rate:{my_rate}\n"
-                f"#{user_pos - 1}の({upper_name})まで{diff}"
-            )
-
-        contents.append({"type": "separator", "margin": "md"})
-        contents.append({
-            "type": "text",
-            "text": msg_text,
-            "size": "sm",
-            "wrap": True,
-            "color": "#333333",
-            "margin": "md"
-        })
-
-    flex_message = FlexSendMessage(
-        alt_text="Ranking",
-        contents={
-            "type": "bubble",
-            "body": {
-                "type": "box",
-                "layout": "vertical",
-                "contents": [
-                    {"type": "text", "text": "Ranking", "weight": "bold", "size": "xl", "align": "center"},
-                    {"type": "separator", "margin": "md"},
-                    *contents
-                ]
-            }
+    return {
+        "type": "bubble",
+        "body": {
+            "type": "box",
+            "layout": "vertical",
+            "contents": [
+                {"type": "text", "text": f"{bot_type.upper()}ランキング", "weight": "bold", "size": "md"},
+                {"type": "separator", "margin": "md"},
+                *bubbles
+            ]
         }
-    )
-    return flex_message
+    }
+
 
 # —————— ここからLINEイベントハンドラ部分 ——————
 # LEAP
