@@ -403,7 +403,7 @@ def evaluate_X(elapsed, score, answer, is_multiple_choice=False):
 
 # 高速ランキング（自分の順位も表示）
 def build_ranking_flex_fast(bot_type):
-    field_name = f"total_rate_{bot_type}"
+    field_name = f"total_rate_{bot_type.lower()}"
     try:
         docs = db.collection("users")\
             .order_by(field_name, direction=firestore.Query.DESCENDING)\
@@ -418,19 +418,17 @@ def build_ranking_flex_fast(bot_type):
 
     bubbles = []
     for i, (name, rate) in enumerate(ranking_data[:10], 1):
-         rate_str = f"{rate:.2f}%"  # 小数点2位まで
-         bubbles.append({
+        bubbles.append({
             "type": "box",
             "layout": "baseline",
             "contents": [
                 {"type": "text", "text": f"{i}位", "flex": 1, "size": "sm"},
                 {"type": "text", "text": name, "flex": 3, "size": "sm"},
-                {"type": "text", "text": rate_str, "flex": 1, "size": "sm", "align": "end"}
+                {"type": "text", "text": f"{rate:.2f}%", "flex": 1, "size": "sm", "align": "end"}
             ]
         })
 
-
-    return {
+    flex_content = {
         "type": "bubble",
         "body": {
             "type": "box",
@@ -443,7 +441,10 @@ def build_ranking_flex_fast(bot_type):
         }
     }
 
-
+    return FlexSendMessage(
+        alt_text=f"{bot_type.upper()}ランキング",
+        contents=flex_content
+    )
 # —————— ここからLINEイベントハンドラ部分 ——————
 # LEAP
 @app.route("/callback/leap", methods=["POST"])
@@ -508,7 +509,7 @@ def handle_message_common(event, bot_type, line_bot_api):
 
     # ランキング
     if msg == "ランキング":
-        flex_msg = build_ranking_flex_fast(user_id)
+        flex_msg = build_ranking_flex_fast(bot_type)
         line_bot_api.reply_message(event.reply_token, flex_msg)
         return
 
