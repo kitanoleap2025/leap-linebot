@@ -264,44 +264,6 @@ def periodic_save():
 threading.Thread(target=periodic_save, daemon=True).start()
 
 #FEEDBACK　flex
-def build_ranking_flex_fast(bot_type):
-    field_name = f"total_rate_{bot_type.lower()}"
-    try:
-        docs = db.collection("users")\
-            .order_by(field_name, direction=firestore.Query.DESCENDING)\
-            .limit(10).stream()
-        ranking_data = [(doc.to_dict().get("name", DEFAULT_NAME), doc.to_dict().get(field_name, 0)) for doc in docs]
-    except Exception as e:
-        print(f"Error fetching ranking for {bot_type}: {e}")
-        ranking_data = []
-
-    bubbles = []
-    for i, (name, rate) in enumerate(ranking_data[:10], 1):
-        bubbles.append({
-            "type": "box",
-            "layout": "baseline",
-            "contents": [
-                {"type": "text", "text": f"{i}位", "flex": 1, "size": "sm"},
-                {"type": "text", "text": name, "flex": 3, "size": "sm"},
-                {"type": "text", "text": f"{rate:.2f}%", "flex": 1, "size": "sm", "align": "end"}
-            ]
-        })
-
-    flex_content = {
-        "type": "bubble",
-        "body": {
-            "type": "box",
-            "layout": "vertical",
-            "contents": [
-                {"type": "text", "text": f"{bot_type.upper()}ランキング", "weight": "bold", "size": "md"},
-                {"type": "separator", "margin": "md"},
-                *bubbles
-            ]
-        }
-    }
-
-    return FlexSendMessage(alt_text=f"{bot_type.upper()}ランキング", contents=flex_content)
-
 
 def send_question(user_id, range_str, bot_type="LEAP"):
     questions = get_questions_by_range(range_str, bot_type)
