@@ -135,7 +135,7 @@ def build_result_flex(user_id, bot_type):
             "margin": "md",
             "contents": [
                 {"type": "text", "text": title, "weight": "bold", "size": "sm", "color": "#000000"},
-                {"type": "text", "text": f"把握率: {rate_percent} %", "size": "md", "color": "#333333"},
+                {"type": "text", "text": f"Rating: {rate_percent}", "size": "md", "color": "#333333"},
             ],
         })
 
