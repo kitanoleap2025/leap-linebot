@@ -222,10 +222,10 @@ def compute_rate_percent_for_questions(user_id, questions):
     scores = user_scores.get(user_id, {})
     total_score = sum(scores.get(q["answer"], 0) for q in questions)
     avg_score = total_score / len(questions)  # 0..4
-    return round((avg_score / 4) * 100, 2)  # ←小数点2位まで
+    return round(avg_score * 2500 , 2)  # ←小数点2位まで
 
 def update_total_rate(user_id, bot_type):
-    bot_type_lower = bot_type.lower()
+    bot_type_lower = bot_type.lower() 
     field_name = f"total_rate_{bot_type_lower}"
 
     if bot_type_lower == "leap":
