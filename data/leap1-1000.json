@@ -1575,13 +1575,23 @@
         "meaning": ""
     },
     {
-        "text": "751 an ___ clock\n正確な時計⌚",
+        "text": "753 a generous ___\n気前の良い臆病者",
+        "answer": "coward",
+        "meaning": ""
+    },
+    {
+        "text": "755 an ___ clock\n正確な時計⌚",
         "answer": "accurate",
         "meaning": ""
     },
     {
-        "text": "753 a generous ___\n気前の良い臆病者",
-        "answer": "coward",
+        "text": "756 Wearing a tuxedo to a barbecue is not ___.\nバーベキューにタキシードを着ていくのは適切ではない。🤵",
+        "answer": "proper",
+        "meaning": ""
+    },
+    {
+        "text": "758 Using both hands to peel a banana is surprisingly ___.\n両手でバナナをむくのは意外と効率的だ。🍌",
+        "answer": "efficient",
         "meaning": ""
     },
     {
