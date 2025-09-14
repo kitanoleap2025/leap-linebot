@@ -188,9 +188,11 @@ def build_result_flex(user_id, bot_type):
     # 合計レート計算
     c1 = len(questions_1_1000)
     c2 = len(questions_1001_2000)
-    rate1 = round((sum(user_scores.get(user_id, {}).get(q["answer"], 1) for q in questions_1_1000) / c1) * 2500) if c1 else 0
-    rate2 = round((sum(user_scores.get(user_id, {}).get(q["answer"], 1) for q in questions_1001_2000) / c2) * 2500) if c2 else 0
-    total_rate = round((rate1 + rate2) / 2)
+
+    rate1 = round((sum(user_scores.get(user_id, {}).get(q["answer"], 1) for q in questions_1_1000) / c1) * 2500, 3) if c1 else 0
+    rate2 = round((sum(user_scores.get(user_id, {}).get(q["answer"], 1) for q in questions_1001_2000) / c2) * 2500, 3) if c2 else 0
+
+    total_rate = round((rate1 + rate2) / 2, 3)
 
     flex_message = FlexSendMessage(
         alt_text=f"{name}",
@@ -233,9 +235,18 @@ def update_total_rate(user_id, bot_type):
         q1 = get_questions_by_range("1-1000", "TARGET")
         q2 = get_questions_by_range("1001-2000", "TARGET")
 
-    rate1 = compute_rate_percent_for_questions(user_id, q1)
-    rate2 = compute_rate_percent_for_questions(user_id, q2)
-    total_rate = round((rate1 + rate2) / 2, 2)
+    scores = user_scores.get(user_id, {})
+
+    def calc_rate(questions):
+        if not questions:
+            return 0.0
+        total = sum(scores.get(q["answer"], 1) for q in questions)
+        avg = total / len(questions)      # 平均スコア (1〜4)
+        return round(avg * 2500, 3)       # ← 平均スコア × 2500
+
+    rate1 = calc_rate(q1)
+    rate2 = calc_rate(q2)
+    total_rate = round((rate1 + rate2) / 2, 3)
 
     try:
         db.collection("users").document(user_id).set({field_name: total_rate}, merge=True)
@@ -351,6 +362,13 @@ trivia_messages = [
     "ヒント🤖\n@新しい名前　でランキングに表示される名前を変更できます。",
     "ヒント🤖\n口を大きく開けずに済むので「I am」→「I'm」となりました。",
     "ヒント🤖\n若さは、ニュースを楽しめるようになった日で終わる。",
+    "ヒント🤖\nエアバスA380\n2010年、大西洋を横断していたエアバスA380にユーロファイター戦闘機が接近し、スピードやアクロバットを披露した。戦闘機のパイロットが「すごいだろ？」と尋ねると、エアバスのパイロットは「確かに。でもこれを見てみろ」と答えた。戦闘機のパイロットは観察したが、何も起きなかった。不思議に思い「何をしたんだ？」と再び聞くと、数分後エアバスのパイロットが無線で答えた。「立ち上がって足を伸ばし、トイレに行き、コーヒーとシナモンロールを取ってきたんだ。」",
+    "ヒント🤖\n世界一礼儀正しい争い\nカナダとデンマークの間には領有権を争う島があります。両国の軍人は定期的に島を訪れ、相手の国旗を外して自国の旗を立て、代わりにデンマークのシュナッツかカナダのウイスキーを置いていきます。",
+    "ヒント🤖\nワシの上を飛べる唯一の鳥はカラスです。カラスはワシの背中にとまり、首をつついて邪魔をします。しかしワシは反撃もせず、無駄に力を使うこともありません。その代わり、ただどんどん高く舞い上がっていきます。酸素が薄くなるとカラスは耐えられず、自ら落ちてしまうのです。教訓は明らかです。あなたを引きずり下ろそうとする相手と議論する必要はありません。ただ自分が高く昇れば、相手は勝手に落ちていくのです。",
+    "ヒント🤖\nジョエル・バーガーという名前の男性が、アシュリー・キングという名前の女性と結婚しました。バーガーキングが結婚式の費用を全額負担しました。",
+    "ヒント🤖\nトラは人間にはオレンジ色に見えますが、私たちは三色型色覚だからです。一方、シカやイノシシには二色型色覚しかないため、トラの色は周囲の緑に溶け込みます。オレンジと黒の縞模様は完璧なカモフラージュとして機能し、トラが身を隠して獲物に気付かれずに効率よく狩りができるのです。",
+    "ヒント🤖\nこのハヤブサのヒナたちは、「怪物」が近づいてきたとき最大戒態勢に入りました...でも、実はただの好奇心旺盛なチョウでした。教訓：自分の本当の力を知らないと、小さなことでも怖くなるのです。",
+    "ヒント🤖\n",
     
     "ヒント🤖\n to begin with「まず初めに」",
     "ヒント🤖\n strange to say「奇妙なことに」",
@@ -359,7 +377,7 @@ trivia_messages = [
     "ヒント🤖\n to make matters worse「さらに悪いことには」",
     "ヒント🤖\n to tell the truth　「実を言えば」",        
     "ヒント🤖\n not to say～　「～とは言わぬでも」",
-    "ヒント🤖\n not to mention～\n not to speak of～   「～は言うまでもなく」\n to say nothing of～",
+    "ヒント🤖\n not to mention～\n not to speak of～\n to say nothing of～\n「～は言うまでもなく」",
     "ヒント🤖\n in – 「中に、内部に包まれている」,「月・年・季節などの期間」",        
     "ヒント🤖\n on – 「上に、接触している」,「日・特定の日付」",
     "ヒント🤖\n at – 「地点・一点」,「時刻・瞬間」",
