@@ -215,6 +215,8 @@ def build_result_flex(user_id, bot_type):
     )
     return flex_message
 
+
+
 #総合レート更新
 def compute_rate_percent_for_questions(user_id, questions):
     if not questions:
@@ -380,6 +382,64 @@ def evaluate_X(elapsed, score, answer, is_multiple_choice=False):
         return "!Great", 2
     else:
         return "✓Correct", 1
+
+#FEEDBACK　flex
+def build_feedback_flex(user_id, is_correct, score, elapsed, correct_answer=None, label=None, meaning=None):
+    body_contents = []
+
+    if is_correct:
+        color_map = {"!!Brilliant":"#40e0d0", "!Great":"#4682b4", "✓Correct":"#00ff00"}
+        color = color_map.get(label, "#000000")
+        body_contents.append({
+            "type": "text",
+            "text": label or "✓Correct",
+            "weight": "bold",
+            "size": "xl",
+            "color": color,
+            "align": "center"
+        })
+    else:
+        body_contents.append({
+            "type": "text",
+            "text": f"Wrong❌\nAnswer: {correct_answer}",
+            "size": "md",
+            "color": "#ff4500",
+            "wrap": True,
+            "margin": "md"
+        })
+
+    if meaning:
+        body_contents.append({
+            "type": "text",
+            "text": f"{meaning}",
+            "size": "md",
+            "color": "#000000",
+            "margin": "md",
+            "wrap": True
+        })
+
+    # ← ここで「今日の解答数」を追加
+    count_today = user_daily_counts[user_id]["count"]
+    body_contents.append({
+        "type": "text",
+        "text": f"🔥{count_today}",
+        "size": "sm",
+        "color": "#333333",
+        "margin": "md"
+    })
+
+    return FlexSendMessage(
+        alt_text="回答フィードバック",
+        contents={
+            "type": "bubble",
+            "body": {
+                "type": "box",
+                "layout": "vertical",
+                "contents": body_contents
+            }
+        }
+    )
+
 
 # 高速ランキング（自分の順位も表示）
 def build_ranking_flex_fast(bot_type):
