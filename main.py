@@ -464,7 +464,7 @@ def build_ranking_flex_fast(bot_type):
             "contents": [
                 {"type": "text", "text": f"{i}位", "flex": 1, "size": "sm"},
                 {"type": "text", "text": name, "flex": 3, "size": "sm"},
-                {"type": "text", "text": f" str(rate)", "flex": 1, "size": "sm", "align": "end"}
+                {"type": "text", "text": f"{rate}", "flex": 1, "size": "sm", "align": "end"}
             ]
         })
 
