@@ -424,6 +424,11 @@
         "answer": "scolded",
         "meaning": "scold\t[他] ～を叱る"
     },
+    { 
+        "text": "1372 Mom ___ to punish me if I didn’t clean my room.\n部屋を片付けなければ,ママは僕を罰すると脅した。🔫", 
+        "answer": "threatened", 
+        "meaning": "" 
+    },
     {
         "text": "1385 ___ talent\n圧倒的な才能🧬",
         "answer": "overwhelming",
