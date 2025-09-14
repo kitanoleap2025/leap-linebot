@@ -274,6 +274,11 @@
         "meaning": ""
     },
     {
+        "text": "076 The arrow indicate the hidden ___ on the map.\n矢印は地図上の隠された宝物を示している。💎",
+        "answer": "treasure",
+        "meaning": ""
+    },
+    {
         "text": "078 I use ___ transportation to get to school.(不可算)\n私は学校に行くのに公共交通機関を利用しています.",
         "answer": "public",
         "meaning": "public　[名] ①（the ―）大衆 [形] ②公共の，公の"
@@ -1980,6 +1985,11 @@
         "meaning": ""
     },
     {
+        "text": "918 Omitting the ___ of the Straw Millionaire, trying to exchange a string for a Benz.\nわらしべ長者の物語を省略して,ひもをベンツと交換しようとする.",
+        "answer": "tale",
+        "meaning": ""
+    },
+    {
         "text": "919 Russian ___\nロシア文学",
         "answer": "literature",
         "meaning": ""
@@ -1990,12 +2000,17 @@
         "meaning": ""
     },
     {
-        "text": "925 Omitting the ___ of the Straw Millionaire, trying to exchange a string for a Benz.\nわらしべ長者の物語を省略して,ひもをベンツと交換しようとする.",
-        "answer": "tale",
+        "text": "924 a ___ that sounds like rap\nラップのように聞こえる方言",
+        "answer": "dialect",
         "meaning": ""
     },
     {
-        "text": "924 to ___ E = mc²\nE=mc²を証明する",
+        "text": "932 The arrow ___ the hidden treasure on the map.\n矢印は地図上の隠された宝物を示している。💎",
+        "answer": "indicate",
+        "meaning": ""
+    },
+    {
+        "text": "936 ___ one's innocence\n無実を証明する",
         "answer": "prove",
         "meaning": ""
     },
