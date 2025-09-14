@@ -127,7 +127,7 @@ def build_result_flex(user_id, bot_type):
         count = len(qs)
         total_score = sum(user_scores.get(user_id, {}).get(q["answer"], 1) for q in qs)
         # 平均スコア(0〜4)→把握率(0〜100%)
-        rate_percent = round((total_score / (count * 4)) * 100, 1) if count else 0.0
+        rate_percent = int((total_score / count ) * 2500) if count else 0.0
        
         parts.append({
             "type": "box",
@@ -222,7 +222,7 @@ def compute_rate_percent_for_questions(user_id, questions):
     scores = user_scores.get(user_id, {})
     total_score = sum(scores.get(q["answer"], 0) for q in questions)
     avg_score = total_score / len(questions)  # 0..4
-    return round(avg_score * 2500 , 2)  # ←小数点2位まで
+    return int(avg_score * 2500)
 
 def update_total_rate(user_id, bot_type):
     bot_type_lower = bot_type.lower() 
@@ -242,11 +242,11 @@ def update_total_rate(user_id, bot_type):
             return 0.0
         total = sum(scores.get(q["answer"], 1) for q in questions)
         avg = total / len(questions)      # 平均スコア (1〜4)
-        return round(avg * 2500, 3)       # ← 平均スコア × 2500
+        return int(avg * 2500)       # ← 平均スコア × 2500
 
     rate1 = calc_rate(q1)
     rate2 = calc_rate(q2)
-    total_rate = round((rate1 + rate2) / 2, 3)
+    total_rate = int((rate1 + rate2) / 2)
 
     try:
         db.collection("users").document(user_id).set({field_name: total_rate}, merge=True)
@@ -256,7 +256,7 @@ def update_total_rate(user_id, bot_type):
 
 def periodic_save():
     while True:
-        time.sleep(60)  # 1分ごと
+        time.sleep(600)  # 10分ごと
         for user_id in list(user_scores.keys()):
             save_user_data(user_id)
 
