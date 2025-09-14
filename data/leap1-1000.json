@@ -713,6 +713,11 @@
         "answer": "count",
         "meaning": ""
     },
+    { 
+        "text": "275 The ___ of laundry was a huge obstacle to finishing homework.\n洗濯物の山は宿題を終わらせる大きな障害だった。",
+        "answer": "pile", 
+        "meaning": "" 
+    },
     {
         "text": "276 It is said that the crime ___ in the city has increased this year.\n今年,この街の犯罪率は増加したと言われている。🔪",
         "answer": "rate",
@@ -1235,6 +1240,26 @@
         "meaning": ""
     },
     {
+        "text": "558 His ___ for stealing the cookie was obvious: hunger\nクッキーを盗んだ彼の動機は明らかだ：空腹",
+        "answer": "motive",
+        "meaning": ""
+    },
+    {
+        "text": "559 Mom threatened to ___ me if I didn’t clean my room.\n部屋を片付けなければ,ママは僕を罰すると脅した。🔫",
+        "answer": "punish",
+        "meaning": ""
+    },
+    {
+        "text": "563 Sibling arguments often lead to funny ___.\n兄弟の口論はよく面白い衝突を生む。",
+        "answer": "conflict",
+        "meaning": ""
+    },
+    {
+        "text": "567 The pile of laundry was a huge ___ to finishing homework.\n洗濯物の山は宿題を終わらせる大きな障害だった。",
+        "answer": "obstacle",
+        "meaning": ""
+    },
+    {
         "text": "568 Instagram does more ___ than good.\nインスタグラムは益より害になる.",
         "answer": "harm",
         "meaning": ""
@@ -1635,6 +1660,11 @@
         "meaning": ""
     },
     {
+        "text": "558 His motive for stealing the cookie was ___: hunger\nクッキーを盗んだ彼の動機は明らかだ：空腹",
+        "answer": "obvious",
+        "meaning": ""
+    },
+    {
         "text": "772 Everyone admired his ___ idea.\n誰もが彼の注目すべきアイデアに感心した.",
         "answer": "remarkable",
         "meaning": ""
@@ -1853,6 +1883,11 @@
         "text": "880 Studying abroad will be a unique and ___ experience.\n留学することは珍しい価値のある経験になるだろう。",
         "answer": "rewarding",
         "meaning": ""
+    },
+    { 
+        "text": "884 The pile of ___ was a huge obstacle to finishing homework.\n洗濯物の山は宿題を終わらせる大きな障害だった。",
+        "answer": "laundry", 
+        "meaning": "" 
     },
     {
         "text": "890 It's okay to take a n___.\n昼寝しても大丈夫だよ.💤",
