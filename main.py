@@ -192,7 +192,7 @@ def build_result_flex(user_id, bot_type):
     rate1 = round((sum(user_scores.get(user_id, {}).get(q["answer"], 1) for q in questions_1_1000) / c1) * 2500, 3) if c1 else 0
     rate2 = round((sum(user_scores.get(user_id, {}).get(q["answer"], 1) for q in questions_1001_2000) / c2) * 2500, 3) if c2 else 0
 
-    total_rate = round((rate1 + rate2) / 2, 3)
+    total_rate = int((rate1 + rate2) / 2)
 
     flex_message = FlexSendMessage(
         alt_text=f"{name}",
