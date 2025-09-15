@@ -603,6 +603,7 @@ def handle_message_common(event, bot_type, line_bot_api):
         messages_to_send = [flex_feedback]
 
         if user_answer_counts[user_id] % 5 == 0:
+            async_save_user_data(user_id)
             trivia = random.choice(trivia_messages)
             messages_to_send.append(TextSendMessage(text=trivia))
 
