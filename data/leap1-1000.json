@@ -184,7 +184,7 @@
         "meaning": "effort　[名] 努力"
     },
     {
-        "text": "040 ___ my ambition to be a pilot\nパイロットになるという望みを叶える🧑‍✈️",
+        "text": "040 ___ my ambition to be a pilot\nパイロットになるという望みを叶える",
         "answer": "achieve",
         "meaning": "achieve　[他] ～を達成する"
     },
@@ -846,6 +846,11 @@
     {
         "text": "351 ___ of an earthquake\n地震の兆候",
         "answer": "signs",
+        "meaning": ""
+    },
+    {
+        "text": "353 I didn’t ___ to offend you with my comment.\n私の発言であなたを怒らせるつもりはなかった。😡",
+        "answer": "mean",
         "meaning": ""
     },
     {
@@ -2082,11 +2087,6 @@
     {
         "text": "977 Rainy days sometimes ___ me.\n雨の日はときどき私を憂うつにさせる。💧",
         "answer": "depress",
-        "meaning": ""
-    },
-    {
-        "text": "978 I ___ him ten dollars.\n私は彼に10ドル借りている。💵",
-        "answer": "owe",
         "meaning": ""
     },
     {
