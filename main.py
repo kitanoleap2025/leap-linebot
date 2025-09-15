@@ -65,10 +65,9 @@ target_1001_1900 = load_words("data/target1001-1900.json")
 def get_questions_by_range(range_str, bot_type):
     # A/B を内部範囲に変換
     if range_str == "A":
-        if bot_type == "LEAP":
-            return leap_1_1000
-        else:  # TARGET
-            return target_1_1000
+        if range_str == "A": return leap_1_1000
+        elif range_str == "B": return leap_1001_2000
+        elif range_str == "C": return leap_2001_2300
     elif range_str == "B":
         if bot_type == "LEAP":
             return leap_1001_2000
