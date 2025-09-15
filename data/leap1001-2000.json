@@ -355,6 +355,11 @@
         "meaning": "wound\t[名] ①傷 [他] ②～を傷つける"
     },
     {
+        "text": "1157 They took a moderate ___ to solving the problem.\n彼らはその問題を解決するために穏健なアプローチを取った。",
+        "answer": "approach",
+        "meaning": ""
+    },
+    {
         "text": "1174 Life is filled with ups and downs and the only thing you can change is how you ___ to them.\n人生は浮き沈みであふれていて,唯一変えられるのはそれらへの反応の仕方である.",
         "answer": "react",
         "meaning": ""
