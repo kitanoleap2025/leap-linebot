@@ -60,18 +60,18 @@ leap_1001_2000 = load_words("data/leap1001-2000.json")
 # TARGET
 target_1_1000 = load_words("data/target1-1000.json")
 
-
-#range_str と bot_type を使って関数化する
 def get_questions_by_range(range_str, bot_type):
-    if bot_type == "LEAP":
-        questions_1_1000 = leap_1_1000
-        questions_1001_2000 = leap_1001_2000
-    else:
-        questions_1_1000 = target_1_1000
-        questions_1001_2000 = target_1001_1900
-
-    return questions_1_1000 if range_str == "1-1000" else questions_1001_2000
-
+    # A/B を内部範囲に変換
+    if range_str == "A":
+        if bot_type == "LEAP":
+            return leap_1_1000
+        else:  # TARGET
+            return target_1_1000
+    elif range_str == "B":
+        if bot_type == "LEAP":
+            return leap_1001_2000
+        else:  # TARGET
+            return target_1001_1900
 
 def load_user_data(user_id):
     try:
