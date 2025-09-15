@@ -538,11 +538,15 @@ def handle_message_common(event, bot_type, line_bot_api):
             quick_buttons = [
                 QuickReplyButton(action=MessageAction(label="1-1000", text="A")),
                 QuickReplyButton(action=MessageAction(label="1001-2000", text="B")),
+                QuickReplyButton(action=MessageAction(label="2001-2300", text="C")),
+                QuickReplyButton(action=MessageAction(label="間違えた問題", text="0%")),
             ]
         else:  # TARGET
             quick_buttons = [
                 QuickReplyButton(action=MessageAction(label="1-800", text="A")),
                 QuickReplyButton(action=MessageAction(label="801-1500", text="B")),
+                QuickReplyButton(action=MessageAction(label="1501-1900", text="C")),
+                QuickReplyButton(action=MessageAction(label="間違えた問題", text="0%")),
             ]
 
         line_bot_api.reply_message(
