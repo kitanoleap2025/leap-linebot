@@ -17,10 +17,7 @@ from firebase_admin import credentials, firestore
 
 load_dotenv()
 def load_words(path):
-    """
-    指定されたJSONファイルを読み込み、
-    Pythonのリストとして返す
-    """
+#指定されたJSONファイルを読み込み、Pythonのリストとして返す
     with open(path, "r", encoding="utf-8") as f:
         return json.load(f)
 
