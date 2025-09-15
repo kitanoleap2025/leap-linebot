@@ -129,7 +129,6 @@ def build_result_flex(user_id, bot_type):
         
     parts = []
     for range_label, title in [("A", "1-1000"), ("B", "1001-2000"), ("C", "2001-2300")]:
-        questions = get_questions_by_range(range_label, bot_type)    
 
         qs = get_questions_by_range(range_label, bot_type)
         count = len(qs)
