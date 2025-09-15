@@ -904,7 +904,7 @@
         "meaning": ""
     },
     {
-        "text": "What is the ___ of this meeting?\nこの会議の目的は何ですか？",
+        "text": "385 What is the ___ of this meeting?\nこの会議の目的は何ですか？",
         "answer": "purpose",
         "meaning": ""
     },
@@ -2070,22 +2070,52 @@
         "meaning": ""
     },
     {
-        "text": "978 Complex issues compose themselves of simple, ___ mistakes.\n複雑な問題は,無視された単純なミスから成り立っている.",
+        "text": "978 Complex issues compose themselves of simple, ___ mistakes.\n複雑な問題は,無視された単純なミスから成り立っている。",
         "answer": "ignored",
         "meaning": ""
     },
     {
-        "text": "983 The one-child policy in China is successful to some ___.\n中国の一人っ子政策は,ある程度成功している.🐼🐼🐼",
+        "text": "983 The one-child policy in China is successful to some ___.\n中国の一人っ子政策は,ある程度成功している。🐼🐼🐼",
         "answer": "extent",
         "meaning": ""
     },
     {
-        "text": "991 We shape our tools, and ___, our tools shape us.\n私たちは道具を作るが,結果として,道具が私たちを作る.",
+        "text": "984 The test was ___ difficult for most students.\nそのテストはほとんどの生徒にとって非常に難しかった。🤯🤯🤯",
+        "answer": "extremely",
+        "meaning": ""
+    },
+    {
+        "text": "986 The plan was ___ successful despite some problems.\nいくつかの問題があったが,その計画はおおむね成功した。",
+        "answer": "largely",
+        "meaning": ""
+    },
+    {
+        "text": "987 They took a ___ approach to solving the problem.\n彼らはその問題を解決するために適度なアプローチを取った"。,
+        "answer": "moderate",
+        "meaning": ""
+    },
+    {
+        "text": "988 I was ___ tired after the long walk.\n長い散歩の後,私はやや疲れていた。🥱",
+        "answer": "somewhat",
+        "meaning": ""
+    },
+    {
+        "text": "989 There was a ___ change in her tone of voice.\n彼女の声の調子に微妙な変化があった。",
+        "answer": "subtle",
+        "meaning": ""
+    },
+    {
+        "text": "990 He will ___ come to the party if he finishes work early.\n仕事が早く終われば,彼はたぶんパーティーに来るだろう。",
+        "answer": "possibly",
+        "meaning": ""
+    },
+    {
+        "text": "991 We shape our tools, and ___, our tools shape us.\n私たちは道具を作るが,結果として,道具が私たちを作る。",
         "answer": "eventually",
         "meaning": ""
     },
     {
-        "text": "992 He argued that sleep wasn’t ___ for eaxms.\n彼は試験のために睡眠は必要ないと主張した.",
+        "text": "992 He argued that sleep wasn’t ___ for eaxms.\n彼は試験のために睡眠は必要ないと主張した。",
         "answer": "necessary",
         "meaning": ""
     },
@@ -2100,12 +2130,12 @@
         "meaning": "regardless\t[副] （of ～）（～とは）無関係に"
     },
     {
-        "text": "998 He's ___ meeting.\n彼に会う価値はある.",
+        "text": "998 He's ___ meeting.\n彼に会う価値はある。",
         "answer": "worth",
         "meaning": ""
     },
     {
-        "text": "1000 ___ capitalism, your value peaks at checkout.\n資本主義によると,あなたの価値はチェックアウト時にピークに達する.",
+        "text": "1000 ___ capitalism, your value peaks at checkout.\n資本主義によると,あなたの価値はチェックアウト時にピークに達する。",
         "answer": "According to",
         "meaning": "according to\t[前] ①（調査，人の話など）によれば ②（能力など）に応じて"
     }
