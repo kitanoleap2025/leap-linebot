@@ -521,7 +521,7 @@ def handle_message_common(event, bot_type, line_bot_api):
         return
 
     # 質問送信
-    if msg in ["1-1000", "1001-2000"]:
+    if msg in ["A", "B"]:
         question_msg = send_question(user_id, msg, bot_type=bot_type)
         line_bot_api.reply_message(event.reply_token, question_msg)
         return
@@ -534,10 +534,17 @@ def handle_message_common(event, bot_type, line_bot_api):
         return
 
     if msg == "学ぶ":
-        quick_buttons = [
-            QuickReplyButton(action=MessageAction(label="1-1000", text="1-1000")),
-            QuickReplyButton(action=MessageAction(label="1001-2000", text="1001-2000")),
-        ]
+        if bot_type == "LEAP":
+            quick_buttons = [
+                QuickReplyButton(action=MessageAction(label="1-1000", text="A")),
+                QuickReplyButton(action=MessageAction(label="1001-2000", text="B")),
+            ]
+        else:  # TARGET
+            quick_buttons = [
+                QuickReplyButton(action=MessageAction(label="1-800", text="A")),
+                QuickReplyButton(action=MessageAction(label="801-1500", text="B")),
+            ]
+
         line_bot_api.reply_message(
             event.reply_token,
             TextSendMessage(
