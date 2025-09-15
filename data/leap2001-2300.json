@@ -1,1 +1,32 @@
-
+[
+    {
+        "text": "",
+        "answer": "",
+        "meaning": ""
+    },
+    {
+        "text": "",
+        "answer": "",
+        "meaning": ""
+    },
+    {
+        "text": "2297 The tree trunk was ___ inside.\n木の幹の中は空洞だった。",
+        "answer": "hollow",
+        "meaning": ""
+    },
+    {
+        "text": "2298 The population of this town is quite ___.\nこの町の人口はかなり同質的だ。",
+        "answer": "homogeneous",
+        "meaning": ""
+    },
+    {
+        "text": "2299 Is it ___ to finish the project by tomorrow?\nこのプロジェクトは明日までに実行可能ですか？",
+        "answer": "feasible",
+        "meaning": ""
+    },
+    {
+        "text": "2300 This plan is not ___ without my friend’s help.\nこの計画は友達の助けなしでは実現可能ではない。",
+        "answer": "viable",
+        "meaning": ""
+    }
+]
