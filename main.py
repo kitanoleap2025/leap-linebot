@@ -119,11 +119,19 @@ def score_to_weight(score):
 
 def build_result_flex(user_id, bot_type):
     name = user_names.get(user_id, DEFAULT_NAME)
-    
+
+    if bot_type == "LEAP":
+        questions_1_1000 = leap_1_1000
+        questions_1001_2000 = leap_1001_2000
+    else:
+        questions_1_1000 = target_1_1000
+        questions_1001_2000 = target_1001_1900
+        
     parts = []
     for range_label, title in [("A", "1-1000"), ("B", "1001-2000"), ("C", "2001-2300")]:
         questions = get_questions_by_range(range_label, bot_type)    
-    
+
+        qs = get_questions_by_range(range_label, bot_type)
         count = len(qs)
         total_score = sum(user_scores.get(user_id, {}).get(q["answer"], 1) for q in qs)
         # 平均スコア(0〜4)→把握率(0〜100%)
