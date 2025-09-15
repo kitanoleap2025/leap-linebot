@@ -295,13 +295,13 @@ def choose_weighted_question(user_id, questions):
     for q in questions:
         if q["answer"] in recent:
             continue
-        weight = score_to_weight(scores.get(q["answer"], 0))
+        weight = score_to_weight(scores.get(q["answer"], 1))
         candidates.append(q)
         weights.append(weight)
     if not candidates:
         user_recent_questions[user_id].clear()
         for q in questions:
-            weight = score_to_weight(scores.get(q["answer"], 0))
+            weight = score_to_weight(scores.get(q["answer"], 1))
             candidates.append(q)
             weights.append(weight)
     chosen = random.choices(candidates, weights=weights, k=1)[0]
