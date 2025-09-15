@@ -2070,8 +2070,43 @@
         "meaning": ""
     },
     {
-        "text": "978 Complex issues compose themselves of simple, ___ mistakes.\n複雑な問題は,無視された単純なミスから成り立っている。",
+        "text": "975 Complex issues compose themselves of simple, ___ mistakes.\n複雑な問題は,無視された単純なミスから成り立っている。",
         "answer": "ignored",
+        "meaning": ""
+    },
+    {
+        "text": "976 I didn’t mean to ___ you with my comment.\n私の発言であなたを怒らせるつもりはなかった。😡",
+        "answer": "offend",
+        "meaning": ""
+    },
+    {
+        "text": "977 Rainy days sometimes ___ me.\n雨の日はときどき私を憂うつにさせる。💧",
+        "answer": "depress",
+        "meaning": ""
+    },
+    {
+        "text": "978 I ___ him ten dollars.\n私は彼に10ドル借りている。💵",
+        "answer": "owe",
+        "meaning": ""
+    },
+    {
+        "text": "979 Many people ___ speaking in public.\n多くの人は人前で話すことを恐れる。🤓",
+        "answer": "fear",
+        "meaning": ""
+    },
+    {
+        "text": "980 We need a new ___ to solve this problem.\nこの問題を解決するために新しい方法が必要だ。",
+        "answer": "method",
+        "meaning": ""
+    },
+    {
+        "text": "981 TV is an important ___ of communication.\nテレビは重要な伝達手段の一つだ。📺",
+        "answer": "medium",
+        "meaning": ""
+    },
+    {
+        "text": "982 Education is a ___ to achieve social change.\n教育は社会変革を達成するための手段だ。",
+        "answer": "means",
         "meaning": ""
     },
     {
