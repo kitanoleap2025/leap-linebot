@@ -56,9 +56,11 @@ DEFAULT_NAME = "イキイキした毎日"
 #LEAP
 leap_1_1000 = load_words("data/leap1-1000.json")
 leap_1001_2000 = load_words("data/leap1001-2000.json")
+leap_2001_2300 = load_words("data/leap2001-2300.json")
 
 # TARGET
 target_1_1000 = load_words("data/target1-1000.json")
+target_1001_1900 = load_words("data/target1001-1900.json")
 
 def get_questions_by_range(range_str, bot_type):
     # A/B を内部範囲に変換
@@ -116,7 +118,7 @@ def build_result_flex(user_id, bot_type):
     name = user_names.get(user_id, DEFAULT_NAME)
     
     parts = []
-    for range_label, title in [("A", "1-1000"), ("B", "1001-2000")]:
+    for range_label, title in [("A", "1-1000"), ("B", "1001-2000"), ("C", "2001-2300")]:
         questions = get_questions_by_range(range_label, bot_type)    
     
         count = len(qs)
@@ -519,7 +521,7 @@ def handle_message_common(event, bot_type, line_bot_api):
         return
 
     # 質問送信
-    if msg in ["A", "B"]:
+    if msg in ["A", "B","C"]:
         question_msg = send_question(user_id, msg, bot_type=bot_type)
         line_bot_api.reply_message(event.reply_token, question_msg)
         return
