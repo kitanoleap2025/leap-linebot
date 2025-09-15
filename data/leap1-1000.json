@@ -2135,8 +2135,13 @@
         "meaning": ""
     },
     {
-        "text": "1000 ___ capitalism, your value peaks at checkout.\n資本主義によると,あなたの価値はチェックアウト時にピークに達する。",
+        "text": "999 ___ capitalism, your value peaks at checkout.\n資本主義によると,あなたの価値はチェックアウト時にピークに達する。",
         "answer": "According to",
         "meaning": "according to\t[前] ①（調査，人の話など）によれば ②（能力など）に応じて"
+    },
+    {
+        "text": "1000 The plan was largely successful ___ some problems.\nいくつかの問題があったが,その計画はおおむね成功した。",
+        "answer": "despite",
+        "meaning": ""
     }
 ]
