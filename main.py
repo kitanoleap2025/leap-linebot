@@ -539,7 +539,7 @@ def handle_message_common(event, bot_type, line_bot_api):
     if msg == "学ぶ":
         quick_buttons = [
             QuickReplyButton(action=MessageAction(label="1-1000", text="1-1000")),
-            QuickReplyButton(action=MessageAction(label="1001-2000", text="1001-2000"))
+            QuickReplyButton(action=MessageAction(label="1001-2000", text="1001-2000")),
             QuickReplyButton(action=MessageAction(label="間違えた問題", text="0%"))
         ]
         line_bot_api.reply_message(
