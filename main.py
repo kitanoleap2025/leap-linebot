@@ -222,7 +222,7 @@ def compute_rate_percent_for_questions(user_id, questions):
     if not questions:
         return 0.0
     scores = user_scores.get(user_id, {})
-    total_score = sum(scores.get(q["answer"], 0) for q in questions)
+    total_score = sum(scores.get(q["answer"], 1) for q in questions)
     avg_score = total_score / len(questions)  # 0..4
     return int(avg_score * 2500)
 
