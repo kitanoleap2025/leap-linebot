@@ -256,17 +256,6 @@ def update_total_rate(user_id, bot_type):
         print(f"Error updating {field_name} for {user_id}: {e}")
     return total_rate
 
-def periodic_save():
-    while True:
-        time.sleep(600)  # 10分ごと
-        for user_id in list(user_scores.keys()):
-            save_user_data(user_id)
-
-# スレッド起動
-threading.Thread(target=periodic_save, daemon=True).start()
-
-#FEEDBACK　flex
-
 def send_question(user_id, range_str, bot_type="LEAP"):
     questions = get_questions_by_range(range_str, bot_type)
 
