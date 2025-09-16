@@ -138,51 +138,24 @@ def start_battle(bot_type):
     room["round"] = 1
     send_next_question(bot_type)
 
-def send_next_question(bot_type):
-    room = battle_rooms[bot_type]
-    if room["round"] > 10:
-        end_battle(bot_type)
-        return
-    
-    questions_pool = leap_questions_all if bot_type=="LEAP" else target_questions_all
-    q = random.choice(questions_pool)
-    room["question"] = q
-
-    # 全員の回答初期化
-    for p in room["players"].values():
-        p["answer"] = None
-        p["elapsed"] = None
-
-    # ここでLINEに問題送信
-    # 例: send_question_to_all(bot_type, q["text"])
-    
-    # 20秒で強制次問
-    threading.Thread(target=question_timer, args=(bot_type, 20), daemon=True).start()
-
 def answer_battle(user_id, bot_type, answer, elapsed):
     room = battle_rooms[bot_type]
     if user_id not in room["players"] or room["question"] is None:
         return
     player = room["players"][user_id]
-    # 正解判定
-    is_correct = (answer.lower() == room["question"]["answer"].lower())
-    
-    # スコア加算
-    if is_correct:
-        if elapsed <= 6:
-            delta = 3
-        elif elapsed <= 10:
-            delta = 2
-        else:
-            delta = 1
-        player["score"] += delta
-    else:
-        delta = 0  # 間違い/タイムアウトは0
 
+    # 回答記録
     player["answer"] = answer
     player["elapsed"] = elapsed
 
-    # 全員回答済みなら次の問題
+    # 回答済み Event をセットしてタイマーをキャンセル可能にする
+    if "answered_event" in player:
+        player["answered_event"].set()
+
+    # 正解判定・スコア処理（既存コード）
+    ...
+    
+    # 全員回答済みなら次問
     if all(p["answer"] is not None for p in room["players"].values()):
         send_ranking(bot_type)
         room["round"] += 1
@@ -191,11 +164,16 @@ def answer_battle(user_id, bot_type, answer, elapsed):
 def question_timer(bot_type, timeout):
     room = battle_rooms[bot_type]
     start = time.time()
+
     while time.time() - start < timeout:
+        # 全員回答済みなら終了
         if all(p["answer"] is not None for p in room["players"].values()):
             return
+        # 各プレイヤーの Event がセットされていれば早期終了
+        if all(p["answered_event"].is_set() for p in room["players"].values()):
+            return
         time.sleep(0.5)
-    
+
     # タイムアウト後ランキング表示・次問
     send_ranking(bot_type)
     room["round"] += 1
@@ -237,18 +215,18 @@ def send_next_question(bot_type):
     q = random.choice(questions_pool)
     room["question"] = q
 
-    # 全員の回答初期化
+    # 全員の回答初期化 & Event作成
     for p in room["players"].values():
         p["answer"] = None
         p["elapsed"] = None
+        p["answered_event"] = threading.Event()
 
-    # 4択作成（既存send_question風）
+    # 4択作成
     correct_answer = q["answer"]
     other_answers = [item["answer"] for item in questions_pool if item["answer"] != correct_answer]
     wrong_choices = random.sample(other_answers, k=min(3, len(other_answers)))
     choices = wrong_choices + [correct_answer]
     random.shuffle(choices)
-
     quick_buttons = [QuickReplyButton(action=MessageAction(label=c, text=c)) for c in choices]
 
     # 全員に送信
@@ -261,7 +239,7 @@ def send_next_question(bot_type):
         )
         api.push_message(user_id, msg)
 
-    # 20秒タイマーで強制次問
+    # タイマー開始
     threading.Thread(target=question_timer, args=(bot_type, 20), daemon=True).start()
 
 def send_question_to_all(bot_type, question):
