@@ -59,8 +59,9 @@ leap_1001_2000 = load_words("data/leap1001-2000.json")
 leap_2001_2300 = load_words("data/leap2001-2300.json")
 
 # TARGET
-target_1_1000 = load_words("data/target1-1000.json")
-target_1001_1900 = load_words("data/target1001-1900.json")
+target_1_800 = load_words("data/target1-800.json")
+target_801_1500 = load_words("data/target801-1500.json")
+target_1501_1900 = load_words("data/target1501-1900.json")
 
 def get_questions_by_range(range_str, bot_type):
     # ABCを内部範囲に変換
@@ -121,13 +122,6 @@ def score_to_weight(score):
 
 def build_result_flex(user_id, bot_type):
     name = user_names.get(user_id, DEFAULT_NAME)
-
-    if bot_type == "LEAP":
-        questions_1_1000 = leap_1_1000
-        questions_1001_2000 = leap_1001_2000
-    else:
-        questions_1_1000 = target_1_1000
-        questions_1001_2000 = target_1001_1900
         
     parts = []
     for range_label, title in [("A", "1-1000"), ("B", "1001-2000"), ("C", "2001-2300")]:
@@ -243,7 +237,7 @@ def update_total_rate(user_id, bot_type):
         q1 = get_questions_by_range("1-1000", "LEAP")
         q2 = get_questions_by_range("1001-2000", "LEAP")
     else:
-        q1 = get_questions_by_range("1-1000", "TARGET")
+        q1 = get_questions_by_range("1-100", "TARGET")
         q2 = get_questions_by_range("1001-2000", "TARGET")
 
     scores = user_scores.get(user_id, {})
