@@ -235,8 +235,8 @@ def update_total_rate(user_id, bot_type):
         q1 = get_questions_by_range("1-1000", "LEAP")
         q2 = get_questions_by_range("1001-2000", "LEAP")
     else:
-        q1 = get_questions_by_range("1-100", "TARGET")
-        q2 = get_questions_by_range("1001-2000", "TARGET")
+        q1 = get_questions_by_range("1-800", "TARGET")
+        q2 = get_questions_by_range("801-1500", "TARGET")
 
     scores = user_scores.get(user_id, {})
 
@@ -323,24 +323,6 @@ trivia_messages = [
     "ヒント🤖\nトラは人間にはオレンジ色に見えますが、私たちは三色型色覚だからです。一方、シカやイノシシには二色型色覚しかないため、トラの色は周囲の緑に溶け込みます。オレンジと黒の縞模様は完璧なカモフラージュとして機能し、トラが身を隠して獲物に気付かれずに効率よく狩りができるのです。",
     "ヒント🤖\nこのハヤブサのヒナたちは、「怪物」が近づいてきたとき最大戒態勢に入りました...でも、実はただの好奇心旺盛なチョウでした。教訓：自分の本当の力を知らないと、小さなことでも怖くなるのです。",
     "ヒント🤖\n",
-    
-    "ヒント🤖\n to begin with「まず初めに」",
-    "ヒント🤖\n strange to say「奇妙なことに」",
-    "ヒント🤖\n needless to say「言うまでもなく」",
-    "ヒント🤖\n to be sure 「確かに」",
-    "ヒント🤖\n to make matters worse「さらに悪いことには」",
-    "ヒント🤖\n to tell the truth　「実を言えば」",        
-    "ヒント🤖\n not to say～　「～とは言わぬでも」",
-    "ヒント🤖\n not to mention～\n not to speak of～\n to say nothing of～\n「～は言うまでもなく」",
-    "ヒント🤖\n in – 「中に、内部に包まれている」,「月・年・季節などの期間」",        
-    "ヒント🤖\n on – 「上に、接触している」,「日・特定の日付」",
-    "ヒント🤖\n at – 「地点・一点」,「時刻・瞬間」",
-    "ヒント🤖\n to – 「到達点・目的地」",        
-    "ヒント🤖\n into – 「中に入り込む動作」",
-    "ヒント🤖\n onto – 「上に乗る動作」",
-    "ヒント🤖\n for – 「目的・対象」",        
-    "ヒント🤖\n of – 「所有・起源・属性」",
-    "ヒント🤖\n by – 「手段・行為者」",
 ]
 
 def choose_multiple_choice_question(user_id, questions):
