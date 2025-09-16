@@ -143,24 +143,51 @@ def answer_battle(user_id, bot_type, answer, elapsed):
     if user_id not in room["players"] or room["question"] is None:
         return
     player = room["players"][user_id]
+    
+    # 正解判定
+    is_correct = (answer.lower() == room["question"]["answer"].lower())
+    
+    # 評価ラベルと加点
+    def evaluate_rt(elapsed):
+        if elapsed <= 6:
+            return "!!Brilliant", 3
+        elif elapsed <= 10:
+            return "!Great", 2
+        else:
+            return "✓Correct", 1
+    
+    label, delta_score = evaluate_rt(elapsed)
+    
+    # スコア加算（正解時のみ）
+    if is_correct:
+        player["score"] += delta_score
+    else:
+        delta_score = 0  # 不正解は加点なし
 
-    # 回答記録
     player["answer"] = answer
     player["elapsed"] = elapsed
 
-    # 回答済み Event をセットしてタイマーをキャンセル可能にする
-    if "answered_event" in player:
-        player["answered_event"].set()
+    # フィードバックFlex作成
+    flex_feedback = build_feedback_flex(
+        user_id,
+        is_correct,
+        score=player["score"],
+        elapsed=elapsed,
+        correct_answer=room["question"]["answer"] if not is_correct else None,
+        label=label if is_correct else None,
+        meaning=room["question"].get("meaning") if "meaning" in room["question"] else None
+    )
 
-    # 正解判定・スコア処理（既存コード）
-    ...
-    
-    # 全員回答済みなら次問
+    # LINEに送信
+    api = line_bot_api_leap if bot_type == "LEAP" else line_bot_api_target
+    api.push_message(user_id, flex_feedback)
+
+    # 全員回答済みなら次の問題
     if all(p["answer"] is not None for p in room["players"].values()):
         send_ranking(bot_type)
         room["round"] += 1
         send_next_question(bot_type)
-
+        
 def question_timer(bot_type, timeout):
     room = battle_rooms[bot_type]
     start = time.time()
