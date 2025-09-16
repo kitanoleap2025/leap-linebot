@@ -654,6 +654,17 @@ def handle_message_common(event, bot_type, line_bot_api):
 
     if user_id not in user_scores:
         load_user_data(user_id)
+
+        # ユーザーデータロード
+    if user_id not in user_scores:
+        load_user_data(user_id)
+
+    # 対戦中チェック
+    room = battle_rooms[bot_type]
+    if user_id in room["players"] and room["status"] == "playing":
+        # 対戦モード専用処理に任せる
+        answer_battle(user_id, bot_type, msg, time.time() - room["question_start"])
+        return  # 学習モードには渡さない
         
     # 名前変更コマンド
     if msg.startswith("@"):
