@@ -219,6 +219,42 @@ def end_battle(bot_type):
     room["question"] = None
     # 参加者は残ったまま次回待機可能
 
+def send_next_question(bot_type):
+    room = battle_rooms[bot_type]
+    if room["round"] > 10:
+        end_battle(bot_type)
+        return
+
+    questions_pool = leap_questions_all if bot_type=="LEAP" else target_questions_all
+    q = random.choice(questions_pool)
+    room["question"] = q
+
+    # 全員の回答初期化
+    for p in room["players"].values():
+        p["answer"] = None
+        p["elapsed"] = None
+
+    # 4択作成（既存send_question風）
+    correct_answer = q["answer"]
+    other_answers = [item["answer"] for item in questions_pool if item["answer"] != correct_answer]
+    wrong_choices = random.sample(other_answers, k=min(3, len(other_answers)))
+    choices = wrong_choices + [correct_answer]
+    random.shuffle(choices)
+
+    quick_buttons = [QuickReplyButton(action=MessageAction(label=c, text=c)) for c in choices]
+
+    # 全員に送信
+    api = line_bot_api_leap if bot_type=="LEAP" else line_bot_api_target
+    for user_id in room["players"]:
+        user_answer_start_times[user_id] = time.time()
+        msg = TextSendMessage(
+            text=f"問題 {room['round']}:\n{q['text']}",
+            quick_reply=QuickReply(items=quick_buttons)
+        )
+        api.push_message(user_id, msg)
+
+    # 20秒タイマーで強制次問
+    threading.Thread(target=question_timer, args=(bot_type, 20), daemon=True).start()
 
 
 #-------------------------リアルタイム対戦---------------------------------------------
