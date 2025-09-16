@@ -92,6 +92,138 @@ def save_user_data(user_id):
 def async_save_user_data(user_id):
     threading.Thread(target=save_user_data, args=(user_id,), daemon=True).start()
 
+# ABC全範囲まとめ
+leap_questions_all = leap_1_1000 + leap_1001_2000 + leap_2001_2300
+target_questions_all = target_1_800 + target_801_1500 + target_1501_1900
+
+#-------------------------リアルタイム対戦---------------------------------------
+# 対戦部屋情報
+battle_rooms = {
+    "LEAP": {
+        "status": "waiting",   # waiting / playing
+        "round": 0,
+        "start_time": None,
+        "question": None,
+        "players": {}          # user_id -> {"name":..., "score":0, "answer":None, "elapsed":None}
+    },
+    "TARGET": {
+        "status": "waiting",
+        "round": 0,
+        "start_time": None,
+        "question": None,
+        "players": {}
+    }
+}
+
+def join_battle(user_id, name, bot_type):
+    room = battle_rooms[bot_type]
+    if user_id not in room["players"]:
+        room["players"][user_id] = {"name": name, "score": 0, "answer": None, "elapsed": None}
+    
+    # 誰もいない状態からの1人目なら待機開始
+    if room["status"] == "waiting" and len(room["players"]) == 1:
+        room["start_time"] = time.time() + 60  # 1分後にゲーム開始
+        threading.Thread(target=check_start_timer, args=(bot_type,), daemon=True).start()
+
+def start_battle(bot_type):
+    room = battle_rooms[bot_type]
+    room["status"] = "playing"
+    room["round"] = 1
+    send_next_question(bot_type)
+
+def send_next_question(bot_type):
+    room = battle_rooms[bot_type]
+    if room["round"] > 10:
+        end_battle(bot_type)
+        return
+    
+    questions_pool = leap_questions_all if bot_type=="LEAP" else target_questions_all
+    q = random.choice(questions_pool)
+    room["question"] = q
+
+    # 全員の回答初期化
+    for p in room["players"].values():
+        p["answer"] = None
+        p["elapsed"] = None
+
+    # ここでLINEに問題送信
+    # 例: send_question_to_all(bot_type, q["text"])
+    
+    # 20秒で強制次問
+    threading.Thread(target=question_timer, args=(bot_type, 20), daemon=True).start()
+
+def answer_battle(user_id, bot_type, answer, elapsed):
+    room = battle_rooms[bot_type]
+    if user_id not in room["players"] or room["question"] is None:
+        return
+    player = room["players"][user_id]
+    # 正解判定
+    is_correct = (answer.lower() == room["question"]["answer"].lower())
+    
+    # スコア加算
+    if is_correct:
+        if elapsed <= 6:
+            delta = 3
+        elif elapsed <= 10:
+            delta = 2
+        else:
+            delta = 1
+        player["score"] += delta
+    else:
+        delta = 0  # 間違い/タイムアウトは0
+
+    player["answer"] = answer
+    player["elapsed"] = elapsed
+
+    # 全員回答済みなら次の問題
+    if all(p["answer"] is not None for p in room["players"].values()):
+        send_ranking(bot_type)
+        room["round"] += 1
+        send_next_question(bot_type)
+
+def question_timer(bot_type, timeout):
+    room = battle_rooms[bot_type]
+    start = time.time()
+    while time.time() - start < timeout:
+        if all(p["answer"] is not None for p in room["players"].values()):
+            return
+        time.sleep(0.5)
+    
+    # タイムアウト後ランキング表示・次問
+    send_ranking(bot_type)
+    room["round"] += 1
+    send_next_question(bot_type)
+
+def send_ranking(bot_type):
+    room = battle_rooms[bot_type]
+    players = list(room["players"].values())
+    players.sort(key=lambda x: x["score"], reverse=True)
+    
+    # LINE FlexMessage 送信用
+    bubbles = []
+    for i, p in enumerate(players, 1):
+        bubbles.append({
+            "type": "box",
+            "layout": "baseline",
+            "contents": [
+                {"type": "text", "text": f"{i}位", "flex":1, "size":"sm"},
+                {"type": "text", "text": p["name"], "flex":3, "size":"sm"},
+                {"type": "text", "text": str(p["score"]), "flex":1, "size":"sm", "align":"end"}
+            ]
+        })
+
+def end_battle(bot_type):
+    room = battle_rooms[bot_type]
+    room["status"] = "waiting"
+    room["round"] = 0
+    room["question"] = None
+    # 参加者は残ったまま次回待機可能
+
+
+
+#-------------------------リアルタイム対戦---------------------------------------------
+
+
 #範囲ごとの問題取得
 def get_questions_by_range(range_str, bot_type):
     # ABCを内部範囲に変換
@@ -468,7 +600,26 @@ def handle_message_common(event, bot_type, line_bot_api):
         async_save_user_data(user_id)
         line_bot_api.reply_message(event.reply_token, TextSendMessage(text=f"名前を「{new_name}」に変更しました。"))
         return
-
+        
+    # ------------------------------
+    # 対戦モード参加
+    # ------------------------------
+    if msg == "対戦":
+        join_battle(user_id, user_names[user_id], bot_type)
+        room = battle_rooms[bot_type]
+        if room["status"] == "waiting":
+            line_bot_api.reply_message(
+                event.reply_token,
+                TextSendMessage(text="あなたは対戦部屋に参加しました。ゲーム開始まで待機中…（1分後に開始）")
+            )
+        else:
+            # すでにゲーム中なら即参加
+            line_bot_api.reply_message(
+                event.reply_token,
+                TextSendMessage(text=f"ゲーム中に参加しました。次の問題から参加します。現在のラウンド: {room['round']}")
+            )
+        return
+        
     # 質問送信
     if msg in ["A", "B", "C"]:
         question_msg = send_question(user_id, msg, bot_type=bot_type)
