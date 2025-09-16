@@ -325,26 +325,6 @@ trivia_messages = [
     "ヒント🤖\n",
 ]
 
-def choose_multiple_choice_question(user_id, questions):
-    q = choose_weighted_question(user_id, questions)
-    correct_answer = q["answer"]
-
-    # 誤答候補をquestions全体からランダムに抽出
-    other_answers = [item["answer"] for item in questions if item["answer"] != correct_answer]
-    wrong_choices = random.sample(other_answers, k=min(3, len(other_answers)))
-
-    # シャッフルして選択肢作成
-    choices = wrong_choices + [correct_answer]
-    random.shuffle(choices)
-
-    # 選択肢を文字ラベルに変換（A, B, C, D）
-    labels = ["A", "B", "C", "D"]
-    choice_texts = [f"{labels[i]}: {choices[i]}" for i in range(len(choices))]
-
-    # 問題文を作成
-    question_text = q["text"] + "\n\n" + "\n".join(choice_texts)
-    return q, question_text
-
 def evaluate_X(elapsed, score, answer, is_multiple_choice=False):
     X = elapsed**1.7 + score**1.5
 
