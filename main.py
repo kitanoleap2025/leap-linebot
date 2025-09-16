@@ -308,7 +308,7 @@ trivia_messages = [
     "ヒント🤖\n",
 ]
 
-def evaluate_X(elapsed, score, answer, is_multiple_choice=False):
+def evaluate_X(elapsed, score, answer):
     X = elapsed**1.7 + score**1.5
 
     if X <= 5:
