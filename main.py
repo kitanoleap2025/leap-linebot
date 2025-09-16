@@ -127,8 +127,8 @@ def join_battle(user_id, name, bot_type):
     if user_id not in room["players"]:
         room["players"][user_id] = {"name": name, "score": 0, "answer": None, "elapsed": None}
     
-    # 誰もいない状態からの1人目なら待機開始
-    if room["status"] == "waiting" and len(room["players"]) == 1:
+   # 2人以上になったら待機開始
+    if room["status"] == "waiting" and len(room["players"]) >= 2 and room["start_time"] is None:
         room["start_time"] = time.time() + 60  # 1分後にゲーム開始
         threading.Thread(target=check_start_timer, args=(bot_type,), daemon=True).start()
 
@@ -224,7 +224,8 @@ def end_battle(bot_type):
     room["status"] = "waiting"
     room["round"] = 0
     room["question"] = None
-    # 参加者は残ったまま次回待機可能
+    room["start_time"] = None
+    room["players"] = {}  # 参加者をリセット
 
 def send_next_question(bot_type):
     room = battle_rooms[bot_type]
