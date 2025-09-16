@@ -120,6 +120,14 @@ def score_to_weight(score):
 def build_result_flex(user_id, bot_type):
     name = user_names.get(user_id, DEFAULT_NAME)
 
+    # Firebase から総合レートを取得
+    field_name = f"total_rate_{bot_type.lower()}"
+    try:
+        doc = db.collection("users").document(user_id).get()
+        total_rate = doc.to_dict().get(field_name, 0)
+    except Exception:
+        total_rate = 0
+        
     # bot_type による範囲設定
     if bot_type == "LEAP":
         ranges = [("A", "1-1000"), ("B", "1001-2000"), ("C", "2001-2300")]
@@ -186,15 +194,6 @@ def build_result_flex(user_id, bot_type):
             ],
             "margin": "xs"
         })
-
-    # 総合レート計算
-    total_rate = 0
-    for range_label, _ in ranges:
-        qs = get_questions_by_range(range_label, bot_type)
-        count = len(qs)
-        if count:
-            total_rate += sum(scores.get(q["answer"], 1) for q in qs) / count
-    total_rate = int((total_rate / len(ranges)) * 2500) if ranges else 0
 
     flex_message = FlexSendMessage(
         alt_text=f"{name}",
