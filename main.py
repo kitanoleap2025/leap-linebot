@@ -115,6 +115,32 @@ battle_rooms = {
     }
 }
 
+def join_battle(user_id, user_name, bot_type):
+    room = battle_rooms[bot_type]
+
+    # 既に参加していなければ追加
+    if user_id not in room["players"]:
+        room["players"][user_id] = {
+            "name": user_name,
+            "score": 0,
+            "answer": None,
+            "elapsed": None
+        }
+
+        # 部屋にいる全員に通知
+        player_names = [p["name"] for p in room["players"].values()]
+        message_text = f"{user_name}が参加しました！\n現在の参加者: {len(player_names)}人\n({', '.join(player_names)})"
+
+        for pid in room["players"]:
+            try:
+                # それぞれのユーザーに通知
+                if bot_type == "LEAP":
+                    line_bot_api_leap.push_message(pid, TextSendMessage(text=message_text))
+                else:
+                    line_bot_api_target.push_message(pid, TextSendMessage(text=message_text))
+            except Exception as e:
+                print(f"通知エラー {pid}: {e}")
+
 
 #-------------------------リアルタイム対戦---------------------------------------------
 
