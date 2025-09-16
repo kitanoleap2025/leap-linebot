@@ -536,23 +536,11 @@ def handle_message_common(event, bot_type, line_bot_api):
         
     # ------------------------------
     # 対戦モード参加
-    # ------------------------------
+
     if msg == "対戦":
         join_battle(user_id, user_names[user_id], bot_type)
-        room = battle_rooms[bot_type]
-        if room["status"] == "waiting":
-            line_bot_api.reply_message(
-                event.reply_token,
-                TextSendMessage(text="あなたは対戦部屋に参加しました。ゲーム開始まで待機中…（1分後に開始）")
-            )
-        else:
-            # すでにゲーム中なら即参加
-            line_bot_api.reply_message(
-                event.reply_token,
-                TextSendMessage(text=f"ゲーム中に参加しました。次の問題から参加します。現在のラウンド: {room['round']}")
-            )
         return
-        
+    # ------------------------------
     # 質問送信
     if msg in ["A", "B", "C"]:
         question_msg = send_question(user_id, msg, bot_type=bot_type)
