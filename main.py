@@ -218,33 +218,26 @@ def build_result_flex(user_id, bot_type):
     return flex_message
 
 def update_total_rate(user_id, bot_type):
-    bot_type_lower = bot_type.lower() 
-    field_name = f"total_rate_{bot_type_lower}"
-
-    if bot_type_lower == "leap":
-        q1 = get_questions_by_range("1-1000", "LEAP")
-        q2 = get_questions_by_range("1001-2000", "LEAP")
+    field_name = f"total_rate_{bot_type.lower()}"
+    
+    # 単語リストをまとめる
+    if bot_type.lower() == "leap":
+        questions = leap_1_1000 + leap_1001_2000 + leap_2001_2300
+        total_words = 2300
     else:
-        q1 = get_questions_by_range("1-800", "TARGET")
-        q2 = get_questions_by_range("801-1500", "TARGET")
+        questions = target_1_800 + target_801_1500 + target_1501_1900
+        total_words = 1900
 
     scores = user_scores.get(user_id, {})
-
-    def calc_rate(questions):
-        if not questions:
-            return 0.0
-        total = sum(scores.get(q["answer"], 1) for q in questions)
-        avg = total / len(questions)      # 平均スコア (1〜4)
-        return int(avg * 2500)       # ← 平均スコア × 2500
-
-    rate1 = calc_rate(q1)
-    rate2 = calc_rate(q2)
-    total_rate = int((rate1 + rate2) / 2)
+    total_score = sum(scores.get(q["answer"], 1) for q in questions)
+    
+    total_rate = int(total_score / total_words * 2500)
 
     try:
         db.collection("users").document(user_id).set({field_name: total_rate}, merge=True)
     except Exception as e:
         print(f"Error updating {field_name} for {user_id}: {e}")
+
     return total_rate
 
 def send_question(user_id, range_str, bot_type="LEAP"):
