@@ -115,6 +115,13 @@ battle_rooms = {
     }
 }
 
+def check_start_timer(bot_type):
+    room = battle_rooms[bot_type]
+    wait_time = max(0, room["start_time"] - time.time())
+    time.sleep(wait_time)
+    start_battle(bot_type)
+
+
 def join_battle(user_id, name, bot_type):
     room = battle_rooms[bot_type]
     if user_id not in room["players"]:
