@@ -223,15 +223,15 @@ def update_total_rate(user_id, bot_type):
     # 単語リストをまとめる
     if bot_type.lower() == "leap":
         questions = leap_1_1000 + leap_1001_2000 + leap_2001_2300
-        total_words = 2300
     else:
         questions = target_1_800 + target_801_1500 + target_1501_1900
-        total_words = 1900
+
+    total_words = len(questions)  # 現在ロードされている単語数を使用
 
     scores = user_scores.get(user_id, {})
     total_score = sum(scores.get(q["answer"], 1) for q in questions)
     
-    total_rate = int(total_score / total_words * 2500)
+    total_rate = int(total_score / total_words * 2500) if total_words else 0
 
     try:
         db.collection("users").document(user_id).set({field_name: total_rate}, merge=True)
