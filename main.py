@@ -68,16 +68,18 @@ def get_questions_by_range(range_str, bot_type):
         if bot_type == "LEAP":
             return leap_1_1000
         else:  # TARGET
-            return target_1_1000
+            return target_1_800
     elif range_str == "B":
         if bot_type == "LEAP":
             return leap_1001_2000
         else:  # TARGET
-            return target_1001_1900
+            return target_801_1500
     elif range_str == "C":
         if bot_type == "LEAP":
             return leap_2001_2300
-
+        else:  # TARGET
+            return target_1501_1900
+            
 def load_user_data(user_id):
     try:
         doc = db.collection("users").document(user_id).get()
