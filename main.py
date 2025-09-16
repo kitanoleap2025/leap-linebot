@@ -30,19 +30,16 @@ handler_leap = WebhookHandler(os.getenv("LINE_CHANNEL_SECRET_LEAP"))
 line_bot_api_target = LineBotApi(os.getenv("LINE_CHANNEL_ACCESS_TOKEN_TARGET"))
 handler_target = WebhookHandler(os.getenv("LINE_CHANNEL_SECRET_TARGET"))
 
- # TARGET
-target_1001_1900 = load_words("data/target1001-1900.json") 
-
-
 app = Flask(__name__)
 
+#Firebase初期化
 cred_json = os.getenv("FIREBASE_CREDENTIALS")
 cred_dict = json.loads(cred_json)
 cred_dict["private_key"] = cred_dict["private_key"].replace("\\n", "\n")
 cred = credentials.Certificate(cred_dict)
 firebase_admin.initialize_app(cred)
 db = firestore.client()
-
+#ユーザーデータ管理
 user_states = {}  # user_id: (range_str, correct_answer)
 user_scores = defaultdict(dict)
 user_recent_questions = defaultdict(lambda: deque(maxlen=10))
@@ -63,24 +60,7 @@ target_1_800 = load_words("data/target1-800.json")
 target_801_1500 = load_words("data/target801-1500.json")
 target_1501_1900 = load_words("data/target1501-1900.json")
 
-def get_questions_by_range(range_str, bot_type):
-    # ABCを内部範囲に変換
-    if range_str == "A":
-        if bot_type == "LEAP":
-            return leap_1_1000
-        else:  # TARGET
-            return target_1_800
-    elif range_str == "B":
-        if bot_type == "LEAP":
-            return leap_1001_2000
-        else:  # TARGET
-            return target_801_1500
-    elif range_str == "C":
-        if bot_type == "LEAP":
-            return leap_2001_2300
-        else:  # TARGET
-            return target_1501_1900
-            
+#ユーザーデータ読み込み・保存
 def load_user_data(user_id):
     try:
         doc = db.collection("users").document(user_id).get()
@@ -112,8 +92,25 @@ def save_user_data(user_id):
 def async_save_user_data(user_id):
     threading.Thread(target=save_user_data, args=(user_id,), daemon=True).start()
 
-#Dreams are free; reality charges you interest every day.
-
+#範囲ごとの問題取得
+def get_questions_by_range(range_str, bot_type):
+    # ABCを内部範囲に変換
+    if range_str == "A":
+        if bot_type == "LEAP":
+            return leap_1_1000
+        else:  # TARGET
+            return target_1_800
+    elif range_str == "B":
+        if bot_type == "LEAP":
+            return leap_1001_2000
+        else:  # TARGET
+            return target_801_1500
+    elif range_str == "C":
+        if bot_type == "LEAP":
+            return leap_2001_2300
+        else:  # TARGET
+            return target_1501_1900
+            
 def get_rank(score):
     return {0: "0%", 1: "25%", 2: "50%", 3: "75%", 4: "100%"}.get(score, "25%")
 
@@ -122,16 +119,24 @@ def score_to_weight(score):
 
 def build_result_flex(user_id, bot_type):
     name = user_names.get(user_id, DEFAULT_NAME)
-        
-    parts = []
-    for range_label, title in [("A", "1-1000"), ("B", "1001-2000"), ("C", "2001-2300")]:
 
+    # bot_type による範囲設定
+    if bot_type == "LEAP":
+        ranges = [("A", "1-1000"), ("B", "1001-2000"), ("C", "2001-2300")]
+    else:  # TARGET
+        ranges = [("A", "1-800"), ("B", "801-1500"), ("C", "1501-1900")]
+
+    parts = []
+    all_answers = []
+
+    for range_label, title in ranges:
         qs = get_questions_by_range(range_label, bot_type)
+        all_answers.extend([q["answer"] for q in qs])
+
         count = len(qs)
         total_score = sum(user_scores.get(user_id, {}).get(q["answer"], 1) for q in qs)
-        # 平均スコア(0〜4)→把握率(0〜100%)
-        rate_percent = int((total_score / count ) * 2500) if count else 0.0
-       
+        rate_percent = int((total_score / count) * 2500) if count else 0
+
         parts.append({
             "type": "box",
             "layout": "vertical",
@@ -145,7 +150,6 @@ def build_result_flex(user_id, bot_type):
     # ランク別単語数・割合計算
     scores = user_scores.get(user_id, {})
     rank_counts = {"100%": 0, "75%": 0, "50%": 0, "25%": 0, "0%": 0}
-    all_answers = [q["answer"] for q in questions_1_1000 + questions_1001_2000]
     for word in all_answers:
         score = scores.get(word, 1)
         rank_counts[get_rank(score)] += 1
@@ -155,47 +159,42 @@ def build_result_flex(user_id, bot_type):
 
     # ランク別割合グラフ
     graph_components = []
-    max_width = 200  # 最大横幅 px
+    max_width = 200
+    color_map = {"100%": "#c0c0c0", "75%": "#b22222", "50%": "#4682b4", "25%": "#ffd700", "0%": "#000000"}
+
     for rank in ["100%", "75%", "50%", "25%", "0%"]:
-        width_percent = int(rank_ratios[rank]*100)  # 0〜100%
-        color_map = {"100%": "#c0c0c0", "75%": "#b22222", "50%": "#4682b4", "25%": "#ffd700", "0%": "#000000"}
-        width_px = max(5, int(rank_ratios[rank] * max_width)) 
+        width_px = max(5, int(rank_ratios[rank] * max_width))
         graph_components.append({
             "type": "box",
             "layout": "horizontal",
             "contents": [
-                # 左にランク・語数を縦にまとめる
-                {
-                    "type": "box",
-                    "layout": "vertical",
-                    "contents": [
-                        {"type": "text", "text": rank, "size": "sm"},
-                        {"type": "text", "text": f"{rank_counts[rank]}語", "size": "sm"}
-                    ],
-                    "width": "70px"  # 固定幅で棒の開始位置を揃える
-                },
-                # 棒グラフ
-                {
-                    "type": "box",
-                    "layout": "vertical",
-                    "contents": [],
-                    "backgroundColor": color_map[rank],
-                    "width": f"{width_px}px",  # ← ここを flex から width に変更
-                    "height": "12px"
-                }
+                {"type": "box",
+                 "layout": "vertical",
+                 "contents": [
+                     {"type": "text", "text": rank, "size": "sm"},
+                     {"type": "text", "text": f"{rank_counts[rank]}語", "size": "sm"}
+                 ],
+                 "width": "70px"
+                 },
+                {"type": "box",
+                 "layout": "vertical",
+                 "contents": [],
+                 "backgroundColor": color_map[rank],
+                 "width": f"{width_px}px",
+                 "height": "12px"
+                 }
             ],
             "margin": "xs"
         })
 
-
-    # 合計レート計算
-    c1 = len(questions_1_1000)
-    c2 = len(questions_1001_2000)
-
-    rate1 = round((sum(user_scores.get(user_id, {}).get(q["answer"], 1) for q in questions_1_1000) / c1) * 2500, 3) if c1 else 0
-    rate2 = round((sum(user_scores.get(user_id, {}).get(q["answer"], 1) for q in questions_1001_2000) / c2) * 2500, 3) if c2 else 0
-
-    total_rate = int((rate1 + rate2) / 2)
+    # 総合レート計算
+    total_rate = 0
+    for range_label, _ in ranges:
+        qs = get_questions_by_range(range_label, bot_type)
+        count = len(qs)
+        if count:
+            total_rate += sum(scores.get(q["answer"], 1) for q in qs) / count
+    total_rate = int((total_rate / len(ranges)) * 2500) if ranges else 0
 
     flex_message = FlexSendMessage(
         alt_text=f"{name}",
@@ -207,18 +206,17 @@ def build_result_flex(user_id, bot_type):
                 "contents": [
                     {"type": "text", "text": f"{name}", "weight": "bold", "size": "xl", "color": "#000000", "align": "center"},
                     *parts,
-                    {"type": "text","text": f"Total Rating: {total_rate}","weight": "bold","size": "lg","color": "#000000","margin": "md"},
-                    {"type": "separator",  "margin": "md"},
-                    *graph_components,  
-                    {"type": "separator",  "margin": "md"},
-                    {"type": "text","text": "名前変更は「@(新しい名前)」で送信してください。","size": "sm","color": "#666666","margin": "lg","wrap": True}
+                    {"type": "text", "text": f"Total Rating: {total_rate}", "weight": "bold", "size": "lg", "color": "#000000", "margin": "md"},
+                    {"type": "separator", "margin": "md"},
+                    *graph_components,
+                    {"type": "separator", "margin": "md"},
+                    {"type": "text", "text": "名前変更は「@(新しい名前)」で送信してください。", "size": "sm", "color": "#666666", "margin": "lg", "wrap": True}
                 ]
             }
         }
     )
+
     return flex_message
-
-
 
 #総合レート更新
 def compute_rate_percent_for_questions(user_id, questions):
