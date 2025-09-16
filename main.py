@@ -520,7 +520,6 @@ def handle_message_common(event, bot_type, line_bot_api):
         score = user_scores[user_id].get(correct_answer, 1)
 
         elapsed = time.time() - user_answer_start_times.get(user_id, time.time())
-        is_multiple_choice = (range_str == "1001-2000")
         label, delta = evaluate_X(elapsed, score, correct_answer, is_multiple_choice=is_multiple_choice)
         # ラベルに応じたスコア変化
         delta_map = {
