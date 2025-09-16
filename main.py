@@ -256,6 +256,25 @@ def send_next_question(bot_type):
     # 20秒タイマーで強制次問
     threading.Thread(target=question_timer, args=(bot_type, 20), daemon=True).start()
 
+def send_question_to_all(bot_type, question):
+    room = battle_rooms[bot_type]
+    questions_pool = leap_questions_all if bot_type=="LEAP" else target_questions_all
+    correct_answer = question["answer"]
+    other_answers = [q["answer"] for q in questions_pool if q["answer"] != correct_answer]
+    wrong_choices = random.sample(other_answers, k=min(3, len(other_answers)))
+    choices = wrong_choices + [correct_answer]
+    random.shuffle(choices)
+    quick_buttons = [QuickReplyButton(action=MessageAction(label=c, text=c)) for c in choices]
+
+    for user_id in room["players"]:
+        user_answer_start_times[user_id] = time.time()
+        msg = TextSendMessage(
+            text=f"問題 {room['round']}:\n{question['text']}",
+            quick_reply=QuickReply(items=quick_buttons)
+        )
+        api = line_bot_api_leap if bot_type=="LEAP" else line_bot_api_target
+        api.push_message(user_id, msg)
+
 
 #-------------------------リアルタイム対戦---------------------------------------------
 
