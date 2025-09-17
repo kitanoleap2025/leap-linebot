@@ -118,28 +118,45 @@ battle_rooms = {
 def join_battle(user_id, user_name, bot_type):
     room = battle_rooms[bot_type]
 
-    # 既に参加していなければ追加
-    if user_id not in room["players"]:
-        room["players"][user_id] = {
-            "name": user_name,
-            "score": 0,
-            "answer": None,
-            "elapsed": None
-        }
-
-        # 部屋にいる全員に通知
-        player_names = [p["name"] for p in room["players"].values()]
-        message_text = f"{user_name}が参加しました！\n現在の参加者: {len(player_names)}人\n({', '.join(player_names)})"
-
+    # すでに参加しているなら → 退出処理
+    if user_id in room["players"]:
+        del room["players"][user_id]
+        message_text = f"{user_name}は部屋から退出しました。\n現在の参加者: {len(room['players'])}人"
+        # 残っている全員に通知
         for pid in room["players"]:
             try:
-                # それぞれのユーザーに通知
                 if bot_type == "LEAP":
                     line_bot_api_leap.push_message(pid, TextSendMessage(text=message_text))
                 else:
                     line_bot_api_target.push_message(pid, TextSendMessage(text=message_text))
             except Exception as e:
                 print(f"通知エラー {pid}: {e}")
+        return  # 退出処理はここで終わり
+
+    # まだ参加していなければ → 参加処理
+    room["players"][user_id] = {
+        "name": user_name,
+        "score": 0,
+        "answer": None,
+        "elapsed": None
+    }
+
+    # 参加通知
+    player_names = [p["name"] for p in room["players"].values()]
+    if room["status"] == "waiting":
+        message_text = f"{user_name}が参加しました！\n現在の参加者: {len(player_names)}人\n({', '.join(player_names)})\nゲーム開始まで待機中…（1分後に開始）"
+    else:
+        message_text = f"{user_name}が参加しました！\n次の問題から参加します。現在のラウンド: {room['round']}"
+
+    for pid in room["players"]:
+        try:
+            if bot_type == "LEAP":
+                line_bot_api_leap.push_message(pid, TextSendMessage(text=message_text))
+            else:
+                line_bot_api_target.push_message(pid, TextSendMessage(text=message_text))
+        except Exception as e:
+            print(f"通知エラー {pid}: {e}")
+
 
 
 #-------------------------リアルタイム対戦---------------------------------------------
