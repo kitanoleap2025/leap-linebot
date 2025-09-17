@@ -115,6 +115,9 @@ battle_rooms = {
     }
 }
 
+def is_in_any_room(user_id):
+    return any(user_id in room["players"] for room in battle_rooms.values())
+
 def join_battle(user_id, user_name, bot_type, reply_token=None):
     room = battle_rooms[bot_type]
 
@@ -559,6 +562,14 @@ def handle_message_common(event, bot_type, line_bot_api):
     if msg == "対戦":
         join_battle(user_id, user_names[user_id], bot_type)
         return
+
+    if msg in ["学ぶ", "A", "B", "C", "成績", "ランキング"]:
+        if is_in_any_room(user_id):
+            line_bot_api.reply_message(
+                event.reply_token,
+                TextSendMessage(text="今あなたは部屋にいます。もう一度「対戦」と送ると退出できます。")
+            )
+            return  # ← 通常操作を中断
     # ------------------------------
     # 質問送信
     if msg in ["A", "B", "C"]:
