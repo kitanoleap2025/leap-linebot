@@ -115,14 +115,15 @@ battle_rooms = {
     }
 }
 
-def join_battle(user_id, user_name, bot_type):
+def join_battle(user_id, user_name, bot_type, reply_token=None):
     room = battle_rooms[bot_type]
 
     # すでに参加しているなら → 退出処理
     if user_id in room["players"]:
-        del room["players"][user_id]
-        message_text = f"{user_name}は部屋から退出しました。\n現在の参加者: {len(room['players'])}人"
-        # 残っている全員に通知
+        # まず全員に通知（本人も含む）
+        remaining_count = len(room["players"]) - 1
+        message_text = f"{user_name}が部屋から退出しました。\n現在の参加者: {remaining_count}人"
+
         for pid in room["players"]:
             try:
                 if bot_type == "LEAP":
@@ -131,6 +132,10 @@ def join_battle(user_id, user_name, bot_type):
                     line_bot_api_target.push_message(pid, TextSendMessage(text=message_text))
             except Exception as e:
                 print(f"通知エラー {pid}: {e}")
+
+        # 通知が終わってから削除
+        del room["players"][user_id]
+
         return  # 退出処理はここで終わり
 
     # まだ参加していなければ → 参加処理
@@ -156,9 +161,6 @@ def join_battle(user_id, user_name, bot_type):
                 line_bot_api_target.push_message(pid, TextSendMessage(text=message_text))
         except Exception as e:
             print(f"通知エラー {pid}: {e}")
-
-
-
 #-------------------------リアルタイム対戦---------------------------------------------
 
 
