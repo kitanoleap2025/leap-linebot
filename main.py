@@ -183,6 +183,23 @@ def start_battle(bot_type):
 
 threading.Thread(target=battle_monitor, daemon=True).start()
 
+def start_battle(bot_type):
+    room = battle_rooms[bot_type]
+    room["status"] = "playing"
+    room["round"] = 1
+    room["start_time"] = None
+
+    names = ', '.join(p["name"] for p in room["players"].values())
+    for pid in room["players"]:
+        api = line_bot_api_leap if bot_type == "LEAP" else line_bot_api_target
+        api.push_message(pid, TextSendMessage(text=f"ゲーム開始！参加者: {names}"))
+
+    # 最初の問題を送る
+    for pid in room["players"]:
+        msg = send_question(pid, "A", bot_type=bot_type)  # とりあえず範囲Aからスタート
+        api.push_message(pid, msg)
+
+
 #-------------------------リアルタイム対戦---------------------------------------------
 
 
