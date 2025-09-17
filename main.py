@@ -152,7 +152,7 @@ def join_battle(user_id, user_name, bot_type, reply_token=None):
     # 参加通知
     player_names = [p["name"] for p in room["players"].values()]
     if room["status"] == "waiting":
-        message_text = f"{user_name}が参加しました！\n現在の参加者: {len(player_names)}人\n({', '.join(player_names)})\nゲーム開始まで待機中…（1分後に開始）"
+        message_text = f"{user_name}が参加しました！\n現在の参加者: {len(player_names)}人\n({',\n '.join(player_names)})\nゲーム開始まで待機中…（1分後に開始）"
     else:
         message_text = f"{user_name}が参加しました！\n次の問題から参加します。現在のラウンド: {room['round']}"
 
