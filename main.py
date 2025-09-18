@@ -197,21 +197,88 @@ def start_battle(bot_type):
 
 threading.Thread(target=battle_monitor, daemon=True).start()
 
-def start_battle(bot_type):
+def start_round(bot_type):
     room = battle_rooms[bot_type]
-    room["status"] = "playing"
-    room["round"] = 1
-    room["start_time"] = None
+    room["round"] += 1
 
-    names = ', '.join(p["name"] for p in room["players"].values())
-    for pid in room["players"]:
-        api = line_bot_api_leap if bot_type == "LEAP" else line_bot_api_target
-        api.push_message(pid, TextSendMessage(text=f"ゲーム開始！参加者: {names}"))
+    # 対応する問題プールを選択
+    if bot_type == "LEAP":
+        questions = leap_questions_all
+        api = line_bot_api_leap
+    else:
+        questions = target_questions_all
+        api = line_bot_api_target
 
-    # 最初の問題を送る
+    q = random.choice(questions)
+    room["question"] = q
+    room["start_time"] = time.time()
+
+    # 各プレイヤーの回答リセット
+    for pid, p in room["players"].items():
+        p["answer"] = None
+        p["elapsed"] = None
+        api.push_message(pid, TextSendMessage(
+            text=f"第{room['round']}問: {q['text']}\n制限時間: 15秒"
+        ))
+
+    # 15秒後に集計
+    threading.Timer(15, lambda: finish_round(bot_type)).start()
+
+
+def finish_round(bot_type):
+    room = battle_rooms[bot_type]
+    correct = room["question"]["answer"]
+
+    # 採点処理
+    result_lines = []
+    for pid, p in room["players"].items():
+        if p["answer"] and p["answer"].strip().lower() == correct.strip().lower():
+            p["score"] += 1
+            result_lines.append(f"{p['name']}: ✅ +1点")
+        else:
+            result_lines.append(f"{p['name']}: ❌ 0点")
+
+    # ランキング作成（累計スコア）
+    scores = sorted(
+        [(p["name"], p["score"]) for p in room["players"].values()],
+        key=lambda x: x[1], reverse=True
+    )
+    rank_text = "\n".join(f"{i+1}位: {n}（{s}点）" for i, (n, s) in enumerate(scores))
+
+    # 送信
+    api = line_bot_api_leap if bot_type == "LEAP" else line_bot_api_target
+    text = f"正解: {correct}\n" + "\n".join(result_lines) + "\n\n現在のランキング\n" + rank_text
+
     for pid in room["players"]:
-        msg = send_question(pid, "A", bot_type=bot_type)  # とりあえず範囲Aからスタート
-        api.push_message(pid, msg)
+        api.push_message(pid, TextSendMessage(text=text))
+
+    # 次ラウンド or 終了
+    if room["round"] < 5:
+        threading.Timer(5, lambda: start_round(bot_type)).start()
+    else:
+        end_battle(bot_type)
+
+
+
+def end_battle(bot_type):
+    room = battle_rooms[bot_type]
+    scores = sorted(
+        [(p["name"], p["score"]) for p in room["players"].values()],
+        key=lambda x: x[1], reverse=True
+    )
+
+    rank_text = "\n".join(f"{i+1}位: {n}（{s}点）" for i, (n, s) in enumerate(scores))
+    result = f"対戦終了！最終結果\n{rank_text}"
+
+    api = line_bot_api_leap if bot_type == "LEAP" else line_bot_api_target
+    for pid in room["players"]:
+        api.push_message(pid, TextSendMessage(text=result))
+
+    # リセット
+    room["players"].clear()
+    room["status"] = "waiting"
+    room["round"] = 0
+
 
 
 #-------------------------リアルタイム対戦---------------------------------------------
