@@ -762,8 +762,43 @@
         "meaning": ""
     },
     {
-        "text": "1161 Books can ___ your mind.\n本はあなたの心を豊かにすることができる。",
+        "text": "1161 Education can greatly ___ a person's life.\n教育は人の人生を大いに豊かにすることができる。",
         "answer": "enrich",
+        "meaning": ""
+    },
+    {
+        "text": "1162 The sign ___ people of the upcoming danger.\nその標識は人々に差し迫った危険を警告した。",
+        "answer": "warn",
+        "meaning": ""
+    },
+    {
+        "text": "1163 The soldiers were ___ to follow orders.\n兵士たちは命令に従うよう強制された。",
+        "answer": "force",
+        "meaning": ""
+    },
+    {
+        "text": "1164 The lawyer made an ___ to the jury.\n弁護士は陪審員に訴えかけた。",
+        "answer": "appeal",
+        "meaning": ""
+    },
+    {
+        "text": "1165 The audience gave a big ___ after the performance.\n観客は演奏後、大きな拍手を送った。",
+        "answer": "applause",
+        "meaning": ""
+    },
+    {
+        "text": "1166 The cat made a ___ onto the table.\n猫はテーブルに飛び乗った。",
+        "answer": "leap",
+        "meaning": ""
+    },
+    {
+        "text": "1167 He tried to ___ the toy from the shelf.\n彼は棚からおもちゃをつかもうとした。",
+        "answer": "grab",
+        "meaning": ""
+    },
+    {
+        "text": "1168 The police were able to ___ the criminal quickly.\n警察は犯罪者をすぐに逮捕することができた。",
+        "answer": "seize",
         "meaning": ""
     },
 #---------------------------------------------------------
