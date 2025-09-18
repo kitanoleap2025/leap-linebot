@@ -152,25 +152,28 @@ battle_rooms = {
 def is_in_any_room(user_id):
     return any(user_id in room["players"] for room in battle_rooms.values())
 
-def join_battle(user_id, user_name, bot_type):
+def join_battle(user_id, user_name, bot_type, reply_token=None):
     room = battle_rooms[bot_type]
 
     # 退出処理
     if user_id in room["players"]:
-        player_names = [p["name"] for p in room["players"].values() if p["name"] != user_name]
-        remaining_count = len(room["players"]) - 1
-        message_text = f"{user_name}が退出しました。\n現在の参加者: {remaining_count}人\n{', '.join(player_names)}"
-
-        for pid in room["players"]:
-            api = line_bot_api_leap if bot_type == "LEAP" else line_bot_api_target
-            api.push_message(pid, TextSendMessage(text=message_text))
-
         del room["players"][user_id]
-
-        # 人数が1人以下になったらstart_timeをリセット
+        # 1人以下なら開始時間リセット
         if len(room["players"]) < 2:
             room["start_time"] = None
 
+        # 退出通知（まとめて1回だけ）
+        player_names = [p["name"] for p in room["players"].values()]
+        remaining_count = len(room["players"])
+        message_text = f"{user_name}が退出しました。\n現在の参加者: {remaining_count}人\n{', '.join(player_names)}"
+        
+        # ここも reply_message が使える場合は優先
+        if reply_token:
+            line_bot_api_leap.reply_message(reply_token, TextSendMessage(text=message_text))
+        else:
+            api = line_bot_api_leap if bot_type == "LEAP" else line_bot_api_target
+            for pid in room["players"]:
+                api.push_message(pid, TextSendMessage(text=message_text))
         return
 
     # 参加処理
@@ -188,13 +191,19 @@ def join_battle(user_id, user_name, bot_type):
     else:
         message_text = f"{user_name}が参加しました！\n次の問題から参加します。現在のラウンド: {room['round']}"
 
-    for pid in room["players"]:
+    # reply_token がある場合は返信に使う（無駄な push を減らす）
+    if reply_token:
         api = line_bot_api_leap if bot_type == "LEAP" else line_bot_api_target
-        api.push_message(pid, TextSendMessage(text=message_text))
+        api.reply_message(reply_token, TextSendMessage(text=message_text))
+    else:
+        api = line_bot_api_leap if bot_type == "LEAP" else line_bot_api_target
+        for pid in room["players"]:
+            api.push_message(pid, TextSendMessage(text=message_text))
 
-    # 2人以上集まったらstart_timeをセット
+    # 2人以上集まったら開始タイマーセット
     if len(room["players"]) >= 2 and room["start_time"] is None:
         room["start_time"] = time.time()
+
 
 def battle_monitor():
     while True:
