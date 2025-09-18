@@ -985,12 +985,52 @@
         "meaning": "outlet\t[名] ①(電気の)コンセント ②(販売)店 ③(感情などの)はけ口"
     },
     {
-        "text": "1943 Don't ___ me!\\n私をからかうな!",
+        "text": "1941 The painting ___ a peaceful village by the river.\nその絵は川辺の穏やかな村を描いている。",
+        "answer": "depicts",
+        "meaning": "" 
+    },
+    {
+        "text": "1942 The Eiffel Tower is a famous ___ in Paris.\nエッフェル塔はパリの名所だ。🗼",
+        "answer": "landmark",
+        "meaning": ""
+    },
+    {
+        "text": "1943 Don't ___ me!\n私をからかうな!",
         "answer": "tease",
         "meaning": ""
     },
     {
-        "text": "1950 Everyone was ___ by his noisy electric eraser.\n彼のうるさい電動消しゴムにみんな気を散らされた.",
+        "text": "1944 The surprise party ___ her completely.\nサプライズパーティーは彼女を完全に喜ばせた。🎉",
+        "answer": "delighted",
+        "meaning": ""
+    },
+    {
+        "text": "1945 The magician's trick ___ everyone in the audience.\nそのマジシャンのトリックは観客全員を驚かせた。😲",
+        "answer": "astonished",
+        "meaning": ""
+    },
+    {
+        "text": "1946 She ___ the thought of failing the exam.\n試験に落ちることを考えると彼女は怖くなる。😨",
+        "answer": "dreaded",
+        "meaning": ""
+    },
+    {
+        "text": "1947 He ___ his success to hard work and persistence.\n彼は自分の成功を努力と忍耐のおかげだと考えている。💪",
+        "answer": "attributes",
+        "meaning": ""
+    },
+    {
+        "text": "1948 She tried to ___ him after the disappointing news.\nがっかりするニュースの後、彼女は彼を慰めようとした。🤗",
+        "answer": "console",
+        "meaning": ""
+    },
+    {
+        "text": "1949 The shocking story ___ a lot of curiosity among the readers.\nその衝撃的な話は読者の好奇心をかき立てた。📖",
+        "answer": "aroused",
+        "meaning": ""
+    },
+    {
+        "text": "1950 Everyone was ___ by his noisy electric eraser.\n彼のうるさい電動消しゴムにみんな気を散らされた。",
         "answer": "distracted",
         "meaning": "electric\t[形] 電気の，電動の"
     },
@@ -1000,43 +1040,48 @@
         "meaning": ""
     },
     {
-        "text": "1952 Winning the competition ___ him with excitement\n大会で優勝して彼はワクワクする🏆",
+        "text": "1952 Winning the competition ___ him with excitement.\n大会で優勝して彼はワクワクする🏆",
         "answer": "thrilled",
         "meaning": ""
     },
     {
-        "text": "1953 He felt ___ when everyone laughed at his mistake\n皆に自分のミスを笑われて彼は恥をかかされた😞",
+        "text": "1953 He felt ___ when everyone laughed at his mistake.\n皆に自分のミスを笑われて彼は恥をかかされた😞",
         "answer": "humiliated",
         "meaning": ""
     },
     {
-        "text": "1954 She has ___ her grandparents\n彼女は祖父母を熱愛している💖",
+        "text": "1954 She has ___ her grandparents.\n彼女は祖父母を熱愛している💖",
         "answer": "adored",
         "meaning": ""
     },
     {
-        "text": "1955 He could not ___ a single word after hearing the shocking news\n衝撃的なニュースを聞いて,彼は一言も発することができなかった😶",
+        "text": "1955 He could not ___ a single word after hearing the shocking news.\n衝撃的なニュースを聞いて,彼は一言も発することができなかった😶",
         "answer": "utter",
         "meaning": ""
     },
     {
-        "text": "1956 She couldn't help but ___ when she saw the surprise gift\nサプライズのプレゼントを見て,彼女は思わず叫んだ🎁",
+        "text": "1956 She couldn't help but ___ when she saw the surprise gift.\nサプライズのプレゼントを見て,彼女は思わず叫んだ🎁",
         "answer": "exclaim",
         "meaning": ""
     },
     {
-        "text": "1957 The tree ___ its leaves in autumn\nその木は秋に葉を落とす🍂",
+        "text": "1957 The tree ___ its leaves in autumn.\nその木は秋に葉を落とす🍂",
         "answer": "shed",
         "meaning": ""
     },
     {
-        "text": "1958 She began to ___ being treated unfairly at work\n職場で不公平に扱われることに,彼女は腹を立て始めた😠",
+        "text": "1958 She began to ___ being treated unfairly at work.\n職場で不公平に扱われることに,彼女は腹を立て始めた😠",
         "answer": "resent",
         "meaning": ""
     },
     {
-        "text": "1959 He had to ___ for more time to finish his homework\n宿題を終えるために,彼はもっと時間をくださいと必死に頼まなければならなかった⏳",
+        "text": "1959 He had to ___ for more time to finish his homework.\n宿題を終えるために,彼はもっと時間をくださいと必死に頼まなければならなかった⏳",
         "answer": "plead",
+        "meaning": ""
+    },
+    {
+        "text": "1960 get ___ for freedom\n自由を切望する🕊️",
+        "answer": "yearning",
         "meaning": ""
     },
     {
@@ -1045,153 +1090,198 @@
         "meaning": ""
     },
     {
-        "text": "1971 My teacher spoke to me with ___.\n私の先生は私に思いやりを持って話した.",
+        "text": "1962 get ___ in the book\nその本に没頭する📖",
+        "answer": "immersed",
+        "meaning": ""
+    },
+    {
+        "text": "1963 get ___ by the puzzle\nそのパズルに困惑する🌀",
+        "answer": "bewildered",
+        "meaning": ""
+    },
+    {
+        "text": "1964 He ___ himself for making a mistake.\n彼はミスをした自分を軽蔑している。",
+        "answer": "despises",
+        "meaning": ""
+    },
+    {
+        "text": "1965 She is ___ to help anyone in need.\n彼女は嫌がらずに困っている人を助ける。",
+        "answer": "willing",
+        "meaning": ""
+    },
+    {
+        "text": "1966 Melos was ___.\nメロスは激怒した。",
+        "answer": "furious",
+        "meaning": ""
+    },
+    {
+        "text": "1967 They have been ___ friends since entrance ceremony.\n彼らは入学式から親密な友人だ。",
+        "answer": "intimate",
+        "meaning": ""
+    },
+    {
+        "text": "1968 I have a unique ___ sense.\n私は独特な美的感覚がある。",
+        "answer": "aesthetic",
+        "meaning": ""
+    },
+    {
+        "text": "1969 She couldn’t ignore her ___.\n彼女は自分の良心を無視することができなかった。",
+        "answer": "conscience",
+        "meaning": ""
+    },
+    {
+        "text": "1970 Kitano high school teachers never show ___.\n北野高校の先生は決して慈悲を示さない。",
+        "answer": "mercy",
+        "meaning": ""
+    },
+    {
+        "text": "1971 My teacher spoke to me with ___.\n私の先生は私に思いやりを持って話した。",
         "answer": "compassion",
         "meaning": ""
     },
     {
-        "text": "1972 They bought a pet on ___.\n彼らは衝動的にペットを買った.",
+        "text": "1972 They bought a pet on ___.\n彼らは衝動的にペットを買った。",
         "answer": "impulse",
         "meaning": ""
     },
     {
-        "text": "1973 He has the ___ to become a president of America.\n彼はアメリカの大統領になることを目標としている.",
+        "text": "1973 He has the ___ to become a president of America.\n彼はアメリカの大統領になることを目標としている。",
         "answer": "aspiration",
         "meaning": ""
     },
     {
-        "text": "1974 I felt ___ when my dog passed away.\n私の犬が亡くなったとき,私は深い悲しみを感じた.🐶",
+        "text": "1974 I felt ___ when my dog passed away.\n私の犬が亡くなったとき,私は深い悲しみを感じた。🐶",
         "answer": "grief",
         "meaning": ""
     },
     {
-        "text": "1975 She looked at me with ___.\n彼女は私を軽蔑の目で見た.",
+        "text": "1975 She looked at me with ___.\n彼女は私を軽蔑の目で見た。",
         "answer": "contempt",
         "meaning": ""
     },
     {
-        "text": "1976 He didn’t mean to ___ you.\n彼は君を侮辱するつもりはなかったよ.",
+        "text": "1976 He didn’t mean to ___ you.\n彼は君を侮辱するつもりはなかったよ。",
         "answer": "insult",
         "meaning": ""
     },
     {
-        "text": "1977 The noisy neighbors are a real ___.\n騒がしい隣人は本当に迷惑だ.👴",
+        "text": "1977 The noisy neighbors are a real ___.\n騒がしい隣人は本当に迷惑だ。👴",
         "answer": "nuisance",
         "meaning": ""
     },
     {
-        "text": "1978 A ___ of excitement filled the stadium.\n興奮の高まりがスタジアムを包んだ.🔥",
+        "text": "1978 A ___ of excitement filled the stadium.\n興奮の高まりがスタジアムを包んだ。🔥",
         "answer": "surge",
         "meaning": ""
     },
     {
-        "text": "1979 Good grades can be a strong ___ for students to study harder.\n 良い成績は,学生がもっと勉強する強い励みになる.",
+        "text": "1979 Good grades can be a strong ___ for students to study harder.\n 良い成績は,学生がもっと勉強する強い励みになる。",
         "answer": "incentive",
         "meaning": ""
     },
     {
-        "text": "1980 Hard work usually leads to a positive ___.\n努力はたいてい良い結果につながる",
+        "text": "1980 Hard work usually leads to a positive ___.\n努力はたいてい良い結果につながる"。,
         "answer": "outcome",
-        "meaning": "outcome\t[名] 結果"
+        "meaning": "outcome　[名] 結果"
     },
     {
-        "text": "1981 Hard work was a major ___ in the success.\n彼の成功における大きな要因は彼の努力だ",
+        "text": "1981 Hard work was a major ___ in the success.\n彼の成功における大きな要因は彼の努力だ。",
         "answer": "factor",
-        "meaning": "factor\t[名] 要因"
+        "meaning": "factor　[名] 要因"
     },
     {
-        "text": "1982 He is ___ to make mistakes when he is sleepy.\n彼は眠いとき、間違いをしがちだ",
+        "text": "1982 He is ___ to make mistakes when he is sleepy.\n彼は眠いとき,間違いをしがちだ。",
         "answer": "liable",
-        "meaning": "liable\t[形] ①（to do）～しがちだ ②（to ～）（病気などに）かかりやすい ③（for ～）（～に対して）（法的に）責任がある"
+        "meaning": "liable　[形] ①（to do）～しがちだ ②（to ～）（病気などに）かかりやすい ③（for ～）（～に対して）（法的に）責任がある"
     },
     {
-        "text": "1983 She did a ___ job cleaning the house.\n彼女は家の掃除を徹底的にした",
+        "text": "1983 She did a ___ job cleaning the house.\n彼女は家の掃除を徹底的にした。",
         "answer": "thorough",
-        "meaning": "thorough\t[形] 完全な，徹底的な"
+        "meaning": "thorough　[形] 完全な，徹底的な"
     },
     {
-        "text": "1984 I don’t have ___ time to finish my homework.\n私には宿題を終わらせる十分な時間がない",
+        "text": "1984 I don’t have ___ time to finish my homework.\n私には宿題を終わらせる十分な時間がない。",
         "answer": "adequate",
-        "meaning": "adequate\t[形] 十分な，適切な"
+        "meaning": "adequate　[形] 十分な，適切な"
     },
     {
-        "text": "1985 ___, I’m happy the result of the exam.\n全体的に見て,私は試験の結果に満足だ✅",
-        "answer": "overall",
-        "meaning": "overall\t[形] ①全体的な，全面的な [副] ②全体的に，全面的に"
+        "text": "1985 ___, I’m happy the result of the exam.\n全体的に見て,私は試験の結果に満足だ。✅",
+        "answer": "Overall",
+        "meaning": "overall　[形] ①全体的な，全面的な [副] ②全体的に，全面的に"
     },
     {
-        "text": "1986 We decided the ___ goal.\n私たちは最終的な目標を決めた",
+        "text": "1986 We decided the ___ goal.\n私たちは最終的な目標を決めた。",
         "answer": "ultimate",
-        "meaning": "ultimate\t[形] 究極の，最終の"
+        "meaning": "ultimate　[形] 究極の，最終の"
     },
     {
-        "text": "1987 She gave me a ___ smile.\n彼女は私に心からの笑顔を見せた😍",
+        "text": "1987 She gave me a ___ smile.\n彼女は私に心からの笑顔を見せた。😍",
         "answer": "genuine",
-        "meaning": "genuine\t[形] ①（感情が）心からの ②（絵画などが）本物の"
+        "meaning": "genuine　[形] ①（感情が）心からの ②（絵画などが）本物の"
     },
     {
-        "text": "1988 There is a only ___ chance that he will get a girlfriend.\n彼に彼女ができる可能性はわずかしかない",
+        "text": "1988 There is a only ___ chance that he will get a girlfriend.\n彼に彼女ができる可能性はわずかしかない。",
         "answer": "slight",
-        "meaning": "slight\t[形] わずかな"
+        "meaning": "slight　[形] わずかな"
     },
     {
-        "text": "1989 We decided to make a ___ change to make the school better.\n私たちは学校をよりよくするために抜本的な変更をすることに決めた",
+        "text": "1989 We decided to make a ___ change to make the school better.\n私たちは学校をよりよくするために抜本的な変更をすることに決めた。",
         "answer": "radical",
-        "meaning": "radical\t[形] ①根本的な，抜本的な ②過激な"
+        "meaning": "radical　[形] ①根本的な，抜本的な ②過激な"
     },
     {
-        "text": "1990 The mistake was so ___.\nその間違いはとても些細なものだ",
+        "text": "1990 The mistake was so ___.\nその間違いはとても些細なものだ。",
         "answer": "trivial",
-        "meaning": "trivial\t[形] ささいな"
+        "meaning": "trivial　[形] ささいな"
     },
     {
-        "text": "1991 This drug is very ___.\nこのクスリはとても強力だ🌿",
+        "text": "1991 This drug is very ___.\nこのクスリはとても強力だ。🌿",
         "answer": "potent",
-        "meaning": "potent\t[形] 強力な"
+        "meaning": "potent　[形] 強力な"
     },
     {
-        "text": "1992 She plays tennis, and he ___ enjoys it.\n彼女はテニスをし、彼も同様にテニスを楽しむ🎾",
+        "text": "1992 She plays tennis, and he ___ enjoys it.\n彼女はテニスをし,彼も同様にテニスを楽しむ。🎾",
         "answer": "likewise",
-        "meaning": "likewise\t[副] 同様に，同じように"
+        "meaning": "likewise　[副] 同様に，同じように"
     },
     {
-        "text": "1993 This project is ___ impossible.\nこのプロジェクトは事実上不可能だ",
+        "text": "1993 This project is ___ impossible.\nこのプロジェクトは事実上不可能だ。",
         "answer": "virtually",
-        "meaning": "virtually\t[副] 事実上，ほとんど"
+        "meaning": "virtually　[副] 事実上，ほとんど"
     },
     {
-        "text": "1994 He ___ screamed in the classroom.\n彼は突然教室で叫んだ🤪",
+        "text": "1994 He ___ screamed in the classroom.\n彼は突然教室で叫んだ。🤪",
         "answer": "abruptly",
-        "meaning": "abruptly\t[副] 不意に，突然"
+        "meaning": "abruptly　[副] 不意に，突然"
     },
     {
-        "text": "1995 The door was ___ left open.\n扉は故意的に開けられたままだった",
+        "text": "1995 The door was ___ left open.\n扉は故意的に開けられたままだった。",
         "answer": "deliberately",
-        "meaning": "deliberately\t[副] ①故意に ②慎重に"
+        "meaning": "deliberately　[副] ①故意に ②慎重に"
     },
     {
-        "text": "1996 This toilet is reserved ___ for teachers.\nこのトイレは教員専用です.",
+        "text": "1996 This toilet is reserved ___ for teachers.\nこのトイレは教員専用です。",
         "answer": "exclusively",
-        "meaning": "exclusively\t[副] もっぱら，～専用で"
+        "meaning": "exclusively　[副] もっぱら，～専用で"
     },
     {
-        "text": "1997 He was sleepy, ___ his poor performance.\n彼は眠かった。それゆえに成績が悪かった",
+        "text": "1997 He was sleepy, ___ his poor performance.\n彼は眠かった。それゆえに成績が悪かった。",
         "answer": "hence",
-        "meaning": "hence\t[副] だから，それゆえに"
+        "meaning": "hence　[副] だから，それゆえに"
     },
     {
-        "text": "1998 Two students were late, ___ Bob and Mike.\n2人の生徒が遅刻した。すなわちボブとマイクだ",
+        "text": "1998 Two students were late, ___ Bob and Mike.\n2人の生徒が遅刻した。すなわちボブとマイクだ。",
         "answer": "namely",
-        "meaning": "namely\t[副] すなわち"
+        "meaning": "namely　[副] すなわち"
     },
     {
-        "text": "1999 He was ___ scolded by the teacher.\n彼は先生に怒られたらしい😢",
+        "text": "1999 He was ___ scolded by the teacher.\n彼は先生に怒られたらしい。😢",
         "answer": "allegedly ",
-        "meaning": "allegedly\t[副] (本当かどうかはわからないが)伝えられるところによると"
+        "meaning": "allegedly　[副] (本当かどうかはわからないが)伝えられるところによると"
     },
     {
-        "text": "2000 Some students study hard, ___ others do the bare minimum.\n熱心に勉強する生徒もいれば、最低限しかしない生徒もいる🤓🤪",
+        "text": "2000 Some students study hard, ___ others do the bare minimum.\n熱心に勉強する生徒もいれば、最低限しかしない生徒もいる。🤓🤪",
         "answer": "whereas",
-        "meaning": "whereas\t[接] ～だが一方"
+        "meaning": "whereas　[接] ～だが一方"
     }
 ]
