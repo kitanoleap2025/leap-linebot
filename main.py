@@ -187,13 +187,17 @@ def battle_monitor():
 def start_battle(bot_type):
     room = battle_rooms[bot_type]
     room["status"] = "playing"
-    room["round"] = 1
+    room["round"] = 0         # ←最初に0にしておく（今は1にしてる）
     room["start_time"] = None
-    # ここで最初の問題を送る処理を書く（後で作る）
+
     names = ', '.join(p["name"] for p in room["players"].values())
+    api = line_bot_api_leap if bot_type == "LEAP" else line_bot_api_target
     for pid in room["players"]:
-        api = line_bot_api_leap if bot_type == "LEAP" else line_bot_api_target
         api.push_message(pid, TextSendMessage(text=f"ゲーム開始！参加者: {names}"))
+
+    # ←これを追加：第1問を開始
+    start_round(bot_type)
+
 
 threading.Thread(target=battle_monitor, daemon=True).start()
 
