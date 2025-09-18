@@ -344,6 +344,11 @@
         "meaning": ""
     },
     {
+        "text": "096 The ___ plans to expand its market overseas.\nその会社は海外に市場を拡大する計画だ。",
+        "answer": "company",
+        "meaning": ""
+    },
+    {
         "text": "097 During World War II, British chess masters were assigned to codebreaking ___ involving the Enigma machine.\n第二次世界大戦中,イギリスのチェスマスターたちはエニグマ機に関わる暗号解読の仕事に就いていました.",
         "answer": "tasks",
         "meaning": "task　[名] 仕事〈可算〉"
@@ -386,6 +391,11 @@
     {
         "text": "117 Not all who ___ are lost.\n彷徨う人全員が迷っているわけではない.",
         "answer": "wander",
+        "meaning": ""
+    },
+    {
+        "text": "118 ___ can broaden your view of the world.\n旅行は世界に対する視野を広げてくれる。",
+        "answer": "Traveling",
         "meaning": ""
     },
     {
@@ -581,6 +591,11 @@
     {
         "text": "202 lose ___ of the destination.\n目的地を見失う🚩",
         "answer": "sight",
+        "meaning": ""
+    },
+    {
+        "text": "203 Traveling can broaden your ___ of the world.\n旅行は世界に対する視野を広げてくれる。",
+        "answer": "view",
         "meaning": ""
     },
     {
@@ -1350,6 +1365,41 @@
         "meaning": ""
     },
     {
+        "text": "603 Her speech will ___ many young people.\n彼女のスピーチは多くの若者を奮起させるだろう。",
+        "answer": "inspire",
+        "meaning": ""
+    },
+    {
+        "text": "604 Don’t ___ him from trying new things.\n彼が新しいことに挑戦するのを落胆させないで。🤓",
+        "answer": "discourage",
+        "meaning": ""
+    },
+    {
+        "text": "605 This event will ___ local businesses.\nこのイベントは地元のビジネスを促進するだろう。",
+        "answer": "promote",
+        "meaning": ""
+    },
+    {
+        "text": "606 The new ad helped ___ sales.\n新しい広告は売上を増加させるのに役立った。↗",
+        "answer": "boost",
+        "meaning": ""
+    },
+    {
+        "text": "607 The company plans to ___ its market overseas.\nその会社は海外に市場を拡大する計画だ。",
+        "answer": "expand",
+        "meaning": ""
+    },
+    {
+        "text": "608 Teacher decided to ___ the deadline by one week.\n先生は締め切りを1週間延長することに決めた。😍",
+        "answer": "extend",
+        "meaning": ""
+    },
+    {
+        "text": "609 Traveling can ___ your view of the world.\n旅行は世界に対する視野を広げてくれる。",
+        "answer": "broaden",
+        "meaning": ""
+    },
+    {
         "text": "610 Fake news ___ faster than real news.\nフェイクニュースは本当のニュースより速く拡散する.",
         "answer": "spreads",
         "meaning": ""
@@ -1855,7 +1905,7 @@
         "meaning": ""
     },
     {
-        "text": "859 All of the students' homework was handed in within the ___.\n全ての生徒の宿題は期日までに提出された。💮",
+        "text": "859 Teacher decided to extend the ___ by one week.\n先生は締め切りを1週間延長することに決めた。😍",
         "answer": "deadline",
         "meaning": ""
     },
