@@ -31,10 +31,6 @@
     },
     {
         "text": "007 Ancient Greeks ___ about politics more than TikTok.\n古代ギリシャ人は、TikTokよりも政治で口論していた。",
-        "answer": "argued"
-    },
-    {
-        "text": "007 Einstein ___ that time is relative.\nアインシュタインは時間は相対的だと論じた.",
         "answer": "argued",
         "meaning": "argue　[他] ①（that SV）～と主張する [自] ②（with ～）（～と）言い争う"
     },
@@ -216,27 +212,27 @@
     {
         "text": "048 The ___ tastes bitter.\nその薬は苦い味がする。",
         "answer": "medicine",
-        "meaning": ""
+        "meaning": "medicine　[名] ①（for ～）（～の）薬 ②医学（＝medical science）"
     },
     {
         "text": "057 ___ beauty\n肉体美💪",
         "answer": "physical",
-        "meaning": ""
+        "meaning": "physical　[形] ①身体的な ②物理的な"
     },
     {
         "text": "058 She said she had a high ___.\n彼女は高熱らしい.",
         "answer": "fever",
-        "meaning": ""
+        "meaning": "fever　[名] ①（体温の）熱 ②熱狂"
     },
     {
         "text": "061 The medicine ___ bitter.\nその薬は苦い味がする。",
         "answer": "tastes",
-        "meaning": ""
+        "meaning": "taste　[自] ①～の味がする [他] ②～の味をみる [名] ③味 ④好み"
     },
     {
         "text": "064 He has an odd ___ of talking to plants.\n彼は植物に話しかける奇妙な習慣がある。🌷",
         "answer": "habit",
-        "meaning": ""
+        "meaning": "habit　[名] 習慣，癖"
     },
     {
         "text": "067 Even a small change can have a significant effect on ___.\n小さな変化でも社会に大きな影響を与える",
@@ -246,37 +242,37 @@
     {
         "text": "068 obey a __ that doesn’t even exist\nありもしない法に従う",
         "answer": "law",
-        "meaning": ""
+        "meaning": "law　[名] ①（the ―）（集合的に）法律，国法 ②（個々の）法律 ③（科学などの）法則"
     },
     {
         "text": "069 We don't inherit the Earth from our ___, we borrow it from our children.\n私たちは先祖から地球を受け継ぐのではなく,子供たちから借りています.🌍",
         "answer": "ancestors",
-        "meaning": ""
+        "meaning": "ancestor　[名] 祖先"
     },
     {
         "text": "070 the estimated ___ of Japan\n日本の推定人口🗾",
         "answer": "population",
-        "meaning": ""
+        "meaning": "population　[名] ①人口，個体数 ②（一定の地域に住む）住民"
     },
     {
         "text": "071 Does he not have a ___ language?\n彼には母語がないのだろうか？😩",
         "answer": "native",
-        "meaning": ""
+        "meaning": "native　[形] ①母国の，その土地の [名] ②（ある土地の）生まれの人"
     },
     {
         "text": "072 Studying ___ will be a unique and rewarding experience.\n留学することは珍しい価値のある経験になるだろう。",
         "answer": "abroad",
-        "meaning": ""
+        "meaning": "abroad　[副] 海外へ，海外で"
     },
     {
         "text": "073 try to eat food produced in the ___ region\n地域で生産された食べ物を食べるように努める", 
         "answer": "local",
-        "meaning": ""
+        "meaning": "local　[形] ①その土地の，地元の ②地方の [名] ③地元の人"
     },
     {
         "text": "076 The arrow indicate the hidden ___ on the map.\n矢印は地図上の隠された宝物を示している。💎",
         "answer": "treasure",
-        "meaning": ""
+        "meaning": "treasure　[名] ①財宝，宝 ②大事な物［人］ [他] ③（思い出など）を大事にする"
     },
     {
         "text": "078 I use ___ transportation to get to school.(不可算)\n私は学校に行くのに公共交通機関を利用しています.",
@@ -296,57 +292,57 @@
     {
         "text": "083 Paris is the ___ of romance, and overpriced coffee.\nパリはロマンスの都であり、値段の高すぎるコーヒーの都である。",
         "answer": "capital",
-        "meaning": ""
+        "meaning": "capital　[名] ①首都 ②資本 [形] ③重大な，死に値する"
     },
     {
         "text": "086 The ___ is determined by supply and demand.\n価格は需要と供給で決まる.",
         "answer": "price",
-        "meaning": ""
+        "meaning": "price　[名] ①価格 ②（―s）物価 ③代償"
     },
     {
         "text": "087 He paid a large ___ of money.\n彼は多額のお金を支払った。",
         "answer": "sum",
-        "meaning": ""
+        "meaning": "sum　[名] ①（修飾語を伴って）金額 ②合計 ③（簡単な）計算 [他] ④（up）～を要約する"
     },
     {
         "text": "088 We need to stay within our ___.\n私たちは予算内に収める必要がある。",
         "answer": "budget",
-        "meaning": ""
+        "meaning": "budget　[名] ①予算 [形] ②安い"
     },
     {
         "text": "089 There is an entrance ___ for the museum.\nその博物館には入場料がかかる。",
         "answer": "fee",
-        "meaning": ""
+        "meaning": "fee　[名] ①（会費，遊園地などの）料金 ②（専門職への）謝礼"
     },
     {
         "text": "090 The bus ___ to the airport is 500 yen.\n空港までのバス料金は500円だ。",
         "answer": "fare",
-        "meaning": ""
+        "meaning": "fare　[名] 運賃"
     },
     {
         "text": "091 Shall we split the ___?\n割り勘にしませんか?",
         "answer": "bill",
-        "meaning": ""
+        "meaning": "bill　[名] ①勘定 ②請求書 ③〈米〉紙幣 ④法案"
     },
     {
         "text": "093 His ___ was huge, but his jokes were bankrupt.\n彼の富は莫大だったが,ジョークは破産状態だった.💰",
         "answer": "wealth",
-        "meaning": ""
+        "meaning": "wealth　[名] ①富，財産〈不可算〉 ②（a ― of ～）豊富な～"
     },
     {
         "text": "094 Consumption tax increases ___ inequality.\n消費税は経済格差を拡大させる.",
         "answer": "economic",
-        "meaning": ""
+        "meaning": "economy　[名] ①経済 ②節約"
     },
     {
         "text": "095 It will ___ fifty dollars extra a month.\nそれは毎月50ドル余分にかかる.",
         "answer": "cost",
-        "meaning": ""
+        "meaning": "cost　[他] ①（費用）を要する，～がかかる ②～を犠牲にする [名] ③費用，犠牲"
     },
     {
         "text": "096 The ___ plans to expand its market overseas.\nその会社は海外に市場を拡大する計画だ。",
         "answer": "company",
-        "meaning": ""
+        "meaning": "company　[名] ①会社 ②（one's ―）一緒にいること ③仲間 ④来客"
     },
     {
         "text": "097 During World War II, British chess masters were assigned to codebreaking ___ involving the Enigma machine.\n第二次世界大戦中,イギリスのチェスマスターたちはエニグマ機に関わる暗号解読の仕事に就いていました.",
@@ -354,69 +350,64 @@
         "meaning": "task　[名] 仕事〈可算〉"
     },
     {
-        "text": "098 What you said ___ more than you think.\n君が言ったことは,君が思っているよりも傷ついたよ.😢",
+        "text": "099 What you said ___ more than you think.\n君が言ったことは,君が思っているよりも傷ついたよ.😢",
         "answer": "hurt",
-        "meaning": ""
+        "meaning": "hurt	[自] ①（身体の部位が）痛む [他] ②（身体，感情）を傷つける"
     },
     {
         "text": "101 The storm caused severe ___ to the village.\n嵐は村にひどい被害をもたらした。🍃",
         "answer": "damage",
-        "meaning": ""
+        "meaning": "damage　[他] ①～に損害を与える [名] ②損害，被害〈不可算〉 ③（―s）賠償金"
     },
     {
         "text": "102 ___ the pen of the person sitting next to me\n隣の席の人のペンを破壊する",
         "answer": "destroy",
-        "meaning": ""
+        "meaning": "destroy　[他] ①～を（完全に）破壊する ②～を殺す，全滅させる"
     },
     {
         "text": "105 The noisy ___ are a real nuisance.\n騒がしい隣人は本当に迷惑だ.👴",
         "answer": "neighbors",
-        "meaning": "" 
+        "meaning": "neighbor　[名] ①近所の人 ②（a next-door ―）隣の人" 
     },
     {
         "text": "106 His speech had a big impact on the ___.\n彼のスピーチは聴衆に大きな影響を与えた。",
         "answer": "audience",
-        "meaning": ""
+        "meaning": "audience　[名] 聴衆，観客"
     },
     {
         "text": "111 The captain rescued only the ___ from his own country.\n船長は自国の乗客だけを救出しました.",
         "answer": "passengers",
-        "meaning": ""
+        "meaning": "customer　[名] 客"
     },
     {
         "text": "116 He climbed the ladder of success, then kicked it away so no one else could ___.\n彼は成功のはしごを登り,それを蹴飛ばし,他の誰も追随できないようにした.",
         "answer": "follow",
-        "meaning": ""
+        "meaning": "follow　[他] ①～の後について行く，～に続く ②（忠告，方針など）に従う"
     },
     {
         "text": "117 Not all who ___ are lost.\n彷徨う人全員が迷っているわけではない.",
         "answer": "wander",
-        "meaning": ""
+        "meaning": "wander　[自] 歩き回る，さまよう"
     },
     {
         "text": "118 ___ can broaden your view of the world.\n旅行は世界に対する視野を広げてくれる。",
         "answer": "Traveling",
-        "meaning": ""
+        "meaning": "travel　[自] ①旅行する，移動する ②（光，音などが）進む"
     },
     {
         "text": "120 abandon a project ___ to fail\n失敗するであろう企画を放棄する🚯",
         "answer": "likely",
-        "meaning": ""
+        "meaning": "likely　[形] ①（to do）～しそうだ，可能性が高い [副] ②おそらく"
     },
     {
         "text": "126 He found a new way to ___ the problem.\n彼は問題を解決する新しい方法を見つけた。💡",
         "answer": "solve",
-        "meaning": ""
+        "meaning": "solve　[他] ～を解決する"
     },
     {
         "text": "128 Complex ___ compose themselves of simple, ignored mistakes.\n複雑な問題は,無視された単純なミスから成り立っている.",
         "answer": "issues",
-        "meaning": ""
-    },
-    {
-        "text": "131 We couldn't find enough evidence to ___ our theory.\n私たちの理論を支えるのに十分な証拠を見つけられなかった。",
-        "answer": "issues",
-        "meaning": ""
+        "meaning": "issue　[名] ①問題 ②（雑誌の）号 [他] ③（切手など）を発行する"
     },
     {
         "text": "133 English is so widespread that it is hard to ___ its usefulness.\n英語はとても普及しているのでどの有用性を否定するのは難しい。",
