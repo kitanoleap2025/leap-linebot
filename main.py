@@ -206,7 +206,12 @@ def battle_monitor():
 
                 if players_count >= 2:
                     api = line_bot_api_leap if bot_type == "LEAP" else line_bot_api_target
-
+                    
+                    # 残り60秒通知
+                    if 59.5 < remaining < 60.5:
+                        for pid in room["players"]:
+                            api.push_message(pid, TextSendMessage(text="ゲーム開始まで残り60秒！"))
+                            
                     # 残り30秒通知
                     if 29.5 < remaining < 30.5:
                         for pid in room["players"]:
