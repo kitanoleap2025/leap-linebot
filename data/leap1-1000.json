@@ -74,7 +74,7 @@
         "meaning": "apologize　[自] （to ～）（～に）謝る"
     },
     {
-        "text": "015 I won’t use a disorder as an e___.\n不調を言い訳にしない.",
+        "text": "015 I won’t use a disorder as an ___.\n不調を言い訳にしない.",
         "answer": "excuse",
         "meaning": "excuse　[名] ①言い訳 [他] ②～を許す ③（A from B）（B からA）を免除する"
     },
@@ -1009,7 +1009,7 @@
         "meaning": ""
     },
     {
-        "text": "432 The world is trying to reduce dependence on fossil ___ \\n世界は化石燃料への依存を減らそうとしている.",
+        "text": "432 The world is trying to reduce dependence on fossil ___ \n世界は化石燃料への依存を減らそうとしている.",
         "answer": "fuels",
         "meaning": ""
     },
@@ -1885,7 +1885,7 @@
         "meaning": ""
     },
     {
-        "text": "851 I am not satisfied with my c___ salary.\n私は今の給料に満足していない.",
+        "text": "851 I am not satisfied with my ___ salary.\n私は今の給料に満足していない.",
         "answer": "current",
         "meaning": ""
     },
