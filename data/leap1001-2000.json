@@ -465,6 +465,308 @@
         "answer": "union",
         "meaning": ""
     },
+#--------------------------------------------------------
+    {
+        "text": "1102 The new school is under the ___ of the city.\n新しい学校は市の行政の管理下にある。",
+        "answer": "administration",
+        "meaning": ""
+    },
+    {
+        "text": "1103 She works as a company ___.\n彼女は会社の秘書として働いている。",
+        "answer": "secretary",
+        "meaning": ""
+    },
+    {
+        "text": "1104 He became the chief ___ of the magazine.\n彼はその雑誌の編集長になった。",
+        "answer": "editor",
+        "meaning": ""
+    },
+    {
+        "text": "1105 The lawyer met with his ___.\n弁護士は依頼人に会った。",
+        "answer": "client",
+        "meaning": ""
+    },
+    {
+        "text": "1106 The company will ___ new employees this year.\nその会社は今年新しい社員を募集する。",
+        "answer": "recruit",
+        "meaning": ""
+    },
+    {
+        "text": "1107 Trust is the ___ of a good relationship.\n信頼は良い関係の基盤である。",
+        "answer": "basis",
+        "meaning": ""
+    },
+    {
+        "text": "1108 Water is an essential ___ of life.\n水は生命の不可欠な要素である。",
+        "answer": "element",
+        "meaning": ""
+    },
+    {
+        "text": "1109 These three parts ___ the whole machine.\nこの3つの部品がその機械全体を構成している。",
+        "answer": "constitute",
+        "meaning": ""
+    },
+    {
+        "text": "1110 The new leader tried to ___ the divided country.\n新しい指導者は分裂した国を統一しようとした。",
+        "answer": "unify",
+        "meaning": ""
+    },
+    {
+        "text": "1111 We should ___ theory with practice.\n私たちは理論と実践を結びつけるべきだ。",
+        "answer": "combine",
+        "meaning": ""
+    },
+    {
+        "text": "1112 The two groups decided to ___ for peace.\nその二つのグループは平和のために団結することを決めた。",
+        "answer": "unite",
+        "meaning": ""
+    },
+    {
+        "text": "1113 The Internet can ___ people all over the world.\nインターネットは世界中の人々をつなげることができる。",
+        "answer": "link",
+        "meaning": ""
+    },
+    {
+        "text": "1114 His opinion is not ___ to the topic.\n彼の意見はその話題に関連していない。",
+        "answer": "relevant",
+        "meaning": ""
+    },
+    {
+        "text": "1115 He was accused of ___.\n彼は殺人の罪で告発された。",
+        "answer": "murder",
+        "meaning": ""
+    },
+    {
+        "text": "1116 The police will ___ the suspect.\n警察はその容疑者を逮捕するだろう。",
+        "answer": "arrest",
+        "meaning": ""
+    },
+    {
+        "text": "1117 He spent ten years in ___.\n彼は刑務所で10年過ごした。",
+        "answer": "prison",
+        "meaning": ""
+    },
+    {
+        "text": "1118 Gambling is considered a ___.\nギャンブルは悪徳とみなされる。",
+        "answer": "vice",
+        "meaning": ""
+    },
+    {
+        "text": "1119 She was a ___ to the accident.\n彼女はその事故の目撃者だった。",
+        "answer": "witness",
+        "meaning": ""
+    },
+    {
+        "text": "1120 The police found a ___ at the scene.\n警察は現場で弾丸を見つけた。",
+        "answer": "bullet",
+        "meaning": ""
+    },
+    {
+        "text": "1121 He drew his ___ in the battle.\n彼は戦いで剣を抜いた。",
+        "answer": "sword",
+        "meaning": ""
+    },
+    {
+        "text": "1122 The soldier had a deep ___ on his arm.\nその兵士は腕に深い傷を負った。",
+        "answer": "wound",
+        "meaning": ""
+    },
+    {
+        "text": "1123 The victory was a great ___.\nその勝利は大きな勝利だった。",
+        "answer": "triumph",
+        "meaning": ""
+    },
+    {
+        "text": "1124 He joined the ___ at the age of 18.\n彼は18歳で軍に入った。",
+        "answer": "military",
+        "meaning": ""
+    },
+    {
+        "text": "1125 They discussed a new battle ___.\n彼らは新しい戦略を議論した。",
+        "answer": "strategy",
+        "meaning": ""
+    },
+    {
+        "text": "1126 The empire tried to ___ new lands.\nその帝国は新しい土地を征服しようとした。",
+        "answer": "conquer",
+        "meaning": ""
+    },
+    {
+        "text": "1127 The castle was built to ___ the city.\nその城は町を守るために建てられた。",
+        "answer": "defend",
+        "meaning": ""
+    },
+    {
+        "text": "1128 One country tried to ___ the other.\nある国が別の国を支配しようとした。",
+        "answer": "dominate",
+        "meaning": ""
+    },
+    {
+        "text": "1129 The thief tried to ___ the bank.\nその泥棒は銀行を襲おうとした。",
+        "answer": "rob",
+        "meaning": ""
+    },
+    {
+        "text": "1130 They tried to ___ him of his rights.\n彼らは彼から権利を奪おうとした。",
+        "answer": "deprive",
+        "meaning": ""
+    },
+    {
+        "text": "1131 The hurricane will ___ the city.\nハリケーンはその都市を壊滅させるだろう。",
+        "answer": "devastate",
+        "meaning": ""
+    },
+    {
+        "text": "1132 The plane will ___ if it loses power.\nもし電力を失えば飛行機は墜落するだろう。",
+        "answer": "crash",
+        "meaning": ""
+    },
+    {
+        "text": "1133 Smoking is a health ___.\n喫煙は健康の危険である。",
+        "answer": "hazard",
+        "meaning": ""
+    },
+    {
+        "text": "1134 Rescue teams cleared the ___.\n救助隊はがれきを片付けた。",
+        "answer": "debris",
+        "meaning": ""
+    },
+    {
+        "text": "1135 The war left many children ___.\nその戦争で多くの子どもが孤児になった。",
+        "answer": "orphan",
+        "meaning": ""
+    },
+    {
+        "text": "1136 He was treated like a ___ in ancient times.\n彼は古代では奴隷のように扱われた。",
+        "answer": "slave",
+        "meaning": ""
+    },
+    {
+        "text": "1137 He is just an ___.\n彼はただの知人だ。",
+        "answer": "acquaintance",
+        "meaning": ""
+    },
+    {
+        "text": "1138 The ___ sold goods in the market.\nその商人は市場で商品を売った。",
+        "answer": "merchant",
+        "meaning": ""
+    },
+    {
+        "text": "1139 The ___ of this town love the festival.\nこの町の住民はその祭りを愛している。",
+        "answer": "resident",
+        "meaning": ""
+    },
+    {
+        "text": "1140 The ship’s ___ worked hard all day.\nその船の乗組員は一日中一生懸命働いた。",
+        "answer": "crew",
+        "meaning": ""
+    },
+    {
+        "text": "1141 The police tried to ___ the thief.\n警察はその泥棒を追跡しようとした。",
+        "answer": "chase",
+        "meaning": ""
+    },
+    {
+        "text": "1142 We will ___ with the plan.\n私たちはその計画を進めるつもりだ。",
+        "answer": "proceed",
+        "meaning": ""
+    },
+    {
+        "text": "1143 The memory will slowly ___ away.\nその記憶はゆっくりと消えていくだろう。",
+        "answer": "fade",
+        "meaning": ""
+    },
+    {
+        "text": "1144 The sugar will ___ in water.\n砂糖は水に溶ける。",
+        "answer": "dissolve",
+        "meaning": ""
+    },
+    {
+        "text": "1145 The boat will ___ on the lake.\nそのボートは湖に浮かぶだろう。",
+        "answer": "float",
+        "meaning": ""
+    },
+    {
+        "text": "1146 The ship began to ___ after hitting the rock.\nその船は岩にぶつかった後沈み始めた。",
+        "answer": "sink",
+        "meaning": ""
+    },
+    {
+        "text": "1147 The ball will ___ on the floor.\nそのボールは床で跳ねるだろう。",
+        "answer": "bounce",
+        "meaning": ""
+    },
+    {
+        "text": "1148 The caterpillar will ___ into a butterfly.\nそのイモムシは蝶に変態する。",
+        "answer": "transform",
+        "meaning": ""
+    },
+    {
+        "text": "1149 The company decided to ___ its focus.\nその会社は焦点を移すことを決定した。",
+        "answer": "shift",
+        "meaning": ""
+    },
+    {
+        "text": "1150 We need to ___ the plan slightly.\n私たちは計画を少し修正する必要がある。",
+        "answer": "modify",
+        "meaning": ""
+    },
+    {
+        "text": "1151 The teacher asked us to ___ our essays.\n先生は私たちに作文を改訂するように言った。",
+        "answer": "revise",
+        "meaning": ""
+    },
+    {
+        "text": "1152 The new system will ___ productivity.\n新しいシステムは生産性を向上させるだろう。",
+        "answer": "enhance",
+        "meaning": ""
+    },
+    {
+        "text": "1153 Please ___ your voice.\n声を下げてください。",
+        "answer": "lower",
+        "meaning": ""
+    },
+    {
+        "text": "1154 The ship began its long ___.\nその船は長い航海を始めた。",
+        "answer": "voyage",
+        "meaning": ""
+    },
+    {
+        "text": "1155 Can you ___ the reservation?\n予約を確認してくれますか？",
+        "answer": "confirm",
+        "meaning": ""
+    },
+    {
+        "text": "1156 We must ___ the safety of passengers.\n私たちは乗客の安全を保証しなければならない。",
+        "answer": "ensure",
+        "meaning": ""
+    },
+    {
+        "text": "1157 He will ___ the audience in his speech.\n彼はスピーチで聴衆に語りかけるだろう。",
+        "answer": "address",
+        "meaning": ""
+    },
+    {
+        "text": "1158 How should we ___ this problem?\n私たちはこの問題にどう取り組むべきか？",
+        "answer": "approach",
+        "meaning": ""
+    },
+    {
+        "text": "1159 We must ___ the issue quickly.\n私たちはその問題を早く解決しなければならない。",
+        "answer": "resolve",
+        "meaning": ""
+    },
+    {
+        "text": "1160 They tried to ___ the dispute peacefully.\n彼らはその争いを平和的に解決しようとした。",
+        "answer": "settle",
+        "meaning": ""
+    },
+    {
+        "text": "1161 Books can ___ your mind.\n本はあなたの心を豊かにすることができる。",
+        "answer": "enrich",
+        "meaning": ""
+    },
+#---------------------------------------------------------
     {
         "text": "1110 Logic is the ___ of clear thinking and good arguments.\n論理は明晰な思考と良い議論の基礎である。",
         "answer": "basis",
