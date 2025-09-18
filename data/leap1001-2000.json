@@ -339,6 +339,132 @@
         "answer": "project",
         "meaning": ""
     },
+[
+    {
+        "text": "1073 The statue is a national ___.\nその像は国の記念碑である。",
+        "answer": "monument",
+        "meaning": ""
+    },
+    {
+        "text": "1074 The French ___ changed the course of history.\nフランス革命は歴史の流れを変えた。",
+        "answer": "revolution",
+        "meaning": ""
+    },
+    {
+        "text": "1075 He signed a ___ with the company.\n彼はその会社と契約を結んだ。",
+        "answer": "contract",
+        "meaning": ""
+    },
+    {
+        "text": "1076 The government invests in public ___.\n政府は公共のインフラに投資している。",
+        "answer": "infrastructure",
+        "meaning": ""
+    },
+    {
+        "text": "1077 They will ___ a new deal tomorrow.\n彼らは明日新しい取引を交渉する。",
+        "answer": "negotiate",
+        "meaning": ""
+    },
+    {
+        "text": "1078 We should ___ to solve the problem.\nその問題を解決するために協力すべきだ。",
+        "answer": "cooperate",
+        "meaning": ""
+    },
+    {
+        "text": "1079 The temple was closed for years, but now they will ___ it.\nその寺院は何年も閉鎖されていたが,今は修復される。",
+        "answer": "restore",
+        "meaning": ""
+    },
+    {
+        "text": "1080 He helped to ___ the university.\n彼はその大学を設立するのを助けた。",
+        "answer": "found",
+        "meaning": ""
+    },
+    {
+        "text": "1081 He has very ___ political views.\n彼は非常に保守的な政治的見解を持っている。",
+        "answer": "conservative",
+        "meaning": ""
+    },
+    {
+        "text": "1084 The city ___ decided to build a new park.\n市議会は新しい公園を建設することを決定した。",
+        "answer": "council",
+        "meaning": ""
+    },
+    {
+        "text": "1086 France is a ___, not a monarchy.\nフランスは共和国であり,君主制ではない。",
+        "answer": "republic",
+        "meaning": ""
+    },
+    {
+        "text": "1087 The Roman ___ lasted for centuries.\nローマ帝国は何世紀も続いた。",
+        "answer": "empire",
+        "meaning": ""
+    },
+    {
+        "text": "1088 They sent food and medical ___ to the refugees.\n彼らは難民に食料と医療援助を送った。",
+        "answer": "aid",
+        "meaning": ""
+    },
+    {
+        "text": "1089 The government promised to carry out tax ___.\n政府は税制改革を実行すると約束した。",
+        "answer": "reform",
+        "meaning": ""
+    },
+    {
+        "text": "1090 The prime ___ met with foreign leaders.\n首相は外国の指導者と会談した。",
+        "answer": "minister",
+        "meaning": ""
+    },
+    {
+        "text": "1091 The bill was discussed in ___.\nその法案は議会で議論された。",
+        "answer": "parliament",
+        "meaning": ""
+    },
+    {
+        "text": "1092 They fought to protect their ___.\n彼らは自分たちの領土を守るために戦った。",
+        "answer": "territory",
+        "meaning": ""
+    },
+    {
+        "text": "1093 According to the latest ___, the candidate is leading.\n最新の世論調査によれば、その候補者がリードしている。",
+        "answer": "poll",
+        "meaning": ""
+    },
+    {
+        "text": "1094 He made a great ___ in the IT industry.\n彼はIT業界で大きな財産を築いた。",
+        "answer": "fortune",
+        "meaning": ""
+    },
+    {
+        "text": "1095 The house is his personal ___.\nその家は彼の個人の財産だ。",
+        "answer": "property",
+        "meaning": ""
+    },
+    {
+        "text": "1096 The charity raised a large ___ for children.\nその慈善団体は子どもたちのために多額の基金を集めた。",
+        "answer": "fund",
+        "meaning": ""
+    },
+    {
+        "text": "1097 He bought some shares of company ___.\n彼は会社の株をいくらか購入した。",
+        "answer": "stock",
+        "meaning": ""
+    },
+    {
+        "text": "1098 Hard ___ was needed to finish the project.\nそのプロジェクトを終えるには激しい労働が必要だった。",
+        "answer": "labor",
+        "meaning": ""
+    },
+    {
+        "text": "1099 Too much ___ can damage your health.\n過労は健康を害する可能性がある。",
+        "answer": "overwork",
+        "meaning": ""
+    },
+    {
+        "text": "1101 The workers formed a labor ___.\n労働者たちは労働組合を結成した。",
+        "answer": "union",
+        "meaning": ""
+    },
     {
         "text": "1110 Logic is the ___ of clear thinking and good arguments.\n論理は明晰な思考と良い議論の基礎である。",
         "answer": "basis",
