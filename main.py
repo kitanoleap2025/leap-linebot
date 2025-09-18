@@ -98,6 +98,23 @@ target_questions_all = target_1_800 + target_801_1500 + target_1501_1900
 
 #-------------------------リアルタイム対戦---------------------------------------
 
+def make_choices(question, all_words):
+    """
+    question: {"text":..., "answer": ...}
+    all_words: 単語リスト [{"text":..., "answer":...}, ...]
+    """
+    correct = question["answer"]
+    
+    # ハズレを全単語から3つランダムに選ぶ（正解は除外）
+    wrong_choices = [w["answer"] for w in all_words if w["answer"] != correct]
+    wrong_choices = random.sample(wrong_choices, 3)
+    
+    # 正解と混ぜてランダム順に
+    choices = wrong_choices + [correct]
+    random.shuffle(choices)
+    
+    return choices
+    
 def answer_battle(user_id, bot_type, msg, elapsed):
     room = battle_rooms[bot_type]
     if user_id not in room["players"]:
@@ -220,16 +237,27 @@ def start_round(bot_type):
     room["question"] = q
     room["start_time"] = time.time()
 
-    # 各プレイヤーの回答リセット
+    # 4択生成
+    choices = make_choices(q, questions)
+
+    # QuickReply作成
+    quick_reply = QuickReply(items=[
+        QuickReplyButton(action=MessageAction(label=c, text=c))
+        for c in choices
+    ])
+
+    # 各プレイヤーに送信
     for pid, p in room["players"].items():
         p["answer"] = None
         p["elapsed"] = None
         api.push_message(pid, TextSendMessage(
-            text=f"第{room['round']}問: {q['text']}\n制限時間: 15秒"
+            text=f"第{room['round']}問: {q['text']}\n制限時間: 15秒",
+            quick_reply=quick_reply
         ))
 
     # 15秒後に集計
     threading.Timer(15, lambda: finish_round(bot_type)).start()
+
 
 
 def finish_round(bot_type):
