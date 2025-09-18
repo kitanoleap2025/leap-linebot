@@ -97,6 +97,20 @@ leap_questions_all = leap_1_1000 + leap_1001_2000 + leap_2001_2300
 target_questions_all = target_1_800 + target_801_1500 + target_1501_1900
 
 #-------------------------リアルタイム対戦---------------------------------------
+
+def answer_battle(user_id, bot_type, msg, elapsed):
+    room = battle_rooms[bot_type]
+    if user_id not in room["players"]:
+        return  # 部屋にいなければ無視
+
+    player = room["players"][user_id]
+    player["answer"] = msg
+    player["elapsed"] = elapsed
+
+    # ここで正誤判定やスコア加算を後で作る
+    print(f"[DEBUG] {player['name']} answered {msg} in {elapsed:.2f} sec")
+
+
 # 対戦部屋情報
 battle_rooms = {
     "LEAP": {
