@@ -107,8 +107,11 @@ def answer_battle(user_id, bot_type, msg, elapsed):
     player["answer"] = msg
     player["elapsed"] = elapsed
 
-    # ここで正誤判定やスコア加算を後で作る
     print(f"[DEBUG] {player['name']} answered {msg} in {elapsed:.2f} sec")
+
+    # 返信（任意）
+    api = line_bot_api_leap if bot_type == "LEAP" else line_bot_api_target
+    api.push_message(user_id, TextSendMessage(text="回答しました！\nみんなの回答を待ちましょう！"))
 
 
 # 対戦部屋情報
