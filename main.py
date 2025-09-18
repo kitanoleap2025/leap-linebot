@@ -200,9 +200,27 @@ def battle_monitor():
     while True:
         for bot_type, room in battle_rooms.items():
             if room["status"] == "waiting" and room["start_time"]:
-                if len(room["players"]) >= 2 and time.time() - room["start_time"] >= 60:
-                    start_battle(bot_type)
-            time.sleep(1)
+                players_count = len(room["players"])
+                elapsed = time.time() - room["start_time"]
+                remaining = 60 - elapsed
+
+                if players_count >= 2:
+                    api = line_bot_api_leap if bot_type == "LEAP" else line_bot_api_target
+
+                    # 残り30秒通知
+                    if 29.5 < remaining < 30.5:
+                        for pid in room["players"]:
+                            api.push_message(pid, TextSendMessage(text="ゲーム開始まで残り30秒！"))
+
+                    # 残り10秒通知
+                    if 9.5 < remaining < 10.5:
+                        for pid in room["players"]:
+                            api.push_message(pid, TextSendMessage(text="ゲーム開始まで残り10秒！"))
+
+                    # 残り0秒で開始
+                    if remaining <= 0:
+                        start_battle(bot_type)
+        time.sleep(1)
 
 def start_battle(bot_type):
     room = battle_rooms[bot_type]
