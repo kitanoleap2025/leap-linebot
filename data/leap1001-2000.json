@@ -997,6 +997,53 @@
         "answer": "distracted",
         "meaning": "electric\t[形] 電気の，電動の"
     },
+#------------------------------------------------------------------------------
+    {
+        "text": "1951 The loud noise ___ her in the midnight.\n夜中の大きな音に彼女はびっくりする😳",
+        "answer": "startled",
+        "meaning": ""
+    },
+    {
+        "text": "1952 Winning the competition ___ him with excitement\n大会で優勝して彼はワクワクする🏆",
+        "answer": "thrilled",
+        "meaning": ""
+    },
+    {
+        "text": "1953 He felt ___ when everyone laughed at his mistake\n皆に自分のミスを笑われて彼は恥をかかされた😞",
+        "answer": "humiliated",
+        "meaning": ""
+    },
+    {
+        "text": "1954 She has ___ her grandparents\n彼女は祖父母を熱愛している💖",
+        "answer": "adored",
+        "meaning": ""
+    },
+    {
+        "text": "1955 He could not ___ a single word after hearing the shocking news\n衝撃的なニュースを聞いて,彼は一言も発することができなかった😶",
+        "answer": "utter",
+        "meaning": ""
+    },
+    {
+        "text": "1956 She couldn't help but ___ when she saw the surprise gift\nサプライズのプレゼントを見て,彼女は思わず叫んだ🎁",
+        "answer": "exclaim",
+        "meaning": ""
+    },
+    {
+        "text": "1957 The tree ___ its leaves in autumn\nその木は秋に葉を落とす🍂",
+        "answer": "shed",
+        "meaning": ""
+    },
+    {
+        "text": "1958 She began to ___ being treated unfairly at work\n職場で不公平に扱われることに,彼女は腹を立て始めた😠",
+        "answer": "resent",
+        "meaning": ""
+    },
+    {
+        "text": "1959 He had to ___ for more time to finish his homework\n宿題を終えるために,彼はもっと時間をくださいと必死に頼まなければならなかった⏳",
+        "answer": "plead",
+        "meaning": ""
+    },
+#--------------------------------------------------------
     {
         "text": "1961 I tremble with ___ to see you.\n会いたくて震える.🎵",
         "answer": "longing",
