@@ -465,7 +465,6 @@
         "answer": "union",
         "meaning": ""
     },
-#--------------------------------------------------------
     {
         "text": "1102 The new school is under the ___ of the city.\n新しい学校は市の行政の管理下にある。",
         "answer": "administration",
@@ -801,7 +800,6 @@
         "answer": "seize",
         "meaning": ""
     },
-#---------------------------------------------------------
     {
         "text": "1110 Logic is the ___ of clear thinking and good arguments.\n論理は明晰な思考と良い議論の基礎である。",
         "answer": "basis",
@@ -997,7 +995,6 @@
         "answer": "distracted",
         "meaning": "electric\t[形] 電気の，電動の"
     },
-#------------------------------------------------------------------------------
     {
         "text": "1951 The loud noise ___ her in the midnight.\n夜中の大きな音に彼女はびっくりする😳",
         "answer": "startled",
@@ -1043,7 +1040,6 @@
         "answer": "plead",
         "meaning": ""
     },
-#--------------------------------------------------------
     {
         "text": "1961 I tremble with ___ to see you.\n会いたくて震える.🎵",
         "answer": "longing",
