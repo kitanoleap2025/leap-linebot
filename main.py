@@ -472,10 +472,6 @@ def handle_message_common(event, bot_type, line_bot_api):
 
     if user_id not in user_scores:
         load_user_data(user_id)
-
-        # ユーザーデータロード
-    if user_id not in user_scores:
-        load_user_data(user_id)
         
     # 名前変更コマンド
     if msg.startswith("@"):
@@ -569,9 +565,6 @@ def handle_message_common(event, bot_type, line_bot_api):
             meaning=q.get("meaning") if q else None
         )
         
-        # 次の問題
-        next_question_msg = send_question(user_id, range_str, bot_type=bot_type)
-    
         today = time.strftime("%Y-%m-%d")
         if user_daily_counts[user_id]["date"] != today:
             user_daily_counts[user_id]["date"] = today
@@ -579,12 +572,16 @@ def handle_message_common(event, bot_type, line_bot_api):
         user_daily_counts[user_id]["count"] += 1
         user_answer_counts[user_id] += 1
         
-        messages_to_send = [flex_feedback, next_question_msg]
+        messages_to_send = [flex_feedback]
 
         if user_answer_counts[user_id] % 5 == 0:
             async_save_user_data(user_id)
             trivia = random.choice(trivia_messages)
             messages_to_send.append(TextSendMessage(text=trivia))
+
+        # 次の問題
+        next_question_msg = send_question(user_id, range_str, bot_type=bot_type)
+        messages_to_send.append(next_question_msg)
 
         total_rate = update_total_rate(user_id, bot_type)
         
