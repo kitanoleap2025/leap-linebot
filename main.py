@@ -338,22 +338,28 @@ def evaluate_X(elapsed, score, answer, is_multiple_choice=True):
 # 絵文字定義
 EMOJI_SETS = {
     "correct": [
-        {"emoji": "🍎", "prob": 40, "value": 5},
         {"emoji": "🍒", "prob": 30, "value": 10},
-        {"emoji": "🍋", "prob": 20, "value": 15},
-        {"emoji": "🍇", "prob": 10, "value": 30},
+        {"emoji": "🍋", "prob": 30, "value": 20},
+        {"emoji": "🔥", "prob": 20, "value": 50},
+        {"emoji": "🔔", "prob": 10, "value": 100},
+        {"emoji": "💎", "prob": 5, "value": 500},
+        {"emoji": "7️⃣", "prob": 5, "value": 1000},
     ],
     "great": [
-        {"emoji": "🔔", "prob": 40, "value": 20},
-        {"emoji": "⭐", "prob": 30, "value": 30},
-        {"emoji": "🌙", "prob": 20, "value": 40},
-        {"emoji": "☀️", "prob": 10, "value": 60},
+        {"emoji": "🍒", "prob": 5, "value": 10},
+        {"emoji": "🍋", "prob": 5, "value": 20},
+        {"emoji": "🔥", "prob": 30, "value": 50},
+        {"emoji": "🔔", "prob": 30, "value": 100},
+        {"emoji": "💎", "prob": 20, "value": 500},
+        {"emoji": "7️⃣", "prob": 10, "value": 1000},
     ],
     "brilliant": [
-        {"emoji": "💎", "prob": 40, "value": 50},
-        {"emoji": "👑", "prob": 30, "value": 70},
-        {"emoji": "🔥", "prob": 20, "value": 90},
-        {"emoji": "7️⃣", "prob": 10, "value": 150},
+        {"emoji": "🍒", "prob": 0, "value": 10},
+        {"emoji": "🍋", "prob": 0, "value": 20},
+        {"emoji": "🔥", "prob": 0, "value": 50},
+        {"emoji": "🔔", "prob": 20, "value": 100},
+        {"emoji": "💎", "prob": 30, "value": 500},
+        {"emoji": "7️⃣", "prob": 50, "value": 1000},
     ]
 }
 
