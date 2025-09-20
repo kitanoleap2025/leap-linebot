@@ -437,35 +437,6 @@ def build_ranking_flex_fast(bot_type):
         alt_text=f"{bot_type.upper()}ランキング",
         contents=flex_content
     )
-#－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－
-slot_emojis = ["🍎","🍌","🍒","🍇","⭐","💎"]
-
-def generate_slot_flex():
-    # 3x3 スロット
-    slots = [[random.choice(slot_emojis) for _ in range(3)] for _ in range(3)]
-
-    # Flex用のボックスに変換
-    rows = []
-    for row in slots:
-        rows.append({
-            "type": "box",
-            "layout": "horizontal",
-            "contents": [{"type": "text", "text": s, "size": "xxl", "align": "center"} for s in row],
-            "margin": "xs"
-        })
-
-    flex = {
-        "type": "bubble",
-        "body": {
-            "type": "box",
-            "layout": "vertical",
-            "contents": [
-                {"type": "text", "text": "🎰スロットタイム🎰", "weight": "bold", "size": "md", "align": "center"},
-                *rows
-            ]
-        }
-    }
-    return FlexSendMessage(alt_text="スロット演出", contents=flex)
     
 # —————— ここからLINEイベントハンドラ部分 ——————
 # LEAP
@@ -599,12 +570,6 @@ def handle_message_common(event, bot_type, line_bot_api):
         )
         # 次の問題
         next_question_msg = send_question(user_id, range_str, bot_type=bot_type)
-#----------------------------------------------------------
-        # 完全ランダムで1/3くらいの確率でスロットを追加
-        messages_to_send = [flex_feedback]
-        if random.random() < 0.33:
-            messages_to_send.append(generate_slot_flex())
-#---------------------------------------------------------
         messages_to_send.append(next_question_msg)
         
         today = time.strftime("%Y-%m-%d")
