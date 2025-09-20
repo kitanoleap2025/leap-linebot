@@ -437,7 +437,70 @@ def build_ranking_flex_fast(bot_type):
         alt_text=f"{bot_type.upper()}ランキング",
         contents=flex_content
     )
-    
+
+
+
+#-----------------------------------------------------------------
+# 絵文字定義
+emojis = [
+    {"emoji": "🍒", "prob": 25, "value": 5},
+    {"emoji": "🍋", "prob": 20, "value": 10},
+    {"emoji": "🔔", "prob": 15, "value": 20},
+    {"emoji": "💎", "prob": 10, "value": 50},
+    {"emoji": "🍀", "prob": 30, "value": 2},
+]
+
+# 累積確率作成
+cumulative_probs = []
+cum = 0
+for e in emojis:
+    cum += e["prob"]
+    cumulative_probs.append(cum)
+
+# スロットを回す
+def spin_slot():
+    grid = []
+    for _ in range(3):
+        row = []
+        for _ in range(3):
+            r = random.randint(1, 100)
+            for i, cp in enumerate(cumulative_probs):
+                if r <= cp:
+                    row.append(emojis[i])
+                    break
+        grid.append(row)
+    return grid
+
+# 横列揃いの点数計算
+def calculate_score(grid):
+    total_score = 0
+    for row in grid:
+        if row[0]["emoji"] == row[1]["emoji"] == row[2]["emoji"]:
+            total_score += row[0]["value"]
+    return total_score
+
+# Flexメッセージ作成
+def build_slot_flex(grid):
+    score = calculate_score(grid)
+    lines_text = [" | ".join([cell["emoji"] for cell in row]) for row in grid]
+    flex_msg = FlexSendMessage(
+        alt_text="スロットマシン",
+        contents={
+            "type": "bubble",
+            "body": {
+                "type": "box",
+                "layout": "vertical",
+                "contents": [
+                    {"type": "text", "text": line, "size": "xl", "weight": "bold", "align": "center"} for line in lines_text
+                ] + [
+                    {"type": "text", "text": f"獲得点数: {score} 点", "size": "md", "align": "center", "margin": "md"}
+                ]
+            }
+        }
+    )
+    return flex_msg
+#-----------------------------------------------------------------------------------------
+
 # —————— ここからLINEイベントハンドラ部分 ——————
 # LEAP
 @app.route("/callback/leap", methods=["POST"])
@@ -489,47 +552,10 @@ def handle_message_common(event, bot_type, line_bot_api):
 
     # スロットマシン専用
     if msg == "あ":
-        # スロット演出
-        emojis = ["🍒", "🍋", "🔔", "🍀", "💰", "💎", "7️⃣", "🍎"]
-        slot = [random.choice(emojis) for _ in range(3)]
-        slot_text = " | ".join(slot)
-        
-        # 当たり判定
-        if len(set(slot)) == 1:
-            result_text = "大当たり！🎉"
-        else:
-            result_text = "残念💦"
-
-        # Flexメッセージ作成
-        flex_slot = FlexSendMessage(
-            alt_text="スロットマシン",
-            contents={
-                "type": "bubble",
-                "body": {
-                    "type": "box",
-                    "layout": "vertical",
-                    "contents": [
-                        {
-                            "type": "text",
-                            "text": f"🎰 {slot_text} 🎰",
-                            "size": "xl",
-                            "weight": "bold",
-                            "align": "center",
-                            "margin": "md"
-                        },
-                        {
-                            "type": "text",
-                            "text": result_text,
-                            "size": "md",
-                            "align": "center",
-                            "margin": "sm"
-                        }
-                    ]
-                }
-            }
-        )
-
-        line_bot_api.reply_message(event.reply_token, flex_slot)
+        # スロットマシン処理をここに書く
+        grid = spin_slot()  # 3x3スロットを回す
+        flex_message = build_slot_flex(grid)  # Flexメッセージを作る
+        line_bot_api.reply_message(event.reply_token, flex_message)
         return
     
     # 質問送信
