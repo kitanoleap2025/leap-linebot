@@ -474,9 +474,23 @@ def spin_slot():
 # 横列揃いの点数計算
 def calculate_score(grid):
     total_score = 0
+    
+    # 横列
     for row in grid:
         if row[0]["emoji"] == row[1]["emoji"] == row[2]["emoji"]:
             total_score += row[0]["value"]
+
+    # 縦列
+    for col in range(3):
+        if grid[0][col]["emoji"] == grid[1][col]["emoji"] == grid[2][col]["emoji"]:
+            total_score += grid[0][col]["value"]
+
+    # 斜め
+    if grid[0][0]["emoji"] == grid[1][1]["emoji"] == grid[2][2]["emoji"]:
+        total_score += grid[0][0]["value"]
+    if grid[0][2]["emoji"] == grid[1][1]["emoji"] == grid[2][0]["emoji"]:
+        total_score += grid[0][2]["value"]
+
     return total_score
 
 # Flexメッセージ作成
