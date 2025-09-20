@@ -691,12 +691,6 @@ def build_ranking_flex_fast(bot_type):
         alt_text=f"{bot_type.upper()}ランキング",
         contents=flex_content
     )
-#遅延
-def delayed_push(bot_api, user_id, message, delay=1):
-    def task():
-        time.sleep(delay)
-        bot_api.push_message(user_id, message)
-    threading.Thread(target=task).start()
     
 # —————— ここからLINEイベントハンドラ部分 ——————
 # LEAP
@@ -860,30 +854,27 @@ def handle_message_common(event, bot_type, line_bot_api):
         if user_daily_counts[user_id]["date"] != today:
             user_daily_counts[user_id]["date"] = today
             user_daily_counts[user_id]["count"] = 1
+            
         user_daily_counts[user_id]["count"] += 1
+        
         user_answer_counts[user_id] += 1
+        messages_to_send = [flex_feedback]
 
-        # まずは即時返信（ダミー）
-        line_bot_api.reply_message(
-            event.reply_token,
-            TextSendMessage(text="・・・")  # 何も返さないとエラーになるので仮返答
-        )
-
-        # 1秒後にフィードバック
-        delayed_push(line_bot_api, user_id, flex_feedback, delay=1)
-
-        # さらに1秒後に次の問題
-        delayed_push(line_bot_api, user_id, next_question_msg, delay=2)
-
-        # 5問ごとに豆知識も2秒後に一緒に送る
         if user_answer_counts[user_id] % 5 == 0:
             async_save_user_data(user_id)
             trivia = random.choice(trivia_messages)
-            delayed_push(line_bot_api, user_id, TextSendMessage(text=trivia), delay=2)
+            messages_to_send.append(TextSendMessage(text=trivia))
 
-        update_total_rate(user_id, bot_type)
+        messages_to_send.append(next_question_msg)
+
+        total_rate = update_total_rate(user_id, bot_type)
+        
+        line_bot_api.reply_message(
+            event.reply_token,
+            messages=messages_to_send
+        )
         return
-    
+
     line_bot_api.reply_message(
         event.reply_token,
         TextSendMessage(text="「学ぶ」を押してみましょう！")
