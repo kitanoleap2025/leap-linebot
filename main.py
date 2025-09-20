@@ -337,21 +337,21 @@ def evaluate_X(elapsed, score, answer, is_multiple_choice=True):
 # 絵文字定義
 EMOJI_SETS = {
     "correct": [
-        {"emoji": "🍒", "prob": 50, "value": 10},
-        {"emoji": "🔔", "prob": 35, "value": 50},
-        {"emoji": "💎", "prob": 10, "value": 100},
-        {"emoji": "7️⃣", "prob": 5, "value": 1000},
+        {"emoji": "🍒", "prob": 50, "value": 100},
+        {"emoji": "🔔", "prob": 40, "value": 200},
+        {"emoji": "💎", "prob": 7, "value": 500},
+        {"emoji": "7️⃣", "prob": 3, "value": 1000},
     ],
     "great": [
-        {"emoji": "🍒", "prob": 10, "value": 10},
-        {"emoji": "🔔", "prob": 40, "value": 50},
-        {"emoji": "💎", "prob": 30, "value": 100},
-        {"emoji": "7️⃣", "prob": 20, "value": 1000},
+        {"emoji": "🍒", "prob": 5, "value": 100},
+        {"emoji": "🔔", "prob": 40, "value": 200},
+        {"emoji": "💎", "prob": 40, "value": 500},
+        {"emoji": "7️⃣", "prob": 5, "value": 1000},
     ],
     "brilliant": [
-        {"emoji": "🍒", "prob": 0, "value": 10},
-        {"emoji": "🔔", "prob": 0, "value": 50},
-        {"emoji": "💎", "prob": 20, "value": 100},
+        {"emoji": "🍒", "prob": 3, "value": 100},
+        {"emoji": "🔔", "prob": 7, "value": 200},
+        {"emoji": "💎", "prob": 10, "value": 500},
         {"emoji": "7️⃣", "prob": 80, "value": 1000},
     ]
 }
@@ -421,7 +421,7 @@ def build_feedback_flex(user_id, is_correct, score, elapsed, correct_answer=None
         user_scores[user_id][correct_answer] = min(user_scores[user_id].get(correct_answer, 1) + slot_score, 4)
         body_contents.append({
             "type": "text",
-            "text": f"🎉 スロット得点: {slot_score}",
+            "text": f"スロット:{slot_score}ペソ",
             "size": "sm",
             "color": "#ff69b4",
             "margin": "md"
