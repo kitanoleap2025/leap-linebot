@@ -372,61 +372,6 @@ def build_feedback_flex(user_id, is_correct, score, elapsed, correct_answer=None
             "align": "center"
         })
 
-        # -------------------------------
-        # 絵文字スロット作成
-        LABEL_TO_EMOJISETS = {"!!Brilliant": "brilliant", "!Great": "great", "✓Correct": "correct"}
-        emoji_set_name = LABEL_TO_EMOJISETS.get(label, "correct")
-        emojis = EMOJI_SETS[emoji_set_name]
-
-        # 3x3のスロット生成
-        slot_grid = []
-        for _ in range(3):
-            row = []
-            for _ in range(3):
-                chosen = random.choices(emojis, weights=[e["prob"] for e in emojis])[0]
-                row.append(chosen)
-            slot_grid.append(row)
-
-        # 横列・縦列・斜めの揃いチェック
-        def calculate_slot_score(grid):
-            total_score = 0
-            # 横
-            for row in grid:
-                if row[0]["emoji"] == row[1]["emoji"] == row[2]["emoji"]:
-                    total_score += row[0]["value"]
-            # 縦
-            for col in range(3):
-                if grid[0][col]["emoji"] == grid[1][col]["emoji"] == grid[2][col]["emoji"]:
-                    total_score += grid[0][col]["value"]
-            # 斜め
-            if grid[0][0]["emoji"] == grid[1][1]["emoji"] == grid[2][2]["emoji"]:
-                total_score += grid[0][0]["value"]
-            if grid[0][2]["emoji"] == grid[1][1]["emoji"] == grid[2][0]["emoji"]:
-                total_score += grid[0][2]["value"]
-            return total_score
-
-        slot_score = calculate_slot_score(slot_grid)
-
-        # スロットをテキスト化
-        slot_lines = [" | ".join([cell["emoji"] for cell in row]) for row in slot_grid]
-        for line in slot_lines:
-            body_contents.append({
-                "type": "text",
-                "text": line,
-                "size": "xl",
-                "align": "center"
-            })
-
-        # 得点加算
-        user_scores[user_id][correct_answer] = min(user_scores[user_id].get(correct_answer, 1) + slot_score, 4)
-        body_contents.append({
-            "type": "text",
-            "text": f"スロット:{slot_score}ペソ",
-            "size": "sm",
-            "color": "#ff69b4",
-            "margin": "md"
-        })
-        # -------------------------------
     else:
         body_contents.append({
             "type": "text",
