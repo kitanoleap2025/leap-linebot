@@ -261,7 +261,7 @@ def send_question(user_id, range_str, bot_type="LEAP"):
     else:
         score = user_scores[user_id][correct_answer]
         flames = 5 - score
-        score_display = "⭐" * flames
+        score_display = "あなたにとっての難易度" + "★" * flames + "☆" * score
 
     other_answers = [item["answer"] for item in questions if item["answer"] != correct_answer]
     wrong_choices = random.sample(other_answers, k=min(3, len(other_answers)))
