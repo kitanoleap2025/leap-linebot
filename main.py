@@ -257,12 +257,11 @@ def send_question(user_id, range_str, bot_type="LEAP"):
 
     # スコア取得
     if correct_answer not in user_scores.get(user_id, {}):
-        score_display = "❓"  # 未出題
+        score_display = "❓未出題の問題"
     else:
         score = user_scores[user_id][correct_answer]
-        # スコア0〜4を🔥で表現
         flames = 5 - score
-        score_display = "🔥" * flames
+        score_display = "⭐" * flames
 
     other_answers = [item["answer"] for item in questions if item["answer"] != correct_answer]
     wrong_choices = random.sample(other_answers, k=min(3, len(other_answers)))
