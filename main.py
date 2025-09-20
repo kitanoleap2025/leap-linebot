@@ -597,6 +597,8 @@ def handle_message_common(event, bot_type, line_bot_api):
             label=label if is_correct else None,
             meaning=q.get("meaning") if q else None
         )
+        # 次の問題
+        next_question_msg = send_question(user_id, range_str, bot_type=bot_type)
 #----------------------------------------------------------
         # 完全ランダムで1/3くらいの確率でスロットを追加
         messages_to_send = [flex_feedback]
@@ -605,8 +607,6 @@ def handle_message_common(event, bot_type, line_bot_api):
 
         messages_to_send.append(next_question_msg)
 #---------------------------------------------------------
-        # 次の問題
-        next_question_msg = send_question(user_id, range_str, bot_type=bot_type)
 
         today = time.strftime("%Y-%m-%d")
         if user_daily_counts[user_id]["date"] != today:
