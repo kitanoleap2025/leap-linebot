@@ -508,8 +508,15 @@ def send_question(user_id, range_str, bot_type="LEAP"):
     user_answer_start_times[user_id] = time.time()
 
     correct_answer = q["answer"]
-    # 現在のスコア取得
-    current_score = user_scores.get(user_id, {}).get(correct_answer, 1)
+
+    # スコア取得
+    if correct_answer not in user_scores.get(user_id, {}):
+        score_display = "❓"  # 未出題
+    else:
+        score = user_scores[user_id][correct_answer]
+        # スコア0〜4を🔥で表現
+        flames = 5 - score
+        score_display = "🔥" * flames
 
     other_answers = [item["answer"] for item in questions if item["answer"] != correct_answer]
     wrong_choices = random.sample(other_answers, k=min(3, len(other_answers)))
@@ -519,8 +526,8 @@ def send_question(user_id, range_str, bot_type="LEAP"):
     quick_buttons = [QuickReplyButton(action=MessageAction(label=choice, text=choice))
                      for choice in choices]
 
-    # 出題文にスコアを追加
-    text_to_send = f"{current_score}の問題！\n\n{q['text']}"
+    # 出題文にスコア表示
+    text_to_send = f"{q['text']}\n📝理解度: {score_display}"
 
     return TextSendMessage(text=text_to_send, quick_reply=QuickReply(items=quick_buttons))
 
