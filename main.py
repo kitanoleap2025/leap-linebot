@@ -518,27 +518,6 @@ def calculate_score(grid):
         total_score += grid[0][2]["value"]
 
     return total_score
-
-# Flexメッセージ作成
-def build_slot_flex(grid):
-    score = calculate_score(grid)
-    lines_text = [" | ".join([cell["emoji"] for cell in row]) for row in grid]
-    flex_msg = FlexSendMessage(
-        alt_text="スロットマシン",
-        contents={
-            "type": "bubble",
-            "body": {
-                "type": "box",
-                "layout": "vertical",
-                "contents": [
-                    {"type": "text", "text": line, "size": "xl", "weight": "bold", "align": "center"} for line in lines_text
-                ] + [
-                    {"type": "text", "text": f"獲得点数: {score} 点", "size": "md", "align": "center", "margin": "md"}
-                ]
-            }
-        }
-    )
-    return flex_msg
 #-----------------------------------------------------------------------------------------
 
 # —————— ここからLINEイベントハンドラ部分 ——————
