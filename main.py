@@ -486,7 +486,52 @@ def handle_message_common(event, bot_type, line_bot_api):
         async_save_user_data(user_id)
         line_bot_api.reply_message(event.reply_token, TextSendMessage(text=f"名前を「{new_name}」に変更しました。"))
         return
+
+    # スロットマシン専用
+    if msg == "あ":
+        # スロット演出
+        emojis = ["🍒", "🍋", "🔔", "🍀", "💰", "💎", "7️⃣", "🍎"]
+        slot = [random.choice(emojis) for _ in range(3)]
+        slot_text = " | ".join(slot)
         
+        # 当たり判定
+        if len(set(slot)) == 1:
+            result_text = "大当たり！🎉"
+        else:
+            result_text = "残念💦"
+
+        # Flexメッセージ作成
+        flex_slot = FlexSendMessage(
+            alt_text="スロットマシン",
+            contents={
+                "type": "bubble",
+                "body": {
+                    "type": "box",
+                    "layout": "vertical",
+                    "contents": [
+                        {
+                            "type": "text",
+                            "text": f"🎰 {slot_text} 🎰",
+                            "size": "xl",
+                            "weight": "bold",
+                            "align": "center",
+                            "margin": "md"
+                        },
+                        {
+                            "type": "text",
+                            "text": result_text,
+                            "size": "md",
+                            "align": "center",
+                            "margin": "sm"
+                        }
+                    ]
+                }
+            }
+        )
+
+        line_bot_api.reply_message(event.reply_token, flex_slot)
+        return
+    
     # 質問送信
     if msg in ["A", "B", "C"]:
         question_msg = send_question(user_id, msg, bot_type=bot_type)
