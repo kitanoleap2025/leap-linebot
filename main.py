@@ -350,6 +350,19 @@ def build_feedback_flex(user_id, is_correct, score, elapsed, correct_answer=None
             "color": color,
             "align": "center"
         })
+        #----------------------------------------------------
+        # スロット追加（評価に応じた絵文字セット）
+        emojis = EMOJI_SETS.get(label, EMOJI_SETS["correct"])
+        slot_grid = [[random.choices(emojis, weights=[e["prob"] for e in emojis])[0] for _ in range(3)] for _ in range(3)]
+        slot_lines = [" | ".join([cell["emoji"] for cell in row]) for row in slot_grid]
+        for line in slot_lines:
+            body_contents.append({
+                "type": "text",
+                "text": line,
+                "size": "xl",
+                "align": "center"
+            })
+        #---------------------------------------------------- 
     else:
         body_contents.append({
             "type": "text",
@@ -442,12 +455,26 @@ def build_ranking_flex_fast(bot_type):
 
 #-----------------------------------------------------------------
 # 絵文字定義
-emojis = [
-    {"emoji": "🍒", "prob": 30, "value": 10},
-    {"emoji": "🔔", "prob": 30, "value": 20},
-    {"emoji": "💎", "prob": 20, "value": 50},
-    {"emoji": "7️⃣", "prob": 20, "value": 100},
-]
+EMOJI_SETS = {
+    "correct": [
+        {"emoji": "🍎", "prob": 40, "value": 5},
+        {"emoji": "🍒", "prob": 30, "value": 10},
+        {"emoji": "🍋", "prob": 20, "value": 15},
+        {"emoji": "🍇", "prob": 10, "value": 30},
+    ],
+    "great": [
+        {"emoji": "🔔", "prob": 40, "value": 20},
+        {"emoji": "⭐", "prob": 30, "value": 30},
+        {"emoji": "🌙", "prob": 20, "value": 40},
+        {"emoji": "☀️", "prob": 10, "value": 60},
+    ],
+    "brilliant": [
+        {"emoji": "💎", "prob": 40, "value": 50},
+        {"emoji": "👑", "prob": 30, "value": 70},
+        {"emoji": "🔥", "prob": 20, "value": 90},
+        {"emoji": "7️⃣", "prob": 10, "value": 150},
+    ]
+}
 
 # 累積確率作成
 cumulative_probs = []
