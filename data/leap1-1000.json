@@ -507,7 +507,7 @@
     {
         "text": "170 compulsory ___\n義務教育",
         "answer": "education",
-        "meaning": "compulsory　[形] ①義務的な ②規定の"
+        "meaning": ""
     },
     {
         "text": "171 No less important than ___ is the ability to question it.\n知識に劣らず重要なのは,それを疑問視する能力です.",
@@ -785,7 +785,7 @@
         "meaning": ""
     },
     {
-        "text": "309 A:Teacher, I feel like I might be a ___ can. B:What a trashy joke.\nA:先生、私は自分がゴミ箱なんじゃないかと思っているのですが。B:そんなゴミみたいな冗談を。🗑️",
+        "text": "309 A:Teacher, I feel like I might be a ___ can.\nB:What a trashy joke.\nA:先生、私は自分がゴミ箱なんじゃないかと思っているのですが。B:そんなゴミみたいな冗談を。🗑️",
         "answer": "garbage",
         "meaning": ""
     },
@@ -1901,7 +1901,7 @@
         "meaning": ""
     },
     {
-        "text": "558 His motive for stealing the cookie was ___: hunger\nクッキーを盗んだ彼の動機は明らかだ：空腹",
+        "text": "771 His motive for stealing the cookie was ___: hunger\nクッキーを盗んだ彼の動機は明らかだ：空腹",
         "answer": "obvious",
         "meaning": ""
     },
@@ -1986,7 +1986,7 @@
         "meaning": ""
     },
     {
-        "text": "803 b___ shoes\n新品の靴👟",
+        "text": "803 ___ shoes\n新品の靴👟",
         "answer": "brand-new",
         "meaning": ""
     },
@@ -1996,7 +1996,7 @@
         "meaning": "rapid　[形] ①急速な [名] ②（―s）急流"
     },
     {
-        "text": "807 He said something s___, pretending to be profound.\n彼は深そうに見せかけて浅いことを言った",
+        "text": "807 He said something ___, pretending to be profound.\n彼は深そうに見せかけて浅いことを言った",
         "answer": "shallow",
         "meaning": ""
     },
