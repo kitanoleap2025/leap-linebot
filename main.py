@@ -562,14 +562,6 @@ def handle_message_common(event, bot_type, line_bot_api):
         async_save_user_data(user_id)
         line_bot_api.reply_message(event.reply_token, TextSendMessage(text=f"名前を「{new_name}」に変更しました。"))
         return
-
-    # スロットマシン専用
-    if msg == "あ":
-        # スロットマシン処理をここに書く
-        grid = spin_slot()  # 3x3スロットを回す
-        flex_message = build_slot_flex(grid)  # Flexメッセージを作る
-        line_bot_api.reply_message(event.reply_token, flex_message)
-        return
     
     # 質問送信
     if msg in ["A", "B", "C"]:
@@ -657,6 +649,11 @@ def handle_message_common(event, bot_type, line_bot_api):
         user_answer_counts[user_id] += 1
         
         messages_to_send = [flex_feedback]
+
+        # スロットマシン処理をここに書く
+        grid = spin_slot()  # 3x3スロットを回す
+        flex_message = build_slot_flex(grid)  # Flexメッセージを作る
+        line_bot_api.reply_message(event.reply_token, flex_message)
 
         if user_answer_counts[user_id] % 5 == 0:
             async_save_user_data(user_id)
