@@ -476,14 +476,6 @@ def handle_message_common(event, bot_type, line_bot_api):
         # ユーザーデータロード
     if user_id not in user_scores:
         load_user_data(user_id)
-
-    # 対戦中チェック
-    room = battle_rooms[bot_type]
-    if user_id in room["players"] and room["status"] == "playing":
-        # 対戦モード専用処理に任せる
-        elapsed = time.time() - user_answer_start_times.get(user_id, time.time())
-        answer_battle(user_id, bot_type, msg, elapsed)
-        return  # 学習モードには渡さない
         
     # 名前変更コマンド
     if msg.startswith("@"):
