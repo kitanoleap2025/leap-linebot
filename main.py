@@ -508,6 +508,9 @@ def send_question(user_id, range_str, bot_type="LEAP"):
     user_answer_start_times[user_id] = time.time()
 
     correct_answer = q["answer"]
+    # 現在のスコア取得
+    current_score = user_scores.get(user_id, {}).get(correct_answer, 1)
+
     other_answers = [item["answer"] for item in questions if item["answer"] != correct_answer]
     wrong_choices = random.sample(other_answers, k=min(3, len(other_answers)))
     choices = wrong_choices + [correct_answer]
@@ -516,8 +519,10 @@ def send_question(user_id, range_str, bot_type="LEAP"):
     quick_buttons = [QuickReplyButton(action=MessageAction(label=choice, text=choice))
                      for choice in choices]
 
-    return TextSendMessage(text=q["text"], quick_reply=QuickReply(items=quick_buttons))
+    # 出題文にスコアを追加
+    text_to_send = f"{q['text']}\n📝現在の理解度: {current_score}/4"
 
+    return TextSendMessage(text=text_to_send, quick_reply=QuickReply(items=quick_buttons))
 
 def choose_weighted_question(user_id, questions):
     scores = user_scores.get(user_id, {})
