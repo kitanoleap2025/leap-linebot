@@ -443,11 +443,11 @@ def build_ranking_flex_fast(bot_type):
 #-----------------------------------------------------------------
 # 絵文字定義
 emojis = [
-    {"emoji": "🍒", "prob": 25, "value": 5},
-    {"emoji": "🍋", "prob": 20, "value": 10},
-    {"emoji": "🔔", "prob": 15, "value": 20},
-    {"emoji": "💎", "prob": 10, "value": 50},
-    {"emoji": "🍀", "prob": 30, "value": 2},
+    {"emoji": "🍒", "prob": 10, "value": 5},
+    {"emoji": "🍋", "prob": 10, "value": 10},
+    {"emoji": "🔔", "prob": 8, "value": 20},
+    {"emoji": "💎", "prob": 5, "value": 50},
+    {"emoji": "7️⃣", "prob": 1, "value": 100},
 ]
 
 # 累積確率作成
