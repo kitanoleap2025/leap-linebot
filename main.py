@@ -650,10 +650,10 @@ def handle_message_common(event, bot_type, line_bot_api):
         
         messages_to_send = [flex_feedback]
 
-        # スロットマシン処理をここに書く
-        grid = spin_slot()  # 3x3スロットを回す
-        flex_message = build_slot_flex(grid)  # Flexメッセージを作る
-        line_bot_api.reply_message(event.reply_token, flex_message)
+        # スロット
+        grid = spin_slot()
+        flex_message = build_slot_flex(grid)
+        messages_to_send = [flex_feedback, flex_message]
 
         if user_answer_counts[user_id] % 5 == 0:
             async_save_user_data(user_id)
@@ -665,7 +665,7 @@ def handle_message_common(event, bot_type, line_bot_api):
         messages_to_send.append(next_question_msg)
 
         total_rate = update_total_rate(user_id, bot_type)
-        
+
         line_bot_api.reply_message(event.reply_token, messages=messages_to_send)
         return
         
