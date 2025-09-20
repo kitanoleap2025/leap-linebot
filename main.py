@@ -604,10 +604,9 @@ def handle_message_common(event, bot_type, line_bot_api):
         messages_to_send = [flex_feedback]
         if random.random() < 0.33:
             messages_to_send.append(generate_slot_flex())
-
-        messages_to_send.append(next_question_msg)
 #---------------------------------------------------------
-
+        messages_to_send.append(next_question_msg)
+        
         today = time.strftime("%Y-%m-%d")
         if user_daily_counts[user_id]["date"] != today:
             user_daily_counts[user_id]["date"] = today
@@ -622,8 +621,6 @@ def handle_message_common(event, bot_type, line_bot_api):
             async_save_user_data(user_id)
             trivia = random.choice(trivia_messages)
             messages_to_send.append(TextSendMessage(text=trivia))
-
-        messages_to_send.append(next_question_msg)
 
         total_rate = update_total_rate(user_id, bot_type)
         
