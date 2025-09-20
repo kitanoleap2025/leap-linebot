@@ -568,19 +568,18 @@ def handle_message_common(event, bot_type, line_bot_api):
             label=label if is_correct else None,
             meaning=q.get("meaning") if q else None
         )
+        
         # 次の問題
         next_question_msg = send_question(user_id, range_str, bot_type=bot_type)
-        messages_to_send.append(next_question_msg)
-        
+    
         today = time.strftime("%Y-%m-%d")
         if user_daily_counts[user_id]["date"] != today:
             user_daily_counts[user_id]["date"] = today
             user_daily_counts[user_id]["count"] = 1
-            
         user_daily_counts[user_id]["count"] += 1
-        
         user_answer_counts[user_id] += 1
-        messages_to_send = [flex_feedback]
+        
+        messages_to_send = [flex_feedback, next_question_msg]
 
         if user_answer_counts[user_id] % 5 == 0:
             async_save_user_data(user_id)
@@ -589,12 +588,9 @@ def handle_message_common(event, bot_type, line_bot_api):
 
         total_rate = update_total_rate(user_id, bot_type)
         
-        line_bot_api.reply_message(
-            event.reply_token,
-            messages=messages_to_send
-        )
+        line_bot_api.reply_message(event.reply_token, messages=messages_to_send)
         return
-
+        
     line_bot_api.reply_message(
         event.reply_token,
         TextSendMessage(text="「学ぶ」を押してみましょう！")
