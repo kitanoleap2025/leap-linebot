@@ -520,7 +520,7 @@ def send_question(user_id, range_str, bot_type="LEAP"):
                      for choice in choices]
 
     # 出題文にスコアを追加
-    text_to_send = f"{q['text']}\n📝現在の理解度: {current_score}/4"
+    text_to_send = f"{current_score}の問題！\n\n{q['text']}"
 
     return TextSendMessage(text=text_to_send, quick_reply=QuickReply(items=quick_buttons))
 
