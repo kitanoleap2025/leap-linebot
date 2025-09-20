@@ -335,6 +335,28 @@ def evaluate_X(elapsed, score, answer, is_multiple_choice=True):
     else:
         return "✓Correct", 1
 
+# 絵文字定義
+EMOJI_SETS = {
+    "correct": [
+        {"emoji": "🍎", "prob": 40, "value": 5},
+        {"emoji": "🍒", "prob": 30, "value": 10},
+        {"emoji": "🍋", "prob": 20, "value": 15},
+        {"emoji": "🍇", "prob": 10, "value": 30},
+    ],
+    "great": [
+        {"emoji": "🔔", "prob": 40, "value": 20},
+        {"emoji": "⭐", "prob": 30, "value": 30},
+        {"emoji": "🌙", "prob": 20, "value": 40},
+        {"emoji": "☀️", "prob": 10, "value": 60},
+    ],
+    "brilliant": [
+        {"emoji": "💎", "prob": 40, "value": 50},
+        {"emoji": "👑", "prob": 30, "value": 70},
+        {"emoji": "🔥", "prob": 20, "value": 90},
+        {"emoji": "7️⃣", "prob": 10, "value": 150},
+    ]
+}
+
 #FEEDBACK　flex
 def build_feedback_flex(user_id, is_correct, score, elapsed, correct_answer=None, label=None, meaning=None):
     body_contents = []
@@ -350,10 +372,43 @@ def build_feedback_flex(user_id, is_correct, score, elapsed, correct_answer=None
             "color": color,
             "align": "center"
         })
-        #----------------------------------------------------
-        # スロット追加（評価に応じた絵文字セット）
-        emojis = EMOJI_SETS.get(label, EMOJI_SETS["correct"])
-        slot_grid = [[random.choices(emojis, weights=[e["prob"] for e in emojis])[0] for _ in range(3)] for _ in range(3)]
+
+        # -------------------------------
+        # 絵文字スロット作成
+        LABEL_TO_EMOJISETS = {"!!Brilliant": "brilliant", "!Great": "great", "✓Correct": "correct"}
+        emoji_set_name = LABEL_TO_EMOJISETS.get(label, "correct")
+        emojis = EMOJI_SETS[emoji_set_name]
+
+        # 3x3のスロット生成
+        slot_grid = []
+        for _ in range(3):
+            row = []
+            for _ in range(3):
+                chosen = random.choices(emojis, weights=[e["prob"] for e in emojis])[0]
+                row.append(chosen)
+            slot_grid.append(row)
+
+        # 横列・縦列・斜めの揃いチェック
+        def calculate_slot_score(grid):
+            total_score = 0
+            # 横
+            for row in grid:
+                if row[0]["emoji"] == row[1]["emoji"] == row[2]["emoji"]:
+                    total_score += row[0]["value"]
+            # 縦
+            for col in range(3):
+                if grid[0][col]["emoji"] == grid[1][col]["emoji"] == grid[2][col]["emoji"]:
+                    total_score += grid[0][col]["value"]
+            # 斜め
+            if grid[0][0]["emoji"] == grid[1][1]["emoji"] == grid[2][2]["emoji"]:
+                total_score += grid[0][0]["value"]
+            if grid[0][2]["emoji"] == grid[1][1]["emoji"] == grid[2][0]["emoji"]:
+                total_score += grid[0][2]["value"]
+            return total_score
+
+        slot_score = calculate_slot_score(slot_grid)
+
+        # スロットをテキスト化
         slot_lines = [" | ".join([cell["emoji"] for cell in row]) for row in slot_grid]
         for line in slot_lines:
             body_contents.append({
@@ -362,7 +417,17 @@ def build_feedback_flex(user_id, is_correct, score, elapsed, correct_answer=None
                 "size": "xl",
                 "align": "center"
             })
-        #---------------------------------------------------- 
+
+        # 得点加算
+        user_scores[user_id][correct_answer] = min(user_scores[user_id].get(correct_answer, 1) + slot_score, 4)
+        body_contents.append({
+            "type": "text",
+            "text": f"🎉 スロット得点: {slot_score}",
+            "size": "sm",
+            "color": "#ff69b4",
+            "margin": "md"
+        })
+        # -------------------------------
     else:
         body_contents.append({
             "type": "text",
@@ -383,7 +448,6 @@ def build_feedback_flex(user_id, is_correct, score, elapsed, correct_answer=None
             "wrap": True
         })
 
-    # ← ここで「今日の解答数」を追加
     count_today = user_daily_counts[user_id]["count"]
     body_contents.append({
         "type": "text",
@@ -404,7 +468,6 @@ def build_feedback_flex(user_id, is_correct, score, elapsed, correct_answer=None
             }
         }
     )
-
 
 # 高速ランキング（自分の順位も表示）
 def build_ranking_flex_fast(bot_type):
@@ -450,76 +513,6 @@ def build_ranking_flex_fast(bot_type):
         alt_text=f"{bot_type.upper()}ランキング",
         contents=flex_content
     )
-
-
-
-#-----------------------------------------------------------------
-# 絵文字定義
-EMOJI_SETS = {
-    "correct": [
-        {"emoji": "🍎", "prob": 40, "value": 5},
-        {"emoji": "🍒", "prob": 30, "value": 10},
-        {"emoji": "🍋", "prob": 20, "value": 15},
-        {"emoji": "🍇", "prob": 10, "value": 30},
-    ],
-    "great": [
-        {"emoji": "🔔", "prob": 40, "value": 20},
-        {"emoji": "⭐", "prob": 30, "value": 30},
-        {"emoji": "🌙", "prob": 20, "value": 40},
-        {"emoji": "☀️", "prob": 10, "value": 60},
-    ],
-    "brilliant": [
-        {"emoji": "💎", "prob": 40, "value": 50},
-        {"emoji": "👑", "prob": 30, "value": 70},
-        {"emoji": "🔥", "prob": 20, "value": 90},
-        {"emoji": "7️⃣", "prob": 10, "value": 150},
-    ]
-}
-
-# 累積確率作成
-cumulative_probs = []
-cum = 0
-for e in emojis:
-    cum += e["prob"]
-    cumulative_probs.append(cum)
-
-# スロットを回す
-def spin_slot():
-    grid = []
-    for _ in range(3):
-        row = []
-        for _ in range(3):
-            r = random.randint(1, 100)
-            for i, cp in enumerate(cumulative_probs):
-                if r <= cp:
-                    row.append(emojis[i])
-                    break
-        grid.append(row)
-    return grid
-
-# 横列揃いの点数計算
-def calculate_score(grid):
-    total_score = 0
-    
-    # 横列
-    for row in grid:
-        if row[0]["emoji"] == row[1]["emoji"] == row[2]["emoji"]:
-            total_score += row[0]["value"]
-
-    # 縦列
-    for col in range(3):
-        if grid[0][col]["emoji"] == grid[1][col]["emoji"] == grid[2][col]["emoji"]:
-            total_score += grid[0][col]["value"]
-
-    # 斜め
-    if grid[0][0]["emoji"] == grid[1][1]["emoji"] == grid[2][2]["emoji"]:
-        total_score += grid[0][0]["value"]
-    if grid[0][2]["emoji"] == grid[1][1]["emoji"] == grid[2][0]["emoji"]:
-        total_score += grid[0][2]["value"]
-
-    return total_score
-#-----------------------------------------------------------------------------------------
-
 # —————— ここからLINEイベントハンドラ部分 ——————
 # LEAP
 @app.route("/callback/leap", methods=["POST"])
