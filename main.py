@@ -257,7 +257,7 @@ def send_question(user_id, range_str, bot_type="LEAP"):
 
     # スコア取得
     if correct_answer not in user_scores.get(user_id, {}):
-        score_display = "❓未出題の問題"
+        score_display = "初出題の問題\n❓"
     else:
         score = user_scores[user_id][correct_answer]
         flames = 5 - score
