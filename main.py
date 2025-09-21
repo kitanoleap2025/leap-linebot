@@ -488,34 +488,34 @@ import random
 
 # SLOT_SYMBOLS のセットごとに「セット選択確率」を付ける
 SLOT_SYMBOL_SETS = [
-    {   # セット1: クラシックフルーツ
+    {   # セット1: ノーマル
         "prob": 0.5,
         "symbols": [
-            {"symbol": "🍒", "prob": 0.3, "value": 10},
-            {"symbol": "🍋", "prob": 0.25, "value": 20},
-            {"symbol": "🍇", "prob": 0.2, "value": 40},
-            {"symbol": "🔔", "prob": 0.15, "value": 100},
-            {"symbol": "7️⃣", "prob": 0.1, "value": 500},
+            {"symbol": "🍒", "prob": 0.30, "value": 100},
+            {"symbol": "🍋", "prob": 0.30, "value": 200},
+            {"symbol": "🔔", "prob": 0.30, "value": 500},
+            {"symbol": "💎", "prob": 0.08, "value": 1000},
+            {"symbol": "7️⃣", "prob": 0.02, "value": 10000},
         ]
     },
-    {   # セット2: 宝石フルーツ
-        "prob": 0.3,
+    {   # セット2: くだもの食べ放題
+        "prob": 0.4,
         "symbols": [
-            {"symbol": "🍎", "prob": 0.35, "value": 15},
-            {"symbol": "🍌", "prob": 0.25, "value": 25},
-            {"symbol": "🍉", "prob": 0.2, "value": 50},
-            {"symbol": "⭐", "prob": 0.15, "value": 120},
-            {"symbol": "💎", "prob": 0.05, "value": 600},
+            {"symbol": "🍒", "prob": 0.50, "value": 100},
+            {"symbol": "🍋", "prob": 0.50, "value": 200},
+            {"symbol": "🔔", "prob": 0.00, "value": 500},
+            {"symbol": "💎", "prob": 0.00, "value": 1000},
+            {"symbol": "7️⃣", "prob": 0.00, "value": 10000},
         ]
     },
-    {   # セット3: 動物スロット
-        "prob": 0.2,
+    {   # セット3: 777
+        "prob": 0.1,
         "symbols": [
-            {"symbol": "🐱", "prob": 0.4, "value": 5},
-            {"symbol": "🐶", "prob": 0.3, "value": 15},
-            {"symbol": "🐼", "prob": 0.2, "value": 50},
-            {"symbol": "🐉", "prob": 0.09, "value": 200},
-            {"symbol": "👑", "prob": 0.01, "value": 1000},
+            {"symbol": "🍒", "prob": 0.01, "value": 100},
+            {"symbol": "🍋", "prob": 0.01, "value": 200},
+            {"symbol": "🔔", "prob": 0.05, "value": 500},
+            {"symbol": "💎", "prob": 0.10, "value": 1000},
+            {"symbol": "7️⃣", "prob": 0.83, "value": 10000},
         ]
     }
 ]
