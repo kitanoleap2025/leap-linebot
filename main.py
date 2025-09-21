@@ -484,8 +484,6 @@ def build_ranking_flex_fast(bot_type):
     )
 
 #---------------------------------------------------------------------------
-import random
-
 # SLOT_SYMBOLS のセットごとに「セット選択確率」を付ける
 SLOT_SYMBOL_SETS = [
     {   # セット1: ノーマル
@@ -566,7 +564,7 @@ def play_slot():
         result_text += "\n\n🎉 当たり！\n" + "\n".join(hits)
         result_text += f"\n💰 合計 {total_win}pt GET!"
     else:
-        result_text += "\n\n😅 はずれ…また挑戦してね！"
+        result_text += "\n\n0pt"
 
     return result_text
 
