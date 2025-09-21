@@ -487,7 +487,7 @@ def build_ranking_flex_fast(bot_type):
 # SLOT_SYMBOLS のセットごとに「セット選択確率」を付ける
 SLOT_SYMBOL_SETS = [
     {   #ノーマル
-        "prob": 0.4,
+        "prob": 0.5,
         "symbols": [
             {"symbol": "🍒", "prob": 0.30, "value": 100},
             {"symbol": "🍋", "prob": 0.30, "value": 200},
@@ -497,7 +497,7 @@ SLOT_SYMBOL_SETS = [
         ]
     },
     {   #くだもの食べ放題
-        "prob": 0.3,
+        "prob": 0.2,
         "symbols": [
             {"symbol": "🍒", "prob": 0.50, "value": 100},
             {"symbol": "🍋", "prob": 0.50, "value": 200},
@@ -571,7 +571,7 @@ def play_slot():
             hits.append(f"{''.join(line)} → {win}pt")
 
     if hits:
-        result_text += "\n\n".join(hits)
+        result_text += "\n\n" + "\n".join(hits)
         result_text += f"\n\n{total_win}pt!"
     else:
         result_text += "\n\n0pt"
