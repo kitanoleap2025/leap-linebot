@@ -272,7 +272,7 @@ def send_question(user_id, range_str, bot_type="LEAP"):
                      for choice in choices]
 
     # 出題文にスコア表示
-    text_to_send = f"{score_display}\n\n{q['text']}"
+    text_to_send = f"{score_display}\n{q['text']}"
 
     return TextSendMessage(text=text_to_send, quick_reply=QuickReply(items=quick_buttons))
 
