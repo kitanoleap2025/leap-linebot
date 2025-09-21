@@ -117,7 +117,7 @@ def get_questions_by_range(range_str, bot_type):
             return target_1501_1900
             
 def get_rank(score):
-    return {0: "0%", 1: "25%", 2: "50%", 3: "75%", 4: "100%"}.get(score, "25%")
+    return {0: "★1", 1: "★2", 2: "★3", 3: "★4", 4: "★5"}.get(score, "★4")
 
 def score_to_weight(score):
     return {0: 16, 1: 8, 2: 4, 3: 2, 4: 1}.get(score, 8)
