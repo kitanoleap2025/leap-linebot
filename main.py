@@ -333,29 +333,7 @@ def evaluate_X(elapsed, score, answer, is_multiple_choice=True):
         return "!Great", 2
     else:
         return "✓Correct", 1
-
-# 絵文字定義
-EMOJI_SETS = {
-    "correct": [
-        {"emoji": "🍒", "prob": 50, "value": 100},
-        {"emoji": "🔔", "prob": 40, "value": 200},
-        {"emoji": "💎", "prob": 7, "value": 500},
-        {"emoji": "7️⃣", "prob": 3, "value": 1000},
-    ],
-    "great": [
-        {"emoji": "🍒", "prob": 5, "value": 100},
-        {"emoji": "🔔", "prob": 40, "value": 200},
-        {"emoji": "💎", "prob": 40, "value": 500},
-        {"emoji": "7️⃣", "prob": 5, "value": 1000},
-    ],
-    "brilliant": [
-        {"emoji": "🍒", "prob": 3, "value": 100},
-        {"emoji": "🔔", "prob": 7, "value": 200},
-        {"emoji": "💎", "prob": 10, "value": 500},
-        {"emoji": "7️⃣", "prob": 80, "value": 1000},
-    ]
-}
-
+        
 #FEEDBACK　flex
 def build_feedback_flex(user_id, is_correct, score, elapsed, correct_answer=None, label=None, meaning=None):
     body_contents = []
@@ -388,6 +366,7 @@ def build_feedback_flex(user_id, is_correct, score, elapsed, correct_answer=None
                 "🚀 スコア上昇中！",
                 "🔥 天才的！",
                 "🏆 完璧！"
+                "💡 その調子！",
             ]),
             "size": "md",
             "align": "center",
@@ -415,14 +394,13 @@ def build_feedback_flex(user_id, is_correct, score, elapsed, correct_answer=None
         body_contents.append({
             "type": "text",
             "text": random.choice([
-                "🤖次間違えたらどうなるか分かってる？",
+                "🤖次間違えたら・・・",
                 "🤖適当に押しとんちゃうぞ。",
-                "🤖お前もう居残りな。",
-                "🧐継続は力なり！",
-                "🧐そういう日もある！",
-                "🧐ざんねん！",
-                "🧐ほぼ正解！",
-                "🧐のびしろ！",
+                "継続は力なり！",
+                "そういう日もある！",
+                "ざんねん！",
+                "ほぼ正解！",
+                "のびしろ！",
             ]),
             "size": "md",
             "align": "center",
@@ -439,14 +417,14 @@ def build_feedback_flex(user_id, is_correct, score, elapsed, correct_answer=None
             "wrap": True
         })
 
-    #count_today = user_daily_counts[user_id]["count"]
-    #body_contents.append({
-        #"type": "text",
-        #"text": f"🔥{count_today}",
-        #"size": "sm",
-        #"color": "#333333",
-        #"margin": "md"
-    #})
+    count_today = user_daily_counts[user_id]["count"]
+    body_contents.append({
+        "type": "text",
+        "text": f"🔥{count_today}",
+        "size": "sm",
+        "color": "#333333",
+        "margin": "md"
+    })
 
     return FlexSendMessage(
         alt_text="回答フィードバック",
