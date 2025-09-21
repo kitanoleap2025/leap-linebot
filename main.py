@@ -117,7 +117,7 @@ def get_questions_by_range(range_str, bot_type):
             return target_1501_1900
             
 def get_rank(score):
-    return {0: "★1", 1: "★2", 2: "★3", 3: "★4", 4: "★5"}.get(score, "★4")
+    return {0: "★1", 1: "★2", 2: "★3", 3: "★4/?", 4: "★5"}.get(score, "★4/?")
 
 def score_to_weight(score):
     return {0: 16, 1: 8, 2: 4, 3: 2, 4: 1}.get(score, 8)
@@ -162,7 +162,7 @@ def build_result_flex(user_id, bot_type):
 
     # ランク別単語数・割合計算
     scores = user_scores.get(user_id, {})
-    rank_counts = {"★1": 0, "★2": 0, "★3": 0, "★4": 0, "★5": 0}
+    rank_counts = {"★1": 0, "★2": 0, "★3": 0, "★4/?": 0, "★5": 0}
     for word in all_answers:
         score = scores.get(word, 1)
         rank_counts[get_rank(score)] += 1
@@ -173,9 +173,9 @@ def build_result_flex(user_id, bot_type):
     # ランク別割合グラフ
     graph_components = []
     max_width = 200
-    color_map = {"★1": "#c0c0c0", "★2": "#b22222", "★3": "#4682b4", "★4": "#ffd700", "★5": "#000000"}
+    color_map = {"★1": "#c0c0c0", "★2": "#b22222", "★3": "#4682b4", "★4/?": "#ffd700", "★5": "#000000"}
 
-    for rank in ["★1", "★2", "★3", "★4", "★5"]:
+    for rank in ["★1", "★2", "★3", "★4/?", "★5"]:
         width_px = max(5, int(rank_ratios[rank] * max_width))
         graph_components.append({
             "type": "box",
