@@ -162,7 +162,7 @@ def build_result_flex(user_id, bot_type):
 
     # ランク別単語数・割合計算
     scores = user_scores.get(user_id, {})
-    rank_counts = {"100%": 0, "75%": 0, "50%": 0, "25%": 0, "0%": 0}
+    rank_counts = {"★1": 0, "★2": 0, "★3": 0, "★4": 0, "★5": 0}
     for word in all_answers:
         score = scores.get(word, 1)
         rank_counts[get_rank(score)] += 1
@@ -173,9 +173,9 @@ def build_result_flex(user_id, bot_type):
     # ランク別割合グラフ
     graph_components = []
     max_width = 200
-    color_map = {"100%": "#c0c0c0", "75%": "#b22222", "50%": "#4682b4", "25%": "#ffd700", "0%": "#000000"}
+    color_map = {"★1": "#c0c0c0", "★2": "#b22222", "★3": "#4682b4", "★4": "#ffd700", "★5": "#000000"}
 
-    for rank in ["100%", "75%", "50%", "25%", "0%"]:
+    for rank in ["★1", "★2", "★3", "★4", "★5"]:
         width_px = max(5, int(rank_ratios[rank] * max_width))
         graph_components.append({
             "type": "box",
@@ -257,11 +257,11 @@ def send_question(user_id, range_str, bot_type="LEAP"):
 
     # スコア取得
     if correct_answer not in user_scores.get(user_id, {}):
-        score_display = "初出題の問題\n❓"
+        score_display = "❓初出題の問題"
     else:
         score = user_scores[user_id][correct_answer]
         flames = 5 - score
-        score_display = "あなたにとっての難易度" + "★" * flames + "☆" * score
+        score_display = "★" * flames + "☆" * score
 
     other_answers = [item["answer"] for item in questions if item["answer"] != correct_answer]
     wrong_choices = random.sample(other_answers, k=min(3, len(other_answers)))
