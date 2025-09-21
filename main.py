@@ -365,20 +365,21 @@ def build_feedback_flex(user_id, is_correct, score, elapsed, correct_answer=None
         color = color_map.get(label, "#000000")
         body_contents.append({
             "type": "text",
+            "text": "\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\",
+            "weight": "bold",
+            "size": "xl",
+            "color": "#ff1493",
+            "align": "center"
+        })
+        body_contents.append({
+            "type": "text",
             "text": label or "✓Correct",
             "weight": "bold",
             "size": "xl",
             "color": color,
             "align": "center"
         })
-        body_contents.append({
-            "type": "text",
-            "text": "\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\",
-            "weight": "bold",
-            "size": "xl",
-            "color": "#ff1493",
-            "align": "center"
-        })
+        
         # 正解時の追加メッセージ
         body_contents.append({
             "type": "text",
@@ -394,7 +395,7 @@ def build_feedback_flex(user_id, is_correct, score, elapsed, correct_answer=None
         })
         body_contents.append({
             "type": "text",
-            "text": "\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\",
+            "text": "\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\",
             "weight": "bold",
             "size": "xl",
             "color": "#ff1493",
@@ -438,14 +439,14 @@ def build_feedback_flex(user_id, is_correct, score, elapsed, correct_answer=None
             "wrap": True
         })
 
-    count_today = user_daily_counts[user_id]["count"]
-    body_contents.append({
-        "type": "text",
-        "text": f"🔥{count_today}",
-        "size": "sm",
-        "color": "#333333",
-        "margin": "md"
-    })
+    #count_today = user_daily_counts[user_id]["count"]
+    #body_contents.append({
+        #"type": "text",
+        #"text": f"🔥{count_today}",
+        #"size": "sm",
+        #"color": "#333333",
+        #"margin": "md"
+    #})
 
     return FlexSendMessage(
         alt_text="回答フィードバック",
