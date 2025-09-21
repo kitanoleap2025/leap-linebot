@@ -486,8 +486,8 @@ def build_ranking_flex_fast(bot_type):
 #---------------------------------------------------------------------------
 # SLOT_SYMBOLS のセットごとに「セット選択確率」を付ける
 SLOT_SYMBOL_SETS = [
-    {   # セット1: ノーマル
-        "prob": 0.5,
+    {   #ノーマル
+        "prob": 0.4,
         "symbols": [
             {"symbol": "🍒", "prob": 0.30, "value": 100},
             {"symbol": "🍋", "prob": 0.30, "value": 200},
@@ -496,8 +496,8 @@ SLOT_SYMBOL_SETS = [
             {"symbol": "7️⃣", "prob": 0.02, "value": 10000},
         ]
     },
-    {   # セット2: くだもの食べ放題
-        "prob": 0.4,
+    {   #くだもの食べ放題
+        "prob": 0.3,
         "symbols": [
             {"symbol": "🍒", "prob": 0.50, "value": 100},
             {"symbol": "🍋", "prob": 0.50, "value": 200},
@@ -506,14 +506,24 @@ SLOT_SYMBOL_SETS = [
             {"symbol": "7️⃣", "prob": 0.00, "value": 10000},
         ]
     },
+    {   #鐘はなる
+        "prob": 0.2,
+        "symbols": [
+            {"symbol": "🍒", "prob": 0.10, "value": 100},
+            {"symbol": "🍋", "prob": 0.10, "value": 200},
+            {"symbol": "🔔", "prob": 0.70, "value": 500},
+            {"symbol": "💎", "prob": 0.05, "value": 1000},
+            {"symbol": "7️⃣", "prob": 0.05, "value": 10000},
+        ]
+    },
     {   # セット3: 777
         "prob": 0.1,
         "symbols": [
-            {"symbol": "🍒", "prob": 0.01, "value": 100},
-            {"symbol": "🍋", "prob": 0.01, "value": 200},
-            {"symbol": "🔔", "prob": 0.05, "value": 500},
-            {"symbol": "💎", "prob": 0.10, "value": 1000},
-            {"symbol": "7️⃣", "prob": 0.83, "value": 10000},
+            {"symbol": "🍒", "prob": 0.00, "value": 100},
+            {"symbol": "🍋", "prob": 0.00, "value": 200},
+            {"symbol": "🔔", "prob": 0.20, "value": 500},
+            {"symbol": "💎", "prob": 0.30, "value": 1000},
+            {"symbol": "7️⃣", "prob": 0.50, "value": 10000},
         ]
     }
 ]
@@ -561,8 +571,8 @@ def play_slot():
             hits.append(f"{''.join(line)} → {win}pt")
 
     if hits:
-        result_text += "\n\n🎉 当たり！\n" + "\n".join(hits)
-        result_text += f"\n💰 合計 {total_win}pt GET!"
+        result_text += "\n\n".join(hits)
+        result_text += f"\n\n{total_win}pt!"
     else:
         result_text += "\n\n0pt"
 
