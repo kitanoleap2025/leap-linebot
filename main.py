@@ -569,8 +569,8 @@ def handle_message_common(event, bot_type, line_bot_api):
             delta_score = delta_map.get(label, 1)
             user_scores[user_id][correct_answer] = min(user_scores[user_id].get(correct_answer, 1) + delta_score, 4)
         else:
-            # 不正解時は -1
-            user_scores[user_id][correct_answer] = max(user_scores[user_id].get(correct_answer, 1) - 1, 0)
+            # 不正解時は0
+            user_scores[user_id][correct_answer] = 0
 
         # q を取得して meaning を渡す
         questions = get_questions_by_range(range_str, bot_type)
