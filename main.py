@@ -482,6 +482,95 @@ def build_ranking_flex_fast(bot_type):
         alt_text=f"{bot_type.upper()}ランキング",
         contents=flex_content
     )
+
+#---------------------------------------------------------------------------
+import random
+
+# SLOT_SYMBOLS のセットごとに「セット選択確率」を付ける
+SLOT_SYMBOL_SETS = [
+    {   # セット1: クラシックフルーツ
+        "prob": 0.5,
+        "symbols": [
+            {"symbol": "🍒", "prob": 0.3, "value": 10},
+            {"symbol": "🍋", "prob": 0.25, "value": 20},
+            {"symbol": "🍇", "prob": 0.2, "value": 40},
+            {"symbol": "🔔", "prob": 0.15, "value": 100},
+            {"symbol": "7️⃣", "prob": 0.1, "value": 500},
+        ]
+    },
+    {   # セット2: 宝石フルーツ
+        "prob": 0.3,
+        "symbols": [
+            {"symbol": "🍎", "prob": 0.35, "value": 15},
+            {"symbol": "🍌", "prob": 0.25, "value": 25},
+            {"symbol": "🍉", "prob": 0.2, "value": 50},
+            {"symbol": "⭐", "prob": 0.15, "value": 120},
+            {"symbol": "💎", "prob": 0.05, "value": 600},
+        ]
+    },
+    {   # セット3: 動物スロット
+        "prob": 0.2,
+        "symbols": [
+            {"symbol": "🐱", "prob": 0.4, "value": 5},
+            {"symbol": "🐶", "prob": 0.3, "value": 15},
+            {"symbol": "🐼", "prob": 0.2, "value": 50},
+            {"symbol": "🐉", "prob": 0.09, "value": 200},
+            {"symbol": "👑", "prob": 0.01, "value": 1000},
+        ]
+    }
+]
+
+def weighted_choice_symbol(symbols):
+    return random.choices(
+        [s["symbol"] for s in symbols],
+        weights=[s["prob"] for s in symbols],
+        k=1
+    )[0]
+
+def get_value(symbol, symbols):
+    for s in symbols:
+        if s["symbol"] == symbol:
+            return s["value"]
+    return 0
+
+def play_slot():
+    # セットを確率付きで選択
+    chosen_set = random.choices(
+        SLOT_SYMBOL_SETS,
+        weights=[s["prob"] for s in SLOT_SYMBOL_SETS],
+        k=1
+    )[0]
+    symbols = chosen_set["symbols"]
+
+    # 3x3 スロットを生成
+    slot = [[weighted_choice_symbol(symbols) for _ in range(3)] for _ in range(3)]
+    result_text = "\n".join(" ".join(row) for row in slot)
+
+    # 当たり判定
+    lines = []
+    lines.extend(slot)  # 横
+    lines.extend([[slot[r][c] for r in range(3)] for c in range(3)])  # 縦
+    lines.append([slot[i][i] for i in range(3)])       # 斜め ↘
+    lines.append([slot[i][2-i] for i in range(3)])     # 斜め ↙
+
+    total_win = 0
+    hits = []
+    for line in lines:
+        if len(set(line)) == 1:  # 全部同じなら当たり
+            symbol = line[0]
+            win = get_value(symbol, symbols)
+            total_win += win
+            hits.append(f"{''.join(line)} → {win}pt")
+
+    if hits:
+        result_text += "\n\n🎉 当たり！\n" + "\n".join(hits)
+        result_text += f"\n💰 合計 {total_win}pt GET!"
+    else:
+        result_text += "\n\n😅 はずれ…また挑戦してね！"
+
+    return result_text
+
+#----------------------------------------------------------------------------
 # —————— ここからLINEイベントハンドラ部分 ——————
 # LEAP
 @app.route("/callback/leap", methods=["POST"])
@@ -535,6 +624,15 @@ def handle_message_common(event, bot_type, line_bot_api):
     if msg in ["A", "B", "C"]:
         question_msg = send_question(user_id, msg, bot_type=bot_type)
         line_bot_api.reply_message(event.reply_token, question_msg)
+        return
+
+    # パチスロ強制追加
+    if msg == "パチスロ":
+        slot_result = play_slot() 
+        line_bot_api.reply_message(
+            event.reply_token,
+            TextSendMessage(text=slot_result)
+        )
         return
         
     # 成績表示
