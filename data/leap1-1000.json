@@ -1130,13 +1130,8 @@
         "meaning": ""
     },
     {
-        "text": "482 All animals are e___, but some animals are more e___ than others.\n全ての動物は平等だが、中には他よりもっと平等な動物もいる。",
+        "text": "482 All animals are ___, but some animals are more ___ than others.\n全ての動物は平等だが、中には他よりもっと平等な動物もいる。",
         "answer": "equal",
-        "meaning": ""
-    },
-    {
-        "text": "486 Social Networking S___\nソーシャル・ネットワーキング・サービス",
-        "answer": "service",
         "meaning": ""
     },
     {
@@ -1150,14 +1145,14 @@
         "meaning": "prosperity [名] 繁栄"
     },
     {
-        "text": "493 racial d___\n人種差別",
+        "text": "493 racial ___\n人種差別",
         "answer": "discrimination",
-        "meaning": ""
+        "meaning": "discrimination　[名] ①差別 ②識別（①②ともに<不可算>）"
     },
     {
         "text": "499 Although many Americans speak English, it is not an ___ language.\n多くのアメリカ人が英語を話すが,アメリカでは公用語ではない。",
         "answer": "official",
-        "meaning": ""
+        "meaning": "official　[名] ①役人，役員 [形] ②公式の"
     },
     {
         "text": "502 People ___ with others in many ways.\n人々はいろいろな形で他人と関わり合っている.",
