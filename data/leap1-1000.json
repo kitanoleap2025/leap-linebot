@@ -1998,12 +1998,37 @@
     {
         "text": "811 Many African countries became ___ in 1960.\n1960年に多くのアフリカの国が独立した🌍",
         "answer": "independent",
-        "meaning": ""
+        "meaning": "independent　[形] ①独立した，無所属の [名] ②無所属の人"
+    },
+    {
+        "text": "812 She felt ___ before the big exam.\n彼女は大きな試験の前に緊張した。",
+        "answer": "tense",
+        "meaning": "tense　[形] ①張り詰めた ②（人が）緊張した [名] ③時制"
+    },
+    {
+        "text": "813 The street is too ___ for two cars.\nその通りは2台の車には狭すぎる。",
+        "answer": "narrow",
+        "meaning": "narrow　[形] ①狭い [他] ②～を狭くする，細める"
+    },
+    {
+        "text": "814 The room was ___ and ready for a new tenant.\nその部屋は空いていて新しい入居者を待っていた。",
+        "answer": "vacant",
+        "meaning": "vacant　[形] 空いている，使用されていない"
+    },
+    {
+        "text": "815 He gave a ___ description of the scene.\n彼はその光景を生き生きと描写した。",
+        "answer": "vivid",
+        "meaning": "vivid　[形] ①（記憶，描写などが）鮮明な ②（色が）鮮明な"
     },
     {
         "text": "816 an ___ walk\nぎこちない歩き方",
         "answer": "awkward",
-        "meaning": ""
+        "meaning": "awkward　[形] ①ぎこちない ②気まずい ③扱いにくい"
+    },
+    {
+        "text": "817 His ___ opinion was based on facts, not feelings.\n彼の客観的な意見は感情ではなく事実に基づいていた。",
+        "answer": "objective",
+        "meaning": "objective　[形] ①客観的な [名] ②目標"
     },
     {
         "text": "819 Those twins look ___.\nそのふたごはよく似ている.👦👦",
@@ -2025,30 +2050,106 @@
         "answer": "unique",
         "meaning": ""
     },
+[
+    {
+        "text": "827 He has a ___ interest in classical music.\n彼はクラシック音楽に特別な関心を持っている。",
+        "answer": "particular",
+        "meaning": "particular　[形] ①ある特定の，特有の ②（about ～）（～の）好みがうるさい [名] ③（in ―）特に（＝particularly）"
+    },
+    {
+        "text": "828 It is ___ for cats to sleep a lot.\n猫がよく寝るのは典型的だ。",
+        "answer": "typical",
+        "meaning": "typical　[形] 典型的な"
+    },
+    {
+        "text": "829 In ___, people need water to survive.\n一般的に,人は生きるために水を必要とする。",
+        "answer": "general",
+        "meaning": "general　[形] ①一般的な，全体の [名] ②大将，将軍"
+    },
+    {
+        "text": "830 He leads an ___ life without excitement.\n彼は刺激のない普通の生活を送っている。",
+        "answer": "ordinary",
+        "meaning": "ordinary　[形] 平凡な，ふつうの"
+    },
+    {
+        "text": "832 You should ___ your expenses carefully.\n支出を慎重に計算すべきだ。",
+        "answer": "calculate",
+        "meaning": "calculate　[他] ～を計算する"
+    },
+    {
+        "text": "833 We need to ___ the length of the table.\n私たちはテーブルの長さを測る必要がある。",
+        "answer": "measure",
+        "meaning": "measure　[他] ①～を測る [自] ②～の寸法がある [名] ③（―s）手段"
+    },
+    {
+        "text": "834 Sales have started to ___ this month.\n今月、売上は減少し始めた。",
+        "answer": "decline",
+        "meaning": "decline　[自] ①減る，衰退する [他] ②～を断る [名] ③衰退，減少"
+    },
     {
         "text": "835 Shall we ___ the bill?\n割り勘にしませんか?💰💰",
         "answer": "split",
-        "meaning": ""
+        "meaning": "split　[他] ①～を割る ②～を分裂させる [自] ③分裂する [名] ④分裂，裂け目，割れ目"
+    },
+    {
+        "text": "836 The ___ of water in the tank is 50 liters.\nタンクの水の量は50リットルだ。",
+        "answer": "volume",
+        "meaning": "volume　[名] ①容積，体積 ②ボリューム，音量 ③（全集などの）1巻"
+    },
+    {
+        "text": "837 A large ___ of students passed the exam.\n多くの学生が試験に合格した。",
+        "answer": "proportion",
+        "meaning": "proportion　[名] ①比率 ②部分 ③（―s）規模，大きさ"
+    },
+    {
+        "text": "838 I bought a ___ of eggs at the market.\n私は市場で1ダースの卵を買った。",
+        "answer": "dozen",
+        "meaning": "dozen　[名] ①ダース ②（―s of ～）数十の～"
     },
     {
         "text": "839 an enormous ___ of fat\n莫大な(量の)脂肪",
         "answer": "amount",
-        "meaning": ""
+        "meaning": "amount　[名] ①量 [自] （to ～）②（合計が）～に達する ③結局～になる"
     },
     {
         "text": "840 ___ food waste\n大量の食品廃棄🍟🍟🍟🍟",
         "answer": "mass",
-        "meaning": ""
+        "meaning": "mass　[名] ①大量 ②（the ―es）大衆 ③かたまり ④質量 ⑤（M―）ミサ"
     },
     {
         "text": "842 an ___ amount of fat\n莫大な(量の)脂肪",
         "answer": "enormous",
-        "meaning": ""
+        "meaning": "enormous　[形] 莫大な，巨大な"
+    },
+    {
+        "text": "843 Do you have a ___ key for the house?\n家の予備の鍵はありますか。",
+        "answer": "spare",
+        "meaning": "spare　[形] ①余分な，予備の [他] ②（時間やお金，労力）を割く ③～を惜しむ"
+    },
+    {
+        "text": "844 We need to ___ the meeting for next week.\n会議を来週に手配する必要がある。",
+        "answer": "arrange",
+        "meaning": "arrange　[他] ①～を手配する、～の段取りをつける ②～を整理する"
+    },
+    {
+        "text": "845 Animals can ___ to different environments.\n動物はさまざまな環境に適応できる。",
+        "answer": "adapt",
+        "meaning": "adapt　[自] ①適応する [他] ②～を適応させる"
+    },
+    {
+        "text": "846 Her shoes ___ her dress perfectly.\n彼女の靴はドレスにぴったり合っている。",
+        "answer": "match",
+        "meaning": "match　[他] ①～と調和する ②～に匹敵する [名] ③釣り合う人［物］，好敵手"
+    },
+    {
+        "text": "847 This coat doesn’t ___ me well.\nこのコートは私に合わない。",
+        "answer": "fit",
+        "meaning": "fit　[他] ①（サイズが人）に合う [形] ②健康な ③（to do）（～するのに）適した"
     },
     {
         "text": "848 Go out through the ___ exit on the right.\n右の非常口から出てください.",
         "answer": "emergency",
-        "meaning": ""
+        "meaning": "emergency　[名] ①緊急事態 ②（形容詞的に）緊急の"
     },
     {
         "text": "851 I am not satisfied with my ___ salary.\n私は今の給料に満足していない.",
@@ -2103,12 +2204,42 @@
     {
         "text": "869 an ___ with a cute design\n可愛らしい柄の封筒",
         "answer": "envelope",
-        "meaning": ""
+        "meaning": "envelope　[名] 封筒"
+    },
+    {
+        "text": "870 He tried to ___ me with a clever joke.\n彼は巧妙なジョークで私をだそうとした。",
+        "answer": "trick",
+        "meaning": "trick　[名] ①（悪意のない）いたずら ②（巧妙な）手口，策略 ③芸，手品 ④（of ～）秘けつ [他] ⑤～をだます"
+    },
+    {
+        "text": "871 The truck carries a heavy ___ of goods.\nそのトラックは重い荷物を運んでいる。",
+        "answer": "load",
+        "meaning": "load　[名] ①荷（物）〈可算〉 [他] ②（A with B）（A）に（B を）積む"
+    },
+    {
+        "text": "873 Many ___ chores are done every day.\n多くの家事は毎日行われている。",
+        "answer": "household",
+        "meaning": "household　[名] ①（集合的に）所帯，家庭〈可算〉 [形] ②家庭の"
+    },
+    {
+        "text": "874 He bought some ___ at the store.\n彼は店で商品をいくつか買った。",
+        "answer": "good",
+        "meaning": "good　[名] ①（―s）商品 ②利益 [形] ③（a ― many ～）かなりの"
+    },
+    {
+        "text": "875 She enjoys a life of ___ with expensive cars.\n彼女は高級車などで贅沢な生活を楽しんでいる。",
+        "answer": "luxury",
+        "meaning": "luxury　[名] ①高級（品），ぜいたく品 ②（形容詞的に）豪華な，ぜいたくな"
+    },
+    {
+        "text": "876 I paid for the laptop using ___ card.\n私はそのノートパソコンをクレジットカードで支払った。",
+        "answer": "credit",
+        "meaning": "credit　[名] ①（― card）クレジットカード ②功績，手柄 ③（大学の）単位 [他] ④～の功績を認める"
     },
     {
         "text": "877 answer a ___\nアンケートに答える",
         "answer": "questionnaire",
-        "meaning": ""
+        "meaning": "questionnaire　[名] アンケート"
     },
     {
         "text": "880 Studying abroad will be a unique and ___ experience.\n留学することは珍しい価値のある経験になるだろう。",
