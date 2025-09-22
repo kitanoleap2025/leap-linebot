@@ -927,7 +927,37 @@
     {
         "text": "324 He ___ more than just money to buy his daughter an instrument.\n彼は娘に楽器を買うためにお金以上のものを支払った。",
         "answer": "paid",
-        "meaning": ""
+        "meaning": "pay　[他] ①（A for B)（B の代金としてA）を支払う [自] ②（for A)（A の代金を）支払う ③（仕事などが）割に合う [名] ④給料"
+    },
+    {
+        "text": "325 He likes to ___ casual clothes every day.\n彼は毎日カジュアルな服を着るのが好きだ。",
+        "answer": "wear",
+        "meaning": "wear　[他] ①～を身につけている ②～をすり減らす [自] ③すり減る"
+    },
+    {
+        "text": "326 I bought new ___ for the party.\nパーティーのために新しい服を買った。",
+        "answer": "clothes",
+        "meaning": "clothes　[名] 服〈複数扱い〉"
+    },
+    {
+        "text": "327 They decided to ___ next summer.\n彼らは来年の夏に結婚することに決めた。",
+        "answer": "marry",
+        "meaning": "marry　[他] ①～と結婚する [形] ②（―ied）結婚している"
+    },
+    {
+        "text": "328 We should ___ our guests politely.\n私たちはゲストを礼儀正しく迎えるべきだ。",
+        "answer": "greet",
+        "meaning": "greet　[他] ～に挨拶する，出迎える"
+    },
+    {
+        "text": "329 I would like to ___ a pizza for dinner.\n夕食にピザを注文したい。",
+        "answer": "order",
+        "meaning": "order　[他] ①～を注文する ②（医者や上官などが）～に命令する [名] ③注文 ④命令 ⑤順序 ⑥秩序"
+    },
+    {
+        "text": "330 The hotel has a clean and comfortable ___.\nそのホテルには清潔で快適な部屋がある。",
+        "answer": "room",
+        "meaning": "room　[名] ①部屋 ②余地，空間〈不可算〉"
     },
     {
         "text": "332 It was the ___ of many demonstrations.\nそこは多くのデモが行われた場所だった.",
