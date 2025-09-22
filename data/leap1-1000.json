@@ -710,9 +710,34 @@
         "meaning": ""
     },
     {
+        "text": "263 The prices ___ depending on the season.\n価格は季節によって変わる。",
+        "answer": "vary",
+        "meaning": "vary　[自] さまざまだ，変わる"
+    },
+    {
+        "text": "264 She asked for a ___ type of cake.\n彼女は特定の種類のケーキを注文した。",
+        "answer": "specific",
+        "meaning": "specific　[形] ①特定の ②明確な，具体的な"
+    },
+    {
+        "text": "265 It is ___ for birds to sing in the morning.\n鳥が朝にさえずるのは普通のことだ。",
+        "answer": "common",
+        "meaning": "common　[形] ①普及した，普通の ②（主に名詞の前で）共通の"
+    },
+    {
+        "text": "266 He has an ___ talent for music.\n彼には普通ではない音楽の才能がある。",
+        "answer": "unusual",
+        "meaning": "unusual　[形] 珍しい"
+    },
+    {
+        "text": "267 Please ___ your name to the list.\nリストにあなたの名前を追加してください。",
+        "answer": "add",
+        "meaning": "add　[他] ①～を加える [自] ②（to ～）（～を）増やす"
+    },
+    {
         "text": "268 It is said that the crime rate in the city has ___ this year.\n今年,この街の犯罪率は増加したと言われている。🔪",
         "answer": "increased",
-        "meaning": ""
+        "meaning": "increase　[自] ①増える [他] ②～を増やす [名] ③（in ～）（～の）増加"
     },
     {
         "text": "269 The world is trying to ___ dependence on fossil fuels.\n世界は化石燃料への依存を減らそうとしている.",
@@ -775,34 +800,129 @@
         "meaning": ""
     },
     {
+        "text": "295 We celebrated our tenth wedding ___.\n私たちは結婚10周年を祝った。",
+        "answer": "anniversary",
+        "meaning": "anniversary　[名] 記念日"
+    },
+    {
+        "text": "296 I have ___ finished reading the book.\n私は最近その本を読み終えた。",
+        "answer": "recently",
+        "meaning": "recently　[副] 最近，近ごろ"
+    },
+    {
+        "text": "298 He arrived ___ to the meeting.\n彼は会議に早く到着した。",
+        "answer": "early",
+        "meaning": "early　[副] ①（時間，時期が）早く，初期に ②（予定より）早く [形] ③早い，初期の"
+    },
+    {
+        "text": "299 She was the ___ person to arrive.\n彼女が最初に到着した人だった。",
+        "answer": "first",
+        "meaning": "first　[形] ①第①の ②（for the ― time）初めて [副] ③初めて ④（文頭で）まず第①に（＝firstly)[名]⑤（at ―）最初のうちは"
+    },
+    {
+        "text": "300 This is the ___ model of the smartphone.\nこれはそのスマートフォンの最新モデルだ。",
+        "answer": "latest",
+        "meaning": "latest　[形] （the ―）最新の"
+    },
+    {
+        "text": "301 They live in a ___ house with smart appliances.\n彼らは最新式の家電が備わった現代的な家に住んでいる。",
+        "answer": "modern",
+        "meaning": "modern　[形] ①現代の ②近代的な"
+    },
+    {
         "text": "302 ___ Greeks argued about politics more than TikTok.\n古代ギリシャ人は、TikTokよりも政治で口論していた.",
         "answer": "Ancient",
-        "meaning": ""
+        "meaning": "ancient　[形] ①古代の ②古びた"
     },
     {
         "text": "303 The morning will be ___ in the Airin district.\n午前中はあいりん地区で過ごす.",
         "answer": "spent",
-        "meaning": ""
+        "meaning": "spend　[他] ①（時間）を費やす ②（お金）を使う"
     },
     {
-        "text": "309 A:Teacher, I feel like I might be a ___ can.\nB:What a trashy joke.\nA:先生、私は自分がゴミ箱なんじゃないかと思っているのですが。B:そんなゴミみたいな冗談を。🗑️",
+        "text": "304 The train will ___ because of the storm.\n嵐のため電車は遅れるだろう。",
+        "answer": "delay",
+        "meaning": "delay　[他] ①～を遅らせる [名] ②遅延，延期"
+    },
+    {
+        "text": "305 Can I ___ your pen for a moment?\nちょっとペンを借りてもいいですか。",
+        "answer": "borrow",
+        "meaning": "borrow　[他] ～を借りる"
+    },
+    {
+        "text": "306 I will ___ you my book if you need it.\n必要なら本を貸してあげるよ。",
+        "answer": "lend",
+        "meaning": "lend　[他] ①（無償で）～を貸す ②（銀行が利子をつけて）を貸す"
+    },
+    {
+        "text": "307 They decided to ___ a car for the weekend.\n週末に車をレンタルすることにした。",
+        "answer": "rent",
+        "meaning": "rent　[他] ①～を借りる ②（A to B）（A）を（B に）賃貸しする [名] ③家賃，賃貸料，使用料"
+    },
+    {
+        "text": "308 The hotel will ___ towels and soap.\nホテルはタオルと石鹸を提供する。",
+        "answer": "provide",
+        "meaning": "provide　[他] （A with B）（AにB）を供給する，与える"
+    },
+    {
+        "text": "310 A:Teacher, I feel like I might be a ___ can.\nB:What a trashy joke.\nA:先生、私は自分がゴミ箱なんじゃないかと思っているのですが。B:そんなゴミみたいな冗談を。🗑️",
         "answer": "garbage",
-        "meaning": ""
+        "meaning": "garbage　[名] ごみ〈不可算〉"
     },
     {
-        "text": "311 If you put ___ on a grandma, can you call it a bicycle?\nおばあちゃんに車輪を付けたら,自転車と呼べるのか.👵",
+        "text": "311 I bought a small ___ at the store.\n店で小さな品物を買った。",
+        "answer": "item",
+        "meaning": "item　[名] ①品物 ②（集合名詞を数えるときに用いる）...点、個 ③（リストなどの）項目"
+    },
+    {
+        "text": "312 If you put ___ on a grandma, can you call it a bicycle?\nおばあちゃんに車輪を付けたら,自転車と呼べるのか.👵",
         "answer": "wheels",
-        "meaning": ""
+        "meaning": "wheel　[名] ①車輪 ②（the ―）ハンドル [他] ③（車輪のついたもの）を動かす"
     },
     {
-        "text": "315 Omitting the tale of the Straw Millionaire, trying to exchange a ___ for a Benz.\nわらしべ長者の物語を省略して,ひもをベンツと交換しようとする.",
+        "text": "313 Please write a ___ about the meeting.\n会議についてメモを書いてください。",
+        "answer": "note",
+        "meaning": "note　[名] ①メモ ②〈英〉紙幣 [他] ③（that SV）（～ということ）を指摘する ④～に注意を払う"
+    },
+    {
+        "text": "314 She gave me a ___ for my birthday.\n彼女は誕生日にプレゼントをくれた。",
+        "answer": "present",
+        "meaning": "present　[名] ①プレゼント ②現在 [形] ③現在の ④出席して，存在して [他] ⑤～を贈る，提示する"
+    },
+    {
+        "text": "315 We got a good ___ on the second-hand bike.\n中古の自転車をお得に買った。",
+        "answer": "bargain",
+        "meaning": "bargain　[名] ①買い得品<可算> [自] （商談などで）交渉する"
+    },
+    {
+        "text": "316 I need to pack my ___ for the trip.\n旅行のために荷物をまとめる必要がある。",
+        "answer": "stuff",
+        "meaning": "stuff　[名] ①（漠然とした）もの [他] ②～を詰める"
+    },
+    {
+        "text": "317 Omitting the tale of the Straw Millionaire, trying to exchange a ___ for a Benz.\nわらしべ長者の物語を省略して,ひもをベンツと交換しようとする.",
         "answer": "string",
-        "meaning": ""
+        "meaning": "string　[名] ①ひも ②（a ― of ～）一連の～ ③（ギターなどの）弦"
     },
     {
-        "text": "321 This ___ is in the way.\nこの冷蔵庫は邪魔だ.",
+        "text": "318 I enjoy reading in my ___ time.\n私は余暇に読書を楽しむ。",
+        "answer": "leisure",
+        "meaning": "leisure　[名] ①余暇 ②（形容詞的に）余暇の"
+    },
+    {
+        "text": "319 She follows a healthy ___ to stay fit.\n彼女は健康を保つために食事に気を付けている。",
+        "answer": "diet",
+        "meaning": "diet　[名] ①食事 ②規定食 ③（D―)（日本の）国会"
+    },
+    {
+        "text": "320 The living room has new ___.\nリビングルームには新しい家具がある。",
+        "answer": "furniture",
+        "meaning": "furniture　[名] 家具〈不可算〉"
+    },
+    {
+        "text": "321 This ___ is in the way.\nこの冷蔵庫は邪魔だ。",
         "answer": "refrigerator",
-        "meaning": ""
+        "meaning": "refrigerator　[名] 冷蔵庫"
     },
     {
         "text": "324 He ___ more than just money to buy his daughter an instrument.\n彼は娘に楽器を買うためにお金以上のものを支払った。",
