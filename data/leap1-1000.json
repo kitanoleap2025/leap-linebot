@@ -1356,7 +1356,7 @@
         "meaning": "spectator　[名] 観客〈可算〉"
     },
     {
-        "text": "574 a distant ___ , that is, a stranger\n遠い親戚,つまり他人  (誰？)",
+        "text": "574 a distant ___ , that is, a stranger\n遠い親戚,つまり他人",
         "answer": "relative",
         "meaning": "relative　[名] ①（家族も含めて）親戚 [形] ②相対的な"
     },
@@ -1574,11 +1574,6 @@
         "text": "626 There are times when I ___.\nつまずく時もある.",
         "answer": "stumble",
         "meaning": "stumble　[自] ①つまずく ②（across［into］～）（～に）偶然出会う"
-    },
-    {
-        "text": "627 appropriate clothes for an apology ___ conference\n謝罪会見にふさわしい服装🦹",
-        "answer": "press",
-        "meaning": "press　[他] ①～を（強く）押す ②～を押しつける，勧める [名] ③（the ―）報道機関，出版"
     },
     {
         "text": "628 ___ out a broken heart\n失恋をずるずると引きずる",
@@ -2051,7 +2046,7 @@
         "meaning": ""
     },
     {
-        "text": "848 Go out through the e___ exit on the right.\n右の非常口から出てください.",
+        "text": "848 Go out through the ___ exit on the right.\n右の非常口から出てください.",
         "answer": "emergency",
         "meaning": ""
     },
@@ -2061,12 +2056,12 @@
         "meaning": ""
     },
     {
-        "text": "854 from the p___ year\n前の年から",
+        "text": "854 from the ___ year\n前の年から",
         "answer": "previous",
         "meaning": ""
     },
     {
-        "text": "856 c___ Japanese society\n現代の日本社会🏙️",
+        "text": "856 ___ Japanese society\n現代の日本社会🏙️",
         "answer": "contemporary",
         "meaning": ""
     },
