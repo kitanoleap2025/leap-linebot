@@ -254,12 +254,16 @@ def send_question(user_id, range_str, bot_type="LEAP"):
     correct_answer = q["answer"]
 
     # スコア取得
+    # スコア取得
     if correct_answer not in user_scores.get(user_id, {}):
         score_display = "❓初出題の問題"
     else:
         score = user_scores[user_id][correct_answer]
-        flames = 5 - score
-        score_display = "✔" * score + "〇" * flames 
+        if score == 0:
+            score_display = "✖間違えた問題"
+        else:
+            flames = 5 - score
+            score_display = "✔" * score + "〇" * flames
 
     other_answers = [item["answer"] for item in questions if item["answer"] != correct_answer]
     wrong_choices = random.sample(other_answers, k=min(3, len(other_answers)))
