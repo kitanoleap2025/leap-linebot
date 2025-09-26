@@ -341,6 +341,15 @@ def evaluate_X(elapsed, score, answer, is_multiple_choice=True):
 def build_feedback_flex(user_id, is_correct, score, elapsed, correct_answer=None, label=None, meaning=None):
     body_contents = []
 
+    def get_label_score(lbl):
+        score_map = {
+            "✓Correct": ✓1,
+            "!Great": !3,
+            "!!Brilliant": !!10
+        }
+        return score_map.get(lbl, 0)
+    label_score = get_label_score(label)
+
     if is_correct:
         color_map = {"!!Brilliant":"#40e0d0", "!Great":"#4682b4", "✓Correct":"#00ff00"}
         color = color_map.get(label, "#000000")
@@ -414,6 +423,16 @@ def build_feedback_flex(user_id, is_correct, score, elapsed, correct_answer=None
         "color": "#333333",
         "margin": "md"
     })
+
+    if is_correct:
+        y = 5 - score
+        body_contents.append({
+            "type": "text",
+            "text": f"{y}✖🔥{user_streaks[user_id]}✖{label_score}",
+            "size": "md",
+            "color": "#333333",
+            "margin": "xxl"
+        })
 
     return FlexSendMessage(
         alt_text="回答フィードバック",
