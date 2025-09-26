@@ -264,7 +264,7 @@ def send_question(user_id, range_str, bot_type="LEAP"):
             score_display = "✖間違えた問題"
         else:
             flames = 5 - score
-            score_display = "✔" * score + "〇" * flames
+            score_display = "✔" * score + "□" * flames
 
     other_answers = [item["answer"] for item in questions if item["answer"] != correct_answer]
     wrong_choices = random.sample(other_answers, k=min(3, len(other_answers)))
@@ -343,9 +343,9 @@ def build_feedback_flex(user_id, is_correct, score, elapsed, correct_answer=None
 
     def get_label_score(lbl):
         score_map = {
-            "✓Correct": ✓1,
-            "!Great": !3,
-            "!!Brilliant": !!10
+            "✓Correct": 1,
+            "!Great": 3,
+            "!!Brilliant": 10
         }
         return score_map.get(lbl, 0)
     label_score = get_label_score(label)
