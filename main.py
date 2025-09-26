@@ -141,7 +141,7 @@ def build_result_flex(user_id, bot_type):
     all_answers = []
 
     for range_label, title in ranges:
-        qs = get_questions_by_range(range_label, bot_type)
+        qs = get_questions_by_range(range_label, bot_type, user_id)
         all_answers.extend([q["answer"] for q in qs])
 
         count = len(qs)
@@ -244,10 +244,10 @@ def update_total_rate(user_id, bot_type):
     return total_rate
 
 def send_question(user_id, range_str, bot_type="LEAP"):
-    questions = get_questions_by_range(range_str, bot_type)
+    questions = get_questions_by_range(range_str, bot_type, user_id)
 
     # 出題
-    q = choose_weighted_question(user_id, questions)
+    q = choose_weighted_question(user_id, questions, user_id)
     user_states[user_id] = (range_str, q["answer"])
     user_answer_start_times[user_id] = time.time()
 
@@ -466,101 +466,6 @@ def build_ranking_flex_fast(bot_type):
         alt_text=f"{bot_type.upper()}ランキング",
         contents=flex_content
     )
-
-#---------------------------------------------------------------------------
-# SLOT_SYMBOLS のセットごとに「セット選択確率」を付ける
-SLOT_SYMBOL_SETS = [
-    {   #ノーマル
-        "prob": 0.5,
-        "symbols": [
-            {"symbol": "🍒", "prob": 0.30, "value": 100},
-            {"symbol": "🍋", "prob": 0.30, "value": 200},
-            {"symbol": "🔔", "prob": 0.30, "value": 500},
-            {"symbol": "💎", "prob": 0.08, "value": 1000},
-            {"symbol": "7️⃣", "prob": 0.02, "value": 10000},
-        ]
-    },
-    {   #くだもの食べ放題
-        "prob": 0.2,
-        "symbols": [
-            {"symbol": "🍒", "prob": 0.50, "value": 100},
-            {"symbol": "🍋", "prob": 0.50, "value": 200},
-            {"symbol": "🔔", "prob": 0.00, "value": 500},
-            {"symbol": "💎", "prob": 0.00, "value": 1000},
-            {"symbol": "7️⃣", "prob": 0.00, "value": 10000},
-        ]
-    },
-    {   #鐘はなる
-        "prob": 0.2,
-        "symbols": [
-            {"symbol": "🍒", "prob": 0.10, "value": 100},
-            {"symbol": "🍋", "prob": 0.10, "value": 200},
-            {"symbol": "🔔", "prob": 0.70, "value": 500},
-            {"symbol": "💎", "prob": 0.05, "value": 1000},
-            {"symbol": "7️⃣", "prob": 0.05, "value": 10000},
-        ]
-    },
-    {   # セット3: 777
-        "prob": 0.1,
-        "symbols": [
-            {"symbol": "🍒", "prob": 0.00, "value": 100},
-            {"symbol": "🍋", "prob": 0.00, "value": 200},
-            {"symbol": "🔔", "prob": 0.20, "value": 500},
-            {"symbol": "💎", "prob": 0.30, "value": 1000},
-            {"symbol": "7️⃣", "prob": 0.50, "value": 10000},
-        ]
-    }
-]
-
-def weighted_choice_symbol(symbols):
-    return random.choices(
-        [s["symbol"] for s in symbols],
-        weights=[s["prob"] for s in symbols],
-        k=1
-    )[0]
-
-def get_value(symbol, symbols):
-    for s in symbols:
-        if s["symbol"] == symbol:
-            return s["value"]
-    return 0
-
-def play_slot():
-    # セットを確率付きで選択
-    chosen_set = random.choices(
-        SLOT_SYMBOL_SETS,
-        weights=[s["prob"] for s in SLOT_SYMBOL_SETS],
-        k=1
-    )[0]
-    symbols = chosen_set["symbols"]
-
-    # 3x3 スロットを生成
-    slot = [[weighted_choice_symbol(symbols) for _ in range(3)] for _ in range(3)]
-    result_text = "\n".join(" ".join(row) for row in slot)
-
-    # 当たり判定
-    lines = []
-    lines.extend(slot)  # 横
-    lines.extend([[slot[r][c] for r in range(3)] for c in range(3)])  # 縦
-    lines.append([slot[i][i] for i in range(3)])       # 斜め ↘
-    lines.append([slot[i][2-i] for i in range(3)])     # 斜め ↙
-
-    total_win = 0
-    hits = []
-    for line in lines:
-        if len(set(line)) == 1:  # 全部同じなら当たり
-            symbol = line[0]
-            win = get_value(symbol, symbols)
-            total_win += win
-            hits.append(f"{''.join(line)} → {win}pt")
-
-    if hits:
-        result_text += "\n\n" + "\n".join(hits)
-        result_text += f"\n\n{total_win}pt!"
-    else:
-        result_text += "\n\n0pt"
-
-    return result_text
 #----------------------------------------------------------------------------
 # —————— ここからLINEイベントハンドラ部分 ——————
 # LEAP
