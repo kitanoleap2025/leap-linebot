@@ -365,7 +365,10 @@ def build_feedback_flex(user_id, is_correct, score, elapsed, correct_answer=None
                 "🎉 お見事！",
                 "🚀 スコア上昇中！",
                 "🔥 天才的！",
-                "🏆 完璧！"
+                "🏆 完璧！",
+                "🐐 GOAT！",
+                "🎯 的中！",
+                "👏 さすが！",
                 "💡 その調子！",
             ]),
             "size": "md",
@@ -388,22 +391,6 @@ def build_feedback_flex(user_id, is_correct, score, elapsed, correct_answer=None
             "size": "md",
             "color": "#ff4500",
             "wrap": True,
-            "margin": "md"
-        })
-        # 不正解時の追加メッセージ
-        body_contents.append({
-            "type": "text",
-            "text": random.choice([
-                "🤖次間違えたら・・・",
-                "🤖適当に押しとんちゃうぞ。",
-                "継続は力なり！",
-                "そういう日もある！",
-                "ざんねん！",
-                "ほぼ正解！",
-                "のびしろ！",
-            ]),
-            "size": "md",
-            "align": "center",
             "margin": "md"
         })
 
