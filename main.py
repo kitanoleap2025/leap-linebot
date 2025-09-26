@@ -583,9 +583,8 @@ def handle_message_common(event, bot_type, line_bot_api):
             user_scores[user_id][correct_answer] = 0
 
         # q を取得して meaning を渡す
-        questions = get_questions_by_range(range_str, bot_type)
+        questions = get_questions_by_range(range_str, bot_type, user_id)
         q = next((x for x in questions if x["answer"] == correct_answer), None)
-
 
         flex_feedback = build_feedback_flex(
             user_id, is_correct, score, elapsed,
