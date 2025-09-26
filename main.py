@@ -116,7 +116,7 @@ def get_questions_by_range(range_str, bot_type, user_id):
 
             
 def get_rank(score):
-    return {0: "✔4", 1: "✔3", 2: "✔2", 3: "✔1/❓", 4: "✖"}.get(score, "✔1/❓")
+    return {0: "✖", 1: "✔/❓", 2: "✔2", 3: "✔3", 4: "✔4"}.get(score, "✔/❓")
 
 def score_to_weight(score):
     return {0: 64, 1: 32, 2:16, 3: 8, 4: 1}.get(score, 64)
@@ -161,7 +161,7 @@ def build_result_flex(user_id, bot_type):
 
     # ランク別単語数・割合計算
     scores = user_scores.get(user_id, {})
-    rank_counts = {"✔4": 0, "✔3": 0, "✔2": 0, "✔1/❓": 0, "✖": 0}
+    rank_counts = {"✔4": 0, "✔3": 0, "✔2": 0, "✔/❓": 0, "✖": 0}
     for word in all_answers:
         score = scores.get(word, 1)
         rank_counts[get_rank(score)] += 1
@@ -172,9 +172,9 @@ def build_result_flex(user_id, bot_type):
     # ランク別割合グラフ
     graph_components = []
     max_width = 200
-    color_map = {"✔4": "#c0c0c0", "✔3": "#b22222", "✔2": "#4682b4", "✔1/❓": "#ffd700", "✖": "#000000"}
+    color_map = {"✔4": "#c0c0c0", "✔3": "#b22222", "✔2": "#4682b4", "✔/❓": "#ffd700", "✖": "#000000"}
 
-    for rank in ["✔4", "✔3", "✔2", "✔1/❓", "✖"]:
+    for rank in ["✔4", "✔3", "✔2", "✔/❓", "✖"]:
         width_px = max(5, int(rank_ratios[rank] * max_width))
         graph_components.append({
             "type": "box",
@@ -346,7 +346,7 @@ def build_feedback_flex(user_id, is_correct, score, elapsed, correct_answer=None
         color = color_map.get(label, "#000000")
         body_contents.append({
             "type": "text",
-            "text": "\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\",
+            "text": "\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\",
             "weight": "bold",
             "size": "xl",
             "color": "#ff1493",
@@ -379,7 +379,7 @@ def build_feedback_flex(user_id, is_correct, score, elapsed, correct_answer=None
         })
         body_contents.append({
             "type": "text",
-            "text": "\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\",
+            "text": "\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\",
             "weight": "bold",
             "size": "xl",
             "color": "#ff1493",
@@ -409,7 +409,7 @@ def build_feedback_flex(user_id, is_correct, score, elapsed, correct_answer=None
     count_today = user_daily_counts[user_id]["count"]
     body_contents.append({
         "type": "text",
-        "text": f"🔥: {user_streaks[user_id]}",
+        "text": f"🔥{user_streaks[user_id]}",
         "size": "md",
         "color": "#333333",
         "margin": "md"
