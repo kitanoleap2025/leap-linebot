@@ -1330,6 +1330,26 @@
         "meaning": "policy　[名] ①政策 ②方針 ③保険契約，約款"
     },
     {
+        "text": "510 The citizens will ___ a new mayor next month.\n市民は来月、新しい市長を選出する。",
+        "answer": "elect",
+        "meaning": "elect　[他] ～を（選挙で）選ぶ"
+    },
+    {
+        "text": "511 Japan has a large automobile ___.\n日本には大きな自動車産業がある。",
+        "answer": "industry",
+        "meaning": "industry　[名] ①工業 ②（the ～ industry）産業，業界 ③勤勉"
+    },
+    {
+        "text": "512 His monthly ___ is enough to support his family.\n彼の月収は家族を養うのに十分だ。",
+        "answer": "income",
+        "meaning": "income　[名] 収入"
+    },
+    {
+        "text": "513 The company made a large ___ last year.\nその会社は昨年、大きな利益を上げた。",
+        "answer": "profit",
+        "meaning": "profit　[名] 利益，利潤"
+    },
+    {
         "text": "514 Consumption ___ increases economic inequality.\n消費税は経済格差を拡大させる.",
         "answer": "tax",
         "meaning": "tax　[名] 税金（〈米〉→〈可算〉 〈英〉→〈不可算〉）"
@@ -1343,6 +1363,31 @@
         "text": "516 ___ collection notice\n借金の督促状",
         "answer": "debt",
         "meaning": "debt　[名] 借金"
+    },
+    {
+        "text": "517 I will ___ money into my bank account.\n私は銀行口座にお金を預けるつもりだ。",
+        "answer": "deposit",
+        "meaning": "deposit　[名] ①預金 ②頭金，保証金 ③埋蔵物 、堆積物 [他] ④～を預ける"
+    },
+    {
+        "text": "518 They will ___ you a fee for the service.\nそのサービスには料金が請求されます。",
+        "answer": "charge",
+        "meaning": "charge　[名] ①料金 ②（主にin ―）責任，管理 ③（against ～）（～に対する）非難，告訴 [他] ④～を請求する ⑤～を告訴する ⑥～を充電する"
+    },
+    {
+        "text": "519 The workers receive a fair ___.\n労働者たちは公正な賃金を受け取っている。",
+        "answer": "wage",
+        "meaning": "wage　[名] ①賃金<可算> [他] ②（闘争，運動など）を行う"
+    },
+    {
+        "text": "520 The economy went into a deep ___ last year.\n昨年,経済は深刻な不況に陥った。",
+        "answer": "recession",
+        "meaning": "recession　[名] 不況，不景気"
+    },
+    {
+        "text": "521 People ___ a lot of energy daily.\n人々は毎日多くのエネルギーを消費する。",
+        "answer": "consume",
+        "meaning": "consume　[他] ～を消費する"
     },
     {
         "text": "522 Don't ___ your precious time.\n貴重な時間を浪費するな.⌛",
@@ -1385,6 +1430,26 @@
         "meaning": "assign　[他] ①～を割り当てる ②～を配属する"
     },
     {
+        "text": "531 Teaching is a rewarding ___.\n教職はやりがいのある職業だ。",
+        "answer": "occupation",
+        "meaning": "occupation　[名] ①職業〈可算〉 ②占有，占領〈不可算〉"
+    },
+    {
+        "text": "532 She is building a successful ___ in medicine.\n彼女は医療分野で成功するキャリアを築いている。",
+        "answer": "career",
+        "meaning": "career　[名] ①職業 ②経歴"
+    },
+    {
+        "text": "533 Being a lawyer is a demanding ___.\n弁護士であることは要求が多い職業だ。",
+        "answer": "profession",
+        "meaning": "profession　[名] ①（専門的な）職業 ②（the ―）同業者集団"
+    },
+    {
+        "text": "534 High levels of ___ are a serious issue for the government.\n高い失業率は政府にとって深刻な問題だ。",
+        "answer": "unemployment",
+        "meaning": "unemployment　[名] ①失業 ②失業率（＝― rate），失業者数 （①②ともに〈不可算〉）"
+    },
+    {
         "text": "535 He refused to sign the ___.\n彼はその書類にサインするのを拒んだ.",
         "answer": "document",
         "meaning": "document　[名] ①書類，資料 [他] ②～を記録する"
@@ -1393,6 +1458,36 @@
         "text": "536 She works in the sales ___.\n彼女は営業部で働いている.",
         "answer": "department",
         "meaning": "department　[名] ①（組織の）部門，課 ②（大学の）学科 ③（米国などの）省"
+    },
+    {
+        "text": "537 This bank has a ___ in every city.\nこの銀行は各都市に支店を持っている。",
+        "answer": "branch",
+        "meaning": "branch　[名] ①支店，支局 ②（学問の）部門 ③枝"
+    },
+    {
+        "text": "538 She works in the ___ industry.\n彼女は小売業界で働いている。",
+        "answer": "retail",
+        "meaning": "retail　[名] ①小売り〈不可算〉 [自] ②小売りされている"
+    },
+    {
+        "text": "539 My ___ helped me finish the project.\n同僚が私のプロジェクト完了を手伝ってくれた。",
+        "answer": "colleague",
+        "meaning": "colleague　[名] （from ～）（～の）同僚"
+    },
+    {
+        "text": "540 The company uses a new management ___.\nその会社は新しい経営システムを採用している。",
+        "answer": "system",
+        "meaning": "system　[名] ①制度，組織 ②体系 （①②ともに〈可算〉）"
+    },
+    {
+        "text": "541 The building has a strong ___.\nその建物は頑丈な構造を持っている。",
+        "answer": "structure",
+        "meaning": "structure　[名] 構造"
+    },
+    {
+        "text": "542 The city is known for its unique ___.\nその都市は独特な建築様式で知られている。",
+        "answer": "architecture",
+        "meaning": "architecture　[名] 建築（様式）〈不可算〉"
     },
     {
         "text": "543 The road to success is under ___.\n成功への道は工事中だ.🚧",
@@ -1404,7 +1499,6 @@
         "answer": "surface",
         "meaning": "surface　[名] ①表面<可算> [自] ②表面化する"
     },
-
     {
         "text": "550 Complex issues ___ themselves of simple, ignored mistakes.\n複雑な問題は,無視された単純なミスから成り立っている.",
         "answer": "compose",
