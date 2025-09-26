@@ -98,23 +98,21 @@ target_questions_all = target_1_800 + target_801_1500 + target_1501_1900
 
 
 #範囲ごとの問題取得
-def get_questions_by_range(range_str, bot_type):
-    # ABCを内部範囲に変換
+def get_questions_by_range(range_str, bot_type, user_id):
     if range_str == "A":
-        if bot_type == "LEAP":
-            return leap_1_1000
-        else:  # TARGET
-            return target_1_800
+        return leap_1_1000 if bot_type == "LEAP" else target_1_800
     elif range_str == "B":
-        if bot_type == "LEAP":
-            return leap_1001_2000
-        else:  # TARGET
-            return target_801_1500
+        return leap_1001_2000 if bot_type == "LEAP" else target_801_1500
     elif range_str == "C":
+        return leap_2001_2300 if bot_type == "LEAP" else target_1501_1900
+    elif range_str == "WRONG":
         if bot_type == "LEAP":
-            return leap_2001_2300
-        else:  # TARGET
-            return target_1501_1900
+            questions = leap_1_1000 + leap_1001_2000 + leap_2001_2300
+        else:
+            questions = target_1_800 + target_801_1500 + target_1501_1900
+        return [q for q in questions if user_scores.get(user_id, {}).get(q["answer"], 1) == 4]  # ★5
+    return []
+
             
 def get_rank(score):
     return {0: "★1", 1: "★2", 2: "★3", 3: "★4/?", 4: "★5"}.get(score, "★4/?")
@@ -649,27 +647,6 @@ def handle_message_common(event, bot_type, line_bot_api):
                 quick_reply=QuickReply(items=quick_buttons)
             )
         )
-        return
-
-        if msg == "WRONG":
-        # スコア1以下（間違えたor初回）の単語だけ抽出して出題
-        if bot_type == "LEAP":
-            questions = leap_questions_all
-        else:
-            questions = target_questions_all
-        wrong_qs = [q for q in questions if user_scores[user_id].get(q["answer"], 1) <= 1]
-        if not wrong_qs:
-            line_bot_api.reply_message(event.reply_token, TextSendMessage(text="間違えた問題はありません！"))
-            return
-        q = choose_weighted_question(user_id, wrong_qs)
-        user_states[user_id] = ("WRONG", q["answer"])
-        user_answer_start_times[user_id] = time.time()
-        # 出題文は send_question と同じ形式にするといい
-        text_to_send = f"❌復習問題\n{q['text']}"
-        choices = [q["answer"]] + random.sample([qq["answer"] for qq in wrong_qs if qq["answer"] != q["answer"]], k=3)
-        random.shuffle(choices)
-        quick_buttons = [QuickReplyButton(action=MessageAction(label=c, text=c)) for c in choices]
-        line_bot_api.reply_message(event.reply_token, TextSendMessage(text=text_to_send, quick_reply=QuickReply(items=quick_buttons)))
         return
         
     # ランキング
