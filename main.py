@@ -247,7 +247,7 @@ def send_question(user_id, range_str, bot_type="LEAP"):
     questions = get_questions_by_range(range_str, bot_type, user_id)
 
     # 出題
-    q = choose_weighted_question(user_id, questions, user_id)
+    q = choose_weighted_question(user_id, questions)
     user_states[user_id] = (range_str, q["answer"])
     user_answer_start_times[user_id] = time.time()
 
