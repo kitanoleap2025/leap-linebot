@@ -1257,72 +1257,147 @@
     {
         "text": "454 Call an ___ !\n救急車を呼んで!🚑",
         "answer": "ambulance",
-        "meaning": ""
+        "meaning": "ambulance　[名] 救急車"
     },
     {
-        "text": "461 By the time we reached the top of the mountain, we were all e___\n山頂に着くころまでには,私たちはみんなへとへとになっていた.🌄",
+        "text": "455 He needs time to ___ from his illness.\n彼は病気から回復するのに時間が必要だ。",
+        "answer": "recover",
+        "meaning": "recover	[自] ①（from ～）（～から）回復する [他] ②（盗品など）を取り戻す"
+    },
+    {
+        "text": "456 My throat feels ___ after talking all day.\n一日中話していたので喉が痛い。",
+        "answer": "sore",
+        "meaning": "sore　[形] ①（のどや筋肉が）痛い ②（話題など）触れてほしくない，心が痛む"
+    },
+    {
+        "text": "457 His ankle began to ___ after the injury.\n怪我の後、彼の足首が腫れ始めた。",
+        "answer": "swell",
+        "meaning": "swell　[自] ①（手足などが）腫れる ②（風船，費用などが）膨らむ"
+    },
+    {
+        "text": "458 I have a bad ___ and a runny nose.\nひどい咳と鼻水が出る。",
+        "answer": "cough",
+        "meaning": "cough　[自] ①咳をする [名] ②咳〈可算〉"
+    },
+    {
+        "text": "459 He started to ___ after cutting his hand.\n彼は手を切った後、出血し始めた。",
+        "answer": "bleed",
+        "meaning": "bleed　[自] 出血する"
+    },
+    {
+        "text": "460 She began to ___ from exhaustion.\n彼女は疲労で気を失いそうになった。",
+        "answer": "faint",
+        "meaning": "faint　[形] ①（色，光などが）かすかな [自] ②気絶する [名] ③気絶"
+    },
+    {
+        "text": "461 By the time we reached the top of the mountain, we were all ___\n山頂に着くころまでには,私たちはみんなへとへとになっていた.🌄",
         "answer": "exhausted",
-        "meaning": ""
+        "meaning": "exhaust　[他] ①～を疲れ果てさせる ②～を使い果たす [名] ③排出，排気ガス"
+    },
+    {
+        "text": "462 Doctors are trying to ___ the disease.\n医者たちはその病気を治そうとしている。",
+        "answer": "cure",
+        "meaning": "cure　[他] ①～を治療する [名] ②治療法"
+    },
+    {
+        "text": "463 He became ___ after the accident.\n彼は事故で障害者になった。",
+        "answer": "disabled",
+        "meaning": "disabled　[形] ①障がいのある [名] ②（the ―）（集合的に）障がいのある人"
+    },
+    {
+        "text": "464 My neck feels ___ after sleeping badly.\n寝不足で首がこわばっている。",
+        "answer": "stiff",
+        "meaning": "stiff　[形] ①（筋肉などが）凝った，（動かすと）痛い ②堅い"
     },
     {
         "text": "465 train the chest ___\n胸筋を鍛える",
         "answer": "muscles",
-        "meaning": ""
+        "meaning": "muscle　[名] 筋肉"
     },
     {
-        "text": "469 What ___ is that?\nそれはなんていう性別なんだい？⚧️",
+        "text": "466 He bit his ___ by accident.\n彼はうっかり舌をかんだ。",
+        "answer": "tongue",
+        "meaning": "tongue　[名] ①舌 ②言語，言葉 ③（have a ～ tongue）話し方"
+    },
+    {
+        "text": "467 We lost our ___ of direction in the forest.\n森の中で方向感覚を失った。",
+        "answer": "sense",
+        "meaning": "sense　[名] ①感覚 ②分別 ③（言葉の）意味 [他] ④（何となく）～を感じる"
+    },
+    {
+        "text": "468 He began to ___ heavily after running.\n走った後、彼は大量に汗をかき始めた。",
+        "answer": "sweat",
+        "meaning": "sweat　[名] ①汗（通例〈不可算〉)[自] ②汗をかく"
+    },
+    {
+        "text": "469 What ___ is that?\nそれはなんていう性別ですか？",
         "answer": "gender",
-        "meaning": ""
+        "meaning": "gender　[名] 性，性別"
+    },
+    {
+        "text": "470 Nationality is often shown on passports.\n国籍はしばしばパスポートに記載される。",
+        "answer": "nationality",
+        "meaning": "nationality　[名] 国籍"
+    },
+    {
+        "text": "471 He is a Japanese ___.\n彼は日本の市民だ。",
+        "answer": "citizen",
+        "meaning": "citizen　[名] ①市民 ②国民"
+    },
+    {
+        "text": "472 We live in a ___ society.\n私たちは市民社会に住んでいる。",
+        "answer": "civil",
+        "meaning": "civil　[形] ①（一般）市民の ②国内の ③礼儀正しい"
     },
     {
         "text": "473 ___ discrimination\n人種差別",
         "answer": "racial",
-        "meaning": ""
+        "meaning": "racial　[形] 人種の，民族の"
     },
     {
         "text": "474 He grew up in a quiet ___ village where the stars were clearly visible.\n彼は星が良く見える静かな田舎の村で育った。🌟",
         "answer": "rural",
-        "meaning": ""
+        "meaning": "rural　[形] 田舎の"
     },
     {
         "text": "475 They share the ___ chores at home.\n彼らは家で家事を分担している。",
         "answer": "domestic",
-        "meaning": ""
+        "meaning": "domestic　[形] ①国内の ②家庭内の"
     },
     {
         "text": "476 We must think about ___ problems like climate change.\n私たちは気候変動のような世界的な問題について考えなければならない。",
         "answer": "global",
-        "meaning": ""
+        "meaning": "global　[形] （全）世界的な"
     },
     {
         "text": "477 She moved to a ___ near the city.\n彼女は都市の近くの郊外に引っ越した。",
         "answer": "suburb",
-        "meaning": ""
+        "meaning": "suburb　[名] （通例the ―s）郊外"
     },
     {
         "text": "478 There is a river along the ___ between the two countries.\n2つの国の国境には川が流れている。",
         "answer": "border",
-        "meaning": ""
+        "meaning": "border　[名] ①国境（地帯），境界 [他] ②～を縁取る"
     },
     {
         "text": "479 He feels a heavy ___ of responsibility.\n彼は重い責任の重荷を感じている。",
         "answer": "burden",
-        "meaning": ""
+        "meaning": "burden　[名] 重荷，負担"
     },
     {
         "text": "480 His speech had a big ___ on the audience.\n彼のスピーチは聴衆に大きな影響を与えた。",
         "answer": "impact",
-        "meaning": ""
+        "meaning": "impact　[名] ①（on ～）（～への）影響 ②（物体間の）衝撃 [自] ③（on ～）（～に）影響を及ぼす"
     },
     {
         "text": "481 She wants to improve her social ___.\n彼女は社会的地位を向上させたいと思っている。",
         "answer": "status",
-        "meaning": ""
+        "meaning": "status　[名] ①地位 ②（特定の時点の）状況"
     },
     {
         "text": "482 All animals are ___, but some animals are more ___ than others.\n全ての動物は平等だが、中には他よりもっと平等な動物もいる。",
         "answer": "equal",
-        "meaning": ""
+        "meaning": "equal　[形] ①（to ～）（～に）等しい，平等な [他]②～に等しい"
     },
     {
         "text": "487 India is a country where a wide variety of ___ and cultures can be found.\nインドは多種多様な宗教や文化が見られる国だ。",
