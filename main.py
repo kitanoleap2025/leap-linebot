@@ -366,7 +366,6 @@ def build_feedback_flex(user_id, is_correct, score, elapsed, correct_answer=None
                 "🚀 スコア上昇中！",
                 "🔥 天才的！",
                 "🏆 完璧！",
-                "🐐 GOAT！",
                 "🎯 的中！",
                 "👏 さすが！",
                 "💡 その調子！",
