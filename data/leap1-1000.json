@@ -1225,12 +1225,12 @@
         "meaning": ""
     },
     {
-        "text": "465 train the chest ___\n 胸筋を鍛える",
+        "text": "465 train the chest ___\n胸筋を鍛える",
         "answer": "muscles",
         "meaning": ""
     },
     {
-        "text": "469 What g___ is that?\nそれはなんていう性別なんだい？⚧️",
+        "text": "469 What ___ is that?\nそれはなんていう性別なんだい？⚧️",
         "answer": "gender",
         "meaning": ""
     },
