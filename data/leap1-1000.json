@@ -2200,29 +2200,69 @@
         "meaning": ""
     },
     {
-        "text": "790 He was ___ about his singing skills.\n彼は自分の歌の腕前にうぬぼれていた。",
+        "text": "791 He was ___ about his singing skills.\n彼は自分の歌の腕前にうぬぼれていた。",
         "answer": "vain",
         "meaning": ""
     },
     {
-        "text": "791 The signature on the document turned out to be ___.\n書類の署名は偽物だった。",
+        "text": "792 The signature on the document turned out to be ___.\n書類の署名は偽物だった。",
         "answer": "fake",
         "meaning": ""
     },
     {
-        "text": "792 Climbing a volcano is a ___ adventure.\n火山に登るのは危険な冒険だ。🌋",
+        "text": "793 Climbing a volcano is a ___ adventure.\n火山に登るのは危険な冒険だ。🌋",
         "answer": "risky",
         "meaning": ""
     },
     {
-        "text": "793 He has an ___ habit of talking to plants.\n彼は植物に話しかける奇妙な習慣がある。🌷",
+        "text": "794 He has an ___ habit of talking to plants.\n彼は植物に話しかける奇妙な習慣がある。🌷",
         "answer": "odd",
-        "meaning": ""
+        "meaning": "odd　[形] ①奇妙な ②奇数の ③半端な，雑多な [名] ④〈英〉（the ―s）可能性"
+    },
+    {
+        "text": "795 He was ___ about the history of his own country.\n彼は自分の国の歴史について無知だった。",
+        "answer": "ignorant",
+        "meaning": ignorant　[形] 無知の""
+    },
+    {
+        "text": "796 The bright colors ___ with the dark background.\n明るい色は暗い背景と対照的だ。",
+        "answer": "contrast",
+        "meaning": "contrast　[名] ①対比 [他] ②～を対比する [自]③対照をなす"
+    },
+    {
+        "text": "797 This ticket is still ___ for tomorrow’s concert.\nこのチケットは明日のコンサートに有効だ。",
+        "answer": "valid",
+        "meaning": "valid　[形] ①（理由，主張などが）妥当な，正当な ②（切符などが）有効な"
+    },
+    {
+        "text": "798 Snow leopards are very ___.\nユキヒョウは非常に珍しい。",
+        "answer": "rare",
+        "meaning": "rare　[形] 珍しい"
+    },
+    {
+        "text": "799 He wore a ___ outfit for the party.\n彼はパーティーに普段着を着て行った。",
+        "answer": "casual",
+        "meaning": "casual　[形] ①気楽な ②ふとした，何気ない"
+    },
+    {
+        "text": "800 The information is ___ online.\nその情報はオンラインで利用可能だ。",
+        "answer": "available",
+        "meaning": "available　[形] ①手に入る，利用できる ②（人の予定が）空いている"
+    },
+    {
+        "text": "801 This tool is very ___ for everyday use.\nこの道具は日常使用にとても実用的だ。",
+        "answer": "practical",
+        "meaning": "practical　[形] ①（人，知識が）現実的な，実際の ②（発明，道具などが）実用的な，実践的な"
+    },
+    {
+        "text": "802 The artist explained the ___ concept of his work.\nその芸術家は自分の作品の抽象的な概念を説明した。",
+        "answer": "abstract",
+        "meaning": "abstract　[形] ①抽象的な [名] ②（論文などの）要旨"
     },
     {
         "text": "803 ___ shoes\n新品の靴👟",
         "answer": "brand-new",
-        "meaning": ""
+        "meaning": "brand-new　[形] 新品の，真新しい"
     },
     {
         "text": "805 They say that Japan has a ___ aging population.\n日本は急速な高齢化社会であると言われている。",
@@ -2232,7 +2272,7 @@
     {
         "text": "807 He said something ___, pretending to be profound.\n彼は深そうに見せかけて浅いことを言った",
         "answer": "shallow",
-        "meaning": ""
+        "meaning": "urgent　[形] 緊急の，差し迫った"
     },
     {
         "text": "808 First Olympic games allowed only ___ men.\n初期オリンピックは裸の男性だけ参加できた.🔥",
@@ -2397,52 +2437,72 @@
     {
         "text": "851 I am not satisfied with my ___ salary.\n私は今の給料に満足していない.",
         "answer": "current",
-        "meaning": ""
+        "meaning": "current　[形] ①最新の，今の ②流通して [名] ③流れ，風潮"
     },
     {
         "text": "854 from the ___ year\n前の年から",
         "answer": "previous",
-        "meaning": ""
+        "meaning": "previous　[形] （時間，順序で）前の，以前の"
     },
     {
         "text": "856 ___ Japanese society\n現代の日本社会🏙️",
         "answer": "contemporary",
-        "meaning": ""
+        "meaning": "contemporary　[形] ①現代の ②同時代の [名] ③同時代の人"
     },
     {
         "text": "857 I have noy heard from her ___.\n最近彼女から連絡がない.",
         "answer": "lately",
-        "meaning": ""
+        "meaning": "lately　[副] 最近"
     },
     {
         "text": "859 Teacher decided to extend the ___ by one week.\n先生は締め切りを1週間延長することに決めた。😍",
         "answer": "deadline",
-        "meaning": ""
+        "meaning": "deadline　[名]（for ～）（～の）締め切り <可算>"
     },
     {
         "text": "860 He was forbidden to go out for nearly a ___.\n彼は10年近く外出を禁止された.",
         "answer": "decade",
-        "meaning": ""
+        "meaning": "decade　[名] 10年"
     },
     {
         "text": "861 The price is determined by ___ and demand.\n価格は需要と供給で決まる.",
         "answer": "supply",
-        "meaning": ""
+        "meaning": "supply　[他] ①～を供給する [名] ②供給"
     },
     {
         "text": "862 People who can be ___ by Artificial Intelligence\nAIに代替可能な人.🤓",
         "answer": "replaced",
-        "meaning": ""
+        "meaning": "replace　[他] ①～に取って代わる ②（A with B）（A）を（B に）取り替える"
     },
     {
         "text": "863 Omitting the tale of the Straw Millionaire, trying to ___ a string for a Benz.\nわらしべ長者の物語を省略して,ひもをベンツと交換しようとする.",
         "answer": "exchange",
-        "meaning": ""
+        "meaning": "exchange　[他] ①～を交換する [名] ②交換"
+    },
+    {
+        "text": "864 You can ___ sugar with honey in this recipe.\nこのレシピでは砂糖を蜂蜜で代用できる。",
+        "answer": "substitute",
+        "meaning": "substitute　[他] ①（A for B)（B の）代わりに（A）を用いる [自] ②（for ～）（～の）代わりになる，代わりをする [形] ③代わりの [名] ④（for ～）（～の）代用品，代理人"
+    },
+    {
+        "text": "865 Please ___ your application by Friday.\n金曜日までに申請書を提出してください。",
+        "answer": "submit",
+        "meaning": "submit　[他] ①（願書，辞表など）を提出する [自] ②（to ～）（～に）服従する"
+    },
+    {
+        "text": "866 We need an ___ plan in case it rains.\n雨が降った場合に備えて代替案が必要だ。",
+        "answer": "alternative",
+        "meaning": "alternative　[名] ①（to ～）（～の）代わりのもの ②選択肢 [形] ③代わりの、既存のものとは違う"
     },
     {
         "text": "867 ___ drugs\nクスリを配達する🌿",
         "answer": "deliver",
-        "meaning": ""
+        "meaning": "deliver　[他] ①～を配達する ②（演説など）をする"
+    },
+    {
+        "text": "868 Please ___ the documents with your letter.\n手紙に書類を同封してください。",
+        "answer": "enclose",
+        "meaning": "enclose　[他] ①～を同封する ②～を囲む，閉じ込める"
     },
     {
         "text": "869 an ___ with a cute design\n可愛らしい柄の封筒",
