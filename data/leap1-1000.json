@@ -375,9 +375,49 @@
         "meaning": "audience　[名] 聴衆，観客"
     },
     {
-        "text": "111 The captain rescued only the ___ from his own country.\n船長は自国の乗客だけを救出しました.",
-        "answer": "passengers",
+        "text": "107 A large ___ gathered in front of the stage.\n大きな群衆がステージの前に集まった。",
+        "answer": "crowd",
+        "meaning": "crowd　[名] 群衆"
+    },
+    {
+        "text": "108 The ___ of the book will attend the signing event.\nその本の著者がサイン会に参加する。",
+        "answer": "author",
+        "meaning": "author　[名] ①著者 ②（主に文学作品の）作家"
+    },
+    {
+        "text": "109 The hospital has a friendly ___ of nurses.\nその病院には親しみやすい看護スタッフがいる。",
+        "answer": "staff",
+        "meaning": "staff　[名] （集合的に）職員，従業員"
+    },
+    {
+        "text": "110 The ___ helped me find the right form.\nその事務員が正しい用紙を探すのを手伝ってくれた。",
+        "answer": "clerk",
+        "meaning": "clerk　[名] ①〈米〉店員 ②事務員，社員"
+    },
+    {
+        "text": "111 The ___ complained about the poor service.\nその客はサービスの悪さについて不満を言った。",
+        "answer": "customer",
         "meaning": "customer　[名] 客"
+    },
+    {
+        "text": "112 The captain rescued only the ___ from his own country.\n船長は自国の乗客だけを救出しました.",
+        "answer": "passengers",
+        "meaning": "passenger　[名] 乗客"
+    },
+    {
+        "text": "113 The ___ man needed assistance crossing the street.\n高齢の男性が道路を渡るのに援助を必要とした。",
+        "answer": "elderly",
+        "meaning": "elderly　[形] ①年配の ②（the ―）（総称的に）年配の人々"
+    },
+    {
+        "text": "114 The ___ staff member gave helpful directions.\n女性のスタッフが親切に道案内をしてくれた。",
+        "answer": "female",
+        "meaning": "female　[形] ①女性の ②（動物）雌の [名] ③女性，雌"
+    },
+    {
+        "text": "115 We will ___ to the park after lunch.\n昼食後,公園に向かう予定だ。",
+        "answer": "head",
+        "meaning": "head　[自] ①向かう [他] ②～を率いる"
     },
     {
         "text": "116 He climbed the ladder of success, then kicked it away so no one else could ___.\n彼は成功のはしごを登り,それを蹴飛ばし,他の誰も追随できないようにした.",
