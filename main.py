@@ -47,6 +47,7 @@ user_answer_counts = defaultdict(int)
 user_names = {}  # user_id: name
 user_answer_start_times = {}  # 問題出題時刻を記録
 user_daily_counts = defaultdict(lambda: {"date": None, "count": 1})
+streak　= 0
 
 DEFAULT_NAME = "イキイキした毎日"
 
@@ -408,8 +409,8 @@ def build_feedback_flex(user_id, is_correct, score, elapsed, correct_answer=None
     count_today = user_daily_counts[user_id]["count"]
     body_contents.append({
         "type": "text",
-        "text": f"🔥{count_today}",
-        "size": "sm",
+        "text": f"🔥 Streak: {user_data[user_id]['streak']}",
+        "size": "md",
         "color": "#333333",
         "margin": "md"
     })
@@ -580,10 +581,12 @@ def handle_message_common(event, bot_type, line_bot_api):
         }
 
         if is_correct:
+            user_data[user_id]["streak"] += 1
             delta_score = delta_map.get(label, 1)
             user_scores[user_id][correct_answer] = min(user_scores[user_id].get(correct_answer, 1) + delta_score, 4)
         else:
             # 不正解時は0
+            user_data[user_id]["streak"] = 0
             user_scores[user_id][correct_answer] = 0
 
         # q を取得して meaning を渡す
