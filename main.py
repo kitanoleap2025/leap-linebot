@@ -431,7 +431,7 @@ def build_feedback_flex(user_id, is_correct, score, elapsed, correct_answer=None
             "text": f"{y}✖🔥{user_streaks[user_id]}✖{label_score}",
             "size": "md",
             "color": "#333333",
-            "margin": "xxl"
+            "margin": "xl"
         })
 
     return FlexSendMessage(
