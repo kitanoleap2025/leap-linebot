@@ -171,7 +171,7 @@ def build_result_flex(user_id, bot_type):
 
     # ランク別割合グラフ
     graph_components = []
-    max_width = 200
+    max_width = 180
     color_map = {"✔4": "#c0c0c0", "✔3": "#b22222", "✔2": "#4682b4", "✔/❓": "#ffd700", "✖": "#000000"}
 
     for rank in ["✔4", "✔3", "✔2", "✔/❓", "✖"]:
