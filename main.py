@@ -110,7 +110,7 @@ def get_questions_by_range(range_str, bot_type, user_id):
             questions = leap_1_1000 + leap_1001_2000 + leap_2001_2300
         else:
             questions = target_1_800 + target_801_1500 + target_1501_1900
-        return [q for q in questions if user_scores.get(user_id, {}).get(q["answer"], 1) == 4]
+        return [q for q in questions if user_scores.get(user_id, {}).get(q["answer"], 1) == 0]
     return []
 
             
