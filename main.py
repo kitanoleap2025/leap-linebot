@@ -517,11 +517,11 @@ def handle_message_common(event, bot_type, line_bot_api):
         return
     
     # 質問送信
-    if msg in ["A", "B", "C"]:
+    if msg in ["A", "B", "C", "WRONG"]:
         question_msg = send_question(user_id, msg, bot_type=bot_type)
         line_bot_api.reply_message(event.reply_token, question_msg)
         return
-
+        
     # 成績表示
     if msg == "成績":
         total_rate = update_total_rate(user_id, bot_type=bot_type)
