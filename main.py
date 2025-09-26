@@ -110,15 +110,15 @@ def get_questions_by_range(range_str, bot_type, user_id):
             questions = leap_1_1000 + leap_1001_2000 + leap_2001_2300
         else:
             questions = target_1_800 + target_801_1500 + target_1501_1900
-        return [q for q in questions if user_scores.get(user_id, {}).get(q["answer"], 1) == 4]  # ★5
+        return [q for q in questions if user_scores.get(user_id, {}).get(q["answer"], 1) == 4]
     return []
 
             
 def get_rank(score):
-    return {0: "★1", 1: "★2", 2: "★3", 3: "★4/?", 4: "★5"}.get(score, "★4/?")
+    return {0: "✔4", 1: "✔3", 2: "✔2", 3: "✔1/❓", 4: "✖"}.get(score, "✔1/❓")
 
 def score_to_weight(score):
-    return {0: 16, 1: 8, 2: 4, 3: 2, 4: 1}.get(score, 8)
+    return {0: 64, 1: 32, 2:16, 3: 8, 4: 1}.get(score, 64)
 
 def build_result_flex(user_id, bot_type):
     name = user_names.get(user_id, DEFAULT_NAME)
@@ -160,7 +160,7 @@ def build_result_flex(user_id, bot_type):
 
     # ランク別単語数・割合計算
     scores = user_scores.get(user_id, {})
-    rank_counts = {"★1": 0, "★2": 0, "★3": 0, "★4/?": 0, "★5": 0}
+    rank_counts = {"✔4": 0, "✔3": 0, "✔2": 0, "✔1/❓": 0, "✖": 0}
     for word in all_answers:
         score = scores.get(word, 1)
         rank_counts[get_rank(score)] += 1
@@ -171,9 +171,9 @@ def build_result_flex(user_id, bot_type):
     # ランク別割合グラフ
     graph_components = []
     max_width = 200
-    color_map = {"★1": "#c0c0c0", "★2": "#b22222", "★3": "#4682b4", "★4/?": "#ffd700", "★5": "#000000"}
+    color_map = {"✔4": "#c0c0c0", "✔3": "#b22222", "✔2": "#4682b4", "✔1/❓": "#ffd700", "✖": "#000000"}
 
-    for rank in ["★1", "★2", "★3", "★4/?", "★5"]:
+    for rank in ["✔4", "✔3", "✔2", "✔1/❓", "✖"]:
         width_px = max(5, int(rank_ratios[rank] * max_width))
         graph_components.append({
             "type": "box",
@@ -259,7 +259,7 @@ def send_question(user_id, range_str, bot_type="LEAP"):
     else:
         score = user_scores[user_id][correct_answer]
         flames = 5 - score
-        score_display = "★" * flames + "☆" * score
+        score_display = "✔" * score + "〇" * flames 
 
     other_answers = [item["answer"] for item in questions if item["answer"] != correct_answer]
     wrong_choices = random.sample(other_answers, k=min(3, len(other_answers)))
@@ -341,7 +341,7 @@ def build_feedback_flex(user_id, is_correct, score, elapsed, correct_answer=None
         color = color_map.get(label, "#000000")
         body_contents.append({
             "type": "text",
-            "text": "\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\",
+            "text": "\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\",
             "weight": "bold",
             "size": "xl",
             "color": "#ff1493",
@@ -374,7 +374,7 @@ def build_feedback_flex(user_id, is_correct, score, elapsed, correct_answer=None
         })
         body_contents.append({
             "type": "text",
-            "text": "\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\",
+            "text": "\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\",
             "weight": "bold",
             "size": "xl",
             "color": "#ff1493",
