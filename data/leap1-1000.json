@@ -2660,84 +2660,154 @@
         "meaning": "questionnaire　[名] アンケート"
     },
     {
-        "text": "880 Studying abroad will be a unique and ___ experience.\n留学することは珍しい価値のある経験になるだろう。",
-        "answer": "rewarding",
-        "meaning": ""
+        "text": "878 I made a ___ at the hotel for next week.\n私は来週のためにホテルの予約をした。",
+        "answer": "reservation",
+        "meaning": "reservation　[名] ①予約 ②慎重な姿勢"
+    },
+    {
+        "text": "879 There’s no need to make a ___.\n騒ぐ必要はない。",
+        "answer": "fuss",
+        "meaning": "fuss　[名] 大騒ぎ"
+    },
+    {
+        "text": "880 Hard work deserves a ___.\n努力には報酬がふさわしい。",
+        "answer": "reward",
+        "meaning": "reward　[名] ①報酬，褒美 ，懸賞金 [他] ②～に褒美を与える，報いる"
+    },
+    {
+        "text": "881 We said our ___ before he left.\n彼が去る前に別れを告げた。",
+        "answer": "farewell",
+        "meaning": "farewell　[名] 別れ（のあいさつ）"
+    },
+    {
+        "text": "882 They gave us a warm ___ at the hotel.\nホテルで温かい歓迎を受けた。",
+        "answer": "reception",
+        "meaning": "reception　[名] ①もてなし，歓迎会 ②（ホテルの）フロント ③受信状況"
+    },
+    {
+        "text": "883 She ate only a small ___ of cake.\n彼女はケーキを少しだけ食べた。",
+        "answer": "portion",
+        "meaning": "portion　[名] ①（食事の）1盛り ②（食堂などでの）1人前 ③一部"
     },
     { 
         "text": "884 The pile of ___ was a huge obstacle to finishing homework.\n洗濯物の山は宿題を終わらせる大きな障害だった。",
         "answer": "laundry", 
-        "meaning": "" 
+        "meaning": "laundry　[名] ①〈米〉洗濯 ②〈米〉洗濯物 ③クリーニング店（＝a cleaner's）" 
     },
     {
-        "text": "890 It's okay to take a n___.\n昼寝しても大丈夫だよ.💤",
+        "text": "885 It's okay to take a ___.\n昼寝しても大丈夫だよ.💤",
         "answer": "nap",
-        "meaning": ""
+        "meaning": "nap　[名] ①昼寝，仮眠 [自] ②昼寝をする，仮眠をとる"
     },
     {
-        "text": "892 ___\n 自動販売機",
+        "text": "886 I usually ___ at 7 a.m.\n私は普段7時に起きる。",
+        "answer": "wake",
+        "meaning": "wake　[自] ①目が覚める [他] ②（眠っている人）を起こす"
+    },
+    {
+        "text": "887 ___\n 自動販売機",
         "answer": "vending machine",
-        "meaning": ""
+        "meaning": "vending machine　[名] 自動販売機"
+    },
+    {
+        "text": "888 I went to the ___ store to buy vegetables.\n私は食料品店に野菜を買いに行った。",
+        "answer": "grocery",
+        "meaning": "grocery　[名] ①食料雑貨店 ②（―ies）食料雑貨類"
+    },
+    {
+        "text": "889 I have a doctor’s ___ tomorrow.\n私は明日、医者の予約がある。",
+        "answer": "appointment",
+        "meaning": "appointment　[名] ①（病院などの）予約，（面会の）約束 ②（役職などの）任命，指名"
+    },
+    {
+        "text": "890 You should ___ a doctor for advice.\n医者に相談すべきだ。",
+        "answer": "consult",
+        "meaning": "consult　[他] ①～に相談する ②（辞書）を引く [自] ③（with ～）（～に）相談する"
+    },
+    {
+        "text": "891 Please ___ at the front desk.\nフロントで登録してください。",
+        "answer": "register",
+        "meaning": "register　[他] ①～を登録する，記録する [自] ②（for ～）（授業などに）登録する ③（ホテルなどで）記帳する [名] ④登録（票），登録簿"
+    },
+    {
+        "text": "892 She decided to ___ her old clothes.\n彼女は古い服を染めることに決めた。",
+        "answer": "dye",
+        "meaning": "dye　[他] ①～を染める [名] ②染料"
+    },
+    {
+        "text": "893 I ___ to a new magazine last week.\n私は先週新しい雑誌を購読した。",
+        "answer": "subscribe",
+        "meaning": "subscribe　[自] ①（to ～）（～を）定期購読する，加入している ②（主に否定文で）（to ～）（考えなどを）支持する"
     },
     {
         "text": "894 Liberty is ___.\n自由が保障される。",
         "answer": "guaranteed",
-        "meaning": ""
+        "meaning": "guarantee　[他] ①～を保証する [名] ②保証（期間）"
+    },
+    {
+        "text": "895 Please ___ the table after eating.\n食後にテーブルを拭いてください。",
+        "answer": "wipe",
+        "meaning": "wipe　[他] ①～を拭く ②～を一掃する，壊滅させる"
+    },
+    {
+        "text": "896 We need to ___ the floor before guests arrive.\n客が来る前に床を掃く必要がある。",
+        "answer": "sweep",
+        "meaning": "sweep　[他] ①（床，地面）を掃く ②（風，波などが）～を押し流す"
     },
     {
         "text": "897 I want to ___ to the art course.\n美術コースに転向したい.🎨",
         "answer": "transfer",
-        "meaning": ""
+        "meaning": "transfer　[自] ①（電車などを）乗り換える ②転勤［転校，移籍］する [他] ③（物，活動拠点など）を移す，～を転勤［転属］させる ④（銀行で）～を振り込む"
     },
     {
-        "text": "898 get ___ at 21\n21で離婚する🤰",
+        "text": "898 get ___ at 21\n21で離婚する",
         "answer": "divorced",
-        "meaning": ""
+        "meaning": "divorce　[自] ①離婚する [他] ②～と離婚する [名] ③離婚"
     },
     {
         "text": "899 ___ led them to meet again.\n運命が2人を再会させた。",
         "answer": "fate",
-        "meaning": ""
+        "meaning": "fate　[名] 運命，宿命"
     }, 
     {
         "text": "900 It was her ___ to become a great leader.\n彼女が偉大な指導者になるのは運命だった。",
         "answer": "destiny",
-        "meaning": ""
+        "meaning": "destiny　[名] 運命"
     },
     {
         "text": "901 This soup has a rich ___.\nこのスープは豊かな風味がある。",
         "answer": "flavor",
-        "meaning": ""
+        "meaning": "flavor　[名] 風味，味〈可算〉"
     },
     {
         "text": "902 She wore a sweet ___.\n彼女は甘い香水をつけていた。💐",
         "answer": "perfume",
-        "meaning": ""
+        "meaning": "perfume　[名] ①香り ②香水"
     },
     {
         "text": "903 Sugar is an important ___ in this recipe.\n砂糖はこのレシピで重要な材料だ。",
         "answer": "ingredient",
-        "meaning": ""
+        "meaning": "ingredient　[名] ①（料理などの）材料 ②（何かを達成するための）要因 ③成分"
     },
     {
         "text": "904 The medicine tastes ___\nその薬は苦い味がする。",
         "answer": "bitter",
-        "meaning": ""
+        "meaning": "bitter　[形] ①苦い，つらい ②憤慨して"
     },
     {
         "text": "905 He walked down the snack ___\n彼はスナック売り場の通路を歩いた。",
         "answer": "aisle",
-        "meaning": ""
+        "meaning": "aisle　[名] 通路"
     },
     {
         "text": "906 cover one’s ___\n足跡を消す。👣",
         "answer": "tracks",
-        "meaning": ""
+        "meaning": "track　[名] ①足跡，小道 ②（鉄道の）線路，プラットホーム [他] ③～を追跡する"
     },
     {
         "text": "907 The morning will be spent in the Airin ___.\n午前中はあいりん地区で過ごす。",
         "answer": "district",
-        "meaning": ""
+        "meaning": "district　[名] 地区"
     },
     {
         "text": "908 The only good thing about this ___ is that the chair spins.\nこの施設の唯一良い所は,椅子が回ることだ.",
