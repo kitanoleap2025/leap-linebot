@@ -426,10 +426,11 @@ def build_feedback_flex(user_id, is_correct, score, elapsed, correct_answer=None
 
     if is_correct:
         y = 5 - score
+        e = y * user_streaks[user_id] * {label_score}
         body_contents.append({
             "type": "text",
-            "text": f"{y}✖🔥{user_streaks[user_id]}✖{label_score}",
-            "size": "md",
+            "text": f"{y}✖🔥{user_streaks[user_id]}✖{label or '✓Correct'}({label_score})🟰{e}",
+            "size": "xl",
             "color": "#333333",
             "margin": "xl"
         })
