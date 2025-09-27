@@ -247,6 +247,12 @@ def update_total_rate(user_id, bot_type):
 def send_question(user_id, range_str, bot_type="LEAP"):
     questions = get_questions_by_range(range_str, bot_type, user_id)
 
+    if not questions:
+        # WRONG範囲に問題がない場合
+        if range_str == "WRONG":
+            return TextSendMessage(text="間違えた単語はありません")
+        return TextSendMessage(text="まだ問題は見つかりません")
+
     # 出題
     q = choose_weighted_question(user_id, questions)
     user_states[user_id] = (range_str, q["answer"])
