@@ -2015,39 +2015,79 @@
         "meaning": "attend　[他] ①～に出席する，通う [自] ②（to ～）（～に）注意を向ける ③（to ～）（～を）世話する"
     },
     {
-        "text": "660 obey a law that doesn’t even ___\nありもしない法に従う🤫",
+        "text": "654 Children often ___ the actions of adults.\n子供はしばしば大人の行動を真似する。",
+        "answer": "imitate",
+        "meaning": "imitate　[他] ～をまねる"
+    },
+    {
+        "text": "655 The scientists will ___ an important experiment.\n科学者たちは重要な実験を行うだろう。",
+        "answer": "conduct",
+        "meaning": "conduct　[他] ①～を行う ②（電気，熱）を伝える [名] ③行為"
+    },
+    {
+        "text": "656 They had to ___ against strong opposition.\n彼らは強い反対に立ち向かわなければならなかった。",
+        "answer": "struggle",
+        "meaning": "struggle　[自] ①苦闘する，もがく [名] ②苦闘，もがくこと〈可算〉"
+    },
+    {
+        "text": "657 The candle will ___ slowly in the dark.\nろうそくは暗闇でゆっくり燃える。",
+        "answer": "burn",
+        "meaning": "burn　[自] ①焼ける [他] ②～を燃やす"
+    },
+    {
+        "text": "658 He tried to ___ in the game but was caught.\n彼は試合でズルをしようとしたが見つかった。",
+        "answer": "cheat",
+        "meaning": "cheat　[自] ①ごまかす [他] ②～をだます"
+    },
+    {
+        "text": "659 We will ___ in the upcoming festival.\n私たちは今度の祭りに参加する。",
+        "answer": "participate",
+        "meaning": "participate　[自] （in ～）（～に）参加する"
+    },
+    {
+        "text": "660 obey a law that doesn’t even ___\nありもしない法に従う",
         "answer": "exist",
-        "meaning": ""
+        "meaning": "exist　[自] 存在する"
+    },
+    {
+        "text": "661 Problems may ___ during the project.\nプロジェクト中に問題が生じるかもしれない。",
+        "answer": "arise",
+        "meaning": "arise　[自] 生じる"
+    },
+    {
+        "text": "662 Accidents often ___ due to careless driving.\n不注意な運転によって事故が発生することが多い。",
+        "answer": "occur",
+        "meaning": "occur　[自] ①生じる ②（to （人））（考えなどが（人）に）思いつく"
     },
     {
         "text": "663 During World War II, British chess masters were assigned to codebreaking tasks ___ the Enigma machine.\n第二次世界大戦中,イギリスのチェスマスターたちはエニグマ機に関わる暗号解読の仕事に就いていました.",
         "answer": "involving",
-        "meaning": ""
+        "meaning": "involve　[他] ①（be ―d in ～）（事件などに）巻き込まれる ②（be ―d in ～）（子育てなどに）参加する ③～を伴う"
     },
     {
         "text": "664 A job that ___ constant bowing\nおじぎし続ける仕事",
         "answer": "requires",
-        "meaning": ""
+        "meaning": "require　[他] ～を必要とする"
     },
     {
         "text": "668 Authority does not ___ long.\n権威は長く続かない.", 
         "answer": "last",
-        "meaning": ""
+        "meaning": "last　[自] ①（時間的に）続く ②（服などが）長持ちする [形] （the last ～）③この前の～，最後の～ ④もっとも～でない [名] ⑤（at ―）ついに"
     },
     {
         "text": "669 ___ invitation\n同窓会の案内状",
         "answer": "reunion",
-        "meaning": ""
+        "meaning": "persist　[自] ①持続する，残る ②（in［with］～）（～を）貫く，（～に）固執する"
     },
     {
         "text": "671 ___ is the basis of clear thinking and good arguments.\n論理は明晰な思考と良い議論の基礎である。",
         "answer": "Logic",
-        "meaning": ""
+        "meaning": "gain　[他] ①～を増す ②～を得る [名] ③利益，増加"
     },
     {
-        "text": "673 The price is ___ by supply and demand.\n価格は需要と供給で決まる.",
+        "text": "678 The price is ___ by supply and demand.\n価格は需要と供給で決まる。",
         "answer": "determined",
-        "meaning": ""
+        "meaning": "determine　[他] ①～を決める，～に大きく影響する ②（be ―d to do）～することを決意している ③（原因など）を特定する"
     },
     {
         "text": "682 the ___ population of Japan\n日本の推定人口🗾",
