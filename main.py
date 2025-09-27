@@ -469,7 +469,7 @@ def build_ranking_flex_fast(bot_type):
     }
 
     bubbles = []
-        color = medal_colors.get(i, "#000000")  # 4位以降は黒
+    color = medal_colors.get(i, "#000000")  # 4位以降は黒
         bubbles.append({
             "type": "box",
             "layout": "baseline",
