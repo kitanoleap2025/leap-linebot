@@ -470,15 +470,15 @@ def build_ranking_flex_fast(bot_type):
 
     bubbles = []
     color = medal_colors.get(i, "#000000")  # 4位以降は黒
-        bubbles.append({
-            "type": "box",
-            "layout": "baseline",
-            "contents": [
-                {"type": "text", "text": f"{i}位", "flex": 1, "size": "xl", "color": color},
-                {"type": "text", "text": name, "flex": 3, "size": "md", "color": color},
-                {"type": "text", "text": str(rate), "flex": 1, "size": "md", "align": "end", "color": color}
-            ]
-        })
+    bubbles.append({
+        "type": "box",
+        "layout": "baseline",
+        "contents": [
+            {"type": "text", "text": f"{i}位", "flex": 1, "size": "xl", "color": color},
+            {"type": "text", "text": name, "flex": 3, "size": "md", "color": color},
+            {"type": "text", "text": str(rate), "flex": 1, "size": "md", "align": "end", "color": color}
+        ]
+    })
 
     flex_content = {
         "type": "bubble",
