@@ -463,8 +463,8 @@ def build_ranking_flex_fast(bot_type):
         ranking_data = []
 
     medal_colors = {
-        1: "#FFD700",  # 金
-        2: "#C0C0C0",  # 銀
+        1: "#B8860B",  # 金
+        2: "#A9A9A9",  # 銀
         3: "#CD7F32",  # 銅
     }
 
@@ -475,7 +475,7 @@ def build_ranking_flex_fast(bot_type):
             "type": "box",
             "layout": "baseline",
             "contents": [
-                {"type": "text", "text": f"{i}位", "flex": 1, "size": "xl", "color": color},
+                {"type": "text", "text": f"{i}位", "flex": 1, "size": "md", "color": color},
                 {"type": "text", "text": name, "flex": 3, "size": "md", "color": color},
                 {"type": "text", "text": str(rate), "flex": 1, "size": "md", "align": "end", "color": color}
             ]
