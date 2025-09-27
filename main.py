@@ -463,9 +463,9 @@ def build_ranking_flex_fast(bot_type):
         ranking_data = []
 
     medal_colors = {
-        1: "#B8860B",  # 金
-        2: "#A9A9A9",  # 銀
-        3: "#CD7F32",  # 銅
+        1: "#33FF00",  # 金
+        2: "#33FF00",  # 銀
+        3: "#33FF00",  # 銅
     }
 
     bubbles = []
