@@ -48,6 +48,8 @@ user_names = {}  # user_id: name
 user_answer_start_times = {}  # 問題出題時刻を記録
 user_daily_counts = defaultdict(lambda: {"date": None, "count": 1})
 user_streaks = defaultdict(int)
+user_daily_e = defaultdict(lambda: {"date": None, "total_e": 0})
+
 
 DEFAULT_NAME = "イキイキした毎日"
 
@@ -442,6 +444,16 @@ def build_feedback_flex(user_id, is_correct, score, elapsed, correct_answer=None
             "margin": "xl"
         })
 
+        # トータル e 表示
+        total_e_today = user_daily_e[user_id]["total_e"]
+        body_contents.append({
+            "type": "text",
+            "text": f"total:{total_e_today}e",
+            "size": "md",
+            "color": "#0000ff",
+            "margin": "md"
+        })
+
     return FlexSendMessage(
         alt_text="回答フィードバック",
         contents={
@@ -614,6 +626,19 @@ def handle_message_common(event, bot_type, line_bot_api):
             user_streaks[user_id] += 1
             delta_score = delta_map.get(label, 1)
             user_scores[user_id][correct_answer] = min(user_scores[user_id].get(correct_answer, 1) + delta_score, 4)
+            
+            y = 5 - score
+            e = y * user_streaks[user_id] * label_score
+
+            # 日付チェック
+            today = time.strftime("%Y-%m-%d")
+            if user_daily_e[user_id]["date"] != today:
+                user_daily_e[user_id]["date"] = today
+                user_daily_e[user_id]["total_e"] = 0
+
+            # トータル e 更新
+            user_daily_e[user_id]["total_e"] += e
+
         else:
             # 不正解時は0
             user_streaks[user_id] = 0
