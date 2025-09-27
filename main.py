@@ -351,9 +351,9 @@ def build_feedback_flex(user_id, is_correct, score, elapsed, correct_answer=None
     label_score = get_label_score(label)
 
     label_symbols = {
-        "!!Brilliant": "✓",
+        "!!Brilliant": "!!",
         "!Great": "!",
-        "✓Correct": "!!",
+        "✓Correct": "✓",
     }
     label_symbol = label_symbols.get(label, "✓")  
     
@@ -383,7 +383,7 @@ def build_feedback_flex(user_id, is_correct, score, elapsed, correct_answer=None
             "text": random.choice([
                 "🎉 お見事！",
                 "🚀 スコア上昇中！",
-                "🔥 天才的！",
+                "🧠 天才的！",
                 "🏆 完璧！",
                 "🎯 的中！",
                 "👏 さすが！",
@@ -469,12 +469,6 @@ def build_ranking_flex_fast(bot_type):
     except Exception as e:
         print(f"Error fetching ranking for {bot_type}: {e}")
         ranking_data = []
-
-    medal_colors = {
-        1: "#33FF00",  # 金
-        2: "#33FF00",  # 銀
-        3: "#33FF00",  # 銅
-    }
 
     bubbles = []
     for i, (name, rate) in enumerate(ranking_data, start=1):  # ← enumerateで順位を出す
