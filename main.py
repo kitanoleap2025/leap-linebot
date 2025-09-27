@@ -248,20 +248,16 @@ def send_question(user_id, range_str, bot_type="LEAP"):
     questions = get_questions_by_range(range_str, bot_type, user_id)
 
     if not questions:
-        # WRONG範囲に問題がない場合
         if range_str == "WRONG":
-            return TextSendMessage(text="間違えた単語はありません")
-        return TextSendMessage(text="まだ問題は見つかりません")
+            return TextSendMessage(text="間違えた単語はありません🎉")
+        return TextSendMessage(text="問題が見つかりません。")
 
-    # 出題
     q = choose_weighted_question(user_id, questions)
     user_states[user_id] = (range_str, q["answer"])
     user_answer_start_times[user_id] = time.time()
 
     correct_answer = q["answer"]
 
-    # スコア取得
-    # スコア取得
     if correct_answer not in user_scores.get(user_id, {}):
         score_display = "❓初出題の問題"
     else:
@@ -272,7 +268,14 @@ def send_question(user_id, range_str, bot_type="LEAP"):
             flames = 5 - score
             score_display = "✔" * score + "□" * flames
 
-    other_answers = [item["answer"] for item in questions if item["answer"] != correct_answer]
+    # 全範囲から外れ選択肢を取得
+    if bot_type == "LEAP":
+        all_questions = leap_1_1000 + leap_1001_2000 + leap_2001_2300
+    else:  # TARGET
+        all_questions = target_1_800 + target_801_1500 + target_1501_1900
+
+    other_answers = [item["answer"] for item in all_questions if item["answer"] != correct_answer]
+
     wrong_choices = random.sample(other_answers, k=min(3, len(other_answers)))
     choices = wrong_choices + [correct_answer]
     random.shuffle(choices)
@@ -280,7 +283,6 @@ def send_question(user_id, range_str, bot_type="LEAP"):
     quick_buttons = [QuickReplyButton(action=MessageAction(label=choice, text=choice))
                      for choice in choices]
 
-    # 出題文にスコア表示
     text_to_send = f"{score_display}\n{q['text']}"
 
     return TextSendMessage(text=text_to_send, quick_reply=QuickReply(items=quick_buttons))
