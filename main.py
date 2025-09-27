@@ -454,22 +454,29 @@ def build_ranking_flex_fast(bot_type):
             .order_by(field_name, direction=firestore.Query.DESCENDING)\
             .limit(10).stream()
         ranking_data = [
-            (doc.to_dict().get("name", DEFAULT_NAME), doc.to_dict().get(field_name, 0))
+            (doc.to_dict().get("name") or "名無し",
+             doc.to_dict().get(field_name, 0))
             for doc in docs
         ]
     except Exception as e:
         print(f"Error fetching ranking for {bot_type}: {e}")
         ranking_data = []
 
+    medal_colors = {
+        1: "#FFD700",  # 金
+        2: "#C0C0C0",  # 銀
+        3: "#CD7F32",  # 銅
+    }
+
     bubbles = []
-    for i, (name, rate) in enumerate(ranking_data[:10], 1):
+        color = medal_colors.get(i, "#000000")  # 4位以降は黒
         bubbles.append({
             "type": "box",
             "layout": "baseline",
             "contents": [
-                {"type": "text", "text": f"{i}位", "flex": 1, "size": "sm"},
-                {"type": "text", "text": name, "flex": 3, "size": "sm"},
-                {"type": "text", "text": f"{rate}", "flex": 1, "size": "sm", "align": "end"}
+                {"type": "text", "text": f"{i}位", "flex": 1, "size": "xl", "color": color},
+                {"type": "text", "text": name, "flex": 3, "size": "md", "color": color},
+                {"type": "text", "text": str(rate), "flex": 1, "size": "md", "align": "end", "color": color}
             ]
         })
 
@@ -479,7 +486,7 @@ def build_ranking_flex_fast(bot_type):
             "type": "box",
             "layout": "vertical",
             "contents": [
-                {"type": "text", "text": f"{bot_type.upper()}ランキング", "weight": "bold", "size": "md"},
+                {"type": "text", "text": f"{bot_type.upper()}ランキング", "weight": "bold", "size": "xl"},
                 {"type": "separator", "margin": "md"},
                 *bubbles
             ]
@@ -490,6 +497,7 @@ def build_ranking_flex_fast(bot_type):
         alt_text=f"{bot_type.upper()}ランキング",
         contents=flex_content
     )
+
 #----------------------------------------------------------------------------
 # —————— ここからLINEイベントハンドラ部分 ——————
 # LEAP
