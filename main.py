@@ -253,6 +253,8 @@ def send_question(user_id, range_str, bot_type="LEAP"):
         return TextSendMessage(text="問題が見つかりません。")
 
     q = choose_weighted_question(user_id, questions)
+    if q is None:
+        return TextSendMessage(text="問題リストなし")
     user_states[user_id] = (range_str, q["answer"])
     user_answer_start_times[user_id] = time.time()
 
