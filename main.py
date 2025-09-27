@@ -350,6 +350,13 @@ def build_feedback_flex(user_id, is_correct, score, elapsed, correct_answer=None
         return score_map.get(lbl, 0)
     label_score = get_label_score(label)
 
+    label_symbols = {
+        "!!Brilliant": "✓",
+        "!Great": "!",
+        "✓Correct": "!!",
+    }
+    label_symbol = label_symbols.get(label, "✓")  
+    
     if is_correct:
         color_map = {"!!Brilliant":"#40e0d0", "!Great":"#4682b4", "✓Correct":"#00ff00"}
         color = color_map.get(label, "#000000")
@@ -429,8 +436,8 @@ def build_feedback_flex(user_id, is_correct, score, elapsed, correct_answer=None
         e = y * user_streaks[user_id] * label_score
         body_contents.append({
             "type": "text",
-            "text": f"{y}✖🔥{user_streaks[user_id]}✖{label or '✓Correct'}({label_score})🟰{e}",
-            "size": "xl",
+            "text": f"{y}✖🔥{user_streaks[user_id]}✖{label_symbol}{label_score}🟰{e}",
+            "size": "lg",
             "color": "#333333",
             "margin": "xl"
         })
