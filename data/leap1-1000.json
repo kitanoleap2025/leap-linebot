@@ -3085,62 +3085,182 @@
         "meaning": ""
     },
     {
-        "text": "910 a ___ relative, that is, a stranger\n遠い親戚,つまり他人",
-        "answer": "distant",
-        "meaning": ""
+        "text": "909 The mountain’s ___ is over 3,000 meters.\nその山の高さは3,000メートル以上だ。",
+        "answer": "height",
+        "meaning": "height	[名] ①高さ ②高い所 ③最盛期"
     },
     {
-        "text": "915 Mesopotamian ___\nメソポタミア文明",
+        "text": "910 a ___ relative, that is, a stranger\n遠い親戚,つまり他人",
+        "answer": "distant",
+        "meaning": "distant　[形] 遠い"
+    },
+    {
+        "text": "911 Can you ___ the nearest station on the map?\n地図で最寄り駅を見つけられますか？",
+        "answer": "locate",
+        "meaning": "locate　[他] ①（be ―d）～に位置している，ある ②～の場所を見つける"
+    },
+    {
+        "text": "912 The building is currently ___ by a school.\nその建物は現在、学校が占有している。",
+        "answer": "occupy",
+        "meaning": "occupy　[他] ～を占める"
+    },
+    {
+        "text": "913 The castle is ___ by a high stone wall.\nその城は高い石の壁に囲まれている。",
+        "answer": "surround",
+        "meaning": "surround　[他] ～を取り囲む，包囲する"
+    },
+    {
+        "text": "914 Mesopotamian ___\nメソポタミア文明",
         "answer": "civilization",
-        "meaning": ""
+        "meaning": "classical　[形] ①（音楽，バレエ，ダンスなどで）クラシックの ②古典的な"
+    },
+    {
+        "text": "915 He is a fan of ___ music.\n彼はクラシック音楽のファンだ。",
+        "answer": "classical",
+        "meaning": "civilization　[名] 文明"
+    },
+    {
+        "text": "916 Cultural ___ should be preserved for future generations.\n文化遺産は未来の世代のために保存されるべきだ。",
+        "answer": "heritage",
+        "meaning": "heritage　[名] 遺産"
+    },
+    {
+        "text": "917 The ancient tablet had an unknown ___.\nその古代の石板には未知の文字が刻まれていた。",
+        "answer": "script",
+        "meaning": "script　[名] ①台本，脚本 ②（ある言語の）文字 ③（手書きの）文字"
     },
     {
         "text": "918 Omitting the ___ of the Straw Millionaire, trying to exchange a string for a Benz.\nわらしべ長者の物語を省略して,ひもをベンツと交換しようとする.",
         "answer": "tale",
-        "meaning": ""
+        "meaning": "tale　[名] 話"
     },
     {
         "text": "919 Russian ___\nロシア文学",
         "answer": "literature",
-        "meaning": ""
+        "meaning": "literature　[名] ①文学 ②文献 （①②ともに〈不可算〉）"
     },
     {
-        "text": "924 p___\nことわざ",
+        "text": "920 The play was a great ___.\nその劇は大きな悲劇だった。",
+        "answer": "tragedy",
+        "meaning": "tragedy　[名] 悲劇〈可算〉"
+    },
+    {
+        "text": "921 She enjoys reading ___ in her free time.\n彼女は自由時間に詩を読むのが好きだ。",
+        "answer": "poetry",
+        "meaning": "poetry	[名] 詩〈不可算〉"
+    },
+    {
+        "text": "922 I read a fascinating ___ about her life.\n私は彼女の人生についての魅力的な伝記を読んだ。",
+        "answer": "biography",
+        "meaning": "biography　[名] 伝記"
+    },
+    {
+        "text": "923 The project will run for a six-month ___.\nそのプロジェクトは6か月間の期間で行われる。",
+        "answer": "term",
+        "meaning": "term　[名] ①用語，言葉 ②（long［short］などを伴い）期間，学期，任期 ③（be on ～ ―s）（～の）間柄（である)④（―s）（契約などの）条件"
+    },
+    {
+        "text": "924 ___\nことわざ",
         "answer": "proverb",
-        "meaning": ""
+        "meaning": "proverb　[名] 諺（ことわざ）"
     },
     {
-        "text": "924 a ___ that sounds like rap\nラップのように聞こえる方言",
+        "text": "925 a ___ that sounds like rap\nラップのように聞こえる方言",
         "answer": "dialect",
-        "meaning": ""
+        "meaning": "dialect　[名] 方言"
+    },
+    {
+        "text": "926 She is ___ in three languages.\n彼女は3か国語に流暢だ。",
+        "answer": "fluent",
+        "meaning": "fluent　[形] 流暢な"
+    },
+    {
+        "text": "927 I can ___ this sentence into English.\nこの文を英語に翻訳できる。",
+        "answer": "translate",
+        "meaning": "translate　[他] ①～を翻訳する [自] ②（into ～）（結果として）～に変わる"
+    },
+    {
+        "text": "928 Can you ___ this word?\nこの単語を定義できますか？",
+        "answer": "define",
+        "meaning": "define　[他] ①～を定義する ②～を規定する"
+    },
+    {
+        "text": "929 Please ___ the poem for the audience.\nその詩を聴衆に解釈してください。",
+        "answer": "interpret",
+        "meaning": "interpret　[他] ①～を解釈する ②～を通訳する [自] ③通訳する"
+    },
+    {
+        "text": "930 He likes to ___ famous lines in his speech.\n彼はスピーチで有名な言葉を引用するのが好きだ。",
+        "answer": "quote",
+        "meaning": "quote　[他] ①～を引用する ②～に価格を提示する [名] ③引用文 ④提示価格，見積り"
+    },
+    {
+        "text": "931 He meant it ___, not as a joke.\n彼は文字通りそれを意味していて、冗談ではなかった。",
+        "answer": "literally",
+        "meaning": 	"literally　[副] 文字どおりに"
     },
     {
         "text": "932 The arrow ___ the hidden treasure on the map.\n矢印は地図上の隠された宝物を示している。💎",
         "answer": "indicate",
-        "meaning": ""
+        "meaning": "indicate　[他] ①（データなどが）～を示す ②～を指し示す"
+    },
+    {
+        "text": "933 The evidence will ___ the truth.\nその証拠は真実を明らかにするだろう。",
+        "answer": "reveal",
+        "meaning": "reveal　[他] ～を明らかにする，暴露する"
+    },
+    {
+        "text": "934 They will ___ the results tomorrow.\n彼らは明日結果を発表する。",
+        "answer": "announce",
+        "meaning": "announce　[他] ～を発表する"
+    },
+    {
+        "text": "935 The event will be ___ on television.\nそのイベントはテレビで放送される。",
+        "answer": "broadcast",
+        "meaning": "broadcast　[他] ①～を放送する [名] ②（１回の）放送"
     },
     {
         "text": "936 ___ one's innocence\n無実を証明する",
         "answer": "prove",
-        "meaning": ""
+        "meaning": "prove　[他] ①～を証明する ②（to be ～）～だとわかる"
+    },
+    {
+        "text": "937 The company will ___ its new product on TV.\nその会社は新製品をテレビで宣伝するだろう。",
+        "answer": "advertise",
+        "meaning": "advertise　[他] ～を宣伝する"
+    },
+    {
+        "text": "938 The teacher will ___ the meaning of the term.\n先生はその用語の意味を明確にするだろう。",
+        "answer": "clarify",
+        "meaning": "clarify　[他] ～を明らかにする"
+    },
+    {
+        "text": "939 He will ___ advice from a lawyer.\n彼は弁護士に助言を求めるだろう。",
+        "answer": "seek",
+        "meaning": "seek　[他] ①～を求める ②（to do）～しようと努める"
+    },
+    {
+        "text": "940 The show aims to ___ a wide audience.\nその番組は幅広い視聴者を楽しませることを目的としている。",
+        "answer": "entertain",
+        "meaning": "entertain　[他] ①～を楽しませる ②～をもてなす"
     },
     {
         "text": "941 ___ everyone with jokes\n冗談でみんなを笑わせる(楽しませる)",
         "answer": "amuse",
-        "meaning": ""
+        "meaning": "amuse　[他] ～を楽しませる"
     },
     {
         "text": "942 The pop star’s cheating scandal ___ media attention.\nその人気スターの不倫騒動はマスコミの関心を引き付けた.",
         "answer": "attracted",
-        "meaning": ""
+        "meaning": "attract　[他] ～を引きつける，魅了する"
     },
     {
-        "text": "949 be ___ in programming\nプログラミングに没頭する",
+        "text": "944 be ___ in programming\nプログラミングに没頭する",
         "answer": "absorbed",
         "meaning": ""
     },
     {
-        "text": "950 I am ___ of reading books.\n本を読むことが好きだ.📚",
+        "text": "945 I am ___ of reading books.\n本を読むことが好きだ.📚",
         "answer": "fond",
         "meaning": ""
     },
