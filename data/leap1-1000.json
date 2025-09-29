@@ -2145,174 +2145,349 @@
         "meaning": "determine　[他] ①～を決める，～に大きく影響する ②（be ―d to do）～することを決意している ③（原因など）を特定する"
     },
     {
-        "text": "682 the ___ population of Japan\n日本の推定人口🗾",
-        "answer": "estimated",
-        "meaning": ""
+        "text": "679 We can ___ that the experiment was successful.\n私たちはその実験が成功したと結論づけることができる。",
+        "answer": "conclude",
+        "meaning": "conclude　[他] ①（that SV）～と結論を下す"
     },
     {
-        "text": "685 Did you ___ the changes in the schedule?\nスケジュールの変更には気付いた？",
-        "answer": "notice",
-        "meaning": ""
+        "text": "680 It’s hard to ___ truth from lies.\n真実と嘘を区別するのは難しい。",
+        "answer": "distinguish",
+        "meaning": "distinguish　[他] ～を区別する"
+    },
+    {
+        "text": "681 Scientists ___ plants into different groups.\n科学者たちは植物を異なるグループに分類する。",
+        "answer": "classify",
+        "meaning": "classify　[他] ～を分類する"
+    },
+    {
+        "text": "682 the ___ population of Japan\n日本の推定人口🗾",
+        "answer": "estimated",
+        "meaning": "estimate　[他] ①～を推定する，見積もる [名] ②（for ～）（～の）見積もり"
+    },
+    {
+        "text": "683 We need to ___ a meeting for next week.\n来週のために会議を企画する必要がある。",
+        "answer": "organize",
+        "meaning": "organize　[他] ①（考えなど）をまとめる ②～を組織化する，取りまとめる"
+    },
+    {
+        "text": "684 I can’t ___ her in the crowd.\n群衆の中で彼女を認識できない。",
+        "answer": "recognize",
+        "meaning": "recognize　[他] ①（知り合いなど）が誰だかわかる ②（that SV）～を認識する"
+    },
+    {
+        "text": "685 I ___ he will arrive on time.\n彼は時間通りに到着するだろうと思う。",
+        "answer": "suppose",
+        "meaning": "suppose　[他] ①（be ―d to do）～することになっている ②～と思う，仮定する"
     },
     {
         "text": "686 ___ that he is gay\n彼がゲイだと決めつける✅",
         "answer": "assume",
-        "meaning": ""
+        "meaning": "assume　[他] ①～と思い込む，決めつける ②～を引き受ける"
+    },
+    {
+        "text": "687 I don’t ___ about what others think.\n私は他人の意見を気にしない。",
+        "answer": "care",
+        "meaning": "care　[自] ①（否定文で）気にする ②世話をする [名] ③世話，心配"
+    },
+    {
+        "text": "688 The committee will ___ the new proposal.\n委員会は新しい提案を承認するだろう。",
+        "answer": "approve",
+        "meaning": "approve　[自] ①（of ～）（～を）認める，承認する [他] ②～を承認する"
+    },
+    {
+        "text": "689 Did you ___ the changes in the schedule?\nスケジュールの変更には気付いた？",
+        "answer": "notice",
+        "meaning": "notice　[他] ①～に気がついている [名] ②通知，掲示，注意"
     },
     {
         "text": "691 He was ___ during the entire surgery.\n彼は手術中ずっと意識があった.😱",
         "answer": "conscious",
-        "meaning": ""
+        "meaning": "conscious　[形] ①意識している，気づいている ②意識がある"
     },
     {
         "text": "692 There is growing ___ about climate change.\n気候変動について懸念が高まっている。",
         "answer": "concern",
-        "meaning": ""
+        "meaning": "concerned　[形] ①（with［about］～）（～に）関心を持っている，重視している ②（with ～）（～を）扱っている ③（about［for］～）（～を）懸念している"
     },
     {
         "text": "693 She is ___ as the best teacher in the school.\n彼女は学校で一番の教師とみなされている.",
         "answer": "regarded",
-        "meaning": ""
+        "meaning": "regard　[他] ①（A as B）（A）を（B と）みなす ②（副詞を伴い）～を評価する [名] ③（in ―）点 ④（―s）よろしくという挨拶"
     },
     {
         "text": "694 He ___ himself to finishing the marathon.\n彼はマラソンを完走する事を決意した.",
         "answer": "committed",
-        "meaning": ""
+        "meaning": "commit　[他] ①（oneself to ～ / be ―ed to ～）～に専念する ②（A to B)（A）を（B に）委ねる，充てる ③（犯罪など）を犯す"
     },
     {
         "text": "696 ___ the times tables\n九九を暗記する",
         "answer": "memorize",
-        "meaning": ""
+        "meaning": "memorize　[他] ～を暗記する"
     },
     {
         "text": "697 ___ Gandhi\nガンジーを許す",
         "answer": "forgive",
-        "meaning": ""
+        "meaning": "forgive　[他] （人，過ち）を許す"
     },
     {
         "text": "698 What is taken for ___ today was once a revolutionary idea.\n今日当たり前のように考えられているものは,かつては革新的なアイデアでした.",
         "answer": "granted",
-        "meaning": ""
+        "meaning": "grant　[他] ①（take ～ for granted）～を当然のことと思う ②（権利など）を与える [名] ③交付，補助金"
     },
     {
         "text": "699 ___ my elementary school memories\n小学校の思い出を思い出す",
         "answer": "recall",
-        "meaning": ""
+        "meaning": "recall　[他] ①～を思い出す ②（商品）を回収する，リコールする"
     },
     {
         "text": "702 ___ a project likely to fail\n失敗するであろう企画を放棄する🚯",
         "answer": "abandon",
-        "meaning": ""
+        "meaning": "abandon　[他] ～を捨てる，放棄する"
+    },
+    {
+        "text": "703 We must ___ unnecessary expenses.\n不要な出費を排除しなければならない。",
+        "answer": "eliminate",
+        "meaning": "eliminate　[他] ①（不要な人，物，事）を排除する ②（be ―d）敗退する"
+    },
+    {
+        "text": "704 She tried to ___ all doubts about the plan.\n彼女はその計画に対する疑念をすべて取り除こうとした。",
+        "answer": "rid",
+        "meaning": "rid　[他] （get ― of ～）①（不要品）を処分する ②～を取り除く"
+    },
+    {
+        "text": "705 Please ___ the old files from the desk.\n机から古いファイルを取り除いてください。",
+        "answer": "remove",
+        "meaning": "remove　[他] ①～を取り除く，取り去る ②（衣服）を脱ぐ"
     },
     {
         "text": "706 Japan is a country with few energy ___.\n日本はエネルギー源がほとんどない国だ。",
         "answer": "resources",
-        "meaning": ""
+        "meaning": "resource　[名] ①（―s）（石油などの）資源，（人，国の）財産 ②（―s）（困難に立ち向かう）力量 ③（万一の頼みの）手段"
+    },
+    {
+        "text": "707 Wildlife ___ is important for future generations.\n野生生物の保護は未来の世代のために重要だ。",
+        "answer": "conservation",
+        "meaning": "conservation [名] ①保護 ②保存"
+    },
+    {
+        "text": "708 We should ___ natural resources.\n私たちは天然資源を保護すべきだ。",
+        "answer": "preserve",
+        "meaning": "preserve [他] ①（自然など）を保護する ②（景観，平和，食品など）を保つ"
+    },
+    {
+        "text": "709 The earthquake was a terrible ___.\nその地震は恐ろしい災害だった。",
+        "answer": "disaster",
+        "meaning": "disaster [名] ①災害 ②大失敗"
+    },
+    {
+        "text": "710 We must take action to protect the ___.\n私たちは地球を守るために行動を起こさなければならない。",
+        "answer": "planet",
+        "meaning": "planet　[名] ①惑星 ②（the ―）地球"
     },
     {
         "text": "711 Is our mission to protect the ___?\n私たちの使命は環境を守ることですか?",
         "answer": "environment",
-        "meaning": ""
+        "meaning": "environment　[名] 環境，周囲（の状況）"
+    },
+    {
+        "text": "712 The sun disappeared below the ___.\n太陽が地平線の下に消えた。",
+        "answer": "horizon",
+        "meaning": "horizon　[名] ①水平線，地平線 ②（―s）視野"
+    },
+    {
+        "text": "713 The cake has several ___ of cream.\nそのケーキにはいくつかの層のクリームがある。",
+        "answer": "layer",
+        "meaning": "layer　[名] （大気や地面などの）層 <可算>"
+    },
+    {
+        "text": "714 ___ is an important part of human history.\n農業は人類の歴史において重要な役割を果たしてきた。",
+        "answer": "agriculture",
+        "meaning": "agriculture　[名] 農業〈不可算〉"
+    },
+    {
+        "text": "715 This year’s rice ___ is abundant.\n今年の米の収穫は豊作だ。",
+        "answer": "crop",
+        "meaning": "crop　[名] ①作物 ②収穫（高)[自] ③（up）生じる"
+    },
+    {
+        "text": "716 Healthy plants need fertile ___.\n健康な植物には肥沃な土壌が必要だ。",
+        "answer": "soil",
+        "meaning": "soil　[名] 土，土壌"
     },
     {
         "text": "717 There are ___ here and there.\nあちらこちらに雑草がある",
         "answer": "weeds",
-        "meaning": ""
+        "meaning": "weed　[名] ①雑草，海草 [他] ②～の雑草を抜く"
     },
     {
-        "text": "720 ___ power generation\n太陽光発電🌞",
-        "answer": "solar",
-        "meaning": ""
+        "text": "718 Bee pollen is collected from flowers.\n蜂の花粉は花から集められる。",
+        "answer": "pollen",
+        "meaning": "pollen　[名] 花粉"
+    },
+    {
+        "text": "719 The more ice cream sells, the more people ___.\nアイスクリームが売れるほど、溺れる人は増える。🍦",
+        "answer": "drown",
+        "meaning": "drown　[自] 溺れ死ぬ"
+    },
+    {
+        "text": "720 The pipe began to ___ water.\nそのパイプが水漏れし始めた。",
+        "answer": "leak",
+        "meaning": "leak　[自] ①漏れる [他] ②～を漏らす [名] ③漏れ"
     },
     {
         "text": "721 There is growing concern about ___ change.\n気候変動について懸念が高まっている。",
         "answer": "climate",
-        "meaning": "concerned　[形] ①（with［about］～）（～に）関心を持っている，重視している ②（with ～）（～を）扱っている ③（about［for］～）（～を）懸念している"
+        "meaning": "climate　[名] ①気候 ②（政治，経済，文化の）状況"
     },
     {
         "text": "723 according to the weather ___\n天気予報によれば",
         "answer": "forecast",
-        "meaning": ""
+        "meaning": "forecast　[名] ①予報 [他] ②～を予報する"
     },
     {
         "text": "724 The summer in Juso is hot and ___ .\n十三の夏は蒸し暑い.",
         "answer": "humid",
-        "meaning": ""
+        "meaning": "humid　[形] 湿気が多い"
     },
     {
         "text": "725 ___ rainforests\n熱帯雨林",
         "answer": "tropical",
-        "meaning": ""
+        "meaning": "tropical　[形] 熱帯の"
+    },
+    {
+        "text": "726 ___ power generation\n太陽光発電🌞",
+        "answer": "solar",
+        "meaning": "solar　[形] 太陽の"
+    },
+    {
+        "text": "727 Many ___ of animals live in the rainforest.\n多くの動物種が熱帯雨林に生息している。",
+        "answer": "species",
+        "meaning": "species　[名] 種〈単複同形〉"
+    },
+    {
+        "text": "728 Farmers use ___ to protect crops.\n農家は作物を守るために農薬を使用する。",
+        "answer": "pesticide",
+        "meaning": "pesticide　[名] （虫や小動物などの）殺虫剤、駆除剤"
+    },
+    {
+        "text": "729 Dinosaurs are an ___ species.\n恐竜は絶滅した種である。",
+        "answer": "extinct",
+        "meaning": "extinct　[形] 絶滅した"
+    },
+    {
+        "text": "730 We need to ___ the animals twice a day.\n動物に1日2回餌を与える必要がある。",
+        "answer": "feed",
+        "meaning": "feed　[他] ①～にえさを与える ②（子どもなど）を養う [自] ③（on ～）（～を）常食とする"
+    },
+    {
+        "text": "731 She is always ___ and ready to work.\n彼女はいつも元気で仕事の準備ができている。",
+        "answer": "energetic",
+        "meaning": "energetic　[形] （人，運動などが）活発な"
+    },
+    {
+        "text": "732 The boy was so ___ that he took all the candy.\nその少年はとても欲張りで、すべてのキャンディを取った。",
+        "answer": "greedy",
+        "meaning": "greedy　[形] 貪欲な"
+    },
+    {
+        "text": "733 The soldier was very ___ in battle.\nその兵士は戦闘で非常に勇敢だった。",
+        "answer": "brave",
+        "meaning": "brave　[形] 勇敢な"
     },
     {
         "text": "734 a ___ coward\n気前の良い臆病者",
         "answer": "generous",
-        "meaning": ""
+        "meaning": "generous　[形] 気前のよい"
     },
     {
         "text": "736 She is ___ .\n彼女は好奇心旺盛だ.",
         "answer": "curious",
-        "meaning": ""
+        "meaning": "curious　[形] ①（人が主語）好奇心が強い ②（物が主語）奇妙な，好奇心をそそる"
     },
     {
         "text": "738 I wish we could ___ to eat whatever we want.\n食べたいものを何でも食べられる余裕があればいいのに.",
         "answer": "afford",
-        "meaning": ""
+        "meaning": "afford　[他] ①（can ―）～する余裕がある ②（SVO1O2）（O1に）O2を与える"
     },
     {
         "text": "740 Judging by appearances, he is ___ .\n見た目で判断すると、彼は自分勝手だ✅",
         "answer": "selfish",
-        "meaning": ""
+        "meaning": "selfish　[形] 利己的な，自分勝手な"
     },
     {
         "text": "743 He is ___ to alcohol.\n彼はアルコール中毒になっている.🍺",
         "answer": "addicted",
-        "meaning": ""
+        "meaning": "addicted　[形] ～の中毒になっている"
     },
     {
         "text": "744 a ___ old man next door\nお隣の頑固な老人👴",
         "answer": "stubborn",
-        "meaning": ""
+        "meaning": "stubborn　[形] 頑固な"
     },
     {
         "text": "746 an attitude that doesn’t seem ___ at all\n罪の意識があるとは思えない態度🤪",
         "answer": "guilty",
-        "meaning": ""
+        "meaning": "guilty　[形] ①申し訳なく思う，罪の意識がある ②（of ～）（～の）罪を犯した"
     },
     {
-        "text": "747 I am ___ to you.\n私はあなたに無関心です",
+        "text": "747 The child is completely ___ of any wrongdoing.\nその子供は何の罪もない。",
+        "answer": "innocent",
+        "meaning": "innocent　[形] ①（of ～）（～に関して）無実の ②無邪気な"
+    },
+    {
+        "text": "748 She gave a ___ apology for her mistake.\n彼女は自分の過ちについて誠実に謝罪した。",
+        "answer": "sincere",
+        "meaning": "sincere　[形] ①（心から）誠実な ②（言動が）心からの，偽りのない"
+    },
+    {
+        "text": "749 He is a ___ man who never boasts.\n彼は決して自慢しない控えめな人だ。",
+        "answer": "modest",
+        "meaning": "modest　[形] ①（人が）謙虚な ②（物が）大きくない，高くない"
+    },
+    {
+        "text": "750 It was ___ to forget such an important date.\nそんな重要な日付を忘れるなんて愚かだった。",
+        "answer": "stupid",
+        "meaning": "stupid　[形] ばかな"
+    },
+    {
+        "text": "751 I am ___ to you.\n私はあなたに無関心です",
         "answer": "indifferent",
-        "meaning": ""
+        "meaning": "indifferent　[形] 無関心で"
+    },
+    {
+        "text": "752 She is always ___ for meetings.\n彼女はいつも会議に時間通りに来る。",
+        "answer": "punctual",
+        "meaning": "punctual　[形] （約束などの）時間を守る"
     },
     {
         "text": "753 a generous ___\n気前の良い臆病者",
         "answer": "coward",
-        "meaning": ""
+        "meaning": "coward　[名] 臆病者"
     },
     {
         "text": "755 an ___ clock\n正確な時計⌚",
         "answer": "accurate",
-        "meaning": ""
+        "meaning": "accurate　[形] 正確な"
     },
     {
         "text": "756 Wearing a tuxedo to a barbecue is not ___.\nバーベキューにタキシードを着ていくのは適切ではない。🤵",
         "answer": "proper",
-        "meaning": ""
+        "meaning": "proper　[形] 適切な"
     },
     {
         "text": "758 Using both hands to peel a banana is surprisingly ___.\n両手でバナナをむくのは意外と効率的だ。🍌",
         "answer": "efficient",
-        "meaning": ""
+        "meaning": "efficient　[形] ①能率的な，無駄がない ②（人が）有能な"
     },
     {
         "text": "760 Even a small change can have a ___ effect on society.\n小さな変化でも社会に大きな影響を与える.",
         "answer": "significant",
-        "meaning": ""
+        "meaning": "significant　[形] ①重要な、有意な ②（数量，増減などが）かなりの"
     },
     {
         "text": "761 Don't waste your ___ time.\n貴重な時間を浪費するな.⌛",
         "answer": "precious",
-        "meaning": ""
+        "meaning": "precious　[形] ①（時間や命などが）貴重な ②（宝石などが）高価な"
     },
     {
         "text": "765 The scientist made a ___ discovery in the laboratory.\nその科学者は研究室で重大な発見をした.",
