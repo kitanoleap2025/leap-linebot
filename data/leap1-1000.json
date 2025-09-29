@@ -802,62 +802,97 @@
     {
         "text": "269 The world is trying to ___ dependence on fossil fuels.\n世界は化石燃料への依存を減らそうとしている.",
         "answer": "reduce",
-        "meaning": ""
+        "meaning": "reduce　[他] ①～を減らす ②（A to B)A をB にする"
     },
     {
         "text": "271 Don’t ___ your chickens before they hatch.\n卵がかえる前にヒヨコを数えるな🐣",
         "answer": "count",
-        "meaning": ""
+        "meaning": "count　[他] ①～を数える [自]②数える ③重要である ④（on ～）（～を）（全面的に）当てにする"
     },
     { 
         "text": "275 The ___ of laundry was a huge obstacle to finishing homework.\n洗濯物の山は宿題を終わらせる大きな障害だった。",
         "answer": "pile", 
-        "meaning": "" 
+        "meaning": "pile　[名] ①積み重ね，山 ②多量 [他] ③～を積み重ねる" 
     },
     {
         "text": "276 It is said that the crime ___ in the city has increased this year.\n今年,この街の犯罪率は増加したと言われている。🔪",
         "answer": "rate",
-        "meaning": ""
+        "meaning": "rate　[名] ①割合，速さ ②（ホテルなどの一定の）料金 [他] ③～を評価する"
+    },
+    {
+        "text": "277 I can’t ___ out what he means.\n彼が何を意味しているのか理解できない。",
+        "answer": "figure",
+        "meaning": "figure　[名] ①数字 ②人物 ③スタイル，体つき ④図 [自] ⑤目立つ"
+    },
+    {
+        "text": "278 The project failed due to a ___ of funds.\n資金不足のためそのプロジェクトは失敗した。",
+        "answer": "lack",
+        "meaning": "lack　[名] ①（（a）― of ～）（～の）不足 [他] ②～を欠いている"
     },
     {
         "text": "279 It will cost fifty dollars ___ a month.\nそれは毎月50ドル余分にかかる.💸",
         "answer": "extra",
-        "meaning": ""
+        "meaning": "extra　[形] ①余分な，追加の，臨時の [名] ②余分な［追加された］もの"
     },
     {
         "text": "280 If you're ___, let's go already!\n準備できているなら,もう行こうよ!🚗",
         "answer": "ready",
-        "meaning": ""
+        "meaning": "ready　[形] ①用意ができている ②（be ～ to do）進んで～する"
+    },
+    {
+        "text": "281 We need to ___ for the upcoming exam.\n私たちは来る試験に備える必要がある。",
+        "answer": "prepare",
+        "meaning": "prepare　[他] ①～の準備をする，用意をする [自] ②準備をする，用意をする [形] ③（be ―d to do）（～する）準備ができている"
+    },
+    {
+        "text": "282 You should ___ the seat to fit your height.\n自分の身長に合わせて席を調整すべきだ。",
+        "answer": "adjust",
+        "meaning": "adjust　[自] ①（to ～）（～に）慣れる [他] ②～を調整する"
+    },
+    {
+        "text": "283 Please ___ sunscreen before going outside.\n外に出る前に日焼け止めを塗ってください。",
+        "answer": "apply",
+        "meaning": "apply　[自] ①（to ～）（～に）当てはまる ②（for ～）（～に）申し込む [他] ③～を当てはめる，応用する ④（薬，口紅など）を塗る"
     },
     {
         "text": "284 Did you have your hair cut? It ___ you!\n髪切った？似合ってるよ！✅",
         "answer": "suits",
-        "meaning": ""
+        "meaning": "suit　[他] ①（人）に適している，好都合だ ②（服装，色が人）に似合う [名] ③訴訟（＝lawsuit)④スーツ"
     },
     {
         "text": "286 A:What movie has no kissing ___? B:Your life.\nA:キスシーンの無い映画は？",
         "answer": "scenes",
-        "meaning": ""
+        "meaning": "scene　[名] ①（劇，小説などの）場面 ②（事故）現場 ③（the ～ scene）～（業）界"
+    },
+    {
+        "text": "287 There’s a good ___ of winning the game.\nその試合に勝つチャンスは高い。",
+        "answer": "chance",
+        "meaning": "chance　[名] ①（to do）（～する）機会 ②（of ～ / that SV）（～の/ ～する）可能性"
+    },
+    {
+        "text": "288 This is a great ___ to improve your skills.\nこれはスキルを向上させる絶好の機会だ。",
+        "answer": "opportunity",
+        "meaning": "opportunity　[名] （よい）機会，好機"
     },
     {
         "text": "289 We will ___ many technological advances in our life.\n私たちは生活の中で多くの技術の進歩を経験するだろう。",
         "answer": "experience",
-        "meaning": ""
+        "meaning": "experience　[名] ①経験 ②（個々の）体験 [他] ③～を経験する"
     },
     {
         "text": "291 Looks like ___ has somehow arrived outdoors.\n外では春が来たようだ.",
         "answer": "spring",
-        "meaning": ""
+        "meaning": "spring　[名] ①春 ②泉，温泉 [自] ③飛び出る，突然出現する"
     },
     {
         "text": "293 Children under six must be accomanied by someone ___ 18 or older.\n6歳未満のお子様には18歳以上の人の付き添いが必要です.",
         "answer": "aged",
-        "meaning": ""
+        "meaning": "age　[名] ①年齢 ②時代 ③（―s）長い間 [自] ④高齢化する"
     },
     {
         "text": "294 a ___ gap\n世代間格差",
         "answer": "generation",
-        "meaning": ""
+        "meaning": "generation　[名] ①世代 ②生み出すこと ③発電"
     },
     {
         "text": "295 We celebrated our tenth wedding ___.\n私たちは結婚10周年を祝った。",
