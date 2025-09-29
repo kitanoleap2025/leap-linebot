@@ -2820,14 +2820,39 @@
         "meaning": "emergency　[名] ①緊急事態 ②（形容詞的に）緊急の"
     },
     {
+        "text": "849 This is a special ___ for celebration.\nこれはお祝いの特別な機会だ。",
+        "answer": "occasion",
+        "meaning": "occasion　[名] ①場合 ②行事，祝い事"
+    },
+    {
+        "text": "850 It was an ___ meeting, not planned.\nそれは偶然の会合で、計画されたものではなかった。",
+        "answer": "accidental",
+        "meaning": "accidental　[形] 偶然の、偶発的な"
+    },
+    {
         "text": "851 I am not satisfied with my ___ salary.\n私は今の給料に満足していない.",
         "answer": "current",
         "meaning": "current　[形] ①最新の，今の ②流通して [名] ③流れ，風潮"
     },
     {
+        "text": "852 He has a ___ job for three months.\n彼は3か月間の臨時の仕事がある。",
+        "answer": "temporary",
+        "meaning": "temporary　[形] 一時的な"
+    },
+    {
+        "text": "853 They installed a ___ system for safety.\n彼らは安全のために永久的なシステムを設置した。",
+        "answer": "permanent",
+        "meaning": "permanent　[形] 永久的な"
+    },
+    {
         "text": "854 from the ___ year\n前の年から",
         "answer": "previous",
         "meaning": "previous　[形] （時間，順序で）前の，以前の"
+    },
+    {
+        "text": "855 My ___ teacher inspired my career.\n私の元の先生が私のキャリアに影響を与えた。",
+        "answer": "former",
+        "meaning": "former　[名] ①（the ―）前者 [形] ②元の、前の、旧"
     },
     {
         "text": "856 ___ Japanese society\n現代の日本社会🏙️",
@@ -2838,6 +2863,11 @@
         "text": "857 I have noy heard from her ___.\n最近彼女から連絡がない.",
         "answer": "lately",
         "meaning": "lately　[副] 最近"
+    },
+    {
+        "text": "858 Please come here ___.\nすぐにこちらに来てください。",
+        "answer": "immediately",
+        "meaning": ""
     },
     {
         "text": "859 Teacher decided to extend the ___ by one week.\n先生は締め切りを1週間延長することに決めた。😍",
