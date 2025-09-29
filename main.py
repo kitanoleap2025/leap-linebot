@@ -269,7 +269,7 @@ def send_question(user_id, range_str, bot_type="LEAP"):
         if score == 0:
             score_display = "✖間違えた問題"
         else:
-            flames = 5 - score
+            flames = 4 - score
             score_display = "✔" * score + "□" * flames
 
     # 全範囲から外れ選択肢を取得
