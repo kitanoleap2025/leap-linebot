@@ -452,82 +452,102 @@
     {
         "text": "133 English is so widespread that it is hard to ___ its usefulness.\n英語はとても普及しているのでどの有用性を否定するのは難しい。",
         "answer": "deny",
-        "meaning": ""
+        "meaning": "deny　[他] ①～を否定する ②〈SVO1O2〉（O1）に（O2を）与えない"
     },
     {
         "text": "134 The internet ___ us to find information quickly about various jobs.\nインターネットで様々な職業についての情報を素早く見つけることができます。",
         "answer": "enables",
-        "meaning": ""
+        "meaning": "enable　[他] （A to do）（A）に［が］（～することを）可能にする"
     },
     {
         "text": "135 ___ in escaping from prison\n脱獄に成功する",
         "answer": "succeed",
-        "meaning": ""
+        "meaning": "succeed　[自] ①（in ～）（～に）成功する ②（to ～）（家業などを）継ぐ"
     },
     {
         "text": "136 ___ the last train\n終電を逃す",
         "answer": "miss",
-        "meaning": ""
+        "meaning": "miss　[他] ①～を逃す ②～を休む ③～を恋しく思う"
     },
     {
         "text": "137 abandon a project likely to ___\n失敗するであろう企画を放棄する🚯",
         "answer": "fail",
-        "meaning": ""
+        "meaning": "fail　[自] ①（in［at］～）（～に）失敗する ②（to do）～できない [他] ③（試験）に落ちる ④（人）に役に立たない"
     },
     {
         "text": "138 He ___ silence for wisdom, and loudness for leadership.\n彼は沈黙を賢さと勘違いし,声の大きさをリーダーシップと勘違いした.",
         "answer": "mistook",
-        "meaning": ""
+        "meaning": "mistake　[名] ①間違い [他] ②（A for B）（A）を（B と）間違える"
     },
     {
         "text": "139 We ought not to spend a lot of time ___ social media.\nソーシャルメディアを確認するのに多くの時間を費やすべきではない。",
         "answer": "checking",
-        "meaning": ""
+        "meaning": "check　[他] ①～を調べる ②～を阻止する [名] ③小切手 ④勘定書 ⑤検査，点検 ⑥抑制"
     },
     {
         "text": "140 They __ Jews from the Nazis.\n彼らはナチスからユダヤ人を隠した.",
         "answer": "hid",
-        "meaning": ""
+        "meaning": "hide　[他] ①～を隠す [自] ②隠れる"
     },
     {
         "text": "141 ___ her portrait\n彼女の似顔絵を描く🎨",
         "answer": "draw",
-        "meaning": ""
+        "meaning": "draw　[他] ①（線で絵など）を描く ②（注意）を引く ③～を引っ張る，集める"
     },
     {
-        "text": "146 At dawn, the LGBTQ flag was ___ from his house.\n夜が明けると、彼の家からLGBTQフラッグが上がった。🏳️‍🌈",
+        "text": "147 At dawn, the LGBTQ flag was ___ from his house.\n夜が明けると、彼の家からLGBTQフラッグが上がった。🏳️‍🌈",
         "answer": "raised",
-        "meaning": ""
+        "meaning": "raise　[他] ①～を上げる ②（子ども，作物）を育てる ③（お金，資金）を集める ④（問題）を提起する [名]⑤賃上げ，昇給"
     },
     {
         "text": "150 ___ the coffee\nコーヒーをこぼす☕",
         "answer": "spill",
-        "meaning": ""
+        "meaning": "spill　[他] ①～をこぼす [名] ②（石油などの）流出"
     },
     {
         "text": "151 He said something shallow, ___ to be profound.\n彼は深そうに見せかけて浅いことを言った",
         "answer": "pretending",
-        "meaning": ""
+        "meaning": "pretend　[自] （to do / that SV）（～する/ ～である）ふりをする"
     },
     {
         "text": "153 ___ Juso after school\n放課後,十三を探検する",
         "answer": "explore",
-        "meaning": ""
+        "meaning": "bear　[他] ①（can ―）～に耐える ②～を持つ、運ぶ ③～を産む"
     },
     {
         "text": "154 It is not what ___ that matters. It is how you respond.\n大事なのは何が起きたかではない.どう応じるかだ.",
         "answer": "happened",
-        "meaning": ""
+        "meaning": "explore　[他] ①～を探検する，（街など）を探索する ②（問題など）を探る"
     },
     {
         "text": "155 More and more problems ___.\nますます多くの問題が現れた.",
         "answer": "appeared",
-        "meaning": ""
+        "meaning": "happen　[自] ①（to ～）（～に）起こる ②（to do）偶然～する"
     },
     {
         "text": "157 ___ silent\n黙ったままでいる",
         "answer": "remain",
-        "meaning": ""
+        "meaning": "remain　[自] ①～のままでいる ②残る"
+    },
+    {
+        "text": "158 Only a few animals can ___ in the desert.\n砂漠で生き残れる動物はわずかだ。",
+        "answer": "survive",
+        "meaning": "survive　[自] ①生き残る [他] ②～から生き延びる，～の後も存続する    "
+    },
+    {
+        "text": "159 These books ___ to the library.\nこれらの本は図書館に属している。",
+        "answer": "belong",
+        "meaning": "belong　[自] （to ～）（～に）所属している"
+    },
+    {
+        "text": "160 The flag will ___ our country at the event.\nその旗がイベントで私たちの国を代表する。",
+        "answer": "represent",
+        "meaning": "represent　[他] ①～を代表する ②（記号などが）を表す ③～を表現する"
+    },
+    {
+        "text": "161 The story is ___ on true events.\nその物語は実際の出来事に基づいている。",
+        "answer": "base",
+        "meaning": "base　[他] ①～の基礎を置く [名] ②基礎（の部分），基盤 ③基地"
     },
     {
         "text": "162 The list ___ her name.\nリストには彼女の名前が含まれていた.",
@@ -537,62 +557,62 @@
     {
         "text": "164 The captain rescued only the passengers from his ___ country.\n船長は自国の乗客だけを救出しました.",
         "answer": "own",
-        "meaning": ""
+        "meaning": "own　[形] （所有格の後で）①自分自身の ②（名詞的に）自分自身のもの [他] ③～を所有している"
     },
     {
-        "text": "167 ___ is written by the victors.\n歴史は勝者によって書かれる.",
+        "text": "168 ___ is written by the victors.\n歴史は勝者によって書かれる.",
         "answer": "History",
-        "meaning": ""
+        "meaning": "history　[名] ①歴史 ②履歴，前歴，病歴"
     },
     {
         "text": "170 compulsory ___\n義務教育",
         "answer": "education",
-        "meaning": ""
+        "meaning": "education　[名] 教育"
     },
     {
         "text": "171 No less important than ___ is the ability to question it.\n知識に劣らず重要なのは,それを疑問視する能力です.",
         "answer": "knowledge",
-        "meaning": ""
+        "meaning": "knowledge　[名] 知識，知っていること"
     },
     {
         "text": "173 The revelation that he had repeated three ___ caused chaos in the classroom.\n彼が3留だったことが発覚し,教室は大混乱となった.💮💮💮", 
         "answer": "grades",
-        "meaning": ""
+        "meaning": "grade　[名] ①（小，中，高の）学年 ②等級 ③成績"
     },
     {
         "text": "175 I’m worried whether he can ___.\n彼が卒業できるのか心配だ.🎓",
         "answer": "graduate",
-        "meaning": ""
+        "meaning": "graduate　[自] （from ～）（～を）卒業する"
     },
     {
         "text": "176 He ___ to quit his job.\n彼は仕事を辞めることに決めた。",
         "answer": "decided",
-        "meaning": ""
+        "meaning": "decide　[他] ①（to do）（～すること）を決定する，決心する [自] ②（on ～）（～を）決める"
     },
     {
         "text": "177 ___ by appearances, he is selfish.\n見た目で判断すると、彼は自分勝手だ。",
         "answer": "Judging",
-        "meaning": ""
+        "meaning": "judge　[他] ①～を判断する [名] ②裁判官，審判（員）"
     },
     {
         "text": "178 He decided to ___ his job.\n彼は仕事を辞めることに決めた。",
         "answer": "quit",
-        "meaning": ""
+        "meaning": "quit　[他] ～を（完全に）やめる"
     },
     {
         "text": "179 My father will ___ next year.\n父は来年引退する予定だ。",
         "answer": "retire",
-        "meaning": ""
+        "meaning": "retire　[自] （from ～）（～を）引退する，退職する"
     },
     {
         "text": "180 Let's ___ the notes before the test.\nテスト前にノートを復習しよう。",
         "answer": "review",
-        "meaning": ""
+        "meaning": "review　[名] ①再検討 ②（新聞などの）批評 ③復習"
     },
     {
         "text": "181 You can ___ any book you like.\n好きな本をどれでも選んでいいよ。",
         "answer": "choose",
-        "meaning": ""
+        "meaning": "choose　[他] ①～を選ぶ [自] ②選ぶ"
     },
     {
         "text": "182 I cannot ___ life without her.\n彼女なしの人生なんて想像できない。😍",
