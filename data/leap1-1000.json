@@ -617,27 +617,87 @@
     {
         "text": "182 I cannot ___ life without her.\n彼女なしの人生なんて想像できない。😍",
         "answer": "imagine",
-        "meaning": ""
+        "meaning": "imagine　[他] ～を想像する"
     },
     {
-        "text": "189 His family celebrated his finally being ___ into college.\n彼の家族は,彼がついに大学に合格したことを祝った.㊗️",
+        "text": "183 Can you ___ what will happen next?\n次に何が起こるか予想できますか？",
+        "answer": "guess",
+        "meaning": "guess　[他] ①～を推測する [名] ②推測"
+    },
+    {
+        "text": "184 I ___ you will succeed in the exam.\n私はあなたが試験に合格すると期待している。",
+        "answer": "expect",
+        "meaning": "expect　[他] ①～を予期する ②（A of［from］ B）（B にA）を期待する ③（be ―ing）（～を）身ごもっている（※③は[自]も可）"
+    },
+    {
+        "text": "185 Experts ___ a rise in temperature.\n専門家たちは気温の上昇を予測している。",
+        "answer": "predict",
+        "meaning": "predict　[他] ～を予測する"
+    },
+    {
+        "text": "186 Please ___ to lock the door before leaving.\n出かける前にドアに鍵をかけるのを忘れないでください。",
+        "answer": "remember",
+        "meaning": "remember　[他] ①（doing）（過去にしたこと）を覚えている ②（to do）（～すること）を覚えている ③（me to ～）（～に）よろしく伝える"
+    },
+    {
+        "text": "187 Please ___ me to call him.\n私に彼に電話するように思い出させてください。",
+        "answer": "remind",
+        "meaning": "remind　[他] ①（A of B）（A）に（B のことを）思い出させる ②（（人）to do）（人）に～するように念を押す"
+    },
+    {
+        "text": "188 I didn’t ___ the truth until now.\n私は今まで真実に気づかなかった。",
+        "answer": "realize",
+        "meaning": "realize　[他] ①～を（はっきり）理解する ②（夢，計画など）を実現する"
+    },
+    {
+        "text": "189 I really ___ your help.\nあなたの助けに本当に感謝します。",
+        "answer": "appreciate",
+        "meaning": "appreciate　[他] ①～を（正しく）理解する ②～のよさがわかる ③～に感謝する"
+    },
+    {
+        "text": "190 His family celebrated his finally being ___ into college.\n彼の家族は,彼がついに大学に合格したことを祝った.㊗️",
         "answer": "accepted",
-        "meaning": ""
+        "meaning": "accept　[他] ～を受け入れる"
+    },
+    {
+        "text": "191 We should ___ all options before deciding.\n決定する前にすべての選択肢を考慮すべきだ。",
+        "answer": "consider",
+        "meaning": "consider　[他] ①～をよく考える，考慮する ②（人の気持ち）を思いやる ③（A （to be［as］)B)（A）を（B と）みなす"
+    },
+    {
+        "text": "192 Do you ___ my opening the window?\n私が窓を開けることに気を悪くしますか？",
+        "answer": "mind",
+        "meaning": "mind　[自] ①気にする [名] ②精神，頭脳 ③（才能，知性のある）人"
+    },
+    {
+        "text": "193 I ___ if it will rain tomorrow.\n明日雨が降るかどうか疑問に思う。",
+        "answer": "wonder",
+        "meaning": "wonder　[他] ①（wh―節 / if SV）～かなと思う [自] ②（at ～）（～に）驚く"
     },
     {
         "text": "194 He ___ to side with the insects.\n彼はその虫の味方をするようだ.🐛",
         "answer": "seems",
-        "meaning": ""
+        "meaning": "seem　[自] ～のように思われる"
+    },
+    {
+        "text": "195 We should ___ prices before buying.\n買う前に価格を比較すべきだ。",
+        "answer": "compare",
+        "meaning": "compare　[他] ①（A with［to, and］ B）（A）を（B と）比較する ②（A to B）（A）を（B に）例える [自] ③（with［to］～）（～に）匹敵する"
+    },
+    {
+        "text": "196 Please ___ on your homework.\n宿題に集中してください。",
+        "answer": "concentrate",
+        "meaning": "concentrate　[自] ①（on ～）（～に）集中する [他] ②（A on B）（A）を（B に）集中させる"
     },
     {
         "text": "197 ___ on myself for now\n今は自分のことに集中する🔥",
         "answer": "focus",
-        "meaning": ""
+        "meaning": "focus　[自] ①（on ～）（～に）焦点を当てる，力を注ぐ [名] ②焦点"
     },
     {
         "text": "198 In principle, club activities are not ___ during exam periods.\n原則として,部活動はテスト期間中は許可されていません.",
         "answer": "allowed",
-        "meaning": ""
+        "meaning": "allow　[他] ①（人が）～を許可する ②（物が）～を可能にする"
     },
     {
         "text": "202 lose ___ of the destination.\n目的地を見失う🚩",
