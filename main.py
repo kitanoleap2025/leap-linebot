@@ -426,35 +426,18 @@ def build_feedback_flex(user_id, is_correct, score, elapsed, correct_answer=None
         })
 
     count_today = user_daily_counts[user_id]["count"]
-    body_contents.append({
-        "type": "text",
-        "text": f"🔥{user_streaks[user_id]}",
-        "size": "md",
-        "color": "#333333",
-        "margin": "md"
-    })
-
     if is_correct:
         y = 5 - score
         e = y * user_streaks[user_id] * label_score
+        total_e_today = user_daily_e[user_id]["total_e"]
         body_contents.append({
             "type": "text",
-            "text": f"{y}✖🔥{user_streaks[user_id]}✖{label_symbol}{label_score}🟰{e}",
+            "text": f"{y}✖🔥{user_streaks[user_id]}✖{label_symbol}{label_score}🟰{e}  total:{total_e_today}",
             "size": "lg",
             "color": "#333333",
             "margin": "xl"
         })
-
-        # トータル e 表示
-        total_e_today = user_daily_e[user_id]["total_e"]
-        body_contents.append({
-            "type": "text",
-            "text": f"total:{total_e_today}",
-            "size": "md",
-            "color": "#0000ff",
-            "margin": "md"
-        })
-
+        
     return FlexSendMessage(
         alt_text="回答フィードバック",
         contents={
@@ -482,21 +465,20 @@ def update_total_e_rate(user_id):
 def build_ranking_with_totalE_flex(bot_type):
     # total_rateランキング
     field_name_rate = f"total_rate_{bot_type.lower()}"
-    # totalEランキング（上位5人）
     try:
-        docs_e = db.collection("users")\
-            .order_by("total_e_rate", direction=firestore.Query.DESCENDING)\
+        docs_rate = db.collection("users")\
+            .order_by(field_name_rate, direction=firestore.Query.DESCENDING)\
             .limit(5).stream()
-        ranking_e = [
+        ranking_rate = [
             (doc.to_dict().get("name") or "名無し",
-            doc.to_dict().get("total_e_rate", 0))
-            for doc in docs_e
+             doc.to_dict().get(field_name_rate, 0))
+            for doc in docs_rate
         ]
     except Exception as e:
-        print(f"Error fetching totalE ranking: {e}")
-        ranking_e = []
+        print(f"Error fetching total_rate ranking: {e}")
+        ranking_rate = []
 
-    # totalEランキング（上位5人）
+    # totalEランキング
     try:
         docs_e = db.collection("users")\
             .order_by("total_e", direction=firestore.Query.DESCENDING)\
@@ -567,6 +549,7 @@ def build_ranking_with_totalE_flex(bot_type):
         alt_text=f"{bot_type.upper()}ランキング + TotalEランキング",
         contents=flex_content
     )
+
 #----------------------------------------------------------------------------
 # —————— ここからLINEイベントハンドラ部分 ——————
 # LEAP
