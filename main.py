@@ -467,25 +467,73 @@ def build_feedback_flex(user_id, is_correct, score, elapsed, correct_answer=None
     )
 
 # 高速ランキング（自分の順位も表示）
-def build_ranking_flex_fast(bot_type):
-    field_name = f"total_rate_{bot_type.lower()}"
+def build_ranking_with_totalE_flex(bot_type):
+    # total_rateランキング
+    field_name_rate = f"total_rate_{bot_type.lower()}"
     try:
-        docs = db.collection("users")\
-            .order_by(field_name, direction=firestore.Query.DESCENDING)\
+        docs_rate = db.collection("users")\
+            .order_by(field_name_rate, direction=firestore.Query.DESCENDING)\
             .limit(10).stream()
-        ranking_data = [
+        ranking_rate = [
             (doc.to_dict().get("name") or "名無し",
-             doc.to_dict().get(field_name, 0))
-            for doc in docs
+             doc.to_dict().get(field_name_rate, 0))
+            for doc in docs_rate
         ]
     except Exception as e:
         print(f"Error fetching ranking for {bot_type}: {e}")
-        ranking_data = []
+        ranking_rate = []
 
-    medal_colors = defaultdict(lambda: "#000000")
+    # totalEランキング（上位5人）
+    try:
+        docs_e = db.collection("users")\
+            .order_by("total_e", direction=firestore.Query.DESCENDING)\
+            .limit(5).stream()
+        ranking_e = [
+            (doc.to_dict().get("name") or "名無し",
+             doc.to_dict().get("total_e", 0))
+            for doc in docs_e
+        ]
+    except Exception as e:
+        print(f"Error fetching totalE ranking: {e}")
+        ranking_e = []
+
     bubbles = []
-    for i, (name, rate) in enumerate(ranking_data, start=1):  # ← enumerateで順位を出す
-        color = medal_colors.get(i, "#000000")  # 4位以降は黒
+
+    medal_colors = {1: "#FFD700", 2: "#C0C0C0", 3: "#CD7F32", 4: "#000000", 5: "#000000"}
+
+    # totalEランキング部分
+    bubbles.append({
+        "type": "box",
+        "layout": "vertical",
+        "contents": [
+            {"type": "text", "text": "🔥 TotalEランキング (上位5)", "weight": "bold", "size": "xl"},
+            {"type": "separator", "margin": "md"}
+        ]
+    })
+    for i, (name, e_value) in enumerate(ranking_e, start=1):
+        color = medal_colors.get(i, "#000000")
+        bubbles.append({
+            "type": "box",
+            "layout": "baseline",
+            "contents": [
+                {"type": "text", "text": f"{i}位", "flex": 1, "size": "md", "color": color},
+                {"type": "text", "text": name, "flex": 3, "size": "md", "color": color},
+                {"type": "text", "text": str(e_value), "flex": 1, "size": "md", "align": "end", "color": color}
+            ]
+        })
+    bubbles.append({"type": "separator", "margin": "md"})
+
+    # total_rateランキング部分
+    bubbles.append({
+        "type": "box",
+        "layout": "vertical",
+        "contents": [
+            {"type": "text", "text": f"{bot_type.upper()}ランキング (total_rate)", "weight": "bold", "size": "xl"},
+            {"type": "separator", "margin": "md"}
+        ]
+    })
+    for i, (name, rate) in enumerate(ranking_rate, start=1):
+        color = medal_colors.get(i, "#000000")
         bubbles.append({
             "type": "box",
             "layout": "baseline",
@@ -501,27 +549,14 @@ def build_ranking_flex_fast(bot_type):
         "body": {
             "type": "box",
             "layout": "vertical",
-            "contents": [
-                {"type": "text", "text": f"{bot_type.upper()}ランキング", "weight": "bold", "size": "xl"},
-                {"type": "separator", "margin": "md"},
-                *bubbles
-            ]
+            "contents": bubbles
         }
     }
 
     return FlexSendMessage(
-        alt_text=f"{bot_type.upper()}ランキング",
+        alt_text=f"{bot_type.upper()}ランキング + TotalEランキング",
         contents=flex_content
     )
-
-def get_label_score(label):
-    score_map = {
-        "✓Correct": 1,
-        "!Great": 3,
-        "!!Brilliant": 10
-    }
-    return score_map.get(label, 0)
-
 
 #----------------------------------------------------------------------------
 # —————— ここからLINEイベントハンドラ部分 ——————
@@ -613,7 +648,7 @@ def handle_message_common(event, bot_type, line_bot_api):
         
     # ランキング
     if msg == "ランキング":
-        flex_msg = build_ranking_flex_fast(bot_type)
+        flex_msg = build_ranking_with_totalE_flex(bot_type)
         line_bot_api.reply_message(event.reply_token, flex_msg)
         return
 
