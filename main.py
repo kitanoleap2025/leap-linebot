@@ -612,7 +612,6 @@ def handle_message_common(event, bot_type, line_bot_api):
         # 正解かどうか判定
         is_correct = (msg.lower() == correct_answer.lower())
         score = user_scores[user_id].get(correct_answer, 1)
-        label_score = get_label_score(label)
 
         elapsed = time.time() - user_answer_start_times.get(user_id, time.time())
         label, delta = evaluate_X(elapsed, score, correct_answer)
@@ -627,7 +626,8 @@ def handle_message_common(event, bot_type, line_bot_api):
             user_streaks[user_id] += 1
             delta_score = delta_map.get(label, 1)
             user_scores[user_id][correct_answer] = min(user_scores[user_id].get(correct_answer, 1) + delta_score, 4)
-            
+
+            label_score = get_label_score(label)
             y = 5 - score
             e = y * user_streaks[user_id] * label_score
 
