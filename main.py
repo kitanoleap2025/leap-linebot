@@ -82,13 +82,19 @@ def load_user_data(user_id):
         user_names[user_id] = DEFAULT_NAME
 
 def save_user_data(user_id):
+    today = time.strftime("%Y-%m-%d")
+    total_e = user_daily_e[user_id]["total_e"]
+    total_e_date = user_daily_e[user_id]["date"]
+
     data = {
         "scores": dict(user_scores[user_id]),
         "recent": list(user_recent_questions[user_id]),
-        "name": user_names.get(user_id, DEFAULT_NAME)
+        "name": user_names.get(user_id, DEFAULT_NAME),
+        "total_e": total_e,
+        "total_e_date": total_e_date
     }
     try:
-        db.collection("users").document(user_id).set(data)
+        db.collection("users").document(user_id).set(data, merge=True)
     except Exception as e:
         print(f"Error saving user data for {user_id}: {e}")
 
