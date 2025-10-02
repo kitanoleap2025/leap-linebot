@@ -683,6 +683,13 @@ def handle_message_common(event, bot_type, line_bot_api):
 
             # トータル e 更新
             user_daily_e[user_id]["total_e"] += e
+            try:
+                db.collection("users").document(user_id).set({
+                    "total_e": user_daily_e[user_id]["total_e"],
+                    "total_e_date": today
+                }, merge=True)
+            except Exception as ex:
+                print(f"Error saving total_e for {user_id}: {ex}")
 
         else:
             # 不正解時は0
