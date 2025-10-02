@@ -328,13 +328,7 @@ trivia_messages = [
     "データ保存系ボット🤖\n若さは、ニュースを楽しめるようになった日で終わる。",
     "データ保存系ボット🤖\n",
 ]
-def get_label_score(lbl):
-    score_map = {
-        "✓Correct": 1,
-        "!Great": 3,
-        "!!Brilliant": 10
-    }
-    return score_map.get(lbl, 0)
+
     
 def evaluate_X(elapsed, score, answer, is_multiple_choice=True):
     X = elapsed**1.7 + score**1.5
@@ -345,18 +339,18 @@ def evaluate_X(elapsed, score, answer, is_multiple_choice=True):
         return "!Great", 2
     else:
         return "✓Correct", 1
-        
+
+def get_label_score(lbl):
+    score_map = {
+        "✓Correct": 1,
+        "!Great": 3,
+        "!!Brilliant": 10
+    }
+    return score_map.get(lbl, 0)
+    
 #FEEDBACK　flex
 def build_feedback_flex(user_id, is_correct, score, elapsed, correct_answer=None, label=None, meaning=None):
     body_contents = []
-
-    def get_label_score(lbl):
-        score_map = {
-            "✓Correct": 1,
-            "!Great": 3,
-            "!!Brilliant": 10
-        }
-        return score_map.get(lbl, 0)
     label_score = get_label_score(label)
 
     label_symbols = {
