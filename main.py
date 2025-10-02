@@ -510,7 +510,7 @@ def build_ranking_with_totalE_flex(bot_type):
         "type": "box",
         "layout": "vertical",
         "contents": [
-            {"type": "text", "text": "🔥Total score", "weight": "bold", "size": "xl"},
+            {"type": "text", "text": "今日のスコアランキング", "weight": "bold", "size": "xl"},
             {"type": "separator", "margin": "md"}
         ]
     })
@@ -532,7 +532,7 @@ def build_ranking_with_totalE_flex(bot_type):
         "type": "box",
         "layout": "vertical",
         "contents": [
-            {"type": "text", "text": f"🥇{bot_type.upper()}ランキング", "weight": "bold", "size": "xl"},
+            {"type": "text", "text": f"{bot_type.upper()}ランキング", "weight": "bold", "size": "xl"},
             {"type": "separator", "margin": "md"}
         ]
     })
