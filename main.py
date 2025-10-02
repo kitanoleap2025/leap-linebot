@@ -347,7 +347,7 @@ def get_label_score(lbl):
         "!!Brilliant": 10
     }
     return score_map.get(lbl, 0)
-    
+        
 #FEEDBACK　flex
 def build_feedback_flex(user_id, is_correct, score, elapsed, correct_answer=None, label=None, meaning=None):
     body_contents = []
