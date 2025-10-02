@@ -466,22 +466,17 @@ def build_feedback_flex(user_id, is_correct, score, elapsed, correct_answer=None
             }
         }
     )
-
 def update_total_e_rate(user_id):
     user_data = db.collection("user_data").document(user_id).get().to_dict()
     if not user_data:
         return
 
     e_words = user_data.get("e_words", {})
-    if e_words:
-        total_e_rate = sum(e_words.values()) / len(e_words)
-    else:
-        total_e_rate = 0
+    total_e_rate = sum(e_words.values()) / len(e_words) if e_words else 0
 
-    db.collection("user_data").document(user_id).set({
+    db.collection("users").document(user_id).set({
         "total_e_rate": round(total_e_rate, 2)
     }, merge=True)
-
 
 # 高速ランキング（自分の順位も表示）
 def build_ranking_with_totalE_flex(bot_type):
@@ -516,9 +511,6 @@ def build_ranking_with_totalE_flex(bot_type):
         ranking_e = []
 
     bubbles = []
-
-    medal_colors = {1: "#FFD700", 2: "#C0C0C0", 3: "#CD7F32", 4: "#000000", 5: "#000000"}
-
     # totalEランキング部分
     bubbles.append({
         "type": "box",
