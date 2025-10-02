@@ -215,6 +215,46 @@
         "meaning": "medicine　[名] ①（for ～）（～の）薬 ②医学（＝medical science）"
     },
     {
+        "text": "049 The ___ waited calmly for the doctor.\n患者は落ち着いて医者を待っていた。",
+        "answer": "patient",
+        "meaning": "patient　[名] ①患者 [形] ②忍耐強い"
+    },
+    {
+        "text": "050 The car is in perfect ___.\nその車は完璧な状態だ。",
+        "answer": "condition",
+        "meaning": "condition　[名] ①状態，容態 ②（通例 ―s）（周囲の）状況，条件"
+    },
+    {
+        "text": "051 She needs ___ attention after the accident.\n彼女は事故後、医療のケアが必要だ。",
+        "answer": "medical",
+        "meaning": "medical　[形] ①医療の ②医学の"
+    },
+    {
+        "text": "052 Work pressure can cause ___.\n仕事のプレッシャーはストレスを引き起こすことがある。",
+        "answer": "stress",
+        "meaning": "stress　[名] ①ストレス ②（on ～）（～に対する）強調 [他] ③～を強調する"
+    },
+    {
+        "text": "053 He ___ from a serious illness.\n彼は重い病気に苦しんでいる。",
+        "answer": "suffer",
+        "meaning": "suffer　[自] ①（from ～）（病気などで）苦しむ [他] ②（苦痛，損害）を経験する"
+    },
+    {
+        "text": "054 Daily ___ is important for health.\n毎日の運動は健康に重要だ。",
+        "answer": "exercise",
+        "meaning": "exercise　[名] ①運動 ②（―s）練習 [自] ③運動する [他] ④～を行使する"
+    },
+    {
+        "text": "055 Remember to ___ deeply during meditation.\n瞑想中は深く呼吸することを忘れないでください。",
+        "answer": "breathe",
+        "meaning": "breathe　[自] 呼吸する，息をする"
+    },
+    {
+        "text": "056 After running, I felt very ___.\n走った後、私はとても喉が渇いた。",
+        "answer": "thirsty",
+        "meaning": "thirsty　[形] ①のどが渇いた ②（for ～）（～を）切望して"
+    },
+    {
         "text": "057 ___ beauty\n肉体美💪",
         "answer": "physical",
         "meaning": "physical　[形] ①身体的な ②物理的な"
@@ -440,14 +480,64 @@
         "meaning": "likely　[形] ①（to do）～しそうだ，可能性が高い [副] ②おそらく"
     },
     {
+        "text": "121 It’s ___ for the sky to be blue.\n空が青いのは自然なことだ。",
+        "answer": "natural",
+        "meaning": "natural　[形] ①当然の ②自然の ③生まれながらの"
+    },
+    {
+        "text": "122 I’m ___ he will come to the party.\n彼がパーティーに来るのは確かだ。",
+        "answer": "certain",
+        "meaning": "certain　[形] ①確かな ②（名詞の前で）ある～"
+    },
+    {
+        "text": "123 It will ___ rain tomorrow.\n明日はおそらく雨が降るだろう。",
+        "answer": "probably",
+        "meaning": "probably　[副] おそらく"
+    },
+    {
+        "text": "124 We must ___ the challenges ahead.\n私たちは今後の挑戦に直面しなければならない。",
+        "answer": "face",
+        "meaning": "face　[他] ①～に直面する ②〈方向〉～向きである [名] ③顔，体面、文字盤"
+    },
+    {
+        "text": "125 Try to ___ making mistakes.\nミスを避けるように努めなさい。",
+        "answer": "avoid",
+        "meaning": "avoid　[他] ～を避ける"
+    },
+    {
         "text": "126 He found a new way to ___ the problem.\n彼は問題を解決する新しい方法を見つけた。💡",
         "answer": "solve",
         "meaning": "solve　[他] ～を解決する"
     },
     {
+        "text": "127 He is in ___ with the police.\n彼は警察とトラブルを抱えている。",
+        "answer": "trouble",
+        "meaning": "trouble　[名] ①問題，ごたごた（通例〈不可算〉)[他] ②～を困らせる"
+    },
+    {
         "text": "128 Complex ___ compose themselves of simple, ignored mistakes.\n複雑な問題は,無視された単純なミスから成り立っている.",
         "answer": "issues",
         "meaning": "issue　[名] ①問題 ②（雑誌の）号 [他] ③（切手など）を発行する"
+    },
+    {
+        "text": "129 They will ___ the team after the win.\n勝利後、彼らはチームを励ますだろう。",
+        "answer": "cheer",
+        "meaning": "cheer　[他] ①（on）～に声援を送る ②（up）～を励ます [名] ③声援，励まし ④（―s）乾杯"
+    },
+    {
+        "text": "130 Parents should ___ their children.\n親は子供を励ますべきだ。",
+        "answer": "encourage",
+        "meaning": "encourage　[他] ①（A to do）（A）に（～するよう）促す，奨励する ②～を励ます"
+    },
+    {
+        "text": "131 Friends often ___ each other in hard times.\n友人は困難な時に互いに支え合う。",
+        "answer": "support",
+        "meaning": "support　[他] ①～を支持する ②（家族など）を養う ③（理論など）を立証する [名] ④支持，支援<不可算>"
+    },
+    {
+        "text": "132 We must ___ accidents by being careful.\n注意を払うことで事故を防がなければならない。",
+        "answer": "prevent",
+        "meaning": "prevent　[他] ①（A from B）（AがBするの）を妨げる ②～を予防する"
     },
     {
         "text": "133 English is so widespread that it is hard to ___ its usefulness.\n英語はとても普及しているのでどの有用性を否定するのは難しい。",
