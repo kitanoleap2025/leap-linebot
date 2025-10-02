@@ -467,22 +467,39 @@ def build_feedback_flex(user_id, is_correct, score, elapsed, correct_answer=None
         }
     )
 
+def update_total_e_rate(user_id):
+    user_data = db.collection("user_data").document(user_id).get().to_dict()
+    if not user_data:
+        return
+
+    e_words = user_data.get("e_words", {})
+    if e_words:
+        total_e_rate = sum(e_words.values()) / len(e_words)
+    else:
+        total_e_rate = 0
+
+    db.collection("user_data").document(user_id).set({
+        "total_e_rate": round(total_e_rate, 2)
+    }, merge=True)
+
+
 # 高速ランキング（自分の順位も表示）
 def build_ranking_with_totalE_flex(bot_type):
     # total_rateランキング
     field_name_rate = f"total_rate_{bot_type.lower()}"
+    # totalEランキング（上位5人）
     try:
-        docs_rate = db.collection("users")\
-            .order_by(field_name_rate, direction=firestore.Query.DESCENDING)\
-            .limit(10).stream()
-        ranking_rate = [
+        docs_e = db.collection("users")\
+            .order_by("total_e_rate", direction=firestore.Query.DESCENDING)\
+            .limit(5).stream()
+        ranking_e = [
             (doc.to_dict().get("name") or "名無し",
-             doc.to_dict().get(field_name_rate, 0))
-            for doc in docs_rate
+            doc.to_dict().get("total_e_rate", 0))
+            for doc in docs_e
         ]
     except Exception as e:
-        print(f"Error fetching ranking for {bot_type}: {e}")
-        ranking_rate = []
+        print(f"Error fetching totalE ranking: {e}")
+        ranking_e = []
 
     # totalEランキング（上位5人）
     try:
@@ -558,7 +575,6 @@ def build_ranking_with_totalE_flex(bot_type):
         alt_text=f"{bot_type.upper()}ランキング + TotalEランキング",
         contents=flex_content
     )
-
 #----------------------------------------------------------------------------
 # —————— ここからLINEイベントハンドラ部分 ——————
 # LEAP
@@ -669,6 +685,7 @@ def handle_message_common(event, bot_type, line_bot_api):
         }
 
         if is_correct:
+            update_total_e_rate(user_id)
             user_streaks[user_id] += 1
             delta_score = delta_map.get(label, 1)
             user_scores[user_id][correct_answer] = min(user_scores[user_id].get(correct_answer, 1) + delta_score, 4)
