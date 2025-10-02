@@ -513,6 +513,15 @@ def build_ranking_flex_fast(bot_type):
         contents=flex_content
     )
 
+def get_label_score(label):
+    score_map = {
+        "✓Correct": 1,
+        "!Great": 3,
+        "!!Brilliant": 10
+    }
+    return score_map.get(label, 0)
+
+
 #----------------------------------------------------------------------------
 # —————— ここからLINEイベントハンドラ部分 ——————
 # LEAP
