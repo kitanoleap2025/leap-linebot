@@ -461,7 +461,7 @@ def update_total_e_rate(user_id):
         "total_e_rate": round(total_e_rate, 2)
     }, merge=True)
 
-color = "#000000"
+medal_colors = #000000
 
 # 高速ランキング（自分の順位も表示）
 def build_ranking_with_totalE_flex(bot_type):
