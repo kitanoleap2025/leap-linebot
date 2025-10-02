@@ -827,22 +827,72 @@
     {
         "text": "215 The pond ___ over.\n池が一面凍った.",
         "answer": "froze",
-        "meaning": ""
+        "meaning": "freeze　[自] ①凍る，凍りつく [他] ②～を凍らせる"
     },
     {
         "text": "216 The cherry blossoms are ___ in the stream.\n桜が小川に反射する🌸",
         "answer": "reflicted",
-        "meaning": ""
+        "meaning": "reflect　[他] ①～を反射する ②～を反映する [自] ③（on ～）（～を）熟考する"
     },
     {
         "text": "217 She spoke in a ___ manner.\n彼女は丁寧な話し方をした。",
         "answer": "polite",
-        "meaning": ""
+        "meaning": "polite　[形] （人，言動が）礼儀正しい"
+    },
+    {
+        "text": "218 It’s ___ to interrupt someone while they are speaking.\n話している人の話を遮るのは失礼だ。",
+        "answer": "rude",
+        "meaning": "rude　[形] （言葉、行為が）無礼な，不作法な"
+    },
+    {
+        "text": "219 She feels ___ since moving to a new city.\n彼女は新しい街に引っ越してから孤独を感じている。",
+        "answer": "lonely",
+        "meaning": "lonely　[形] 孤独な"
+    },
+    {
+        "text": "220 He is too ___ to clean his room.\n彼は部屋を掃除するのが怠けすぎている。",
+        "answer": "lazy",
+        "meaning": "lazy　[形] ①（やる気がなく）怠惰な，いい加減な ②（名詞の前で）くつろいだ"
+    },
+    {
+        "text": "221 The teacher is very ___ about homework.\nその先生は宿題に関して厳しい。",
+        "answer": "strict",
+        "meaning": "strict　[形] 厳しい"
+    },
+    {
+        "text": "222 The statue was considered ___ by many.\nその像は多くの人に醜いと考えられた。",
+        "answer": "ugly",
+        "meaning": "ugly　[形] 醜い"
+    },
+    {
+        "text": "223 He is a very ___ student who learns quickly.\n彼は非常に頭の良い生徒で、すぐに学ぶ。",
+        "answer": "intelligent",
+        "meaning": "intelligent　[形] 知的な，賢い"
+    },
+    {
+        "text": "224 It was a ___ mistake to forget her birthday.\n彼女の誕生日を忘れるのは愚かな間違いだった。",
+        "answer": "silly",
+        "meaning": "silly　[形] ばかな"
+    },
+    {
+        "text": "225 She felt ___ before her speech.\n彼女はスピーチの前に緊張した。",
+        "answer": "nervous",
+        "meaning": "nervous　[形] ①あがって，落ち着かない ②神経質な，臆病な ③（身体の）神経の"
+    },
+    {
+        "text": "226 He is still ___ after waking up.\n彼は目覚めた後もまだ起きている状態だ。",
+        "answer": "awake",
+        "meaning": "awake　[形] 目を覚まして"
+    },
+    {
+        "text": "227 He likes to be ___ when studying.\n彼は勉強するときに一人でいるのが好きだ。",
+        "answer": "alone",
+        "meaning": "alone　[副] ①1人で [形] ②（名詞＋alone）～だけ"
     },
     {
         "text": "228 an ___ that doesn’t seem guilty at all\n罪の意識があるとは思えない態度🤪",
         "answer": "attitude",
-        "meaning": ""
+        "meaning": "attitude　[名] 態度，姿勢"
     },
     {
         "text": "230 unique ___\nユニークな特徴",
