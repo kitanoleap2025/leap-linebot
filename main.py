@@ -448,7 +448,7 @@ def build_feedback_flex(user_id, is_correct, score, elapsed, correct_answer=None
         total_e_today = user_daily_e[user_id]["total_e"]
         body_contents.append({
             "type": "text",
-            "text": f"total:{total_e_today}e",
+            "text": f"total:{total_e_today}",
             "size": "md",
             "color": "#0000ff",
             "margin": "md"
@@ -482,6 +482,7 @@ def build_ranking_flex_fast(bot_type):
         print(f"Error fetching ranking for {bot_type}: {e}")
         ranking_data = []
 
+    medal_colors = defaultdict(lambda: "#000000")
     bubbles = []
     for i, (name, rate) in enumerate(ranking_data, start=1):  # ← enumerateで順位を出す
         color = medal_colors.get(i, "#000000")  # 4位以降は黒
