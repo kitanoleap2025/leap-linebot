@@ -1900,9 +1900,24 @@
         "meaning": "lead　[自] ①（to ～）（～に）至る [他] ②（a ～ life）（～な生活）を送る ③（A to do）A に～させる [名] ④鉛，（シャーペンなどの）芯" 
     },
     {
+        "text": "582 The sun will ___ at six in the morning.\n太陽は朝6時に昇る。",
+        "answer": "rise",
+        "meaning": "rise　[自] ①上がる，昇る [名] ②上昇"
+    },
+    {
         "text": "583 like the ___ of a river\n川の流れのように",
         "answer": "flow",
         "meaning": "flow　[自] ①流れる [名] ②流れ"
+    },
+    {
+        "text": "584 The balloon will ___ if you blow too much air into it.\n風船は空気を入れすぎると破裂する。",
+        "answer": "burst",
+        "meaning": "burst　[自] ①破裂する，爆発する ②（慣用句で）突然～し始める"
+    },
+    {
+        "text": "585 The ice will ___ in the sun.\n氷は日光で溶ける。",
+        "answer": "melt",
+        "meaning": "melt　[自] ①（固体が）溶ける [他] ②～を溶かす"
     },
     {
         "text": "586 ___ time\n通学時間",
@@ -2100,9 +2115,39 @@
         "meaning": "bow　[自] ①おじぎする [名] ②おじぎ"
     },
     {
+        "text": "632 He gave a ___ to show agreement.\n彼は同意を示すためにうなずいた。",
+        "answer": "nod",
+        "meaning": "nod　[自] ①うなずく ②（off）うたた寝する [名] ③うなずき，会釈"
+    },
+    {
         "text": "633 She ___.\n彼女はためいきをついた.😮‍💨",
         "answer": "sighed",
         "meaning": "sigh　[自] ①ため息をつく [名] ②ため息"
+    },
+    {
+        "text": "634 I couldn’t help but ___ during the lecture.\n講義中についあくびをしてしまった。",
+        "answer": "yawn",
+        "meaning": "yawn　[自] ①あくびをする [名] ②あくび"
+    },
+    {
+        "text": "635 She had to ___ because of allergies.\n彼女はアレルギーのためくしゃみをした。",
+        "answer": "sneeze",
+        "meaning": "sneeze　[自] くしゃみをする"
+    },
+    {
+        "text": "636 They decided to ___ the old tradition.\n彼らは古い習慣を廃止することに決めた。",
+        "answer": "bury",
+        "meaning": "bury　[他] ①～を埋める ②～を埋葬する"
+    },
+    {
+        "text": "637 The band will ___ a concert tonight.\nそのバンドは今夜コンサートを行う。",
+        "answer": "perform",
+        "meaning": "perform　[他] ①～を遂行する ②～を演じる，演奏する [自] ③（副詞を伴い）やる"
+    },
+    {
+        "text": "638 They decided to ___ a child from overseas.\n彼らは海外から子供を養子にすることに決めた。",
+        "answer": "adopt",
+        "meaning": "adopt　[他] ①～を採用する ②～を養子にする、（動物など）を引き取る"
     },
     {
         "text": "639 succeed in ___ from prison\n脱獄に成功する",
