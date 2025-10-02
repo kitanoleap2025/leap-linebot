@@ -328,7 +328,14 @@ trivia_messages = [
     "データ保存系ボット🤖\n若さは、ニュースを楽しめるようになった日で終わる。",
     "データ保存系ボット🤖\n",
 ]
-
+def get_label_score(lbl):
+    score_map = {
+        "✓Correct": 1,
+        "!Great": 3,
+        "!!Brilliant": 10
+    }
+    return score_map.get(lbl, 0)
+    
 def evaluate_X(elapsed, score, answer, is_multiple_choice=True):
     X = elapsed**1.7 + score**1.5
 
@@ -506,7 +513,7 @@ def build_ranking_with_totalE_flex(bot_type):
         "type": "box",
         "layout": "vertical",
         "contents": [
-            {"type": "text", "text": "🔥 TotalEランキング (上位5)", "weight": "bold", "size": "xl"},
+            {"type": "text", "text": "🔥Total score", "weight": "bold", "size": "xl"},
             {"type": "separator", "margin": "md"}
         ]
     })
@@ -528,7 +535,7 @@ def build_ranking_with_totalE_flex(bot_type):
         "type": "box",
         "layout": "vertical",
         "contents": [
-            {"type": "text", "text": f"{bot_type.upper()}ランキング (total_rate)", "weight": "bold", "size": "xl"},
+            {"type": "text", "text": f"🥇{bot_type.upper()}ランキング", "weight": "bold", "size": "xl"},
             {"type": "separator", "margin": "md"}
         ]
     })
