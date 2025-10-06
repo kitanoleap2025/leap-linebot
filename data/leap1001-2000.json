@@ -540,9 +540,9 @@
         "meaning": ""
     },
     {
-        "text": "1117 He spent ten years in ___.\n彼は刑務所で10年過ごした。",
+        "text": "1117 succeed in escaping from ___\n脱獄に成功する",
         "answer": "prison",
-        "meaning": ""
+        "meaning": "prison　[名] 刑務所"
     },
     {
         "text": "1118 Gambling is considered a ___.\nギャンブルは悪徳とみなされる。",
@@ -565,9 +565,9 @@
         "meaning": ""
     },
     {
-        "text": "1122 The soldier had a deep ___ on his arm.\nその兵士は腕に深い傷を負った。",
-        "answer": "wound",
-        "meaning": ""
+        "text": "1122 heal emotional ___\n心の傷を回復する💗",
+        "answer": "wounds",
+        "meaning": "wound\t[名] ①傷 [他] ②～を傷つける"
     },
     {
         "text": "1123 The victory was a great ___.\nその勝利は大きな勝利だった。",
@@ -800,23 +800,28 @@
         "meaning": ""
     },
     {
-        "text": "1110 Logic is the ___ of clear thinking and good arguments.\n論理は明晰な思考と良い議論の基礎である。",
-        "answer": "basis",
-        "meaning": "basis\t[名] ①基礎，根拠 ②（on a ～ basis）（～を）基準（として）"
+        "text": "1169 The director decided to ___ the main actor for the movie.\n監督はその映画の主役を配役することにした。",
+        "answer": "cast",
+        "meaning": ""
     },
     {
-        "text": "1117 succeed in escaping from ___\n脱獄に成功する",
-        "answer": "prison",
-        "meaning": "prison\t[名] 刑務所"
+        "text": "1170 The shocking news ___ everyone in the room.\nその衝撃的なニュースは部屋の全員を呆然とさせた。",
+        "answer": "stunned",
+        "meaning": ""
     },
     {
-        "text": "1122 heal emotional ___\n心の傷を回復する💗",
-        "answer": "wounds",
-        "meaning": "wound\t[名] ①傷 [他] ②～を傷つける"
+        "text": "1171 The streetlights ___ the entire park at night.\n街灯は夜、公園全体を照らす。",
+        "answer": "illuminate",
+        "meaning": ""
     },
     {
-        "text": "1157 They took a moderate ___ to solving the problem.\n彼らはその問題を解決するために穏健なアプローチを取った。",
-        "answer": "approach",
+        "text": "1172 Detectives worked hard to ___ the truth behind the crime.\n刑事たちは犯罪の真相を暴くために懸命に働いた。",
+        "answer": "uncover",
+        "meaning": ""
+    },
+    {
+        "text": "1173 She tried to ___ the broken vase carefully.\n彼女は壊れた花瓶を注意深く修復しようとした。",
+        "answer": "mend",
         "meaning": ""
     },
     {
@@ -824,6 +829,42 @@
         "answer": "react",
         "meaning": ""
     },
+    {
+        "text": "1175 They had to ___ the harsh winter without enough supplies.\n彼らは十分な物資もなく厳しい冬を耐えなければならなかった。",
+        "answer": "endure",
+        "meaning": ""
+    },
+    {
+        "text": "1176 The rope was used to ___ the packages together.\nロープは荷物を一緒に縛るために使われた。",
+        "answer": "bind",
+        "meaning": ""
+    },
+    {
+        "text": "1177 During the hike, they ___ a wild animal unexpectedly.\nハイキング中、彼らは予期せず野生動物に遭遇した。",
+        "answer": "encountered",
+        "meaning": ""
+    },
+    {
+        "text": "1178 Scientists ___ the origins of the ancient artifact.\n科学者たちは古代の遺物の起源をたどった。",
+        "answer": "traced",
+        "meaning": ""
+    },
+    {
+        "text": "1179 She had to ___ several surgeries to recover.\n彼女は回復するためにいくつかの手術を受けなければならなかった。",
+        "answer": "undergo",
+        "meaning": ""
+    },
+    {
+        "text": "1180 Make sure to ___ the envelope before sending it.\n送る前に封筒をしっかり封をしなさい。",
+        "answer": "seal",
+        "meaning": ""
+    },
+    {
+        "text": "1181 The company plans to ___ new features into their software.\nその会社はソフトウェアに新機能を組み込む予定だ。",
+        "answer": "incorporate",
+        "meaning": ""
+    },
+    
     {
         "text": "1221 a pleasant ___\n心地よいそよかぜ🍃",
         "answer": "breeze",
@@ -985,6 +1026,111 @@
         "meaning": "outlet\t[名] ①(電気の)コンセント ②(販売)店 ③(感情などの)はけ口"
     },
     {
+        "text": "1900 The company offers free ___ for all online orders.\nその会社はすべてのオンライン注文に無料配送を提供している。",
+        "answer": "shipping",
+        "meaning": ""
+    },
+    {
+        "text": "1901 She sewed the button with a red ___.\n彼女は赤い糸でボタンを縫った。",
+        "answer": "thread",
+        "meaning": ""
+    },
+    {
+        "text": "1902 She hung a beautiful ___ on the Christmas tree.\n彼女はクリスマスツリーに美しい飾りをかけた。",
+        "answer": "ornament",
+        "meaning": ""
+    },
+    {
+        "text": "1903 She buys natural ___ products.\n彼女は自然派の化粧品を買う。",
+        "answer": "cosmetic",
+        "meaning": ""
+    },
+    {
+        "text": "1904 The royal family met in a private ___.\n王室はプライベートな部屋で会った。",
+        "answer": "chamber",
+        "meaning": ""
+    },
+    {
+        "text": "1905 Rice is an important ___ in international trade.\n米は国際貿易で重要な商品だ。",
+        "answer": "commodity",
+        "meaning": ""
+    },
+    {
+        "text": "1906 Many animals ___ in caves or burrows.\n多くの動物は洞窟や巣穴に住む。",
+        "answer": "dwell",
+        "meaning": ""
+    },
+    {
+        "text": "1907 The concert hall has excellent ___ quality.\nそのコンサートホールは優れた音響を持っている。",
+        "answer": "acoustic",
+        "meaning": ""
+    },
+    {
+        "text": "1908 She followed her grandmother’s ___ to bake the cake.\n彼女は祖母のレシピに従ってケーキを焼いた。",
+        "answer": "recipe",
+        "meaning": ""
+    },
+    {
+        "text": "1909 Daily ___ of vegetables is recommended.\n野菜の毎日の摂取が推奨される。",
+        "answer": "intake",
+        "meaning": ""
+    },
+    {
+        "text": "1910 A brief introduction will ___ the main lecture.\n簡単な紹介が本講義に先立つ。",
+        "answer": "precede",
+        "meaning": ""
+    },
+    {
+        "text": "1911 The project is in its final ___.\nそのプロジェクトは最終段階にある。",
+        "answer": "phase",
+        "meaning": ""
+    },
+    {
+        "text": "1912 Safety is our top ___.\n安全が私たちの最優先事項だ。",
+        "answer": "priority",
+        "meaning": ""
+    },
+    { 
+        "text": "1913 The argument is based on a false ___.\nその議論は誤った前提に基づいている。",
+        "answer": "premise",
+        "meaning": ""
+    },
+    {
+        "text": "1914 The ancient pharaoh was buried in a massive ___.\n古代のファラオは巨大な墓に埋葬された。",
+        "answer": "tomb",
+        "meaning": ""
+    },
+    {
+        "text": "1915 According to ___, a dragon lived in this cave.\n伝説によると、この洞窟にはドラゴンが住んでいた。",
+        "answer": "legend",
+        "meaning": ""
+    },
+    {
+        "text": "1916 The painting is considered a ___ of Renaissance art.\nその絵画はルネサンス美術の傑作とみなされている。",
+        "answer": "masterpiece",
+        "meaning": ""
+    },
+    {
+        "text": "1917 The villagers performed a traditional ___ every year.\n村人たちは毎年伝統的な儀式を行った。",
+        "answer": "ritual",
+        "meaning": ""
+    },
+    {
+        "text": "1918 The temple is a place of ___ and prayer.\nその寺院は崇拝と祈りの場である。",
+        "answer": "worship",
+        "meaning": ""
+    },
+    {
+        "text": "1919 The lecture explained the basic ___ of Buddhism.\nその講義では仏教の基本教義が説明された。",
+        "answer": "doctrine",
+        "meaning": ""
+    },
+    {
+        "text": "1920 His inventions are part of his lasting ___.\n彼の発明は彼の遺産の一部だ。",
+        "answer": "legacy",
+        "meaning": ""
+    },
+    {
         "text": "1931 She prefers reading ___ to poetry.\n彼女は詩よりも散文を読むのが好きだ。",
         "answer": "prose",
         "meaning": ""
@@ -995,7 +1141,7 @@
         "meaning": ""
     },
     {
-        "text": “1933 The story has a complicated ___ with many twists.\nその話には多くのどんでん返しを含む複雑な筋がある。",
+        "text": "1933 The story has a complicated ___ with many twists.\nその話には多くのどんでん返しを含む複雑な筋がある。",
         "answer": "plot",
         "meaning": ""
     },
