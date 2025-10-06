@@ -985,6 +985,56 @@
         "meaning": "outlet\t[名] ①(電気の)コンセント ②(販売)店 ③(感情などの)はけ口"
     },
     {
+        "text": "1931 She prefers reading ___ to poetry.\n彼女は詩よりも散文を読むのが好きだ。",
+        "answer": "prose",
+        "meaning": ""
+    },
+    {
+        "text": "1932 The novel is written as a first-person ___.\nその小説は一人称の物語として書かれている。",
+        "answer": "narrative",
+        "meaning": ""
+    },
+    {
+        "text": “1933 The story has a complicated ___ with many twists.\nその話には多くのどんでん返しを含む複雑な筋がある。",
+        "answer": "plot",
+        "meaning": ""
+    },
+    {
+        "text": "1934 She wrote a ___ of her ideas before starting the book.\n彼女は本を書き始める前にアイデアの下書きを作った。",
+        "answer": "draft",
+        "meaning": ""
+    },
+    {
+        "text": "1935 The author submitted the complete ___ to the publisher.\n著者は出版社に完成原稿を提出した。",
+        "answer": "manuscript",
+        "meaning": ""
+    },
+    {
+        "text": "1936 It’s a ___ that standing is more tiring than walking.\n立っている方が歩くより疲れるというのは逆説だ。",
+        "answer": "paradox",
+        "meaning": ""
+    },
+    {
+        "text": "1937 Teenagers often use ___ that adults don’t understand.\nティーンは大人にはわからないスラングをよく使う。",
+        "answer": "slang",
+        "meaning": ""
+    },
+    {
+        "text": "1938 He solved the tricky ___ in just a few minutes.\n彼はその難しいなぞなぞを数分で解いた。",
+        "answer": "riddle",
+        "meaning": ""
+    },
+    {
+        "text": "1939 The museum has a new ___ on modern art.\nその美術館には現代美術の新しい展示がある。",
+        "answer": "exhibit",
+        "meaning": ""
+    },
+    {
+        "text": "1940 The painting ___ the struggles of daily life.\nその絵は日常生活の苦悩を描いている。",
+        "answer": "portray",
+        "meaning": ""
+    },
+    {
         "text": "1941 The painting ___ a peaceful village by the river.\nその絵は川辺の穏やかな村を描いている。",
         "answer": "depicts",
         "meaning": "" 
