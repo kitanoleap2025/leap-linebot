@@ -864,15 +864,274 @@
         "answer": "incorporate",
         "meaning": ""
     },
-    
+    {
+        "text": "1182 New ideas often ___ during brainstorming sessions.\n新しいアイデアはブレインストーミングのセッション中に現れることが多い。",
+        "answer": "emerge",
+        "meaning": ""
+    },
+    {
+        "text": "1183 The story began to ___ as more details were revealed.\n詳細が明かされるにつれて物語が展開し始めた。",
+        "answer": "unfold",
+        "meaning": ""
+    },
+    {
+        "text": "1184 Many English words ___ from Latin.\n多くの英単語はラテン語に由来する。",
+        "answer": "derive",
+        "meaning": ""
+    },
+    {
+        "text": "1185 This machine can ___ electricity from solar energy.\nこの機械は太陽エネルギーから電気を生み出すことができる。",
+        "answer": "generate",
+        "meaning": ""
+    },
+    {
+        "text": "1186 She ___ great skill in playing the piano.\n彼女はピアノ演奏に素晴らしい技術を持っている。",
+        "answer": "possesses",
+        "meaning": ""
+    },
+    {
+        "text": "1187 Plants ___ water in their leaves.\n植物は葉に水分を保持する。",
+        "answer": "retain",
+        "meaning": ""
+    },
+    {
+        "text": "1188 They worked hard to ___ funding for the project.\n彼らはプロジェクトの資金を確保するために懸命に働いた。",
+        "answer": "secure",
+        "meaning": ""
+    },
+    {
+        "text": "1189 The photographer managed to ___ the perfect moment.\n写真家は完璧な瞬間を捉えることに成功した。",
+        "answer": "capture",
+        "meaning": ""
+    },
+    {
+        "text": "1190 The security system can ___ all activities in the building.\n防犯システムは建物内のすべての活動を監視できる。",
+        "answer": "monitor",
+        "meaning": ""
+    },
+    {
+        "text": "1191 The police are ___ the case carefully.\n警察は事件を慎重に調査している。",
+        "answer": "investigating",
+        "meaning": ""
+    },
+    {
+        "text": "1192 Early tests failed to ___ any problems.\n初期の検査では問題を検出できなかった。",
+        "answer": "detect",
+        "meaning": ""
+    },
+    {
+        "text": "1193 The government launched an ___ into the corruption scandal.\n政府は汚職スキャンダルに関する調査を開始した。",
+        "answer": "inquiry",
+        "meaning": ""
+    },
+    {
+        "text": "1194 She ___ in computer science.\n彼女はコンピューターサイエンスを専門にしている。",
+        "answer": "specializes",
+        "meaning": ""
+    },
+    {
+        "text": "1195 The new ___ starts in September.\n新しい学期は9月に始まる。",
+        "answer": "semester",
+        "meaning": ""
+    },
+    {
+        "text": "1196 He studies ___ to understand living organisms.\n彼は生物学を学んで生物を理解しようとしている。",
+        "answer": "biology",
+        "meaning": ""
+    },
+    {
+        "text": "1197 ___ is the study of relationships between living things and their environment.\n生態学は生物とその環境との関係を研究する学問だ。",
+        "answer": "ecology",
+        "meaning": ""
+    },
+    {
+        "text": "1198 ___ deals with fundamental questions about existence and knowledge.\n哲学は存在や知識に関する基本的な問題を扱う。",
+        "answer": "philosophy",
+        "meaning": ""
+    },
+    {
+        "text": "1199 ___ studies the physical features of the Earth.\n地理学は地球の物理的特徴を研究する。",
+        "answer": "geography",
+        "meaning": ""
+    },
+    {
+        "text": "1200 The university is a prestigious educational ___.\nその大学は名門の教育機関だ。",
+        "answer": "institution",
+        "meaning": ""
+    },
+    {
+        "text": "1201 The ___ of engineering is very competitive.\n工学部は非常に競争が激しい。",
+        "answer": "faculty",
+        "meaning": ""
+    },
+    {
+        "text": "1202 He is at an ___ level in English, not a beginner or advanced.\n彼は英語の中級レベルだ。初心者でも上級者でもない。",
+        "answer": "intermediate",
+        "meaning": ""
+    },
+    {
+        "text": "1203 The ___ of the idea was unclear to many students.\nその考えの概念は多くの学生には不明瞭だった。",
+        "answer": "notion",
+        "meaning": ""
+    },
+    {
+        "text": "1204 She explained the basic ___ of physics clearly.\n彼女は物理学の基本的な概念をはっきり説明した。",
+        "answer": "concept",
+        "meaning": ""
+    },
+    {
+        "text": "1205 He practices ___ daily to reduce stress.\n彼はストレスを減らすために毎日瞑想を行っている。",
+        "answer": "meditation",
+        "meaning": ""
+    },
+    {
+        "text": "1206 Her ___ about the situation gave her a new perspective.\nその状況に関する彼女の洞察は新しい視点を与えた。",
+        "answer": "insight",
+        "meaning": ""
+    },
+    {
+        "text": "1207 ___ is necessary when dealing with dangerous chemicals.\n危険な化学物質を扱うときは注意が必要だ。",
+        "answer": "Caution",
+        "meaning": ""
+    },
+    {
+        "text": "1208 He showed a strong ___ to finish the marathon.\n彼はマラソンを完走する強い意志を見せた。",
+        "answer": "will",
+        "meaning": ""
+    },
+    {
+        "text": "1209 You have the ___ to choose any course you like.\nあなたには好きなコースを選ぶ選択肢がある。",
+        "answer": "option",
+        "meaning": ""
+    },
+    {
+        "text": "1210 The ___ of success in this field is high.\nこの分野で成功する見込みは高い。",
+        "answer": "prospect",
+        "meaning": ""
+    },
+    {
+        "text": "1211 They ___ their time together after many years apart.\n彼らは何年も離れていた後、一緒の時間を大切にした。",
+        "answer": "cherished",
+        "meaning": ""
+    },
+    {
+        "text": "1212 I ___ to start my own business next year.\n私は来年自分のビジネスを始めるつもりだ。",
+        "answer": "intend",
+        "meaning": ""
+    },
+    {
+        "text": "1213 She ___ he was lying about the situation.\n彼女は彼がその状況について嘘をついていると疑った。",
+        "answer": "suspected",
+        "meaning": ""
+    },
+    {
+        "text": "1214 The police were able to ___ the suspect quickly.\n警察はすぐに容疑者を特定できた。",
+        "answer": "identify",
+        "meaning": ""
+    },
+    {
+        "text": "1215 Visitors are not ___ to enter the restricted area.\n訪問者は立入禁止区域に入ることを許可されていない。",
+        "answer": "permitted",
+        "meaning": ""
+    },
+    {
+        "text": "1216 He refused to ___ his mistake.\n彼は自分の間違いを認めようとしなかった。",
+        "answer": "acknowledge",
+        "meaning": ""
+    },
+    {
+        "text": "1217 Humans ___ colors differently depending on the light.\n人間は光の状況によって色の感じ方が異なる。",
+        "answer": "perceive",
+        "meaning": ""
+    },
+    {
+        "text": "1218 Teachers ___ students’ progress regularly.\n先生は生徒の進歩を定期的に評価する。",
+        "answer": "evaluate",
+        "meaning": ""
+    },
+    {
+        "text": "1219 Farmers ___ crops carefully to get a good harvest.\n農家は豊作を得るために作物を丁寧に育てる。",
+        "answer": "cultivate",
+        "meaning": ""
+    },
+    {
+        "text": "1220 The tree provides ___ from the hot sun.\nその木は暑い日差しを遮る日陰を提供する。",
+        "answer": "shade",
+        "meaning": ""
+    },
     {
         "text": "1221 a pleasant ___\n心地よいそよかぜ🍃",
         "answer": "breeze",
         "meaning": "breeze\t[名] そよ風"
     },
     {
+        "text": "1222 Camels are well adapted to life in the ___.\nラクダは砂漠での生活にうまく適応している。",
+        "answer": "desert",
+        "meaning": ""
+    },
+    {
+        "text": "1223 The morning ___ made it hard to see the road.\n朝の霧で道が見えにくかった。",
+        "answer": "fog",
+        "meaning": ""
+    },
+    {
+        "text": "1224 ___ in the air helps plants grow.\n空気中の水分が植物の成長を助ける。",
+        "answer": "moisture",
+        "meaning": ""
+    },
+    {
+        "text": "1225 After rain, the ground was still ___.\n雨の後、地面はまだ湿っていた。",
+        "answer": "damp",
+        "meaning": ""
+    },
+    {
+        "text": "1226 Follow the ___ through the forest.\n森の中の小道をたどって進みなさい。",
+        "answer": "path",
+        "meaning": ""
+    },
+    {
+        "text": "1227 The hikers enjoyed walking along the mountain ___.\n登山者たちは山の小道を歩くのを楽しんだ。",
+        "answer": "trail",
+        "meaning": ""
+    },
+    {
         "text": "1228 The cherry blossoms are reflected in the ___.\n桜が小川に反射する🌸",
         "answer": "stream",
+        "meaning": ""
+    },
+    {
+        "text": "1229 The ___ rises and falls with the moon.\n潮は月の満ち欠けで上下する。",
+        "answer": "tide",
+        "meaning": ""
+    },
+    {
+        "text": "1230 Coral ___ provide habitats for many sea creatures.\nサンゴ礁は多くの海の生物に生息地を提供する。",
+        "answer": "reefs",
+        "meaning": ""
+    },
+    {
+        "text": "1231 The forest is the natural ___ of many animals.\nその森は多くの動物の自然な生息地だ。",
+        "answer": "habitat",
+        "meaning": ""
+    },
+    {
+        "text": "1232 The ___ erupted, causing nearby villages to evacuate.\n火山が噴火し、近くの村が避難した。",
+        "answer": "volcano",
+        "meaning": ""
+    },
+    {
+        "text": "1233 They work in a ___ extracting minerals from the earth.\n彼らは鉱山で鉱物を採掘している。",
+        "answer": "mine",
+        "meaning": ""
+    },
+    {
+        "text": "1234 ___ build nests under the eaves.\nツバメは軒下に巣を作る。",
+        "answer": "swallows",
+        "meaning": ""
+    },
+    {
+        "text": "1235 A spider’s ___ is used to catch insects.\nクモの巣は昆虫を捕まえるために使われる。",
+        "answer": "web",
         "meaning": ""
     },
     {
@@ -881,9 +1140,64 @@
         "meaning": "mosquito\t[名] 蚊"
     },
     {
+        "text": "1237 Farmers raise ___ like cows and sheep.\n農家は牛や羊のような家畜を飼育する。",
+        "answer": "cattle",
+        "meaning": ""
+    },
+    {
         "text": "1238 I got scratched on the arm by a ___.\n子猫に腕をひっかかれた.😼",
         "answer": "kitten",
         "meaning": "kitten\t[名] 子ネコ"
+    },
+    {
+        "text": "1239 An ___ is a living thing, from bacteria to animals.\n生物は細菌から動物までの生きているものを指す。",
+        "answer": "organism",
+        "meaning": ""
+    },
+    {
+        "text": "1240 ___ refers to wild animals living freely in nature.\n野生生物は自然に自由に生きる野生の動物を指す。",
+        "answer": "wildlife",
+        "meaning": ""
+    },
+    {
+        "text": "1241 The lion is considered the king of the ___.\nライオンは獣の王とされている。",
+        "answer": "beasts",
+        "meaning": ""
+    },
+    {
+        "text": "1242 An ___ is a type of primate closely related to humans.\n類人猿は人間に近い霊長類の一種だ。",
+        "answer": "ape",
+        "meaning": ""
+    },
+    {
+        "text": "1243 A ___ of birds flew across the sky.\n鳥の群れが空を飛んでいた。",
+        "answer": "flock",
+        "meaning": ""
+    },
+    {
+        "text": "1244 Blood flows through the ___ in your body.\n血液は体内の静脈を通って流れる。",
+        "answer": "veins",
+        "meaning": ""
+    },
+    {
+        "text": "1245 Farmers ___ animals for food and labor.\n農家は食用や労働のために動物を繁殖させる。",
+        "answer": "breed",
+        "meaning": ""
+    },
+    {
+        "text": "1246 Most animals ___ to produce offspring.\nほとんどの動物は子孫を繁殖する。",
+        "answer": "reproduce",
+        "meaning": ""
+    },
+    {
+        "text": "1247 She is very ___ and talks a lot during meetings.\n彼女はとてもおしゃべりで、会議中によく話す。",
+        "answer": "talkative",
+        "meaning": ""
+    },
+    {
+        "text": "1248 He gave an ___ speech about the importance of honesty.\n彼は誠実さの重要性について真剣な演説をした。",
+        "answer": "earnest",
+        "meaning": ""
     },
     {
         "text": "1265 a ___ story by a ___ person\nつまらない人が語る,つまらない話🤓",
