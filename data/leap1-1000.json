@@ -585,6 +585,31 @@
         "meaning": "draw　[他] ①（線で絵など）を描く ②（注意）を引く ③～を引っ張る，集める"
     },
     {
+        "text": "142 Would you like to ___ our club?\n私たちのクラブに参加しませんか？",
+        "answer": "join",
+        "meaning": ""
+    },
+    {
+        "text": "143 He can ___ a ball very far.\n彼はボールをとても遠くまで投げることができる。",
+        "answer": "throw",
+        "meaning": ""
+    },
+    {
+        "text": "144 Do you know how to ___ this machine?\nこの機械の操作方法を知っていますか？",
+        "answer": "operate",
+        "meaning": ""
+    },
+    {
+        "text": "145 They will ___ the broken bridge soon.\n彼らはまもなく壊れた橋を修理する予定だ。",
+        "answer": "repair",
+        "meaning": ""
+    },
+    {
+        "text": "146 She learned how to ___ her own clothes.\n彼女は自分の服を縫う方法を学んだ。",
+        "answer": "sew",
+        "meaning": ""
+    },
+    {
         "text": "147 At dawn, the LGBTQ flag was ___ from his house.\n夜が明けると、彼の家からLGBTQフラッグが上がった。🏳️‍🌈",
         "answer": "raised",
         "meaning": "raise　[他] ①～を上げる ②（子ども，作物）を育てる ③（お金，資金）を集める ④（問題）を提起する [名]⑤賃上げ，昇給"
@@ -648,6 +673,21 @@
         "text": "164 The captain rescued only the passengers from his ___ country.\n船長は自国の乗客だけを救出しました.",
         "answer": "own",
         "meaning": "own　[形] （所有格の後で）①自分自身の ②（名詞的に）自分自身のもの [他] ③～を所有している"
+    },
+    {
+        "text": "165 I’d like to ___ my ideas with you.\nあなたと自分の考えを共有したい。",
+        "answer": "share",
+        "meaning": ""
+    },
+    {
+        "text": "166 He loves to ___ stamps from around the world.\n彼は世界中の切手を集めるのが好きだ。",
+        "answer": "collect",
+        "meaning": ""
+    },
+    {
+        "text": "167 People began to ___ in front of the station.\n人々は駅前に集まり始めた。",
+        "answer": "gather",
+        "meaning": ""
     },
     {
         "text": "168 ___ is written by the victors.\n歴史は勝者によって書かれる.",
@@ -790,6 +830,21 @@
         "meaning": "allow　[他] ①（人が）～を許可する ②（物が）～を可能にする"
     },
     {
+        "text": "199 He finally ___ that he made a mistake.\n彼はついに自分の間違いを認めた。",
+        "answer": "admit",
+        "meaning": ""
+    },
+    {
+        "text": "200 The airplane landed safely on the ___.\n飛行機は安全に地面に着陸した。",
+        "answer": "ground",
+        "meaning": ""
+    },
+    {
+        "text": "201 Air ___ is a serious problem in big cities.\n大都市では大気汚染が深刻な問題だ。",
+        "answer": "pollution",
+        "meaning": ""
+    },
+    {
         "text": "202 lose ___ of the destination.\n目的地を見失う🚩",
         "answer": "sight",
         "meaning": ""
@@ -822,6 +877,21 @@
     {
         "text": "211 If there is an ___, get under a table.\n地震の際にはテーブルの下にもぐれ.",
         "answer": "earthquake",
+        "meaning": ""
+    },
+    {
+        "text": "212 The ___ dropped below zero last night.\n昨夜、気温が氷点下まで下がった。",
+        "answer": "temperature",
+        "meaning": ""
+    },
+    {
+        "text": "213 He has a high ___ of intelligence.\n彼は高い知能の程度を持っている。",
+        "answer": "degree",
+        "meaning": ""
+    },
+    {
+        "text": "214 Many houses were damaged by the ___.\n多くの家が洪水で被害を受けた。",
+        "answer": "flood",
         "meaning": ""
     },
     {
