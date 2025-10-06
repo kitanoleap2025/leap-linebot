@@ -1200,8 +1200,103 @@
         "meaning": ""
     },
     {
+        "text": "1249 She is a ___ student who studies hard every day.\n彼女は毎日熱心に勉強する勤勉な学生だ。",
+        "answer": "diligent",
+        "meaning": ""
+    },
+    {
+        "text": "1250 The ___ of the school gave a welcome speech.\n校長先生が歓迎のスピーチをした。",
+        "answer": "principal",
+        "meaning": ""
+    },
+    {
+        "text": "1251 He is in his ___ years and at the height of his career.\n彼は最盛期にあり、キャリアの頂点にいる。",
+        "answer": "prime",
+        "meaning": ""
+    },
+    {
+        "text": "1252 There is a ___ chance that it will rain tomorrow.\n明日雨が降る可能性は確実だ。",
+        "answer": "definite",
+        "meaning": ""
+    },
+    {
+        "text": "1253 It is ___ that she will pass the exam.\n彼女が試験に合格するのは明らかだ。",
+        "answer": "evident",
+        "meaning": ""
+    },
+    {
+        "text": "1254 He is a ___ figure in the world of science.\n彼は科学界の著名な人物だ。",
+        "answer": "prominent",
+        "meaning": ""
+    },
+    {
+        "text": "1255 There was a ___ improvement in her English skills.\n彼女の英語力には顕著な向上があった。",
+        "answer": "marked",
+        "meaning": ""
+    },
+    {
+        "text": "1256 The dancer moved with ___ and elegance.\nそのダンサーは優雅さと気品を持って動いた。",
+        "answer": "grace",
+        "meaning": ""
+    },
+    {
+        "text": "1257 She has a natural ___ that attracts people.\n彼女は人を惹きつける自然な魅力を持っている。",
+        "answer": "charm",
+        "meaning": ""
+    },
+    {
+        "text": "1258 He bought a ___ dress for the party.\n彼はパーティー用の派手なドレスを買った。",
+        "answer": "fancy",
+        "meaning": ""
+    },
+    {
+        "text": "1259 It is important to make ___ decisions based on facts.\n事実に基づいて合理的な決定を下すことが重要だ。",
+        "answer": "rational",
+        "meaning": ""
+    },
+    {
+        "text": "1260 The palace was ___ and beautifully decorated.\nその宮殿は壮大で美しく装飾されていた。",
+        "answer": "magnificent",
+        "meaning": ""
+    },
+    {
+        "text": "1261 This model is ___ to the others in quality.\nこのモデルは他より優れている。",
+        "answer": "superior",
+        "meaning": ""
+    },
+    {
+        "text": "1262 She is ___ to her friends and always supports them.\n彼女は友人に忠実で、いつも支えている。",
+        "answer": "loyal",
+        "meaning": ""
+    },
+    {
+        "text": "1263 The movie was so ___ that I couldn’t watch it.\nその映画はあまりにもひどくて見られなかった。",
+        "answer": "horrible",
+        "meaning": ""
+    },
+    {
+        "text": "1264 He felt ___ after losing his job.\n彼は仕事を失って悲惨な気持ちになった。",
+        "answer": "miserable",
+        "meaning": ""
+    },
+    {
         "text": "1265 a ___ story by a ___ person\nつまらない人が語る,つまらない話🤓",
         "answer": "dull",
+        "meaning": ""
+    },
+    {
+        "text": "1266 The weather was ___ and unpleasant all day.\n一日中不快な嫌な天気だった。",
+        "answer": "nasty",
+        "meaning": ""
+    },
+    {
+        "text": "1267 The criminal was declared ___ and sent to a hospital.\nその犯人は狂気と診断され、病院に送られた。",
+        "answer": "insane",
+        "meaning": ""
+    },
+    {
+        "text": "1268 His idea sounded ___ and impossible to believe.\n彼の考えはばかげていて信じられなかった。",
+        "answer": "ridiculous",
         "meaning": ""
     },
     {
@@ -1210,14 +1305,89 @@
         "meaning": ""
     },
     {
+        "text": "1270 He is ___ for his bad behavior.\n彼は悪名高い行動で知られている。",
+        "answer": "notorious",
+        "meaning": ""
+    },
+    {
+        "text": "1271 The villain was truly ___.\nその悪役は本当に邪悪だった。",
+        "answer": "evil",
+        "meaning": ""
+    },
+    {
+        "text": "1272 The room was a ___ after the party.\nパーティーの後、部屋は散らかっていた。",
+        "answer": "mess",
+        "meaning": ""
+    },
+    {
+        "text": "1273 The desert covers a ___ area of land.\n砂漠は広大な土地を覆っている。",
+        "answer": "vast",
+        "meaning": ""
+    },
+    {
         "text": "1274 His wealth was ___, but his jokes were bankrupt.\n彼の富は莫大だったが,ジョークは破産状態だった.💰",
         "answer": "huge",
+        "meaning": ""
+    },
+    {
+        "text": "1275 The baby held a ___ toy in his hand.\n赤ちゃんは小さなおもちゃを手に持っていた。",
+        "answer": "tiny",
+        "meaning": ""
+    },
+    {
+        "text": "1276 The Earth is almost a perfect ___.\n地球はほぼ完璧な球体だ。",
+        "answer": "sphere",
+        "meaning": ""
+    },
+    {
+        "text": "1277 He wore a long ___ of cloth around his neck.\n彼は首に長い布の帯を巻いていた。",
+        "answer": "strip",
+        "meaning": ""
+    },
+    {
+        "text": "1278 The ___ carried water across the ocean.\nその船は海を越えて水を運んだ。",
+        "answer": "vessel",
         "meaning": ""
     },
     {
         "text": "1279 Squids have a membrane that protects their ___ organs.\n イカは内臓を守る膜を持つ.🦑",
         "answer": "internal",
         "meaning": "internal\t[形] ①内部の，体内の ②国内の"
+    },
+    {
+        "text": "1280 She uses her ___ phone to stay connected anywhere.\n彼女はどこでもつながるために携帯電話を使っている。",
+        "answer": "mobile",
+        "meaning": ""
+    },
+    {
+        "text": "1281 The mountain trail was very ___ and difficult to climb.\nその山道はとても急勾配で登るのが難しかった。",
+        "answer": "steep",
+        "meaning": ""
+    },
+    {
+        "text": "1282 There was an ___ competition between the two athletes.\n二人の選手の間に激しい競争があった。",
+        "answer": "intense",
+        "meaning": ""
+    },
+    {
+        "text": "1283 Change is ___ in life, so we must adapt.\n変化は人生で避けられないものだから、私たちは適応しなければならない。",
+        "answer": "inevitable",
+        "meaning": ""
+    },
+    {
+        "text": "1284 He remained ___ during the heated argument.\n彼は激しい議論の間も中立の態度を保った。",
+        "answer": "neutral",
+        "meaning": ""
+    },
+    {
+        "text": "1285 The meeting was ___ and lasted only ten minutes.\n会議は短く、わずか10分しか続かなかった。",
+        "answer": "brief",
+        "meaning": ""
+    },
+    {
+        "text": "1286 The room was ___ except for a single chair.\n部屋は裸の状態で、椅子が一脚だけあった。",
+        "answer": "bare",
+        "meaning": ""
     },
     {
         "text": "1305 calcium ___\nカルシウム不足💢",
@@ -1330,9 +1500,154 @@
         "meaning": "mighty　[形] 強力な"
     },
     {
+        "text": "1850 She cleaned the floor with an old ___.\n彼女は古いぼろ切れで床を掃除した。",
+        "answer": "rag",
+        "meaning": ""
+    },
+    {
+        "text": "1851 The fabric has a soft ___.\nその生地は柔らかい質感を持っている。",
+        "answer": "texture",
+        "meaning": ""
+    },
+    {
+        "text": "1852 They held a ___ meeting before the main conference.\n彼らは本会議の前に予備会議を行った。",
+        "answer": "preliminary",
+        "meaning": ""
+    },
+    {
+        "text": "1853 Attendance at the safety seminar is ___.\n安全セミナーへの参加は必須だ。",
+        "answer": "mandatory",
+        "meaning": ""
+    },
+    {
+        "text": "1854 The festival celebrates the ___ people of the region.\nその祭りはその地域の先住民を祝う。",
+        "answer": "indigenous",
+        "meaning": ""
+    },
+    {
+        "text": "1855 The students returned to their ___ classrooms.\n生徒たちはそれぞれの教室に戻った。",
+        "answer": "respective",
+        "meaning": ""
+    },
+    {
+        "text": "1856 We need to ___ our efforts to finish on time.\n時間通りに終わらせるために努力を増やす必要がある。",
+        "answer": "multiply",
+        "meaning": ""
+    },
+    {
+        "text": "1857 The price of oil ___ after the conflict began.\n紛争が始まった後、石油の価格が急上昇した。",
+        "answer": "soar",
+        "meaning": ""
+    },
+    {
+        "text": "1858 His influence began to ___ after the scandal.\nスキャンダルの後、彼の影響力は衰え始めた。",
+        "answer": "diminish",
+        "meaning": ""
+    },
+    {
+        "text": "1859 We need to ___ evidence before making a decision.\n決定を下す前に証拠を蓄積する必要がある。",
+        "answer": "accumulate",
+        "meaning": ""
+    }
+    {
+        "text": "1860 The temperature may ___ 40 degrees tomorrow.\n明日、気温は40度を超えるかもしれない。",
+        "answer": "exceed",
+        "meaning": ""
+    },
+    {
+        "text": "1861 The garden is full of ___ flowers in spring.\n春には庭に豊富な花が咲く。",
+        "answer": "abundant",
+        "meaning": ""
+    },
+    {
+        "text": "1862 She gave us ___ evidence to support her claim.\n彼女は自分の主張を裏付ける十分な証拠を私たちに示した。",
+        "answer": "ample",
+        "meaning": ""
+    },
+    {
+        "text": "1863 The company reported a ___ income this year.\nその会社は今年、総収入を報告した。",
+        "answer": "gross",
+        "meaning": ""
+    },
+    {
+        "text": "1864 The universe is ___ and full of mysteries.\n宇宙は無限で、謎に満ちている。",
+        "answer": "infinite",
+        "meaning": ""
+    },
+    {
+        "text": "1865 He is the ___ owner of the property.\n彼はその財産の唯一の所有者だ。",
+        "answer": "sole",
+        "meaning": ""
+    },
+    {
+        "text": "1866 A ___ of clothes lay on the floor.\n床の上に衣服の山があった。",
+        "answer": "heap",
+        "meaning": ""
+    },
+    {
+        "text": "1867 Only a small ___ of the students passed the exam.\n学生のほんの一部しか試験に合格しなかった。",
+        "answer": "fraction",
+        "meaning": ""
+    },
+    {
+        "text": "1868 The concert was broadcast ___ on radio and TV.\nそのコンサートはラジオとテレビで同時に放送された。",
+        "answer": "simultaneous",
+        "meaning": ""
+    },
+    {
+        "text": "1869 He studies ___ history in university.\n彼は大学で中世史を学んでいる。",
+        "answer": "medieval",
+        "meaning": ""
+    },
+    {
         "text": "1870 At ___, the LGBTQ flag was raised from his house.\n夜が明けると,彼の家からLGBTQフラッグが上がった.🏳️‍🌈",
         "answer": "dawn",
         "meaning": "dawn\t[名] ①夜明け [自] ②夜が明ける ③(on ～)(～に)わかり始める"
+    },
+    {
+        "text": "Her career ___s over three decades.\n彼女のキャリアは30年以上にわたる。",
+        "answer": "span",
+        "meaning": ""
+    },
+    {
+        "text": "1872 The magazine targets ___ readers.\nその雑誌は思春期の読者を対象としている。",
+        "answer": "adolescent",
+        "meaning": ""
+    },
+    {
+        "text": "1873 A ___ is a period of 1,000 years.\n千年紀とは1000年間のことだ。",
+        "answer": "millennium",
+        "meaning": ""
+    },
+    {
+        "text": "1874 The coupon will ___ at the end of the month.\nそのクーポンは月末に期限切れになる。",
+        "answer": "expire",
+        "meaning": ""
+    },
+    {
+        "text": "1875 They decided to ___ the meeting until next week.\n彼らは会議を来週まで延期することに決めた。",
+        "answer": "postpone",
+        "meaning": ""
+    },
+    {
+        "text": "1876 The equipment is checked ___ for safety.\nその設備は定期的に安全確認される。",
+        "answer": "periodically",
+        "meaning": ""
+    },
+    {
+        "text": "1877 The library has an  ___ of books.\nその図書館には様々な本がある。",
+        "answer": "array",
+        "meaning": ""
+    },
+    {
+        "text": "1878 The king ruled over a vast ___.\nその王は広大な領域を治めていた。",
+        "answer": "realm",
+        "meaning": ""
+    },
+    {
+        "text": "1879 Mathematics is his area of expertise; it is his ___.\n数学は彼の専門分野である。",
+        "answer": "domain",
+        "meaning": ""
     },
     {
         "text": "1892 wet ___\n濡れたコンセント😱",
@@ -1442,6 +1757,57 @@
     {
         "text": "1920 His inventions are part of his lasting ___.\n彼の発明は彼の遺産の一部だ。",
         "answer": "legacy",
+        "meaning": ""
+    },
+[
+    {
+        "text": "1921 He believes that lying is a ___.\n彼は嘘をつくことは罪だと考えている。",
+        "answer": "sin",
+        "meaning": ""
+    },
+    {
+        "text": "1922 Please do not ___ in the classroom.\n教室での悪口や罵り言葉は禁止です。",
+        "answer": "swear",
+        "meaning": ""
+    },
+    {
+        "text": "1923 She decided to ___ her mistake to the teacher.\n彼女は自分の過ちを先生に告白することにした。",
+        "answer": "confess",
+        "meaning": ""
+    },
+    {
+        "text": "1924 He will ___ his initials on the tree.\n彼はその木にイニシャルを刻むつもりだ。",
+        "answer": "carve",
+        "meaning": ""
+    },
+    {
+        "text": "1925 I could hear someone ___ softly in the corner.\n隅で誰かが小さくつぶやいているのが聞こえた。",
+        "answer": "murmur",
+        "meaning": ""
+    },
+    {
+        "text": "1926 The agreement was only ___, not written.\nその合意は口頭でなされ、書面ではなかった。",
+        "answer": "verbal",
+        "meaning": ""
+    },
+    {
+        "text": "1927 She gave an ___ explanation of the rules.\n彼女は口頭でルールの説明をした。",
+        "answer": "oral",
+        "meaning": ""
+    },
+    {
+        "text": "1928 The politician gave an ___ speech that moved the audience.\nその政治家は聴衆を感動させる雄弁なスピーチをした。",
+        "answer": "eloquent",
+        "meaning": ""
+    },
+    {
+        "text": "1929 Children develop strong ___ skills through reading.\n子どもたちは読書を通して強い言語能力を育む。",
+        "answer": "linguistic",
+        "meaning": ""
+    },
+    {
+        "text": "1930 The poet used a ___ to compare life to a journey.\nその詩人は人生を旅にたとえる比喩を使った。",
+        "answer": "metaphor",
         "meaning": ""
     },
     {
