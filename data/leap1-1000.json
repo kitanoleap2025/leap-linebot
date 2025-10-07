@@ -2840,114 +2840,139 @@
         "meaning": "precious　[形] ①（時間や命などが）貴重な ②（宝石などが）高価な"
     },
     {
+        "text": "762 Water is ___ for all forms of life.\n水はあらゆる生命にとって不可欠だ。",
+        "answer": "essential",
+        "meaning": "essential　[形] ①不可欠な [名] ②（―s）不可欠なもの"
+    },
+    {
+        "text": "763 Freedom of speech is a ___ human right.\n言論の自由は基本的人権の一つだ。",
+        "answer": "fundamental",
+        "meaning": "fundamental　[形] ①根本的な，基本的な [名] ②（―s）基本事項"
+    },
+    {
+        "text": "764 The benefits of exercise usually ___ the risks.\n運動の利点はたいていそのリスクを上回る。",
+        "answer": "outweigh",
+        "meaning": "outweigh　[他] （価値・重要性・影響力で）～に勝る"
+    },
+    {
         "text": "765 The scientist made a ___ discovery in the laboratory.\nその科学者は研究室で重大な発見をした.",
         "answer": "critical",
-        "meaning": ""
+        "meaning": "critical　[形] ①重大な，危機的な状況の ②批判的な"
     },
     {
         "text": "766 He suddenly put on a ___ face.\n彼は急に真剣な顔になった.😐",
         "answer": "serious",
-        "meaning": ""
+        "meaning": "serious　[形] ①深刻な ②（人が）真剣な，本気の"
     },
     {
         "text": "767 ___ issues compose themselves of simple, ignored mistakes.\n複雑な問題は,無視された単純なミスから成り立っている.",
         "answer": "complex",
-        "meaning": ""
+        "meaning": "complex　[形] ①複雑な [名] ②複合体（の建物)③強迫観念"
     },
     {
         "text": "768 a ___ maze\n複雑な迷路",
         "answer": "complicated",
-        "meaning": ""
+        "meaning": "complicated　[形] 複雑な、ややこしい"
     },
     {
         "text": "769 the ___ balance of nature\n自然界の絶妙なバランス⚖️",
         "answer": "delicate",
-        "meaning": ""
+        "meaning": "delicate　[形] ①繊細な，微妙な ②（人が）虚弱な"
     },
     {
         "text": "770 Written in ___ English, this novel is good for beginners in the language.\nわかりやすい英語で書かれているので,この小説は英語初心者に良い。",
         "answer": "plain",
-        "meaning": ""
+        "meaning": "plain　[形] ①明白な，わかりやすい ②質素な [名] ③平野，原野"
     },
     {
         "text": "771 His motive for stealing the cookie was ___: hunger\nクッキーを盗んだ彼の動機は明らかだ：空腹",
         "answer": "obvious",
-        "meaning": ""
+        "meaning": "obvious　[形] 明白な"
     },
     {
         "text": "772 Everyone admired his ___ idea.\n誰もが彼の注目すべきアイデアに感心した.",
         "answer": "remarkable",
-        "meaning": ""
+        "meaning": "remarkable　[形] 注目すべき，すばらしい"
     },
     {
         "text": "773 His ___ presentation impressed everyone.\n彼の傑出したプレゼンは,みんなに感銘を与えた.",
         "answer": "outstanding",
-        "meaning": ""
+        "meaning": "outstanding　[形] 傑出した，目立った"
     },
     {
         "text": "774 The internet enables us to find information quickly about ___ jobs.\nインターネットで様々な職業についての情報を素早く見つけることができます。",
         "answer": "various",
-        "meaning": ""
+        "meaning": "various　[形] さまざまな"
     },
     {
         "text": "775 The ___ of opinions in this class is truly entertaining.\nこのクラスの意見の多様性は本当に面白い。😤😤😤",
         "answer": "diversity",
-        "meaning": ""
+        "meaning": "diversity　[名] 多様性"
     },
     {
         "text": "777 She had a ___ idea to eat ramen for breakfast.\n彼女は朝食にラーメンを食べるという素晴らしいアイデアを思いついた。🍜💡",
         "answer": "marvelous",
-        "meaning": ""
+        "meaning": "marvelous　[形] 驚くべき、素晴らしい"
     },
     {
         "text": "778 He stays ___ even during Monday morning meetings.\n彼は月曜朝の会議でも活発に動いている。🤖",
         "answer": "active",
-        "meaning": ""
+        "meaning": "active　[形] 積極的な，活発な"
     },
     {
-        "text": "781 Being ___ is useful when plans keep changing.\n予定がどんどん変わる時,柔軟でいることは便利だ。",
+        "text": "779 Try to stay ___ even when things go wrong.\n物事がうまくいかなくても前向きでいよう。",
+        "answer": "positive",
+        "meaning": "positive　[形] ①前向きな，積極的な ②確信している"
+    },
+    {
+        "text": "780 The child’s smile was so ___ and innocent.\nその子どもの笑顔はとても純粋で無垢だった。",
+        "answer": "pure",
+        "meaning": "pure　[形] ①純粋な ②（水，空気が）澄んだ"
+    },
+    {
+        "text": "782 Being ___ is useful when plans keep changing.\n予定がどんどん変わる時,柔軟でいることは便利だ。",
         "answer": "flexible",
-        "meaning": ""
+        "meaning": "flexible　[形] 柔軟な，融通のきく"
     },
     {
-        "text": "782 The banana is finally ___, ready to eat.\nバナナがついに熟して食べごろだ。🍌",
+        "text": "783 The banana is finally ___, ready to eat.\nバナナがついに熟して食べごろだ。🍌",
         "answer": "ripe",
-        "meaning": ""
+        "meaning": "ripe　[形] 熟した"
     },
     {
-        "text": "783 She will prefer a ___ job over a chaotic one.\n彼女は混乱した仕事よりも安定した仕事を好むだろう。",
+        "text": "784 She will prefer a ___ job over a chaotic one.\n彼女は混乱した仕事よりも安定した仕事を好むだろう。",
         "answer": "stable",
-        "meaning": ""
+        "meaning": "stable　[形] ①安定した [名] ②馬小屋，きゅう舎"
     },
     {
-        "text": "785 His explanation was so ___ that nobody understood it.\n彼の説明はあまりにも曖昧で誰も理解できなかった。",
+        "text": "786 His explanation was so ___ that nobody understood it.\n彼の説明はあまりにも曖昧で誰も理解できなかった。",
         "answer": "vague",
-        "meaning": ""
+        "meaning": "vague　[形] 曖昧な，漠然とした"
     },
     {
-        "text": "787 The surface of the table felt ___ and unfinished.\nそのテーブルの表面は粗く,未完成の感じがした。",
+        "text": "788 The surface of the table felt ___ and unfinished.\nそのテーブルの表面は粗く,未完成の感じがした。",
         "answer": "rough",
-        "meaning": ""
+        "meaning": "rough　[形] ①（表面が）粗い ②おおざっぱな ③（海，天候などが）荒れている"
     },
     {
-        "text": "788 The storm caused ___ damage to the village.\n嵐は村にひどい被害をもたらした。🍃",
+        "text": "789 The storm caused ___ damage to the village.\n嵐は村にひどい被害をもたらした。🍃",
         "answer": "severe",
-        "meaning": ""
+        "meaning": "severe　[形] ①（天候，批判，罰則などが）厳しい ②（けが，問題などが）ひどい"
     },
     {
         "text": "791 He was ___ about his singing skills.\n彼は自分の歌の腕前にうぬぼれていた。",
         "answer": "vain",
-        "meaning": ""
+        "meaning": "vain　[形] ①（in ―）無駄に ②（努力などが）無駄な ③うぬぼれの強い"
     },
     {
         "text": "792 The signature on the document turned out to be ___.\n書類の署名は偽物だった。",
         "answer": "fake",
-        "meaning": ""
+        "meaning": "fake　[形] ①偽の，偽造の [名]②偽造品"
     },
     {
         "text": "793 Climbing a volcano is a ___ adventure.\n火山に登るのは危険な冒険だ。🌋",
         "answer": "risky",
-        "meaning": ""
+        "meaning": "risky　[形] 危険な，危うい"
     },
     {
         "text": "794 He has an ___ habit of talking to plants.\n彼は植物に話しかける奇妙な習慣がある。🌷",
