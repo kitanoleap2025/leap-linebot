@@ -3637,132 +3637,252 @@
     {
         "text": "944 be ___ in programming\nプログラミングに没頭する",
         "answer": "absorbed",
-        "meaning": ""
+        "meaning": "absorb　[他] ①（be ―ed in ～）～に没頭する ②～を吸収する"
     },
     {
         "text": "945 I am ___ of reading books.\n本を読むことが好きだ.📚",
         "answer": "fond",
-        "meaning": ""
+        "meaning": "fond　[他] ①（be ― of～）（～が）好きだ ②懐かしい"
+    },
+    {
+        "text": "946 The horror movie really ___ me last night.\n昨夜、そのホラー映画は本当に私を怖がらせた。",
+        "answer": "scared",
+        "meaning": "scare　[他] ～をおびえさせる"
+    },
+    {
+        "text": "947 The sudden noise ___ everyone in the room.\n突然の音が部屋中の人を驚かせた。",
+        "answer": "alarmed",
+        "meaning": "alarm　[他] ①～をぎょっとさせる [名] ②恐怖，不安"
+    },
+    {
+        "text": "948 The magician’s trick ___ the audience.\nその手品師のトリックに観客は驚嘆した。",
+        "answer": "amazed",
+        "meaning": "amaze　[他] ～を驚かせる"
+    },
+    {
+        "text": "949 His constant tapping ___ me during the test.\nテスト中に彼のカタカタ音が私をいら立たせた。",
+        "answer": "irritated",
+        "meaning": "irritate　[他] （長期にわたって）～をいらいらさせる"
+    },
+    {
+        "text": "950 The news really ___ her.\nその知らせは彼女をひどく動揺させた。",
+        "answer": "upset",
+        "meaning": "upset　[他] ①～を動揺させる ②（均衡など）を乱す [形] ③動揺して，腹を立てて"
+    },
+    {
+        "text": "951 The strange question ___ the students.\nその奇妙な質問は生徒たちを困惑させた。",
+        "answer": "puzzled",
+        "meaning": "puzzle　[他] ①～を当惑させる [名] ②難問，パズル"
+    },
+    {
+        "text": "952 The instructions only ___ me more.\nその説明書はますます私を混乱させただけだった。",
+        "answer": "confused",
+        "meaning": "confuse　[他] ①～を混乱させる，困惑させる ②（A with［and］ B)（A）を（Bと）混同する"
     },
     {
         "text": "953 ___ feast\nつまらない宴会",
         "answer": "bored",
-        "meaning": ""
+        "meaning": "bore　[他] ～をうんざりさせる，退屈させる"
+    },
+    {
+        "text": "954 Her failure to understand the concept ___ the teacher.\n彼女がその概念を理解しないことに先生はいら立った。",
+        "answer": "frustrated",
+        "meaning": "frustrate　[他] ①～を欲求不満にさせる ②（計画など）を挫折させる"
+    },
+    {
+        "text": "955 His careless mistake ___ everyone who trusted him.\n彼の不注意なミスは彼を信頼していた人々を失望させた。",
+        "answer": "disappointed",
+        "meaning": "disappoint　[他] ～を失望させる"
     },
     {
         "text": "956 I feel ___ when I hear compliments.\n褒め言葉を聞いて照れる.",
         "answer": "embarrassed",
-        "meaning": ""
+        "meaning": "embarrass　[他] ～に恥ずかしい思いをさせる，困惑させる"
+    },
+    {
+        "text": "957 She felt ___ of lying to her friend.\n彼女は友達に嘘をついたことを恥じた。",
+        "answer": "ashamed",
+        "meaning": "ashamed　[形] 恥ずかしい"
+    },
+    {
+        "text": "958 I felt ___ walking alone in the dark alley.\n暗い路地を一人で歩いていて落ち着かない気持ちになった。",
+        "answer": "uneasy",
+        "meaning": "uneasy　[形] 不安な，胸騒ぎがする"
     },
     {
         "text": "959 Don’t ___ to go all in.\nオールインするのをためらうな💸",
         "answer": "hesitate",
-        "meaning": ""
+        "meaning": "hesitate　[自] ためらう"
     },
     {
         "text": "960 I’m ___ to study Japanese.\n国語を勉強するのは気が進まない.",
         "answer": "reluctant",
-        "meaning": ""
+        "meaning": "reluctant　[形] （to do）（～するのは）気が進まない"
     },
     {
         "text": "961 I ___ with longing to see you.\n会いたくて震える.🎵",
         "answer": "tremble",
-        "meaning": ""
+        "meaning": "tremble　[自] 震える"
     },
     {
-        "text": "968 show my ___\n感情をむき出しにする🤬",
+        "text": "962 He always ___ about his expensive car.\n彼はいつも自分の高級車を自慢している。",
+        "answer": "boasts",
+        "meaning": "boast　[自] ①自慢する [他] ②（場所や組織が）～を誇りにしている"
+    },
+    {
+        "text": "963 She felt ___ of her friend’s success.\n彼女は友達の成功をうらやましく思った。",
+        "answer": "jealous",
+        "meaning": "jealous　[形] （of ～）（～に）嫉妬した"
+    },
+    {
+        "text": "964 I don’t ___ you; I admire your effort.\n君をうらやむんじゃなくて、その努力を尊敬しているんだ。",
+        "answer": "envy",
+        "meaning": "envy　[他] ①～を羨ましく思う [名] ②羨望"
+    },
+    {
+        "text": "965 He began to ___ at the referee during the game.\n彼は試合中に審判に怒鳴り始めた。",
+        "answer": "yell",
+        "meaning": "yell　[自] ①叫ぶ，大声をあげる [名] ②叫び，わめき声"
+    },
+    {
+        "text": "966 We should ___ those who work hard for others.\n他人のために努力する人々を尊敬すべきだ。",
+        "answer": "respect",
+        "meaning": "respect　[他] ①（人）を尊敬する ②（物）を尊重する [名] ③（for ～）（～に対する）尊敬，尊重 ④（in ―）点"
+    },
+    {
+        "text": "967 She fell into ___ after losing her job.\n仕事を失って彼女は絶望に陥った。",
+        "answer": "despair",
+        "meaning": "despair　[名] 絶望"
+    },
+    {
+        "text": "968 show my ___\n感情をむき出しにする",
         "answer": "emotions",
-        "meaning": ""
+        "meaning": "emotion　[名] （特に強い）感情〈可算〉"
+    },
+    {
+        "text": "969 I felt deep ___ for the victims of the disaster.\n私は災害の被害者たちに深い同情を感じた。",
+        "answer": "sympathy",
+        "meaning": "sympathy　[名] ①同情 ②共感"
+    },
+    {
+        "text": "970 He spoke with ___ after realizing his mistake.\n自分の過ちに気づいて、彼は恥ずかしそうに話した。",
+        "answer": "shame",
+        "meaning": "shame　[名] ①残念なこと ②恥"
+    },
+    {
+        "text": "971 She has great ___ in her ability to speak English.\n彼女は自分の英語力に大きな自信を持っている。",
+        "answer": "confidence",
+        "meaning": "confidence　[名] ①自信 ②（in ～）（～に対する）信頼"
     },
     {
         "text": "972 have the ___ to say no\n断る勇気を持つ",
         "answer": "courage",
-        "meaning": ""
+        "meaning": "courage　[名] 勇気"
+    },
+    {
+        "text": "973 He speaks about science with real ___ and curiosity.\n彼は科学について本物の情熱と好奇心を持って語る。",
+        "answer": "passion",
+        "meaning": "passion　[名] 情熱"
+    },
+    {
+        "text": "974 She felt deep ___ when she heard the sad news.\nその悲しい知らせを聞いて、彼女は深い悲しみを感じた。",
+        "answer": "sorrow",
+        "meaning": "sorrow　[名] 悲しみ"
     },
     {
         "text": "975 Complex issues compose themselves of simple, ___ mistakes.\n複雑な問題は,無視された単純なミスから成り立っている。",
         "answer": "ignored",
-        "meaning": ""
+        "meaning": "ignore　[他] （人，物）を無視する"
     },
     {
         "text": "976 I didn’t mean to ___ you with my comment.\n私の発言であなたを怒らせるつもりはなかった。😡",
         "answer": "offend",
-        "meaning": ""
+        "meaning": "offend　[他] （人，物が）～を怒らせる，～の気分を害する"
     },
     {
         "text": "977 Rainy days sometimes ___ me.\n雨の日はときどき私を憂うつにさせる。💧",
         "answer": "depress",
-        "meaning": ""
+        "meaning": "depress　[他] ～を憂うつにさせる，落ち込ませる"
     },
     {
         "text": "979 Many people ___ speaking in public.\n多くの人は人前で話すことを恐れる。🤓",
         "answer": "fear",
-        "meaning": ""
+        "meaning": "fear　[名] ①恐怖 [他] ②～を恐れる ③～を心配する"
     },
     {
         "text": "980 We need a new ___ to solve this problem.\nこの問題を解決するために新しい方法が必要だ。",
         "answer": "method",
-        "meaning": ""
+        "meaning": "method　[名] 方法"
     },
     {
         "text": "981 TV is an important ___ of communication.\nテレビは重要な伝達手段の一つだ。📺",
         "answer": "medium",
-        "meaning": ""
+        "meaning": "medium　[名] ①（情報伝達）手段，媒体，メディア [形] ②中間の"
     },
     {
         "text": "982 Education is a ___ to achieve social change.\n教育は社会変革を達成するための手段だ。",
         "answer": "means",
-        "meaning": ""
+        "meaning": "means　[名] ①手段〈単複同形〉 ②（特定な表現で）財産，収入"
     },
     {
         "text": "983 The one-child policy in China is successful to some ___.\n中国の一人っ子政策は,ある程度成功している。🐼🐼🐼",
         "answer": "extent",
-        "meaning": ""
+        "meaning": "extent　[名] 程度"
     },
     {
         "text": "984 The test was ___ difficult for most students.\nそのテストはほとんどの生徒にとって非常に難しかった。🤯🤯🤯",
         "answer": "extremely",
-        "meaning": ""
+        "meaning": "extremely　[副] 極度に，非常に"
     },
     {
         "text": "986 The plan was ___ successful despite some problems.\nいくつかの問題があったが,その計画はおおむね成功した。",
         "answer": "largely",
-        "meaning": ""
+        "meaning": "largely　[副] ①大部分は ②主に"
     },
     {
         "text": "987 They took a ___ approach to solving the problem.\n彼らはその問題を解決するために適度なアプローチを取った。",
         "answer": "moderate",
-        "meaning": ""
+        "meaning": "moderate　[形] 適度な，節度のある"
     },
     {
         "text": "988 I was ___ tired after the long walk.\n長い散歩の後,私はやや疲れていた。🥱",
         "answer": "somewhat",
-        "meaning": ""
+        "meaning": "somewhat　[副] いくぶん"
     },
     {
         "text": "989 There was a ___ change in her tone of voice.\n彼女の声の調子に微妙な変化があった。",
         "answer": "subtle",
-        "meaning": ""
+        "meaning": "subtle　[形] かすかな"
     },
     {
         "text": "990 He will ___ come to the party if he finishes work early.\n仕事が早く終われば,彼はたぶんパーティーに来るだろう。",
         "answer": "possibly",
-        "meaning": ""
+        "meaning": "possibly　[副] ①ひょっとすると ②（cannot ―）どうしても（～できない）"
     },
     {
         "text": "991 We shape our tools, and ___, our tools shape us.\n私たちは道具を作るが,結果として,道具が私たちを作る。",
         "answer": "eventually",
-        "meaning": ""
+        "meaning": "eventually　[副] 最終的に，ついに"
     },
     {
         "text": "992 He argued that sleep wasn’t ___ for eaxms.\n彼は試験のために睡眠は必要ないと主張した。",
         "answer": "necessary",
-        "meaning": ""
+        "meaning": "necessarily　[副] （not ―）必ずしも（～ない）"
     },
     {
         "text": "993 ___ speaking,\n率直に言うと,",
         "answer": "Frankly",
-        "meaning": ""
+        "meaning": "frankly　[副] 率直に"
+    },
+    {
+        "text": "995 He is talented and hardworking; ___, he’s very humble.\n彼は才能があり勤勉だ。さらに、非常に謙虚でもある。",
+        "answer": "moreover",
+        "meaning": "moreover　[副] その上"
+    },
+    {
+        "text": "996 You must wear a helmet; ___, you can’t ride the bike.\nヘルメットを着用しなければなりません。そうでないと自転車に乗れません。",
+        "answer": "otherwise",
+        "meaning": "otherwise　[副] ①さもなければ ②ほかの点では ③ほかの方法で"
     },
     {
         "text": "997 discover that the speed of light is constant, ___ of the observer’s motion\n光の速度は観測者の運動にかかわらず一定であることを発見する",
@@ -3772,7 +3892,7 @@
     {
         "text": "998 He's ___ meeting.\n彼に会う価値はある。",
         "answer": "worth",
-        "meaning": ""
+        "meaning": "worth　[前] ①～の価値がある ②（― doing）（～する）価値がある [名] ③価値，（～）相当"
     },
     {
         "text": "999 ___ capitalism, your value peaks at checkout.\n資本主義によると,あなたの価値はチェックアウト時にピークに達する。",
