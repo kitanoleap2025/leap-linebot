@@ -1450,6 +1450,61 @@
         "meaning": "conference\t[名] (on ～)(～に関する)会議"
     },
     {
+        "text": "1500 All citizens must ___ with the law.\nすべての市民は法律に従わなければならない。",
+        "answer": "comply",
+        "meaning": ""
+    },
+    {
+        "text": "1501 New ___ will be introduced to protect privacy.\nプライバシーを保護するための新しい法律が導入される。",
+        "answer": "legislation",
+        "meaning": ""
+    },
+    {
+        "text": "1502 His ___ in court helped solve the case.\n彼の法廷での証言が事件解決に役立った。",
+        "answer": "testimony",
+        "meaning": ""
+    },
+    {
+        "text": "1503 The ___ reached a verdict after three days.\n陪審員は3日後に評決を出した。",
+        "answer": "jury",
+        "meaning": ""
+    },
+    {
+        "text": "1504 The government has the right to take ___ action.\n政府は正当な行動を取る権利がある。",
+        "answer": "legitimate",
+        "meaning": ""
+    },
+    {
+        "text": "1505 The police must ___ the law fairly.\n警察は法律を公正に執行しなければならない。",
+        "answer": "enforce",
+        "meaning": ""
+    },
+    {
+        "text": "1506 The country changed its ___ after the revolution.\n革命の後、その国は政権を変えた。",
+        "answer": "regime",
+        "meaning": ""
+    },
+    {
+        "text": "1507 The company was slowed by excessive ___.\nその会社は過剰な官僚主義によって業務が遅れた。",
+        "answer": "bureaucracy",
+        "meaning": ""
+    },
+    {
+        "text": "1508 The scandal exposed deep government ___.\nそのスキャンダルは政府の深刻な汚職を暴露した。",
+        "answer": "corruption",
+        "meaning": ""
+    },
+    {
+        "text": "1509 The country lived under a ___ for decades.\nその国は何十年も専制政治の下にあった。",
+        "answer": "tyranny",
+        "meaning": ""
+    },
+    {
+        "text": "1510 The UN decided to impose economic ___ on the country.\n国連はその国に経済制裁を課すことを決定した。",
+        "answer": "sanction",
+        "meaning": ""
+    },
+    {
         "text": "1529 His wealth was huge, but his jokes were ___.\n彼の富は莫大だったが,ジョークは破産状態だった.💰",
         "answer": "bankrupt",
         "meaning": ""
