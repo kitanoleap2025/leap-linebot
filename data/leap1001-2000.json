@@ -1452,62 +1452,152 @@
     {
         "text": "1500 All citizens must ___ with the law.\nすべての市民は法律に従わなければならない。",
         "answer": "comply",
-        "meaning": ""
+        "meaning": "comply　[自] (with ～)(～に)従う， 遵守する"
     },
     {
         "text": "1501 New ___ will be introduced to protect privacy.\nプライバシーを保護するための新しい法律が導入される。",
         "answer": "legislation",
-        "meaning": ""
+        "meaning": "legislation　[名] (集合的に)法律〈不可算〉"
     },
     {
         "text": "1502 His ___ in court helped solve the case.\n彼の法廷での証言が事件解決に役立った。",
         "answer": "testimony",
-        "meaning": ""
+        "meaning": "testimony　[名] (法廷などでの)証言"
     },
     {
         "text": "1503 The ___ reached a verdict after three days.\n陪審員は3日後に評決を出した。",
         "answer": "jury",
-        "meaning": ""
+        "meaning": "jury　[名] 陪審 (員団)"
     },
     {
         "text": "1504 The government has the right to take ___ action.\n政府は正当な行動を取る権利がある。",
         "answer": "legitimate",
-        "meaning": ""
+        "meaning": "legitimate　[形] ①正当な ②合法の"
     },
     {
         "text": "1505 The police must ___ the law fairly.\n警察は法律を公正に執行しなければならない。",
         "answer": "enforce",
-        "meaning": ""
+        "meaning": "enforce　[他] ①～を施行する ②～を強制する"
     },
     {
         "text": "1506 The country changed its ___ after the revolution.\n革命の後、その国は政権を変えた。",
         "answer": "regime",
-        "meaning": ""
+        "meaning": "regime　[名] 政権，政治体制"
     },
     {
         "text": "1507 The company was slowed by excessive ___.\nその会社は過剰な官僚主義によって業務が遅れた。",
         "answer": "bureaucracy",
-        "meaning": ""
+        "meaning": "bureaucracy　[名] ①官僚制度，官僚主義 ②(集合的に)官僚"
     },
     {
         "text": "1508 The scandal exposed deep government ___.\nそのスキャンダルは政府の深刻な汚職を暴露した。",
         "answer": "corruption",
-        "meaning": ""
+        "meaning": "corruption　[名] 腐敗，汚職"
     },
     {
         "text": "1509 The country lived under a ___ for decades.\nその国は何十年も専制政治の下にあった。",
         "answer": "tyranny",
-        "meaning": ""
+        "meaning": "tyranny　[名] ①圧政，専制政治 ②暴虐 (な行為)"
     },
     {
         "text": "1510 The UN decided to impose economic ___ on the country.\n国連はその国に経済制裁を課すことを決定した。",
         "answer": "sanction",
-        "meaning": ""
+        "meaning": "sanction　[名] ①(―s)制裁 ②(公的な)認可"
+    },
+    {
+        "text": "1511 Each ___ gave a speech before the election.\nそれぞれの候補者が選挙前に演説を行った。",
+        "answer": "candidate",
+        "meaning": "candidate　[名] (for ～)(～の)候補 (者)，(～になりそうな)人 [物]"
+    },
+    {
+        "text": "1512 The ___ proposed a new law on education reform.\nその上院議員は教育改革に関する新しい法案を提案した。",
+        "answer": "senator",
+        "meaning": "senator　[名] 〈米〉(しばしば S―)上院議員"
+    },
+    {
+        "text": "1513 He was appointed ___ to France.\n彼はフランスへの大使に任命された。",
+        "answer": "ambassador",
+        "meaning": "ambassador　[名] 大使"
+    },
+    {
+        "text": "1514 A skilled ___ can prevent conflicts between nations.\n有能な外交官は国同士の対立を防ぐことができる。",
+        "answer": "diplomat",
+        "meaning": "diplomat　[名] 外交官"
+    },
+    {
+        "text": "1515 Many ___ crossed the border to escape the war.\n多くの難民が戦争を逃れるために国境を越えた。",
+        "answer": "refugees",
+        "meaning": "refugee　[名] 難民"
+    },
+    {
+        "text": "1516 The two countries became close ___ during the war.\nその二国は戦時中、緊密な同盟国となった。",
+        "answer": "allies",
+        "meaning": "ally　[名] ①同盟国，協力者 [自] ②(with ～)(～と)提携する"
+    },
+    {
+        "text": "1517 Queen Victoria’s ___ lasted more than sixty years.\nヴィクトリア女王の治世は60年以上続いた。",
+        "answer": "reign",
+        "meaning": "reign　[名] ①(君主などの)統治 (期間)[自] ②君臨する"
+    },
+    {
+        "text": "1518 The United States has a ___ system of government.\nアメリカ合衆国は連邦制の政府を持っている。",
+        "answer": "federal",
+        "meaning": "federal　[形] 連邦の"
+    },
+    {
+        "text": "1519 China was once a ___ country.\n中国はかつて共産主義の国だった。",
+        "answer": "communist",
+        "meaning": "communist　[形] ①共産主義(者)の [名] ②共産主義者"
+    },
+    {
+        "text": "1520 The city’s ___ government is responsible for local schools.\nその都市の自治政府は地元の学校を管轄している。",
+        "answer": "municipal",
+        "meaning": "municipal　[形] 市(営)の，地方自治の"
+    },
+    {
+        "text": "1521 He inherited a large ___ from his uncle.\n彼は叔父から広大な不動産を相続した。",
+        "answer": "estate",
+        "meaning": "estate　[名] ①(全)財産 ②地所"
+    },
+    {
+        "text": "1522 Land is one of the most valuable ___ a person can own.\n土地は人が所有できる最も価値のある資産の一つだ。",
+        "answer": "assets",
+        "meaning": "asset　[名] 財産，資産"
+    },
+    {
+        "text": "1523 The company’s annual ___ increased by 20%.\nその会社の年間収入は20%増加した。",
+        "answer": "revenue",
+        "meaning": "revenue　[名] (国などの)歳入，(事業などの)収益"
+    },
+    {
+        "text": "1524 The government is working to reduce its budget ___.\n政府は財政赤字を減らそうとしている。",
+        "answer": "deficit",
+        "meaning": "deficit　[名] (会社，国の)赤字"
+    },
+    {
+        "text": "1525 International ___ has grown rapidly in the past decade.\n国際商業は過去10年で急速に成長した。",
+        "answer": "commerce",
+        "meaning": "commerce　[名] 商業"
+    },
+    {
+        "text": "1526 The factory increased its ___ by 15% this year.\nその工場は今年、生産量を15%増やした。",
+        "answer": "output",
+        "meaning": "output　[名] ①生産高 ②(エンジン，発電機などの)出力"
+    },
+    {
+        "text": "1527 The government provides a ___ to support local farmers.\n政府は地元の農家を支援するために補助金を支給している。",
+        "answer": "subsidy",
+        "meaning": "subsidy　[名] 補助金"
+    },
+    {
+        "text": "1528 The online ___ was completed in just a few seconds.\nそのオンライン取引はわずか数秒で完了した。",
+        "answer": "transaction",
+        "meaning": "transaction　[名] 取り引き"
     },
     {
         "text": "1529 His wealth was huge, but his jokes were ___.\n彼の富は莫大だったが,ジョークは破産状態だった.💰",
         "answer": "bankrupt",
-        "meaning": ""
+        "meaning": "bankrupt　[形] 倒産した，破産した"
     },
     {
         "text": "1551 Consumption tax increases economic ___.\n消費税は経済格差を拡大させる.",
