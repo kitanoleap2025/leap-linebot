@@ -95,6 +95,11 @@
         "meaning": "impress　[他] ～に感銘を与える，～を感心させる"
     },
     {
+        "text": "020 She was ___ a prize for her outstanding research.\n彼女は優れた研究に対して賞を授与された。",
+        "answer": "awarded",
+        "meaning": "award　[名] ①賞 [他] ②～を授与する"
+    },
+    {
         "text": "021 He ___ why he had missed the deadline.\n彼はなぜ締め切りを過ぎたのか説明した.",
         "answer": "explained",
         "meaning": "explain　[他] ～を説明する"
@@ -132,7 +137,7 @@
     {
         "text": "029 We need more building ___ to finish the house.\n家を完成させるにはもっと建材が必要だ.🏠",
         "answer": "material",
-        "meaning": ""
+        "meaning": "material　[名] ①材料，生地 ②資料，教材 [形] ③物質的な ④重大な"
     },
     {
         "text": "030 People who can be replaced by ___ Intelligence\nAIに代替可能な人.",
@@ -180,14 +185,24 @@
         "meaning": "effort　[名] 努力"
     },
     {
+        "text": "039 You need to ___ speaking English every day to improve.\n上達するには毎日英語を話す練習をする必要がある。",
+        "answer": "practice",
+        "meaning": "practice　[名] ①練習 ②実践 ③慣習 [他] ④～を練習する ⑤～を実践する"
+    },
+    {
         "text": "040 ___ my ambition to be a pilot\nパイロットになるという望みを叶える",
         "answer": "achieve",
         "meaning": "achieve　[他] ～を達成する"
     },
     {
+        "text": "041 He finally ___ to solve the difficult problem.\n彼はついにその難問を解くことができた。",
+        "answer": "managed",
+        "meaning": "manage　[他] ①（to do）何とかして～する ②～を経営する，管理する"
+    },
+    {
         "text": "042 Technology will ___ dramatically within a few years.\n技術は数年のうちに劇的に進化するだろう。",
         "answer": "improve",
-        "meaning": ""
+        "meaning": "improve　[他] ①～を改善する，磨く [自] ②よくなる"
     },
     {
         "text": "043 This machine can ___ 10 parts in one minute.\nこの機械は１分で10個の部品を生産出来る.",
@@ -203,6 +218,11 @@
         "text": "045 Kitano high school was ___ in 1873.\n北野高校は1873年に設立された.",
         "answer": "established",
         "meaning": "establish　[他] ①～を確立する，定着させる ②～を設立する"
+    },
+    {
+        "text": "046 They decided to ___ a new study group.\n彼らは新しい勉強グループを作ることにした。",
+        "answer": "form",
+        "meaning": "form　[他] ①～を形成する [名] ②形態 ③書式"
     },
     {
         "text": "047 I wish I could ___ people around the world from poverty.\n世界中の人々を貧困から救えたら良いのに。",
@@ -265,14 +285,44 @@
         "meaning": "fever　[名] ①（体温の）熱 ②熱狂"
     },
     {
+        "text": "059 Regular exercise helps build physical ___.\n定期的な運動は体力をつけるのに役立つ。",
+        "answer": "strength",
+        "meaning": "strength　[名] ①（physical ―）体力 ②力"
+    },
+    {
+        "text": "060 A single ___ rolled down her cheek.\n一筋の涙が彼女の頬を伝った。",
+        "answer": "tear",
+        "meaning": "tear　[名] ①（通例 ―s）涙〈可算〉 [他] ②（up）～を引き裂く"
+    },
+    {
         "text": "061 The medicine ___ bitter.\nその薬は苦い味がする。",
         "answer": "tastes",
         "meaning": "taste　[自] ①～の味がする [他] ②～の味をみる [名] ③味 ④好み"
     },
     {
+        "text": "062 You must follow the school ___ at all times.\n常に学校の規則に従わなければならない。",
+        "answer": "rule",
+        "meaning": "rule　[名] ①規則 [他] ②～を支配する"
+    },
+    {
+        "text": "063 He played an important ___ in the success of the project.\n彼はそのプロジェクトの成功に重要な役割を果たした。",
+        "answer": "role",
+        "meaning": "role　[名] 役割"
+    },
+    {
         "text": "064 He has an odd ___ of talking to plants.\n彼は植物に話しかける奇妙な習慣がある。🌷",
         "answer": "habit",
         "meaning": "habit　[名] 習慣，癖"
+    },
+    {
+        "text": "065 Taking off your shoes before entering a house is a Japanese ___.\n家に入る前に靴を脱ぐのは日本の習慣だ。",
+        "answer": "custom",
+        "meaning": "custom　[名] ①習慣 ②（―s）税関、関税"
+    },
+    {
+        "text": "066 It is a family ___ to eat together on New Year’s Day.\n元日に家族みんなで食事をするのが家族の伝統だ。",
+        "answer": "tradition",
+        "meaning": "tradition　[名] 伝統"
     },
     {
         "text": "067 Even a small change can have a significant effect on ___.\n小さな変化でも社会に大きな影響を与える",
@@ -310,9 +360,24 @@
         "meaning": "local　[形] ①その土地の，地元の ②地方の [名] ③地元の人"
     },
     {
+        "text": "074 The company conducted a ___ to understand customer satisfaction.\nその会社は顧客満足度を理解するために調査を行った。",
+        "answer": "survey",
+        "meaning": "survey　[名] ①調査〈可算〉 [他] ②～を調査する"
+    },
+    {
+        "text": "075 We should learn to ___ time as much as money.\nお金と同じくらい時間を大切にするべきだ。",
+        "answer": "value",
+        "meaning": "value　[名] ①価値 ②（―s）価値観 ③お買い得品〈不可算〉 [他] ④～を重んじる"
+    },
+    {
         "text": "076 The arrow indicate the hidden ___ on the map.\n矢印は地図上の隠された宝物を示している。💎",
         "answer": "treasure",
         "meaning": "treasure　[名] ①財宝，宝 ②大事な物［人］ [他] ③（思い出など）を大事にする"
+    },
+    {
+        "text": "077 That style of clothing is back in ___.\nその服のスタイルが再び流行している。",
+        "answer": "fashion",
+        "meaning": "fashion　[名] ①流行 ②流儀，やり方 [他] ③（手などで）～を作る"
     },
     {
         "text": "078 I use ___ transportation to get to school.(不可算)\n私は学校に行くのに公共交通機関を利用しています.",
@@ -330,9 +395,29 @@
         "meaning": "vote　[名] ①投票（数)[自] ②投票する"
     },
     {
+        "text": "081 The ___ announced new policies today.\n政府は今日、新しい政策を発表した。",
+        "answer": "government",
+        "meaning": "government　[名] 政府"
+    },
+    {
+        "text": "082 The ___ celebrated its 100th anniversary.\nその国は100周年を祝った。",
+        "answer": "nation",
+        "meaning": "nation　[名] ①国家 ②（the ―)国民"
+    },
+    {
         "text": "083 Paris is the ___ of romance, and overpriced coffee.\nパリはロマンスの都であり、値段の高すぎるコーヒーの都である。",
         "answer": "capital",
         "meaning": "capital　[名] ①首都 ②資本 [形] ③重大な，死に値する"
+    },
+    {
+        "text": "084 The president visited the ___ of New York.\n大統領はニューヨーク州を訪れた。",
+        "answer": "state",
+        "meaning": "state　[名] ①州 ②状態 ③国家 [他] ④（意見，情報）を述べる"
+    },
+    {
+        "text": "085 He is very interested in ___ issues.\n彼は政治問題に非常に関心がある。",
+        "answer": "political",
+        "meaning": "political　[形] 政治的な，政治の"
     },
     {
         "text": "086 The ___ is determined by supply and demand.\n価格は需要と供給で決まる.",
@@ -365,6 +450,11 @@
         "meaning": "bill　[名] ①勘定 ②請求書 ③〈米〉紙幣 ④法案"
     },
     {
+        "text": "092 The two countries agreed to ___ goods freely.\nその二国間は自由に商品を取引することに合意した。",
+        "answer": "trade",
+        "meaning": "trade　[名] ①貿易 ②（the ～ trade）～業 ③商売 [他] ④～を交換する"
+    },
+    {
         "text": "093 His ___ was huge, but his jokes were bankrupt.\n彼の富は莫大だったが,ジョークは破産状態だった.💰",
         "answer": "wealth",
         "meaning": "wealth　[名] ①富，財産〈不可算〉 ②（a ― of ～）豊富な～"
@@ -390,9 +480,19 @@
         "meaning": "task　[名] 仕事〈可算〉"
     },
     {
+        "text": "098 She works hard to ___ enough money for her family.\n彼女は家族のために十分なお金を稼ぐために一生懸命働いている。",
+        "answer": "earn",
+        "meaning": "earn　[他] ①（金）を稼ぐ，もうける ②（評判など）を得る"
+    },
+    {
         "text": "099 What you said ___ more than you think.\n君が言ったことは,君が思っているよりも傷ついたよ.😢",
         "answer": "hurt",
         "meaning": "hurt　[自] ①（身体の部位が）痛む [他] ②（身体，感情）を傷つける"
+    },
+    {
+        "text": "100 He accidentally ___ his leg while playing soccer.\n彼はサッカーをしているときにうっかり足をけがした。",
+        "answer": "injured",
+        "meaning": "injure　[他] ①～を痛める ②～をけがさせる"
     },
     {
         "text": "101 The storm caused severe ___ to the village.\n嵐は村にひどい被害をもたらした。🍃",
@@ -403,6 +503,16 @@
         "text": "102 ___ the pen of the person sitting next to me\n隣の席の人のペンを破壊する",
         "answer": "destroy",
         "meaning": "destroy　[他] ①～を（完全に）破壊する ②～を殺す，全滅させる"
+    },
+    {
+        "text": "103 The storm could ___ the entire harvest.\n嵐が全収穫を台無しにするかもしれない。",
+        "answer": "ruin",
+        "meaning": "ruin　[他] ①～を台無しにする ②～を破滅させる [名] ③（―s）廃墟，荒廃"
+    },
+    {
+        "text": "104 Climbing without proper gear is a ___.\n適切な装備なしで登ることは危険だ。",
+        "answer": "danger",
+        "meaning": "danger　[名] 危険"
     },
     {
         "text": "105 The noisy ___ are a real nuisance.\n騒がしい隣人は本当に迷惑だ.👴",
@@ -473,6 +583,11 @@
         "text": "118 ___ can broaden your view of the world.\n旅行は世界に対する視野を広げてくれる。",
         "answer": "Traveling",
         "meaning": "travel　[自] ①旅行する，移動する ②（光，音などが）進む"
+    },
+    {
+        "text": "119 She will ___ the ball to her teammate.\n彼女はボールをチームメイトにパスする。",
+        "answer": "pass",
+        "meaning": "pass　[他] ①～を通り過ぎる ②～を抜く ③（試験）に受かる ④（（人）A）（人）に（A を）渡す [自] ⑤（時が）過ぎる [名] ⑥通行証"
     },
     {
         "text": "120 abandon a project ___ to fail\n失敗するであろう企画を放棄する🚯",
@@ -615,6 +730,16 @@
         "meaning": "raise　[他] ①～を上げる ②（子ども，作物）を育てる ③（お金，資金）を集める ④（問題）を提起する [名]⑤賃上げ，昇給"
     },
     {
+        "text": "148 The waiter will ___ the food to the customers.\nウェイターはお客さんに料理を提供する。",
+        "answer": "serve",
+        "meaning": "serve　[他] ①（飲食物）を出す ②～に役立つ [自] ③役立つ"
+    },
+    {
+        "text": "149 Please ___ some tea into my cup.\n私のカップにお茶を注いでください。",
+        "answer": "pour",
+        "meaning": "pour　[他] ①～を注ぐ [自] ②降りそそぐ"
+    },
+    {
         "text": "150 ___ the coffee\nコーヒーをこぼす☕",
         "answer": "spill",
         "meaning": "spill　[他] ①～をこぼす [名] ②（石油などの）流出"
@@ -625,19 +750,29 @@
         "meaning": "pretend　[自] （to do / that SV）（～する/ ～である）ふりをする"
     },
     {
-        "text": "153 ___ Juso after school\n放課後,十三を探検する",
-        "answer": "explore",
+        "text": "152 Children should ___ well in school.\n子どもたちは学校で良い行いをするべきだ。",
+        "answer": "behave",
+        "meaning": "behave　[自] ふるまう"
+    },
+    {
+        "text": "153 She couldn’t ___ the pain any longer.\n彼女はもうその痛みに耐えられなかった。",
+        "answer": "bear",
         "meaning": "bear　[他] ①（can ―）～に耐える ②～を持つ、運ぶ ③～を産む"
     },
     {
-        "text": "154 It is not what ___ that matters. It is how you respond.\n大事なのは何が起きたかではない.どう応じるかだ.",
-        "answer": "happened",
+        "text": "154 ___ Juso after school\n放課後,十三を探検する",
+        "answer": "explore",
         "meaning": "explore　[他] ①～を探検する，（街など）を探索する ②（問題など）を探る"
     },
     {
-        "text": "155 More and more problems ___.\nますます多くの問題が現れた.",
-        "answer": "appeared",
+        "text": "155 It is not what ___ that matters. It is how you respond.\n大事なのは何が起きたかではない.どう応じるかだ.",
+        "answer": "happened",
         "meaning": "happen　[自] ①（to ～）（～に）起こる ②（to do）偶然～する"
+    },
+    {
+        "text": "156 More and more problems ___.\nますます多くの問題が現れた.",
+        "answer": "appeared",
+        "meaning": "appear　[自] ①現れる ②（to be ～）～のように思える"
     },
     {
         "text": "157 ___ silent\n黙ったままでいる",
