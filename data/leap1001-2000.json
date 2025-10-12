@@ -170,14 +170,14 @@
         "meaning": "pharmacy\t[名] （調剤）薬局"
     },
     {
-        "text": "1035 I aspire to become a __.\n 医師になることを目指す.🧑‍⚕️",
+        "text": "1035 The ___ has a CD stuck to his forehead.\n医者のおでこにはCDがついている。",
         "answer": "physician",
-        "meaning": "physician\t[名] ①〈米〉医師 ②〈英〉内科医"
+        "meaning": "physician　[名] ①〈米〉医師 ②〈英〉内科医"
     },
     {
         "text": "1037 give up my seat for a ___ woman\n妊婦さんに席を譲る🤰",
         "answer": "pregnant",
-        "meaning": "pregnant\t[形] 妊娠した"
+        "meaning": "pregnant　[形] 妊娠した"
     },
     {
         "text": "1038 ___ research has shown that stress is harmful.\n臨床研究では、ストレスは有害であることが示されている.",
@@ -187,92 +187,92 @@
     {
         "text": "1039 ___ emotional wounds\n心の傷を回復する💗",
         "answer": "heal",
-        "meaning": "heal\t[他] ①～を治す [自] ②治る"
+        "meaning": "heal　[他] ①～を治す [自] ②治る"
     },
     {
         "text": "1040 Takeshi was ___ with COVID-19.\nタケシはコロナに感染した.🦠",
         "answer": "infected",
-        "meaning": "infect\t[他] （人，動物，地域）に感染させる，伝染する"
+        "meaning": "infect　[他] （人，動物，地域）に感染させる，伝染する"
     },
     {
         "text": "1041 I twisted my ___ in P.E.\n私は体育の授業で足首をひねった。",
         "answer": "ankle",
-        "meaning": "ankle\t[名] 足首"
+        "meaning": "ankle　[名] 足首"
     },
     {
         "text": "1042 support the body with the ___\n親指で身体を支える",
         "answer": "thumb",
-        "meaning": "thumb\t[名] 親指"
+        "meaning": "thumb　[名] 親指"
     },
     {
-        "text": "1043 Takeshi often bumps his ___ into utility poles.\n タケシはよく電柱に額をぶつける",
+        "text": "1043 The physician has a CD stuck to his ___.\n医者のおでこにはCDがついている。",
         "answer": "forehead",
-        "meaning": "forehead\t[名] 額，おでこ"
+        "meaning": "forehead　[名] 額，おでこ"
     },
     {
         "text": "1044 Keep your ___ up！\n 元気を出して！(あごをあげて！)",
         "answer": "chin",
-        "meaning": "chin\t[名] 下あご，あごの先端"
+        "meaning": "chin　[名] 下あご，あごの先端"
     },
     {
         "text": "1045 train the ___ muscles\n 胸筋を鍛える",
         "answer": "chest",
-        "meaning": "chest\t[名] ①胸（部)②（大きな木の）箱，密閉容器"
+        "meaning": "chest　[名] ①胸（部)②（大きな木の）箱，密閉容器"
     },
     {
         "text": "1046 ___ cancer screening will be offered for free.\n 乳がんの検査が無料で提供される。",
         "answer": "breast",
-        "meaning": "breast\t[名] （主に女性の）胸，乳房"
+        "meaning": "breast　[名] （主に女性の）胸，乳房"
     },
     {
         "text": "1047 I’m confident in my ___ capacity.\n 私は肺活量に自信がある.🫁",
         "answer": "lung",
-        "meaning": "lung\t[名] 肺〈可算〉"
+        "meaning": "lung　[名] 肺〈可算〉"
     },
     {
         "text": "1048 Squids have a membrane that protects their internal ___.\n イカは内臓を守る膜を持つ.🦑",
         "answer": "organs",
-        "meaning": "organ\t[名] ①臓器，(動植物の)器官 ②(楽器)オルガン（①②ともに<可算>）"
+        "meaning": "organ　[名] ①臓器，(動植物の)器官 ②(楽器)オルガン（①②ともに<可算>）"
     },
     {
         "text": "1050 draw the human ___.\n人の骨格を描く🦴",
         "answer": "skeleton",
-        "meaning": "skeleton\t[名] 骸骨，骨格"
+        "meaning": "skeleton　[名] 骸骨，骨格"
     },
     {
         "text": "1051 Takeshi’s ___ is beyond the understanding of others.\n タケシの感覚は他の人には理解できない。",
         "answer": "sensation",
-        "meaning": "sensation\t[名] ①感覚 ②（説明し難い）感情"
+        "meaning": "sensation　[名] ①感覚 ②（説明し難い）感情"
     },
     {
         "text": "1052 pay attention to the dress ___\n服装の規定に注意を払う",
         "answer": "code",
-        "meaning": "code\t[名] ①（服装などの）規定 ②暗号"
+        "meaning": "code　[名] ①（服装などの）規定 ②暗号"
     },
     {
         "text": "1053 Environmental issues are on the ___ at the United Nations.\n環境問題が国連の議題に上がる。",
         "answer": "agenda",
-        "meaning": "agenda\t[名] 議題，協議事項"
+        "meaning": "agenda　[名] 議題，協議事項"
     },
     {
         "text": "1054 ___ is guaranteed.\n自由が保障される.",
         "answer": "Liberty",
-        "meaning": "liberty\t[名] 自由"
+        "meaning": "liberty　[名] 自由"
     },
     {
         "text": "1055 No one is running for the ___.\n誰も委員会に立候補しない.😶‍🌫️",
         "answer": "committee",
-        "meaning": "committee\t[名] 委員会"
+        "meaning": "committee　[名] 委員会"
     },
     {
         "text": "1056 Do you think Takeshi is included in ___?\nタケシは人類に含まれると思いますか？🤔",
         "answer": "humanity",
-        "meaning": "humanity\t[名] ①（集合的に）人類 ②（the ―ies）人文科学 ③人間性"
+        "meaning": "humanity　[名] ①（集合的に）人類 ②（the ―ies）人文科学 ③人間性"
     },
     {
         "text": "1057 ___ has achieved great prosperity over the past few centuries.\n人類はここ数百年で大きな繁栄を遂げた。",
         "answer": "mankind",
-        "meaning": "mankind\t[名] （集合的に）人類"
+        "meaning": "mankind　[名] （集合的に）人類"
     },
     {
         "text": "1058 ___ does not last long.\n権威は長く続かない.", 
