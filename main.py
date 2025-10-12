@@ -262,7 +262,7 @@ def send_question(user_id, range_str, bot_type="LEAP"):
 
     q = choose_weighted_question(user_id, questions)
     if q is None:
-        return TextSendMessage(text="問題リストなし")
+        return TextSendMessage(text="直近で間違えた問題は表示されません。")
     user_states[user_id] = (range_str, q["answer"])
     user_answer_start_times[user_id] = time.time()
 
@@ -438,7 +438,7 @@ def build_feedback_flex(user_id, is_correct, score, elapsed, correct_answer=None
         total_e_today = user_daily_e[user_id]["total_e"]
         body_contents.append({
             "type": "text",
-            "text": f"{y}✖🔥{user_streaks[user_id]}✖{label_symbol}{label_score}🟰{e}  total:{total_e_today}",
+            "text": f"{y}✖🔥{user_streaks[user_id]}✖{label_symbol}{label_score}🟰{e}",
             "size": "lg",
             "color": "#333333",
             "margin": "xl"
