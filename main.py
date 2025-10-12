@@ -473,8 +473,26 @@ medal_colors = {
     3: "#000000",  
 }
 
+def reset_yesterday_total_e():
+    """全ユーザーの昨日のtotal_eをリセット（バッチ処理）"""
+    today = time.strftime("%Y-%m-%d")
+    try:
+        batch = db.batch()
+        docs = db.collection("users").stream()
+        for doc in docs:
+            user_data = doc.to_dict()
+            if user_data.get("total_e_date") != today:
+                batch.update(db.collection("users").document(doc.id), {
+                    "total_e": 0,
+                    "total_e_date": today
+                })
+        batch.commit()
+    except Exception as e:
+        print(f"Error resetting yesterday's total_e: {e}")
+
 # 高速ランキング（自分の順位も表示）
 def build_ranking_with_totalE_flex(bot_type):
+    reset_yesterday_total_e()
     # total_rateランキング
     field_name_rate = f"total_rate_{bot_type.lower()}"
     try:
