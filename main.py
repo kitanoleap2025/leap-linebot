@@ -514,7 +514,7 @@ def build_ranking_with_totalE_flex(bot_type):
     try:
         docs_e = db.collection("users")\
             .order_by("total_e", direction=firestore.Query.DESCENDING)\
-            .limit(10).stream()
+            .limit(3).stream()
         ranking_e = [
             (doc.to_dict().get("name") or "イキイキした毎日",
              doc.to_dict().get("total_e", 0))
