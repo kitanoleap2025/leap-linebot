@@ -581,7 +581,15 @@ def build_ranking_with_totalE_flex(bot_type):
         alt_text=f"{bot_type.upper()}ランキング + TotalEランキング",
         contents=flex_content
     )
-
+#--------------------------通知----------------------------------------
+def send_global_notification(line_bot_api, text="勉強して下さい。"):
+    try:
+        docs = db.collection("users").stream()
+        for doc in docs:
+            user_id = doc.id
+            line_bot_api.push_message(user_id, TextSendMessage(text=text))
+    except Exception as e:
+        print(f"Error sending global notification: {e}")
 #----------------------------------------------------------------------------
 # —————— ここからLINEイベントハンドラ部分 ——————
 # LEAP
@@ -617,7 +625,12 @@ def handle_message_common(event, bot_type, line_bot_api):
 
     if user_id not in user_scores:
         load_user_data(user_id)
-        
+
+    if msg == "Σ":
+        send_global_notification(line_bot_api, text="勉強して下さい。")
+        line_bot_api.reply_message(event.reply_token, TextSendMessage(text="全ユーザーに通知を送りました。"))
+        return
+    
     # 名前変更コマンド
     if msg.startswith("@"):
         new_name = msg[1:].strip()
