@@ -396,7 +396,9 @@ def build_feedback_flex(user_id, is_correct, score, elapsed, correct_answer=None
                 "🏆 完璧！",
                 "🎯 的中！",
                 "👏 さすが！",
-                "💡 その調子！",
+                "✨ 素晴らしい！",
+                "🧩 すごい！",
+                
             ]),
             "size": "md",
             "align": "center",
@@ -498,9 +500,9 @@ def build_ranking_with_totalE_flex(bot_type):
     try:
         docs_rate = db.collection("users")\
             .order_by(field_name_rate, direction=firestore.Query.DESCENDING)\
-            .limit(5).stream()
+            .limit(10).stream()
         ranking_rate = [
-            (doc.to_dict().get("name") or "名無し",
+            (doc.to_dict().get("name") or "イキイキした毎日",
              doc.to_dict().get(field_name_rate, 0))
             for doc in docs_rate
         ]
@@ -512,9 +514,9 @@ def build_ranking_with_totalE_flex(bot_type):
     try:
         docs_e = db.collection("users")\
             .order_by("total_e", direction=firestore.Query.DESCENDING)\
-            .limit(5).stream()
+            .limit(10).stream()
         ranking_e = [
-            (doc.to_dict().get("name") or "名無し",
+            (doc.to_dict().get("name") or "イキイキした毎日",
              doc.to_dict().get("total_e", 0))
             for doc in docs_e
         ]
@@ -550,7 +552,7 @@ def build_ranking_with_totalE_flex(bot_type):
         "type": "box",
         "layout": "vertical",
         "contents": [
-            {"type": "text", "text": f"{bot_type.upper()}ランキング", "weight": "bold", "size": "xl"},
+            {"type": "text", "text": f"{bot_type.upper()}レートランキング", "weight": "bold", "size": "xl"},
             {"type": "separator", "margin": "md"}
         ]
     })
