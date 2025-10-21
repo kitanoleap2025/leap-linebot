@@ -354,7 +354,7 @@ trivia_messages = [
 def evaluate_X(elapsed, score, answer, is_multiple_choice=True):
     X = elapsed**1.7 + score**1.7
 
-    if X <= 12:
+    if X <= 10:
         return "!!Brilliant", 3
     elif X <= 20:
         return "!Great", 2
