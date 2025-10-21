@@ -2800,7 +2800,7 @@
         "meaning": "weed　[名] ①雑草，海草 [他] ②～の雑草を抜く"
     },
     {
-        "text": "718 Bee pollen is collected from flowers.\n蜂の花粉は花から集められる。",
+        "text": "718 Bee ___ is collected from flowers.\n蜂の花粉は花から集められる。",
         "answer": "pollen",
         "meaning": "pollen　[名] 花粉"
     },
