@@ -1225,34 +1225,74 @@
         "meaning": "pleasant　[形] （人にとって）楽しい，心地よい"
     },
     {
+        "text": "249 Online shopping is very ___ for busy people.\nネットショッピングは忙しい人にとってとても便利だ🛒",
+        "answer": "convenient",
+        "meaning": "convenient　[形] ①都合がよい ②近くて便利がよい"
+    },
+    {
+        "text": "250 He told a ___ story to avoid getting in trouble.\n彼は面倒を避けるために嘘の話をした🤥",
+        "answer": "false",
+        "meaning": "false　[形] ①誤った ②偽の"
+    },
+    {
+        "text": "251 The weather was so ___ that we had to cancel the trip.\n天気がひどすぎて旅行を中止しなければならなかった🌧️",
+        "answer": "terrible",
+        "meaning": "terrible　[形] ①ひどい ②苦手で"
+    },
+    {
         "text": "252 What an ___ problem!\nなんてひどい問題だ!",
         "answer": "awful",
-        "meaning": ""
+        "meaning": "awful　[形] ひどい，不快な"
+    },
+    {
+        "text": "253 She looks very ___ because she hasn’t been eating much.\n彼女はあまり食べていないのでとても痩せて見える🥺",
+        "answer": "thin",
+        "meaning": "thin　[形] ①薄い ②（病的に）やせた ③（毛が）薄い"
     },
     {
         "text": "254 Her top looks ___.\n彼女のトップはきつそうだ.",
         "answer": "tight",
-        "meaning": ""
+        "meaning": "tight　[形] ①引き締まった，きつい ②厳しい"
     },
     {
         "text": "255 ___ clothes\nゆったりとした服",
         "answer": "loose",
-        "meaning": ""
+        "meaning": "loose　[形] ①ゆるい ②解き放たれた"
+    },
+    {
+        "text": "256 I don’t like eating ___ fish.\n生の魚を食べるのは好きじゃない🐟",
+        "answer": "raw",
+        "meaning": "raw　[形] 生の，加工されていない"
     },
     {
         "text": "257 Is your head ___ ?\nお前の頭の中はからっぽなのか？🤯",
         "answer": "empty",
-        "meaning": ""
+        "meaning": "empty　[形] ①空の，中身のない [他] ②～を空にする"
     },
     {
-        "text": "258 People tend to accept ideas not because they are true, but because they are ___.\n人々はアイデアが真実だからではなく,馴染みがあるから受け入れる傾向があります.",
-        "answer": "familiar",
-        "meaning": ""
+        "text": "258 The surface of the glass is perfectly ___.\nそのガラスの表面は完全になめらかだ✨",
+        "answer": "smooth",
+        "meaning": "smooth　[形] ①滑らかな ②順調な [他] ③（服のしわ）をのばす，（髪）をなでつける"
     },
+    {
+        "text": "259 She gave me a ___ answer without hesitation.\n彼女はためらわずに率直な答えをくれた🎯",
+        "answer": "direct",
+        "meaning": "direct　[形] ①直接的な [他] ②～を指揮［監督，演出］する ③（注意など）を向ける ④～に道を教える"
+    },
+    {
+        "text": "260 People tend to accept ideas not because they are true, but because they are ___.\n人々はアイデアが真実だからではなく,馴染みがあるから受け入れる傾向があります.",
+        "answer": "familiar",
+        "meaning": "familiar　[形] ①知られた ②（人が）（よく）知っている"
+    },
+    {
+        "text": "261 Your idea is quite ___ to mine.\n君の考えは僕のとかなり似ている🤝",
+        "answer": "similar",
+        "meaning": "similar　[形] （to ～）（～に）似た"
+    }
     {
         "text": "262 Swizerland is a country whose languages and cultures ___ over short distances.\nスイスは短距離間で言語と文化が異なる国だ。",
         "answer": "differ",
-        "meaning": ""
+        "meaning": "differ　[自] 異なる"
     },
     {
         "text": "263 The prices ___ depending on the season.\n価格は季節によって変わる。",
@@ -1290,9 +1330,29 @@
         "meaning": "reduce　[他] ①～を減らす ②（A to B)A をB にする"
     },
     {
+        "text": "270 Let's ___ the cake into six pieces.\nケーキを6つに分けよう🍰",
+        "answer": "divide",
+        "meaning": "divide　[他] ①～を分割する ②（by ～）（～によって）（数字）を割る"
+    },
+    {
         "text": "271 Don’t ___ your chickens before they hatch.\n卵がかえる前にヒヨコを数えるな🐣",
         "answer": "count",
         "meaning": "count　[他] ①～を数える [自]②数える ③重要である ④（on ～）（～を）（全面的に）当てにする"
+    },
+    {
+        "text": "272 You should ___ the luggage before checking in.\nチェックインする前に荷物の重さを量るべきだ⚖️",
+        "answer": "weigh",
+        "meaning": "weigh　[自] ①～の重さがある [他] ②～の重さを量る ③～を（比較）検討する"
+    },
+    {
+        "text": "273 A ___ of the students were absent today.\n生徒の4分の1が今日欠席していた📉",
+        "answer": "quarter",
+        "meaning": "quarter　[名] ①④分の①，15分，25セント ②（都市のある特定な）地域"
+    },
+    {
+        "text": "274 There’s a parking ___ behind the building.\nその建物の裏に駐車場がある🚗",
+        "answer": "lot",
+        "meaning": "lot　[名] ①（a ― of ～）多くの～ ②（副詞的に）（a ―）とても ③（one's）（～の）状況，運命 ④（何らかの目的を持つ）土地"
     },
     { 
         "text": "275 The ___ of laundry was a huge obstacle to finishing homework.\n洗濯物の山は宿題を終わらせる大きな障害だった。",
@@ -1335,9 +1395,19 @@
         "meaning": "adjust　[自] ①（to ～）（～に）慣れる [他] ②～を調整する"
     },
     {
+        "text": "283 You should ___ for the scholarship by the end of this month.\n今月末までに奨学金を申し込むべきだ📄",
+        "answer": "apply",
+        "meaning": "apply　[自] ①（to ～）（～に）当てはまる ②（for ～）（～に）申し込む [他] ③～を当てはめる，応用する ④（薬，口紅など）を塗る"
+    },
+    {
         "text": "284 Did you have your hair cut? It ___ you!\n髪切った？似合ってるよ！✅",
         "answer": "suits",
         "meaning": "suit　[他] ①（人）に適している，好都合だ ②（服装，色が人）に似合う [名] ③訴訟（＝lawsuit)④スーツ"
+    },
+    {
+        "text": "285 In this ___, you need to follow the rules carefully.\nこの場合は規則に注意して従う必要がある⚖️",
+        "answer": "case",
+        "meaning": "case　[名] ①場合 ②（the ―）事実 ③（犯罪）事件 ④症例 ⑤（make a ―）主張（する）"
     },
     {
         "text": "286 A:What movie has no kissing ___? B:Your life.\nA:キスシーンの無い映画は？",
@@ -1359,6 +1429,11 @@
         "answer": "experience",
         "meaning": "experience　[名] ①経験 ②（個々の）体験 [他] ③～を経験する"
     },
+    {
+        "text": "290 It takes a long ___ to master a new language.\n新しい言語を習得するには長い時間がかかる⏳",
+        "answer": "time",
+        "meaning": "time　[名] ①（漠然とした）時間 ②（ある長さの）時間 ③回数 ④倍 ⑤（―s）情勢，時代 ⑥（接続詞的に（the)next ―）次に～するとき"
+    }
     {
         "text": "291 Looks like ___ has somehow arrived outdoors.\n外では春が来たようだ.",
         "answer": "spring",
@@ -1384,6 +1459,11 @@
         "answer": "recently",
         "meaning": "recently　[副] 最近，近ごろ"
     },
+    {
+        "text": "297 I’m ___ to getting up early every day.\n毎日早起きするのに慣れている☀️",
+        "answer": "used",
+        "meaning": "used　[助] ①（to ～）以前は～だった，よく～したものだ [形] ②（be ― to doing）（～することに）慣れている ③中古の"
+    }
     {
         "text": "298 He arrived ___ to the meeting.\n彼は会議に早く到着した。",
         "answer": "early",
@@ -1500,6 +1580,16 @@
         "meaning": "refrigerator　[名] 冷蔵庫"
     },
     {
+        "text": "322 The ___ was so heavy that I was late for school.\n交通渋滞がひどくて学校に遅れた🚗💨",
+        "answer": "traffic",
+        "meaning": "traffic　[名] 交通（量）〈不可算〉"
+    },
+    {
+        "text": "323 They ___ fresh fruit at the market every morning.\n彼らは毎朝市場で新鮮な果物を売っている🍎",
+        "answer": "sell",
+        "meaning": "sell　[他] ①～を売る [自] ②売れる"
+    },
+    {
         "text": "324 He ___ more than just money to buy his daughter an instrument.\n彼は娘に楽器を買うためにお金以上のものを支払った。",
         "answer": "paid",
         "meaning": "pay　[他] ①（A for B)（B の代金としてA）を支払う [自] ②（for A)（A の代金を）支払う ③（仕事などが）割に合う [名] ④給料"
@@ -1535,29 +1625,59 @@
         "meaning": "room　[名] ①部屋 ②余地，空間〈不可算〉"
     },
     {
+        "text": "331 He told me a funny ___ about his childhood.\n彼は子どもの頃の面白い話をしてくれた📖",
+        "answer": "story",
+        "meaning": "story　[名] 階"
+    },
+    {
         "text": "332 It was the ___ of many demonstrations.\nそこは多くのデモが行われた場所だった.",
         "answer": "site",
         "meaning": ""
     },
     {
+        "text": "333 The kids are playing soccer in the ___.\n子どもたちは庭でサッカーをしている⚽",
+        "answer": "yard",
+        "meaning": "yard　[名] ①（主に〈米〉）庭 ②ヤード（＝約0.9 m）"
+    },
+    {
+        "text": "334 There’s some mud at the ___ of the lake.\n湖の底に泥がある🌊",
+        "answer": "bottom",
+        "meaning": "bottom　[名] ①底 ②一番下，最下位 ③尻"
+    },
+    {
+        "text": "335 Please write your name on the dotted ___.\n点線の上に名前を書いてください🖊️",
+        "answer": "line",
+        "meaning": "line　[名] ①列 ②行，線 ③電話回線 ④セリフ [自] ⑤（―up）並ぶ"
+    },
+    {
         "text": "336 ___, ___, ___ your boat\nGently down the stream\nMerrily, merrily, merrily, merrily\nLife is but a dream\nボートを漕げ、漕げ、漕げ\nそっと流れを下って\n陽気に、陽気に、陽気に、陽気に\n人生は夢に過ぎない🎵",
         "answer": "row",
-        "meaning": ""
+        "meaning": "row　[名] ①列 [他] ②（ボート）をこぐ"
+    },
+    {
+        "text": "337 The mountains in the ___ look beautiful at sunset.\n背景の山々が夕日に照らされて美しい🌇",
+        "answer": "background",
+        "meaning": "background　[名] ①背景 ②経歴，生い立ち"
     },
     {
         "text": "338 The rook moves in the same ___ as the hisha.\nルークは飛車と同じ方向に進む.♟️",
         "answer": "directions",
-        "meaning": ""
+        "meaning": "direction　[名] ①方向，方角 ②（―s）道順 ③指示"
     },
     {
         "text": "339 the symbol of their ___\n彼らの文化の象徴",
         "answer": "culture",
-        "meaning": ""
+        "meaning": "culture　[名] ①文化 ②培養，養殖 ③教養 [他] ④～を耕す，栽培［養殖］する"
     },
     {
         "text": "340 I want to transfer to the ___ course.\n美術コースに転向したい.🎨",
         "answer": "art",
-        "meaning": ""
+        "meaning": "art　[名] ①芸術 ②（何かを行う）技術 ③（liberal ―s）一般教養"
+    },
+    {
+        "text": "341 I used to watch that ___ every Sunday morning.\n昔は毎週日曜の朝にそのアニメを見ていた📺",
+        "answer": "cartoon",
+        "meaning": "cartoon　[名] 漫画"
     },
     {
         "text": "342 Written in plain English, this ___ is good for beginners in the language.\nわかりやすい英語で書かれているので,この小説は英語初心者に良い。",
@@ -1569,6 +1689,21 @@
         "answer": "instrument",
         "meaning": ""
     },
+    {
+        "text": "344  can’t get this ___ out of my head.\nこの曲のメロディーが頭から離れない🎵",
+        "answer": "tune",
+        "meaning": "tune　[名] ①曲 [自] ②（番組に）チャンネルを合わせる [他] ③～の調子を合わせる"
+    },
+    {
+        "text": "345 This ___ is too long; try to make it shorter.\nこの文は長すぎるから、もう少し短くしてみよう✍️",
+        "answer": "sentence",
+        "meaning": "sentence　[名] ①（ ①つ①つの）文 ②判決 [他] ③（A to B）（A）を（B）の刑にする"
+    },
+    {
+        "text": "346 I read an interesting ___ about climate change.\n気候変動に関する興味深い記事を読んだ📰",
+        "answer": "article",
+        "meaning": ""
+    }
     {
         "text": "347 The teacher advised me to study English ___ .\n先生は私に英単語を勉強するよう助言した.",
         "answer": "vocabulary",
