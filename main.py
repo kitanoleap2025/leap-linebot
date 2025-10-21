@@ -257,12 +257,18 @@ def send_question(user_id, range_str, bot_type="LEAP"):
 
     if not questions:
         if range_str == "WRONG":
-            return TextSendMessage(text="間違えた単語はありません🎉")
+            return TextSendMessage(text="🎉🎉🎉間違えた単語はありません🎉🎉🎉")
         return TextSendMessage(text="問題が見つかりません。")
 
+    # 間違えた問題の数を取得
+    if range_str == "WRONG":
+        wrong_count = len(questions)
+    else:
+        wrong_count = None
+        
     q = choose_weighted_question(user_id, questions)
     if q is None:
-        return TextSendMessage(text="直近で間違えた問題は表示されません。")
+        return TextSendMessage(text="直近10問で間違えた問題は表示されません。他の問題を解いてください。")
     user_states[user_id] = (range_str, q["answer"])
     user_answer_start_times[user_id] = time.time()
 
@@ -294,6 +300,10 @@ def send_question(user_id, range_str, bot_type="LEAP"):
                      for choice in choices]
 
     text_to_send = f"{score_display}\n{q['text']}"
+
+    # 間違えた問題の数を表示
+    if wrong_count is not None:
+        text_to_send = f"間違えた単語:あと{wrong_count}語\n" + text_to_send
 
     return TextSendMessage(text=text_to_send, quick_reply=QuickReply(items=quick_buttons))
 
@@ -344,7 +354,7 @@ trivia_messages = [
 def evaluate_X(elapsed, score, answer, is_multiple_choice=True):
     X = elapsed**1.7 + score**1.7
 
-    if X <= 10:
+    if X <= 12:
         return "!!Brilliant", 3
     elif X <= 20:
         return "!Great", 2
@@ -376,7 +386,7 @@ def build_feedback_flex(user_id, is_correct, score, elapsed, correct_answer=None
         color = color_map.get(label, "#000000")
         body_contents.append({
             "type": "text",
-            "text": "\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\",
+            "text": "\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\",
             "weight": "bold",
             "size": "xl",
             "color": "#ff1493",
@@ -411,7 +421,7 @@ def build_feedback_flex(user_id, is_correct, score, elapsed, correct_answer=None
         })
         body_contents.append({
             "type": "text",
-            "text": "\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\",
+            "text": "\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\",
             "weight": "bold",
             "size": "xl",
             "color": "#ff1493",
