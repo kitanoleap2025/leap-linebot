@@ -840,10 +840,20 @@
         "meaning": "knowledge　[名] 知識，知っていること"
     },
     {
+        "text": "172 All students must wear the school ___.\nすべての生徒は学校の制服を着なければならない。",
+        "answer": "uniform",
+        "meaning": "uniform　[名] ①制服 [形] ②同一の，一定の"
+    },
+    {
         "text": "173 The revelation that he had repeated three ___ caused chaos in the classroom.\n彼が3留だったことが発覚し,教室は大混乱となった.💮💮💮", 
         "answer": "grades",
         "meaning": "grade　[名] ①（小，中，高の）学年 ②等級 ③成績"
     },
+    {
+        "text": "174 He received advice from a ___ member of the team.\n彼はチームの先輩メンバーから助言を受けた。",
+        "answer": "senior",
+        "meaning": "senior　[名] ①（高校，大学の）最上級生 [形] ②高齢者の ③（地位が）上位の"
+    }
     {
         "text": "175 I’m worried whether he can ___.\n彼が卒業できるのか心配だ.🎓",
         "answer": "graduate",
@@ -967,67 +977,82 @@
     {
         "text": "199 He finally ___ that he made a mistake.\n彼はついに自分の間違いを認めた。",
         "answer": "admit",
-        "meaning": ""
+        "meaning": "admit　[他] ①～を認める ②～の入場［入学］を許可する"
     },
     {
         "text": "200 The airplane landed safely on the ___.\n飛行機は安全に地面に着陸した。",
         "answer": "ground",
-        "meaning": ""
+        "meaning": "ground　[名] ①地面 ②根拠"
     },
     {
         "text": "201 Air ___ is a serious problem in big cities.\n大都市では大気汚染が深刻な問題だ。",
         "answer": "pollution",
-        "meaning": ""
+        "meaning": "pollution　[名] 汚染，公害〈不可算〉"
     },
     {
         "text": "202 lose ___ of the destination.\n目的地を見失う🚩",
         "answer": "sight",
-        "meaning": ""
+        "meaning": "sight　[名] ①光景 ②視力"
     },
     {
         "text": "203 Traveling can broaden your ___ of the world.\n旅行は世界に対する視野を広げてくれる。",
         "answer": "view",
-        "meaning": ""
+        "meaning": "view　[名] ①眺め，景色〈可算〉 ②見解，見方 [他] ③（A as B）（A）を（B と）みなす"
+    },
+    {
+        "text": "204 The view from the hill gave a breathtaking ___ of the valley.\n丘からの景色は谷の息を呑むような眺めだった🌄",
+        "answer": "landscape",
+        "meaning": "landscape　[名] ①風景 ②（the ―）（政治，社会の）情勢"
     },
     {
         "text": "205 the delicate balance of ___\n自然界の絶妙なバランス⚖️",
         "answer": "nature",
-        "meaning": ""
+        "meaning": "nature　[名] ①（無冠詞）自然 ②（しばしばthe ― of ～)（～の）性質"
     },
+    {
+        "text": "206 Plant the ___ in fertile soil for better growth.\nより良く育てるために種を肥沃な土に植えなさい。",
+        "answer": "seed",
+        "meaning": "seed　[名] ①種 ②シード選手"
+    }
     {
         "text": "207 He has an odd habit of talking to ___.\n彼は植物に話しかける奇妙な習慣がある。🌷",
         "answer": "plants",
-        "meaning": ""
+        "meaning": "plant　[名] ①植物 ②（大規模な）工場、発電所 [他] ③～を植える"
     },
     {
         "text": "208 Morning glories ___ in the morning.\nアサガオは朝に咲く.💮",
         "answer": "bloom",
-        "meaning": ""
+        "meaning": "bloom　[自] ①（花が）咲く [名] ②開花"
     },
     {
         "text": "209 This year's ___ will fall short of the average.\n今年の収穫は平年の収穫に及ばないだろう.🧺",
         "answer": "harvest",
-        "meaning": ""
+        "meaning": "harvest　[名] ①収穫 [他] ②～を収穫する ③（臓器，体液など）を摘出する"
+    },
+    {
+        "text": "210 He seems to side with the ___.\n彼はその虫の味方をするようだ.🐛",
+        "answer": "insects",
+        "meaning": "insect　[名] 昆虫"
     },
     {
         "text": "211 If there is an ___, get under a table.\n地震の際にはテーブルの下にもぐれ.",
         "answer": "earthquake",
-        "meaning": ""
+        "meaning": "earthquake　[名] 地震"
     },
     {
         "text": "212 The ___ dropped below zero last night.\n昨夜、気温が氷点下まで下がった。",
         "answer": "temperature",
-        "meaning": ""
+        "meaning": "temperature　[名] ①温度，気温 ②体温"
     },
     {
         "text": "213 He has a high ___ of intelligence.\n彼は高い知能の程度を持っている。",
         "answer": "degree",
-        "meaning": ""
+        "meaning": "degree　[名] ①（温度などの）度 ②程度 ③学位"
     },
     {
         "text": "214 Many houses were damaged by the ___.\n多くの家が洪水で被害を受けた。",
         "answer": "flood",
-        "meaning": ""
+        "meaning": "flood　[名] ①洪水 <可算>[他] ②～を水浸しにする"
     },
     {
         "text": "215 The pond ___ over.\n池が一面凍った.",
@@ -1100,49 +1125,104 @@
         "meaning": "attitude　[名] 態度，姿勢"
     },
     {
+        "text": "229 He has a very strong ___ that makes people trust him.\n彼には人々が信頼する強い性格がある💪",
+        "answer": "character",
+        "meaning": "character　[名] ①性格，特徴 ②登場人物 ③文字"
+    },
+    {
         "text": "230 unique ___\nユニークな特徴",
         "answer": "characteristics",
-        "meaning": ""
+        "meaning": "characteristic　[名] ①特徴〈可算〉 [形] ②特有の，特徴的な"
+    },
+    {
+        "text": "231 This smartphone has a new ___ that improves battery life.\nこのスマホにはバッテリー寿命を改善する新しい特徴がある📱",
+        "answer": "feature",
+        "meaning": "feature　[名] ①特徴 ②特集記事 [他] ③～を特集する"
+    },
+    {
+        "text": "232 Please check every ___ of the report carefully.\nレポートの細部をすべて注意深く確認してください📝",
+        "answer": "detail",
+        "meaning": "detail　[名] ①詳細 ②（建物などの）細部"
+    },
+    {
+        "text": "233 One major ___ of this car is its fuel efficiency.\nこの車の大きな利点の一つは燃費の良さだ🚗",
+        "answer": "advantage",
+        "meaning": "advantage　[名] （over ～）（～に対する）利点"
+    },
+    {
+        "text": "234 His main ___ is being too impatient.\n彼の最大の欠点はせっかちなことだ⏳",
+        "answer": "fault",
+        "meaning": "fault　[名] ①（ちょっとした）欠点，不具合〈可算〉 ②（one's ―）責任〈不可算〉 ③断層"
+    },
+    {
+        "text": "235 Honesty is an important ___ in any friendship.\n正直さは友情において重要な資質だ🤝",
+        "answer": "quality",
+        "meaning": "quality　[名] ①質〈不可算〉 ②（通例―s）（人間の）資質"
     },
     {
         "text": "236 the ___ answer\n正しい答え✅",
         "answer": "correct",
-        "meaning": ""
+        "meaning": "correct　[形] ①正確な，正しい [他] ②～を訂正する，矯正する"
     },
     {
         "text": "237 His “___ society” suspiciously looks like his bedroom.\n彼の「理想の社会」は、怪しいくらいに彼の寝室にそっくりだ。",
         "answer": "ideal",
-        "meaning": ""
+        "meaning": "ideal　[形] ①理想的な，申し分のない [名] ②理想，理想的な姿"
+    },
+    {
+        "text": "238 She received a ___ trial in court.\n彼女は裁判で公平な扱いを受けた⚖️",
+        "answer": "fair",
+        "meaning": "fair　[形] ①公正な，公平な [名] ②品評会，見本市"
     },
     {
         "text": "239 ___ clothes for an apology press conference\n謝罪会見にふさわしい服装🦹",
         "answer": "appropriate",
-        "meaning": ""
+        "meaning": "appropriate　[形] 適切な"
+    },
+    {
+        "text": "240 Tokyo Tower is very ___ all over the world.\n東京タワーは世界中で有名だ🗼",
+        "answer": "famous",
+        "meaning": "famous　[形] ①（for one's ～）（～で）有名な ②（as ～）（～として）有名な"
     },
     {
         "text": "241 recall my ___ school memories\n小学校の思い出を思い出す",
         "answer": "elementary",
-        "meaning": ""
+        "meaning": "elementary　[形] 初歩的な，基本の"
+    },
+    {
+        "text": "242 Math is a ___ subject for many students.\n数学は多くの学生にとって主要な科目だ📚",
+        "answer": "major",
+        "meaning": "major　[形] ①主要な [自] ②（in ～）（～を）専攻する [名] ③専攻"
     },
     {
         "text": "243 It is not what happened that ___ . It is how you respond.\n大事なのは何が起きたかではない.どう応じるかだ.",
         "answer": "matters",
-        "meaning": ""
+        "meaning": "matter　[自] ①重要である [名] ②（修飾語を伴い）物質 <不可算>③（―s）事態，状況"
+    },
+    {
+        "text": "244 The room was so ___ that I could read without any trouble.\n部屋はとても明るくて、問題なく読書できた💡",
+        "answer": "bright",
+        "meaning": "bright　[形] ①明るい ②（主に子どもや若者が）賢い"
     },
     {
         "text": "245 I came up with a ___ idea!\n天才的なアイデアを思いついた!💡",
         "answer": "brilliant",
-        "meaning": ""
+        "meaning": "brilliant　[形] ①輝いている ②すばらしい"
     },
     {
         "text": "246 a ___ corpse\n生き生きとした死体🤡",
         "answer": "lively",
-        "meaning": ""
+        "meaning": "lively　[形] 生き生きとした"
     },
+    {
+        "text": "247 I bought a new chair that is very ___.\nとても快適な新しい椅子を買った🪑",
+        "answer": "comfortable",
+        "meaning": "comfortable　[形] ①（物が）快適な ②（人が）心地よい"
+    }
     {
         "text": "248 a ___ breeze\n心地よいそよかぜ🍃",
         "answer": "pleasant",
-        "meaning": ""
+        "meaning": "pleasant　[形] （人にとって）楽しい，心地よい"
     },
     {
         "text": "252 What an ___ problem!\nなんてひどい問題だ!",
