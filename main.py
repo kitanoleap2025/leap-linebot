@@ -50,7 +50,6 @@ user_daily_counts = defaultdict(lambda: {"date": None, "count": 1})
 user_streaks = defaultdict(int)
 user_daily_e = defaultdict(lambda: {"date": None, "total_e": 0})
 
-
 DEFAULT_NAME = "イキイキした毎日"
 
 #LEAP
