@@ -566,7 +566,7 @@ def build_ranking_with_totalE_flex(bot_type):
             "contents": [
                 {"type": "text", "text": f"{i}位", "flex": 1, "size": "md", "color": color},
                 {"type": "text", "text": name, "flex": 3, "size": "md", "color": color},
-                {"type": "text", "text": str(e_value), "flex": 1, "size": "md", "align": "end", "color": color}
+                {"type": "text", "text": f"\n＄{e_value}", "flex": 1, "size": "md", "align": "end", "color": color}
             ]
         })
     bubbles.append({"type": "separator", "margin": "md"})
