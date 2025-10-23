@@ -324,19 +324,16 @@ def choose_weighted_question(user_id, questions):
     return chosen
 
 trivia_messages = [
-    "ヒントろぼっと🤖\n継続は力なり。",
-    "ヒントろぼっと🤖\n継続は力なり。",
-    "ヒントろぼっと🤖\n継続は力なり。",
-    "ヒントろぼっと🤖\n勉強して下さい。",
-    "ヒントろぼっと🤖\n勉強して下さい。",
-    "ヒントろぼっと🤖\n勉強して下さい。",
-    "ヒントろぼっと🤖\n「ゆっくり行くものは、遠くまで行ける」ということわざがある。",
-    "ヒントろぼっと🤖\nWBGTとLEAPテストの得点には相関関係があると言われている。",
+    #ガチヒント
     "ヒントろぼっと🤖\n正解した単語には「✓」が最大4つ付く。",
-    "ヒントろぼっと🤖\n1回スカイダビングしたいのならばパラシュートは不要ですが、2回なら必要だ。",
-    "ヒントろぼっと🤖\n「@新しい名前」と送信するとランキングに表示される名前を変更できるらしい。",
-    "ヒントろぼっと🤖\n口を大きく開けずに済むので「I am」→「I'm」となったのかもしれない。",
-    "ヒントろぼっと🤖\n悲しい報告:若さはニュースを楽しめるようになった日で終わる。",
+    "ヒントろぼっと🤖\n「@(新しい名前)」と送信するとランキングに表示される名前を変更できる。",
+    "ヒントろぼっと🤖\n正解した単語は以降出題されにくくなる。",
+    #ネタ
+    "ヒントろぼっと🤖\nWBGTとLEAPテストの得点には相関関係があると言われている。",
+    "ヒントろぼっと🤖\nWBGTとLEAPテストの得点には相関関係があると言われている。",
+    "ヒントろぼっと🤖\nWBGTとLEAPテストの得点には相関関係があると言われている。",
+    "ヒントろぼっと🤖\n1回スカイダビングしたいのならばパラシュートは不要だが、2回なら必要だ。",
+    "ヒントろぼっと🤖\n若さはニュースを楽しめるようになった日で終わる。",
     "ヒントろぼっと🤖\n医師会は1日に2問の英単語学習を推奨している。",
     "ヒントろぼっと🤖\n1日に2問の英単語学習は認知症予防に役立つ。",
     "ヒントろぼっと🤖\nネットの釣りタイトル禁止法が遂に成立。国民はやんややんやの大喝采！",
@@ -344,9 +341,15 @@ trivia_messages = [
     "ヒントろぼっと🤖\nノーベン詐欺禁止法が遂に成立。国民はやんややんやの大喝采！",
     "ヒントろぼっと🤖\nノーベン詐欺禁止法が遂に成立。国民はやんややんやの大喝采！",
     "ヒントろぼっと🤖\nノーベン詐欺禁止法が遂に成立。国民はやんややんやの大喝采！",
-    "ヒントろぼっと🤖\n統計的な予測:次のLEAPテストは難しい気がする。",
-    "ヒントろぼっと🤖\n統計的な予測:次のLEAPテストは易しい気がする。",
-    
+    "ヒントろぼっと🤖\n統計的な予測:次のLEAPテストは難しい。",
+    "ヒントろぼっと🤖\n統計的な予測:次のLEAPテストは易しい。",
+    "ヒントろぼっと🤖\nLEAPを1000周すると魔法使いになる。",
+    "ヒントろぼっと🤖\nLEAPは世界で7番目に売れた書物だ。",
+    "ヒントろぼっと🤖\nLEAPは投げられた。",
+    "ヒントろぼっと🤖\nLEAPは山より高く、海より低い。",
+    "ヒントろぼっと🤖\nLEAPは昔、「CHEAP」という名前だったらしい。",
+    "ヒントろぼっと🤖\n全ての単語帳はLEAPに通ず。",
+    "ヒントろぼっと🤖\n",
 ]
 
     
@@ -385,9 +388,9 @@ def build_feedback_flex(user_id, is_correct, score, elapsed, correct_answer=None
         color = color_map.get(label, "#000000")
         body_contents.append({
             "type": "text",
-            "text": "\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\",
+            "text": "\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\",
             "weight": "bold",
-            "size": "xl",
+            "size": "md",
             "color": "#ff1493",
             "align": "center"
         })
@@ -420,9 +423,9 @@ def build_feedback_flex(user_id, is_correct, score, elapsed, correct_answer=None
         })
         body_contents.append({
             "type": "text",
-            "text": "\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\",
+            "text": "\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\",
             "weight": "bold",
-            "size": "xl",
+            "size": "md",
             "color": "#ff1493",
             "align": "center"
         })
@@ -450,11 +453,11 @@ def build_feedback_flex(user_id, is_correct, score, elapsed, correct_answer=None
     count_today = user_daily_counts[user_id]["count"]
     if is_correct:
         y = 5 - score
-        e = y * user_streaks[user_id] * label_score
+        e = y * (2 ^ user_streaks[user_id]) * label_score
         total_e_today = user_daily_e[user_id]["total_e"]
         body_contents.append({
             "type": "text",
-            "text": f"{y}✖🔥{user_streaks[user_id]}✖{label_symbol}{label_score}🟰{e}",
+            "text": f"{y}✖{label_symbol}{label_score}✖2^🔥{user_streaks[user_id]}🟰{e}",
             "size": "lg",
             "color": "#333333",
             "margin": "xl"
