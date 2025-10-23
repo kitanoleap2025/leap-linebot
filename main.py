@@ -347,9 +347,17 @@ trivia_messages = [
     "ヒントろぼっと🤖\nLEAPは山より高く、海より低い。",
     "ヒントろぼっと🤖\nLEAPは昔、「CHEAP」という名前だったらしい。",
     "ヒントろぼっと🤖\n全ての単語帳はLEAPに通ず。",
+    "ヒントろぼっと🤖\nDoritosはおいしいです。",
+    "ヒントろぼっと🤖\n地球は平面だ。",
+    "ヒントろぼっと🤖\n日本はリープの賜物である。",
+    "ヒントろぼっと🤖\nLEAP!1秒ごとに世界で100人が読破中!",
+    "ヒントろぼっと🤖\nLEAP一周するとおにぎり3個分のカロリーを消費することが報告された。",
+    "ヒントろぼっと🤖\nネイティブも愛す!LEAP!",
+    "ヒントろぼっと🤖\n中国語版LEAP、「跳跃」!",
+    "ヒントろぼっと🤖\n君のLEAPには大金を払う価値がある。",
+    "ヒントろぼっと🤖\n君のLEAPには莫大な時間を払う価値がある。",
     "ヒントろぼっと🤖\n",
 ]
-
     
 def evaluate_X(elapsed, score, answer, is_multiple_choice=True):
     X = elapsed**1.7 + score**1.7
@@ -472,6 +480,7 @@ def build_feedback_flex(user_id, is_correct, score, elapsed, correct_answer=None
             }
         }
     )
+    
 def update_total_e_rate(user_id):
     user_data = db.collection("user_data").document(user_id).get().to_dict()
     if not user_data:
@@ -727,7 +736,7 @@ def handle_message_common(event, bot_type, line_bot_api):
 
             label_score = get_label_score(label)
             y = 5 - score
-            e = y * user_streaks[user_id] * label_score
+            e = y * label_score * (2 ** user_streaks[user_id])
 
             # 日付チェック
             today = time.strftime("%Y-%m-%d")
