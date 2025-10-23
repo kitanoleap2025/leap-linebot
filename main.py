@@ -463,7 +463,7 @@ def build_feedback_flex(user_id, is_correct, score, elapsed, correct_answer=None
         total_e_today = user_daily_e[user_id]["total_e"]
         body_contents.append({
             "type": "text",
-            "text": f"{y}✖{label_symbol}{label_score}✖🔥{user_streaks[user_id]}^2🟰{e}",
+            "text": f"{y}×{label_symbol}{label_score}×🔥{user_streaks[user_id]}×🔥{user_streaks[user_id]}={e}",
             "size": "lg",
             "color": "#333333",
             "margin": "xl"
@@ -565,7 +565,7 @@ def build_ranking_with_totalE_flex(bot_type):
             "layout": "vertical",
             "contents": [
                 {"type": "text", "text": f"{i}位 {name}", "flex": 1, "size": "md", "color": color},
-                {"type": "text", "text": str(e_value), "flex": 1, "size": "md", "align": "end", "color": color}
+                {"type": "text", "text": str(e_value), "flex": 1, "size": "lg", "align": "end", "color": color}
             ]
         })
     bubbles.append({"type": "separator", "margin": "md"})
