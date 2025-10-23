@@ -1702,207 +1702,442 @@
     {
         "text": "346 I read an interesting ___ about climate change.\n気候変動に関する興味深い記事を読んだ📰",
         "answer": "article",
-        "meaning": ""
+        "meaning": "article　[名] ①記事 ②品物 ③冠詞 ④条項"
     },
     {
-        "text": "347 The teacher advised me to study English ___ .\n先生は私に英単語を勉強するよう助言した.",
+        "text": "347 Please read the ___ aloud to the class.\nクラスの前でその一節を音読してください📖",
+        "answer": "passage",
+        "meaning": "passage　[名] ①（文章などの）一節 ②（時の）経過，移動"
+    },
+    {
+        "text": "348 The teacher advised me to study English ___ .\n先生は私に英単語を勉強するよう助言した.",
         "answer": "vocabulary",
-        "meaning": ""
+        "meaning": "vocabulary　[名] 語彙"
     },
     {
-        "text": "351 ___ of an earthquake\n地震の兆候",
+        "text": "349 There’s a ___ going around that he’s moving abroad.\n彼が海外に引っ越すという噂が広まっている🗣️",
+        "answer": "rumor",
+        "meaning": "rumor　[名] うわさ"
+    },
+    {
+        "text": "350 Can you ___ your name for me, please?\nあなたの名前をつづってもらえますか？🔤",
+        "answer": "spell",
+        "meaning": "spell　[他] ①～をつづる [名] ②呪文 ③（天気などのある一続きの）期間"
+    },
+    {
+        "text": "351 It’s hard to ___ some French words correctly.\nフランス語の単語を正しく発音するのは難しい🇫🇷",
+        "answer": "pronounce",
+        "meaning": "pronounce　[他] ①（単語など）を発音する ②（判決など）を宣告する，～と断言する"
+    }
+    {
+        "text": "352 ___ of an earthquake\n地震の兆候",
         "answer": "signs",
-        "meaning": ""
+        "meaning": "sign　[名] ①兆候，印 ②標識，看板，掲示 [他] ③～を署名する"
     },
     {
         "text": "353 I didn’t ___ to offend you with my comment.\n私の発言であなたを怒らせるつもりはなかった。😡",
         "answer": "mean",
-        "meaning": ""
+        "meaning": "mean　[他] ①～を意味する ②（to do）～するつもりだ [形] ③意地悪な"
+    },
+    {
+        "text": "354 The company will ___ a new report next week.\nその会社は来週新しい報告書を発行する予定だ📰",
+        "answer": "publish",
+        "meaning": "publish　[他] ①～を出版する ②（公式に結果など）を発表する"
+    },
+    {
+        "text": "355 The museum will ___ ancient art from Egypt.\nその博物館はエジプトの古代美術を展示する🖼️",
+        "answer": "display",
+        "meaning": "display　[他] ①～を展示する ②（実力など）を発揮する ③～を誇示する [名] ④展示，表現，誇示"
+    },
+    {
+        "text": "356 I completely ___ her judgment.\n私は彼女の判断を完全に信頼している🤝",
+        "answer": "trust",
+        "meaning": "trust　[他] ①～を信頼する [名] ②信頼，信用"
     },
     {
         "text": "357 What we see ___ not only on what we look at, but also on where we look from.\n私たちが見るものは,何を見るかだけでなく,どこから見るかによっても異なります.",
         "answer": "depends",
-        "meaning": ""
+        "meaning": "depend　[自] ①（物，事が主語）（on ～）（～）次第である ②（人が主語）（on ～）（～に）頼っている"
+    },
+    {
+        "text": "358 You can always ___ on me when you need help.\n助けが必要なときはいつでも僕を頼っていいよ🤝",
+        "answer": "rely",
+        "meaning": "rely　[自] （on ～）（～に）頼る"
+    },
+    {
+        "text": "359 They ___ for peace every morning at the temple.\n彼らは毎朝寺で平和を祈っている🙏",
+        "answer": "pray",
+        "meaning": "pray　[自] 祈る"
+    },
+    {
+        "text": "360 He ___ his parents to let him study abroad.\n彼は留学を許してもらえるよう両親に必死に頼んだ🙇‍♂️",
+        "answer": "beg",
+        "meaning": "beg　[他] ①～を嘆願する [自] ②求める"
     },
     {
         "text": "361 The truth is often simple, but people ___ complex answers.\n真実はしばしば単純ですが,人々は複雑な答えを好みます.",
         "answer": "prefer",
-        "meaning": ""
+        "meaning": "prefer　[他] （A to B)（B よりA）を好む"
     },
     {
         "text": "362 All America ___ .\n全米が泣いた.😢",
         "answer": "wept",
-        "meaning": ""
+        "meaning": "weep　[自] しくしく泣く"
+    },
+    {
+        "text": "363 I really ___ getting up early in the morning.\n私は朝早く起きるのが本当に嫌いだ😖",
+        "answer": "hate",
+        "meaning": "hate　[他] ～を嫌う"
     },
     {
         "text": "364 I’m ___ whether he can graduate.\n彼が卒業できるのか心配だ.🎓",
         "answer": "worried",
-        "meaning": ""
+        "meaning": "worry　[自] ①心配をする [名] ②心配（事）"
+    },
+    {
+        "text": "365 She felt ___ before the big exam.\n大きな試験の前で彼女は不安を感じた😰",
+        "answer": "anxious",
+        "meaning": "anxious　[形] ①（about ～）（～を）心配して ②（to do / for ～）（～を）切望して"
     },
     {
         "text": "366 I am not ___ with my current salary.\n私は今の給料に満足していない.",
         "answer": "satisfied",
-        "meaning": ""
+        "meaning": "satisfy　[他] ①～を満足させる ②（必要性，空腹など）を満たす"
     },
     {
         "text": "367 It can ___ me when people talk loudly.\n人が大声で話すと私は苛立つことがある。",
         "answer": "annoy",
-        "meaning": ""
+        "meaning": "annoy　[他] ～を苛立たせる"
     },
     {
         "text": "368 I don’t want to ___ you with my problems.\n私の問題であなたを困らせたくない。",
         "answer": "bother",
-        "meaning": ""
+        "meaning": "bother　[他] ①～に面倒をかける ②（to do）わざわざ～する [名] ③面倒なもの"
     },
     {
         "text": "369 Please don’t ___ me while I’m working.\n私が仕事をしている間は邪魔しないでください。",
         "answer": "disturb",
-        "meaning": ""
+        "meaning": "disturb　[他] ①（うるさくして）～に迷惑をかける ②（平和など）を乱す"
     },
     {
         "text": "370 Loud noises can ___ small children.\n大きな音は小さな子供を怖がらせることがある。",
         "answer": "frighten",
-        "meaning": ""
+        "meaning": "frighten　[他] ～を怯えさせる"
     },
     {
         "text": "371 I ___ not studying harder for the test.\nテストのためにもっと勉強しなかったことを後悔している。",
         "answer": "regret",
-        "meaning": ""
+        "meaning": "regret　[他] ①～を後悔する ②（to do）残念ながら～しないといけない [名] ③後悔"
     },
     {
         "text": "372 Could you do me a ___ and help me move?\n引っ越しを手伝ってくれませんか？",
         "answer": "favor",
-        "meaning": ""
+        "meaning": "favor　[名] ①親切な行為 ②支持"
     },
     {
         "text": "373 She has a strong ___ in art.\n彼女は芸術に強い関心を持っている。",
         "answer": "interest",
-        "meaning": ""
+        "meaning": "interest　[名] ①関心 ②（―s）利益 ③（銀行などの）利子"
     },
     {
         "text": "374 What a ___ .\n残念だ。",
         "answer": "pity",
-        "meaning": ""
+        "meaning": "pity　[名] ①残念なこと〈可算〉 ②哀れみ〈不可算〉"
+    },
+    {
+        "text": "375 The train was late ___ to heavy rain.\n大雨のため列車が遅れた🚆",
+        "answer": "due",
+        "meaning": "due　[形] ①（due to （名詞））（名詞）が原因で ②締め切りの ③到着［出産］予定の"
+    },
+    {
+        "text": "376 There must be a ___ for his sudden decision.\n彼の突然の決定には理由があるはずだ🤔",
+        "answer": "reason",
+        "meaning": "reason　[名] ①理由 ②理性 [他] ③～を推理する [自] ④思考する，判断する"
+    },
+    {
+        "text": "377 The heavy snow was the ___ of many accidents.\n大雪が多くの事故の原因となった❄️",
+        "answer": "result",
+        "meaning": "result　[名] ①結果 [自] ②（in ～）結果として（～に）なる ③（from ～）（～の）結果として生じる"
     },
     {
         "text": "378 Even a small change can have a significant ___ on society.\n小さな変化でも社会に大きな影響を与える.",
         "answer": "effect",
-        "meaning": ""
+        "meaning": "effect　[名] 効果，影響，結果"
     },
+    {
+        "text": "379 His teacher had a strong ___ on his career choices.\n先生は彼の進路選択に大きな影響を与えた👨‍🏫",
+        "answer": "influence",
+        "meaning": "influence　[名] ①影響（力)[他] ②～に影響を与える"
+    },
+    {
+        "text": "380 At the ___ of the movie, everyone was crying.\n映画の最後にはみんな泣いていた😭",
+        "answer": "end",
+        "meaning": "end　[自]（end up doing）結局～することになる [名] ②端、終わり ③（最終的な）目的"
+    }
     {
         "text": "381 The revelation that he had repeated three grades ___ chaos in the classroom.\n彼が3留だったことが発覚し、教室は大混乱となった.💮💮💮", 
         "answer": "caused",
-        "meaning": ""
+        "meaning": "cause　[他] ①～を引き起こす [名] ②原因"
     },
     {
         "text": "382 The weather can ___ your mood.\n天気が気分に影響することがある。☁️",
         "answer": "affect",
-        "meaning": ""
+        "meaning": "affect　[他] （直接的に）～に影響を与える，作用する"
     },
     {
         "text": "383 He found a new ___ to solve the problem.\n彼は問題を解決する新しい方法を見つけた。💡",
         "answer": "way",
-        "meaning": ""
+        "meaning": "way　[名] ①方法 ②（in ～ way）（～の）点（で)③道 [副] ④はるかに"
     },
     {
         "text": "384 She spoke in a polite ___.\n彼女は丁寧な話し方をした。",
         "answer": "manner",
-        "meaning": ""
+        "meaning": "manner　[名] ①方法 ②流儀，態度 ③（―s）マナー"
     },
     {
         "text": "385 What is the ___ of this meeting?\nこの会議の目的は何ですか？",
         "answer": "purpose",
-        "meaning": ""
+        "meaning": "purpose　[名] 目的"
     },
     {
         "text": "386 He did it for the ___ of his family.\n彼は家族のためにそれをした。",
         "answer": "sake",
-        "meaning": ""
+        "meaning": "sake　[名] ①（for ～）ため ②日本酒"
+    },
+    {
+        "text": "387 You have the ___ to remain silent.\nあなたには黙っている権利がある⚖️",
+        "answer": "right",
+        "meaning": "right　[副] ①（場所や時の副詞（句）を修飾して）ちょうど [形] ②正しい，適切な ③右の [名] ④（to ～）（～の）権利"
     },
     {
         "text": "388 The project is now ___ finished.\nプロジェクトは今,完全に終わった。👍",
         "answer": "complete",
-        "meaning": ""
+        "meaning": "complete　[形] ①完全な [他] ②～を完成させる"
     },
     {
         "text": "389 He ___ knew about the meeting.\n彼はその会議についてほとんど知らなかった。",
         "answer": "hardly",
-        "meaning": ""
+        "meaning": "hardly　[副] ①（程度）ほとんど～ない ②（― ever）めったに～ない"
     },
     {
         "text": "390 ___ all the students in this class use AI.\nこのクラスのほとんどすべての生徒がAIを使っている。", 
         "answer": "Almost",
-        "meaning": ""
+        "meaning": "almost　[副] ほとんど"
+    },
+    {
+        "text": "391 The plan was ___ successful, but some problems remained.\nその計画は部分的に成功したが、いくつか問題が残った⚙️",
+        "answer": "partly",
+        "meaning": "partly　[副] ある程度，部分的に"
+    },
+    {
+        "text": "392 He is ___ the best player on the team.\n彼は確かにチームで一番の選手だ🏅",
+        "answer": "indeed",
+        "meaning": "indeed　[副] ①（強調として）実際に，本当に ②（but を伴って）確かに～"
     },
     {
         "text": "393 ___ a small change can have a significant effect on society.\n小さな変化でも社会に大きな影響を与える.",
         "answer": "even",
-        "meaning": ""
+        "meaning": "even　[副] ①さえも ②（比較級の前で）さらに [形] ③偶数の ④均一の ⑤（数字が）ちょうどの"
+    },
+    {
+        "text": "394 That’s ___ what I was thinking!\nそれはまさに僕が考えていたことだ💡",
+        "answer": "exactly",
+        "meaning": "exactly　[副] ①正確に ②〈会話で〉そのとおり"
     },
     {
         "text": "395 The amount of face-to-face communication is ___ decreasing.\n対面のコミュニケーションの量がだんだんと少なくなっている。",
         "answer": "gradually",
-        "meaning": ""
+        "meaning": "gradually　[副] 徐々に"
+    },
+    {
+        "text": "396 I didn’t study for the test; ___, I failed. \nテスト勉強してなかった。だから落ちた。",
+        "answer": "therefore",
+        "meaning": "therefore　[副] それゆえに"
+    },
+    {
+        "text": "397 I didn’t go to the party; I stayed home ___.\nパーティーには行かずに、代わりに家でのんびりした。🏠",
+        "answer": "instead",
+        "meaning": "instead　[副] ①代わりに ②（of ～）（～の）代わりに"
+    },
+    {
+        "text": "398 I’ll wait here ___ you come back.\n君が戻るまでここで待つよ。",
+        "answer": "until",
+        "meaning": "until　[前] ①～まで（ずっと)[接] ②～まで（ずっと）"
+    },
+    {
+        "text": "399 I can’t eat this much cake. ___, I want some ice cream. \nケーキはもうこれ以上食べられない。それに、アイスも欲しい。",
+        "answer": "besides",
+        "meaning": "besides　[前] ①～に加えて [副] ②おまけに"
     },
     {
         "text": "400 With modern technology, we can talk to anyone in the world ___ the person next to you.\n現代のテクノロジーでは,隣にいる人以外の誰とでも話すことができる.",
         "answer": "except",
-        "meaning": ""
+        "meaning": "except　[前] ①～を除いて ②（for ～）（～を）除いて"
     },
     {
         "text": "401 The ___ club is basically free entertainment for teachers.\nディベート部は、教師にとってほぼ無料の娯楽だ。🤓🥸",
         "answer": "debate",
-        "meaning": ""
+        "meaning": "debate　[名] ①討論 [他] ②～を討論する"
     },
     {
         "text": "402 I apologized for ___ .\n私は批判したことを謝った.",
         "answer": "criticizing",
-        "meaning": ""
+        "meaning": "criticize　[他] ～を批判する"
+    },
+    {
+        "text": "403 He didn’t do anything wrong, yet they ___ him of cheating.\n彼は何も悪いことをしていないのに、カンニングで責められた。",
+        "answer": "accuse",
+        "meaning": "accuse　[他] ①～を非難する ②～を告訴する"
+    },
+    {
+        "text": "404 She ___ on paying for dinner even though we all offered.\nみんなが払うって言ったのに、彼女は自分が払うと主張した。",
+        "answer": "insist",
+        "meaning": "insist　[自] ①（on ～）（～と）言い張る，（強く）主張する [他] ②～と主張する、を求める"
+    },
+    {
+        "text": "405 I strongly ___ to the idea of working on Sunday.🙅‍♂️\n日曜に働く案には強く反対だ。🙅‍♂️",
+        "answer": "object",
+        "meaning": "object　[自] ①（to ～）（～に）反対する [名] ②物 ③目的 ④（嘲笑，欲望などの）対象"
+    },
+    {
+        "text": "406 They ___ against the new rule outside the office.\n彼らはオフィスの外で新しいルールに抗議した。",
+        "answer": "protest",
+        "meaning": "protest　[自] ①（against ～）（～に対して）抗議する [名] ②抗議"
+    },
+    {
+        "text": "407 The movie sparked a ___ debate among critics. 🎬\nその映画は評論家の間で議論を呼んだ🎬",
+        "answer": "controversial",
+        "meaning": "controversial　[形] 論争を招く，物議をかもす"
+    },
+    {
+        "text": "408 He is ___ to succeed if he keeps working this hard. 💪\nこんなに頑張り続ければ彼は成功する運命だ💪",
+        "answer": "bound",
+        "meaning": "bound　[形] ①（to do）きっと～（する，～する［である］に違いない)②（for ～）～行きで"
+    },
+    {
+        "text": "409 I ___ he won’t show up on time. 🕒\n彼は時間通りに来ないと思うよ🕒",
+        "answer": "bet",
+        "meaning": "bet　[他] ①（that SV）きっと～だと思う ②～を賭ける"
     },
     {
         "text": "410 ___ something special\n特別なことを要求する",
         "answer": "demand",
-        "meaning": ""
+        "meaning": "demand　[他] ①～を（強く）要求する [名] ②（for ～）（～への）要求，需要"
     },
     {
         "text": "411 We have a strong ___ to finish our homework.\n私たちは宿題を終わらせたいという強い願望を持っている.",
         "answer": "desire",
-        "meaning": ""
+        "meaning": "desire　[名] ①願望 [他] ②～を強く望む"
+    },
+    {
+        "text": "412 The teacher ___ the student for his hard work.👏\n先生は生徒の努力を称賛した。👏",
+        "answer": "praise",
+        "meaning": "praise　[他] ①（A for B）（A）を（B のことで）褒める，称える [名] ②賞賛"
+    },
+    {
+        "text": "413 They held a ceremony to ___ the war heroes.🏅\n彼らは戦争の英雄を称える式典を開いた。🏅",
+        "answer": "honor",
+        "meaning": "honor　[名] ①名誉，栄誉 [他] ②～を敬う"
+    },
+    {
+        "text": "414 We had a quick ___ about the new movie. 🎬\n新しい映画についてちょっとおしゃべりした。🎬",
+        "answer": "chat",
+        "meaning": "chat　[自] ①おしゃべりする [名] ②おしゃべり"
+    },
+    {
+        "text": "415 Please ___ to page 10 for more details. 📖\n詳細は10ページを参照してください。📖",
+        "answer": "refer",
+        "meaning": "refer　[自] （to ～）①（人が主語）（～に）言及する，参照する ②（物が主語）（～を）示す"
     },
     {
         "text": "416 History books never ___ who cleaned up after wars.\n歴史の本は、戦争のあとに掃除した人のことは決して書かない.",
         "answer": "mention",
-        "meaning": ""
+        "meaning": "mention　[他] ～について述べる，言及する"
+    },
+    {
+        "text": "417 It’s hard to ___ feelings through a text message.💌\nテキストメッセージでは感情を伝えるのは難しい。💌",
+        "answer": "convey",
+        "meaning": "convey　[他] ①～を伝える ②（乗客，音，病気など）を運ぶ"
     },
     {
         "text": "418 ___ my great wisdom\n自分が賢いということを示す",
         "answer": "demonstrate",
-        "meaning": ""
+        "meaning": "demonstrate　[他] ～を（はっきり）示す，実演する"
     },
     {
-        "text": "420 It is not what happened that matters. It is how you ___ .\n大事なのは何が起きたかではない.どう応じるかだ.",
-        "answer": "respond",
-        "meaning": ""
+        "text": "419 She wanted to ___ how important this meeting is. 📌\n彼女はこの会議がどれだけ重要かを強調したかった📌",
+        "answer": "emphasize",
+        "meaning": "emphasize　[他] ～を強調する"
+    },
+    {
+        "text": "420 Don’t ___ your problems; it makes things worse. 😅\n問題を大げさに言わないで。余計に悪く見える😅",
+        "answer": "exaggerate",
+        "meaning": "exaggerate　[他] ①～を誇張する [自] ②誇張する，大げさに言う"
     },
     {
         "text": "421 I've got to ___ to a message from my friend.\n友人からのメッセージに返信しなければならない。",
         "answer": "reply",
-        "meaning": ""
+        "meaning": "reply　[自] ①（to ～）（～に）返事をする，答える [名] ②返事，答え"
+    },
+    {
+        "text": "422 It is not what happened that matters. It is how you ___ .\n大事なのは何が起きたかではない.どう応じるかだ.",
+        "answer": "respond",
+        "meaning": "respond　[自] ①（to ～）（手紙や問いなどに）返答する ②（to ～）（～に）対応する，反応する"
+    },
+    {
+        "text": "423 She had to ___ so no one else could hear. 🤫\nほかの人に聞かれないように彼女はささやいた🤫",
+        "answer": "whisper",
+        "meaning": "whisper　[自] ①ささやく [名] ②ささやき（声）"
+    },
+    {
+        "text": "424 He made a funny ___ about the weather. 😄\n彼は天気について面白い一言を言った😄",
+        "answer": "remark",
+        "meaning": "remark　[名] ①発言 [他] ②～と発言する"
+    },
+    {
+        "text": "425 I like to ___ how people behave in crowded places. 👀\n人混みで人々がどう振る舞うかを見るのが好きだ👀",
+        "answer": "observe",
+        "meaning": "observe　[他] ①～を観察する ②（that SV）（気づいたことを）～と述べる ③（規則など）を遵守する ④（記念日など）を祝う"
     },
     {
         "text": "426 We couldn't find enough evidence to support our ___.\n私たちの理論を支えるのに十分な証拠を見つけられなかった。",
         "answer": "theory",
-        "meaning": ""
+        "meaning": "theory　[名] ①理論 ②（学）説"
+    },
+    {
+        "text": "427 The scientist conducted an ___ of the data. 📊\n科学者はデータの分析を行った📊",
+        "answer": "analysis",
+        "meaning": "analysis　[名] 分析"
+    },
+    {
+        "text": "428 A rare ___ was seen in the sky last night. 🌌\n昨晩、空で珍しい現象が見られた🌌",
+        "answer": "phenomenon",
+        "meaning": "phenomenon　[名] ①現象 ②特異なもの，天才（①②ともに<可算>）"
+    },
+    {
+        "text": "429 This new ___ makes cooking much easier. 🍳\nこの新しい装置で料理がずっと楽になる🍳",
+        "answer": "device",
+        "meaning": "device　[名] 装置<可算>"
+    },
+    {
+        "text": "430 They performed an ___ to test the theory. 🧪\n理論を検証するために実験を行った🧪",
+        "answer": "experiment",
+        "meaning": "experiment　[名] ①実験 [自] ②実験する"
+    },
+    {
+        "text": "431 The lab studies the effects of a new ___ on plants. 🌱\n研究室では新しい化学物質が植物に与える影響を調べている🌱",
+        "answer": "chemical",
+        "meaning": "chemical　[名] ①（通例 ―s）化学物質 [形] ②化学の"
     },
     {
         "text": "432 The world is trying to reduce dependence on fossil ___ \n世界は化石燃料への依存を減らそうとしている.",
         "answer": "fuels",
-        "meaning": ""
+        "meaning": "fuel　[名] ①燃料 [他] ②（感情など）を大きくする"
     },
     {
         "text": "433 ___ pencil sharpener\n原子力えんぴつ削り器✏️",
         "answer": "nuclear",
-        "meaning": ""
+        "meaning": "nuclear　[形] 原子力の，核の"
     },
     {
         "text": "434 He’s been ___ her aunt for months\n彼は何か月も彼女のおばを狙っています.😱",
