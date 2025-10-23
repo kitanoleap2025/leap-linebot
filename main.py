@@ -459,11 +459,11 @@ def build_feedback_flex(user_id, is_correct, score, elapsed, correct_answer=None
     count_today = user_daily_counts[user_id]["count"]
     if is_correct:
         y = 5 - score
-        e = y * label_score * (2 ** user_streaks[user_id])
+        e = y * label_score * (user_streaks[user_id] ** 2)
         total_e_today = user_daily_e[user_id]["total_e"]
         body_contents.append({
             "type": "text",
-            "text": f"{y}✖{label_symbol}{label_score}✖2^🔥{user_streaks[user_id]}🟰{e}",
+            "text": f"{y}✖{label_symbol}{label_score}✖🔥{user_streaks[user_id]}^2🟰{e}",
             "size": "lg",
             "color": "#333333",
             "margin": "xl"
@@ -562,11 +562,10 @@ def build_ranking_with_totalE_flex(bot_type):
         color = medal_colors.get(i, "#000000")
         bubbles.append({
             "type": "box",
-            "layout": "baseline",
+            "layout": "vertical",
             "contents": [
-                {"type": "text", "text": f"{i}位", "flex": 1, "size": "md", "color": color},
-                {"type": "text", "text": name, "flex": 3, "size": "md", "color": color},
-                {"type": "text", "text": f"\n＄{e_value}", "flex": 1, "size": "md", "align": "end", "color": color}
+                {"type": "text", "text": f"{i}位 {name}", "flex": 1, "size": "md", "color": color},
+                {"type": "text", "text": str(e_value), "flex": 1, "size": "md", "align": "end", "color": color}
             ]
         })
     bubbles.append({"type": "separator", "margin": "md"})
@@ -736,7 +735,7 @@ def handle_message_common(event, bot_type, line_bot_api):
 
             label_score = get_label_score(label)
             y = 5 - score
-            e = y * label_score * (2 ** user_streaks[user_id])
+            e = y * label_score * (user_streaks[user_id] ** 2)
 
             # 日付チェック
             today = time.strftime("%Y-%m-%d")
