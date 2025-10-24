@@ -722,422 +722,422 @@
     {
         "text": "1153 Please ___ your voice.\n声を下げてください。",
         "answer": "lower",
-        "meaning": ""
+        "meaning": "lower　[他] ～を下げる"
     },
     {
         "text": "1154 The ship began its long ___.\nその船は長い航海を始めた。",
         "answer": "voyage",
-        "meaning": ""
+        "meaning": "voyage　[名] 航海，船旅"
     },
     {
         "text": "1155 Can you ___ the reservation?\n予約を確認してくれますか？",
         "answer": "confirm",
-        "meaning": ""
+        "meaning": "confirm　[他] ①～を確認する ②～を裏付ける"
     },
     {
         "text": "1156 We must ___ the safety of passengers.\n私たちは乗客の安全を保証しなければならない。",
         "answer": "ensure",
-        "meaning": ""
+        "meaning": "ensure　[他] ～を確実にする"
     },
     {
         "text": "1157 He will ___ the audience in his speech.\n彼はスピーチで聴衆に語りかけるだろう。",
         "answer": "address",
-        "meaning": ""
+        "meaning": "address　[他] ①～に取り組む ②～に呼びかける [名] ③演説 ④住所"
     },
     {
         "text": "1158 How should we ___ this problem?\n私たちはこの問題にどう取り組むべきか？",
         "answer": "approach",
-        "meaning": ""
+        "meaning": "approach　[名] ①（to ～）（～への）取り組み方，接近 [他] ②～に取り組む，接近する"
     },
     {
         "text": "1159 We must ___ the issue quickly.\n私たちはその問題を早く解決しなければならない。",
         "answer": "resolve",
-        "meaning": ""
+        "meaning": "resolve　[他] ①～を解決する ②（to do）（～する）決心をする"
     },
     {
         "text": "1160 They tried to ___ the dispute peacefully.\n彼らはその争いを平和的に解決しようとした。",
         "answer": "settle",
-        "meaning": ""
+        "meaning": "settle　[他] ①（紛争など）を解決する ②～を置く，据える [自] ③定住する ④（on ～）（～を）決める"
     },
     {
         "text": "1161 Education can greatly ___ a person's life.\n教育は人の人生を大いに豊かにすることができる。",
         "answer": "enrich",
-        "meaning": ""
+        "meaning": "enrich　[他] ～を豊かにする"
     },
     {
         "text": "1162 The sign ___ people of the upcoming danger.\nその標識は人々に差し迫った危険を警告した。",
         "answer": "warn",
-        "meaning": ""
+        "meaning": "warn　[他] ①～に警告する [自] ②（of[against]～）（～に対して）警告する"
     },
     {
         "text": "1163 The soldiers were ___ to follow orders.\n兵士たちは命令に従うよう強制された。",
         "answer": "force",
-        "meaning": ""
+        "meaning": "force　[他] ①～に強いる [名] ②力，武力"
     },
     {
         "text": "1164 The lawyer made an ___ to the jury.\n弁護士は陪審員に訴えかけた。",
         "answer": "appeal",
-        "meaning": ""
+        "meaning": "appeal　[自] ①（to ～）（～に）訴える [名] ②魅力，人気 ③（for ～）（～に対する）訴え"
     },
     {
         "text": "1165 The audience gave a big ___ after the performance.\n観客は演奏後、大きな拍手を送った。",
         "answer": "applause",
-        "meaning": ""
+        "meaning": "applause　[名] 拍手〈不可算〉"
     },
     {
         "text": "1166 The cat made a ___ onto the table.\n猫はテーブルに飛び乗った。",
         "answer": "leap",
-        "meaning": ""
+        "meaning": "leap!　[自] ①跳ぶ [名] ②躍進，急増"
     },
     {
         "text": "1167 He tried to ___ the toy from the shelf.\n彼は棚からおもちゃをつかもうとした。",
         "answer": "grab",
-        "meaning": ""
+        "meaning": "grab　[他] ①（ぐいっと）～をつかむ ②（急いで食事，睡眠）をとる"
     },
     {
         "text": "1168 The police were able to ___ the criminal quickly.\n警察は犯罪者をすぐに逮捕することができた。",
         "answer": "seize",
-        "meaning": ""
+        "meaning": "seize　[他] ①～をつかむ ②（麻薬など）を押収する，（犯人）を捕らえる"
     },
     {
         "text": "1169 The director decided to ___ the main actor for the movie.\n監督はその映画の主役を配役することにした。",
         "answer": "cast",
-        "meaning": ""
+        "meaning": "cast　[他] ①～を投げる ②（光など）を投げかける ③～に役を与える"
     },
     {
         "text": "1170 The shocking news ___ everyone in the room.\nその衝撃的なニュースは部屋の全員を呆然とさせた。",
         "answer": "stunned",
-        "meaning": ""
+        "meaning": "stun　[他] ①～を気絶させる ②～をぼう然とさせる"
     },
     {
         "text": "1171 The streetlights ___ the entire park at night.\n街灯は夜、公園全体を照らす。",
         "answer": "illuminate",
-        "meaning": ""
+        "meaning": "illuminate　[他] ①～を照らす ②（問題など）を解明する"
     },
     {
         "text": "1172 Detectives worked hard to ___ the truth behind the crime.\n刑事たちは犯罪の真相を暴くために懸命に働いた。",
         "answer": "uncover",
-        "meaning": ""
+        "meaning": "uncover　[他] ～を明らかにする，暴く"
     },
     {
         "text": "1173 She tried to ___ the broken vase carefully.\n彼女は壊れた花瓶を注意深く修復しようとした。",
         "answer": "mend",
-        "meaning": ""
+        "meaning": "mend　[他] ～を修繕する"
     },
     {
         "text": "1174 Life is filled with ups and downs and the only thing you can change is how you ___ to them.\n人生は浮き沈みであふれていて,唯一変えられるのはそれらへの反応の仕方である.",
         "answer": "react",
-        "meaning": ""
+        "meaning": "react　[自] （to ～）（～に）反応する"
     },
     {
         "text": "1175 They had to ___ the harsh winter without enough supplies.\n彼らは十分な物資もなく厳しい冬を耐えなければならなかった。",
         "answer": "endure",
-        "meaning": ""
+        "meaning": "endure　[他] （長期にわたり）～に耐える"
     },
     {
         "text": "1176 The rope was used to ___ the packages together.\nロープは荷物を一緒に縛るために使われた。",
         "answer": "bind",
-        "meaning": ""
+        "meaning": "bind　[他] ～を結びつける，縛る"
     },
     {
         "text": "1177 During the hike, they ___ a wild animal unexpectedly.\nハイキング中、彼らは予期せず野生動物に遭遇した。",
         "answer": "encountered",
-        "meaning": ""
+        "meaning": "encounter　[他] ①～に偶然出会う ②（問題，反対など）に遭う [名] ③出会い"
     },
     {
         "text": "1178 Scientists ___ the origins of the ancient artifact.\n科学者たちは古代の遺物の起源をたどった。",
         "answer": "traced",
-        "meaning": ""
+        "meaning": "trace　[他] ①～を捜し出す ②～の追跡調査をする [名] ③（微妙な）跡"
     },
     {
         "text": "1179 She had to ___ several surgeries to recover.\n彼女は回復するためにいくつかの手術を受けなければならなかった。",
         "answer": "undergo",
-        "meaning": ""
+        "meaning": "undergo　[他] ～を経験する"
     },
     {
         "text": "1180 Make sure to ___ the envelope before sending it.\n送る前に封筒をしっかり封をしなさい。",
         "answer": "seal",
-        "meaning": ""
+        "meaning": "seal　[他] ①～を密封する [名] ②（personal ―）印鑑，ハンコ"
     },
     {
         "text": "1181 The company plans to ___ new features into their software.\nその会社はソフトウェアに新機能を組み込む予定だ。",
         "answer": "incorporate",
-        "meaning": ""
+        "meaning": "incorporate　[他] ～を取り入れる"
     },
     {
         "text": "1182 New ideas often ___ during brainstorming sessions.\n新しいアイデアはブレインストーミングのセッション中に現れることが多い。",
         "answer": "emerge",
-        "meaning": ""
+        "meaning": "emerge　[自] ①（隠れていたものが）現れる ②（国家などが）台頭する"
     },
     {
         "text": "1183 The story began to ___ as more details were revealed.\n詳細が明かされるにつれて物語が展開し始めた。",
         "answer": "unfold",
-        "meaning": ""
+        "meaning": "unfold　[自] ①展開する，はっきりしてくる [他] ②～を広げる"
     },
     {
         "text": "1184 Many English words ___ from Latin.\n多くの英単語はラテン語に由来する。",
         "answer": "derive",
-        "meaning": ""
+        "meaning": "derive　[自] ①（from ～）（～に）由来する [他] ②～を引き出す，得る"
     },
     {
         "text": "1185 This machine can ___ electricity from solar energy.\nこの機械は太陽エネルギーから電気を生み出すことができる。",
         "answer": "generate",
-        "meaning": ""
+        "meaning": "generate　[他] （電気，利益など）を生み出す"
     },
     {
         "text": "1186 She ___ great skill in playing the piano.\n彼女はピアノ演奏に素晴らしい技術を持っている。",
         "answer": "possesses",
-        "meaning": ""
+        "meaning": "possess　[他] ～を所有している"
     },
     {
         "text": "1187 Plants ___ water in their leaves.\n植物は葉に水分を保持する。",
         "answer": "retain",
-        "meaning": ""
+        "meaning": "retain　[他] ～を保持する"
     },
     {
         "text": "1188 They worked hard to ___ funding for the project.\n彼らはプロジェクトの資金を確保するために懸命に働いた。",
         "answer": "secure",
-        "meaning": ""
+        "meaning": "secure　[他] ①（場所，地位，契約など）を確保する [形] ②安全で，守られて"
     },
     {
         "text": "1189 The photographer managed to ___ the perfect moment.\n写真家は完璧な瞬間を捉えることに成功した。",
         "answer": "capture",
-        "meaning": ""
+        "meaning": "capture　[他] ①～を捕らえる [名] ②捕獲，（敵地の）攻略"
     },
     {
         "text": "1190 The security system can ___ all activities in the building.\n防犯システムは建物内のすべての活動を監視できる。",
         "answer": "monitor",
-        "meaning": ""
+        "meaning": "monitor　[他] ①～を監視する [名] ②（コンピュータの）画面"
     },
     {
         "text": "1191 The police are ___ the case carefully.\n警察は事件を慎重に調査している。",
         "answer": "investigating",
-        "meaning": ""
+        "meaning": "investigate　[他] ①（研究班などが）～を調査する ②（警察が）～を捜査する"
     },
     {
         "text": "1192 Early tests failed to ___ any problems.\n初期の検査では問題を検出できなかった。",
         "answer": "detect",
-        "meaning": ""
+        "meaning": "detect　[他] ～を探知する，（病気など）を発見する，（うそなど）を見抜く"
     },
     {
         "text": "1193 The government launched an ___ into the corruption scandal.\n政府は汚職スキャンダルに関する調査を開始した。",
         "answer": "inquiry",
-        "meaning": ""
+        "meaning": "inquiry　[名] ①（into ～）（～の）調査 ②質問，問い合わせ"
     },
     {
         "text": "1194 She ___ in computer science.\n彼女はコンピューターサイエンスを専門にしている。",
         "answer": "specializes",
-        "meaning": ""
+        "meaning": "specialize　[自] （in ～)①〈英〉（～を）専攻する ②（～を）専門にする"
     },
     {
         "text": "1195 The new ___ starts in September.\n新しい学期は9月に始まる。",
         "answer": "semester",
-        "meaning": ""
+        "meaning": "semester　[名] （米，日本などの２学期制の）学期"
     },
     {
         "text": "1196 He studies ___ to understand living organisms.\n彼は生物学を学んで生物を理解しようとしている。",
         "answer": "biology",
-        "meaning": ""
+        "meaning": "biology　[名] 生物学"
     },
     {
         "text": "1197 ___ is the study of relationships between living things and their environment.\n生態学は生物とその環境との関係を研究する学問だ。",
         "answer": "ecology",
-        "meaning": ""
+        "meaning": "ecology　[名] 生態（学）"
     },
     {
         "text": "1198 ___ deals with fundamental questions about existence and knowledge.\n哲学は存在や知識に関する基本的な問題を扱う。",
         "answer": "philosophy",
-        "meaning": ""
+        "meaning": "philosophy　[名] ①（学問としての）哲学〈不可算〉 ②人生哲学，考え方〈可算〉"
     },
     {
         "text": "1199 ___ studies the physical features of the Earth.\n地理学は地球の物理的特徴を研究する。",
         "answer": "geography",
-        "meaning": ""
+        "meaning": "geography　[名] 地理（学）"
     },
     {
         "text": "1200 The university is a prestigious educational ___.\nその大学は名門の教育機関だ。",
         "answer": "institution",
-        "meaning": ""
+        "meaning": "institution　[名] ①（大学，病院などの）機関 ②（結婚などの）制度"
     },
     {
         "text": "1201 The ___ of engineering is very competitive.\n工学部は非常に競争が激しい。",
         "answer": "faculty",
-        "meaning": ""
+        "meaning": "faculty　[名] ①（生まれ持った）能力 ②（大学の）学部 ③（大学の）全教員"
     },
     {
         "text": "1202 He is at an ___ level in English, not a beginner or advanced.\n彼は英語の中級レベルだ。初心者でも上級者でもない。",
         "answer": "intermediate",
-        "meaning": ""
+        "meaning": "intermediate　[形] ①（授業・教材が）中級の ②中間の"
     },
     {
         "text": "1203 The ___ of the idea was unclear to many students.\nその考えの概念は多くの学生には不明瞭だった。",
         "answer": "notion",
-        "meaning": ""
+        "meaning": "notion　[名] 考え"
     },
     {
         "text": "1204 She explained the basic ___ of physics clearly.\n彼女は物理学の基本的な概念をはっきり説明した。",
         "answer": "concept",
-        "meaning": ""
+        "meaning": "concept　[名] 概念，考え"
     },
     {
         "text": "1205 He practices ___ daily to reduce stress.\n彼はストレスを減らすために毎日瞑想を行っている。",
         "answer": "meditation",
-        "meaning": ""
+        "meaning": "meditation　[名] ①瞑想 ②熟考"
     },
     {
         "text": "1206 Her ___ about the situation gave her a new perspective.\nその状況に関する彼女の洞察は新しい視点を与えた。",
         "answer": "insight",
-        "meaning": ""
+        "meaning": "insight　[名] ①（into ～）（～に対する）洞察（力)②見識"
     },
     {
         "text": "1207 ___ is necessary when dealing with dangerous chemicals.\n危険な化学物質を扱うときは注意が必要だ。",
         "answer": "Caution",
-        "meaning": ""
+        "meaning": "caution　[名] ①用心 ②警告 [他] ③～に注意［警告］を与える"
     },
     {
         "text": "1208 He showed a strong ___ to finish the marathon.\n彼はマラソンを完走する強い意志を見せた。",
         "answer": "will",
-        "meaning": ""
+        "meaning": "will　[名] ①意志 ②遺書"
     },
     {
         "text": "1209 You have the ___ to choose any course you like.\nあなたには好きなコースを選ぶ選択肢がある。",
         "answer": "option",
-        "meaning": ""
+        "meaning": "option　[名] 選択肢，選択（の自由）"
     },
     {
         "text": "1210 The ___ of success in this field is high.\nこの分野で成功する見込みは高い。",
         "answer": "prospect",
-        "meaning": ""
+        "meaning": "prospect　[名] 見通し"
     },
     {
         "text": "1211 They ___ their time together after many years apart.\n彼らは何年も離れていた後、一緒の時間を大切にした。",
         "answer": "cherished",
-        "meaning": ""
+        "meaning": "cherish　[他] ～を大切にする，胸に抱く"
     },
     {
         "text": "1212 I ___ to start my own business next year.\n私は来年自分のビジネスを始めるつもりだ。",
         "answer": "intend",
-        "meaning": ""
+        "meaning": "intend　[他] （to do）～するつもりだ"
     },
     {
         "text": "1213 She ___ he was lying about the situation.\n彼女は彼がその状況について嘘をついていると疑った。",
         "answer": "suspected",
-        "meaning": ""
+        "meaning": "suspect　[他] ①（that SV）～ではないかと思う ②～に嫌疑をかける [名] ③容疑者"
     },
     {
         "text": "1214 The police were able to ___ the suspect quickly.\n警察はすぐに容疑者を特定できた。",
         "answer": "identify",
-        "meaning": ""
+        "meaning": "identify　[他] ①～を特定する，《生物》～を同定する ②（A with B）（A）を（B と）同一視する [自] ③（with ～）（～と）一体感をもつ，（～に）なりきる"
     },
     {
         "text": "1215 Visitors are not ___ to enter the restricted area.\n訪問者は立入禁止区域に入ることを許可されていない。",
         "answer": "permitted",
-        "meaning": ""
+        "meaning": "permit　[他] ①～を許可する [名] ②許可証"
     },
     {
         "text": "1216 He refused to ___ his mistake.\n彼は自分の間違いを認めようとしなかった。",
         "answer": "acknowledge",
-        "meaning": ""
+        "meaning": "acknowledge　[他] ～を認める"
     },
     {
         "text": "1217 Humans ___ colors differently depending on the light.\n人間は光の状況によって色の感じ方が異なる。",
         "answer": "perceive",
-        "meaning": ""
+        "meaning": "perceive　[他] ①（A as B）（A）を（B だと）認識する ②～を知覚する"
     },
     {
         "text": "1218 Teachers ___ students’ progress regularly.\n先生は生徒の進歩を定期的に評価する。",
         "answer": "evaluate",
-        "meaning": ""
+        "meaning": "evaluate　[他] ～を（正しく）評価する"
     },
     {
         "text": "1219 Farmers ___ crops carefully to get a good harvest.\n農家は豊作を得るために作物を丁寧に育てる。",
         "answer": "cultivate",
-        "meaning": ""
+        "meaning": "cultivate　[他] ①～を耕す ②～を育む ③～を磨く"
     },
     {
         "text": "1220 The tree provides ___ from the hot sun.\nその木は暑い日差しを遮る日陰を提供する。",
         "answer": "shade",
-        "meaning": ""
+        "meaning": "shade　[名] ①日陰，（絵画，写真の）陰の部分，ブラインド ②（ーs）（意味などの）わずかな違い"
     },
     {
         "text": "1221 a pleasant ___\n心地よいそよかぜ🍃",
         "answer": "breeze",
-        "meaning": "breeze\t[名] そよ風"
+        "meaning": "breeze　[名] そよ風"
     },
     {
         "text": "1222 Camels are well adapted to life in the ___.\nラクダは砂漠での生活にうまく適応している。",
         "answer": "desert",
-        "meaning": ""
+        "meaning": "desert　[名] ①砂漠 [他] ②～を見捨てる"
     },
     {
         "text": "1223 The morning ___ made it hard to see the road.\n朝の霧で道が見えにくかった。",
         "answer": "fog",
-        "meaning": ""
+        "meaning": "fog　[名] 霧"
     },
     {
         "text": "1224 ___ in the air helps plants grow.\n空気中の水分が植物の成長を助ける。",
         "answer": "moisture",
-        "meaning": ""
+        "meaning": "moisture　[名] 湿気，水分"
     },
     {
         "text": "1225 After rain, the ground was still ___.\n雨の後、地面はまだ湿っていた。",
         "answer": "damp",
-        "meaning": ""
+        "meaning": "damp　[形] 湿った，じめじめした"
     },
     {
         "text": "1226 Follow the ___ through the forest.\n森の中の小道をたどって進みなさい。",
         "answer": "path",
-        "meaning": ""
+        "meaning": "path　[名] （小）道"
     },
     {
         "text": "1227 The hikers enjoyed walking along the mountain ___.\n登山者たちは山の小道を歩くのを楽しんだ。",
         "answer": "trail",
-        "meaning": ""
+        "meaning": "trail　[名] ①山道 ②跡 ③（a ― of destruction）（破壊の）爪跡"
     },
     {
         "text": "1228 The cherry blossoms are reflected in the ___.\n桜が小川に反射する🌸",
         "answer": "stream",
-        "meaning": ""
+        "meaning": "stream　[名] ①小川 ②（a ― of ～）（～の）流れ"
     },
     {
         "text": "1229 The ___ rises and falls with the moon.\n潮は月の満ち欠けで上下する。",
         "answer": "tide",
-        "meaning": ""
+        "meaning": "tide　[名] ①潮（の干満），潮流 ②時流"
     },
     {
         "text": "1230 Coral ___ provide habitats for many sea creatures.\nサンゴ礁は多くの海の生物に生息地を提供する。",
         "answer": "reefs",
-        "meaning": ""
+        "meaning": "reef　[名] （岩や砂の）礁"
     },
     {
         "text": "1231 The forest is the natural ___ of many animals.\nその森は多くの動物の自然な生息地だ。",
         "answer": "habitat",
-        "meaning": ""
+        "meaning": "habitat　[名] 生息地"
     },
     {
         "text": "1232 The ___ erupted, causing nearby villages to evacuate.\n火山が噴火し、近くの村が避難した。",
         "answer": "volcano",
-        "meaning": ""
+        "meaning": "volcano　[名] 火山"
     },
     {
         "text": "1233 They work in a ___ extracting minerals from the earth.\n彼らは鉱山で鉱物を採掘している。",
         "answer": "mine",
-        "meaning": ""
+        "meaning": "mine　[名] ①鉱山 ②地雷（＝landmine）"
     },
     {
         "text": "1234 ___ build nests under the eaves.\nツバメは軒下に巣を作る。",
         "answer": "swallows",
-        "meaning": ""
+        "meaning": "swallow　[名] ①ツバメ [他] ②～を飲み込む"
     },
     {
         "text": "1235 A spider’s ___ is used to catch insects.\nクモの巣は昆虫を捕まえるために使われる。",
         "answer": "web",
-        "meaning": ""
+        "meaning": "web　[名] ①（クモの）巣 ②インターネット（www＝the World Wide Web）"
     },
     {
-        "text": "1236 I was bitten by ___ in 13 places.\n蚊に13か所刺された.😱",
+        "text": "1236 I was bitten by ___ in 13 places.\n蚊に13か所刺された。😱",
         "answer": "mosquitoes",
-        "meaning": "mosquito\t[名] 蚊"
+        "meaning": "mosquito　[名] 蚊"
     },
     {
         "text": "1237 Farmers raise ___ like cows and sheep.\n農家は牛や羊のような家畜を飼育する。",
@@ -1147,7 +1147,7 @@
     {
         "text": "1238 I got scratched on the arm by a ___.\n子猫に腕をひっかかれた.😼",
         "answer": "kitten",
-        "meaning": "kitten\t[名] 子ネコ"
+        "meaning": "kitten　[名] 子ネコ"
     },
     {
         "text": "1239 An ___ is a living thing, from bacteria to animals.\n生物は細菌から動物までの生きているものを指す。",
