@@ -1605,9 +1605,209 @@
         "meaning": "bankrupt　[形] 倒産した，破産した"
     },
     {
+        "text": "1530 The government announced new ___ policies.\n政府は新しい金融政策を発表した💰",
+        "answer": "monetary",
+        "meaning": "monetary　[形] ①貨幣の ②金銭的な"
+    },
+    {
+        "text": "1531 A large ___ owns several smaller companies.\n大きな企業がいくつかの小会社を所有している🏢",
+        "answer": "corporation",
+        "meaning": "corporation　[名] 企業，法人"
+    },
+    {
+        "text": "1532 Starting a new ___ requires careful planning.\n新しい事業を始めるには慎重な計画が必要だ🚀",
+        "answer": "enterprise",
+        "meaning": "enterprise　[名] ①企業 ②(冒険的な)事業"
+    },
+    {
+        "text": "1533 They launched a risky ___ into the tech market.\n彼らはハイリスクなベンチャーをテック市場に展開した💡",
+        "answer": "venture",
+        "meaning": "venture　[名] ①(ベンチャー)事業 [自] ②危険を冒して行く"
+    },
+    {
+        "text": "1534 The company’s ___ is located in New York.\nその会社の本社はニューヨークにある🏢",
+        "answer": "headquarters",
+        "meaning": "headquarters　[名] 本社，本部"
+    },
+    {
+        "text": "1535 The ___ department handles hiring and training.\n人事部は採用と研修を担当している👥",
+        "answer": "personnel",
+        "meaning": "personnel　[名] ①(官庁，会社などの)全職員〈複数扱い〉 ②人事"
+    },
+    {
+        "text": "1536 The ___ started a successful online business.\nその起業家は成功したオンラインビジネスを始めた🌐",
+        "answer": "entrepreneur",
+        "meaning": "entrepreneur　[名] 起業家"
+    },
+    {
+        "text": "1537 His ___ was also a famous scientist. 🔬\n彼の前任者も有名な科学者だった🔬",
+        "answer": "predecessor",
+        "meaning": "predecessor　[名] 前任者，以前あったもの"
+    },
+    {
+        "text": "1538 Farmers ___ in the fields from dawn to dusk. 🌾\n農家は日の出から日没まで畑で働く🌾",
+        "answer": "toil",
+        "meaning": "toil　[自] ①(長時間)骨折って働く [名] ②骨の折れる仕事"
+    },
+    {
+        "text": "1539 We will ___ a new project next month. 📅\n来月、新しいプロジェクトに取り組む📅",
+        "answer": "undertake",
+        "meaning": "undertake　[他] (仕事など)を引き受ける，始める"
+    },
+    {
+        "text": "1540 Two companies decided to ___ to increase efficiency. 🤝\n2社は効率を上げるために合併することにした🤝",
+        "answer": "merge",
+        "meaning": "merge　[自] ①合併する [他] ②～を合併させる"
+    },
+    {
+        "text": "1541 The team ___ of engineers, designers, and marketers. 👥\nチームはエンジニア、デザイナー、マーケターで構成されている👥",
+        "answer": "comprise",
+        "meaning": "comprise　[他] ①～から成る ②(割合)を占める"
+    },
+    {
+        "text": "1542 Each computer has a key ___ that can be replaced. 🖥️\n各コンピュータには交換可能な部品がある🖥️",
+        "answer": "component",
+        "meaning": "component　[名] 構成要素，成分，(車などの)部品"
+    },
+    {
+        "text": "1543 The new software provides a simple ___ for developers. 💻\n新しいソフトは開発者向けにシンプルな枠組みを提供する💻",
+        "answer": "framework",
+        "meaning": "framework　[名] ①枠組 ②骨組み"
+    },
+    {
+        "text": "1544 They built a ___ to test the new device. 🛠️\n彼らは新しい装置を試すための試作品を作った🛠️",
+        "answer": "prototype",
+        "meaning": "prototype　[名] ①(of [for] ～)(～の)原型 ②試作品 ③典型"
+    },
+    {
+        "text": "1545 This room has unusual ___ for a living space. 📏\nこの部屋は居住空間としては珍しい寸法だ📏",
+        "answer": "dimension",
+        "meaning": "dimension　[名] ①(問題などの)側面，要因，次元 ②(―s)寸法，大きさ"
+    },
+    {
+        "text": "1546 The profit ___ is higher than expected.\n利益の幅は予想より大きい💹",
+        "answer": "margin",
+        "meaning": "margin　[名] ①余白，欄外 ②(票などの)差 ③端"
+    },
+    {
+        "text": "1547 She ___ in mathematics and science at school.\n彼女は学校で数学と理科が優れている🏆",
+        "answer": "excel",
+        "meaning": "excel　[自] (in [at] ～)( ～において)優れている"
+    },
+    {
+        "text": "1548 His actions ___ what he said earlier.\n彼の行動は以前の発言と矛盾している😕",
+        "answer": "contradict",
+        "meaning": "contradict　[他] ①～と矛盾する ②～に反論する"
+    },
+    {
+        "text": "1549 The committee reached a ___ on the new policy.\n委員会は新しい方針について合意に達した✅",
+        "answer": "consensus",
+        "meaning": "consensus　[名] (意見や証言などの)合意，総意"
+    },
+    {
+        "text": "1550 We often ___ about small things, but it’s harmless.\n小さなことでよく会話（言い争い）するが、害はない😅",
+        "answer": "converse",
+        "meaning": "converse　[名] ①正反対 [形] ②正反対の [自] ③(with ～)(～と)会話する"
+    },
+    {
         "text": "1551 Consumption tax increases economic ___.\n消費税は経済格差を拡大させる.",
         "answer": "inequality",
-        "meaning": ""
+        "meaning": "inequality　[名] 不平等"
+    },
+    {
+        "text": "1552 One dollar is roughly ___ to 110 yen.\n1ドルはおおよそ110円に相当する💱",
+        "answer": "equivalent",
+        "meaning": "equivalent　[形] ①等しい [名] ②同等のもの"
+    },
+    {
+        "text": "1553 This software is ___ with most computers.\nこのソフトはほとんどのコンピュータと互換性がある💻",
+        "answer": "compatible",
+        "meaning": "compatible　[形] (with ～)(～と)適合する，互換性がある"
+    },
+    {
+        "text": "1554 The twins wore ___ outfits to the party.\n双子はパーティーに同じ服装で来た👯‍♂️",
+        "answer": "identical",
+        "meaning": "identical　[形] 同一の，うり二つの"
+    },
+    {
+        "text": "1555 Your answer must ___ the question asked.\nあなたの答えは質問に対応していなければならない📄",
+        "answer": "correspond",
+        "meaning": "correspond　[自] ①(to [with] ～)(～と)一致する ②(with ～)(～と)(メールや手紙で)やりとりをする"
+    },
+    {
+        "text": "1556 The numbers were picked at ___ from a hat.\nその数字は帽子から無作為に選ばれた🎲",
+        "answer": "random",
+        "meaning": "random　[形] 無作為の，でたらめの"
+    },
+    {
+        "text": "1557 The brave ___ fought to protect the village.\n勇敢な戦士が村を守るために戦った⚔️",
+        "answer": "warrior",
+        "meaning": "warrior　[名] 戦士"
+    },
+    {
+        "text": "1558 The soldiers launched an ___ on the enemy base.\n兵士たちは敵の基地に攻撃を仕掛けた💥",
+        "answer": "assault",
+        "meaning": "assault　[名] 襲撃，暴行"
+    },
+    {
+        "text": "1559 A ___ of soldiers moved through the forest.\n一隊の兵士が森を進んだ🌲",
+        "answer": "troop",
+        "meaning": "troop　[名] (―s)軍隊"
+    },
+    {
+        "text": "1560 The knight held up his ___ to block the arrow.\n騎士は矢を防ぐために盾を掲げた🛡️",
+        "answer": "shield",
+        "meaning": "shield　[名] (against ～)(～に対する)盾、防御物"
+    },
+    {
+        "text": "1561 Prisoners were subjected to cruel ___.\n囚人は残酷な拷問を受けた😱",
+        "answer": "torture",
+        "meaning": "torture　[名] ①拷問 ②辛いこと [他] ③～を拷問にかける"
+    },
+    {
+        "text": "1562 The two countries are in a trade ___ over tariffs.\n両国は関税を巡る貿易紛争中だ🌐",
+        "answer": "dispute",
+        "meaning": "dispute　[名] ①論争，紛争 [他] ②～に異議を唱える"
+    },
+    {
+        "text": "1563 The army was ready for ___ at any moment.\n軍隊はいつでも戦闘の準備ができていた⚔️",
+        "answer": "combat",
+        "meaning": "combat　[名] ①戦闘 [他] ②～と戦う"
+    },
+    {
+        "text": "1564 The general taught new ___ to his soldiers.\n将軍は兵士たちに新しい戦術を教えた🎯",
+        "answer": "tactics",
+        "meaning": "tactics　[名] 戦術"
+    },
+    {
+        "text": "1565 The brothers had a small ___ over who would clean the room.\n兄弟は誰が部屋を掃除するかで小さな口論をした😅",
+        "answer": "quarrel",
+        "meaning": "quarrel　[自] ①(with ～)(～と)口論する [名] ②口論"
+    },
+    {
+        "text": "1566 He had to ___ with several competitors to win the prize.\n彼は賞を勝ち取るために何人かの競争相手と争わなければならなかった🏆",
+        "answer": "contend",
+        "meaning": "contend　[自] ①（with ～）（～と）戦う [他] ②（that SV）（～と）（強く）主張する"
+    },
+    {
+        "text": "1567 The hunters saw a ___ of deer in the forest.\n狩人たちは森で多数の鹿の虐殺を目撃した🦌",
+        "answer": "slaughter",
+        "meaning": "slaughter　[他] ～を虐殺する，（食肉用に）殺す"
+    },
+    {
+        "text": "1568 The government tried to ___ the rebellion quickly.\n政府は反乱をすぐに抑えようとした⚡",
+        "answer": "suppress",
+        "meaning": "suppress　[他] ①（反乱，暴動）を鎮圧する ②（笑い，怒り）を抑える"
+    },
+    {
+        "text": "1569 The army was forced to ___ after weeks of fighting.\n軍は数週間の戦闘の後、降伏を余儀なくされた🏳️",
+        "answer": "surrender",
+        "meaning": "surrender　[自] ①（to ～）（～に）降伏する [他] ②～を引き渡す"
+    },
+    {
+        "text": "1570 The two countries remain ___ despite the peace talks.\n両国は平和会談にもかかわらず敵対的なままだ💣",
+        "answer": "hostile",
+        "meaning": "hostile　[形] ①敵意のある ②敵の ③（環境などが）厳しい"
     },
     {
         "text": "1668 The only good thing about this facility is that the chair ___.\nこの施設の唯一良い所は,椅子が回ることだ.",
