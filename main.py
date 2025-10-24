@@ -256,7 +256,7 @@ def send_question(user_id, range_str, bot_type="LEAP"):
 
     if not questions:
         if range_str == "WRONG":
-            return TextSendMessage(text="🎉🎉🎉間違えた単語はありません🎉🎉🎉")
+            return TextSendMessage(text="🎉間違えた単語はありません🎉")
         return TextSendMessage(text="問題が見つかりません。")
 
     # 間違えた問題の数を取得
@@ -339,8 +339,8 @@ trivia_messages = [
     "ヒントろぼっと🤖\nノーベン詐欺禁止法が遂に成立。国民はやんややんやの大喝采！",
     "ヒントろぼっと🤖\nノーベン詐欺禁止法が遂に成立。国民はやんややんやの大喝采！",
     "ヒントろぼっと🤖\nノーベン詐欺禁止法が遂に成立。国民はやんややんやの大喝采！",
-    "ヒントろぼっと🤖\n統計的な予測:次のLEAPテストは難しい。",
-    "ヒントろぼっと🤖\n統計的な予測:次のLEAPテストは易しい。",
+    "ヒントろぼっと🤖\n統計による予測:次のLEAPテストは難しい。",
+    "ヒントろぼっと🤖\n統計による予測:次のLEAPテストは易しい。",
     "ヒントろぼっと🤖\nLEAPを1000周すると魔法使いになる。",
     "ヒントろぼっと🤖\nLEAPは世界で7番目に売れた書物だ。",
     "ヒントろぼっと🤖\nLEAPは投げられた。",
@@ -354,8 +354,8 @@ trivia_messages = [
     "ヒントろぼっと🤖\nLEAP一周するとおにぎり3個分のカロリーを消費することが報告された。",
     "ヒントろぼっと🤖\nネイティブも愛す!LEAP!",
     "ヒントろぼっと🤖\n中国語版LEAP、「跳跃」!",
-    "ヒントろぼっと🤖\n君のLEAPには大金を払う価値がある。",
-    "ヒントろぼっと🤖\n君のLEAPには莫大な時間を払う価値がある。",
+    "ヒントろぼっと🤖\nLEAPには大金を払う価値がある。",
+    "ヒントろぼっと🤖\nLEAPには莫大な時間を払う価値がある。",
     "ヒントろぼっと🤖\n",
 ]
     
@@ -459,11 +459,11 @@ def build_feedback_flex(user_id, is_correct, score, elapsed, correct_answer=None
     count_today = user_daily_counts[user_id]["count"]
     if is_correct:
         y = 5 - score
-        e = y * label_score * (user_streaks[user_id] ** 2)
+        e = y * label_score * (user_streaks[user_id] ** 3)
         total_e_today = user_daily_e[user_id]["total_e"]
         body_contents.append({
             "type": "text",
-            "text": f"{y}×{label_symbol}{label_score}×🔥{user_streaks[user_id]}×🔥{user_streaks[user_id]}={e}",
+            "text": f"{y}×{label_symbol}{label_score}×🔥{user_streaks[user_id]}³={e}",
             "size": "lg",
             "color": "#333333",
             "margin": "xl"
@@ -735,7 +735,7 @@ def handle_message_common(event, bot_type, line_bot_api):
 
             label_score = get_label_score(label)
             y = 5 - score
-            e = y * label_score * (user_streaks[user_id] ** 2)
+            e = y * label_score * (user_streaks[user_id] ** 3)
 
             # 日付チェック
             today = time.strftime("%Y-%m-%d")
