@@ -1140,9 +1140,9 @@
         "meaning": "mosquito　[名] 蚊"
     },
     {
-        "text": "1237 Farmers raise ___ like cows and sheep.\n農家は牛や羊のような家畜を飼育する。",
+        "text": "1237 That ___ looks delicious.\nおいしそうな牛だね。🐮",
         "answer": "cattle",
-        "meaning": ""
+        "meaning": "cattle　[名] ウシ"
     },
     {
         "text": "1238 I got scratched on the arm by a ___.\n子猫に腕をひっかかれた.😼",
@@ -1152,197 +1152,197 @@
     {
         "text": "1239 An ___ is a living thing, from bacteria to animals.\n生物は細菌から動物までの生きているものを指す。",
         "answer": "organism",
-        "meaning": ""
+        "meaning": "organism　[名] 生物"
     },
     {
         "text": "1240 ___ refers to wild animals living freely in nature.\n野生生物は自然に自由に生きる野生の動物を指す。",
         "answer": "wildlife",
-        "meaning": ""
+        "meaning": "wildlife　[名] 野生生物"
     },
     {
-        "text": "1241 The lion is considered the king of the ___.\nライオンは獣の王とされている。",
-        "answer": "beasts",
-        "meaning": ""
+        "text": "1241 The upperclassman beast\n先輩の野獣",
+        "answer": "beast",
+        "meaning": "beast　[名] 野獣"
     },
     {
-        "text": "1242 An ___ is a type of primate closely related to humans.\n類人猿は人間に近い霊長類の一種だ。",
+        "text": "1242 He is a type of ___ close to humans.\n彼は人間に近い類人猿の一種だ。🥸",
         "answer": "ape",
-        "meaning": ""
+        "meaning": "ape　[名] 類人猿"
     },
     {
-        "text": "1243 A ___ of birds flew across the sky.\n鳥の群れが空を飛んでいた。",
+        "text": "1243 Women who ___ together instantly.\nすぐ群れる女性たち",
         "answer": "flock",
-        "meaning": ""
+        "meaning": "flock　[名] ①（鳥，羊の）群れ [自] ②群れる"
     },
     {
         "text": "1244 Blood flows through the ___ in your body.\n血液は体内の静脈を通って流れる。",
         "answer": "veins",
-        "meaning": ""
+        "meaning": "vein　[名] 静脈"
     },
     {
         "text": "1245 Farmers ___ animals for food and labor.\n農家は食用や労働のために動物を繁殖させる。",
         "answer": "breed",
-        "meaning": ""
+        "meaning": "breed　[自] ①繁殖する [他] ②～を繁殖させる ③～を引き起こす [名] ④品種，血統"
     },
     {
         "text": "1246 Most animals ___ to produce offspring.\nほとんどの動物は子孫を繁殖する。",
         "answer": "reproduce",
-        "meaning": ""
+        "meaning": "reproduce　[自] ①繁殖する [他] ②～を繁殖させる ③（音，絵など）を再現する"
     },
     {
-        "text": "1247 She is very ___ and talks a lot during meetings.\n彼女はとてもおしゃべりで、会議中によく話す。",
+        "text": "1247 the ___ science teacher\nおしゃべりな理科教師",
         "answer": "talkative",
-        "meaning": ""
+        "meaning": "talkative　[形] おしゃべりの"
     },
     {
         "text": "1248 He gave an ___ speech about the importance of honesty.\n彼は誠実さの重要性について真剣な演説をした。",
         "answer": "earnest",
-        "meaning": ""
+        "meaning": "earnest　[形] ①真面目な [名] ②（in ―）真面目（に）"
     },
     {
         "text": "1249 She is a ___ student who studies hard every day.\n彼女は毎日熱心に勉強する勤勉な学生だ。",
         "answer": "diligent",
-        "meaning": ""
+        "meaning": "diligent　[形] 勤勉な"
     },
     {
         "text": "1250 The ___ of the school gave a welcome speech.\n校長先生が歓迎のスピーチをした。",
         "answer": "principal",
-        "meaning": ""
+        "meaning": "principal　[形] ①主要な [名] ②〈米〉校長"
     },
     {
         "text": "1251 He is in his ___ years and at the height of his career.\n彼は最盛期にあり、キャリアの頂点にいる。",
         "answer": "prime",
-        "meaning": ""
+        "meaning": "prime　[形] ①（目標，容疑者などが）最重要な [名] ②素数"
     },
     {
         "text": "1252 There is a ___ chance that it will rain tomorrow.\n明日雨が降る可能性は確実だ。",
         "answer": "definite",
-        "meaning": ""
+        "meaning": "definite　[形] 明確な"
     },
     {
         "text": "1253 It is ___ that she will pass the exam.\n彼女が試験に合格するのは明らかだ。",
         "answer": "evident",
-        "meaning": ""
+        "meaning": "evident　[形] 明らかな"
     },
     {
         "text": "1254 He is a ___ figure in the world of science.\n彼は科学界の著名な人物だ。",
         "answer": "prominent",
-        "meaning": ""
+        "meaning": "prominent　[形] ①（物が）目立った ②（人が）著名な，重要な"
     },
     {
         "text": "1255 There was a ___ improvement in her English skills.\n彼女の英語力には顕著な向上があった。",
         "answer": "marked",
-        "meaning": ""
+        "meaning": "marked　[形] （名詞の前で）際立った，著しい"
     },
     {
         "text": "1256 The dancer moved with ___ and elegance.\nそのダンサーは優雅さと気品を持って動いた。",
         "answer": "grace",
-        "meaning": ""
+        "meaning": "grace　[名] ①優美さ ②（say ―）（食事の前後の）感謝の祈り（をささげる）"
     },
     {
         "text": "1257 She has a natural ___ that attracts people.\n彼女は人を惹きつける自然な魅力を持っている。",
         "answer": "charm",
-        "meaning": ""
+        "meaning": "charm　[名] ①魅力 ②（a good ― luck ―）お守り，まじない"
     },
     {
         "text": "1258 He bought a ___ dress for the party.\n彼はパーティー用の派手なドレスを買った。",
         "answer": "fancy",
-        "meaning": ""
+        "meaning": "fancy　[形] ①高級な [他] ②〈英〉～が欲しい，～したい ③～と思う"
     },
     {
-        "text": "1259 It is important to make ___ decisions based on facts.\n事実に基づいて合理的な決定を下すことが重要だ。",
+        "text": "1259 You're very ___.\n君って本当に理性的だね。😅",
         "answer": "rational",
-        "meaning": ""
+        "meaning": "rational　[形] 理性的な"
     },
     {
         "text": "1260 The palace was ___ and beautifully decorated.\nその宮殿は壮大で美しく装飾されていた。",
         "answer": "magnificent",
-        "meaning": ""
+        "meaning": "magnificent　[形] 壮大な，素晴らしい"
     },
     {
         "text": "1261 This model is ___ to the others in quality.\nこのモデルは他より優れている。",
         "answer": "superior",
-        "meaning": ""
+        "meaning": "superior　[形] ①（be ― to ～）（～）より優れている [名] ②上役，上司"
     },
     {
         "text": "1262 She is ___ to her friends and always supports them.\n彼女は友人に忠実で、いつも支えている。",
         "answer": "loyal",
-        "meaning": ""
+        "meaning": "loyal　[形] （to ～）（～に）忠実 "
     },
     {
         "text": "1263 The movie was so ___ that I couldn’t watch it.\nその映画はあまりにもひどくて見られなかった。",
         "answer": "horrible",
-        "meaning": ""
+        "meaning": "horrible　[形] （物，天気などが）とてもひどい，ぞっとする"
     },
     {
-        "text": "1264 He felt ___ after losing his job.\n彼は仕事を失って悲惨な気持ちになった。",
+        "text": "1264 ___ grades in Home Economics\n悲惨な家庭科の成績",
         "answer": "miserable",
-        "meaning": ""
+        "meaning": "miserable　[形] 悲惨な，とても不幸な"
     },
     {
         "text": "1265 a ___ story by a ___ person\nつまらない人が語る,つまらない話🤓",
         "answer": "dull",
-        "meaning": ""
+        "meaning": "dull　[形] ①退屈な ②切れ味が悪い ③（人，感覚などが）鈍い"
     },
     {
         "text": "1266 The weather was ___ and unpleasant all day.\n一日中不快な嫌な天気だった。",
         "answer": "nasty",
-        "meaning": ""
+        "meaning": "nasty　[形] （人，物，発言などが）不快な"
     },
     {
         "text": "1267 The criminal was declared ___ and sent to a hospital.\nその犯人は狂気と診断され、病院に送られた。",
         "answer": "insane",
-        "meaning": ""
+        "meaning": "insane　[形] 正気でない"
     },
     {
-        "text": "1268 His idea sounded ___ and impossible to believe.\n彼の考えはばかげていて信じられなかった。",
+        "text": "1268 His idea sounded ___ and amusing.\n彼の考えはばかげていて面白かったです。🤣",
         "answer": "ridiculous",
-        "meaning": ""
+        "meaning": "ridiculous　[形] ばかげた"
     },
     {
         "text": "1269 She’s a ___ apple.\n彼女は性格が悪いよ(腐ったリンゴだ).🍏",
         "answer": "rotten",
-        "meaning": ""
+        "meaning": "rotten　[形] 腐った"
     },
     {
         "text": "1270 He is ___ for his bad behavior.\n彼は悪名高い行動で知られている。",
         "answer": "notorious",
-        "meaning": ""
+        "meaning": "notorious　[形] （for ～）（～で）悪名高い"
     },
     {
         "text": "1271 The villain was truly ___.\nその悪役は本当に邪悪だった。",
         "answer": "evil",
-        "meaning": ""
+        "meaning": "evil　[形] ①（道徳的に）悪い [名] ②悪"
     },
     {
         "text": "1272 The room was a ___ after the party.\nパーティーの後、部屋は散らかっていた。",
         "answer": "mess",
-        "meaning": ""
+        "meaning": "mess　[名] ①乱雑 [自] ②（with ～）（～を）からかう，ちょっかいを出す"
     },
     {
         "text": "1273 The desert covers a ___ area of land.\n砂漠は広大な土地を覆っている。",
         "answer": "vast",
-        "meaning": ""
+        "meaning": "vast　[形] ①（地域，土地が）広大な ②（数量が）莫大な"
     },
     {
         "text": "1274 His wealth was ___, but his jokes were bankrupt.\n彼の富は莫大だったが,ジョークは破産状態だった.💰",
         "answer": "huge",
-        "meaning": ""
+        "meaning": "huge　[形] 巨大な"
     },
     {
         "text": "1275 The baby held a ___ toy in his hand.\n赤ちゃんは小さなおもちゃを手に持っていた。",
         "answer": "tiny",
-        "meaning": ""
+        "meaning": "tiny　[形] とても小さな"
     },
     {
         "text": "1276 The Earth is almost a perfect ___.\n地球はほぼ完璧な球体だ。",
         "answer": "sphere",
-        "meaning": ""
+        "meaning": "sphere　[名] ①球体 ②領域，範囲"
     },
     {
         "text": "1277 He wore a long ___ of cloth around his neck.\n彼は首に長い布の帯を巻いていた。",
         "answer": "strip",
-        "meaning": ""
+        "meaning": "strip　[名] ①細長い一片 [他] ②（罰として）～から奪う [自] ③裸になる"
     },
     {
         "text": "1278 The ___ carried water across the ocean.\nその船は海を越えて水を運んだ。",
