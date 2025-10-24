@@ -1430,6 +1430,11 @@
         "meaning": "entire\t[形] すべての"
     },
     {
+        "text": "1388 This rag holds ___ value.\nこのぼろきれには、すさまじい価値がある。📜",
+        "answer": "tremendous",
+        "meaning": "tremendous　[形] すさまじい"
+    },
+    {
         "text": "1394 Justice is blind, but ___ not deaf to bribes.\n正義は目が見えないが、賄賂にはどうやら耳が聞こえるらしい。",
         "answer": "apparently",
         "meaning": ""
@@ -1645,19 +1650,19 @@
         "meaning": "mighty　[形] 強力な"
     },
     {
-        "text": "1850 She cleaned the floor with an old ___.\n彼女は古いぼろ切れで床を掃除した。",
+        "text": "1850 This ___ holds tremendous value.\nこのぼろきれには、すさまじい価値がある。📜",
         "answer": "rag",
-        "meaning": ""
+        "meaning": "rag　[名] ぼろ切れ"
     },
     {
         "text": "1851 The fabric has a soft ___.\nその生地は柔らかい質感を持っている。",
         "answer": "texture",
-        "meaning": ""
+        "meaning": "texture　[名] 感触、手触り"
     },
     {
         "text": "1852 They held a ___ meeting before the main conference.\n彼らは本会議の前に予備会議を行った。",
         "answer": "preliminary",
-        "meaning": ""
+        "meaning": "preliminary　[形] ①予備的な，事前の ②予選の [名] ③予選"
     },
     {
         "text": "1853 Attendance at the safety seminar is ___.\n安全セミナーへの参加は必須だ。",
@@ -1665,489 +1670,489 @@
         "meaning": ""
     },
     {
-        "text": "1854 The festival celebrates the ___ people of the region.\nその祭りはその地域の先住民を祝う。",
+        "text": "1854 drive out the ___ people\n先住民を追い出す🇬🇧",
         "answer": "indigenous",
-        "meaning": ""
+        "meaning": "indigenous　[形] (動[植]物，民族が)固有の"
     },
     {
         "text": "1855 The students returned to their ___ classrooms.\n生徒たちはそれぞれの教室に戻った。",
         "answer": "respective",
-        "meaning": ""
+        "meaning": "respective　[形] それぞれの"
     },
     {
         "text": "1856 We need to ___ our efforts to finish on time.\n時間通りに終わらせるために努力を増やす必要がある。",
         "answer": "multiply",
-        "meaning": ""
+        "meaning": "multiply　[他] ①～を増やす ②(A by B)(A)に(B を)掛ける [自] ③増える"
     },
     {
         "text": "1857 The price of oil ___ after the conflict began.\n紛争が始まった後、石油の価格が急上昇した。",
         "answer": "soar",
-        "meaning": ""
+        "meaning": "soar　[自] ①(価格，温度が)急上昇する ②(鳥が)舞い上がる"
     },
     {
         "text": "1858 His influence began to ___ after the scandal.\nスキャンダルの後、彼の影響力は衰え始めた。",
         "answer": "diminish",
-        "meaning": ""
+        "meaning": "diminish　[自] 減少する"
     },
     {
         "text": "1859 We need to ___ evidence before making a decision.\n決定を下す前に証拠を蓄積する必要がある。",
         "answer": "accumulate",
-        "meaning": ""
+        "meaning": "accumulate　[他] ①～を蓄積する [自] ②蓄積する"
     },
     {
         "text": "1860 The temperature may ___ 40 degrees tomorrow.\n明日、気温は40度を超えるかもしれない。",
         "answer": "exceed",
-        "meaning": ""
+        "meaning": "exceed　[他] ～を越える"
     },
     {
         "text": "1861 The garden is full of ___ flowers in spring.\n春には庭に豊富な花が咲く。",
         "answer": "abundant",
-        "meaning": ""
+        "meaning": "abundant　[形] 豊富な"
     },
     {
         "text": "1862 She gave us ___ evidence to support her claim.\n彼女は自分の主張を裏付ける十分な証拠を私たちに示した。",
         "answer": "ample",
-        "meaning": ""
+        "meaning": "ample　[形] 豊富な"
     },
     {
         "text": "1863 The company reported a ___ income this year.\nその会社は今年、総収入を報告した。",
         "answer": "gross",
-        "meaning": ""
+        "meaning": "gross　[形] ①総計の ②(食べ物，行動などが)ひどい"
     },
     {
         "text": "1864 The universe is ___ and full of mysteries.\n宇宙は無限で、謎に満ちている。",
         "answer": "infinite",
-        "meaning": ""
+        "meaning": "infinite　[形] 無限の"
     },
     {
         "text": "1865 He is the ___ owner of the property.\n彼はその財産の唯一の所有者だ。",
         "answer": "sole",
-        "meaning": ""
+        "meaning": "sole　[形] ①唯一の [名] ②足の裏，靴底"
     },
     {
         "text": "1866 A ___ of clothes lay on the floor.\n床の上に衣服の山があった。",
         "answer": "heap",
-        "meaning": ""
+        "meaning": "heap　[名] ①(積み重ねられたものの)山 ②(a ― of ～)たくさんの～"
     },
     {
         "text": "1867 Only a small ___ of the students passed the exam.\n学生のほんの一部しか試験に合格しなかった。",
         "answer": "fraction",
-        "meaning": ""
+        "meaning": "fraction　[名] ①少量 ②分数，端数"
     },
     {
         "text": "1868 The concert was broadcast ___ on radio and TV.\nそのコンサートはラジオとテレビで同時に放送された。",
         "answer": "simultaneous",
-        "meaning": ""
+        "meaning": "simultaneous　[形] 同時の"
     },
     {
         "text": "1869 He studies ___ history in university.\n彼は大学で中世史を学んでいる。",
         "answer": "medieval",
-        "meaning": ""
+        "meaning": "medieval　[形] 中世の"
     },
     {
         "text": "1870 At ___, the LGBTQ flag was raised from his house.\n夜が明けると,彼の家からLGBTQフラッグが上がった.🏳️‍🌈",
         "answer": "dawn",
-        "meaning": "dawn\t[名] ①夜明け [自] ②夜が明ける ③(on ～)(～に)わかり始める"
+        "meaning": "dawn　[名] ①夜明け [自] ②夜が明ける ③(on ～)(～に)わかり始める"
     },
     {
-        "text": "Her career ___s over three decades.\n彼女のキャリアは30年以上にわたる。",
+        "text": "1871 Her career ___s over three decades.\n彼女のキャリアは30年以上にわたる。",
         "answer": "span",
-        "meaning": ""
+        "meaning": "span　[名] ①(継続した)期間 ②(集中力，注意力，機械の持続)期間"
     },
     {
-        "text": "1872 The magazine targets ___ readers.\nその雑誌は思春期の読者を対象としている。",
+        "text": "1872 The magazine targets ___ readers.\nその雑誌は思春期の読者を対象としている。🔞",
         "answer": "adolescent",
-        "meaning": ""
+        "meaning": "adolescent　[名] ①思春期の若者 [形] ②思春期の"
     },
     {
         "text": "1873 A ___ is a period of 1,000 years.\n千年紀とは1000年間のことだ。",
         "answer": "millennium",
-        "meaning": ""
+        "meaning": "millennium　[名] 1000年間"
     },
     {
-        "text": "1874 The coupon will ___ at the end of the month.\nそのクーポンは月末に期限切れになる。",
-        "answer": "expire",
-        "meaning": ""
+        "text": "1874 Her beauty has ___.\n彼女の美しさは期限切れだ。🔚",
+        "answer": "expired",
+        "meaning": "expire　[自] 期限が切れる"
     },
     {
         "text": "1875 They decided to ___ the meeting until next week.\n彼らは会議を来週まで延期することに決めた。",
         "answer": "postpone",
-        "meaning": ""
+        "meaning": "postpone　[他] ～を延期する"
     },
     {
         "text": "1876 The equipment is checked ___ for safety.\nその設備は定期的に安全確認される。",
         "answer": "periodically",
-        "meaning": ""
+        "meaning": "periodically　[副] 定期的に，周期的に，時折"
     },
     {
         "text": "1877 The library has an  ___ of books.\nその図書館には様々な本がある。",
         "answer": "array",
-        "meaning": ""
+        "meaning": "array　[名] (an ― of ～)さまざまな，多彩な"
     },
     {
         "text": "1878 The king ruled over a vast ___.\nその王は広大な領域を治めていた。",
         "answer": "realm",
-        "meaning": ""
+        "meaning": "realm　[名] 領域，領土"
     },
     {
         "text": "1879 Mathematics is his area of expertise; it is his ___.\n数学は彼の専門分野である。",
         "answer": "domain",
-        "meaning": ""
+        "meaning": "domain　[名] 領域"
     },
     {
         "text": "1892 wet ___\n濡れたコンセント😱",
         "answer": "outlet",
-        "meaning": "outlet\t[名] ①(電気の)コンセント ②(販売)店 ③(感情などの)はけ口"
+        "meaning": "outlet　[名] ①(電気の)コンセント ②(販売)店 ③(感情などの)はけ口"
     },
     {
         "text": "1900 The company offers free ___ for all online orders.\nその会社はすべてのオンライン注文に無料配送を提供している。",
         "answer": "shipping",
-        "meaning": ""
+        "meaning": "shipping　[名] (商品の)発送"
     },
     {
-        "text": "1901 She sewed the button with a red ___.\n彼女は赤い糸でボタンを縫った。",
+        "text": "1901 This ___ is me.\nこの糸はわたし。",
         "answer": "thread",
-        "meaning": ""
+        "meaning": "thread　[名] ①糸 [他] ②～に糸を通す"
     },
     {
         "text": "1902 She hung a beautiful ___ on the Christmas tree.\n彼女はクリスマスツリーに美しい飾りをかけた。",
         "answer": "ornament",
-        "meaning": ""
+        "meaning": "ornament　[名] (小さな)飾り，置物"
     },
     {
         "text": "1903 She buys natural ___ products.\n彼女は自然派の化粧品を買う。",
         "answer": "cosmetic",
-        "meaning": ""
+        "meaning": "cosmetic　[名] ①(―s)化粧品 [形] ②美容の，化粧(用)の"
     },
     {
         "text": "1904 The royal family met in a private ___.\n王室はプライベートな部屋で会った。",
         "answer": "chamber",
-        "meaning": ""
+        "meaning": "chamber　[名] ①部屋 ②(協会などの)会議所，議院"
     },
     {
         "text": "1905 Rice is an important ___ in international trade.\n米は国際貿易で重要な商品だ。",
         "answer": "commodity",
-        "meaning": ""
+        "meaning": "commodity　[名] ①商品 ②有用なもの"
     },
     {
         "text": "1906 Many animals ___ in caves or burrows.\n多くの動物は洞窟や巣穴に住む。",
         "answer": "dwell",
-        "meaning": ""
+        "meaning": "dwell　[自] ①住む ②(on ～)(～をくどくど)考える"
     },
     {
         "text": "1907 The concert hall has excellent ___ quality.\nそのコンサートホールは優れた音響を持っている。",
         "answer": "acoustic",
-        "meaning": ""
+        "meaning": "acoustic　[形] ①音響の ②(アンプを用いない)アコースティックの"
     },
     {
         "text": "1908 She followed her grandmother’s ___ to bake the cake.\n彼女は祖母のレシピに従ってケーキを焼いた。",
         "answer": "recipe",
-        "meaning": ""
+        "meaning": "recipe　[名] ①レシピ，調理法 ②秘訣，原因"
     },
     {
         "text": "1909 Daily ___ of vegetables is recommended.\n野菜の毎日の摂取が推奨される。",
         "answer": "intake",
-        "meaning": ""
+        "meaning": "intake　[名] 摂取(量)"
     },
     {
         "text": "1910 A brief introduction will ___ the main lecture.\n簡単な紹介が本講義に先立つ。",
         "answer": "precede",
-        "meaning": ""
+        "meaning": "precede　[他] ～に先行する"
     },
     {
         "text": "1911 The project is in its final ___.\nそのプロジェクトは最終段階にある。",
         "answer": "phase",
-        "meaning": ""
+        "meaning": "phase　[名] 段階，位相"
     },
     {
         "text": "1912 Safety is our top ___.\n安全が私たちの最優先事項だ。",
         "answer": "priority",
-        "meaning": ""
+        "meaning": "priority　[名] 優先(事項)"
     },
     { 
         "text": "1913 The argument is based on a false ___.\nその議論は誤った前提に基づいている。",
         "answer": "premise",
-        "meaning": ""
+        "meaning": "premise　[名] ①前提 ②(―s)(建物を含めた)敷地"
     },
     {
         "text": "1914 The ancient pharaoh was buried in a massive ___.\n古代のファラオは巨大な墓に埋葬された。",
         "answer": "tomb",
-        "meaning": ""
+        "meaning": "tomb　[名] 墓，古墳"
     },
     {
         "text": "1915 According to ___, a dragon lived in this cave.\n伝説によると、この洞窟にはドラゴンが住んでいた。",
         "answer": "legend",
-        "meaning": ""
+        "meaning": "legend　[名] ①伝説，言い伝え ②伝説的人物"
     },
     {
         "text": "1916 The painting is considered a ___ of Renaissance art.\nその絵画はルネサンス美術の傑作とみなされている。",
         "answer": "masterpiece",
-        "meaning": ""
+        "meaning": "masterpiece　[名] 傑作"
     },
     {
         "text": "1917 The villagers performed a traditional ___ every year.\n村人たちは毎年伝統的な儀式を行った。",
         "answer": "ritual",
-        "meaning": ""
+        "meaning": "ritual　[名] ①(宗教的)儀式 [形] ②儀式の"
     },
     {
         "text": "1918 The temple is a place of ___ and prayer.\nその寺院は崇拝と祈りの場である。",
         "answer": "worship",
-        "meaning": ""
+        "meaning": "worship　[名] ①崇拝，礼拝 [他] ②～を崇拝する [自] ③(神社などに)お参りする"
     },
     {
         "text": "1919 The lecture explained the basic ___ of Buddhism.\nその講義では仏教の基本教義が説明された。",
         "answer": "doctrine",
-        "meaning": ""
+        "meaning": "doctrine　[名] (宗教上などの)教義"
     },
     {
-        "text": "1920 His inventions are part of his lasting ___.\n彼の発明は彼の遺産の一部だ。",
+        "text": "1920 The ___ battle has begun!\n遺産争奪戦スタート！💵💵💵",
         "answer": "legacy",
-        "meaning": ""
+        "meaning": "legacy　[名] 遺産〈可算〉"
     },
     {
         "text": "1921 He believes that lying is a ___.\n彼は嘘をつくことは罪だと考えている。",
         "answer": "sin",
-        "meaning": ""
+        "meaning": "sin　[名] (宗教上，道徳上の)罪"
     },
     {
         "text": "1922 Please do not ___ in the classroom.\n教室での悪口や罵り言葉は禁止です。",
         "answer": "swear",
-        "meaning": ""
+        "meaning": "swear　[自] ①誓う ②罵る"
     },
     {
         "text": "1923 She decided to ___ her mistake to the teacher.\n彼女は自分の過ちを先生に告白することにした。",
         "answer": "confess",
-        "meaning": ""
+        "meaning": "confess　[自] ①（to ～）（～を）白状する [他] ②～を認める"
     },
     {
         "text": "1924 He will ___ his initials on the tree.\n彼はその木にイニシャルを刻むつもりだ。",
         "answer": "carve",
-        "meaning": ""
+        "meaning": "carve　[他] ～を彫る，刻む"
     },
     {
         "text": "1925 I could hear someone ___ softly in the corner.\n隅で誰かが小さくつぶやいているのが聞こえた。",
         "answer": "murmur",
-        "meaning": ""
+        "meaning": "murmur　[自] つぶやく"
     },
     {
         "text": "1926 The agreement was only ___, not written.\nその合意は口頭でなされ、書面ではなかった。",
         "answer": "verbal",
-        "meaning": ""
+        "meaning": "verbal　[形] 言葉による"
     },
     {
         "text": "1927 She gave an ___ explanation of the rules.\n彼女は口頭でルールの説明をした。",
         "answer": "oral",
-        "meaning": ""
+        "meaning": "oral　[形] ①口述の ②口の"
     },
     {
         "text": "1928 The politician gave an ___ speech that moved the audience.\nその政治家は聴衆を感動させる雄弁なスピーチをした。",
         "answer": "eloquent",
-        "meaning": ""
+        "meaning": "eloquent　[形] 雄弁な"
     },
     {
         "text": "1929 Children develop strong ___ skills through reading.\n子どもたちは読書を通して強い言語能力を育む。",
         "answer": "linguistic",
-        "meaning": ""
+        "meaning": "linguistic　[形] 言語の，言語学の"
     },
     {
         "text": "1930 The poet used a ___ to compare life to a journey.\nその詩人は人生を旅にたとえる比喩を使った。",
         "answer": "metaphor",
-        "meaning": ""
+        "meaning": "metaphor　[名] 隠喩，比喩"
     },
     {
         "text": "1931 She prefers reading ___ to poetry.\n彼女は詩よりも散文を読むのが好きだ。",
         "answer": "prose",
-        "meaning": ""
+        "meaning": "prose　[名] 散文"
     },
     {
         "text": "1932 The novel is written as a first-person ___.\nその小説は一人称の物語として書かれている。",
         "answer": "narrative",
-        "meaning": ""
+        "meaning": "narrative　[名] 語り，物語"
     },
     {
         "text": "1933 The story has a complicated ___ with many twists.\nその話には多くのどんでん返しを含む複雑な筋がある。",
         "answer": "plot",
-        "meaning": ""
+        "meaning": "plot　[名] ①（小説，演劇などの）筋 ②悪だくみ，陰謀"
     },
     {
         "text": "1934 She wrote a ___ of her ideas before starting the book.\n彼女は本を書き始める前にアイデアの下書きを作った。",
         "answer": "draft",
-        "meaning": ""
+        "meaning": "draft　[名] ①下書き，草稿 [他] ②～を徴兵する [形] ③（― beer）生の（ビール）"
     },
     {
         "text": "1935 The author submitted the complete ___ to the publisher.\n著者は出版社に完成原稿を提出した。",
         "answer": "manuscript",
-        "meaning": ""
+        "meaning": "manuscript　[名] (手書きの)原稿，写本"
     },
     {
         "text": "1936 It’s a ___ that standing is more tiring than walking.\n立っている方が歩くより疲れるというのは逆説だ。",
         "answer": "paradox",
-        "meaning": ""
+        "meaning": "paradox　[名] 逆説"
     },
     {
         "text": "1937 Teenagers often use ___ that adults don’t understand.\nティーンは大人にはわからないスラングをよく使う。",
         "answer": "slang",
-        "meaning": ""
+        "meaning": "slang　[名] （集合的に）俗語"
     },
     {
-        "text": "1938 He solved the tricky ___ in just a few minutes.\n彼はその難しいなぞなぞを数分で解いた。",
+        "text": "1938 You have a ___-like face.\nなぞなぞみたいな顔ですね。",
         "answer": "riddle",
-        "meaning": ""
+        "meaning": "riddle　[名] なぞなぞ，謎〈可算〉"
     },
     {
         "text": "1939 The museum has a new ___ on modern art.\nその美術館には現代美術の新しい展示がある。",
         "answer": "exhibit",
-        "meaning": ""
+        "meaning": "exhibit　[他] ①～を展示する ②～を示す [名] ③展示物，展覧会"
     },
     {
         "text": "1940 The painting ___ the struggles of daily life.\nその絵は日常生活の苦悩を描いている。",
         "answer": "portray",
-        "meaning": ""
+        "meaning": "portray　[他] ～を描く"
     },
     {
         "text": "1941 The painting ___ a peaceful village by the river.\nその絵は川辺の穏やかな村を描いている。",
         "answer": "depicts",
-        "meaning": "" 
+        "meaning": "depict　[他] (主に文字や絵や彫刻などで)～を描く" 
     },
     {
         "text": "1942 The Eiffel Tower is a famous ___ in Paris.\nエッフェル塔はパリの名所だ。🗼",
         "answer": "landmark",
-        "meaning": ""
+        "meaning": "landmark　[名] ①目印，名所 ②画期的な出来事"
     },
     {
         "text": "1943 Don't ___ me!\n私をからかうな!",
         "answer": "tease",
-        "meaning": ""
+        "meaning": "tease　[他] ～をからかう，冷やかす"
     },
     {
         "text": "1944 The surprise party ___ her completely.\nサプライズパーティーは彼女を完全に喜ばせた。🎉",
         "answer": "delighted",
-        "meaning": ""
+        "meaning": "delight　[他] ①～を喜ばせる [名] ②（大）喜び"
     },
     {
         "text": "1945 The magician's trick ___ everyone in the audience.\nそのマジシャンのトリックは観客全員を驚かせた。😲",
         "answer": "astonished",
-        "meaning": ""
+        "meaning": "astonish　[他] ～を（とても）驚かせる"
     },
     {
         "text": "1946 She ___ the thought of failing the exam.\n試験に落ちることを考えると彼女は怖くなる。😨",
         "answer": "dreaded",
-        "meaning": ""
+        "meaning": "dread　[他] ①～を恐れる [名] ②恐怖"
     },
     {
         "text": "1947 He ___ his success to hard work and persistence.\n彼は自分の成功を努力と忍耐のおかげだと考えている。💪",
         "answer": "attributes",
-        "meaning": ""
+        "meaning": "attribute　[他] ①（A to B)（A）を（B）のせいだとする [名] ②特性，属性"
     },
     {
         "text": "1948 She tried to ___ him after the disappointing news.\nがっかりするニュースの後、彼女は彼を慰めようとした。🤗",
         "answer": "console",
-        "meaning": ""
+        "meaning": "console　[他] ～を慰める"
     },
     {
         "text": "1949 The shocking story ___ a lot of curiosity among the readers.\nその衝撃的な話は読者の好奇心をかき立てた。📖",
         "answer": "aroused",
-        "meaning": ""
+        "meaning": "arouse　[他] ～を呼び起こす"
     },
     {
         "text": "1950 Everyone was ___ by his noisy electric eraser.\n彼のうるさい電動消しゴムにみんな気を散らされた。",
         "answer": "distracted",
-        "meaning": ""
+        "meaning": "distract　[他] ①（注意，意識など）をそらす ②～の気を紛らす"
     },
     {
         "text": "1951 The loud noise ___ her in the midnight.\n夜中の大きな音に彼女はびっくりする😳",
         "answer": "startled",
-        "meaning": ""
+        "meaning": "startle　[他] ～を驚かせる"
     },
     {
         "text": "1952 Winning the competition ___ him with excitement.\n大会で優勝して彼はワクワクする🏆",
         "answer": "thrilled",
-        "meaning": ""
+        "meaning": "thrill　[他] ①～をぞくぞく［わくわく］させる [名] ②スリル"
     },
     {
         "text": "1953 He felt ___ when everyone laughed at his mistake.\n皆に自分のミスを笑われて彼は恥をかかされた😞",
         "answer": "humiliated",
-        "meaning": ""
+        "meaning": "humiliate　[他] ～に恥をかかせる"
     },
     {
         "text": "1954 She has ___ her grandparents.\n彼女は祖父母を熱愛している💖",
         "answer": "adored",
-        "meaning": ""
+        "meaning": "adore　[他] ～を熱愛している"
     },
     {
         "text": "1955 He could not ___ a single word after hearing the shocking news.\n衝撃的なニュースを聞いて,彼は一言も発することができなかった😶",
         "answer": "utter",
-        "meaning": ""
+        "meaning": "utter　[他] ①（叫び声など）を発する [形] ②まったくの"
     },
     {
         "text": "1956 She couldn't help but ___ when she saw the surprise gift.\nサプライズのプレゼントを見て,彼女は思わず叫んだ🎁",
         "answer": "exclaim",
-        "meaning": ""
+        "meaning": "exclaim　[自] （驚き，怒りなどで）叫ぶ"
     },
     {
         "text": "1957 The tree ___ its leaves in autumn.\nその木は秋に葉を落とす🍂",
         "answer": "shed",
-        "meaning": ""
+        "meaning": "shed　[他] ①（涙など）を流す ②（光）を当てる ③（不要なもの）～を取り除く ④（ヘビなどが）（皮）を脱ぐ，（木が葉っぱ）を落とす"
     },
     {
         "text": "1958 She began to ___ being treated unfairly at work.\n職場で不公平に扱われることに,彼女は腹を立て始めた😠",
         "answer": "resent",
-        "meaning": ""
+        "meaning": "resent　[他] ～に憤慨する"
     },
     {
         "text": "1959 He had to ___ for more time to finish his homework.\n宿題を終えるために,彼はもっと時間をくださいと必死に頼まなければならなかった⏳",
         "answer": "plead",
-        "meaning": ""
+        "meaning": "plead　[自] ①（with ～）（～に）懇願する [他] ②～を申し立てる"
     },
     {
         "text": "1960 get ___ for freedom\n自由を切望する🕊️",
         "answer": "yearning",
-        "meaning": ""
+        "meaning": "yearn　[自] ①切望する [他] ②～を切望する"
     },
     {
         "text": "1961 I tremble with ___ to see you.\n会いたくて震える.🎵",
         "answer": "longing",
-        "meaning": ""
+        "meaning": "long　[自] （for ～）（～を）切望する"
     },
     {
         "text": "1962 get ___ in the book\nその本に没頭する📖",
         "answer": "immersed",
-        "meaning": ""
+        "meaning": "immerse　[他] (A in B)(BにA)を没頭させる"
     },
     {
         "text": "1963 get ___ by the puzzle\nそのパズルに困惑する🌀",
         "answer": "bewildered",
-        "meaning": ""
+        "meaning": "bewilder　[他] （通例，受け身）～を当惑させる"
     },
     {
-        "text": "1964 He ___ himself for making a mistake.\n彼はミスをした自分を軽蔑している。",
-        "answer": "despises",
-        "meaning": ""
+        "text": "1964 I ___ her for being secretive.\n秘密主義である彼女を軽蔑する。",
+        "answer": "despise",
+        "meaning": "despise　[他] ～を軽蔑する"
     },
     {
         "text": "1965 She is ___ to help anyone in need.\n彼女は嫌がらずに困っている人を助ける。",
         "answer": "willing",
-        "meaning": ""
+        "meaning": "willing　[形] （be ― to do）嫌がらずに～する"
     },
     {
         "text": "1966 Melos was ___.\nメロスは激怒した。",
         "answer": "furious",
-        "meaning": ""
+        "meaning": "furious　[形] 激怒した"
     },
     {
         "text": "1967 They have been ___ friends since entrance ceremony.\n彼らは入学式から親密な友人だ。",
         "answer": "intimate",
-        "meaning": ""
+        "meaning": "intimate　[形] ①親密な ②（知識などが）深い"
     },
     {
         "text": "1968 I have a unique ___ sense.\n私は独特な美的感覚がある。",
         "answer": "aesthetic",
-        "meaning": ""
+        "meaning": "aesthetic　[形] ①美的な ②審美眼がある"
     },
     {
         "text": "1969 She couldn’t ignore her ___.\n彼女は自分の良心を無視することができなかった。",
         "answer": "conscience",
-        "meaning": ""
+        "meaning": "conscience　[名] 良心"
     },
     {
         "text": "1970 Kitano high school teachers never show ___.\n北野高校の先生は決して慈悲を示さない。",
