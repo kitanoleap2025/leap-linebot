@@ -1771,7 +1771,7 @@
     },
     {
         "text": "360 He ___ his parents to let him study abroad.\n彼は留学を許してもらえるよう両親に必死に頼んだ🙇‍♂️",
-        "answer": "beg",
+        "answer": "begged",
         "meaning": "beg　[他] ①～を嘆願する [自] ②求める"
     },
     {
@@ -2275,8 +2275,8 @@
         "meaning": "gender　[名] 性，性別"
     },
     {
-        "text": "470 Nationality is often shown on passports.\n国籍はしばしばパスポートに記載される。",
-        "answer": "nationality",
+        "text": "470 ___ is often shown on passports.\n国籍はしばしばパスポートに記載される。",
+        "answer": "Nationality",
         "meaning": "nationality　[名] 国籍"
     },
     {
@@ -4097,12 +4097,12 @@
     {
         "text": "914 Mesopotamian ___\nメソポタミア文明",
         "answer": "civilization",
-        "meaning": "classical　[形] ①（音楽，バレエ，ダンスなどで）クラシックの ②古典的な"
+        "meaning": "civilization　[名] 文明"
     },
     {
         "text": "915 He is a fan of ___ music.\n彼はクラシック音楽のファンだ。🎹",
         "answer": "classical",
-        "meaning": "civilization　[名] 文明"
+        "meaning": "classical　[形] ①（音楽，バレエ，ダンスなどで）クラシックの ②古典的な"
     },
     {
         "text": "916 Cultural ___ should be preserved for future generations.\n文化遺産は未来の世代のために保存されるべきだ。",
