@@ -2475,7 +2475,7 @@
         "meaning": "official　[名] ①役人，役員 [形] ②公式の"
     },
     {
-        "text": "500 Apparently, there’s an illegal immigrant in this class!\nこのクラスに1人不法移民がいるらしいぞ！",
+        "text": "500 Apparently, there’s an illegal ___ in this class!\nこのクラスに1人不法移民がいるらしいぞ！",
         "answer": "immigrant",
         "meaning": "immigrant　[名] （外国からの）移民"
     },
@@ -2578,6 +2578,11 @@
         "text": "522 Don't ___ your precious time.\n貴重な時間を浪費するな.⌛",
         "answer": "waste",
         "meaning": "waste　[他] ①～を浪費する [名] ②浪費，無駄 ③廃棄物〈不可算〉"
+    },
+    {
+        "text": "523 ___ in an Xcheating bot".\n「xchaetingボット」に投資する",
+        "answer": "invest",
+        "meaning": "invest　[他] ①（A in B）（A）を（B に）投資する ②（A with B）（A）に（B を）与える"
     },
     {
         "text": "524 This country might still have to depend on ___ oil in the future.\nこの国は将来においても輸入された石油に頼る必要があるかもしれない。",
@@ -3735,19 +3740,39 @@
         "meaning": "brand-new　[形] 新品の，真新しい"
     },
     {
+        "text": "804 He bought a ___ car to save money.\n彼はお金を節約するために中古車を買った🚗",
+        "answer": "secondhand",
+        "meaning": "secondhand　[形] ①中古の ②間接的な"
+    },
+    {
         "text": "805 They say that Japan has a ___ aging population.\n日本は急速な高齢化社会であると言われている。👴👵👴👵👴👵",
         "answer": "rapidly",
         "meaning": "rapid　[形] ①急速な [名] ②（―s）急流"
     },
     {
-        "text": "807 He said something ___, pretending to be profound.\n彼は深そうに見せかけて浅いことを言った",
-        "answer": "shallow",
+        "text": "806 The doctor said it’s an ___ matter and needs immediate attention.\n医者はそれが緊急の問題で、すぐに対応が必要だと言った⚠️",
+        "answer": "urgent",
         "meaning": "urgent　[形] 緊急の，差し迫った"
     },
     {
-        "text": "808 First Olympic games allowed only ___ men.\n初期オリンピックは裸の男性だけ参加できた.🔥",
+        "text": "807 He said something ___, pretending to be profound.\n彼は深そうに見せかけて浅いことを言った",
+        "answer": "shallow",
+        "meaning": "shallow　[形] ①浅い ②（人，言動などが）浅はかな"
+    },
+    {
+        "text": "808 Be careful with that knife; it’s very ___.\nそのナイフはとても鋭いので気をつけて🔪",
+        "answer": "sharp",
+        "meaning": "sharp　[形] ①（変化，方向転換などが）急激な ②（言葉が）きつい ③（刃物，感覚，人などが）鋭い [副] ④（時刻が）きっちりで"
+    },
+    {
+        "text": "809 Despite the chaos, she remained ___.\n混乱の中でも、彼女は落ち着いていた🧘‍♀️",
+        "answer": "calm",
+        "meaning": "calm　[形] ①落ち着いた [自] ②落ち着く [他] ③～を落ち着かせる"
+    }
+    {
+        "text": "810 First Olympic games allowed only ___ men.\n初期オリンピックは裸の男性だけ参加できた.🔥",
         "answer": "naked",
-        "meaning": ""
+        "meaning": "naked　[形] （人が）裸の，むき出しの"
     },
     {
         "text": "811 Many African countries became ___ in 1960.\n1960年に多くのアフリカの国が独立した🌍",
@@ -3790,19 +3815,34 @@
         "meaning": ""
     },
     {
-        "text": "820 People ___ to accept ideas not because they are true, but because they are familiar.\n人々はアイデアが真実だからではなく,馴染みがあるから受け入れる傾向がある.",
+        "text": "821 People ___ to accept ideas not because they are true, but because they are familiar.\n人々はアイデアが真実だからではなく,馴染みがあるから受け入れる傾向がある.",
         "answer": "tend",
         "meaning": ""
     },
     {
+        "text": "822 After all his hard work, he truly ___ the award. \n彼はこれまでの努力のすべてに対して、本当にその賞に値する🏆",
+        "answer": "deserve",
+        "meaning": "deserve　[他] ～に値する"
+    },
+    {
         "text": "823 glass ___\nガラスの破片",
         "answer": "fragments",
-        "meaning": ""
+        "meaning": "fragment　[名] 破片〈可算〉"
+    },
+    {
+        "text": "824 The mountain bikes are available in a wide ___ of colors.\nマウンテンバイクは幅広い色の範囲で販売されている🚲",
+        "answer": "range",
+        "meaning": "range　[名] ①範囲 [自] ②（from A to B）（A からB の）範囲に及ぶ"
+    },
+    {
+        "text": "825 The earthquake was measured on the Richter ___.\nその地震はリヒタースケールで測定された🌍",
+        "answer": "scale",
+        "meaning": "scale　[名] ①規模 ②（―s）体重計 ③うろこ"
     },
     {
         "text": "826 ___ characteristics\nユニークな特徴",
         "answer": "unique",
-        "meaning": ""
+        "meaning": "unique　[形] ①（to ～）（～に）特有の，独自の ②独特の"
     },
     {
         "text": "827 He has a ___ interest in classical music.\n彼はクラシック音楽に特別な関心を持っている。🎹",
@@ -3952,7 +3992,7 @@
     {
         "text": "858 Please come here ___.\nすぐにこちらに来てください。",
         "answer": "immediately",
-        "meaning": ""
+        "meaning": "immediately　[副] ①すぐに ②直接に"
     },
     {
         "text": "859 Teacher decided to extend the ___ by one week.\n先生は締め切りを1週間延長することに決めた。😍",
@@ -4197,7 +4237,7 @@
     {
         "text": "908 The only good thing about this ___ is that the chair spins.\nこの施設の唯一良い所は,椅子が回ることだ.",
         "answer": "facility",
-        "meaning": ""
+        "meaning": "facility　[名] ①施設，設備 ②能力，器用さ"
     },
     {
         "text": "909 The mountain’s ___ is over 3,000 meters.\nその山の高さは3,000メートル以上だ。🏔️",
