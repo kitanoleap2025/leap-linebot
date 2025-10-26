@@ -325,7 +325,7 @@
         "meaning": "tradition　[名] 伝統"
     },
     {
-        "text": "067 Even a small change can have a significant effect on ___.\n小さな変化でも社会に大きな影響を与える",
+        "text": "067 contribute to ___\n社会に貢献する",
         "answer": "society",
         "meaning": "society　[名] ①社会〈不可算〉　②（ある具体的な）社会〈可算〉 ③（one's ―）～と同席すること ④協会"
     },
@@ -702,27 +702,27 @@
     {
         "text": "142 Would you like to ___ our club?\n私たちのクラブに参加しませんか？",
         "answer": "join",
-        "meaning": ""
+        "meaning": "join　[他] ①（クラブ，団体など）に加わる ②～をつなぐ ③（食事などを）～とともにする [自] ④（議論，活動などに）参加する"
     },
     {
         "text": "143 He can ___ a ball very far.\n彼はボールをとても遠くまで投げることができる。",
         "answer": "throw",
-        "meaning": ""
+        "meaning": "throw　[他] ①～を投げる ②（away［out］）～を捨てる ③（パーティなど）を催す [名] ④投げること"
     },
     {
         "text": "144 Do you know how to ___ this machine?\nこの機械の操作方法を知っていますか？",
         "answer": "operate",
-        "meaning": ""
+        "meaning": "operate　[他] ①（機械など）を操作する [自] ②手術する ③（機械などが）作動する，（組織が）運営される"
     },
     {
         "text": "145 They will ___ the broken bridge soon.\n彼らはまもなく壊れた橋を修理する予定だ。",
         "answer": "repair",
-        "meaning": ""
+        "meaning": "repair　[他] ①～を修理する ②～を修復する [名] ③修理，修復"
     },
     {
         "text": "146 She learned how to ___ her own clothes.\n彼女は自分の服を縫う方法を学んだ。",
         "answer": "sew",
-        "meaning": ""
+        "meaning": "sew　[他] ①～を縫う ②（on）（ボタンなど）を縫いつける"
     },
     {
         "text": "147 At dawn, the LGBTQ flag was ___ from his house.\n夜が明けると、彼の家からLGBTQフラッグが上がった。🏳️‍🌈",
@@ -805,6 +805,11 @@
         "meaning": "include　[他] ～を含む"
     },
     {
+        "text": "163 This bottle can ___ up to two liters of water.\nこのボトルには最大2リットルの水が入る💧",
+        "answer": "contain",
+        "meaning": "contain　[他] ①～を含む ②（主に否定で）～を抑える"
+    },
+    {
         "text": "164 The captain rescued only the passengers from his ___ country.\n船長は自国の乗客だけを救出しました.",
         "answer": "own",
         "meaning": "own　[形] （所有格の後で）①自分自身の ②（名詞的に）自分自身のもの [他] ③～を所有している"
@@ -812,17 +817,17 @@
     {
         "text": "165 I’d like to ___ my ideas with you.\nあなたと自分の考えを共有したい。",
         "answer": "share",
-        "meaning": ""
+        "meaning": "share [他] ①～を共有する ②（考えなど）を（人に）伝える [名] ③共有 ④分け前"
     },
     {
         "text": "166 He loves to ___ stamps from around the world.\n彼は世界中の切手を集めるのが好きだ。",
         "answer": "collect",
-        "meaning": ""
+        "meaning": "collect　[他] ①（同種の物）を集める ②～を徴収する，回収する"
     },
     {
         "text": "167 People began to ___ in front of the station.\n人々は駅前に集まり始めた。",
         "answer": "gather",
-        "meaning": ""
+        "meaning": "gather　[他] ①～を集める [自] ②集まる"
     },
     {
         "text": "168 ___ is written by the victors.\n歴史は勝者によって書かれる.",
@@ -1632,7 +1637,7 @@
     {
         "text": "332 It was the ___ of many demonstrations.\nそこは多くのデモが行われた場所だった.",
         "answer": "site",
-        "meaning": ""
+        "meaning": "site　[名] ①用地 ②現場，場所 ③（史跡などの）跡"
     },
     {
         "text": "333 The kids are playing soccer in the ___.\n子どもたちは庭でサッカーをしている⚽",
@@ -1682,12 +1687,12 @@
     {
         "text": "342 Written in plain English, this ___ is good for beginners in the language.\nわかりやすい英語で書かれているので,この小説は英語初心者に良い。",
         "answer": "novel",
-        "meaning": ""
+        "meaning": "novel　[名] ①小説 [形] ②斬新な"
     },
     {
         "text": "343 He paid more than just money to buy his daughter an ___ .\n彼は娘に楽器を買うためにお金以上のものを支払った.🫁",
         "answer": "instrument",
-        "meaning": ""
+        "meaning": "instrument　[名] ①楽器 ②器具"
     },
     {
         "text": "344  can’t get this ___ out of my head.\nこの曲のメロディーが頭から離れない🎵",
@@ -2140,59 +2145,104 @@
         "meaning": "nuclear　[形] 原子力の，核の"
     },
     {
-        "text": "434 He’s been ___ her aunt for months\n彼は何か月も彼女のおばを狙っています.😱",
+        "text": "434 According to ___, only about 20% of people seem to be taking Xreading seriously.\n最近の統計によると、Xreadingを真面目に取り組んでいる人はおよそ20％しかいないようだ。💊",
+        "answer": "statistics",
+        "meaning": "statistics　[名] ①統計（値）〈複数扱い〉 ②統計学〈不可算〉"
+    }
+    {
+        "text": "435 He’s been ___ her aunt for months\n彼は何か月も彼女のおばを狙っています.😱",
         "answer": "pursuing",
-        "meaning": ""
+        "meaning": "pursue　[他] ①～を追求する，続ける ②～を追跡する"
+    },
+    {
+        "text": "436 He worked hard to ___ his lifelong dream.\n彼は長年の夢を達成するために努力した🌟",
+        "answer": "accomplish",
+        "meaning": "accomplish　[他] ～をやり遂げる"
     },
     {
         "text": "437 Life has many challenges, and we learn by ___ them.\n人生は困難がたくさんあり,私たちはそれらを乗り越えることで学ぶのである.",
         "answer": "overcoming",
-        "meaning": ""
+        "meaning": "overcome　[他] ～を克服する"
     },
     {
         "text": "438 ___ my duties\n義務を果たす",
         "answer": "fulfill",
-        "meaning": ""
+        "meaning": "fulfill　[他] ①（義務，願望など）を果たす ②（必要など）を満たす"
     },
     {
-        "text": "440 the ___ of having to create example sentences to protect copyright\n著作権保護のため例文を作らなければならないという課題",
-        "answer": "challenge",
-        "meaning": ""
+        "text": "439 I ___ my salary to a virtual idol.\nバーチャルアイドルに給料をささげる。🥸",
+        "answer": "devote",
+        "meaning": "devote　[他] （A to B)（A）を（B に）ささげる"
+    },
+    {
+        "text": "440 You must ___ to achieve excellence.\n卓越を達成するには努力しなければならない🔥",
+        "answer": "strive",
+        "meaning": "strive　[自] 努力する"
     },
     {
         "text": "441 I ___ at him, but the arrow hit the apple on his head.\n私は彼を狙ったが,矢は彼の頭の上のリンゴに当たった.🍎",
         "answer": "aimed",
-        "meaning": ""
+        "meaning": "aim　[自] ①狙う [他] ②（―ed at ～）～向けだ [名] ③狙い，目的"
     },
     {
         "text": "442 Life has many ___, and we learn by overcoming them.\n人生は困難がたくさんあり,私たちはそれらを乗り越えることで学ぶのである.",
         "answer": "challenges",
-        "meaning": ""
+        "meaning": "challenge　[名] ①難問，課題<可算> [他] ②～に異議を唱える"
     },
     {
-        "text": "443 Is his face ___ or has it always been ___ ?\n彼は青ざめているのか,いつも青白いのか.🥶",
-        "answer": "pale",
-        "meaning": ""
+        "text": "443 He is undergoing a medical ___ to test the new drug.\n彼は新薬を試すために臨床試験を受けている💊",
+        "answer": "trial",
+        "meaning": "trial　[名] ①試み ②裁判 ③試練"
     },
     {
-        "text": "446 wait to ___ to death\n餓死するのを待つ🥖",
+        "text": "444 I feel ___ after spinning around too many times.\n何度も回った後でめまいがする😵",
+        "answer": "dizzy",
+        "meaning": "dizzy　[形] めまいがして"
+    },
+    {
+        "text": "445 Eating too much sugar can ruin your ___.\n砂糖を食べ過ぎると食欲がなくなる🍬",
+        "answer": "appetite",
+        "meaning": "appetite　[名] 食欲"
+    },
+    {
+        "text": "446 The vulture is waiting for its prey to ___ to death.\nそのハゲワシは獲物が餓死するのを待っている。🦅",
         "answer": "starve",
-        "meaning": ""
+        "meaning": "starve　[自] ①餓死する ②（be ―ing）とてもお腹が空いている"
+    },
+    {
+        "text": "447 Stress can affect your ___ health.\nストレスは心の健康に影響を与える🧠",
+        "answer": "mental",
+        "meaning": "mental　[形] ①精神の ②知力の"
     },
     {
         "text": "448 It is best to get a lot of ___ .\n休養を十分にとるのが一番だ.",
         "answer": "rest",
-        "meaning": ""
+        "meaning": "rest　[名] ①休憩 ②（the ―）残り [自] ③（横になったりして）休む ④（on ～）（～）次第だ [他] ⑤～を休ませる"
     },
     {
         "text": "449 He was conscious during the entire ___ .\n彼は手術中ずっと意識があった.😱",
         "answer": "surgery",
-        "meaning": ""
+        "meaning": "surgery　[名] ①手術 ②外科（①②ともに〈不可算〉)"
     },
+    {
+        "text": "450 He was diagnosed with a rare ___ yesterday.\n彼は昨日、珍しい病気と診断された🦠",
+        "answer": "disease",
+        "meaning": "disease　[名] 病気"
+    },
+    {
+        "text": "451 I have a ___ after eating too much spicy food.\n辛いものを食べすぎてお腹が痛い🌶️",
+        "answer": "stomachache",
+        "meaning": "stomachache　[名] 腹痛"
+    },
+    {
+        "text": "452 Fever and cough are common ___ of the flu.\n発熱と咳はインフルエンザの一般的な症状だ🤒",
+        "answer": "symptom",
+        "meaning": "symptom　[名] ①（通例 ―s）症状 ②兆候"
+    }
     {
         "text": "453 breast ___ screening will be offered for free.\n乳がんの検査が無料で提供される.",
         "answer": "cancer",
-        "meaning": ""
+        "meaning": "cancer　[名] ①がん ②（C―）かに座"
     },
     {
         "text": "454 Call an ___ !\n救急車を呼んで!🚑",
@@ -2340,9 +2390,39 @@
         "meaning": "equal　[形] ①（to ～）（～に）等しい，平等な [他]②～に等しい"
     },
     {
-        "text": "487 India is a country where a wide variety of ___ and cultures can be found.\nインドは多種多様な宗教や文化が見られる国だ。",
-        "answer": "religions",
-        "meaning": ""
+        "text": "483 Their ___ has improved after they talked things out.\n話し合った後、彼らの関係は改善した🤝",
+        "answer": "relationship",
+        "meaning": "relationship　[名] ①関係 ②親密な関係 （①②ともに〈可算〉）"
+    },
+    {
+        "text": "484 He has a good ___ as a reliable doctor.\n彼は信頼できる医者としての評判が良い🏥",
+        "answer": "reputation",
+        "meaning": "reputation　[名] （人，物の）評判〈可算〉"
+    },
+    {
+        "text": "485 There is a new fashion ___ among teenagers.\nティーンエイジャーの間で新しいファッショントレンドがある👕",
+        "answer": "trend",
+        "meaning": "trend　[名] ①（世の中の）風潮，傾向 ②流行"
+    },
+    {
+        "text": "486 The hotel offers excellent room ___.\nそのホテルは素晴らしい部屋のサービスを提供している🏨",
+        "answer": "service",
+        "meaning": "service　[名] ①（政府あるいは企業による）事業，制度 ②（電車，バスの）便 ③サービス，接客〈不可算〉"
+    },
+    {
+        "text": "487 a pointless ___ war\nくだらない宗教戦争",
+        "answer": "religious",
+        "meaning": "religion　[名] 宗教"
+    },
+    {
+        "text": "488 He has a strong ___ and always does the right thing.\n彼には強い道徳心があり、常に正しいことを行う🌟",
+        "answer": "moral",
+        "meaning": "moral　[形] ①道徳的な [名] ②（物語の）教訓 ③（―s）道徳"
+    },
+    {
+        "text": "489 This restaurant maintains a high ___ of quality. \nこのレストランは高い品質基準を維持している🍽️",
+        "answer": "standard",
+        "meaning": "standard　[名] ①基準，水準 [形] ②標準の"
     },
     {
         "text": "490 Mankind has achieved great ___ over the past few centuries.\n人類はここ数百年で大きな繁栄を遂げた.",
@@ -2350,9 +2430,44 @@
         "meaning": "prosperity [名] 繁栄"
     },
     {
+        "text": "491 Leaders often reveal their true character in times of ___.\n指導者は危機の時に本当の人格を表す⚡",
+        "answer": "crisis",
+        "meaning": "crisis　[名] 危機"
+    },
+    {
+        "text": "492 Education is the best weapon against ___.\n教育は偏見に対する最良の武器だ📚",
+        "answer": "prejudice",
+        "meaning": "prejudice　[名] ①偏見，先入観 [他] ②～に偏見をもたせる"
+    }
+    {
         "text": "493 racial ___\n人種差別",
         "answer": "discrimination",
         "meaning": "discrimination　[名] ①差別 ②識別（①②ともに<不可算>）"
+    },
+    {
+        "text": "494 She donated her prize money to a local ___.\n彼女は賞金を地元の慈善団体に寄付した🎁",
+        "answer": "charity",
+        "meaning": "charity　[名] ①慈善（事業）〈不可算〉 ②慈善団体〈可算〉 ③（形容詞的に）慈善のための"
+    },
+    {
+        "text": "495 Regular exercise has many health ___.\n定期的な運動には多くの健康上の利点がある💪",
+        "answer": "benefit",
+        "meaning": "benefit　[名] ①恩恵 ②（―s）手当 [自] ③（from ～）（～から）恩恵を得る [他] ④～に恩恵を与える"
+    },
+    {
+        "text": "496 The government increased spending on social ___.\n政府は社会福祉への支出を増やした🏛️",
+        "answer": "welfare",
+        "meaning": "welfare　[名] ①福祉 ②（健康なども含めた）幸福 ③生活保護（①②③いずれも<不可算>）"
+    },
+    {
+        "text": "497 He volunteers to help the local ___.\n彼は地域社会を助けるためにボランティアをしている🤝",
+        "answer": "community",
+        "meaning": "community　[名] （地域）社会，共同体（の人々）<可算>"
+    },
+    {
+        "text": "498 Every ___ has the right to express their opinion.\nすべての個人には意見を表明する権利がある🗣️",
+        "answer": "individual",
+        "meaning": "individual　[名] ①個人，個体 [形] ②個人の，個々の"
     },
     {
         "text": "499 Although many Americans speak English, it is not an ___ language.\n多くのアメリカ人が英語を話すが,アメリカでは公用語ではない。",
@@ -2360,9 +2475,24 @@
         "meaning": "official　[名] ①役人，役員 [形] ②公式の"
     },
     {
+        "text": "500 Apparently, there’s an illegal immigrant in this class!\nこのクラスに1人不法移民がいるらしいぞ！",
+        "answer": "immigrant",
+        "meaning": "immigrant　[名] （外国からの）移民"
+    },
+    {
+        "text": "501 She works as a ___ at the animal shelter every weekend.\n彼女は毎週末、動物シェルターでボランティアとして働いている🐾",
+        "answer": "volunteer",
+        "meaning": "volunteer　[名] ①ボランティア [自] ②（to do）（～することを）自発的に申し出る"
+    },
+    {
         "text": "502 People ___ with others in many ways.\n人々はいろいろな形で他人と関わり合っている.",
         "answer": "interact",
         "meaning": "interact　[自] （with～）（～と）交流する、相互作用する"
+    },
+    {
+        "text": "503 ___ to society\n社会に貢献する",
+        "answer": "contribute",
+        "meaning": "contribute　[自] （to ～）①（～に）貢献する ②（～の）一因となる [他] ③（A to B）（A）を（B に）寄付する，提供する"
     },
     {
         "text": "504 The consumption tax should be ___.\n消費税は廃止されるべきだ.",
