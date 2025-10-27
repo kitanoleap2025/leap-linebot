@@ -2810,6 +2810,151 @@
         "meaning": "hostile　[形] ①敵意のある ②敵の ③（環境などが）厳しい"
     },
     {
+        "text": "1571 The storm can ___ cars on the highway.\n嵐は高速道路上の車を破壊することがある。",
+        "answer": "wreck",
+        "meaning": ""
+    },
+    {
+        "text": "1572 The earthquake took a heavy ___ on the city.\n地震は都市に大きな被害をもたらした。",
+        "answer": "toll",
+        "meaning": ""
+    },
+    {
+        "text": "1573 Construction work may ___ traffic in the city center.\n建設工事は市の中心部の交通を混乱させることがある。",
+        "answer": "disrupt",
+        "meaning": ""
+    },
+    {
+        "text": "1574 Noise can ___ your concentration.\n騒音は集中を妨げることがある。",
+        "answer": "interfere",
+        "meaning": ""
+    },
+    {
+        "text": "1575 We must ___ the problem directly.\n私たちは問題に直接立ち向かう必要がある。",
+        "answer": "confront",
+        "meaning": ""
+    },
+    {
+        "text": "1576 The bomb could ___ at any moment.\n爆弾はいつでも爆発する可能性がある。",
+        "answer": "explode",
+        "meaning": ""
+    },
+    {
+        "text": "1577 Two cars ___ on the icy road.\n2台の車が凍った道路で衝突した。",
+        "answer": "collide",
+        "meaning": ""
+    },
+    {
+        "text": "1578 His ___ came to visit him during the holidays.\n彼の甥が休日に訪ねてきた。",
+        "answer": "nephew",
+        "meaning": ""
+    },
+    {
+        "text": "1579 The ___ was sleeping peacefully in the crib.\n乳児はベビーベッドで平和に眠っていた。",
+        "answer": "infant",
+        "meaning": ""
+    },
+    {
+        "text": "1580 Each ___ should support the other in marriage.\n配偶者は結婚において互いに支え合うべきである。",
+        "answer": "spouse",
+        "meaning": ""
+    },
+    {
+        "text": "1581 The prince is the only ___ to the throne.\n王子は王位の唯一の相続人である。",
+        "answer": "heir",
+        "meaning": ""
+    },
+    {
+        "text": "1582 Traditional ___ often celebrate harvest festivals.\n伝統的な人々はしばしば収穫祭を祝う。",
+        "answer": "folk",
+        "meaning": ""
+    },
+    {
+        "text": "1583 You should ask a ___ for advice if unsure.\n不確かなら同僚に助言を求めるべきだ。",
+        "answer": "peer",
+        "meaning": ""
+    },
+    {
+        "text": "1584 The ___ received an award for outstanding work.\n受賞者は優れた業績に対して表彰された。",
+        "answer": "recipient",
+        "meaning": ""
+    },
+    {
+        "text": "1585 Sailors must ___ carefully through the narrow strait.\n船員は狭い海峡を注意深く航行しなければならない。",
+        "answer": "navigate",
+        "meaning": ""
+    },
+    {
+        "text": "1586 Many people had to ___ the city during the war.\n戦争中、多くの人々がその都市から逃げなければならなかった。",
+        "answer": "flee",
+        "meaning": ""
+    },
+    {
+        "text": "1587 The army decided to ___ after heavy losses.\n軍は大きな損失の後、撤退することにした。",
+        "answer": "retreat",
+        "meaning": ""
+    },
+    {
+        "text": "1588 The baby began to ___ across the floor.\n赤ちゃんは床を這い始めた。",
+        "answer": "crawl",
+        "meaning": ""
+    },
+    {
+        "text": "1589 A helicopter can ___ above the field.\nヘリコプターは畑の上空に浮かぶことができる。",
+        "answer": "hover",
+        "meaning": ""
+    },
+    {
+        "text": "1590 The boat will ___ slowly down the river.\nボートは川をゆっくりと漂うだろう。",
+        "answer": "drift",
+        "meaning": ""
+    },
+    {
+        "text": "1591 You can ___ the document to change its content.\n文書を変更して内容を変えることができる。",
+        "answer": "alter",
+        "meaning": ""
+    },
+    {
+        "text": "1592 They decided to ___ the old factory into a museum.\n彼らは古い工場を博物館に改装することにした。",
+        "answer": "convert",
+        "meaning": ""
+    },
+    {
+        "text": "1593 The sports car managed to ___ the slower vehicle.\nスポーツカーは遅い車を追い越すことができた。",
+        "answer": "overtake",
+        "meaning": ""
+    },
+    {
+        "text": "1594 The company will ___ the package to the customer.\n会社は荷物を顧客に発送する予定だ。",
+        "answer": "dispatch",
+        "meaning": ""
+    },
+    {
+        "text": "1595 The sweater will ___ if washed in hot water.\nセーターは熱い水で洗うと縮むだろう。",
+        "answer": "shrink",
+        "meaning": ""
+    },
+    {
+        "text": "1596 Without water, plants will ___ quickly.\n水がなければ植物はすぐに枯れるだろう。",
+        "answer": "wither",
+        "meaning": ""
+    },
+    {
+        "text": "1597 Birds ___ from the tree to the ground.\n鳥たちは木から地面へ降りる。",
+        "answer": "descend",
+        "meaning": ""
+    },
+    {
+        "text": "1598 The car began to ___ on the highway.\n車は高速道路で加速し始めた。",
+        "answer": "accelerate",
+        "meaning": ""
+    },
+    {
+        "text": "1599 Stock prices tend to ___ frequently.\n株価は頻繁に変動する傾向がある。",
+        "answer": "fluctuate",
+        "meaning": ""
+    },
+    {
         "text": "1600 The media can ___ public perception of events.\nメディアは出来事に対する世間の認識を歪めることがある。",
         "answer": "distort",
         "meaning": ""
@@ -3060,8 +3205,93 @@
         "meaning": ""
     },
     {
-        "text": "1650 They plan to ___ a campaign to raise awareness.\n彼らは意識向上のためのキャンペーンを展開する予定だ。",
+        "text": "1650 They plan to ___ a new statue on the hill.\n彼らは丘に新しい像を設置する予定だ。",
         "answer": "mount",
+        "meaning": ""
+    },
+    {
+        "text": "1651 The factory will ___ waste into the river.\n工場は廃水を川に排出する。",
+        "answer": "discharge",
+        "meaning": ""
+    },
+    {
+        "text": "1652 Be careful not to ___ the battery too fast.\nバッテリーを使いすぎて放電させないよう注意してください。",
+        "answer": "drain",
+        "meaning": ""
+    },
+    {
+        "text": "1653 Let the cloth ___ in water before washing.\n洗う前に布を水に浸してください。",
+        "answer": "soak",
+        "meaning": ""
+    },
+    {
+        "text": "1654 ___ the cookies quickly into the chocolate.\nクッキーをすばやくチョコレートに浸す。",
+        "answer": "dip",
+        "meaning": ""
+    },
+    {
+        "text": "1655 They decided to ___ the meeting until next week.\n彼らは会議を来週まで中止することに決めた。",
+        "answer": "suspend",
+        "meaning": ""
+    },
+    {
+        "text": "1656 We need to ___ water from the well.\n井戸から水を汲み上げる必要がある。",
+        "answer": "extract",
+        "meaning": ""
+    },
+    {
+        "text": "1657 He gave the table a light ___ to move it.\n彼はテーブルを動かすために軽く叩いた。",
+        "answer": "slap",
+        "meaning": ""
+    },
+    {
+        "text": "1658 They warmly ___ the returning hero.\n彼らは帰還した英雄を温かく抱きしめた。",
+        "answer": "embrace",
+        "meaning": ""
+    },
+    {
+        "text": "1659 They will ___ on a journey across the country.\n彼らは国内横断の旅に出発する。",
+        "answer": "embark",
+        "meaning": ""
+    },
+    {
+        "text": "1660 The teacher had to ___ in the argument.\n先生は議論に介入しなければならなかった。",
+        "answer": "intervene",
+        "meaning": ""
+    },
+    {
+        "text": "1661 The bullet failed to ___ the armor.\nその弾丸は鎧を貫通しなかった。",
+        "answer": "penetrate",
+        "meaning": ""
+    },
+    {
+        "text": "1662 Do not ___ in other people’s conversations.\n他人の会話に立ち入らないでください。",
+        "answer": "intrude",
+        "meaning": ""
+    },
+    {
+        "text": "1663 We should ___ renewable energy to reduce costs.\nコスト削減のために再生可能エネルギーを利用すべきだ。",
+        "answer": "utilize",
+        "meaning": ""
+    },
+    {
+        "text": "1664 The video is ___d directly into the webpage.\nそのビデオはウェブページに直接埋め込まれている。",
+        "answer": "embed",
+        "meaning": ""
+    },
+    {
+        "text": "1665 They will ___ funds for the new project.\n彼らは新プロジェクトのために資金を割り当てる。",
+        "answer": "allocate",
+        "meaning": ""
+    },
+    {
+        "text": "1666 The manager will ___ the team for the event.\nマネージャーはイベントのためにチームを調整する。",
+        "answer": "coordinate",
+        "meaning": ""
+    },
+    {
+        "text": "1667 The baby can ___ its eyes quickly.\n赤ちゃんは素早くまばたきできる。",
+        "answer": "blink",
         "meaning": ""
     },
     {
@@ -3075,9 +3305,154 @@
         "meaning": ""
     },
     {
+        "text": "1670 They had to ___ the eggs quickly to make an omelet.\nオムレツを作るために卵をすばやくかき混ぜなければならなかった。",
+        "answer": "scramble",
+        "meaning": ""
+    },
+    {
+        "text": "1671 The magician made the rabbit ___ from the hat.\n魔法使いは帽子からウサギを消した。",
+        "answer": "vanish",
+        "meaning": ""
+    },
+    {
+        "text": "1672 Be careful not to ___ the glass.\nそのガラスをパチンと割らないように注意してください。",
+        "answer": "snap",
+        "meaning": ""
+    },
+    {
+        "text": "1673 The wind made the windows ___ all night.\n風のせいで窓が一晩中ガタガタ鳴った。",
+        "answer": "rattle",
+        "meaning": ""
+    },
+    {
+        "text": "1674 The rain will ___ once the storm passes.\n嵐が過ぎれば雨は止むだろう。",
+        "answer": "cease",
+        "meaning": ""
+    },
+    {
+        "text": "1675 He ran with great ___ to catch the bus.\n彼はバスに間に合うように急いで走った。",
+        "answer": "haste",
+        "meaning": ""
+    },
+    {
+        "text": "1676 She tried to ___ her excitement during the meeting.\n彼女は会議中、興奮を隠そうとした。",
+        "answer": "conceal",
+        "meaning": ""
+    },
+    {
+        "text": "1677 He wears a mask to ___ his identity.\n彼は自分の正体を隠すためにマスクを着けている。",
+        "answer": "disguise",
+        "meaning": ""
+    },
+    {
+        "text": "1678 They tried to ___ the investors with false information.\n彼らは偽の情報で投資家を騙そうとした。",
+        "answer": "deceive",
+        "meaning": ""
+    },
+    {
+        "text": "1679 Parents should not ___ their children’s education.\n親は子どもの教育を怠ってはいけない。",
+        "answer": "neglect",
+        "meaning": ""
+    },
+    {
+        "text": "1680 Residents were asked to ___ the building due to fire.\n火事のため、住民は建物から避難するよう求められた。",
+        "answer": "evacuate",
+        "meaning": ""
+    },
+    {
+        "text": "1681 Their birthdays ___ on the same day.\n彼らの誕生日は同じ日に重なる。",
+        "answer": "coincide",
+        "meaning": ""
+    },
+    {
+        "text": "1682 Justice will ___ despite challenges.\n困難があっても正義は勝つだろう。",
+        "answer": "prevail",
+        "meaning": ""
+    },
+    {
+        "text": "1683 The country must ___ its natural resources carefully.\nその国は天然資源を慎重に維持する必要がある。",
+        "answer": "sustain",
+        "meaning": ""
+    },
+    {
+        "text": "1684 The fragrance seemed to ___ in the room.\nその香りは部屋にいつまでも残った。",
+        "answer": "linger",
+        "meaning": ""
+    },
+    {
+        "text": "1685 The doctor tried to ___ the patient after the surgery.\n医者は手術後、患者を蘇生させようとした。",
+        "answer": "revive",
+        "meaning": ""
+    },
+    {
+        "text": "1686 They will ___ the class after lunch.\n彼らは昼食後に授業を再開する。",
+        "answer": "resume",
+        "meaning": ""
+    },
+    {
+        "text": "1687 The disease caused a sudden ___ in the city.\nその病気は都市で突発的な流行を引き起こした。",
+        "answer": "outbreak",
+        "meaning": ""
+    },
+    {
+        "text": "1688 The engineer will ___ the machines for safety.\n技師は安全のために機械を検査する。",
+        "answer": "inspect",
+        "meaning": ""
+    },
+    {
+        "text": "1689 They joined an ___ to explore the Arctic.\n彼らは北極を探検する遠征隊に参加した。",
+        "answer": "expedition",
+        "meaning": ""
+    },
+    {
+        "text": "1690 He decided to ___ in the new course.\n彼は新しいコースに入学することに決めた。",
+        "answer": "enroll",
+        "meaning": ""
+    },
+    {
+        "text": "1691 The school enforces strict ___ among students.\nその学校は生徒に厳格な規律を課している。",
+        "answer": "discipline",
+        "meaning": ""
+    },
+    {
         "text": "1692 Scholarships help students pay for college ___ and expenses.\n奨学金は学生が大学の授業料や費用を支払うのを助ける.",
         "answer": "tuition",
-        "meaning": "tuition\t[名] ①〈米〉授業料 ②(少人数での)授業"
+        "meaning": "tuition　[名] ①〈米〉授業料 ②(少人数での)授業"
+    },
+    {
+        "text": "1693 Medical students must follow a strict code of ___.\n医学生は厳格な倫理規範に従わなければならない。",
+        "answer": "ethic",
+        "meaning": ""
+    },
+    {
+        "text": "1694 She decided to study ___ to understand human behavior.\n彼女は人間の行動を理解するために心理学を学ぶことにした。",
+        "answer": "psychology",
+        "meaning": ""
+    },
+    {
+        "text": "1695 He has always been fascinated by ___ and the stars.\n彼はずっと天文学や星に魅了されてきた。",
+        "answer": "astronomy",
+        "meaning": ""
+    },
+    {
+        "text": "1696 The ___ discovered ancient artifacts in the ruins.\n考古学者は遺跡で古代の遺物を発見した。",
+        "answer": "archaeologist",
+        "meaning": ""
+    },
+    {
+        "text": "1697 She wrote her ___ on climate change and its effects.\n彼女は気候変動とその影響について論文を書いた。",
+        "answer": "thesis",
+        "meaning": ""
+    },
+    {
+        "text": "1698 Students live in a ___ during their first year at college.\n学生は大学1年目に寮で生活する。",
+        "answer": "dormitory",
+        "meaning": ""
+    },
+    {
+        "text": "1699 He could ___ the concept quickly after the lecture.\n彼は講義の後、概念をすぐに理解できた。",
+        "answer": "grasp",
+        "meaning": ""
     },
     {
         "text": "1700 We ___ that demand for electric cars will increase.\n電気自動車の需要が増えると予想している。",
@@ -3275,7 +3650,7 @@
         "meaning": ""
     },
     {
-        "text": 1739 "The mountain village is located at a high ___.\nその山村は高い標高に位置している。",
+        "text": "1739 The mountain village is located at a high ___.\nその山村は高い標高に位置している。",
         "answer": "altitude",
         "meaning": ""
     },
