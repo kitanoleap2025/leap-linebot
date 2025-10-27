@@ -1390,9 +1390,174 @@
         "meaning": "bare　[形] ①むき出しの ②最低限の"
     },
     {
+        "text": "1287 Their feelings were ___.\n彼らの感情はお互いに通じ合っていた。",
+        "answer": "mutual",
+        "meaning": ""
+    },
+    {
+        "text": "1288 A ___ danger ahead.\n前方に潜在的な危険がある。",
+        "answer": "potential",
+        "meaning": ""
+    },
+    {
+        "text": "1289 He's a ___ guy.\n彼はタフな男だ。",
+        "answer": "tough",
+        "meaning": ""
+    },
+    {
+        "text": "A ___ way of thinking\n従来の考え方",
+        "answer": "conventional",
+        "meaning": ""
+    },
+    {
+        "text": "The court made a ___ decision.\n裁判所は最高の判断を下した。",
+        "answer": "supreme",
+        "meaning": ""
+    },
+    {
+        "text": "She closely ___s her mother.\n彼女は母親にそっくりだ。",
+        "answer": "resembles",
+        "meaning": ""
+    },
+    {
+        "text": "___ to expectations, he failed.\n予想に反して、彼は失敗した。",
+        "answer": "contrary",
+        "meaning": ""
+    },
+    {
+        "text": "Which ___ do you fall into?\nあなたはどのカテゴリーに当てはまりますか？",
+        "answer": "category",
+        "meaning": ""
+    },
+    {
+        "text": "The project is beyond our ___.\nそのプロジェクトは我々の範囲を超えている。",
+        "answer": "scope",
+        "meaning": ""
+    },
+    {
+        "text": "___ the situation, we acted fast.\nその状況を考慮して、私たちはすぐに行動した。",
+        "answer": "given",
+        "meaning": ""
+    },
+    {
+        "text": "His behavior was quite ___.\n彼の行動はかなり風変わりだった。",
+        "answer": "peculiar",
+        "meaning": ""
+    },
+    {
+        "text": "The data is ___ for analysis.\nそのデータは分析に十分だ。",
+        "answer": "sufficient",
+        "meaning": ""
+    },
+    {
+        "text": "She received ___ messages.\n彼女は多数のメッセージを受け取った。",
+        "answer": "numerous",
+        "meaning": ""
+    },
+    {
+        "text": "They made a ___ investment.\n彼らはかなりの投資を行った。",
+        "answer": "substantial",
+        "meaning": ""
+    },
+    {
+        "text": "Each ___ has its own number.\nそれぞれの単位には番号がある。",
+        "answer": "unit",
+        "meaning": ""
+    },
+    {
+        "text": "The circle has a large ___.\nその円の直径は大きい。",
+        "answer": "diameter",
+        "meaning": ""
+    },
+    {
+        "text": "I'm not good at ___.\n私は算数が苦手だ。",
+        "answer": "arithmetic",
+        "meaning": ""
+    },
+    {
+        "text": "What is the total ___?\n合計の量はいくらですか？",
+        "answer": "quantity",
+        "meaning": ""
+    },
+    {
         "text": "1305 calcium ___\nカルシウム不足💢",
         "answer": "deficiency",
         "meaning": "deficiency　[名] 欠乏，不足"
+    },
+    {
+        "text": "Reach the ___ speed.\n最高速度に達する。",
+        "answer": "maximum",
+        "meaning": ""
+    },
+    {
+        "text": "A ___ of flowers\n花の束",
+        "answer": "bunch",
+        "meaning": ""
+    },
+    {
+        "text": "1308 Try to ___ the pain.\n痛みを和らげようとする。",
+        "answer": "lessen",
+        "meaning": ""
+    },
+    {
+        "text": "1309 It was the end of an ___.\nそれはひとつの時代の終わりだった。",
+        "answer": "era",
+        "meaning": ""
+    },
+    {
+        "text": "1310 The training ___ lasted two hours.\nその訓練セッションは2時間続いた。",
+        "answer": "session",
+        "meaning": ""
+    },
+    {
+        "text": "Let’s take a short ___ here.\nここで少し休憩しよう。",
+        "answer": "pause",
+        "meaning": ""
+    },
+    {
+        "text": "We hold an ___ meeting every December.\n私たちは毎年12月に年次会議を開く。",
+        "answer": "annual",
+        "meaning": ""
+    },
+    {
+        "text": "Some people believe in ___ love.\n永遠の愛を信じている人もいる。",
+        "answer": "eternal",
+        "meaning": ""
+    },
+    {
+        "text": "Our ___ plan was to travel by train.\n私たちの最初の計画は列車で旅行することだった。",
+        "answer": "initial",
+        "meaning": ""
+    },
+    {
+        "text": "I had no ___ knowledge of the issue.\n私はその問題について事前の知識がなかった。",
+        "answer": "prior",
+        "meaning": ""
+    },
+    {
+        "text": "___ events will be announced soon.\nその後の出来事はすぐに発表される。",
+        "answer": "subsequent",
+        "meaning": ""
+    },
+    {
+        "text": "I prepared dinner. ___, she cleaned the house.\n私は夕食を作った。その間に彼女は家を掃除していた。",
+        "answer": "meanwhile",
+        "meaning": ""
+    },
+    {
+        "text": "He follows a strict morning ___.\n彼は厳格な朝のルーティンを守っている。",
+        "answer": "routine",
+        "meaning": ""
+    },
+    {
+        "text": "I bought this keychain as a ___.\nこのキーホルダーはお土産として買った。",
+        "answer": "souvenir",
+        "meaning": ""
+    },
+    {
+        "text": "The wall was made of red ___s.\nその壁は赤いレンガでできていた。",
+        "answer": "brick",
+        "meaning": ""
     },
     {
         "text": "1321 Takeshi often bumps his forehead into utility ___.\n タケシはよく電(柱)に額をぶつける.",
@@ -1400,19 +1565,254 @@
         "meaning": "pole　[名] ①棒，さお，柱 ②（天体，地球の）極"
     },
     {
+        "text": "The kids got into some ___ at school.\n子どもたちは学校でちょっといたずらをした。",
+        "answer": "mischief",
+        "meaning": ""
+    },
+    {
+        "text": "It's just a silly old ___.\nそれはただのくだらない迷信だ。",
+        "answer": "superstition",
+        "meaning": ""
+    },
+    {
+        "text": "We need more ___ space in this room.\nこの部屋にはもっと収納スペースが必要だ。",
+        "answer": "storage",
+        "meaning": ""
+    },
+    {
+        "text": "They took ___ under a tree during the storm.\n嵐の間、彼らは木の下に避難した。",
+        "answer": "shelter",
+        "meaning": ""
+    },
+    {
+        "text": "She wore a beautiful silk ___.\n彼女は美しいシルクの衣服を着ていた。",
+        "answer": "garment",
+        "meaning": ""
+    },
+    {
+        "text": "The boat moved slowly through the ___.\nその船は運河をゆっくり進んだ。",
+        "answer": "canal",
+        "meaning": ""
+    },
+    {
+        "text": "He opened the ___ to get a glass.\n彼はグラスを取るために戸棚を開けた。",
+        "answer": "cabinet",
+        "meaning": ""
+    },
+    {
+        "text": "There was a strange ___ outside the store.\n店の外で奇妙な出来事があった。",
+        "answer": "incident",
+        "meaning": ""
+    },
+    {
+        "text": "Under these ___, we have no choice.\nこのような状況では、私たちに選択肢はない。",
+        "answer": "circumstances",
+        "meaning": ""
+    },
+    {
+        "text": "Can you ___ me a glass of water?\nお水を取ってきてくれる？",
+        "answer": "fetch",
+        "meaning": ""
+    },
+    {
+        "text": "They will ___ food to the refugees.\n彼らは難民に食料を配る予定だ。",
+        "answer": "distribute",
+        "meaning": ""
+    },
+    {
+        "text": "I want to ___ a new laptop.\n新しいノートパソコンを購入したい。",
+        "answer": "purchase",
+        "meaning": ""
+    },
+    {
+        "text": "The ___ in the park is over 10 meters tall.\nその公園の像は10メートル以上の高さがある。",
+        "answer": "statue",
+        "meaning": ""
+    },
+    {
+        "text": "The museum has a famous Greek ___.\nその博物館には有名なギリシャの彫刻がある。",
+        "answer": "sculpture",
+        "meaning": ""
+    },
+    {
+        "text": "The story of the phoenix is a ___.\nフェニックスの物語は神話だ。",
+        "answer": "myth",
+        "meaning": ""
+    },
+    {
+        "text": "She sells her handmade ___s online.\n彼女は自作の工芸品をオンラインで売っている。",
+        "answer": "craft",
+        "meaning": ""
+    },
+    {
+        "text": "1338 He kept a daily ___ during his travels.\n彼は旅の間、日記を毎日つけていた。",
+        "answer": "journal",
+        "meaning": ""
+    },
+    {
+        "text": "1339 Look it up in the ___.\n百科事典で調べてみて。",
+        "answer": "encyclopedia",
+        "meaning": ""
+    },
+    {
+        "text": "1340 She believed her dog went to ___.\n彼女は自分の犬が天国に行ったと信じていた。",
+        "answer": "heaven",
+        "meaning": ""
+    },
+    {
+        "text": "1341 The ___ will be held tomorrow afternoon.\n葬式は明日の午後に行われる予定だ。",
+        "answer": "funeral",
+        "meaning": ""
+    },
+    {
         "text": "1342 the ___ of Japan\n日本の魂👧",
         "answer": "soul",
         "meaning": "soul　[名] ①魂 ②（慣用句あるいは否定文で）人"
     },
     {
-        "text": "1359 achieve my ___ to be a pilot.\nパイロットになるという望みを叶える🧑‍✈️",
+        "text": "1343 The ___ led the wedding ceremony.\nその聖職者が結婚式を執り行った。",
+        "answer": "priest",
+        "meaning": ""
+    },
+    {
+        "text": "1344 He has strong ___ in his religion.\n彼は自分の宗教に強い信仰を持っている。",
+        "answer": "faith",
+        "meaning": ""
+    },
+    {
+        "text": "The temple is considered a ___ place.\nその寺は神聖な場所と見なされている。",
+        "answer": "sacred",
+        "meaning": ""
+    },
+    {
+        "text": "They believe in ___ power.\n彼らは神の力を信じている。",
+        "answer": "divine",
+        "meaning": ""
+    },
+    {
+        "text": "She was raised in a ___ family.\n彼女はムスリムの家庭で育った。",
+        "answer": "Muslim",
+        "meaning": ""
+    },
+    {
+        "text": "The word has a different meaning in this ___.\nその言葉はこの文脈では別の意味を持つ。",
+        "answer": "context",
+        "meaning": ""
+    },
+    {
+        "text": "Use the ___ form of the verb here.\nここでは動詞の単数形を使いなさい。",
+        "answer": "singular",
+        "meaning": ""
+    },
+    {
+        "text": "He gave a clear ___ to stop.\n彼はやめるよう明確な命令を出した。",
+        "answer": "command",
+        "meaning": ""
+    },
+    {
+        "text": "For example, take this ___.\n例えば、この事例を見てみよう。",
+        "answer": "instance",
+        "meaning": ""
+    },
+    {
+        "text": "There was a deep ___ between the two characters.\n2人の登場人物の間には深い対話があった。",
+        "answer": "dialogue",
+        "meaning": ""
+    },
+    {
+        "text": "The ___ of this word is incorrect.\nこの単語の使い方は間違っている。",
+        "answer": "usage",
+        "meaning": ""
+    },
+    {
+        "text": "The word begins with a ___ sound.\nその単語は母音の音で始まる。",
+        "answer": "vowel",
+        "meaning": ""
+    },
+    {
+        "text": "‘They’ is a plural ___.\n「They」は複数の代名詞である。",
+        "answer": "pronoun",
+        "meaning": ""
+    },
+    {
+        "text": "She speaks English with a French ___.\n彼女はフランス語なまりの英語を話す。",
+        "answer": "accent",
+        "meaning": ""
+    },
+    {  
+        "text": "The teacher gave an ___ of the chapter.\n先生はその章の概要を説明した。",
+        "answer": "outline",
+        "meaning": ""
+    },
+    {
+        "text": "They live in a ___ village.\n彼らは人里離れた村に住んでいる。",
+        "answer": "remote",
+        "meaning": ""
+    },
+    {
+        "text": "1359 achieve my ___ to be a pilot.\nパイロットになるという望みを叶える",
         "answer": "ambition",
         "meaning": "ambition　[名] （強い）願望，野望"
+    },
+    {
+        "text": "He has a bad ___.\n彼は短気な性格だ。",
+        "answer": "temper",
+        "meaning": ""
+    },
+    {
+        "text": "She showed great ___ for the puppy.\n彼女は子犬に深い愛情を示した。",
+        "answer": "affection",
+        "meaning": ""
+    },
+    {
+        "text": "They cheered with ___.\n彼らは熱狂的に歓声を上げた。",
+        "answer": "enthusiasm",
+        "meaning": ""
+    },
+    {
+        "text": "He shouted in a fit of ___.\n彼は激怒して叫んだ。",
+        "answer": "rage",
+        "meaning": ""
+    },
+    { 
+        "text": "The story was so ___ I couldn’t believe it.\nその話は信じられないほどすごかった。",
+        "answer": "incredible",
+        "meaning": ""
+    },
+    {
+        "text": "She let out a soft ___.\n彼女は静かにくすくす笑った。",
+        "answer": "chuckle",
+        "meaning": ""
+    },
+    {
+        "text": "I wouldn't ___ to ask him that.\nそんなことを彼に聞く勇気はない。",
+        "answer": "dare",
+        "meaning": ""
+    },
+    {
+        "text": "She let out a loud ___.\n彼女は大きな悲鳴を上げた。",
+        "answer": "scream",
+        "meaning": ""
+    },
+    {
+        "text": "This tea will help ___ your nerves.\nこのお茶は神経を落ち着かせるのに役立つ。",
+        "answer": "soothe",
+        "meaning": ""
+    },
+    {
+        "text": "The cake seemed to ___ him.\nそのケーキは彼を誘惑しているようだった。",
+        "answer": "tempt",
+        "meaning": ""
     },
     {
         "text": "1370 He was allegedly ___ by the teacher.\n彼は先生に怒られたらしい",
         "answer": "scolded",
         "meaning": "scold　[他] ～を叱る"
+    },
+    {
+        "text": "The people were ___ed by a cruel ruler.\nその人々は残酷な支配者に圧迫されていた。",
+        "answer": "oppressed",
+        "meaning": ""
     },
     { 
         "text": "1372 Mom ___ to punish me if I didn’t clean my room.\n部屋を片付けなければ,ママは僕を罰すると脅した。🔫", 
@@ -1420,12 +1820,78 @@
         "meaning": "" 
     },
     {
-        "text": "1385 ___ talent\n圧倒的な才能🧬",
-        "answer": "overwhelming",
-        "meaning": "talent\t[名] 才能"
+        "text": "They ___ed the loss of their friend.\n彼らは友人の死を悲しんだ。",
+        "answer": "mourned",
+        "meaning": ""
     },
     {
-        "text": "1386 He was conscious during the ___ surgery.\n彼は手術中ずっと意識があった.😱",
+        "text": "He made a great ___ for his family.\n彼は家族のために大きな犠牲を払った。",
+        "answer": "sacrifice",
+        "meaning": ""
+    },
+    {
+        "text": "She muttered a ___ under her breath.\n彼女は小声で呪いの言葉をつぶやいた。",
+        "answer": "curse",
+        "meaning": ""
+    },
+    {
+        "text": "Many problems ___ from poor planning.\n多くの問題は計画不足に由来している。",
+        "answer": "stem",
+        "meaning": ""
+    },
+    {
+        "text": "That comment ___ed a big argument.\nその発言が大きな口論のきっかけとなった。",
+        "answer": "triggered",
+        "meaning": ""
+    },
+    {
+        "text": "Every action has a ___.\nすべての行動には結果がある。",
+        "answer": "consequence",
+        "meaning": ""
+    },
+    {
+        "text": "1379 Learning is a long ___.\n学習は長いプロセスだ。",
+        "answer": "process",
+        "meaning": ""
+    },
+    {
+        "text": "1380 They had to ___ to violence.\n彼らは暴力に訴えざるを得なかった。",
+        "answer": "resort",
+        "meaning": ""
+    },
+1381~1409
+    { 
+        "text": "1381 He explained the ___ for solving the problem.\n彼はその問題を解くための手順を説明した。",
+        "answer": "formula",
+        "meaning": ""
+    },
+    {   
+        "text": "1382 You must follow the correct ___ for safety.\n安全のために正しい手順に従わなければならない。",
+        "answer": "procedure",
+        "meaning": ""
+    },
+    { 
+        "text": "Her talent is truly ___ compared to others.\n彼女の才能は他の人と比べて本当に並外れている。",
+        "answer": "extraordinary",
+        "meaning": ""
+    },
+    {   
+        "text": "This is an ___ rule with no exceptions.\nこれは例外のない絶対的な規則だ。",
+        "answer": "absolute",
+        "meaning": ""
+    },
+    {
+        "text": "1385 ___ talent\n圧倒的な才能🧬",
+        "answer": "overwhelming",
+        "meaning": ""
+    },
+    { 
+        "text": "1386 They stopped talking ___.\n彼らは完全に話をやめた。",
+        "answer": "altogether",
+        "meaning": ""
+    },
+    {
+        "text": "1387 He was conscious during the ___ surgery.\n彼は手術中ずっと意識があった.😱",
         "answer": "entire",
         "meaning": "entire　[形] すべての"
     },
@@ -1434,20 +1900,130 @@
         "answer": "tremendous",
         "meaning": "tremendous　[形] すさまじい"
     },
+    {  
+        "text": "It was a matter of ___ luck that he survived.\n彼が生き残ったのはまったくの幸運だった。",
+        "answer": "sheer",
+        "meaning": ""
+    },
+    { 
+        "text": "He made only a ___ recovery after the accident.\n彼は事故の後、部分的にしか回復しなかった。",
+        "answer": "partial",
+        "meaning": ""
+    },
+    { 
+        "text": "I could ___ hear what he said.\n彼の言ったことがかろうじて聞こえた。",
+        "answer": "barely",
+        "meaning": ""
+    },
+    { 
+        "text": "There were ___ 100 people at the party.\nパーティーにはおよそ100人がいた。",
+        "answer": "approximately",
+        "meaning": ""
+    }, 
+    { 
+        "text": "He travels abroad quite ___.\n彼はかなり頻繁に海外旅行をする。",
+        "answer": "frequently",
+        "meaning": ""
+    },
     {
         "text": "1394 ___, there’s an illegal immigrant in this class!\nこのクラスに1人不法移民がいるらしいぞ！",
         "answer": "Apparently",
-        "meaning": "immigrant　[名] （外国からの）移民"
+        "meaning": ""
     },
     {
         "text": "1395 Mary is ___ a teather.\nメアリーは1人の教師に過ぎない.(提供:sky村上)",
         "answer": "merely",
         "meaning": "entire　[形] すべての"
     },
+    { 
+        "text": "She was tired; ___, she kept working.\n彼女は疲れていたが、それにもかかわらず働き続けた。",
+        "answer": "nevertheless",
+        "meaning": ""
+    },
     {
         "text": "1397 Looks like spring has ___ arrived outdoors.\n外では春が来たようだ.",
         "answer": "somehow",
         "meaning": ""
+    },
+    { 
+        "text": "He was injured, and ___ he couldn’t play.\n彼はけがをしていたので、その結果プレーできなかった。",
+        "answer": "thus",
+        "meaning": ""
+    },
+    {  
+        "text": "They got married and lived happily ever ___.\n彼らは結婚してその後幸せに暮らした。",
+        "answer": "afterward",
+        "meaning": ""
+    },
+    { 
+        "text": "She spoke ___ her team during the meeting.\n彼女は会議でチームを代表して話した。",
+        "answer": "on behalf of",
+        "meaning": ""
+    },
+    { 
+        "text": "He ___ his right to freedom of speech.\n彼は言論の自由の権利を主張した。",
+        "answer": "assert",
+        "meaning": ""
+    },
+    { 
+        "text": "She dared to ___ her parents’ orders.\n彼女は親の命令に逆らう勇気を持っていた。",
+        "answer": "defy",
+        "meaning": ""
+    },
+    { 
+        "text": "The government strongly ___ the attack.\n政府はその攻撃を強く非難した。",
+        "answer": "condemn",
+        "meaning": ""
+    },
+    {   
+        "text": "He ___ several examples to support his point.\n彼は自分の主張を支持するためにいくつかの例を挙げた。",
+        "answer": "cite",
+        "meaning": ""
+    },
+    {  
+        "text": "This chart helps to ___ the main idea.\nこの図は主な考えを説明するのに役立つ。",
+        "answer": "illustrate",
+        "meaning": ""
+    },
+    {   
+        "text": "1406 He tried to ___ the false rumor.\n彼はその間違ったうわさを反論しようとした。",
+        "answer": "refute",
+        "meaning": ""
+    },
+    { 
+        "text": "1407 They decided to ___ the company for damages.\n彼らは損害賠償を求めて会社を訴えることにした。",
+        "answer": "sue",
+        "meaning": ""
+    },
+    { 
+        "text": "1408 She can clearly ___ her thoughts.\n彼女は自分の考えをはっきりと述べることができる。",
+        "answer": "articulate",
+        "meaning": ""
+    },
+    { 
+        "text": "1409 This is the latest ___ of the software.\nこれはそのソフトウェアの最新バージョンだ。",
+        "answer": "version",
+        "meaning": ""
+    },
+    { 
+        "text": "1410 He is an ___ of human rights.\n彼は人権の擁護者だ。",
+        "answer": "advocate",
+        "meaning": ""
+    },
+    {  
+        "text": "1411 The new medicine was a major ___ in cancer treatment.\nその新薬はがん治療の大きな突破口となった。",
+        "answer": "breakthrough",
+        "meaning": ""
+    },
+    { 
+        "text": "1412 Human ___ has taken millions of years.\n人類の進化には何百万年もかかっている。",
+        "answer": "evolution",
+        "meaning": ""
+    },
+    {
+        "text": "1388 This rag holds ___ value.\nこのぼろきれには、すさまじい価値がある。📜",
+        "answer": "tremendous",
+        "meaning": "tremendous　[形] すさまじい"
     },
     {
         "text": "1475 appropriate clothes for an apology press ___\n謝罪会見にふさわしい服装🦹",
