@@ -1840,14 +1840,254 @@
         "meaning": ""
     },
     {
+        "text": "1800 His answer was too ___ to understand clearly.\n彼の答えは曖昧すぎてはっきり理解できなかった。",
+        "answer": "ambiguous",
+        "meaning": ""
+    },
+    {
+        "text": "1801 The advertisement was criticized for being ___.\nその広告は人を誤解させるとして批判された。",
+        "answer": "misleading",
+        "meaning": ""
+    },
+    {
+        "text": "1802 The meaning of the ancient text remains ___.\nその古代文書の意味はいまだに不明瞭なままだ。",
+        "answer": "obscure",
+        "meaning": ""
+    },
+    {
         "text": "1803 ___ woman\n熟女👵",
         "answer": "mature",
         "meaning": "mature\t[形] ①成熟した，熟成した [自] ②成熟する，熟成する"
     },
     {
+        "text": "1804 Her handwriting is always clean and ___.\n彼女の字はいつもきれいで整っている。",
+        "answer": "neat",
+        "meaning": ""
+    },
+    {
+        "text": "1805 He found a ___ job to support his family.\n彼は家族を養うためにまともな仕事を見つけた。",
+        "answer": "decent",
+        "meaning": ""
+    },
+    {
+        "text": "1806 She gave a ___ explanation that everyone could follow.\n彼女は誰にでもわかる率直な説明をした。",
+        "answer": "straightforward",
+        "meaning": ""
+    },
+    {
+        "text": "1807 The new phone has a ___ features.\nその新しい携帯電話は高度な機能を備えている。",
+        "answer": "sophisticated",
+        "meaning": ""
+    },
+    {
+        "text": "1808 They presented an ___ plan with many detailed steps.\n彼らは多くの詳細な手順を含む手の込んだ計画を提示した。",
+        "answer": "elaborate",
+        "meaning": ""
+    },
+    {
+        "text": "1809 Thank you for your ___ reply to my email.\nメールにすぐ返信してくれてありがとうございます。",
+        "answer": "prompt",
+        "meaning": ""
+    },
+    {
+        "text": "1810 The police took ___ action to catch the thief.\n警察は泥棒を捕まえるために素早い行動を取った。",
+        "answer": "swift",
+        "meaning": ""
+    },
+    {
         "text": "1811 The pen is ___ than the sword\nペンは剣よりも強し🖊️",
         "answer": "mightier",
         "meaning": "mighty　[形] 強力な"
+    },
+    {
+        "text": "1812 The teacher gave ___ instructions before the exam.\n先生は試験前に明確な指示を出した。",
+        "answer": "explicit",
+        "meaning": ""
+    },
+    {
+        "text": "1813 This is an ___ signature of the artist.\nこれはその芸術家の本物の署名だ。",
+        "answer": "authentic",
+        "meaning": ""
+    },
+    {
+        "text": "1814 His ___ always makes people laugh.\n彼の機知はいつも人々を笑わせる。",
+        "answer": "wit",
+        "meaning": ""
+    },
+    {
+        "text": "1815 Small businesses can ___ in a supportive community.\n小規模企業は支援的な地域社会で繁栄できる。",
+        "answer": "thrive",
+        "meaning": ""
+    },
+    {
+        "text": "1816 The light in the room was too ___ to read.\n部屋の明かりが暗すぎて読書ができなかった。",
+        "answer": "dim",
+        "meaning": ""
+    },
+    {
+        "text": "1817 The sky looked ___ before the storm began.\n嵐が始まる前、空はどんよりと暗かった。",
+        "answer": "gloomy",
+        "meaning": ""
+    },
+    {
+        "text": "1818 Nothing grows in this ___ desert land.\nこの不毛の砂漠地帯では何も育たない。",
+        "answer": "barren",
+        "meaning": ""
+    },
+    {
+        "text": "1819 He’s been ___ since he lost his job.\n彼は仕事を失ってから何もせずに過ごしている。",
+        "answer": "idle",
+        "meaning": ""
+    },
+    {
+        "text": "1820 The flight was canceled due to ___ weather conditions.\n悪天候(不都合な天候)のため、フライトはキャンセルされた。",
+        "answer": "adverse",
+        "meaning": ""
+    },
+    {
+        "text": "1821 Doing the same task every day can be quite ___.\n毎日同じ作業をするのはかなり退屈なことだ。",
+        "answer": "tiresome",
+        "meaning": ""
+    },
+    {
+        "text": "1822 He’s a bit ___ when using chopsticks.\n彼は箸を使うのが少し不器用だ。",
+        "answer": "clumsy",
+        "meaning": ""
+    },
+    {
+        "text": "1823 The factory was closed because of the ___ smell.\nその工場はひどい悪臭のため閉鎖された。",
+        "answer": "foul",
+        "meaning": ""
+    },
+    {
+        "text": "1824 He wore a ___ coat full of holes.\n彼は穴だらけのみすぼらしいコートを着ていた。",
+        "answer": "shabby",
+        "meaning": ""
+    },
+    {
+        "text": "1825 The ticket prices for the concert were ___.\nそのコンサートのチケット代はとんでもなく高かった(常軌を逸していた)。",
+        "answer": "outrageous",
+        "meaning": ""
+    },
+    {
+        "text": "1826 It’s ___ to believe that pigs can fly.\n豚が飛べると信じるのはばかげている。",
+        "answer": "absurd",
+        "meaning": ""
+    },
+    {
+        "text": "1827 Be careful, this glass vase is very ___.\n気をつけて、このガラスの花瓶はとても壊れやすい。",
+        "answer": "fragile",
+        "meaning": ""
+    },
+    {
+        "text": "1828 Children are more ___ to colds than adults.\n子どもは大人より風邪にかかりやすい。",
+        "answer": "vulnerable",
+        "meaning": ""
+    },
+    {
+        "text": "1829 The image on the screen remained ___ and didn’t move.\n画面の画像は静止したままで動かなかった。",
+        "answer": "static",
+        "meaning": ""
+    },
+    {
+        "text": "1830 She has an ___ talent for music.\n彼女には生まれつきの音楽の才能がある。",
+        "answer": "innate",
+        "meaning": ""
+    },
+    {
+        "text": "1831 The market sells ___ fruits from around the world.\nその市場では世界各地の外来の果物が売られている。",
+        "answer": "exotic",
+        "meaning": ""
+    },
+    {
+        "text": "1832 The lion has been ___ and no longer attacks humans.\nそのライオンは飼いならされており、人間を襲わなくなった。",
+        "answer": "tame",
+        "meaning": ""
+    },
+    {
+        "text": "1833 Her joy was ___ to everyone around her.\n彼女の喜びは周囲の誰にでも明らかだった。",
+        "answer": "manifest",
+        "meaning": ""
+    },
+    {
+        "text": "1834 The forest was so ___ that sunlight barely reached the ground.\n森は非常に密で、日光がほとんど地面に届かなかった。",
+        "answer": "dense",
+        "meaning": ""
+    },
+    {
+        "text": "1835 The water in the bottle is completely ___.\nその瓶の水は完全に透明だ。",
+        "answer": "transparent",
+        "meaning": ""
+    },
+    {
+        "text": "1836 Her results are ___ with previous studies.\n彼女の結果は以前の研究と一貫している。",
+        "answer": "consistent",
+        "meaning": ""
+    },
+    {
+        "text": "1837 He gave a ___ argument that was easy to follow.\n彼は理解しやすい一貫した議論を展開した。",
+        "answer": "coherent",
+        "meaning": ""
+    },
+    {
+        "text": "1838 Mathematics is considered a ___ language.\n数学は普遍的な言語と考えられている。",
+        "answer": "universal",
+        "meaning": ""
+    },
+    {
+        "text": "1839 The underlying reason for his behavior is still unclear.\n彼の行動の根本的な理由はまだ不明だ。",
+        "answer": "underlying",
+        "meaning": ""
+    },
+    {
+        "text": "1840 The audience broke into ___ applause after the performance.\n観客はその演技の後、自発的な拍手を送った。",
+        "answer": "spontaneous",
+        "meaning": ""
+    },
+    {
+        "text": "1841 They held a ___ interview to prepare for the real one.\n彼らは本番の面接に備えて模擬面接を行った。",
+        "answer": "mock",
+        "meaning": ""
+    },
+    {
+        "text": "1842 The decision was made through a ___ effort of the team.\nその決定はチームの共同の努力によってなされた。",
+        "answer": "collective",
+        "meaning": ""
+    },
+    {
+        "text": "1843 The climber ascended the ___ rock face.\n登山者は垂直の岩壁を登った。",
+        "answer": "vertical",
+        "meaning": ""
+    },
+    {
+        "text": "1844 Construction on the new building is still ___.\n新しい建物の工事はまだ進行中だ。",
+        "answer": "ongoing",
+        "meaning": ""
+    },
+    {
+        "text": "1845 He gave her a ___ smile when she was upset.\n彼は彼女が落ち込んでいたとき、優しい笑みを向けた。",
+        "answer": "tender",
+        "meaning": ""
+    },
+    {
+        "text": "1846 Please keep your back ___.\n背筋をまっすぐにしてください。",
+        "answer": "upright",
+        "meaning": ""
+    },
+    {
+        "text": "1847 This medicine will help ___ your pain.\nこの薬は痛みを和らげるのに役立つ。",
+        "answer": "ease",
+        "meaning": ""
+    },
+    {
+        "text": "1848 The old bike began to ___ after years of neglect.\nその古い自転車は何年も放置された後、さび始めた。",
+        "answer": "rust",
+        "meaning": ""
+    },
+    {
+        "text": "1849 Be careful not to ___ your shirt with coffee.\nコーヒーでシャツにシミをつけないように注意して。",
+        "answer": "stain",
+        "meaning": ""
     },
     {
         "text": "1850 This ___ holds tremendous value.\nこのぼろきれには、すさまじい価値がある。📜",
@@ -2000,9 +2240,104 @@
         "meaning": "domain　[名] 領域"
     },
     {
+        "text": "1880 The river marks the ___ between the two countries.\nその川は両国の境界を示している。",
+        "answer": "boundary",
+        "meaning": ""
+    },
+    {
+        "text": "1881 The festival features a ___ of music from classical to modern.\nその祭りではクラシックから現代音楽まで幅広い音楽が披露される。",
+        "answer": "spectrum",
+        "meaning": ""
+    },
+    {
+        "text": "1882 They ___ the team with new computers.\n彼らはチームに新しいコンピュータを装備した。",
+        "answer": "equip",
+        "meaning": ""
+    },
+    {
+        "text": "1883 Radio towers ___ signals across the city.\nラジオ塔は都市全体に信号を送信する。",
+        "answer": "transmit",
+        "meaning": ""
+    },
+    {
+        "text": "1884 The university will ___ scholarships to outstanding students.\n大学は優秀な学生に奨学金を授与する。",
+        "answer": "endow",
+        "meaning": ""
+    },
+    {
+        "text": "1885 He will ___ the family business from his father.\n彼は父親から家業を相続する。",
+        "answer": "inherit",
+        "meaning": ""
+    },
+    {
+        "text": "1886 You can ___ files from the backup server.\nバックアップサーバーからファイルを取り出せる。",
+        "answer": "retrieve",
+        "meaning": ""
+    },
+    {
+        "text": "1887 The new technology may ___ traditional methods.\n新しい技術が従来の方法に取って代わるかもしれない。",
+        "answer": "displace",
+        "meaning": ""
+    },
+    {
+        "text": "1888 They have a strong emotional ___.\n彼らには強い感情的な絆がある。",
+        "answer": "bond",
+        "meaning": ""
+    },
+    {
+        "text": "1889 The hotel is known for its warm ___.\nそのホテルは温かいもてなしで知られている。",
+        "answer": "hospitality",
+        "meaning": ""
+    },
+    {
+        "text": "1890 She received a ___ for completing the course.\n彼女はコース修了の証明書を受け取った。",
+        "answer": "certificate",
+        "meaning": ""
+    },
+    {
+        "text": "1891 Please take a ___ for more information about the tour.\nツアーの詳細についてはパンフレットをお取りください。",
+        "answer": "brochure",
+        "meaning": ""
+    },
+    {
         "text": "1892 wet ___\n濡れたコンセント😱",
         "answer": "outlet",
         "meaning": "outlet　[名] ①(電気の)コンセント ②(販売)店 ③(感情などの)はけ口"
+    },
+    {
+        "text": "1893 We found comfortable ___ near the beach.\n私たちは海辺の近くに快適な宿泊施設を見つけた。",
+        "answer": "accommodation",
+        "meaning": ""
+    },
+    {
+        "text": "1894 The island became a safe ___ for refugees.\nその島は難民の安全な避難所となった。",
+        "answer": "haven",
+        "meaning": ""
+    },
+    {
+        "text": "1895 The concert will be held at a large outdoor ___.\nコンサートは大きな屋外会場で開催される。",
+        "answer": "venue",
+        "meaning": ""
+    },
+    {
+        "text": "1896 There’s a traffic light at the next ___.\n次の交差点に信号があります。",
+        "answer": "intersection",
+        "meaning": ""
+    },
+    {
+        "text": "1897 Don’t park your car on the ___.\n歩道に車を停めないでください。",
+        "answer": "pavement",
+        "meaning": ""
+    },
+    {
+        "text": "1898 A ___ was walking across the street when the light turned red.\n信号が赤に変わったとき、歩行者が道を渡っていた。",
+        "answer": "pedestrian",
+        "meaning": ""
+    },
+    {
+        "text": "1899 We went on a weekend ___ to the mountains.\n私たちは週末に山への小旅行に出かけた。",
+        "answer": "excursion",
+        "meaning": ""
     },
     {
         "text": "1900 The company offers free ___ for all online orders.\nその会社はすべてのオンライン注文に無料配送を提供している。",
