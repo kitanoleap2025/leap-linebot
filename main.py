@@ -639,6 +639,13 @@ def handle_leap_message(event):
 def handle_target_message(event):
     handle_message_common(event, bot_type="TARGET", line_bot_api=line_bot_api_target)
 
+@app.route("/health")
+def health():
+    ua = request.headers.get("User-Agent", "")
+    if "cron-job.org" in ua:
+        return "ok", 200
+    else:
+        return "unauthorized", 403
 
 def handle_message_common(event, bot_type, line_bot_api):
     user_id = event.source.user_id
