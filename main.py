@@ -356,7 +356,7 @@ trivia_messages = [
     "ヒントろぼっと🤖\n中国語版LEAP、「跳跃」!",
     "ヒントろぼっと🤖\nLEAPには大金を払う価値がある。",
     "ヒントろぼっと🤖\nLEAPには莫大な時間を払う価値がある。",
-    "ヒントろぼっと🤖\n",
+    "ヒントろぼっと🤖\nLEAPは全年齢対象である。",
 ]
     
 def evaluate_X(elapsed, score, answer, is_multiple_choice=True):
