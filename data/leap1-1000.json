@@ -1525,6 +1525,11 @@
         "meaning": "provide　[他] （A with B）（AにB）を供給する，与える"
     },
     {
+        "text": "309 The teacher wrote the answer on the white ___.\n先生はホワイトボードに答えを書いた🖊️",
+        "answer": "board",
+        "meaning": ""
+    },
+    {
         "text": "310 A:Teacher, I feel like I might be a ___ can.\nB:What a trashy joke.\nA:先生、私は自分がゴミ箱なんじゃないかと思っているのですが。B:そんなゴミみたいな冗談を。🗑️",
         "answer": "garbage",
         "meaning": "garbage　[名] ごみ〈不可算〉"
@@ -3865,6 +3870,11 @@
         "meaning": "ordinary　[形] 平凡な，ふつうの"
     },
     {
+        "text": "831 I created an online ___ to buy books more easily.\n本をもっと簡単に買うためにオンラインアカウントを作った💻",
+        "answer": "account",
+        "meaning": ""
+    },
+    {
         "text": "832 You should ___ your expenses carefully.\n支出を慎重に計算すべきだ。",
         "answer": "calculate",
         "meaning": "calculate　[他] ～を計算する"
@@ -3908,6 +3918,11 @@
         "text": "840 ___ food waste\n大量の食品廃棄🍟🍟🍟🍟",
         "answer": "mass",
         "meaning": "mass　[名] ①大量 ②（the ―es）大衆 ③かたまり ④質量 ⑤（M―）ミサ"
+    },
+    {
+        "text": "841 There’s a serious water ___ in the region due to the drought.\n干ばつのため、その地域では深刻な水不足が起きている🚱",
+        "answer": "shortage",
+        "meaning": ""
     },
     {
         "text": "842 an ___ amount of fat\n莫大な(量の)脂肪",
