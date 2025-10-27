@@ -1859,7 +1859,6 @@
         "answer": "resort",
         "meaning": ""
     },
-1381~1409
     { 
         "text": "1381 He explained the ___ for solving the problem.\n彼はその問題を解くための手順を説明した。",
         "answer": "formula",
@@ -1976,12 +1975,12 @@
         "meaning": ""
     },
     {   
-        "text": "He ___ several examples to support his point.\n彼は自分の主張を支持するためにいくつかの例を挙げた。",
+        "text": "1404 He ___ several examples to support his point.\n彼は自分の主張を支持するためにいくつかの例を挙げた。",
         "answer": "cite",
         "meaning": ""
     },
     {  
-        "text": "This chart helps to ___ the main idea.\nこの図は主な考えを説明するのに役立つ。",
+        "text": "1405 This chart helps to ___ the main idea.\nこの図は主な考えを説明するのに役立つ。",
         "answer": "illustrate",
         "meaning": ""
     },
@@ -2021,14 +2020,439 @@
         "meaning": ""
     },
     {
-        "text": "1388 This rag holds ___ value.\nこのぼろきれには、すさまじい価値がある。📜",
-        "answer": "tremendous",
-        "meaning": "tremendous　[形] すさまじい"
+        "text": "1413 The company focuses on ___ to stay ahead in technology.\nその会社は技術で先行するために革新に注力している。",
+        "answer": "innovation",
+        "meaning": ""
+    },
+    {
+        "text": "1414 Scientists sent a ___ into space to study distant planets.\n科学者たちは遠い惑星を調べるために探査機を宇宙に送った。",
+        "answer": "probe",
+        "meaning": ""
+    },
+    {
+        "text": "1415 Water is a ___ that can flow easily.\n水は簡単に流れる液体である。",
+        "answer": "fluid",
+        "meaning": ""
+    },
+    {
+        "text": "1416 A ___ is a very tiny piece of matter.\n粒子とは非常に小さな物質の一片である。",
+        "answer": "particle",
+        "meaning": ""
+    },
+    {
+        "text": "1417 ___ pulls objects toward the Earth.\n重力は物体を地球に引きつける。",
+        "answer": "gravity",
+        "meaning": ""
+    },
+    {
+        "text": "1418 He proposed a new ___ to explain the phenomenon.\n彼はその現象を説明するために新しい仮説を提案した。",
+        "answer": "hypothesis",
+        "meaning": ""
+    },
+    {
+        "text": "1419 The lab kept a ___ of the rare plant.\n研究所はその珍しい植物の標本を保管していた。",
+        "answer": "specimen",
+        "meaning": ""
+    },
+    {
+        "text": "1420 A ___ can cause disease if it enters the body.\n微生物は体内に入ると病気を引き起こすことがある。",
+        "answer": "microbe",
+        "meaning": ""
+    },
+    {
+        "text": "1421 Some snakes inject ___ through their bite.\n一部のヘビは噛むことで毒を注入する。",
+        "answer": "poison",
+        "meaning": ""
+    },
+    {
+        "text": "1422 Lemon contains ___ which can dissolve some metals.\nレモンには一部の金属を溶かす酸が含まれている。",
+        "answer": "acid",
+        "meaning": ""
+    },
+    {
+        "text": "1423 Some chemicals are extremely ___ and dangerous.\n一部の化学物質は非常に有毒で危険である。",
+        "answer": "toxic",
+        "meaning": ""
+    },
+    {
+        "text": "1424 She made a great ___ to climb the corporate ladder.\n彼女は会社で昇進するために大きな努力をした。",
+        "answer": "endeavor",
+        "meaning": ""
+    },
+    {
+        "text": "1425 Ignoring the warning signs could lead to ___ .\n警告サインを無視すると破滅につながる可能性がある。",
+        "answer": "doom",
+        "meaning": ""
+    },
+    {
+        "text": "1426 The factory ___ cars and trucks every year.\nその工場は毎年車やトラックを製造している。",
+        "answer": "manufacture",
+        "meaning": ""
+    },
+    {
+        "text": "1427 The new method can ___ higher crop yields.\n新しい方法はより高い作物の収穫量をもたらすことができる。",
+        "answer": "yield",
+        "meaning": ""
+    },
+    {
+        "text": "1428 We need to ___ the document exactly for legal reasons.\n法律上の理由で、その書類を正確に複製する必要がある。",
+        "answer": "duplicate",
+        "meaning": ""
+    },
+    {
+        "text": "1429 Workers ___ the parts to assemble the machine.\n作業員は部品を組み立てて機械を作る。",
+        "answer": "assemble",
+        "meaning": ""
+    },
+    {
+        "text": "1430 You can ___ bread in different shapes using this mold.\nこの型を使ってパンをさまざまな形に成形できる。",
+        "answer": "mold",
+        "meaning": ""
+    },
+    {
+        "text": "1431 Many countries ___ their own coins.\n多くの国が自国の硬貨を鋳造している。",
+        "answer": "coin",
+        "meaning": ""
+    },
+    {
+        "text": "1432 Physical ___ can help patients recover from illness.\n物理療法は患者が病気から回復するのに役立つ。",
+        "answer": "therapy",
+        "meaning": ""
+    },
+    {
+        "text": "1433 The nurse gave her an ___ to relieve the pain.\n看護師は痛みを和らげるために注射を打った。",
+        "answer": "injection",
+        "meaning": ""
+    },
+    {
+        "text": "1434 Take the prescribed ___ twice a day.\n処方された服用量を1日2回服用してください。",
+        "answer": "dose",
+        "meaning": ""
+    },
+    {
+        "text": "1435 Good ___ is essential to prevent disease.\n適切な衛生状態は病気を予防するために不可欠である。",
+        "answer": "sanitation",
+        "meaning": ""
+    },
+    {
+        "text": "1436 A ___ can spread rapidly in crowded places.\n細菌は混雑した場所で急速に広がることがある。",
+        "answer": "germ",
+        "meaning": ""
+    },
+    {
+        "text": "1437 The doctor found a ___ in her lung.\n医者は彼女の肺に腫瘍を見つけた。",
+        "answer": "tumor",
+        "meaning": ""
+    },
+    {
+        "text": "1438 He suffered a ___ while playing basketball.\n彼はバスケットボールをしている最中に脳卒中を起こした。",
+        "answer": "stroke",
+        "meaning": ""
+    },
+    {
+        "text": "1439 The patient was in ___ after the accident.\nその患者は事故の後、激しい苦しみにあった。",
+        "answer": "agony",
+        "meaning": ""
+    },
+    {
+        "text": "1440 The black death was a terrible ___ in Europe.\n黒死病はヨーロッパで恐ろしい疫病であった。",
+        "answer": "plague",
+        "meaning": ""
+    },
+    {
+        "text": "1441 After long hours, he felt extreme ___.\n長時間の作業の後、彼は極度の疲労を感じた。",
+        "answer": "fatigue",
+        "meaning": ""
+    },
+    {
+        "text": "1442 Early ___ can save lives by detecting disease.\n早期診断は病気を発見することで命を救うことができる。",
+        "answer": "diagnosis",
+        "meaning": ""
+    },
+    {
+        "text": "1443 The war increased the ___ rate in the country.\n戦争はその国の死亡率を増加させた。",
+        "answer": "mortality",
+        "meaning": ""
+    },
+    {
+        "text": "1444 She works in ___ to care for elderly patients.\n彼女は高齢患者の看護に従事している。",
+        "answer": "nursing",
+        "meaning": ""
+    },
+    {
+        "text": "1445 Diabetes is a ___ disease that lasts a long time.\n糖尿病は長期間続く慢性疾患である。",
+        "answer": "chronic",
+        "meaning": ""
+    },
+    {
+        "text": "1446 The vaccine helps the body develop an ___ response.\nそのワクチンは体に免疫反応を発達させるのに役立つ。",
+        "answer": "immune",
+        "meaning": ""
+    },
+    {
+        "text": "1447 The patient was diagnosed with ___ cancer.\nその患者は末期がんと診断された。",
+        "answer": "terminal",
+        "meaning": ""
+    },
+    {
+        "text": "1448 You should get enough ___ rest every night.\n毎晩十分な健全な睡眠をとるべきである。",
+        "answer": "sound",
+        "meaning": ""
+    },
+    {
+        "text": "1449 ___ diseases affect the lungs and airways.\n呼吸器疾患は肺や気道に影響を与える。",
+        "answer": "respiratory",
+        "meaning": ""
+    },
+    {
+        "text": "1450 Smoke can ___ you if you cannot breathe.\n息ができないと煙で窒息することがある。",
+        "answer": "choke",
+        "meaning": ""
+    },
+    {
+        "text": "1451 The accident could ___ him from moving his legs.\nその事故は彼の脚の動きを麻痺させる可能性がある。",
+        "answer": "paralyze",
+        "meaning": ""
+    },
+    {
+        "text": "1452 The doctor will ___ medicine for your illness.\n医者はあなたの病気に薬を処方するだろう。",
+        "answer": "prescribe",
+        "meaning": ""
+    },
+    {
+        "text": "1453 It takes time for the body to ___ food.\n体が食べ物を消化するには時間がかかる。",
+        "answer": "digest",
+        "meaning": ""
+    },
+    {
+        "text": "1454 After the long journey, he felt extremely ___.\n長い旅の後、彼は非常に疲れていた。",
+        "answer": "weary",
+        "meaning": ""
+    },
+    {
+        "text": "1455 Breast milk helps ___ the baby.\n母乳は赤ちゃんに栄養を与える。",
+        "answer": "nourish",
+        "meaning": ""
+    },
+    {
+        "text": "1456 The crime scene was absolutely ___ .\nその犯罪現場はまったくぞっとする光景だった。",
+        "answer": "appalling",
+        "meaning": ""
+    },
+    {
+        "text": "1457 The wound exposed the underlying ___.\nその傷は下の肉を露出させた。",
+        "answer": "flesh",
+        "meaning": ""
+    },
+    {
+        "text": "1458 He lost a ___ in the accident.\n彼は事故で手足の一部を失った。",
+        "answer": "limb",
+        "meaning": ""
+    },
+    {
+        "text": "1459 They ___ the statue in the city square.\n彼らは市の広場に像を建立した。",
+        "answer": "erect",
+        "meaning": ""
+    },
+    {
+        "text": "1460 A ___ cord injury can be very serious.\n脊椎の損傷は非常に深刻になりうる。",
+        "answer": "spinal",
+        "meaning": ""
+    },
+    {
+        "text": "1461 Babies instinctively ___ milk from the breast.\n赤ちゃんは本能的に母乳を吸う。",
+        "answer": "suck",
+        "meaning": ""
+    },
+    {
+        "text": "1462 He just ___ his shoulders and ignored the question.\n彼はただ肩をすくめて質問を無視した。",
+        "answer": "shrug",
+        "meaning": ""
+    },
+    {
+        "text": "1463 The company will ___ employees for overtime work.\n会社は残業に対して従業員に補償するだろう。",
+        "answer": "compensate",
+        "meaning": ""
+    },
+    {
+        "text": "1464 Many children suffer from ___ in some families.\n多くの子どもが家庭内で虐待を受けている。",
+        "answer": "abuse",
+        "meaning": ""
+    },
+    {
+        "text": "1465 The teacher showed ___ by favoring certain students.\n先生は特定の生徒を優遇して偏見を示した。",
+        "answer": "bias",
+        "meaning": ""
+    },
+    {
+        "text": "1466 Winning the Nobel Prize brings ___ to a scientist.\nノーベル賞を受賞することは科学者に名声をもたらす。",
+        "answer": "prestige",
+        "meaning": ""
+    },
+    {
+        "text": "1467 It was a ___ to be able to study abroad.\n留学できることは特権だった。",
+        "answer": "privilege",
+        "meaning": ""
+    },
+    {
+        "text": "1468 Climbing Mount Everest is an incredible ___.\nエベレスト登頂は信じられない偉業だ。",
+        "answer": "feat",
+        "meaning": ""
+    },
+    {
+        "text": "1469 She maintained her ___ despite the insults.\n彼女は侮辱にもかかわらず尊厳を保った。",
+        "answer": "dignity",
+        "meaning": ""
+    },
+    {
+        "text": "1470 Honesty is an important ___.\n誠実さは重要な美徳である。",
+        "answer": "virtue",
+        "meaning": ""
+    },
+    {
+        "text": "1471 The ___ held most of the political power.\n貴族がほとんどの政治権力を握っていた。",
+        "answer": "aristocracy",
+        "meaning": ""
+    },
+    {
+        "text": "1472 The young soldier decided to ___ against the government.\n若い兵士は政府に反抗することを決めた。",
+        "answer": "rebel",
+        "meaning": ""
+    },
+    {
+        "text": "1473 They devised a clever ___ to win the game.\n彼らは試合に勝つために巧妙な計画を考えた。",
+        "answer": "scheme",
+        "meaning": ""
+    },
+    {
+        "text": "1474 Breaking with tradition, she ignored the ___.\n伝統に反して、彼女は慣習を無視した。",
+        "answer": "convention",
+        "meaning": ""
     },
     {
         "text": "1475 appropriate clothes for an apology press ___\n謝罪会見にふさわしい服装🦹",
         "answer": "conference",
         "meaning": "conference\t[名] (on ～)(～に関する)会議"
+    },
+    {
+        "text": "1476 You must get ___ from the patient before the operation.\n手術の前に患者の同意を得なければならない。",
+        "answer": "consent",
+        "meaning": ""
+    },
+    {
+        "text": "1477 She showed great ___ by starting her own business.\n彼女は自分のビジネスを始めることで大きな主導性を示した。",
+        "answer": "initiative",
+        "meaning": ""
+    },
+    {
+        "text": "1478 Quebec is a large ___ in Canada.\nケベックはカナダの大きな州である。",
+        "answer": "province",
+        "meaning": ""
+    },
+    {
+        "text": "1479 Australia was originally a British ___.\nオーストラリアは元々イギリスの植民地だった。",
+        "answer": "colony",
+        "meaning": ""
+    },
+    {
+        "text": "1480 The pioneers settled the western ___.\n開拓者たちは西部の辺境地に入植した。",
+        "answer": "frontier",
+        "meaning": ""
+    },
+    {
+        "text": "1481 The two countries signed a ___ to end the conflict.\n両国は紛争を終わらせるために条約を結んだ。",
+        "answer": "treaty",
+        "meaning": ""
+    },
+    {
+        "text": "1482 The indigenous ___ had their own customs and traditions.\n先住部族は独自の習慣と伝統を持っていた。",
+        "answer": "tribe",
+        "meaning": ""
+    },
+    {
+        "text": "1483 He retired and began receiving a monthly ___.\n彼は退職して毎月年金を受け取り始めた。",
+        "answer": "pension",
+        "meaning": ""
+    },
+    {
+        "text": "1484 Investors have a ___ in the company’s success.\n投資家は会社の成功に利害関係を持っている。",
+        "answer": "stake",
+        "meaning": ""
+    },
+    {
+        "text": "1485 The news gave full ___ of the disaster.\nそのニュースは災害について完全に報道した。",
+        "answer": "coverage",
+        "meaning": ""
+    },
+    {
+        "text": "1486 Parents have an ___ to educate their children.\n親には子どもを教育する義務がある。",
+        "answer": "obligation",
+        "meaning": ""
+    },
+    {
+        "text": "1487 Maintaining proper ___ prevents illness.\n適切な衛生状態を保つことは病気を防ぐ。",
+        "answer": "hygiene",
+        "meaning": ""
+    },
+    {
+        "text": "1488 The ___ is responsible for managing the team.\n監督者はチームの管理を担当している。",
+        "answer": "supervisor",
+        "meaning": ""
+    },
+    {
+        "text": "1489 Wearing a helmet is the ___ in this sport.\nこのスポーツではヘルメットを着用することが規範である。",
+        "answer": "norm",
+        "meaning": ""
+    },
+    {
+        "text": "1490 He applied for a ___ for his new invention.\n彼は新しい発明の特許を申請した。",
+        "answer": "patent",
+        "meaning": ""
+    },
+    {
+        "text": "1491 Early humans lived a ___ lifestyle.\n初期の人間は原始的な生活をしていた。",
+        "answer": "primitive",
+        "meaning": ""
+    },
+    {
+        "text": "1492 The region has a rich ___ diversity.\nその地域は豊かな民族的多様性を持っている。",
+        "answer": "ethnic",
+        "meaning": ""
+    },
+    {
+        "text": "1493 The survey was conducted ___ to protect privacy.\nプライバシーを守るために調査は匿名で行われた。",
+        "answer": "anonymous",
+        "meaning": ""
+    },
+    {
+        "text": "1494 New York is a large ___ city.\nニューヨークは大都市である。",
+        "answer": "metropolitan",
+        "meaning": ""
+    },
+    {
+        "text": "1495 You are ___ to a refund if the product is defective.\n製品に欠陥がある場合、返金を受ける権利がある。",
+        "answer": "entitled",
+        "meaning": ""
+    },
+    {
+        "text": "1496 The government studies ___ trends for planning purposes.\n政府は計画のために人口統計の傾向を研究している。",
+        "answer": "demographic",
+        "meaning": ""
+    },
+    {
+        "text": "1497 Many people ___ blood to help patients in need.\n多くの人が困っている患者を助けるために血液を寄付する。",
+        "answer": "donate",
+        "meaning": ""
+    },
+    {
+        "text": "1498 Small businesses can ___ in a supportive environment.\n小さな企業は支援的な環境で繁栄できる。",
+        "answer": "flourish",
+        "meaning": ""
+    },
+    {
+        "text": "1499 Students are expected to ___ to school rules.\n生徒は校則に従うことが期待されている。",
+        "answer": "conform",
+        "meaning": ""
     },
     {
         "text": "1500 All citizens must ___ with the law.\nすべての市民は法律に従わなければならない。",
