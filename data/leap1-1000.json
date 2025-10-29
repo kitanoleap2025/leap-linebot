@@ -1635,7 +1635,7 @@
         "meaning": "room　[名] ①部屋 ②余地，空間〈不可算〉"
     },
     {
-        "text": "331 He told me a funny ___ about his childhood.\n彼は子どもの頃の面白い話をしてくれた📖",
+        "text": "331 Their new office is on the tenth ___.\n彼らの新しいオフィスは10階にある🏢",
         "answer": "story",
         "meaning": "story　[名] 階"
     },
@@ -1921,7 +1921,7 @@
     },
     {
         "text": "388 The project is now ___ finished.\nプロジェクトは今,完全に終わった。👍",
-        "answer": "complete",
+        "answer": "completely",
         "meaning": "complete　[形] ①完全な [他] ②～を完成させる"
     },
     {
@@ -2350,7 +2350,7 @@
         "meaning": "racial　[形] 人種の，民族の"
     },
     {
-        "text": "474 He grew up in a quiet ___ village where the stars were clearly visible.\n彼は星が良く見える静かな田舎の村で育った。🌟",
+        "text": "474 He grew up in a quiet ___ village where the stars were clearly visible.\n彼は星が良く見える静かな田舎の村で育った。",
         "answer": "rural",
         "meaning": "rural　[形] 田舎の"
     },
@@ -4075,6 +4075,11 @@
         "meaning": "load　[名] ①荷（物）〈可算〉 [他] ②（A with B）（A）に（B を）積む"
     },
     {
+        "text": "872 The teacher asked us to summarize the ___ of the article.\n先生はその記事の内容を要約するように言った📝",
+        "answer": "content",
+        "meaning": "content　[名] ①中身，内容 [形] ②（with ～）（～に）満足して"
+    },
+    {
         "text": "873 Many ___ chores are done every day.\n多くの家事は毎日行われている。",
         "answer": "household",
         "meaning": "household　[名] ①（集合的に）所帯，家庭〈可算〉 [形] ②家庭の"
@@ -4425,6 +4430,11 @@
         "meaning": "attract　[他] ～を引きつける，魅了する"
     },
     {
+        "text": "943 Ancient ruins always ___ me with their mystery.\n古代の遺跡はその神秘さでいつも私を魅了する🏺",
+        "answer": "fascinate",
+        "meaning": "fascinate　[他] ～を魅了する，～にとても興味をもたせる"
+    },
+    {
         "text": "944 be ___ in programming\nプログラミングに没頭する",
         "answer": "absorbed",
         "meaning": "absorb　[他] ①（be ―ed in ～）～に没頭する ②～を吸収する"
@@ -4595,6 +4605,11 @@
         "meaning": "depress　[他] ～を憂うつにさせる，落ち込ませる"
     },
     {
+        "text": "978 I ___ my success to my parents’ support.\n私は成功を両親の支えのおかげだと思っている👨‍👩‍👧",
+        "answer": "owe",
+        "meaning": "owe　[他] （A to B)①（A）は（B の）おかげだ ②（A）を（Bに）借りている"
+    },
+    {
         "text": "979 Many people ___ speaking in public.\n多くの人は人前で話すことを恐れる。🤓",
         "answer": "fear",
         "meaning": "fear　[名] ①恐怖 [他] ②～を恐れる ③～を心配する"
@@ -4623,6 +4638,11 @@
         "text": "984 The test was ___ difficult for most students.\nそのテストはほとんどの生徒にとって非常に難しかった。🤯🤯🤯",
         "answer": "extremely",
         "meaning": "extremely　[副] 極度に，非常に"
+    },
+    {
+        "text": "985 The ___ cost of the trip was higher than expected.\n旅行の総費用は予想より高かった💰",
+        "answer": "total",
+        "meaning": "total　[形] ①全体の ②（a ―）まったくの [名] ③合計"
     },
     {
         "text": "986 The plan was ___ successful despite some problems.\nいくつかの問題があったが,その計画はおおむね成功した。",
@@ -4663,6 +4683,11 @@
         "text": "993 ___ speaking,\n率直に言うと,",
         "answer": "Frankly",
         "meaning": "frankly　[副] 率直に"
+    },
+    {
+        "text": "994 ___, the fire station burned down last night.\n皮肉なことに、消防署が昨晩火事になった🔥",
+        "answer": "ironically",
+        "meaning": "ironically　[副] 皮肉なことに"
     },
     {
         "text": "995 He is talented and hardworking; ___, he’s very humble.\n彼は才能があり勤勉だ。さらに、非常に謙虚でもある。",
