@@ -1882,12 +1882,12 @@
     {
         "text": "1385 ___ talent\n圧倒的な才能🧬",
         "answer": "overwhelming",
-        "meaning": ""
+        "meaning": "overwhelming　[形] 圧倒的な"
     },
     { 
         "text": "1386 They stopped talking ___.\n彼らは完全に話をやめた。",
         "answer": "altogether",
-        "meaning": ""
+        "meaning": "altogether　[副] ①完全に ②全部で"
     },
     {
         "text": "1387 He was conscious during the ___ surgery.\n彼は手術中ずっと意識があった.😱",
@@ -1902,142 +1902,142 @@
     {  
         "text": "1389 It was a matter of ___ luck that he survived.\n彼が生き残ったのはまったくの幸運だった。",
         "answer": "sheer",
-        "meaning": ""
+        "meaning": "sheer　[形] ①（数量やサイズを強調して）とてつもない～の ②まったくの"
     },
     { 
         "text": "1390 He made only a ___ recovery after the accident.\n彼は事故の後、部分的にしか回復しなかった。",
         "answer": "partial",
-        "meaning": ""
+        "meaning": "partial　[形] ①部分的な ②不公平な ③（to ～）（～が）大好きで"
     },
     { 
         "text": "1391 I could ___ hear what he said.\n彼の言ったことがかろうじて聞こえた。",
         "answer": "barely",
-        "meaning": ""
+        "meaning": "barely　[副] ①かろうじて ②ほとんど～ない"
     },
     { 
         "text": "1392 There were ___ 100 people at the party.\nパーティーにはおよそ100人がいた。",
         "answer": "approximately",
-        "meaning": ""
+        "meaning": "approximately　[副] （数量が）おおよそ，約"
     }, 
     { 
         "text": "1393 He travels abroad quite ___.\n彼はかなり頻繁に海外旅行をする。",
         "answer": "frequently",
-        "meaning": ""
+        "meaning": "frequently　[副] 頻繁に"
     },
     {
         "text": "1394 ___, there’s an illegal immigrant in this class!\nこのクラスに1人不法移民がいるらしいぞ！",
         "answer": "Apparently",
-        "meaning": ""
+        "meaning": "apparently　[副] ①見たところでは ②<口語>どうやら～らしい"
     },
     {
         "text": "1395 Mary is ___ a teather.\nメアリーは1人の教師に過ぎない.(提供:sky村上)",
         "answer": "merely",
-        "meaning": "entire　[形] すべての"
+        "meaning": "merely　[副] ①（主に名詞の前で）～にすぎない ②（動詞などの前で）単に"
     },
     { 
         "text": "1396 She was tired; ___, she kept working.\n彼女は疲れていたが、それにもかかわらず働き続けた。",
         "answer": "nevertheless",
-        "meaning": ""
+        "meaning": "nevertheless　[副] それにもかかわらず"
     },
     {
         "text": "1397 Looks like spring has ___ arrived outdoors.\n外では春が来たようだ.",
         "answer": "somehow",
-        "meaning": ""
+        "meaning": "somehow　[副] ①何らかの方法で ②何らかの理由で，どういうわけか"
     },
     { 
         "text": "1398 He was injured, and ___ he couldn’t play.\n彼はけがをしていたので、その結果プレーできなかった。",
         "answer": "thus",
-        "meaning": ""
+        "meaning": "thus　[副] ①それゆえ（に)②このように"
     },
     {  
         "text": "1399 They got married and lived happily ever ___.\n彼らは結婚してその後幸せに暮らした。",
         "answer": "afterward",
-        "meaning": ""
+        "meaning": "afterward(s)　[副] ①（文頭で）その後 ②（～afterward）～の後"
     },
     { 
         "text": "1400 She spoke ___ her team during the meeting.\n彼女は会議でチームを代表して話した。",
         "answer": "on behalf of",
-        "meaning": ""
+        "meaning": "on behalf of ～　[熟] ①～を代表して ②～のため"
     },
     { 
         "text": "1401 He ___ his right to freedom of speech.\n彼は言論の自由の権利を主張した。",
         "answer": "assert",
-        "meaning": ""
+        "meaning": "assert　[他] ～と断定する，～を主張する"
     },
     { 
         "text": "1402 She dared to ___ her parents’ orders.\n彼女は親の命令に逆らう勇気を持っていた。",
         "answer": "defy",
-        "meaning": ""
+        "meaning": "defy　[他] ①～に逆らう ②～を拒む"
     },
     { 
         "text": "1403 The government strongly ___ the attack.\n政府はその攻撃を強く非難した。",
         "answer": "condemn",
-        "meaning": ""
+        "meaning": "condemn　[他] ①～を非難する ②～に (刑の)宣告をする ③～を強いる"
     },
     {   
         "text": "1404 He ___ several examples to support his point.\n彼は自分の主張を支持するためにいくつかの例を挙げた。",
         "answer": "cite",
-        "meaning": ""
+        "meaning": "cite　[他] ～を引き合いに出す，引用する"
     },
     {  
         "text": "1405 This chart helps to ___ the main idea.\nこの図は主な考えを説明するのに役立つ。",
         "answer": "illustrate",
-        "meaning": ""
+        "meaning": "illustrate　[他] ①(例で)～を説明する，例証する ②～に挿絵を入れる，～を図解する"
     },
     {   
         "text": "1406 He tried to ___ the false rumor.\n彼はその間違ったうわさを反論しようとした。",
         "answer": "refute",
-        "meaning": ""
+        "meaning": "refute　[他] ～を論駁する，～に反論する"
     },
     { 
         "text": "1407 They decided to ___ the company for damages.\n彼らは損害賠償を求めて会社を訴えることにした。",
         "answer": "sue",
-        "meaning": ""
+        "meaning": "sue　[他] ～を訴える"
     },
     { 
         "text": "1408 She can clearly ___ her thoughts.\n彼女は自分の考えをはっきりと述べることができる。",
         "answer": "articulate",
-        "meaning": ""
+        "meaning": "articulate　[他] ①(考えなど)をはっきり述べる [形] ②考えを明確に表現できる"
     },
     { 
         "text": "1409 This is the latest ___ of the software.\nこれはそのソフトウェアの最新バージョンだ。",
         "answer": "version",
-        "meaning": ""
+        "meaning": "version　[名] ①(個人的な)解釈，意見 ②(製品などの)～版"
     },
     { 
         "text": "1410 He is an ___ of human rights.\n彼は人権の擁護者だ。",
         "answer": "advocate",
-        "meaning": ""
+        "meaning": "advocate　[名] ①提唱者，支持者 [他] ②～を主張する，支持する"
     },
     {  
         "text": "1411 The new medicine was a major ___ in cancer treatment.\nその新薬はがん治療の大きな突破口となった。",
         "answer": "breakthrough",
-        "meaning": ""
+        "meaning": "breakthrough　[名] 飛躍的進歩，大発見"
     },
     { 
         "text": "1412 Human ___ has taken millions of years.\n人類の進化には何百万年もかかっている。",
         "answer": "evolution",
-        "meaning": ""
+        "meaning": "evolution　[名] 進化"
     },
     {
         "text": "1413 The company focuses on ___ to stay ahead in technology.\nその会社は技術で先行するために革新に注力している。",
         "answer": "innovation",
-        "meaning": ""
+        "meaning": "innovation　[名] 革新"
     },
     {
         "text": "1414 Scientists sent a ___ into space to study distant planets.\n科学者たちは遠い惑星を調べるために探査機を宇宙に送った。",
         "answer": "probe",
-        "meaning": ""
+        "meaning": "probe　[名] ①探査機 [他] ②～を調査する"
     },
     {
         "text": "1415 Water is a ___ that can flow easily.\n水は簡単に流れる液体である。",
         "answer": "fluid",
-        "meaning": ""
+        "meaning": "fluid　[名] ①流体 [形] ②流動的な，なめらかな"
     },
     {
         "text": "1416 A ___ is a very tiny piece of matter.\n粒子とは非常に小さな物質の一片である。",
         "answer": "particle",
-        "meaning": ""
+        "meaning": "particle　[名] ①粒子 ②(not a ― of A)(Aの)かけら (もない)"
     },
     {
         "text": "1417 ___ pulls objects toward the Earth.\n重力は物体を地球に引きつける。",
