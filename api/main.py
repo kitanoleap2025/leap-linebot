@@ -804,6 +804,4 @@ def handle_message_common(event, bot_type, line_bot_api):
         TextSendMessage(text="「学ぶ」を押してみましょう！")
     )
 
-if __name__ == "__main__":
-    port = int(os.environ.get("PORT", 8000))
-    app.run(host="0.0.0.0", port=port)
+app = app
