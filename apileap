@@ -1,0 +1,115 @@
+# api/leap.py
+import os, json, time, random, threading
+from collections import defaultdict, deque
+from linebot import LineBotApi, WebhookHandler
+from linebot.models import MessageEvent, TextMessage, TextSendMessage, QuickReply, QuickReplyButton, MessageAction
+from linebot.exceptions import InvalidSignatureError
+import firebase_admin
+from firebase_admin import credentials, firestore
+
+# 環境変数ロード
+LINE_CHANNEL_ACCESS_TOKEN = os.environ["LINE_CHANNEL_ACCESS_TOKEN_LEAP"]
+LINE_CHANNEL_SECRET = os.environ["LINE_CHANNEL_SECRET_LEAP"]
+FIREBASE_CREDENTIALS = json.loads(os.environ["FIREBASE_CREDENTIALS"])
+
+# LINE Bot & Firebase初期化
+line_bot_api = LineBotApi(LINE_CHANNEL_ACCESS_TOKEN)
+handler = WebhookHandler(LINE_CHANNEL_SECRET)
+
+FIREBASE_CREDENTIALS["private_key"] = FIREBASE_CREDENTIALS["private_key"].replace("\\n", "\n")
+cred = credentials.Certificate(FIREBASE_CREDENTIALS)
+firebase_admin.initialize_app(cred)
+db = firestore.client()
+
+# ユーザーデータ
+user_scores = defaultdict(dict)
+user_recent_questions = defaultdict(lambda: deque(maxlen=10))
+user_names = {}
+user_states = {}
+user_answer_start_times = {}
+user_daily_counts = defaultdict(lambda: {"date": None, "count": 1})
+user_daily_e = defaultdict(lambda: {"date": None, "total_e": 0})
+user_streaks = defaultdict(int)
+
+DEFAULT_NAME = "イキイキした毎日"
+
+# 単語データ読み込み
+def load_words(path):
+    with open(path, "r", encoding="utf-8") as f:
+        return json.load(f)
+
+leap_1_1000 = load_words("data/leap1-1000.json")
+leap_1001_2000 = load_words("data/leap1001-2000.json")
+leap_2001_2300 = load_words("data/leap2001-2300.json")
+
+# ユーザーデータの読み書き
+def load_user_data(user_id):
+    doc = db.collection("users").document(user_id).get()
+    if doc.exists:
+        data = doc.to_dict()
+        user_scores[user_id] = defaultdict(lambda:1, data.get("scores", {}))
+        user_recent_questions[user_id] = deque(data.get("recent", []), maxlen=10)
+        user_names[user_id] = data.get("name", DEFAULT_NAME)
+    else:
+        user_names[user_id] = DEFAULT_NAME
+
+def async_save_user_data(user_id):
+    threading.Thread(target=lambda: db.collection("users").document(user_id).set({
+        "scores": dict(user_scores[user_id]),
+        "recent": list(user_recent_questions[user_id]),
+        "name": user_names.get(user_id, DEFAULT_NAME)
+    }, merge=True), daemon=True).start()
+
+# 質問取得
+def get_questions_by_range(range_str):
+    if range_str == "A":
+        return leap_1_1000
+    elif range_str == "B":
+        return leap_1001_2000
+    elif range_str == "C":
+        return leap_2001_2300
+    return []
+
+def send_question(user_id, range_str="A"):
+    qs = get_questions_by_range(range_str)
+    if not qs:
+        return TextSendMessage(text="問題がありません。")
+    q = random.choice(qs)
+    user_states[user_id] = q["answer"]
+    choices = [q["answer"]] + random.sample([x["answer"] for x in qs if x["answer"] != q["answer"]], 3)
+    random.shuffle(choices)
+    quick_buttons = [QuickReplyButton(action=MessageAction(label=c, text=c)) for c in choices]
+    return TextSendMessage(text=q["text"], quick_reply=QuickReply(items=quick_buttons))
+
+# LINEイベント処理
+@handler.add(MessageEvent, message=TextMessage)
+def handle_message(event):
+    user_id = event.source.user_id
+    msg = event.message.text.strip()
+    if user_id not in user_scores:
+        load_user_data(user_id)
+
+    if msg in ["A","B","C"]:
+        line_bot_api.reply_message(event.reply_token, send_question(user_id, msg))
+        return
+
+    # 回答処理
+    if user_id in user_states:
+        correct = user_states[user_id]
+        is_correct = msg.lower() == correct.lower()
+        reply_text = "正解！" if is_correct else f"間違い❌ 正解: {correct}"
+        line_bot_api.reply_message(event.reply_token, TextSendMessage(text=reply_text))
+        async_save_user_data(user_id)
+        return
+
+# Vercel用HTTPハンドラ
+def handler_function(request):
+    if request.method != "POST":
+        return "Method Not Allowed", 405
+    body = request.get_data(as_text=True)
+    signature = request.headers.get("X-Line-Signature", "")
+    try:
+        handler.handle(body, signature)
+    except InvalidSignatureError:
+        return "Invalid signature", 400
+    return "OK", 200
