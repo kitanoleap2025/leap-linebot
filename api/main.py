@@ -803,5 +803,3 @@ def handle_message_common(event, bot_type, line_bot_api):
         event.reply_token,
         TextSendMessage(text="「学ぶ」を押してみましょう！")
     )
-
-app = app
