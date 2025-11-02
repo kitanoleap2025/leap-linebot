@@ -17,7 +17,7 @@ def handle_message(event):
     )
 
 # Vercelサーバーレス関数のエントリポイント
-def handler_main(request):
+def handler(request):
     if request.method != "POST":
         return "Method Not Allowed", 405
 
