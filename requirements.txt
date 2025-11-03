@@ -1,3 +1,4 @@
+flask
 line-bot-sdk
 firebase-admin==6.0.1
 gunicorn==21.2.0
