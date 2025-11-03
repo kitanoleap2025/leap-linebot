@@ -51,7 +51,12 @@ user_streaks = defaultdict(int)
 user_daily_e = defaultdict(lambda: {"date": None, "total_e": 0})
 #-------------------------------------------------------------------------------------
 # ユーザーのアイテム・スキル管理
-user_items = defaultdict(lambda: {"red_sheet": False})
+user_items = defaultdict(lambda: {
+    "red_sheet": False,
+    "eraser": False, 
+    "pencil": False, 
+    "energy": False, 
+})
 
 #-------------------------------------------------------------------------------------
 def send_item_shop(reply_token, line_bot_api):
@@ -59,7 +64,9 @@ def send_item_shop(reply_token, line_bot_api):
 
     # ボタンラベルは20文字以内
     buttons = [
-        PostbackAction(label="赤シート購入", data="buy_red_sheet")
+        PostbackAction(label="赤シート購入", data="buy_red_sheet"),
+        PostbackAction(label="消しゴム購入", data="buy_eraser"),
+        PostbackAction(label="鉛筆コロコロ購入", data="buy_pencil"),
     ]
     
     # ボタンテンプレート送信
@@ -658,6 +665,15 @@ def send_global_notification(line_bot_api, text="勉強して下さい。"):
             line_bot_api.push_message(user_id, TextSendMessage(text=text))
     except Exception as e:
         print(f"Error sending global notification: {e}")
+
+
+@handler_leap.add(PostbackEvent)
+def handle_leap_postback(event):
+    data = event.postback.data
+    if data.startswith("buy_"):
+        item_name = data.replace("buy_", "")
+        handle_item_purchase(event.source.user_id, item_name, line_bot_api_leap)
+
 #----------------------------------------------------------------------------
 # —————— ここからLINEイベントハンドラ部分 ——————
 # LEAP
