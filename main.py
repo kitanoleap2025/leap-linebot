@@ -427,8 +427,6 @@ def build_feedback_flex(user_id, is_correct, score, elapsed, correct_answer=None
     if is_correct:
         y = 5 - score
         e = y * label_score * (user_streaks[user_id] ** 3)
-        if user_items[user_id].get("red_sheet"):
-            e *= 2  # 赤シート効果でE2倍
         total_e_today = user_daily_e[user_id]["total_e"]
         body_contents.append({
             "type": "text",
@@ -478,6 +476,12 @@ def reset_yesterday_total_e():
         batch.commit()
     except Exception as e:
         print(f"Error resetting yesterday's total_e: {e}")
+
+medal_colors = {
+    1: "#FFD700",  # 金
+    2: "#C0C0C0",  # 銀
+    3: "#CD7F32",  # 銅
+}
 
 # 高速ランキング（自分の順位も表示）
 def build_ranking_with_totalE_flex(bot_type):
@@ -674,8 +678,6 @@ def handle_message_common(event, bot_type, line_bot_api):
             label_score = get_label_score(label)
             y = 5 - score
             e = y * label_score * (user_streaks[user_id] ** 3)
-            if user_items[user_id].get("red_sheet"):
-                e *= 2  # 赤シート効果でE2倍
 
             # 日付チェック
             today = time.strftime("%Y-%m-%d")
