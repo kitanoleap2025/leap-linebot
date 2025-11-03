@@ -59,7 +59,7 @@ def send_item_shop(user_id, line_bot_api):
     
     # ショップボタン作成
     buttons = [
-        PostbackAction(label="赤シート (E2倍) - 1000E", data="buy_red_sheet")
+        PostbackAction(label="赤シート - 1000E/nE関数を×2する。友達にLEAPを借りることでも入手可能。", data="buy_red_sheet")
     ]
     
     template = TemplateSendMessage(
