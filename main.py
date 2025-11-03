@@ -17,19 +17,22 @@ import firebase_admin
 from firebase_admin import credentials, firestore
 
 load_dotenv()
+
 def load_words(path):
 #指定されたJSONファイルを読み込み、Pythonのリストとして返す
     with open(path, "r", encoding="utf-8") as f:
         return json.load(f)
 
+#LEAP
+leap_1_1000 = load_words("data/leap1-1000.json")
+leap_1001_2000 = load_words("data/leap1001-2000.json")
+leap_2001_2300 = load_words("data/leap2001-2300.json")
+
+DEFAULT_NAME = "イキイキした毎日"
 
 # LEAP公式ラインインスタンス
 line_bot_api_leap = LineBotApi(os.getenv("LINE_CHANNEL_ACCESS_TOKEN_LEAP"))
 handler_leap = WebhookHandler(os.getenv("LINE_CHANNEL_SECRET_LEAP"))
-
-# TARGET公式ラインインスタンス
-line_bot_api_target = LineBotApi(os.getenv("LINE_CHANNEL_ACCESS_TOKEN_TARGET"))
-handler_target = WebhookHandler(os.getenv("LINE_CHANNEL_SECRET_TARGET"))
 
 app = Flask(__name__)
 
@@ -109,35 +112,15 @@ def handle_item_purchase(user_id, item_name, line_bot_api):
     async_save_user_data(user_id)
     line_bot_api.reply_message(user_id, TextSendMessage(text=f"{item_name}を購入しました！効果: {effect_text}"))
 
-
-
-
-DEFAULT_NAME = "イキイキした毎日"
-
-#LEAP
-leap_1_1000 = load_words("data/leap1-1000.json")
-leap_1001_2000 = load_words("data/leap1001-2000.json")
-leap_2001_2300 = load_words("data/leap2001-2300.json")
-
-# TARGET
-target_1_800 = load_words("data/target1-800.json")
-target_801_1500 = load_words("data/target801-1500.json")
-target_1501_1900 = load_words("data/target1501-1900.json")
-
 #ユーザーデータ読み込み・保存
 def load_user_data(user_id):
-    try:
-        doc = db.collection("users").document(user_id).get()
-        if doc.exists:
-            data = doc.to_dict()
-            user_scores[user_id] = defaultdict(lambda: 1, data.get("scores", {}))
-
-            recent_list = data.get("recent", [])
-            user_recent_questions[user_id] = deque(recent_list, maxlen=10)
-
-            user_names[user_id] = data.get("name", DEFAULT_NAME)
-        else:
-            user_names[user_id] = DEFAULT_NAME
+    doc = db.collection("users").document(user_id).get()
+    if doc.exists:
+        data = doc.to_dict()
+        user_scores[user_id] = defaultdict(lambda: 1, data.get("scores", {}))
+        user_names[user_id] = data.get("name", DEFAULT_NAME)
+    else:
+        user_names[user_id] = DEFAULT_NAME
     except Exception as e:
         print(f"Error loading user data for {user_id}: {e}")
         user_names[user_id] = DEFAULT_NAME
@@ -163,21 +146,14 @@ def async_save_user_data(user_id):
     threading.Thread(target=save_user_data, args=(user_id,), daemon=True).start()
 
 #範囲ごとの問題取得
-def get_questions_by_range(range_str, bot_type, user_id):
+def get_questions_by_range(range_str, user_id):
     if range_str == "A":
-        return leap_1_1000 if bot_type == "LEAP" else target_1_800
+        return leap_1_1000
     elif range_str == "B":
-        return leap_1001_2000 if bot_type == "LEAP" else target_801_1500
+        return leap_1001_2000
     elif range_str == "C":
-        return leap_2001_2300 if bot_type == "LEAP" else target_1501_1900
-    elif range_str == "WRONG":
-        if bot_type == "LEAP":
-            questions = leap_1_1000 + leap_1001_2000 + leap_2001_2300
-        else:
-            questions = target_1_800 + target_801_1500 + target_1501_1900
-        return [q for q in questions if user_scores.get(user_id, {}).get(q["answer"], 1) == 0]
+        return leap_2001_2300
     return []
-
             
 def get_rank(score):
     return {0: "✖", 1: "✔/❓", 2: "✔2", 3: "✔3", 4: "✔4"}.get(score, "✔/❓")
