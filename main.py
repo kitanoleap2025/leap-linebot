@@ -147,7 +147,7 @@ def async_save_user_data(user_id):
     threading.Thread(target=save_user_data, args=(user_id,), daemon=True).start()
 
 #範囲ごとの問題取得
-def get_questions_by_range(range_str, user_id):
+def get_questions_by_range(range_str, bot_type, user_id):
     if range_str == "A":
         return leap_1_1000
     elif range_str == "B":
