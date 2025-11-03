@@ -8,7 +8,7 @@ from linebot import LineBotApi, WebhookHandler
 from linebot.models import (
     MessageEvent, TextMessage, TextSendMessage, FlexSendMessage,
     BoxComponent, TextComponent, QuickReply, QuickReplyButton, MessageAction,
-    ButtonsTemplate, TemplateSendMessage, PostbackAction
+    ButtonsTemplate, TemplateSendMessage, PostbackAction, PostbackEvent
 )
 from linebot.exceptions import InvalidSignatureError  
 
