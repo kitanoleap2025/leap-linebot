@@ -7,9 +7,10 @@ from dotenv import load_dotenv
 from linebot import LineBotApi, WebhookHandler
 from linebot.models import (
     MessageEvent, TextMessage, TextSendMessage, FlexSendMessage,
-    BoxComponent, TextComponent, QuickReply, QuickReplyButton, MessageAction
+    BoxComponent, TextComponent, QuickReply, QuickReplyButton, MessageAction,
+    ButtonsTemplate, TemplateSendMessage, PostbackAction
 )
-from linebot.exceptions import InvalidSignatureError
+from linebot.exceptions import InvalidSignatureError  
 
 # Firebase
 import firebase_admin
@@ -48,6 +49,42 @@ user_answer_start_times = {}  # 問題出題時刻を記録
 user_daily_counts = defaultdict(lambda: {"date": None, "count": 1})
 user_streaks = defaultdict(int)
 user_daily_e = defaultdict(lambda: {"date": None, "total_e": 0})
+#-------------------------------------------------------------------------------------
+# ユーザーのアイテム・スキル管理
+user_items = defaultdict(lambda: {"red_sheet": False})
+
+#-------------------------------------------------------------------------------------
+def send_item_shop(user_id, line_bot_api):
+    total_e = user_daily_e[user_id]["total_e"]
+    
+    # ショップボタン作成
+    buttons = [
+        PostbackAction(label="赤シート (E2倍) - 1000E", data="buy_red_sheet")
+    ]
+    
+    template = TemplateSendMessage(
+        alt_text="アイテムショップ",
+        template=ButtonsTemplate(
+            title="アイテムショップ",
+            text=f"あなたのEスコア: {int(total_e)}",
+            actions=buttons
+        )
+    )
+    
+    line_bot_api.reply_message(user_id, template)
+
+def handle_item_purchase(user_id, item_name, line_bot_api):
+    if item_name == "red_sheet":
+        cost = 1000
+        if user_daily_e[user_id]["total_e"] < cost:
+            line_bot_api.reply_message(user_id, TextSendMessage(text=f"Eスコアが不足しています。{cost}必要です。"))
+            return
+        user_daily_e[user_id]["total_e"] -= cost
+        user_items[user_id]["red_sheet"] = True
+        async_save_user_data(user_id)
+        line_bot_api.reply_message(user_id, TextSendMessage(text="赤シートを購入しました！次回以降のEが2倍になります。"))
+
+
 
 DEFAULT_NAME = "イキイキした毎日"
 
@@ -455,6 +492,8 @@ def build_feedback_flex(user_id, is_correct, score, elapsed, correct_answer=None
     if is_correct:
         y = 5 - score
         e = y * label_score * (user_streaks[user_id] ** 3)
+        if user_items[user_id].get("red_sheet"):
+            e *= 2  # 赤シート効果でE2倍
         total_e_today = user_daily_e[user_id]["total_e"]
         body_contents.append({
             "type": "text",
@@ -707,7 +746,11 @@ def handle_message_common(event, bot_type, line_bot_api):
             )
         )
         return
-        
+
+    if msg == "アイテム":
+        send_item_shop(event.reply_token, line_bot_api)
+        return
+    
     # ランキング
     if msg == "ランキング":
         flex_msg = build_ranking_with_totalE_flex(bot_type)
@@ -738,6 +781,8 @@ def handle_message_common(event, bot_type, line_bot_api):
             label_score = get_label_score(label)
             y = 5 - score
             e = y * label_score * (user_streaks[user_id] ** 3)
+            if user_items[user_id].get("red_sheet"):
+                e *= 2  # 赤シート効果でE2倍
 
             # 日付チェック
             today = time.strftime("%Y-%m-%d")
