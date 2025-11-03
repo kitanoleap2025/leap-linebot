@@ -77,7 +77,6 @@ def save_user_data(user_id):
 
     data = {
         "scores": dict(user_scores[user_id]),
-        "recent": list(user_recent_questions[user_id]),
         "name": user_names.get(user_id, DEFAULT_NAME),
         "total_e": total_e,
         "total_e_date": total_e_date
@@ -463,12 +462,6 @@ def update_total_e_rate(user_id):
         "total_e_rate": round(total_e_rate, 2)
     }, merge=True)
 
-medal_colors = {
-    1: "#000000",  
-    2: "#000000", 
-    3: "#000000",  
-}
-
 def reset_yesterday_total_e():
     """全ユーザーの昨日のtotal_eをリセット（バッチ処理）"""
     today = time.strftime("%Y-%m-%d")
@@ -649,10 +642,6 @@ def handle_message_common(event, bot_type, line_bot_api):
                 quick_reply=QuickReply(items=quick_buttons)
             )
         )
-        return
-
-    if msg == "アイテム":
-        send_item_shop(event.reply_token, line_bot_api)
         return
     
     # ランキング
