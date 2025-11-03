@@ -42,7 +42,6 @@ db = firestore.client()
 #ユーザーデータ管理
 user_states = {}  # user_id: (range_str, correct_answer)
 user_scores = defaultdict(dict)
-user_recent_questions = defaultdict(lambda: deque(maxlen=10))
 user_answer_counts = defaultdict(int)
 user_names = {}  # user_id: name
 user_answer_start_times = {}  # 問題出題時刻を記録
@@ -267,7 +266,7 @@ def send_question(user_id, range_str, bot_type="LEAP"):
         
     q = choose_weighted_question(user_id, questions)
     if q is None:
-        return TextSendMessage(text="直近10問で間違えた問題は表示されません。他の問題を解いてください。")
+        return TextSendMessage(text="問題が見つかりません。")
     user_states[user_id] = (range_str, q["answer"])
     user_answer_start_times[user_id] = time.time()
 
@@ -308,19 +307,15 @@ def send_question(user_id, range_str, bot_type="LEAP"):
 
 def choose_weighted_question(user_id, questions):
     scores = user_scores.get(user_id, {})
-    recent = user_recent_questions[user_id]
     candidates = []
     weights = []
     for q in questions:
-        if q["answer"] in recent:
-            continue
         weight = score_to_weight(scores.get(q["answer"], 1))
         candidates.append(q)
         weights.append(weight)
     if not candidates:
-        return None 
+        return None
     chosen = random.choices(candidates, weights=weights, k=1)[0]
-    user_recent_questions[user_id].append(chosen["answer"])
     return chosen
 
 trivia_messages = [
