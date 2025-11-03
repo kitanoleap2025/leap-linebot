@@ -74,7 +74,7 @@ def send_item_shop(reply_token, line_bot_api):
         alt_text="アイテムショップ",
         template=ButtonsTemplate(
             title="アイテムショップ",
-            text=f"あなたのEスコア: {int(total_e)}",
+            text=f"あなたのE: {int(total_e)}",
             actions=buttons
         )
     )
@@ -161,11 +161,6 @@ def save_user_data(user_id):
 
 def async_save_user_data(user_id):
     threading.Thread(target=save_user_data, args=(user_id,), daemon=True).start()
-
-# ABC全範囲まとめ
-leap_questions_all = leap_1_1000 + leap_1001_2000 + leap_2001_2300
-target_questions_all = target_1_800 + target_801_1500 + target_1501_1900
-
 
 #範囲ごとの問題取得
 def get_questions_by_range(range_str, bot_type, user_id):
