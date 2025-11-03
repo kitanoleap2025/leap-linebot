@@ -53,64 +53,8 @@ user_daily_counts = defaultdict(lambda: {"date": None, "count": 1})
 user_streaks = defaultdict(int)
 user_daily_e = defaultdict(lambda: {"date": None, "total_e": 0})
 #-------------------------------------------------------------------------------------
-# ユーザーのアイテム・スキル管理
-user_items = defaultdict(lambda: {
-    "red_sheet": False,
-    "eraser": False, 
-    "pencil": False, 
-    "energy": False, 
-})
 
 #-------------------------------------------------------------------------------------
-def send_item_shop(reply_token, line_bot_api):
-    total_e = user_daily_e.get(reply_token, {}).get("total_e", 0)
-
-    # ボタンラベルは20文字以内
-    buttons = [
-        PostbackAction(label="赤シート購入", data="buy_red_sheet"),
-        PostbackAction(label="消しゴム購入", data="buy_eraser"),
-        PostbackAction(label="鉛筆コロコロ購入", data="buy_pencil"),
-    ]
-    
-    # ボタンテンプレート送信
-    template = TemplateSendMessage(
-        alt_text="アイテムショップ",
-        template=ButtonsTemplate(
-            title="アイテムショップ",
-            text=f"あなたのE: {int(total_e)}",
-            actions=buttons
-        )
-    )
-
-    line_bot_api.reply_message(reply_token, template)
-    line_bot_api.push_message(reply_token, TextSendMessage(text=detail_text))
-
-
-def handle_item_purchase(user_id, item_name, line_bot_api):
-    if item_name == "red_sheet":
-        cost = 1000
-        effect_text = "common 関数を×2する。友達のLEAPを借りることによっても入手可能。"
-    elif item_name == "eraser":
-        cost = 1000
-        effect_text = "common 間違いを消せる"
-    elif item_name == "pencil":
-        cost = 1000
-        effect_text = "common スコア補助"
-    elif item_name == "energy":
-        cost = 1000
-        effect_text = "スタミナ回復"
-    else:
-        line_bot_api.reply_message(user_id, TextSendMessage(text="そのアイテムは存在しません。"))
-        return
-
-    if user_daily_e[user_id]["total_e"] < cost:
-        line_bot_api.reply_message(user_id, TextSendMessage(text=f"Eスコアが不足しています。{cost}必要です。"))
-        return
-
-    user_daily_e[user_id]["total_e"] -= cost
-    user_items[user_id][item_name] = True
-    async_save_user_data(user_id)
-    line_bot_api.reply_message(user_id, TextSendMessage(text=f"{item_name}を購入しました！効果: {effect_text}"))
 
 #ユーザーデータ読み込み・保存
 def load_user_data(user_id):
@@ -286,7 +230,7 @@ def send_question(user_id, range_str, bot_type="LEAP"):
 
     if not questions:
         if range_str == "WRONG":
-            return TextSendMessage(text="🎉間違えた単語はありません🎉")
+            return TextSendMessage(text="🎉🎉🎉🎉🎉\n間違えた単語はありません\n🎉🎉🎉🎉🎉")
         return TextSendMessage(text="問題が見つかりません。")
 
     # 間違えた問題の数を取得
@@ -489,7 +433,7 @@ def build_feedback_flex(user_id, is_correct, score, elapsed, correct_answer=None
         total_e_today = user_daily_e[user_id]["total_e"]
         body_contents.append({
             "type": "text",
-            "text": f"{y}×{label_symbol}{label_score}×🔥{user_streaks[user_id]}³={e}",
+            "text": f"{y}×{label_symbol}{label_score}×🔥{user_streaks[user_id]}³=${e}",
             "size": "lg",
             "color": "#333333",
             "margin": "xl"
@@ -580,7 +524,7 @@ def build_ranking_with_totalE_flex(bot_type):
         "type": "box",
         "layout": "vertical",
         "contents": [
-            {"type": "text", "text": "今日のスコアランキング", "weight": "bold", "size": "xl"},
+            {"type": "text", "text": "今日の$ランキング", "weight": "bold", "size": "xl"},
             {"type": "separator", "margin": "md"}
         ]
     })
@@ -630,25 +574,6 @@ def build_ranking_with_totalE_flex(bot_type):
         alt_text=f"{bot_type.upper()}ランキング + TotalEランキング",
         contents=flex_content
     )
-#--------------------------通知----------------------------------------
-def send_global_notification(line_bot_api, text="勉強して下さい。"):
-    try:
-        docs = db.collection("users").stream()
-        for doc in docs:
-            user_id = doc.id
-            line_bot_api.push_message(user_id, TextSendMessage(text=text))
-    except Exception as e:
-        print(f"Error sending global notification: {e}")
-
-
-@handler_leap.add(PostbackEvent)
-def handle_leap_postback(event):
-    data = event.postback.data
-    if data.startswith("buy_"):
-        item_name = data.replace("buy_", "")
-        handle_item_purchase(event.source.user_id, item_name, line_bot_api_leap)
-
-#----------------------------------------------------------------------------
 # —————— ここからLINEイベントハンドラ部分 ——————
 # LEAP
 @app.route("/callback/leap", methods=["POST"])
@@ -680,10 +605,6 @@ def handle_message_common(event, bot_type, line_bot_api):
     if user_id not in user_scores:
         load_user_data(user_id)
 
-    if msg == "Σ":
-        send_global_notification(line_bot_api, text="勉強して下さい。")
-        line_bot_api.reply_message(event.reply_token, TextSendMessage(text="全ユーザーに通知を送りました。"))
-        return
     
     # 名前変更コマンド
     if msg.startswith("@"):
