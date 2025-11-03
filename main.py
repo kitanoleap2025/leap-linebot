@@ -114,13 +114,14 @@ def handle_item_purchase(user_id, item_name, line_bot_api):
 
 #ユーザーデータ読み込み・保存
 def load_user_data(user_id):
-    doc = db.collection("users").document(user_id).get()
-    if doc.exists:
-        data = doc.to_dict()
-        user_scores[user_id] = defaultdict(lambda: 1, data.get("scores", {}))
-        user_names[user_id] = data.get("name", DEFAULT_NAME)
-    else:
-        user_names[user_id] = DEFAULT_NAME
+    try:
+        doc = db.collection("users").document(user_id).get()
+        if doc.exists:
+            data = doc.to_dict()
+            user_scores[user_id] = defaultdict(lambda: 1, data.get("scores", {}))
+            user_names[user_id] = data.get("name", DEFAULT_NAME)
+        else:
+            user_names[user_id] = DEFAULT_NAME
     except Exception as e:
         print(f"Error loading user data for {user_id}: {e}")
         user_names[user_id] = DEFAULT_NAME
@@ -175,8 +176,6 @@ def build_result_flex(user_id, bot_type):
     # bot_type による範囲設定
     if bot_type == "LEAP":
         ranges = [("A", "1-1000"), ("B", "1001-2000"), ("C", "2001-2300")]
-    else:  # TARGET
-        ranges = [("A", "1-800"), ("B", "801-1500"), ("C", "1501-1900")]
 
     parts = []
     all_answers = []
@@ -267,8 +266,6 @@ def update_total_rate(user_id, bot_type):
     # 単語リストをまとめる
     if bot_type.lower() == "leap":
         questions = leap_1_1000 + leap_1001_2000 + leap_2001_2300
-    else:
-        questions = target_1_800 + target_801_1500 + target_1501_1900
 
     total_words = len(questions)  # 現在ロードされている単語数を使用
 
@@ -319,8 +316,6 @@ def send_question(user_id, range_str, bot_type="LEAP"):
     # 全範囲から外れ選択肢を取得
     if bot_type == "LEAP":
         all_questions = leap_1_1000 + leap_1001_2000 + leap_2001_2300
-    else:  # TARGET
-        all_questions = target_1_800 + target_801_1500 + target_1501_1900
 
     other_answers = [item["answer"] for item in all_questions if item["answer"] != correct_answer]
 
@@ -662,22 +657,11 @@ def callback_leap():
     signature = request.headers["X-Line-Signature"]
     handler_leap.handle(body, signature)
     return "OK"
-#target
-@app.route("/callback/target", methods=["POST"])
-def callback_target():
-    body = request.get_data(as_text=True)
-    signature = request.headers["X-Line-Signature"]
-    handler_target.handle(body, signature)
-    return "OK"
 
 # LEAP
 @handler_leap.add(MessageEvent, message=TextMessage)
 def handle_leap_message(event):
     handle_message_common(event, bot_type="LEAP", line_bot_api=line_bot_api_leap)
-#target
-@handler_target.add(MessageEvent, message=TextMessage)
-def handle_target_message(event):
-    handle_message_common(event, bot_type="TARGET", line_bot_api=line_bot_api_target)
 
 @app.route("/health")
 def health():
@@ -734,13 +718,6 @@ def handle_message_common(event, bot_type, line_bot_api):
                 QuickReplyButton(action=MessageAction(label="1-1000", text="A")),
                 QuickReplyButton(action=MessageAction(label="1001-2000", text="B")),
                 QuickReplyButton(action=MessageAction(label="2001-2300", text="C")),
-                QuickReplyButton(action=MessageAction(label="間違えた問題", text="WRONG")),
-            ]
-        else:  # TARGET
-            quick_buttons = [
-                QuickReplyButton(action=MessageAction(label="1-800", text="A")),
-                QuickReplyButton(action=MessageAction(label="801-1500", text="B")),
-                QuickReplyButton(action=MessageAction(label="1501-1900", text="C")),
                 QuickReplyButton(action=MessageAction(label="間違えた問題", text="WRONG")),
             ]
 
