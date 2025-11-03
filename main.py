@@ -54,14 +54,15 @@ user_daily_e = defaultdict(lambda: {"date": None, "total_e": 0})
 user_items = defaultdict(lambda: {"red_sheet": False})
 
 #-------------------------------------------------------------------------------------
-def send_item_shop(user_id, line_bot_api):
-    total_e = user_daily_e[user_id]["total_e"]
-    
-    # ショップボタン作成
+def send_item_shop(reply_token, line_bot_api):
+    total_e = user_daily_e.get(reply_token, {}).get("total_e", 0)
+
+    # ボタンラベルは20文字以内
     buttons = [
-        PostbackAction(label="赤シート - 1000E/nE関数を×2する。友達にLEAPを借りることでも入手可能。", data="buy_red_sheet")
+        PostbackAction(label="赤シート購入", data="buy_red_sheet")
     ]
     
+    # ボタンテンプレート送信
     template = TemplateSendMessage(
         alt_text="アイテムショップ",
         template=ButtonsTemplate(
@@ -70,8 +71,18 @@ def send_item_shop(user_id, line_bot_api):
             actions=buttons
         )
     )
-    
-    line_bot_api.reply_message(user_id, template)
+
+    line_bot_api.reply_message(reply_token, template)
+
+    # 詳細説明は別メッセージで送る
+    detail_text = (
+        "赤シート:\n"
+        "- 価格: 1000E\n"
+        "- 効果: E関数を×2\n"
+        "- 友達にLEAPを借りることでも入手可能"
+    )
+    line_bot_api.push_message(reply_token, TextSendMessage(text=detail_text))
+
 
 def handle_item_purchase(user_id, item_name, line_bot_api):
     if item_name == "red_sheet":
