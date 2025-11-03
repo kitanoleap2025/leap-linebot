@@ -80,27 +80,35 @@ def send_item_shop(reply_token, line_bot_api):
     )
 
     line_bot_api.reply_message(reply_token, template)
-
-    # 詳細説明は別メッセージで送る
-    detail_text = (
-        "赤シート:\n"
-        "- 価格: 1000E\n"
-        "- 効果: E関数を×2\n"
-        "- 友達にLEAPを借りることでも入手可能"
-    )
     line_bot_api.push_message(reply_token, TextSendMessage(text=detail_text))
 
 
 def handle_item_purchase(user_id, item_name, line_bot_api):
     if item_name == "red_sheet":
         cost = 1000
-        if user_daily_e[user_id]["total_e"] < cost:
-            line_bot_api.reply_message(user_id, TextSendMessage(text=f"Eスコアが不足しています。{cost}必要です。"))
-            return
-        user_daily_e[user_id]["total_e"] -= cost
-        user_items[user_id]["red_sheet"] = True
-        async_save_user_data(user_id)
-        line_bot_api.reply_message(user_id, TextSendMessage(text="赤シートを購入しました！次回以降のEが2倍になります。"))
+        effect_text = "common 関数を×2する。友達のLEAPを借りることによっても入手可能。"
+    elif item_name == "eraser":
+        cost = 1000
+        effect_text = "common 間違いを消せる"
+    elif item_name == "pencil":
+        cost = 1000
+        effect_text = "common スコア補助"
+    elif item_name == "energy":
+        cost = 1000
+        effect_text = "スタミナ回復"
+    else:
+        line_bot_api.reply_message(user_id, TextSendMessage(text="そのアイテムは存在しません。"))
+        return
+
+    if user_daily_e[user_id]["total_e"] < cost:
+        line_bot_api.reply_message(user_id, TextSendMessage(text=f"Eスコアが不足しています。{cost}必要です。"))
+        return
+
+    user_daily_e[user_id]["total_e"] -= cost
+    user_items[user_id][item_name] = True
+    async_save_user_data(user_id)
+    line_bot_api.reply_message(user_id, TextSendMessage(text=f"{item_name}を購入しました！効果: {effect_text}"))
+
 
 
 
