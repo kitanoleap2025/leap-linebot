@@ -478,9 +478,9 @@ def reset_yesterday_total_e():
         print(f"Error resetting yesterday's total_e: {e}")
 
 medal_colors = {
-    1: "#FFD700",  # 金
-    2: "#C0C0C0",  # 銀
-    3: "#CD7F32",  # 銅
+    1: "#000000", 
+    2: "#000000", 
+    3: "#000000", 
 }
 
 # 高速ランキング（自分の順位も表示）
