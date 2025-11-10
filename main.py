@@ -97,6 +97,14 @@ def get_questions_by_range(range_str, bot_type, user_id):
         return leap_1001_2000
     elif range_str == "C":
         return leap_2001_2300
+    elif range_str == "WRONG":
+        # user_scores 内で score == 0 の単語を集め、該当する問題オブジェクトを返す
+        wrong_words = {w for w, s in user_scores.get(user_id, {}).items() if s == 0}
+        if not wrong_words:
+            return []
+        # 全単語リスト（bot_type==LEAP の想定）
+        all_questions = leap_1_1000 + leap_1001_2000 + leap_2001_2300
+        return [q for q in all_questions if q["answer"] in wrong_words]
     return []
             
 def get_rank(score):
@@ -225,19 +233,19 @@ def update_total_rate(user_id, bot_type):
     return total_rate
 
 def send_question(user_id, range_str, bot_type="LEAP"):
-    questions = get_questions_by_range(range_str, bot_type, user_id)
-
-    if not questions:
-        if range_str == "WRONG":
-            return TextSendMessage(text="🎉🎉🎉🎉🎉\n間違えた単語はありません\n🎉🎉🎉🎉🎉")
-        return TextSendMessage(text="問題が見つかりません。")
-
-    # 間違えた問題の数を取得
     if range_str == "WRONG":
+        questions = get_questions_by_range("WRONG", bot_type, user_id)
+        # 間違え単語がない場合
+        if not questions:
+            return TextSendMessage(text="🎉🎉🎉\n間違えた単語はありません！\n🎉🎉🎉")
         wrong_count = len(questions)
     else:
+        questions = get_questions_by_range(range_str, bot_type, user_id)
         wrong_count = None
-        
+
+    if not questions:
+        return TextSendMessage(text="問題が見つかりません。")
+
     q = choose_weighted_question(user_id, questions)
     if q is None:
         return TextSendMessage(text="問題が見つかりません。")
@@ -257,9 +265,7 @@ def send_question(user_id, range_str, bot_type="LEAP"):
             score_display = "✔" * score + "□" * flames
 
     # 全範囲から外れ選択肢を取得
-    if bot_type == "LEAP":
-        all_questions = leap_1_1000 + leap_1001_2000 + leap_2001_2300
-
+    all_questions = leap_1_1000 + leap_1001_2000 + leap_2001_2300
     other_answers = [item["answer"] for item in all_questions if item["answer"] != correct_answer]
 
     wrong_choices = random.sample(other_answers, k=min(3, len(other_answers)))
