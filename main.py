@@ -331,14 +331,16 @@ trivia_messages = [
     "ヒントろぼっと🤖\nLEAPには大金を払う価値がある。",
     "ヒントろぼっと🤖\nLEAPには莫大な時間を払う価値がある。",
     "ヒントろぼっと🤖\n大谷翔平は全国の小学校にLEAPを送った。",
+    "ヒントろぼっと🤖\nLEAP:「2秒で伸ばしてやる。」",
+    
 ]
     
 def evaluate_X(elapsed, score, answer, is_multiple_choice=True):
     X = elapsed**1.7 + score**1.7
 
-    if X <= 10:
+    if X <= 12:
         return "!!Brilliant", 3
-    elif X <= 20:
+    elif X <= 25:
         return "!Great", 2
     else:
         return "✓Correct", 1
@@ -704,7 +706,7 @@ def handle_message_common(event, bot_type, line_bot_api):
 
         else:
             # 不正解時は0
-            user_streaks[user_id] = 0
+            user_streaks[user_id] = max(user_streaks[user_id] - 10, 0)
             user_scores[user_id][correct_answer] = 0
 
         # q を取得して meaning を渡す
