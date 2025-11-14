@@ -1582,87 +1582,87 @@
     {
         "text": "1325 They took ___ under a tree during the storm.\n嵐の間、彼らは木の下に避難した。",
         "answer": "shelter",
-        "meaning": ""
+        "meaning": "shelter　[名] ①避難（所)②住居"
     },
     {
         "text": "1326 She wore a beautiful silk ___.\n彼女は美しいシルクの衣服を着ていた。",
         "answer": "garment",
-        "meaning": ""
+        "meaning": "garment　[名] 衣類"
     },
     {
         "text": "1327 The boat moved slowly through the ___.\nその船は運河をゆっくり進んだ。",
         "answer": "canal",
-        "meaning": ""
+        "meaning": "canal　[名] 運河"
     },
     {
         "text": "1328 He opened the ___ to get a glass.\n彼はグラスを取るために戸棚を開けた。",
         "answer": "cabinet",
-        "meaning": ""
+        "meaning": "cabinet　[名] ①戸棚 ②（the C―）内閣"
     },
     {
         "text": "1329 There was a strange ___ outside the store.\n店の外で奇妙な出来事があった。",
         "answer": "incident",
-        "meaning": ""
+        "meaning": "incident　[名] （主に不快な）出来事"
     },
     {
         "text": "1330 Under these ___, we have no choice.\nこのような状況では、私たちに選択肢はない。",
         "answer": "circumstances",
-        "meaning": ""
+        "meaning": "circumstance　[名] （通例 ―s）状況，事情"
     },
     {
         "text": "1331 Can you ___ me a glass of water?\nお水を取ってきてくれる？",
         "answer": "fetch",
-        "meaning": ""
+        "meaning": "fetch　[他] （主に〈英〉）～を取って来る"
     },
     {
         "text": "1332 They will ___ food to the refugees.\n彼らは難民に食料を配る予定だ。",
         "answer": "distribute",
-        "meaning": ""
+        "meaning": "distribute　[他] ①～を分配する，配る ②（be ―d）分布している"
     },
     {
         "text": "1333 I want to ___ a new laptop.\n新しいノートパソコンを購入したい。",
         "answer": "purchase",
-        "meaning": ""
+        "meaning": "purchase　[他] ①～を購入する [名] ②購入（品）"
     },
     {
         "text": "1334 The ___ in the park is over 10 meters tall.\nその公園の像は10メートル以上の高さがある。",
         "answer": "statue",
-        "meaning": ""
+        "meaning": "statue　[名] 像"
     },
     {
         "text": "1335 The museum has a famous Greek ___.\nその博物館には有名なギリシャの彫刻がある。",
         "answer": "sculpture",
-        "meaning": ""
+        "meaning": "sculpture　[名] 彫刻"
     },
     {
         "text": "1336 The story of the phoenix is a ___.\nフェニックスの物語は神話だ。",
         "answer": "myth",
-        "meaning": ""
+        "meaning": "myth　[名] ①（俗説という意味での）神話 ②（古代の）神話"
     },
     {
         "text": "1337 She sells her handmade ___s online.\n彼女は自作の工芸品をオンラインで売っている。",
         "answer": "craft",
-        "meaning": ""
+        "meaning": "craft　[名] ①工芸（品)②（職人の）技術 ③船，乗り物（単複同形）"
     },
     {
         "text": "1338 He kept a daily ___ during his travels.\n彼は旅の間、日記を毎日つけていた。",
         "answer": "journal",
-        "meaning": ""
+        "meaning": "journal　[名] ①雑誌，専門誌 ②（公的な）日誌，日記"
     },
     {
         "text": "1339 Look it up in the ___.\n百科事典で調べてみて。",
         "answer": "encyclopedia",
-        "meaning": ""
+        "meaning": "encyclopedia　[名] 百科事典"
     },
     {
         "text": "1340 She believed her dog went to ___.\n彼女は自分の犬が天国に行ったと信じていた。",
         "answer": "heaven",
-        "meaning": ""
+        "meaning": "heaven　[名] ①天国 ②（the ―s）空"
     },
     {
         "text": "1341 The ___ will be held tomorrow afternoon.\n葬式は明日の午後に行われる予定だ。",
         "answer": "funeral",
-        "meaning": ""
+        "meaning": "funeral　[名] 葬式"
     },
     {
         "text": "1342 the ___ of Japan\n日本の魂👧",
@@ -1672,82 +1672,82 @@
     {
         "text": "1343 The ___ led the wedding ceremony.\nその聖職者が結婚式を執り行った。",
         "answer": "priest",
-        "meaning": ""
+        "meaning": "priest　[名] 神父，僧侶，牧師，聖職者"
     },
     {
         "text": "1344 He has strong ___ in his religion.\n彼は自分の宗教に強い信仰を持っている。",
         "answer": "faith",
-        "meaning": ""
+        "meaning": "faith　[名] ①（主に宗教上の）信仰 ②信頼"
     },
     {
         "text": "1345 The temple is considered a ___ place.\nその寺は神聖な場所と見なされている。",
         "answer": "sacred",
-        "meaning": ""
+        "meaning": "sacred　[形] 神聖な"
     },
     {
         "text": "1346 They believe in ___ power.\n彼らは神の力を信じている。",
         "answer": "divine",
-        "meaning": ""
+        "meaning": "divine　[形] 神の"
     },
     {
         "text": "1347 She was raised in a ___ family.\n彼女はムスリムの家庭で育った。",
         "answer": "Muslim",
-        "meaning": ""
+        "meaning": "Muslim　[名] イスラム教徒"
     },
     {
         "text": "1348 The word has a different meaning in this ___.\nその言葉はこの文脈では別の意味を持つ。",
         "answer": "context",
-        "meaning": ""
+        "meaning": "context　[名] ①文脈 ②状況"
     },
     {
         "text": "1349 Use the ___ form of the verb here.\nここでは動詞の単数形を使いなさい。",
         "answer": "singular",
-        "meaning": ""
+        "meaning": "singular　[形] ①単数の ②（褒めて）比類なき ③奇妙な"
     },
     {
         "text": "1350 He gave a clear ___ to stop.\n彼はやめるよう明確な命令を出した。",
         "answer": "command",
-        "meaning": ""
+        "meaning": "command　[名] ①言語を操る力 ②命令 [他] ③～を集める ④～を見渡せる"
     },
     {
         "text": "1351 For example, take this ___.\n例えば、この事例を見てみよう。",
         "answer": "instance",
-        "meaning": ""
+        "meaning": "instance　[名] 例"
     },
     {
         "text": "1352 There was a deep ___ between the two characters.\n2人の登場人物の間には深い対話があった。",
         "answer": "dialogue",
-        "meaning": ""
+        "meaning": "dialogue　[名] ①（本，劇，映画の中の）会話 ②対談，対話"
     },
     {
         "text": "1353 The ___ of this word is incorrect.\nこの単語の使い方は間違っている。",
         "answer": "usage",
-        "meaning": ""
+        "meaning": "usage　[名] 語法"
     },
     {
         "text": "1354 The word begins with a ___ sound.\nその単語は母音の音で始まる。",
         "answer": "vowel",
-        "meaning": ""
+        "meaning": "vowel　[名] 母音"
     },
     {
         "text": "1355 ‘They’ is a plural ___.\n「They」は複数の代名詞である。",
         "answer": "pronoun",
-        "meaning": ""
+        "meaning": "pronoun　[名] 代名詞"
     },
     {
         "text": "1356 She speaks English with a French ___.\n彼女はフランス語なまりの英語を話す。",
         "answer": "accent",
-        "meaning": ""
+        "meaning": "accent　[名] ①訛 ②アクセント"
     },
     {  
         "text": "1357 The teacher gave an ___ of the chapter.\n先生はその章の概要を説明した。",
         "answer": "outline",
-        "meaning": ""
+        "meaning": "outline　[動] ～の要点を述べる，～の輪郭を描く"
     },
     {
         "text": "1358 They live in a ___ village.\n彼らは人里離れた村に住んでいる。",
         "answer": "remote",
-        "meaning": ""
+        "meaning": "remote　[形] ①（地理的に）辺鄙な ②（時間，関係などが）遠い"
     },
     {
         "text": "1359 achieve my ___ to be a pilot.\nパイロットになるという望みを叶える",
@@ -1757,52 +1757,52 @@
     {
         "text": "1360 He has a bad ___.\n彼は短気な性格だ。",
         "answer": "temper",
-        "meaning": ""
+        "meaning": "temper　[名] ①気性 ②（熟語で）平静（な気分）"
     },
     {
         "text": "1361 She showed great ___ for the puppy.\n彼女は子犬に深い愛情を示した。",
         "answer": "affection",
-        "meaning": ""
+        "meaning": "affection　[名] 愛情"
     },
     {
         "text": "1362 They cheered with ___.\n彼らは熱狂的に歓声を上げた。",
         "answer": "enthusiasm",
-        "meaning": ""
+        "meaning": "enthusiasm　[名] 情熱，熱意"
     },
     {
         "text": "1363 He shouted in a fit of ___.\n彼は激怒して叫んだ。",
         "answer": "rage",
-        "meaning": ""
+        "meaning": "rage　[名] ①激怒 [自] ②（戦争，病気が）激しく続く，猛威をふるう"
     },
     { 
-        "text": "1364 The story was so ___ I couldn’t believe it.\nその話は信じられないほどすごかった。",
+        "text": "1364 His grades were so ___ I couldn’t believe it.\n彼の成績は信じられないほどすごかった。",
         "answer": "incredible",
-        "meaning": ""
+        "meaning": "incredible　[形] 信じられない"
     },
     {
         "text": "1365 She let out a soft ___.\n彼女は静かにくすくす笑った。",
         "answer": "chuckle",
-        "meaning": ""
+        "meaning": "chuckle　[自] ①くすくす笑う [名] ②くすくす笑うこと"
     },
     {
         "text": "1366 I wouldn't ___ to ask him that.\nそんなことを彼に聞く勇気はない。",
         "answer": "dare",
-        "meaning": ""
+        "meaning": "dare　[他] ①（to do）思い切って～する [助] ②（do）思い切って～する"
     },
     {
         "text": "1367 She let out a loud ___.\n彼女は大きな悲鳴を上げた。",
         "answer": "scream",
-        "meaning": ""
+        "meaning": "scream　[自] ①悲鳴を上げる [名] ②悲鳴"
     },
     {
         "text": "1368 This tea will help ___ your nerves.\nこのお茶は神経を落ち着かせるのに役立つ。",
         "answer": "soothe",
-        "meaning": ""
+        "meaning": "soothe　[他] ①（人）をなだめる ②（痛みなど）をやわらげる"
     },
     {
         "text": "1369 The cake seemed to ___ him.\nそのケーキは彼を誘惑しているようだった。",
         "answer": "tempt",
-        "meaning": ""
+        "meaning": "tempt　[他] ～を誘惑する"
     },
     {
         "text": "1370 He was allegedly ___ by the teacher.\n彼は先生に怒られたらしい",
@@ -1812,72 +1812,72 @@
     {
         "text": "1371 The people were ___ed by a cruel ruler.\nその人々は残酷な支配者に圧迫されていた。",
         "answer": "oppressed",
-        "meaning": ""
+        "meaning": "oppress　[他] ～を圧迫する，虐げる"
     },
     { 
         "text": "1372 Mom ___ to punish me if I didn’t clean my room.\n部屋を片付けなければ,ママは僕を罰すると脅した。🔫", 
         "answer": "threatened", 
-        "meaning": "" 
+        "meaning": "threaten　[他] ①～を脅かす ②（to do）～すると脅す ③～の恐れがある" 
     },
     {
-        "text": "1373 They ___ed the loss of their friend.\n彼らは友人の死を悲しんだ。",
+        "text": "1373 We ___ his repeating a year.\n私たちは彼の留年を嘆いた。😭😭😭",
         "answer": "mourned",
-        "meaning": ""
+        "meaning": "mourn　[他] ～を嘆く，悼む"
     },
     {
         "text": "1374 He made a great ___ for his family.\n彼は家族のために大きな犠牲を払った。",
         "answer": "sacrifice",
-        "meaning": ""
+        "meaning": "sacrifice　[他] ①～を犠牲にする [名] ②犠牲"
     },
     {
         "text": "1375 She muttered a ___ under her breath.\n彼女は小声で呪いの言葉をつぶやいた。",
         "answer": "curse",
-        "meaning": ""
+        "meaning": "curse　[名] ①災いの元 ②呪い [他] ③～を呪う，ののしる"
     },
     {
         "text": "1376 Many problems ___ from poor planning.\n多くの問題は計画不足に由来している。",
         "answer": "stem",
-        "meaning": ""
+        "meaning": "stem　[自] ①（from ～）（～が）原因である [名] ②茎，幹，ワイングラスの脚"
     },
     {
         "text": "1377 That comment ___ed a big argument.\nその発言が大きな口論のきっかけとなった。",
         "answer": "triggered",
-        "meaning": ""
+        "meaning": "trigger　[他] ①～のきっかけになる，～を誘発する [名] ②（銃の）引き金"
     },
     {
         "text": "1378 Every action has a ___.\nすべての行動には結果がある。",
         "answer": "consequence",
-        "meaning": ""
+        "meaning": "consequence　[名] ①結果 ②（of ―)重要性"
     },
     {
-        "text": "1379 Learning is a long ___.\n学習は長いプロセスだ。",
+        "text": "1379 the ___ of becoming a NEET\nニートになるまでの過程",
         "answer": "process",
-        "meaning": ""
+        "meaning": "process　[名] ①過程 [他] ②～を加工する，処理する"
     },
     {
         "text": "1380 They had to ___ to violence.\n彼らは暴力に訴えざるを得なかった。",
         "answer": "resort",
-        "meaning": ""
+        "meaning": "resort　[自] ①（to ～）（～に）訴える [名] ②行楽地 ③手段"
     },
     { 
         "text": "1381 He explained the ___ for solving the problem.\n彼はその問題を解くための手順を説明した。",
         "answer": "formula",
-        "meaning": ""
+        "meaning": "formula　[名] ①方法 ②秘けつ ③（数学，化学などの）式，公式"
     },
     {   
         "text": "1382 You must follow the correct ___ for safety.\n安全のために正しい手順に従わなければならない。",
         "answer": "procedure",
-        "meaning": ""
+        "meaning": "procedure　[名] 手続き，手順"
     },
     { 
         "text": "1383 Her talent is truly ___ compared to others.\n彼女の才能は他の人と比べて本当に並外れている。",
         "answer": "extraordinary",
-        "meaning": ""
+        "meaning": "extraordinary　[形] ①並外れた ②臨時の（会議など)③特命の（大使など）"
     },
     {   
-        "text": "1384 This is an ___ rule with no exceptions.\nこれは例外のない絶対的な規則だ。",
+        "text": "1384 ___ ability\n絶対的な実力",
         "answer": "absolute",
-        "meaning": ""
+        "meaning": "absolute　[形] 絶対的な"
     },
     {
         "text": "1385 ___ talent\n圧倒的な才能🧬",
@@ -2042,32 +2042,32 @@
     {
         "text": "1417 ___ pulls objects toward the Earth.\n重力は物体を地球に引きつける。",
         "answer": "gravity",
-        "meaning": ""
+        "meaning": "gravity　[名] ①重力 ②重大さ"
     },
     {
-        "text": "1418 He proposed a new ___ to explain the phenomenon.\n彼はその現象を説明するために新しい仮説を提案した。",
+        "text": "1418 the ___ that the Earth is flat\n地球はたいらなのではないかという仮説",
         "answer": "hypothesis",
-        "meaning": ""
+        "meaning": "hypothesis　[名] 仮説"
     },
     {
         "text": "1419 The lab kept a ___ of the rare plant.\n研究所はその珍しい植物の標本を保管していた。",
         "answer": "specimen",
-        "meaning": ""
+        "meaning": "specimen　[名] ①標本 ②サンプル"
     },
     {
         "text": "1420 A ___ can cause disease if it enters the body.\n微生物は体内に入ると病気を引き起こすことがある。",
         "answer": "microbe",
-        "meaning": ""
+        "meaning": "microbe　[名] 微生物"
     },
     {
         "text": "1421 Some snakes inject ___ through their bite.\n一部のヘビは噛むことで毒を注入する。",
         "answer": "poison",
-        "meaning": ""
+        "meaning": "poison　[名] 毒"
     },
     {
-        "text": "1422 Lemon contains ___ which can dissolve some metals.\nレモンには一部の金属を溶かす酸が含まれている。",
+        "text": "1422 ___ rain\n酸性雨",
         "answer": "acid",
-        "meaning": ""
+        "meaning": "acid　[形] ①酸性の ②辛辣な"
     },
     {
         "text": "1423 Some chemicals are extremely ___ and dangerous.\n一部の化学物質は非常に有毒で危険である。",
@@ -2867,442 +2867,442 @@
     {
         "text": "1582 Traditional ___ often celebrate harvest festivals.\n伝統的な人々はしばしば収穫祭を祝う。",
         "answer": "folk",
-        "meaning": ""
+        "meaning": "folk　[名] ①人々 [形] ②民間（起源）の"
     },
     {
         "text": "1583 You should ask a ___ for advice if unsure.\n不確かなら同僚に助言を求めるべきだ。",
         "answer": "peer",
-        "meaning": ""
+        "meaning": "peer　[名] ①（―s）同等の人，同輩 [自] ②（よく見えなくて）じっと見る"
     },
     {
         "text": "1584 The ___ received an award for outstanding work.\n受賞者は優れた業績に対して表彰された。",
         "answer": "recipient",
-        "meaning": ""
+        "meaning": "recipient　[名] 受け取る人，被移植者"
     },
     {
         "text": "1585 Sailors must ___ carefully through the narrow strait.\n船員は狭い海峡を注意深く航行しなければならない。",
         "answer": "navigate",
-        "meaning": ""
+        "meaning": "navigate　[自] ①（旅などで）進路を決める [他] ②～を克服して進む，～を航行する"
     },
     {
         "text": "1586 Many people had to ___ the city during the war.\n戦争中、多くの人々がその都市から逃げなければならなかった。",
         "answer": "flee",
-        "meaning": ""
+        "meaning": "flee　[自] 逃亡する"
     },
     {
         "text": "1587 The army decided to ___ after heavy losses.\n軍は大きな損失の後、撤退することにした。",
         "answer": "retreat",
-        "meaning": ""
+        "meaning": "retreat　[自] ①退く [名] ②撤退，退却"
     },
     {
-        "text": "1588 The baby began to ___ across the floor.\n赤ちゃんは床を這い始めた。",
+        "text": "1588 ___ through the tiny person's house\nチビの家の中を這って進む",
         "answer": "crawl",
-        "meaning": ""
+        "meaning": "crawl　[自] 這って進む，（渋滞などで）這うように進む"
     },
     {
         "text": "1589 A helicopter can ___ above the field.\nヘリコプターは畑の上空に浮かぶことができる。",
         "answer": "hover",
-        "meaning": ""
+        "meaning": "hover　[自] ①（鳥などが）空中にとどまる ②うろつく，さまよう"
     },
     {
         "text": "1590 The boat will ___ slowly down the river.\nボートは川をゆっくりと漂うだろう。",
         "answer": "drift",
-        "meaning": ""
+        "meaning": "drift　[自] 漂う"
     },
     {
         "text": "1591 You can ___ the document to change its content.\n文書を変更して内容を変えることができる。",
         "answer": "alter",
-        "meaning": ""
+        "meaning": "alter　[他] ～を変える"
     },
     {
         "text": "1592 They decided to ___ the old factory into a museum.\n彼らは古い工場を博物館に改装することにした。",
         "answer": "convert",
-        "meaning": ""
+        "meaning": "convert　[他] ①（A into B）（A）を（B に）転換する ②～を改宗させる"
     },
     {
         "text": "1593 The sports car managed to ___ the slower vehicle.\nスポーツカーは遅い車を追い越すことができた。",
         "answer": "overtake",
-        "meaning": ""
+        "meaning": "overtake　[他] ～を追い越す"
     },
     {
         "text": "1594 The company will ___ the package to the customer.\n会社は荷物を顧客に発送する予定だ。",
         "answer": "dispatch",
-        "meaning": ""
+        "meaning": "dispatch　[他]（使者・軍隊など）を派遣する，（物資など）を送る"
     },
     {
         "text": "1595 The sweater will ___ if washed in hot water.\nセーターは熱い水で洗うと縮むだろう。",
         "answer": "shrink",
-        "meaning": ""
+        "meaning": "shrink　[自] ①縮む ②（数量が）減る [他] ③～を縮ませる，減らす"
     },
     {
         "text": "1596 Without water, plants will ___ quickly.\n水がなければ植物はすぐに枯れるだろう。",
         "answer": "wither",
-        "meaning": ""
+        "meaning": "wither　[自] しおれる，しぼむ"
     },
     {
         "text": "1597 Birds ___ from the tree to the ground.\n鳥たちは木から地面へ降りる。",
         "answer": "descend",
-        "meaning": ""
+        "meaning": "descend　[自] 降下する"
     },
     {
         "text": "1598 The car began to ___ on the highway.\n車は高速道路で加速し始めた。",
         "answer": "accelerate",
-        "meaning": ""
+        "meaning": "accelerate　[他] ～を加速する"
     },
     {
         "text": "1599 Stock prices tend to ___ frequently.\n株価は頻繁に変動する傾向がある。",
         "answer": "fluctuate",
-        "meaning": ""
+        "meaning": "fluctuate　[自] （数値，物価が）変動する"
     },
     {
-        "text": "1600 The media can ___ public perception of events.\nメディアは出来事に対する世間の認識を歪めることがある。",
-        "answer": "distort",
-        "meaning": ""
+        "text": "1600 His face ___ the space around it.\n彼の顔は空間を歪める。",
+        "answer": "distorts",
+        "meaning": "distort　[他] ～を歪める"
     },
     {
         "text": "1601 The earthquake caused a huge ___ in the building.\n地震で建物に大きなひびが入った。",
         "answer": "crack",
-        "meaning": ""
+        "meaning": "crack　[自] ①割れる，砕ける ②（パンと）音を出す [他] ③～を割る，砕く [名] ④割れ目"
     },
     {
         "text": "1602The country is undergoing a political ___ .\nその国は政治的な移行期を迎えている。",
         "answer": "transition",
-        "meaning": ""
+        "meaning": "transition　[名] 移り変わり，推移"
     },
     {
         "text": "1603 The new technology was a real ___ in the industry.\nその新しい技術は業界における真の革命的変化だった。",
         "answer": "game-changer",
-        "meaning": ""
+        "meaning": "game-changer　[名] 革命的なこと[人・物]"
     },
     {
         "text": "1604 The coach emphasized drills to ___ teamwork.\nコーチはチームワークを強化するための訓練を重視した。",
         "answer": "reinforce",
-        "meaning": ""
+        "meaning": "reinforce　[他] ～を補強する"
     },
     {
         "text": "1605 Parents should ___ creativity in their children.\n親は子どもの創造性を育むべきである。",
         "answer": "foster",
-        "meaning": ""
+        "meaning": "foster　[他] ①（才能など）を育成する ②～の里親になる [形] ③里親の"
     },
     {
         "text": "1606 Stress can lead to a mental ___ if ignored.\nストレスは無視すると精神的崩壊につながることがある。",
         "answer": "breakdown",
-        "meaning": ""
+        "meaning": "breakdown　[名] ①崩壊 ②故障 ③衰弱"
     },
     {
         "text": "1607 The old bridge is at risk of ___ soon.\n古い橋は間もなく崩壊する危険がある。",
         "answer": "collapse",
-        "meaning": ""
+        "meaning": "collapse　[自] ①崩壊する，倒れる [名] ②崩壊，倒れること"
     },
     {
         "text": "1608 The noise can ___ people unable to concentrate.\nその騒音は人々を集中できなくする。",
         "answer": "render",
-        "meaning": ""
+        "meaning": "render　[他] ①（SVOC）（O）を（C）にする ②（援助など）を与える"
     },
     {
         "text": "1609 Excessive alcohol can ___ your judgment.\n過度のアルコールは判断力を損なう可能性がある。",
         "answer": "impair",
-        "meaning": ""
+        "meaning": "impair　[他] （人間の機能など）を低下させる，損なう"
     },
     {
         "text": "1610 Constant criticism can ___ self-confidence.\n絶え間ない批判は自信を損なうことがある。",
         "answer": "undermine",
-        "meaning": ""
+        "meaning": "undermine　[他] ～を弱める，揺るがす"
     },
     {
         "text": "1611 She learned to ___ with stress through meditation.\n彼女は瞑想を通じてストレスに対処することを学んだ。",
         "answer": "cope",
-        "meaning": ""
+        "meaning": "cope　[自] （with～）（～に）対処する"
     },
     {
         "text": "1612 We must ___ the problem before it gets worse.\n悪化する前に問題に取り組まなければならない。",
         "answer": "tackle",
-        "meaning": ""
+        "meaning": "tackle　[他] ～に取り組む"
     },
     {
         "text": "1613 They decided to ___ the old building for a new project.\n彼らは新しいプロジェクトのために古い建物を取り壊すことにした。",
         "answer": "demolish",
-        "meaning": ""
+        "meaning": "demolish　[他]（建物など）を取り壊す"
     },
     {
         "text": "1614 The patient was ___ to the hospital for treatment.\n患者は治療のために病院に隔離された。",
         "answer": "confine",
-        "meaning": ""
+        "meaning": "confine　[他] ①～を閉じ込める ②（活動など）を制限する"
     },
     {
         "text": "1615 The president will ___ a special envoy to negotiate.\n大統領は交渉のため特別使節を指名する。",
         "answer": "designate",
-        "meaning": ""
+        "meaning": "designate　[他] （通例，受け身で）～を指定する"
     },
     {
         "text": "1616 The government must ___ the financial market.\n政府は金融市場を規制しなければならない。",
         "answer": "regulate",
-        "meaning": ""
+        "meaning": "regulate　[他] ①（主に規則によって）～を規制する ②（機器など）を調整する"
     },
     {
         "text": "1617 Please ___ from using your phone during class.\n授業中は携帯電話の使用を控えてください。",
         "answer": "refrain",
-        "meaning": ""
+        "meaning": "refrain　[自] （from ～）（～を）控える"
     },
     {
         "text": "1618 Smoking is ___ in public areas.\n公共の場所での喫煙は禁止されている。",
         "answer": "prohibit",
-        "meaning": ""
+        "meaning": "prohibit　[他] ～を禁じる"
     },
     {
         "text": "1619 The police were able to ___ the illegal activity.\n警察は違法行為を食い止めることができた。",
         "answer": "halt",
-        "meaning": ""
+        "meaning": "halt　[他] ①～を止める [自] ②止まる [名] ③停止"
     },
     {
         "text": "1620 Budget ___ may limit spending.\n予算の制約が支出を制限することがある。",
         "answer": "constraint",
-        "meaning": ""
+        "meaning": "constraint　[名] 制約"
     },
     {
         "text": "1621 Music can ___ creativity in students.\n音楽は生徒の創造性を刺激することができる。",
         "answer": "stimulate",
-        "meaning": ""
+        "meaning": "stimulate　[他] ～を刺激する"
     },
     {
         "text": "1622 The film used graphics to ___ the characters.\n映画はキャラクターに命を吹き込むためにグラフィックを使用した。",
         "answer": "animate",
-        "meaning": ""
+        "meaning": "animate　[他] ①～を活気づける ②～をアニメ化する"
     },
     {
         "text": "1623 His speech ___ the audience to act.\n彼の演説は聴衆を行動へ駆り立てた。",
         "answer": "spur",
-        "meaning": ""
+        "meaning": "spur　[他] ①～を駆り立てる，促す [名] ②拍車，刺激，動機"
     },
     {
         "text": "1624 Doctors ___ patients to exercise regularly.\n医師は患者に定期的な運動を促す。",
         "answer": "urge",
-        "meaning": ""
+        "meaning": "urge　[他] ①～をせき立てる，～に強く勧める [名] ②（何かがしたい）衝動"
     },
     {
         "text": "1625 The law can ___ companies to follow ethical practices.\n法律は企業に倫理的な行動を強制することができる。",
         "answer": "compel",
-        "meaning": ""
+        "meaning": "compel　[他] （A to do）（A）に（～することを）強制する"
     },
     {
         "text": "1626 The fog can ___ the lines between reality and imagination.\n霧は現実と想像の境界を曖昧にすることがある。",
         "answer": "blur",
-        "meaning": ""
+        "meaning": "blur　[他] ①～をぼやかす [自] ②ぼやける"
     },
     {
         "text": "1627 The diversion ___ traffic to another route.\n迂回路は交通を別のルートにそらした。",
         "answer": "divert",
-        "meaning": ""
+        "meaning": "divert　[他] ①（川など）の方向を変える ②（注意など）をそらす"
     },
     {
         "text": "1628 We need to ___ the decision and start over.\n決定を覆してやり直す必要がある。",
         "answer": "reverse",
-        "meaning": ""
+        "meaning": "reverse　[他] ①～を逆転する，覆す [名] ②逆 [形] ③逆の"
     },
     {
         "text": "1629 His achievements ___ all previous records.\n彼の業績はこれまでのすべての記録を覆した。",
         "answer": "overshadow",
-        "meaning": ""
+        "meaning": "overshadow　[他] ～の影を薄くさせる"
     },
     {
         "text": "1630 Neglecting the problem will only ___ it.\n問題を無視するとさらに悪化するだけだ。",
         "answer": "worsen",
-        "meaning": ""
+        "meaning": "worsen　[他] ～を悪化させる"
     },
     {
         "text": "1631 A careless decision could ___ the company's future.\n軽率な決定は会社の将来を危うくする可能性がある。",
         "answer": "jeopardize",
-        "meaning": ""
+        "meaning": "jeopardize　[他]（生命，経歴，制度など）を危険にさらす"
     },
     {
         "text": "1632 Vitamins can ___ a balanced diet.\nビタミンはバランスの取れた食事を補うことができる。",
         "answer": "supplement",
-        "meaning": ""
+        "meaning": "supplement　[他] ①（栄養，収入など）を補う [名] ②補充，栄養補助食品 ③付録"
     },
     {
         "text": "1633 New policies ___ serious challenges to the system.\n新しい政策は制度に深刻な課題をもたらす。",
         "answer": "pose",
-        "meaning": ""
+        "meaning": "pose　[他] ～をもたらす"
     },
     {
         "text": "1634 Some foods can ___ sleepiness.\nある食品は眠気を引き起こすことがある。",
         "answer": "induce",
-        "meaning": ""
+        "meaning": "induce　[他] ①～を引き起こす ②((人)to do)(人)に～するよう説得する"
     },
     {
-        "text": "1635 He felt betrayed when his friend lied to him.\n彼は友人が嘘をついたとき裏切られたと感じた。",
+        "text": "1635 ___ her\n彼女を裏切る",
         "answer": "betray",
-        "meaning": ""
+        "meaning": "betray　[他] ①～を裏切る ②～を漏らす，（うっかり）さらけ出す"
     },
     {
         "text": "1636 The older boy would often ___ the younger ones.\n年上の少年はしばしば年下の子をいじめた。",
         "answer": "bully",
-        "meaning": ""
+        "meaning": "bully　[他] ①～をいじめる [名] ②いじめっ子"
     },
     {
         "text": "1637 She chose to ___ social rules and do her own thing.\n彼女は社会のルールを無視して自分のやり方を選んだ。",
         "answer": "disregard",
-        "meaning": ""
+        "meaning": "disregard　[他] ～を無視する"
     },
     {
         "text": "1638 They had to ___ the toothpaste tube to get the last bit.\n最後の部分を出すためにチューブを絞らなければならなかった。",
         "answer": "squeeze",
-        "meaning": ""
+        "meaning": "squeeze　[他] ①（果汁など）を搾る ②（手，指で）～を強く押す"
     },
     {
         "text": "1639 He ___ the fabric against the table to clean it.\n彼は布をテーブルにこすった。",
         "answer": "rub",
-        "meaning": ""
+        "meaning": "rub　[他] ①～をこする [自] ②(against ～)( ～に)こすりつける"
     },
     {
         "text": "1640 The kids ___ the pumpkin for Halloween.\n子どもたちはハロウィンのためにかぼちゃを打ち壊した。",
         "answer": "smash",
-        "meaning": ""
+        "meaning": "smash　[他] ～を粉砕する"
     },
     {
         "text": "1641 Please ___ the USB into the port.\nUSBをポートに差し込んでください。",
         "answer": "insert",
-        "meaning": ""
+        "meaning": "insert　[他] ①～を差し込む ②（語句など）を書き込む"
     },
     {
         "text": "1642 Detach the sticker and ___ it elsewhere.\nシールをはがして他の場所に取り付けなさい。",
         "answer": "detach",
-        "meaning": ""
+        "meaning": "detach　[他] （A from B)（A）を（B から）切り離す"
     },
     {
         "text": "1643 He decided to ___ from the project temporarily.\n彼はそのプロジェクトから一時的に撤退することにした。",
         "answer": "withdraw",
-        "meaning": ""
+        "meaning": "withdraw　[他] ①～を引っ込める ②（預金など）を引き出す [自] ③退く"
     },
     {
         "text": "1644 The editor will ___ all the articles for the magazine.\n編集者は雑誌用にすべての記事を編集する。",
         "answer": "compile",
-        "meaning": ""
+        "meaning": "compile　[他] ～をまとめる，(辞書などを)編纂する"
     },
     {
         "text": "1645 I like to ___ online to find new books.\n新しい本を見つけるためにオンラインで閲覧するのが好きだ。",
         "answer": "browse",
-        "meaning": ""
+        "meaning": "browse　[自] ①拾い読みする [他] ②～を拾い読みする"
     },
     {
         "text": "1646 Some advertisers try to ___ consumer behavior.\n広告主は消費者の行動を操作しようとすることがある。",
         "answer": "manipulate",
-        "meaning": ""
+        "meaning": "manipulate　[他] ～を操作する"
     },
     {
         "text": "1647 The company plans to ___ the new software next month.\n会社は来月、新しいソフトウェアを実装する予定だ。",
         "answer": "implement",
-        "meaning": ""
+        "meaning": "implement　[他] ①(契約，計画など)を実行する [名] ②(単純な)道具"
     },
     {
         "text": "1648 The general will ___ the operation carefully.\n将軍は作戦を慎重に実行するだろう。",
         "answer": "execute",
-        "meaning": ""
+        "meaning": "execute　[他] ①～を遂行する，実行する ②～を処刑する"
     },
     {
         "text": "1649 The city will ___ the international conference.\n市は国際会議を開催する予定だ。",
         "answer": "host",
-        "meaning": ""
+        "meaning": "host　[他] ①(大会など)を主催する [名] ②(a ― of)多くの ③(客を接待する)主人(*女性も含む)，主催者，開催地，≪生物≫宿主"
     },
     {
         "text": "1650 They plan to ___ a new statue on the hill.\n彼らは丘に新しい像を設置する予定だ。",
         "answer": "mount",
-        "meaning": ""
+        "meaning": "mount　[他] ①～を据え付ける ②(馬，自転車)に乗る [自] ③増加する"
     },
     {
         "text": "1651 The factory will ___ waste into the river.\n工場は廃水を川に排出する。",
         "answer": "discharge",
-        "meaning": ""
+        "meaning": "discharge　[他] ①～を排出する ②(職務，任地などから)～を解放する"
     },
     {
         "text": "1652 Be careful not to ___ the battery too fast.\nバッテリーを使いすぎて放電させないよう注意してください。",
         "answer": "drain",
-        "meaning": ""
+        "meaning": "drain　[他] ①～の水を抜く ②～の水分を切る [自] ③(液体が)流出する，乾く"
     },
     {
         "text": "1653 Let the cloth ___ in water before washing.\n洗う前に布を水に浸してください。",
         "answer": "soak",
-        "meaning": ""
+        "meaning": "soak　[他] ①～を浸す ②(up)(日光，考えなど)を吸収する"
     },
     {
         "text": "1654 ___ the cookies quickly into the chocolate.\nクッキーをすばやくチョコレートに浸す。",
         "answer": "dip",
-        "meaning": ""
+        "meaning": "dip　[他] ①～を（ちょっと）つける，浸す ②～を少し下げる"
     },
     {
         "text": "1655 They decided to ___ the meeting until next week.\n彼らは会議を来週まで中止することに決めた。",
         "answer": "suspend",
-        "meaning": ""
+        "meaning": "suspend　[他] ①～を吊るす ②～を中断する ③～を停職［停学］にする"
     },
     {
         "text": "1656 We need to ___ water from the well.\n井戸から水を汲み上げる必要がある。",
         "answer": "extract",
-        "meaning": ""
+        "meaning": "extract　[他] ①～を取り出す，抽出する [名] ②抽出したもの，抜粋"
     },
     {
         "text": "1657 He gave the table a light ___ to move it.\n彼はテーブルを動かすために軽く叩いた。",
         "answer": "slap",
-        "meaning": ""
+        "meaning": "slap　[他] ～を平手打ちする"
     },
     {
         "text": "1658 They warmly ___ the returning hero.\n彼らは帰還した英雄を温かく抱きしめた。",
         "answer": "embrace",
-        "meaning": ""
+        "meaning": "embrace　[他] ①～を抱擁する ②(思想など)を受け入れる"
     },
     {
         "text": "1659 They will ___ on a journey across the country.\n彼らは国内横断の旅に出発する。",
         "answer": "embark",
-        "meaning": ""
+        "meaning": "embark　[自] (on ～)(～に)着手する，乗り込む"
     },
     {
         "text": "1660 The teacher had to ___ in the argument.\n先生は議論に介入しなければならなかった。",
         "answer": "intervene",
-        "meaning": ""
+        "meaning": "intervene　[自] (in ～)( ～に)介入する"
     },
     {
         "text": "1661 The bullet failed to ___ the armor.\nその弾丸は鎧を貫通しなかった。",
         "answer": "penetrate",
-        "meaning": ""
+        "meaning": "penetrate　[他] ①～に入り込む ②～を貫通する [自] ③貫通する，入る"
     },
     {
         "text": "1662 Do not ___ in other people’s conversations.\n他人の会話に立ち入らないでください。",
         "answer": "intrude",
-        "meaning": ""
+        "meaning": "intrude　[自] (on～)(～に)立ち入る"
     },
     {
         "text": "1663 We should ___ renewable energy to reduce costs.\nコスト削減のために再生可能エネルギーを利用すべきだ。",
         "answer": "utilize",
-        "meaning": ""
+        "meaning": "utilize　[他] ～を利用する"
     },
     {
         "text": "1664 The video is ___d directly into the webpage.\nそのビデオはウェブページに直接埋め込まれている。",
         "answer": "embed",
-        "meaning": ""
+        "meaning": "embed　[他] (in...)(...に)～を埋め込む"
     },
     {
         "text": "1665 They will ___ funds for the new project.\n彼らは新プロジェクトのために資金を割り当てる。",
         "answer": "allocate",
-        "meaning": ""
+        "meaning": "allocate　[他] ～を割り当てる"
     },
     {
         "text": "1666 The manager will ___ the team for the event.\nマネージャーはイベントのためにチームを調整する。",
         "answer": "coordinate",
-        "meaning": ""
+        "meaning": "coordinate　[他] (活動など)をうまく調整する"
     },
     {
         "text": "1667 The baby can ___ its eyes quickly.\n赤ちゃんは素早くまばたきできる。",
         "answer": "blink",
-        "meaning": ""
+        "meaning": "blink　[自] まばたきする"
     },
     {
         "text": "1668 The only good thing about this facility is that the chair ___.\nこの施設の唯一良い所は,椅子が回ることだ.",
         "answer": "spins",
-        "meaning": ""
+        "meaning": "spin　[自] ①ぐるぐる回る [他] ②～を回す ③～を紡ぐ"
     },
     {
         "text": "1669 a non-___ globe\n回らない地球儀",
         "answer": "rotating",
-        "meaning": ""
+        "meaning": "rotate　[自] ①回転する [他] ②～を回転させる"
     },
     {
         "text": "1670 They had to ___ the eggs quickly to make an omelet.\nオムレツを作るために卵をすばやくかき混ぜなければならなかった。",
