@@ -237,7 +237,7 @@ def send_question(user_id, range_str, bot_type="LEAP"):
         questions = get_questions_by_range("WRONG", bot_type, user_id)
         # 間違え単語がない場合
         if not questions:
-            return TextSendMessage(text="🎉🎉🎉\n間違えた単語はありません！\n🎉🎉🎉")
+            return TextSendMessage(text="🎉🎉🎉🎉🎉🎉🎉🎉\n間違えた単語はありません！\n🎉🎉🎉🎉🎉🎉🎉🎉")
         wrong_count = len(questions)
     else:
         questions = get_questions_by_range(range_str, bot_type, user_id)
