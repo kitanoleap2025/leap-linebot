@@ -1450,7 +1450,7 @@
         "meaning": "age　[名] ①年齢 ②時代 ③（―s）長い間 [自] ④高齢化する"
     },
     {
-        "text": "294 a ___ gap\n世代間格差",
+        "text": "294 This is what is called a ___ gap.\nこれはいわゆるジェネレーションギャップだ。",
         "answer": "generation",
         "meaning": "generation　[名] ①世代 ②生み出すこと ③発電"
     },
@@ -2445,7 +2445,7 @@
         "meaning": "prejudice　[名] ①偏見，先入観 [他] ②～に偏見をもたせる"
     },
     {
-        "text": "493 racial ___\n人種差別",
+        "text": "493 ___ against Nara Prefecture residents\n奈良県民への差別",
         "answer": "discrimination",
         "meaning": "discrimination　[名] ①差別 ②識別（①②ともに<不可算>）"
     },
@@ -2690,7 +2690,7 @@
         "meaning": "construction　[名] 建設〈不可算〉"
     },
     {
-        "text": "545 The ___ of the table felt rough and unfinished.\nそのテーブルの表面は粗く,未完成の感じがした。",
+        "text": "545 calculate the ___ area of his face\n彼の顔の表面積を計算する✏️",
         "answer": "surface",
         "meaning": "surface　[名] ①表面<可算> [自] ②表面化する"
     },
@@ -3875,7 +3875,7 @@
         "meaning": ""
     },
     {
-        "text": "832 You should ___ your expenses carefully.\n支出を慎重に計算すべきだ。",
+        "text": "832 ___ the volume of his head\n彼の頭の体積を計算する✏️",
         "answer": "calculate",
         "meaning": "calculate　[他] ～を計算する"
     },
@@ -3895,7 +3895,7 @@
         "meaning": "split　[他] ①～を割る ②～を分裂させる [自] ③分裂する [名] ④分裂，裂け目，割れ目"
     },
     {
-        "text": "836 The ___ of water in the tank is 50 liters.\nタンクの水の量は50リットルだ。",
+        "text": "836 calculate the ___ of his head\n彼の頭の体積を計算する✏️",
         "answer": "volume",
         "meaning": "volume　[名] ①容積，体積 ②ボリューム，音量 ③（全集などの）1巻"
     },
