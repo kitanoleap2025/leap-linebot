@@ -1400,7 +1400,7 @@
         "meaning": "adjust　[自] ①（to ～）（～に）慣れる [他] ②～を調整する"
     },
     {
-        "text": "283 You should ___ for the scholarship by the end of this month.\n今月末までに奨学金を申し込むべきだ📄",
+        "text": "283 She uses a butter knife to ___ her makeup.\n彼女はバターナイフを使って化粧する。🧈",
         "answer": "apply",
         "meaning": "apply　[自] ①（to ～）（～に）当てはまる ②（for ～）（～に）申し込む [他] ③～を当てはめる，応用する ④（薬，口紅など）を塗る"
     },
@@ -2690,17 +2690,42 @@
         "meaning": "construction　[名] 建設〈不可算〉"
     },
     {
+        "text": "544 This pencil case has too many unnecessary ___\nこの筆箱には不要な機能が多すぎる。",
+        "answer": "functions",
+        "meaning": "function　[名] ①機能 [自] ②機能する"
+    },
+    {
         "text": "545 calculate the ___ area of his face\n彼の顔の表面積を計算する✏️",
         "answer": "surface",
         "meaning": "surface　[名] ①表面<可算> [自] ②表面化する"
     },
     {
-        "text": "550 Complex issues ___ themselves of simple, ignored mistakes.\n複雑な問題は,無視された単純なミスから成り立っている.",
+        "text": "546 She has a hairy ___.\n彼女には毛深い側面がある。",
+        "answer": "aspect",
+        "meaning": "aspect　[名] 側面<可算>"
+    },
+    {
+        "text": "547 Because of AI, Google is on the ___ of a cliff, but encyclopedias are one step ahead.\nAIのせいでグーグルは崖っぷちだが、百科事典はその一歩先にいる。💀",
+        "answer": "edge",
+        "meaning": "edge　[名] ①端 ②（ナイフなどの）刃 ③優位"
+    },
+    {
+        "text": "548 She uses a butter knife to apply her ___.\n彼女はバターナイフを使って化粧する。🧈",
+        "answer": "makeup",
+        "meaning": "makeup　[名] ①（物の）構成、構造 ②（人の）資質 ③化粧 ④（― exam）追試験"
+    },
+    {
+        "text": "549 The team ___ of Bob and a bunch of incompetents.\nそのチームはボブとその他の無能で構成されている。🥸🥸🥸🥸",
+        "answer": "consist",
+        "meaning": "consist　[自] ①（of ～）（～で）構成されている ②（in ～）（～に）ある"
+    },
+    {
+        "text": "550 Complex issues ___ themselves of simple, ignored mistakes.\n複雑な問題は,無視された単純なミスから成り立っている。",
         "answer": "compose",
         "meaning": "compose　[他] ①～を構成する，組み立てる ②～を作曲［作文］する ③～を落ち着かせる"
     },
     {
-        "text": "551 Ideas ___ quickest to the minds already half convinced.\n考えは半分納得した心に一番早くくっつく.",
+        "text": "551 Ideas ___ quickest to the minds already half convinced.\n考えは半分納得した心に一番早くくっつく。",
         "answer": "attach",
         "meaning": "attach　[他] ①～をくっつける，添付する ②～に愛着を持たせる"
     },
