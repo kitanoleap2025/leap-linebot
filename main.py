@@ -338,9 +338,9 @@ trivia_messages = [
 def evaluate_X(elapsed, score, answer, is_multiple_choice=True):
     X = elapsed**1.7 + score**1.7
 
-    if X <= 12:
+    if X <= 18:
         return "!!Brilliant", 3
-    elif X <= 25:
+    elif X <= 28:
         return "!Great", 2
     else:
         return "✓Correct", 1
@@ -370,7 +370,7 @@ def build_feedback_flex(user_id, is_correct, score, elapsed, correct_answer=None
         color = color_map.get(label, "#000000")
         body_contents.append({
             "type": "text",
-            "text": "\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\",
+            "text": "✔️✔️✔️✔️✔️✔️✔️✔️✔️✔️✔️✔️✔️✔️",
             "weight": "bold",
             "size": "md",
             "color": "#ff1493",
@@ -405,7 +405,7 @@ def build_feedback_flex(user_id, is_correct, score, elapsed, correct_answer=None
         })
         body_contents.append({
             "type": "text",
-            "text": "\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\",
+            "text": "✔️✔️✔️✔️✔️✔️✔️✔️✔️✔️✔️✔️✔️✔️✔️✔️✔️",
             "weight": "bold",
             "size": "md",
             "color": "#ff1493",
@@ -500,7 +500,7 @@ def build_ranking_with_totalE_flex(bot_type):
     try:
         docs_rate = db.collection("users")\
             .order_by(field_name_rate, direction=firestore.Query.DESCENDING)\
-            .limit(10).stream()
+            .limit(30).stream()
         ranking_rate = [
             (doc.to_dict().get("name") or "イキイキした毎日",
              doc.to_dict().get(field_name_rate, 0))
@@ -514,7 +514,7 @@ def build_ranking_with_totalE_flex(bot_type):
     try:
         docs_e = db.collection("users")\
             .order_by("total_e", direction=firestore.Query.DESCENDING)\
-            .limit(3).stream()
+            .limit(5).stream()
         ranking_e = [
             (doc.to_dict().get("name") or "イキイキした毎日",
              doc.to_dict().get("total_e", 0))
