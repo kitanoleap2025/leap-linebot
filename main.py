@@ -370,7 +370,7 @@ def build_feedback_flex(user_id, is_correct, score, elapsed, correct_answer=None
         color = color_map.get(label, "#000000")
         body_contents.append({
             "type": "text",
-            "text": "✔️✔️✔️✔️✔️✔️✔️✔️✔️✔️✔️✔️✔️✔️",
+            "text": "✔️✔️✔️✔️✔️✔️✔️✔️",
             "weight": "bold",
             "size": "md",
             "color": "#ff1493",
@@ -405,7 +405,7 @@ def build_feedback_flex(user_id, is_correct, score, elapsed, correct_answer=None
         })
         body_contents.append({
             "type": "text",
-            "text": "✔️✔️✔️✔️✔️✔️✔️✔️✔️✔️✔️✔️✔️✔️✔️✔️✔️",
+            "text": "✔️✔️✔️✔️✔️✔️✔️✔️",
             "weight": "bold",
             "size": "md",
             "color": "#ff1493",
