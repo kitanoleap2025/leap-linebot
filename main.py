@@ -233,55 +233,55 @@ def update_total_rate(user_id, bot_type):
     return total_rate
 
 def send_question(user_id, range_str, bot_type="LEAP"):
-    if range_str == "WRONG":
-        questions = get_questions_by_range("WRONG", bot_type, user_id)
-        # 間違え単語がない場合
-        if not questions:
-            return TextSendMessage(text="🎉🎉🎉🎉🎉🎉🎉🎉\n間違えた単語はありません！\n🎉🎉🎉🎉🎉🎉🎉🎉")
-        wrong_count = len(questions)
-    else:
-        questions = get_questions_by_range(range_str, bot_type, user_id)
-        wrong_count = None
-
+    # 問題取得
+    questions = get_questions_by_range(range_str, bot_type, user_id)
     if not questions:
         return TextSendMessage(text="問題が見つかりません。")
 
+    scores = user_scores.get(user_id, {})
+
+    # 残り問題数の計算
+    if range_str == "WRONG":
+        remaining_count = sum(1 for q in questions if scores.get(q["answer"], 1) == 0)
+        remaining_text = f"間違えた単語:あと{remaining_count}語"
+    else:
+        remaining_count = sum(1 for q in questions if q["answer"] not in scores)
+        remaining_text = f"未出題の単語:あと{remaining_count}語"
+
+    # ランダムに1問選択
     q = choose_weighted_question(user_id, questions)
     if q is None:
         return TextSendMessage(text="問題が見つかりません。")
+
     user_states[user_id] = (range_str, q["answer"])
     user_answer_start_times[user_id] = time.time()
-
     correct_answer = q["answer"]
 
-    if correct_answer not in user_scores.get(user_id, {}):
+    # スコア表示
+    if correct_answer not in scores:
         score_display = "❓初出題の問題"
     else:
-        score = user_scores[user_id][correct_answer]
+        score = scores[correct_answer]
         if score == 0:
             score_display = "✖間違えた問題"
         else:
             flames = 4 - score
             score_display = "✔" * score + "□" * flames
 
-    # 全範囲から外れ選択肢を取得
+    # 選択肢作成
     all_questions = leap_1_1000 + leap_1001_2000 + leap_2001_2300
     other_answers = [item["answer"] for item in all_questions if item["answer"] != correct_answer]
-
     wrong_choices = random.sample(other_answers, k=min(3, len(other_answers)))
     choices = wrong_choices + [correct_answer]
     random.shuffle(choices)
-
     quick_buttons = [QuickReplyButton(action=MessageAction(label=choice, text=choice))
                      for choice in choices]
 
-    text_to_send = f"{score_display}\n{q['text']}"
-
-    # 間違えた問題の数を表示
-    if wrong_count is not None:
-        text_to_send = f"間違えた単語:あと{wrong_count}語\n" + text_to_send
+    # メッセージ作成
+    text_to_send = f"{remaining_text}\n{score_display}\n{q['text']}"
 
     return TextSendMessage(text=text_to_send, quick_reply=QuickReply(items=quick_buttons))
+
 
 def choose_weighted_question(user_id, questions):
     scores = user_scores.get(user_id, {})
@@ -499,7 +499,7 @@ medal_colors = {
 
 # 高速ランキング（自分の順位も表示）
 def build_ranking_with_totalE_flex(bot_type):
-    reset_yesterday_total_e()
+    reset_weekly_total_e()
     # total_rateランキング
     field_name_rate = f"total_rate_{bot_type.lower()}"
     try:
