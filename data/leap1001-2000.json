@@ -1050,7 +1050,7 @@
         "meaning": "evaluate　[他] ～を（正しく）評価する"
     },
     {
-        "text": "1219 Farmers ___ crops carefully to get a good harvest.\n農家は豊作を得るために作物を丁寧に育てる。",
+        "text": "1219 ___ the school courtyard.\n中庭を耕す。🥔",
         "answer": "cultivate",
         "meaning": "cultivate　[他] ①～を耕す ②～を育む ③～を磨く"
     },
@@ -2945,7 +2945,7 @@
         "meaning": "descend　[自] 降下する"
     },
     {
-        "text": "1598 The car began to ___ on the highway.\n車は高速道路で加速し始めた。",
+        "text": "1598 The object that was at rest began to ___.\n静止していた物体が加速し始めた。🔴",
         "answer": "accelerate",
         "meaning": "accelerate　[他] ～を加速する"
     },
@@ -2985,7 +2985,7 @@
         "meaning": "foster　[他] ①（才能など）を育成する ②～の里親になる [形] ③里親の"
     },
     {
-        "text": "1606 Stress can lead to a mental ___ if ignored.\nストレスは無視すると精神的崩壊につながることがある。",
+        "text": "1606 mental ___\n精神の崩壊",
         "answer": "breakdown",
         "meaning": "breakdown　[名] ①崩壊 ②故障 ③衰弱"
     },
@@ -3155,7 +3155,7 @@
         "meaning": "rub　[他] ①～をこする [自] ②(against ～)( ～に)こすりつける"
     },
     {
-        "text": "1640 The kids ___ the pumpkin for Halloween.\n子どもたちはハロウィンのためにかぼちゃを打ち壊した。",
+        "text": "1640 ___ a child's toy\nこどものおもちゃを粉砕する💥😭💥😭💥😭",
         "answer": "smash",
         "meaning": "smash　[他] ～を粉砕する"
     },
@@ -3180,8 +3180,8 @@
         "meaning": "compile　[他] ～をまとめる，(辞書などを)編纂する"
     },
     {
-        "text": "1645 I like to ___ online to find new books.\n新しい本を見つけるためにオンラインで閲覧するのが好きだ。",
-        "answer": "browse",
+        "text": "1645 His hobby is ___ pirated movies.\n彼は海賊版映画を閲覧するのが趣味だ。🦜",
+        "answer": "browsing",
         "meaning": "browse　[自] ①拾い読みする [他] ②～を拾い読みする"
     },
     {
@@ -3215,7 +3215,7 @@
         "meaning": "discharge　[他] ①～を排出する ②(職務，任地などから)～を解放する"
     },
     {
-        "text": "1652 Be careful not to ___ the battery too fast.\nバッテリーを使いすぎて放電させないよう注意してください。",
+        "text": "1652 ___ all the water from the pond.\n池の水全部抜く。",
         "answer": "drain",
         "meaning": "drain　[他] ①～の水を抜く ②～の水分を切る [自] ③(液体が)流出する，乾く"
     },
@@ -3295,7 +3295,7 @@
         "meaning": "blink　[自] まばたきする"
     },
     {
-        "text": "1668 The only good thing about this facility is that the chair ___.\nこの施設の唯一良い所は,椅子が回ることだ.",
+        "text": "1668 The only good thing about this facility is that the chair ___.\nこの施設の唯一良い所は,椅子が回ることだ。💞",
         "answer": "spins",
         "meaning": "spin　[自] ①ぐるぐる回る [他] ②～を回す ③～を紡ぐ"
     },
@@ -3420,7 +3420,7 @@
         "meaning": "tuition　[名] ①〈米〉授業料 ②(少人数での)授業"
     },
     {
-        "text": "1693 his sense of ___\n彼の倫理観",
+        "text": "1693 his sense of ___\n彼の倫理観💀",
         "answer": "ethics",
         "meaning": "ethic　[名] ①(―s)(社会や職業上の)倫理(観)②(伝統的に守られた)倫理"
     },
@@ -3500,8 +3500,8 @@
         "meaning": "concede　[他] (譲歩して)～を認める"
     },
     {
-        "text": "1709 They reached a ___ after long negotiations.\n長い交渉の末、彼らは妥協に達した。",
-        "answer": "compromise",
+        "text": "1709 I ___ and chose her.\n妥協して彼女を選んだ。",
+        "answer": "compromised",
         "meaning": "compromise　[自] ①妥協する [他] ②(主義など)を曲げる [名] ③妥協"
     },
     {
@@ -3695,7 +3695,7 @@
         "meaning": "thermal　[形] 熱の"
     },
     {
-        "text": "1748 The soil in this valley is very ___.\nこの谷の土壌はとても肥沃だ。",
+        "text": "1748 the ___ Crescent\n肥沃な三日月地帯🌛",
         "answer": "fertile",
         "meaning": "fertile　[形] 肥沃な，肥えた"
     },
@@ -3870,8 +3870,8 @@
         "meaning": "intent　[形] ①(on ～)(～に)没頭した，決心した [名] ②意図"
     },
     {
-        "text": "1783 He sometimes ___s in eating too much chocolate.\n彼は時々チョコレートを食べるのにふける。",
-        "answer": "indulge",
+        "text": "1783 He sometimes ___ in eating too much chocolate.\n彼は時々チョコレートを食べるのにふける。",
+        "answer": "indulges",
         "meaning": "indulge　[自] ①(in ～)(～に)ふける [他] ②～を思いのままにさせる"
     },
     {
@@ -4230,7 +4230,7 @@
         "meaning": "indigenous　[形] (動[植]物，民族が)固有の"
     },
     {
-        "text": "1855 The students returned to their ___ classrooms.\n生徒たちはそれぞれの教室に戻った。",
+        "text": "1855 Everyone returned to their ___ homes.\nみんなはそれぞれの家に帰った。🌄",
         "answer": "respective",
         "meaning": "respective　[形] それぞれの"
     },
@@ -4240,8 +4240,8 @@
         "meaning": "multiply　[他] ①～を増やす ②(A by B)(A)に(B を)掛ける [自] ③増える"
     },
     {
-        "text": "1857 The price of oil ___ after the conflict began.\n紛争が始まった後、石油の価格が急上昇した。",
-        "answer": "soar",
+        "text": "1857 The price of Bitcoin ___.\nビットコインの価格は急上昇した。",
+        "answer": "soared",
         "meaning": "soar　[自] ①(価格，温度が)急上昇する ②(鳥が)舞い上がる"
     },
     {
