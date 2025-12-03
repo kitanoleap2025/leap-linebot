@@ -233,40 +233,32 @@ def update_total_rate(user_id, bot_type):
     return total_rate
 
 def send_question(user_id, range_str, bot_type="LEAP"):
-    # 問題取得
-    questions = get_questions_by_range(range_str, bot_type, user_id)
+    scores = user_scores.get(user_id, {})
+    
+    if range_str == "WRONG":
+        questions = get_questions_by_range("WRONG", bot_type, user_id)
+        remaining_count = len(questions)
+    else:
+        questions = get_questions_by_range(range_str, bot_type, user_id)
+        # スコアが未設定の単語だけ数える
+        remaining_count = sum(1 for q in questions if q["answer"] not in scores)
+
     if not questions:
         return TextSendMessage(text="問題が見つかりません。")
 
-    scores = user_scores.get(user_id, {})
-
-    # 残り問題数の計算
-    if range_str == "WRONG":
-        remaining_count = sum(1 for q in questions if scores.get(q["answer"], 1) == 0)
-        remaining_text = f"間違えた単語:あと{remaining_count}語"
-    else:
-        remaining_count = sum(1 for q in questions if q["answer"] not in scores)
-        remaining_text = f"未出題の単語:あと{remaining_count}語"
-
-    # ランダムに1問選択
     q = choose_weighted_question(user_id, questions)
     if q is None:
         return TextSendMessage(text="問題が見つかりません。")
-
+    
     user_states[user_id] = (range_str, q["answer"])
     user_answer_start_times[user_id] = time.time()
-    correct_answer = q["answer"]
 
-    # スコア表示
+    correct_answer = q["answer"]
     if correct_answer not in scores:
         score_display = "❓初出題の問題"
     else:
         score = scores[correct_answer]
-        if score == 0:
-            score_display = "✖間違えた問題"
-        else:
-            flames = 4 - score
-            score_display = "✔" * score + "□" * flames
+        score_display = "✔" * score + "□" * (4 - score) if score > 0 else "✖間違えた問題"
 
     # 選択肢作成
     all_questions = leap_1_1000 + leap_1001_2000 + leap_2001_2300
@@ -277,8 +269,14 @@ def send_question(user_id, range_str, bot_type="LEAP"):
     quick_buttons = [QuickReplyButton(action=MessageAction(label=choice, text=choice))
                      for choice in choices]
 
-    # メッセージ作成
-    text_to_send = f"{remaining_text}\n{score_display}\n{q['text']}"
+    text_to_send = f"{score_display}\n{q['text']}"
+
+    # 0でなければ残り問題数を表示
+    if remaining_count > 0:
+        if range_str == "WRONG":
+            text_to_send = f"間違えた単語:あと{remaining_count}語\n" + text_to_send
+        else:
+            text_to_send = f"未出題の単語:あと{remaining_count}語\n" + text_to_send
 
     return TextSendMessage(text=text_to_send, quick_reply=QuickReply(items=quick_buttons))
 
