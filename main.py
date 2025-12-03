@@ -1,5 +1,5 @@
 from flask import Flask, request, abort
-import os, json, random, threading, time
+import os, json, random, threading, time, datetime
 from collections import defaultdict, deque
 from dotenv import load_dotenv
 
@@ -469,22 +469,27 @@ def update_total_e_rate(user_id):
         "total_e_rate": round(total_e_rate, 2)
     }, merge=True)
 
-def reset_yesterday_total_e():
-    """全ユーザーの昨日のtotal_eをリセット（バッチ処理）"""
-    today = time.strftime("%Y-%m-%d")
+def reset_weekly_total_e():
+    """全ユーザーのtotal_eを週単位でリセット（バッチ処理）"""
+    today = datetime.date.today()
+    current_week = today.isocalendar()[1]  # ISO週番号を取得
+
     try:
         batch = db.batch()
         docs = db.collection("users").stream()
         for doc in docs:
             user_data = doc.to_dict()
-            if user_data.get("total_e_date") != today:
+            user_total_e_week = user_data.get("total_e_week", None)
+            user_week = user_data.get("total_e_week_num", None)
+
+            if user_week != current_week:
                 batch.update(db.collection("users").document(doc.id), {
                     "total_e": 0,
-                    "total_e_date": today
+                    "total_e_week_num": current_week
                 })
         batch.commit()
     except Exception as e:
-        print(f"Error resetting yesterday's total_e: {e}")
+        print(f"Error resetting weekly total_e: {e}")
 
 medal_colors = {
     1: "#000000", 
