@@ -330,7 +330,6 @@ trivia_messages = [
     "ヒントろぼっと🤖\nLEAPには莫大な時間を払う価値がある。",
     "ヒントろぼっと🤖\n大谷翔平は全国の小学校にLEAPを送った。",
     "ヒントろぼっと🤖\nLEAP:「2秒で伸ばしてやる。」",
-    
 ]
     
 def evaluate_X(elapsed, score, answer, is_multiple_choice=True):
