@@ -2035,27 +2035,27 @@
         "meaning": "demand　[他] ①～を（強く）要求する [名] ②（for ～）（～への）要求，需要"
     },
     {
-        "text": "411 We have a strong ___ to finish our homework.\n私たちは宿題を終わらせたいという強い願望を持っている.",
-        "answer": "desire",
+        "text": "411 Worldly ___ haunt me.\n煩悩がつきまとう。🔞",
+        "answer": "desires",
         "meaning": "desire　[名] ①願望 [他] ②～を強く望む"
     },
     {
-        "text": "412 The teacher ___ the student for his hard work.👏\n先生は生徒の努力を称賛した。👏",
+        "text": "412 The teacher ___ the student for his hard work.\n先生は生徒の努力を称賛した。👏",
         "answer": "praised",
         "meaning": "praise　[他] ①（A for B）（A）を（B のことで）褒める，称える [名] ②賞賛"
     },
     {
-        "text": "413 They held a ceremony to ___ the war heroes.🏅\n彼らは戦争の英雄を称える式典を開いた。🏅",
+        "text": "413 They held a ceremony to ___ the war heroes.\n彼らは戦争の英雄を称える式典を開いた。🏅",
         "answer": "honor",
         "meaning": "honor　[名] ①名誉，栄誉 [他] ②～を敬う"
     },
     {
-        "text": "414 We had a quick ___ about the new movie. 🎬\n新しい映画についてちょっとおしゃべりした。🎬",
+        "text": "414 We had a quick ___ about the new movie. \n新しい映画についてちょっとおしゃべりした。🎬",
         "answer": "chat",
         "meaning": "chat　[自] ①おしゃべりする [名] ②おしゃべり"
     },
     {
-        "text": "415 Please ___ to page 10 for more details. 📖\n詳細は10ページを参照してください。📖",
+        "text": "415 Please ___ to page 10 for more details.\n詳細は10ページを参照してください。📖",
         "answer": "refer",
         "meaning": "refer　[自] （to ～）①（人が主語）（～に）言及する，参照する ②（物が主語）（～を）示す"
     },
@@ -2065,7 +2065,7 @@
         "meaning": "mention　[他] ～について述べる，言及する"
     },
     {
-        "text": "417 It’s hard to ___ feelings through a text message.💌\nテキストメッセージでは感情を伝えるのは難しい。💌",
+        "text": "417 It’s hard to ___ feelings through a text message.\nテキストメッセージでは感情を伝えるのは難しい。💌",
         "answer": "convey",
         "meaning": "convey　[他] ①～を伝える ②（乗客，音，病気など）を運ぶ"
     },
@@ -2075,12 +2075,12 @@
         "meaning": "demonstrate　[他] ～を（はっきり）示す，実演する"
     },
     {
-        "text": "419 She wanted to ___ how important this meeting is. 📌\n彼女はこの会議がどれだけ重要かを強調したかった📌",
+        "text": "419 She wanted to ___ how important this meeting is.\n彼女はこの会議がどれだけ重要かを強調したかった📌",
         "answer": "emphasize",
         "meaning": "emphasize　[他] ～を強調する"
     },
     {
-        "text": "420 Don’t ___ your problems; it makes things worse. 😅\n問題を大げさに言わないで。余計に悪く見える😅",
+        "text": "420 Don’t ___ your problems; it makes things worse.\n問題を大げさに言わないで。余計に悪く見える😅",
         "answer": "exaggerate",
         "meaning": "exaggerate　[他] ①～を誇張する [自] ②誇張する，大げさに言う"
     },
@@ -2095,17 +2095,17 @@
         "meaning": "respond　[自] ①（to ～）（手紙や問いなどに）返答する ②（to ～）（～に）対応する，反応する"
     },
     {
-        "text": "423 She had to ___ so no one else could hear. 🤫\nほかの人に聞かれないように彼女はささやいた🤫",
+        "text": "423 She had to ___ so no one else could hear.\nほかの人に聞かれないように彼女はささやいた🤫",
         "answer": "whisper",
         "meaning": "whisper　[自] ①ささやく [名] ②ささやき（声）"
     },
     {
-        "text": "424 He made a funny ___ about the weather. 😄\n彼は天気について面白い一言を言った😄",
+        "text": "424 He made a funny ___ about the weather.\n彼は天気について面白い一言を言った😄",
         "answer": "remark",
         "meaning": "remark　[名] ①発言 [他] ②～と発言する"
     },
     {
-        "text": "425 I like to ___ how people behave in crowded places. 👀\n人混みで人々がどう振る舞うかを見るのが好きだ👀",
+        "text": "425 I like to ___ how people behave in crowded places.\n人混みで人々がどう振る舞うかを見るのが好きだ👀",
         "answer": "observe",
         "meaning": "observe　[他] ①～を観察する ②（that SV）（気づいたことを）～と述べる ③（規則など）を遵守する ④（記念日など）を祝う"
     },
@@ -2115,27 +2115,27 @@
         "meaning": "theory　[名] ①理論 ②（学）説"
     },
     {
-        "text": "427 The scientist conducted an ___ of the data. 📊\n科学者はデータの分析を行った📊",
+        "text": "427 The scientist conducted an ___ of the data.\n科学者はデータの分析を行った📊",
         "answer": "analysis",
         "meaning": "analysis　[名] 分析"
     },
     {
-        "text": "428 A rare ___ was seen in the sky last night. 🌌\n昨晩、空で珍しい現象が見られた🌌",
+        "text": "428 A rare ___ was seen in the sky last night.\n昨晩、空で珍しい現象が見られた🌌",
         "answer": "phenomenon",
         "meaning": "phenomenon　[名] ①現象 ②特異なもの，天才（①②ともに<可算>）"
     },
     {
-        "text": "429 This new ___ makes cooking much easier. 🍳\nこの新しい装置で料理がずっと楽になる🍳",
+        "text": "429 This new ___ makes cooking much easier.\nこの新しい装置で料理がずっと楽になる🍳",
         "answer": "device",
         "meaning": "device　[名] 装置<可算>"
     },
     {
-        "text": "430 They performed an ___ to test the theory. 🧪\n理論を検証するために実験を行った🧪",
+        "text": "430 They performed an ___ to test the theory.\n理論を検証するために実験を行った🧪",
         "answer": "experiment",
         "meaning": "experiment　[名] ①実験 [自] ②実験する"
     },
     {
-        "text": "431 The lab studies the effects of a new ___ on plants. 🌱\n研究室では新しい化学物質が植物に与える影響を調べている🌱",
+        "text": "431 The lab studies the effects of a new ___ on plants.\n研究室では新しい化学物質が植物に与える影響を調べている🌱",
         "answer": "chemical",
         "meaning": "chemical　[名] ①（通例 ―s）化学物質 [形] ②化学の"
     },
@@ -2855,12 +2855,12 @@
         "meaning": "lead　[自] ①（to ～）（～に）至る [他] ②（a ～ life）（～な生活）を送る ③（A to do）A に～させる [名] ④鉛，（シャーペンなどの）芯" 
     },
     {
-        "text": "582 The sun will ___ at six in the morning.\n太陽は朝6時に昇る。",
+        "text": "582 The sun will ___ at six in the morning.\n太陽は朝6時に昇る。🌅",
         "answer": "rise",
         "meaning": "rise　[自] ①上がる，昇る [名] ②上昇"
     },
     {
-        "text": "583 like the ___ of a river\n川の流れのように",
+        "text": "583 like the ___ of a river\n川の流れのように🎵",
         "answer": "flow",
         "meaning": "flow　[自] ①流れる [名] ②流れ"
     },
@@ -3050,7 +3050,7 @@
         "meaning": "stretch　[他] ①（手足や体）を伸ばす，広げる [自] ②伸びる，広がる [名] ③（ひと続きの）広がり"
     },
     {
-        "text": "626 There are times when you ___.\nつまずく時もある.",
+        "text": "626 There are times when you ___.\nつまずく時もある。🪦",
         "answer": "stumble",
         "meaning": "stumble　[自] ①つまずく ②（across［into］～）（～に）偶然出会う"
     },
@@ -3080,7 +3080,7 @@
         "meaning": "sigh　[自] ①ため息をつく [名] ②ため息"
     },
     {
-        "text": "634 I couldn’t help but ___ during the lecture.\n講義中についあくびをしてしまった。",
+        "text": "634 I couldn’t help but ___ during the lecture.\n講義中についあくびをしてしまった。🪦",
         "answer": "yawn",
         "meaning": "yawn　[自] ①あくびをする [名] ②あくび"
     },
@@ -3110,7 +3110,7 @@
         "meaning": "escape　[自] ①（from ～）（～から）逃れる [他] ②～を避ける [名] ③逃亡"
     },
     {
-        "text": "642 The picture was ___ upside down.\nその絵は逆さまに掛かっていた.",
+        "text": "642 The picture was ___ upside down.\nその絵は逆さまに掛かっていた。",
         "answer": "hung",
         "meaning": "hang　[他] ①～を掛ける ②～を絞首刑にする [自] ③ぶら下がる"
     },
@@ -3220,7 +3220,7 @@
         "meaning": "require　[他] ～を必要とする"
     },
     {
-        "text": "668 Authority does not ___ long.\n権威は長く続かない.", 
+        "text": "668 Authority does not ___ long.\n権威は長く続かない。", 
         "answer": "last",
         "meaning": "last　[自] ①（時間的に）続く ②（服などが）長持ちする [形] （the last ～）③この前の～，最後の～ ④もっとも～でない [名] ⑤（at ―）ついに"
     },
@@ -3385,7 +3385,7 @@
         "meaning": "environment　[名] 環境，周囲（の状況）"
     },
     {
-        "text": "712 The sun disappeared below the ___.\n太陽が地平線の下に消えた。",
+        "text": "712 The sun disappeared below the ___.\n太陽が地平線の下に消えた。🌄",
         "answer": "horizon",
         "meaning": "horizon　[名] ①水平線，地平線 ②（―s）視野"
     },
@@ -3410,7 +3410,7 @@
         "meaning": "soil　[名] 土，土壌"
     },
     {
-        "text": "717 There are ___ here and there.\nあちらこちらに雑草がある",
+        "text": "717 There are ___ here and there.\nあちらこちらに雑草がある🌾",
         "answer": "weeds",
         "meaning": "weed　[名] ①雑草，海草 [他] ②～の雑草を抜く"
     },
@@ -3440,7 +3440,7 @@
         "meaning": "forecast　[名] ①予報 [他] ②～を予報する"
     },
     {
-        "text": "724 The summer in Juso is hot and ___ .\n十三の夏は蒸し暑い.",
+        "text": "724 The summer in Juso is hot and ___ .\n十三の夏は蒸し暑い。",
         "answer": "humid",
         "meaning": "humid　[形] 湿気が多い"
     },
@@ -4040,7 +4040,7 @@
         "meaning": "deadline　[名]（for ～）（～の）締め切り <可算>"
     },
     {
-        "text": "860 He was forbidden to go out for nearly a ___.\n彼は10年近く外出を禁止された.",
+        "text": "860 He was forbidden to go out for nearly a ___.\n彼は10年近く外出を禁止された。",
         "answer": "decade",
         "meaning": "decade　[名] 10年"
     },
@@ -4135,12 +4135,12 @@
         "meaning": "reservation　[名] ①予約 ②慎重な姿勢"
     },
     {
-        "text": "879 There’s no need to make a ___.\n騒ぐ必要はない。",
+        "text": "879 There’s no need to make a ___.\n騒ぐ必要はない。🗿",
         "answer": "fuss",
         "meaning": "fuss　[名] 大騒ぎ"
     },
     {
-        "text": "880 Hard work deserves a ___.\n努力には報酬がふさわしい。",
+        "text": "880 Hard work deserves a ___.\n努力には報酬がふさわしい。🪙",
         "answer": "reward",
         "meaning": "reward　[名] ①報酬，褒美 ，懸賞金 [他] ②～に褒美を与える，報いる"
     },
