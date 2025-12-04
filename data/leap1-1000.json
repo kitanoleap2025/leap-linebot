@@ -380,7 +380,7 @@
         "meaning": "fashion　[名] ①流行 ②流儀，やり方 [他] ③（手などで）～を作る"
     },
     {
-        "text": "078 I use ___ transportation to get to school.(不可算)\n私は学校に行くのに公共交通機関を利用しています.",
+        "text": "078 People who collect Bell Marks are almost always from ___ high schools.\nベルマーク集めてる人は、大体公立高校出身だ。",
         "answer": "public",
         "meaning": "public　[名] ①（the ―）大衆 [形] ②公共の，公の"
     },
@@ -435,7 +435,7 @@
         "meaning": "budget　[名] ①予算 [形] ②安い"
     },
     {
-        "text": "089 There is an entrance ___ for the museum.\nその博物館には入場料がかかる。",
+        "text": "089 You have to pay an admission ___ to enter his house.\n彼の家に入るには、入場料金がいる。",
         "answer": "fee",
         "meaning": "fee　[名] ①（会費，遊園地などの）料金 ②（専門職への）謝礼"
     },
@@ -1600,8 +1600,8 @@
         "meaning": "sell　[他] ①～を売る [自] ②売れる"
     },
     {
-        "text": "324 He ___ more than just money to buy his daughter an instrument.\n彼は娘に楽器を買うためにお金以上のものを支払った。",
-        "answer": "paid",
+        "text": "324 You have to ___ an admission fee to enter his house.\n彼の家に入るには、入場料金がいる。",
+        "answer": "pay",
         "meaning": "pay　[他] ①（A for B)（B の代金としてA）を支払う [自] ②（for A)（A の代金を）支払う ③（仕事などが）割に合う [名] ④給料"
     },
     {
@@ -1695,7 +1695,7 @@
         "meaning": "novel　[名] ①小説 [形] ②斬新な"
     },
     {
-        "text": "343 He paid more than just money to buy his daughter an ___ .\n彼は娘に楽器を買うためにお金以上のものを支払った.🫁",
+        "text": "343 He paid more than just money to buy his daughter an ___ .\n彼は娘に楽器を買うためにお金以上のものを支払った.",
         "answer": "instrument",
         "meaning": "instrument　[名] ①楽器 ②器具"
     },
