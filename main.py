@@ -690,11 +690,22 @@ def handle_message_common(event, bot_type, line_bot_api):
             y = 5 - score
             e = y * label_score * (user_streaks[user_id] ** 3)
 
+            
             # 日付チェック
             today = time.strftime("%Y-%m-%d")
-            if user_daily_e[user_id]["date"] != today:
-                user_daily_e[user_id]["date"] = today
+            last_date_str = user_daily_e[user_id].get("date")
+            if last_date_str:
+                last_date = datetime.datetime.strptime(last_date_str, "%Y-%m-%d").date()
+            else:
+    # 初回なら今日で初期化
+                last_date = datetime.date.today()
+
+            current_date = datetime.date.today()
+
+            if (current_date - last_date).days >= 7:
                 user_daily_e[user_id]["total_e"] = 0
+                user_daily_e[user_id]["date"] = today
+
 
             # トータル e 更新
             user_daily_e[user_id]["total_e"] += e
