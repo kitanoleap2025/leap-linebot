@@ -532,7 +532,7 @@ def build_ranking_with_totalE_flex(bot_type):
         "type": "box",
         "layout": "vertical",
         "contents": [
-            {"type": "text", "text": "今日の$ランキング", "weight": "bold", "size": "xl"},
+            {"type": "text", "text": "週間$ランキング", "weight": "bold", "size": "xl"},
             {"type": "separator", "margin": "md"}
         ]
     })
