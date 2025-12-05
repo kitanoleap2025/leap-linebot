@@ -246,7 +246,7 @@ def send_question(user_id, range_str, bot_type="LEAP"):
     if q is None:
         return TextSendMessage(text="問題が見つかりません。")
     
-    user_states[user_id] = (range_str, q["answer"])
+    user_states[user_id] = (range_str, q)
     user_answer_start_times[user_id] = time.time()
 
     correct_answer = q["answer"]
@@ -662,7 +662,8 @@ def handle_message_common(event, bot_type, line_bot_api):
         return
 
     if user_id in user_states:
-        range_str, correct_answer = user_states[user_id]
+        range_str, q_obj = user_states[user_id]
+        correct_answer = q_obj["answer"]
         # 正解かどうか判定
         is_correct = (msg.lower() == correct_answer.lower())
         score = user_scores[user_id].get(correct_answer, 1)
@@ -726,7 +727,7 @@ def handle_message_common(event, bot_type, line_bot_api):
             user_id, is_correct, score, elapsed,
             correct_answer=correct_answer,
             label=label if is_correct else None,
-            meaning=q.get("meaning") if q else None
+            meaning = q_obj.get("meaning") if q else None
         )
         
         today = time.strftime("%Y-%m-%d")
