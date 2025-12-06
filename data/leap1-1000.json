@@ -3225,14 +3225,49 @@
         "meaning": "last　[自] ①（時間的に）続く ②（服などが）長持ちする [形] （the last ～）③この前の～，最後の～ ④もっとも～でない [名] ⑤（at ―）ついに"
     },
     {
-        "text": "669 ___ invitation\n同窓会の案内状",
-        "answer": "reunion",
+        "text": "669 A weird noise ___ all night.\n変な音が一晩中続いた。",
+        "answer": "persisted",
         "meaning": "persist　[自] ①持続する，残る ②（in［with］～）（～を）貫く，（～に）固執する"
     },
     {
-        "text": "671 ___ is the basis of clear thinking and good arguments.\n論理は明晰な思考と良い議論の基礎である。",
-        "answer": "Logic",
+        "text": "670 We need to ___ the cause.\n原因を調べる必要がある。",
+        "answer": "examine",
+        "meaning": "examine　[他] ①～を調査する ②～を検査する"
+    },
+    {
+        "text": "671 She ___ experience.\n彼女は経験を積んだ。",
+        "answer": "gained",
         "meaning": "gain　[他] ①～を増す ②～を得る [名] ③利益，増加"
+    },
+    {
+        "text": "672 She ___ a permit.\n彼女は許可証を手に入れた。",
+        "answer": "obtained",
+        "meaning": "obtain　[他] （資格，許可，情報など）を得る"
+    },
+    {
+        "text": "673 She ___ a rare book.\n彼女は珍しい本を手に入れた。",
+        "answer": "acquired",
+        "meaning": "acquire　[他] ①～を習得する ②～を獲得する ③～を買収する"
+    },
+    {
+        "text": "674 I ___ for my keys.\n鍵を探した。",
+        "answer": "searched",
+        "meaning": "search　[他] ①（A for B)（B（物）を求めてA（場所））を捜す [名] ②捜索，調査"
+    },
+    {
+        "text": "675 Her plan sounds ___.\n彼女の計画は筋が通っている。",
+        "answer": "logical",
+        "meaning": "logical	[形] 論理的な"
+    },
+    {
+        "text": "676 She received a ___.\n彼女は奨学金を受け取った。",
+        "answer": "scholarship",
+        "meaning": "scholarship　[名] ①奨学金〈可算〉 ②学問、（人文科学の）学識〈不可算〉"
+    },
+    {
+        "text": "677 The ___s were confusing.\n指示がややこしかった。",
+        "answer": "instruction",
+        "meaning": "instruction　[名] （通例―s）指示"
     },
     {
         "text": "678 The price is ___ by supply and demand.\n価格は需要と供給で決まる。",
