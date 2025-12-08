@@ -1190,7 +1190,7 @@
         "meaning": "ape　[名] 類人猿"
     },
     {
-        "text": "1243 Women who ___ together instantly.\nすぐ群れる女性たち",
+        "text": "1243 people who ___ together instantly.\nすぐ群れる人たち",
         "answer": "flock",
         "meaning": "flock　[名] ①（鳥，羊の）群れ [自] ②群れる"
     },
@@ -1570,7 +1570,7 @@
         "meaning": "routine　[名] ①決まりきった仕事 [形] ②日常の"
     },
     {
-        "text": "1319 I bought this keychain as a ___.\nこのキーホルダーはお土産として買った。",
+        "text": "1319 ___s from the school trip\n修学旅行のお土産",
         "answer": "souvenir",
         "meaning": "souvenir　[名] 土産，記念品"
     },
@@ -2860,7 +2860,7 @@
         "meaning": "explode　[自] ①爆発する ②爆発的に増加する"
     },
     {
-        "text": "1577 Two cars ___ on the icy road.\n2台の車が凍った道路で衝突した。",
+        "text": "1577 The cyclist nearly ___d with a car at the intersection.\nその自転車は交差点で車と危うく衝突しかけた。",
         "answer": "collide",
         "meaning": "collide　[自] （with ～）（～と）衝突する"
     },
@@ -3295,7 +3295,7 @@
         "meaning": "utilize　[他] ～を利用する"
     },
     {
-        "text": "1664 The video is ___d directly into the webpage.\nそのビデオはウェブページに直接埋め込まれている。",
+        "text": "1664 A strong sense of curiosity is ___ in human nature.\n強い好奇心は人間の性質に埋め込まれている。",
         "answer": "embed",
         "meaning": "embed　[他] (in...)(...に)～を埋め込む"
     },
