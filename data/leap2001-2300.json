@@ -1,5 +1,40 @@
 [
     {
+        "text": "2001 People tend to ___ through the city when they have no real destination.\n人は、明確な目的地がないとき、街をあてもなくぶらつきがちだ。",
+        "answer": "roam",
+        "meaning": ""
+    },
+    {
+        "text": "2002 She likes to ___ around the park after school.\n彼女は放課後、公園をのんびり歩くのが好きだ。",
+        "answer": "stroll",
+        "meaning": ""
+    },
+    {
+        "text": "2003 Rumors usually ___ faster than facts.\n噂はたいてい、事実よりも早く広まる。",
+        "answer": "circulate",
+        "meaning": ""
+    },
+    {
+        "text": "2004 His enthusiasm began to ___ as the exam season dragged on.\n試験期間が長引くにつれて、彼の熱意は徐々に衰えていった。",
+        "answer": "wane",
+        "meaning": ""
+    },
+    {
+        "text": "2005 If you ignore small problems, they will eventually ___ into something serious.\n小さな問題を放置すると、いずれ深刻なものへと悪化していく。",
+        "answer": "deteriorate",
+        "meaning": ""
+    },
+    {
+        "text": "2006 Stock prices can ___ without warning.\n株価は前触れもなく急落することがある。",
+        "answer": "plunge",
+        "meaning": ""
+    },
+    {
+        "text": "2007 His clever plan completely ___ on him.\n彼の「巧妙な」計画は、完全に裏目に出た。",
+        "answer": "backfired",
+        "meaning": ""
+    },
+    {
         "text": "2109 discrimination against Nara ___ residents\n奈良県民への差別",
         "answer": "prefecture",
         "meaning": "prefecture　[名] 県，府"
