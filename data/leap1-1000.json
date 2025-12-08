@@ -105,6 +105,11 @@
         "meaning": "explain　[他] ～を説明する"
     },
     {
+        "text": "022 Can you ___ the scene in more detail for the report?\nその場面について、報告書用にもっと詳しく描写してくれないか。",
+        "answer": "describe",
+        "meaning": "描写する、説明する"
+    },
+    {
         "text": "023 It is important to ___ effectively with others in a team.\nチームで効果的にコミュ二ケーションをとることは重要だ.",
         "answer": "communicate",
         "meaning": "communicate　[自] ①（with ～）（～と）意思の疎通をはかる [他] ②～を伝える"
@@ -835,6 +840,11 @@
         "meaning": "history　[名] ①歴史 ②履歴，前歴，病歴"
     },
     {
+        "text": "169 The teacher asked each student to choose a research ___ for the project.\n先生は生徒それぞれに、研究プロジェクトのテーマを選ぶよう求めた。",
+        "answer": "subject",
+        "meaning": "主題、科目、テーマ"
+    },
+    {
         "text": "170 compulsory ___\n義務教育",
         "answer": "education",
         "meaning": "education　[名] 教育"
@@ -1443,6 +1453,11 @@
         "text": "291 Looks like ___ has somehow arrived outdoors.\n外では春が来たようだ.",
         "answer": "spring",
         "meaning": "spring　[名] ①春 ②泉，温泉 [自] ③飛び出る，突然出現する"
+    },
+    {
+        "text": "292 We have only a ___ amount of time before the deadline.\n締め切りまで残された時間はごくわずかだ。",
+        "answer": "minute",
+        "meaning": "非常に小さい、わずかな"
     },
     {
         "text": "293 Children under six must be accomanied by someone ___ 18 or older.\n6歳未満のお子様には18歳以上の人の付き添いが必要です.",
@@ -2505,6 +2520,16 @@
         "meaning": "abolish　[他] ～を廃止する"
     },
     {
+        "text": "505 The new rules will ___ strict limits on smartphone use at school.\n新しい規則は、学校でのスマホ使用に厳しい制限を課すことになる。",
+        "answer": "impose",
+        "meaning": "課す、押しつける"
+    },
+    {
+        "text": "506 Students need special permission to ___ the lab after hours.\n生徒が放課後に実験室へ入るには、特別な許可が必要だ。",
+        "answer": "access",
+        "meaning": "利用する、入る"
+   },
+    {
         "text": "507 fulfill my ___\n義務を果たす",
         "answer": "duties",
         "meaning": "duty　[名] ①義務 ②関税"
@@ -2750,6 +2775,11 @@
         "meaning": "stick　[他] ①～を貼り付ける ②（舌や脚）を出す [自] ③（to）（主義などを）守る，固執する"
     },
     {
+        "text": "556 The ___ escaped before anyone noticed the missing wallet.\nその泥棒は、誰も財布の紛失に気づく前に姿を消した。",
+        "answer": "thief",
+        "meaning": "泥棒"
+    },
+    {
         "text": "557 It is said that the ___ rate in the city has increased this year.\n今年,この街の犯罪率は増加したと言われている。🔪",
         "answer": "crime",
         "meaning": "crime　[名] 犯罪"
@@ -2808,6 +2838,21 @@
         "text": "568 Instagram does more ___ than good.\nインスタグラムは益より害になる.",
         "answer": "harm",
         "meaning": "harm　[名] ①害〈不可算〉 [他] ②～に害を与える"
+    },
+    {
+        "text": "569 The noise began to ___ his personal space and concentration.\nその騒音は、彼の集中力と“静かな空間”を侵害し始めた。",
+        "answer": "invade",
+        "meaning": "侵害する、侵入する"
+    },
+    {
+        "text": "570 Careless driving can ___ the lives of others.\n不注意な運転は、他人の命を危険にさらす。",
+        "answer": "endanger",
+        "meaning": "危険にさらす"
+    },
+    {
+        "text": "571 Sorry to ___, but the teacher is looking for you.\n邪魔して悪いけど、先生が君を探してる。",
+        "answer": "interrupt",
+        "meaning": "邪魔する、中断させる"
     },
     {
         "text": "572 Honey never ___.\nはちみつは腐りません.(台無しにならない.)🍯",
@@ -3085,9 +3130,19 @@
         "meaning": "stumble　[自] ①つまずく ②（across［into］～）（～に）偶然出会う"
     },
     {
+        "text": "627 You need to ___ this button to start the machine.\nこのボタンを押すと機械が作動する。",
+        "answer": "press",
+        "meaning": "押す"
+    },
+    {
         "text": "628 ___ out a broken heart\n失恋をずるずると引きずる",
         "answer": "drag",
         "meaning": "drag　[他] ～を（ずるずると）引きずる"
+    },
+    {
+        "text": "629 Don't ___ on a broken chair like that.\nそんな壊れた椅子に寄りかかったら危ないぞ。",
+        "answer": "lean",
+        "meaning": "寄りかかる、傾く"
     },
     {
         "text": "630 I got ___ on the arm by a kitten.\n子猫に腕をひっかかれた.😼",
@@ -3140,6 +3195,16 @@
         "meaning": "escape　[自] ①（from ～）（～から）逃れる [他] ②～を避ける [名] ③逃亡"
     },
     {
+        "text": "640 The wind began to ___ the leaves across the yard.\n風が庭中に葉を散らし始めた。",
+        "answer": "scatter",
+        "meaning": "まき散らす、散らす"
+    },
+    {
+        "text": "641 You need to ___ your card into the slot to continue.\n続けるにはカードをそのスロットに挿入する必要がある。",
+        "answer": "insert",
+        "meaning": "挿入する"
+    },
+    {
         "text": "642 The picture was ___ upside down.\nその絵は逆さまに掛かっていた。",
         "answer": "hung",
         "meaning": "hang　[他] ①～を掛ける ②～を絞首刑にする [自] ③ぶら下がる"
@@ -3153,6 +3218,11 @@
         "text": "644 ___ while the iron is hot\n鉄は熱いうちに打て🔥",
         "answer": "strike",
         "meaning": "strike　[他] ①～を打つ ②（災害が）～を襲う ③（考えが人）に思い浮かぶ ④（A as B）（A）に（B という）印象を与える [名] ⑤ストライキ"
+    },
+    {
+        "text": "645 No one could ___ him in the final round.\n決勝戦で彼に勝てた者はいなかった。",
+        "answer": "beat",
+        "meaning": "打ち負かす"
     },
     {
         "text": "646 Is our mission to ___ the environment?\n私たちの使命は環境を守ることですか?",
@@ -3248,6 +3318,21 @@
         "text": "664 A job that ___ constant bowing\nおじぎし続ける仕事",
         "answer": "requires",
         "meaning": "require　[他] ～を必要とする"
+    },
+    {
+        "text": "665 The electric car and its gasoline ___ were compared in the study.\nその研究では電気自動車とガソリン車の対応物が比較された。",
+        "answer": "counterpart",
+        "meaning": "相当するもの、対応物"
+    },
+    {
+        "text": "666 The ___ of AI has changed the way people work.\nAIの登場は、人々の働き方を大きく変えた。",
+        "answer": "advent",
+        "meaning": "到来、出現"
+    },
+    {
+        "text": "667 It's hard to ___ good habits without consistency.\n継続性がなければ、良い習慣を維持するのは難しい。",
+        "answer": "maintain",
+        "meaning": "維持する"
     },
     {
         "text": "668 Authority does not ___ long.\n権威は長く続かない。", 
@@ -3360,6 +3445,11 @@
         "meaning": "notice　[他] ①～に気がついている [名] ②通知，掲示，注意"
     },
     {
+        "text": "690 She became ___ of the risks after reading the report.\n報告書を読んで、彼女はそのリスクを認識するようになった。",
+        "answer": "aware",
+        "meaning": "気づいている、認識している"
+    },
+    {
         "text": "691 He was ___ during the entire surgery.\n彼は手術中ずっと意識があった.😱",
         "answer": "conscious",
         "meaning": "conscious　[形] ①意識している，気づいている ②意識がある"
@@ -3380,6 +3470,11 @@
         "meaning": "commit　[他] ①（oneself to ～ / be ―ed to ～）～に専念する ②（A to B)（A）を（B に）委ねる，充てる ③（犯罪など）を犯す"
     },
     {
+        "text": "695 I still ___ whether his story is true.\n彼の話が本当かどうか、俺はいまだに疑っている。",
+        "answer": "doubt",
+        "meaning": "疑う"
+    },
+    {
         "text": "696 ___ the times tables\n九九を暗記する",
         "answer": "memorize",
         "meaning": "memorize　[他] ～を暗記する"
@@ -3398,6 +3493,16 @@
         "text": "699 ___ my elementary school memories\n小学校の思い出を思い出す",
         "answer": "recall",
         "meaning": "recall　[他] ①～を思い出す ②（商品）を回収する，リコールする"
+    },
+    {
+        "text": "700 The economic ___ for next year remains uncertain.\n来年の経済見通しは依然として不確実だ。",
+        "answer": "outlook",
+        "meaning": "見通し"
+    },
+    {
+        "text": "701 Try to see the issue from another ___.\nその問題を別の視点から見てみろ。",
+        "answer": "perspective",
+        "meaning": "視点、観点"
     },
     {
         "text": "702 ___ a project likely to fail\n失敗するであろう企画を放棄する🚯",
@@ -3500,6 +3605,11 @@
         "meaning": "climate　[名] ①気候 ②（政治，経済，文化の）状況"
     },
     {
+        "text": "722 The café had a warm and friendly ___.\nそのカフェには温かくて親しみやすい雰囲気があった。",
+        "answer": "atmosphere",
+        "meaning": "雰囲気"
+    },
+    {
         "text": "723 according to the weather ___\n天気予報によれば",
         "answer": "forecast",
         "meaning": "forecast　[名] ①予報 [他] ②～を予報する"
@@ -3560,9 +3670,19 @@
         "meaning": "generous　[形] 気前のよい"
     },
     {
+        "text": "735 He enjoys discussing complex ideas with other ___ people.\n彼は、他の知的な人々と複雑な考えを議論するのを楽しむ。",
+        "answer": "intellectual",
+        "meaning": "知的な"
+    },
+    {
         "text": "736 She is ___ .\n彼女は好奇心旺盛だ.",
         "answer": "curious",
         "meaning": "curious　[形] ①（人が主語）好奇心が強い ②（物が主語）奇妙な，好奇心をそそる"
+    },
+    {
+        "text": "737 Kids tend to be highly ___ when creating stories.\n子どもは物語を作るとき、とても想像力豊かになるものだ。",
+        "answer": "imaginative",
+        "meaning": "想像力に富んだ"
     },
     {
         "text": "738 I wish we could ___ to eat whatever we want.\n食べたいものを何でも食べられる余裕があればいいのに.",
@@ -3570,9 +3690,24 @@
         "meaning": "afford　[他] ①（can ―）～する余裕がある ②（SVO1O2）（O1に）O2を与える"
     },
     {
+        "text": "739 She was ___ to start the new project.\n彼女はその新しいプロジェクトを始めるのを熱望していた。",
+        "answer": "eager",
+        "meaning": "熱望している"
+    },
+    {
         "text": "740 Judging by appearances, he is ___ .\n見た目で判断すると、彼は自分勝手だ✅",
         "answer": "selfish",
         "meaning": "selfish　[形] 利己的な，自分勝手な"
+    },
+    {
+        "text": "741 His ___ attitude scared everyone in the room.\n彼の攻撃的な態度は、その場の全員を怖がらせた。",
+        "answer": "aggressive",
+        "meaning": "攻撃的な"
+    },
+    {
+        "text": "742 The story described a ___ ruler who cared only about power.\nその物語には、権力にしか興味のない残酷な支配者が描かれていた。",
+        "answer": "cruel",
+        "meaning": "残酷な"
     },
     {
         "text": "743 He is ___ to alcohol.\n彼はアルコール中毒になっている.🍺",
@@ -3583,6 +3718,11 @@
         "text": "744 a ___ old man next door\nお隣の頑固な老人👴",
         "answer": "stubborn",
         "meaning": "stubborn　[形] 頑固な"
+    },
+    {
+        "text": "745 She made a ___ decision that surprised everyone.\n彼女は皆を驚かせる大胆な決断をした。",
+        "answer": "bold",
+        "meaning": "大胆な"
     },
     {
         "text": "746 an attitude that doesn’t seem ___ at all\n罪の意識があるとは思えない態度🤪",
@@ -3625,6 +3765,11 @@
         "meaning": "coward　[名] 臆病者"
     },
     {
+        "text": "754 Please be ___ when measuring the ingredients.\n材料を量るときは正確に頼む。",
+        "answer": "precise",
+        "meaning": "正確な"
+    },
+    {
         "text": "755 an ___ clock\n正確な時計⌚",
         "answer": "accurate",
         "meaning": "accurate　[形] 正確な"
@@ -3635,9 +3780,19 @@
         "meaning": "proper　[形] 適切な"
     },
     {
+        "text": "757 His desk is always clean and ___.\n彼の机はいつもきれいで整っている。",
+        "answer": "tidy",
+        "meaning": "整った、きちんとした"
+    },
+    {
         "text": "758 Using both hands to peel a banana is surprisingly ___.\n両手でバナナをむくのは意外と効率的だ。🍌",
         "answer": "efficient",
         "meaning": "efficient　[形] ①能率的な，無駄がない ②（人が）有能な"
+    },
+    {
+        "text": "759 Her explanation sounded perfectly ___ to me.\n彼女の説明は、俺には十分にもっともらしく聞こえた。",
+        "answer": "reasonable",
+        "meaning": "合理的な、もっともな"
     },
     {
         "text": "760 Even a small change can have a ___ effect on society.\n小さな変化でも社会に大きな影響を与える.",
@@ -3720,6 +3875,11 @@
         "meaning": "diversity　[名] 多様性"
     },
     {
+        "text": "776 Can you help me ___ these papers into categories?\nこの書類をいくつかの分類に仕分けるのを手伝ってくれないか。",
+        "answer": "sort",
+        "meaning": "分類する、仕分ける"
+    },
+    {
         "text": "777 She had a ___ idea to eat ramen for breakfast.\n彼女は朝食にラーメンを食べるという素晴らしいアイデアを思いついた。🍜💡",
         "answer": "marvelous",
         "meaning": "marvelous　[形] 驚くべき、素晴らしい"
@@ -3740,6 +3900,11 @@
         "meaning": "pure　[形] ①純粋な ②（水，空気が）澄んだ"
     },
     {
+        "text": "781 Her progress has been slow but ___.\n彼女の進歩は遅いが着実だ。",
+        "answer": "steady",
+        "meaning": "着実な、安定した"
+    },
+    {
         "text": "782 Being ___ is useful when plans keep changing.\n予定がどんどん変わる時,柔軟でいることは便利だ。",
         "answer": "flexible",
         "meaning": "flexible　[形] 柔軟な，融通のきく"
@@ -3755,9 +3920,19 @@
         "meaning": "stable　[形] ①安定した [名] ②馬小屋，きゅう舎"
     },
     {
+        "text": "785 The experiment showed a ___ effect on growth.\nその実験は、成長に対して否定的な影響を示した。",
+        "answer": "negative",
+        "meaning": "否定的な、マイナスの"
+    },
+    {
         "text": "786 His explanation was so ___ that nobody understood it.\n彼の説明はあまりにも曖昧で誰も理解できなかった。",
         "answer": "vague",
         "meaning": "vague　[形] 曖昧な，漠然とした"
+    },
+    {
+        "text": "787 There's something ___ about the way he laughs.\n彼の笑い方には、どこか奇妙なところがある。",
+        "answer": "weird",
+        "meaning": "奇妙な"
     },
     {
         "text": "788 The surface of the table felt ___ and unfinished.\nそのテーブルの表面は粗く,未完成の感じがした。",
@@ -3768,6 +3943,11 @@
         "text": "789 The storm caused ___ damage to the village.\n嵐は村にひどい被害をもたらした。🍃",
         "answer": "severe",
         "meaning": "severe　[形] ①（天候，批判，罰則などが）厳しい ②（けが，問題などが）ひどい"
+    },
+    {
+        "text": "790 He remained ___ during the discussion, barely saying a word.\n彼は議論の間ずっと受け身で、ほとんど何も言わなかった。",
+        "answer": "passive",
+        "meaning": "受動的な、消極的な"
     },
     {
         "text": "791 He was ___ about his singing skills.\n彼は自分の歌の腕前にうぬぼれていた。",
@@ -3905,10 +4085,21 @@
         "meaning": "objective　[形] ①客観的な [名] ②目標"
     },
     {
+        "text": "818 The device comes with a detailed ___ for beginners.\nその装置には、初心者向けの詳しい説明書が付いている。",
+        "answer": "manual",
+        "meaning": ""
+    },
+    {
         "text": "819 Those twins look ___.\nそのふたごはよく似ている.👦👦",
         "answer": "alike",
         "meaning": ""
     },
+    {
+        "text": "820 The customs officer thought his story sounded a bit ___ to be true.\n税関職員は、彼の話が本当とは思えないほど異質だと感じた。",
+        "answer": "alien",
+        "meaning": "異質な、馴染みのない"
+    },
+
     {
         "text": "821 People ___ to accept ideas not because they are true, but because they are familiar.\n人々はアイデアが真実だからではなく,馴染みがあるから受け入れる傾向がある.",
         "answer": "tend",
