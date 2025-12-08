@@ -384,10 +384,25 @@
         "answer": "conservative",
         "meaning": "conservative　[形] 保守的な"
     },
+     {
+        "text": "1082 The political ___ of the country are becoming increasingly complicated.\nその国の政治情勢はますます複雑になっている。",
+        "answer": "affairs",
+        "meaning": ""
+    },
+     {
+        "text": "1083 She belongs to a secret government ___.\n彼女は政府の秘密機関に所属している。",
+        "answer": "agency",
+        "meaning": ""
+    },
     {
         "text": "1084 The city ___ decided to build a new park.\n市議会は新しい公園を建設することを決定した。",
         "answer": "council",
         "meaning": "council　[名] 議会"
+    },
+     {
+        "text": "1085 Takeshi rules the ___.\nタケシは王国を支配する。",
+        "answer": "kingdom",
+        "meaning": ""
     },
     {
         "text": "1086 France is a ___, not a monarchy.\nフランスは共和国であり,君主制ではない。",
