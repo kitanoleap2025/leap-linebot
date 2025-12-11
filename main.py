@@ -240,11 +240,11 @@ def send_question(user_id, range_str, bot_type="LEAP"):
         remaining_count = sum(1 for q in questions if q["answer"] not in scores)
 
     if not questions:
-        return TextSendMessage(text="問題が見つかりません。")
+        return TextSendMessage(text="🥳🥳🥳間違えた問題はありません！")
 
     q = choose_weighted_question(user_id, questions)
     if q is None:
-        return TextSendMessage(text="問題が見つかりません。")
+        return TextSendMessage(text="🥳🥳🥳間違えた問題はありません！")
     
     user_states[user_id] = (range_str, q)
     user_answer_start_times[user_id] = time.time()
