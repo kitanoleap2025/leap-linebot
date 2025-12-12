@@ -66,7 +66,47 @@ def load_user_data(user_id):
         print(f"Error loading user data for {user_id}: {e}")
         user_names[user_id] = DEFAULT_NAME
 
+def check_and_reset_total_e(user_id):
+    today = datetime.date.today()
+
+    # ユーザーの過去データ取得（dbから）
+    doc = db.collection("users").document(user_id).get()
+    stored = doc.to_dict() if doc.exists else {}
+
+    total_e = stored.get("total_e", 0)
+    date_str = stored.get("total_e_date")
+
+    # 日付の処理
+    if not date_str:
+        # 初回 or 空欄 → 今日を設定
+        new_date = today
+    else:
+        try:
+            old_date = datetime.datetime.strptime(date_str, "%Y-%m-%d").date()
+        except:
+            old_date = today
+
+        # 7日経過していたらリセット
+        if (today - old_date).days >= 7:
+            total_e = 0
+            new_date = today
+        else:
+            new_date = old_date
+
+    # firestore へ保存
+    db.collection("users").document(user_id).set({
+        "total_e": total_e,
+        "total_e_date": new_date.strftime("%Y-%m-%d")
+    }, merge=True)
+
+    # メモリ上の値も更新
+    user_daily_e[user_id]["total_e"] = total_e
+    user_daily_e[user_id]["date"] = new_date.strftime("%Y-%m-%d")
+
+
 def save_user_data(user_id):
+
+    check_and_reset_total_e(user_id)
     today = time.strftime("%Y-%m-%d")
     total_e = user_daily_e[user_id]["total_e"]
     total_e_date = user_daily_e[user_id]["date"]
@@ -470,40 +510,6 @@ def build_feedback_flex(user_id, is_correct, score, elapsed, correct_answer=None
             }
         }
     )
-    
-def update_total_e_rate(user_id):
-    user_data = db.collection("user_data").document(user_id).get().to_dict()
-    if not user_data:
-        return
-
-    e_words = user_data.get("e_words", {})
-    total_e_rate = sum(e_words.values()) / len(e_words) if e_words else 0
-
-    db.collection("users").document(user_id).set({
-        "total_e_rate": round(total_e_rate, 2)
-    }, merge=True)
-
-def reset_weekly_total_e():
-    """全ユーザーのtotal_eを週単位でリセット（バッチ処理）"""
-    today = datetime.date.today()
-    current_week = today.isocalendar()[1]  # ISO週番号を取得
-
-    try:
-        batch = db.batch()
-        docs = db.collection("users").stream()
-        for doc in docs:
-            user_data = doc.to_dict()
-            user_total_e_week = user_data.get("total_e_week", None)
-            user_week = user_data.get("total_e_week_num", None)
-
-            if user_week != current_week:
-                batch.update(db.collection("users").document(doc.id), {
-                    "total_e": 0,
-                    "total_e_week_num": current_week
-                })
-        batch.commit()
-    except Exception as e:
-        print(f"Error resetting weekly total_e: {e}")
 
 medal_colors = {
     1: "#000000", 
@@ -709,33 +715,33 @@ def handle_message_common(event, bot_type, line_bot_api):
             y = 5 - score
             e = y * label_score * (user_streaks[user_id] ** 3)
 
-            
+
             # 日付チェック
-            today = time.strftime("%Y-%m-%d")
+            today = datetime.date.today()
+
             last_date_str = user_daily_e[user_id].get("date")
             if last_date_str:
                 last_date = datetime.datetime.strptime(last_date_str, "%Y-%m-%d").date()
             else:
-    # 初回なら今日で初期化
-                last_date = datetime.date.today()
+            # 初回なら今日で初期化
+                last_date = today
+                user_daily_e[user_id]["date"] = today.strftime("%Y-%m-%d")
 
-            current_date = datetime.date.today()
-
-            if (current_date - last_date).days >= 7:
+            # 7日経過していたらリセット
+            if (today - last_date).days >= 7:
                 user_daily_e[user_id]["total_e"] = 0
-                user_daily_e[user_id]["date"] = today
-
+                user_daily_e[user_id]["date"] = today.strftime("%Y-%m-%d")
 
             # トータル e 更新
             user_daily_e[user_id]["total_e"] += e
             try:
                 db.collection("users").document(user_id).set({
                     "total_e": user_daily_e[user_id]["total_e"],
-                    "total_e_date": today
+                    "total_e_date": user_daily_e[user_id]["date"]
                 }, merge=True)
             except Exception as ex:
                 print(f"Error saving total_e for {user_id}: {ex}")
-
+    
         else:
             # 不正解時は0
             user_streaks[user_id] = max(user_streaks[user_id] - 3, 0)
