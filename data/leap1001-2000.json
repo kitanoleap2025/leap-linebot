@@ -580,6 +580,11 @@
         "meaning": "bullet　[名] 弾丸"
     },
     {
+        "text": "1121 The pen is mighter than the ___.\nペンは剣よりも強し🖊️",
+        "answer": "sword",
+        "meaning": "sword　[名] 剣"
+    },
+    {
         "text": "1121 He drew his ___ in the battle.\n彼は戦いで剣を抜いた。",
         "answer": "sword",
         "meaning": "sword　[名] 剣"
@@ -1510,7 +1515,7 @@
         "meaning": "maximum　[名] 最大限"
     },
     {
-        "text": "1307 The team consist of Bob and a ___ of incompetents.\nそのチームはボブとその他の無能で構成されている。🥸🥸🥸🥸",
+        "text": "1307 He bought a ___ of flowers for her.\n彼は彼女のために花束を買った。💐",
         "answer": "bunch",
         "meaning": "bunch　[名] (花や鍵などの)束，(ブドウなどの)房"
     },
@@ -1861,7 +1866,7 @@
     },
     {
         "text": "1377 That comment ___ed a big argument.\nその発言が大きな口論のきっかけとなった。",
-        "answer": "triggered",
+        "answer": "trigger",
         "meaning": "trigger　[他] ①～のきっかけになる，～を誘発する [名] ②（銃の）引き金"
     },
     {
@@ -2700,7 +2705,7 @@
         "meaning": "prototype　[名] ①(of [for] ～)(～の)原型 ②試作品 ③典型"
     },
     {
-        "text": "1545 This room has unusual ___ for a living space. 📏\nこの部屋は居住空間としては珍しい寸法だ📏",
+        "text": "1545 The project failed because they overlooked the human ___ of the plan.\nこの計画は、人間的な側面を見落としたせいで失敗した。",
         "answer": "dimension",
         "meaning": "dimension　[名] ①(問題などの)側面，要因，次元 ②(―s)寸法，大きさ"
     },
@@ -2820,7 +2825,7 @@
         "meaning": "suppress　[他] ①（反乱，暴動）を鎮圧する ②（笑い，怒り）を抑える"
     },
     {
-        "text": "1569 The army was forced to ___ after weeks of fighting.\n軍は数週間の戦闘の後、降伏を余儀なくされた🏳️",
+        "text": "1569 I’m not ___ing to this ridiculous amount of homework.\nこの馬鹿みたいな宿題量に屈する気はない。🏳️",
         "answer": "surrender",
         "meaning": "surrender　[自] ①（to ～）（～に）降伏する [他] ②～を引き渡す"
     },
@@ -3540,8 +3545,8 @@
         "meaning": "instill　[他] (思想など)を(徐々に)教える，～を植え付ける"
     },
     {
-        "text": "1713 The guard was ___ to the suspicious sound.\n警備員は不審な音に気づいた。",
-        "answer": "alerted",
+        "text": "1713 You need to stay ___ during the experiment.\n実験中は注意しておく必要があるぞ。",
+        "answer": "alert",
         "meaning": "alert　[形] ①油断のない，用心深い [名] ②(公的な)警告"
     },
     {
