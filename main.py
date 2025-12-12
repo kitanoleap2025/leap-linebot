@@ -58,7 +58,7 @@ def fever_time(fevertime):
     # fevertime が None または 0 のとき
     if not fevertime:
         # 1/20 で Fever を開始
-        if random.random() < 1/20:
+        if random.random() < 1/10:
             return 1
         return 0
 
