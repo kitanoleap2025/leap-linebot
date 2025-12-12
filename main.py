@@ -519,7 +519,6 @@ medal_colors = {
 
 # 高速ランキング（自分の順位も表示）
 def build_ranking_with_totalE_flex(bot_type):
-    reset_weekly_total_e()
     # total_rateランキング
     field_name_rate = f"total_rate_{bot_type.lower()}"
     try:
