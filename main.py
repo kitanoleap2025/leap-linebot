@@ -499,13 +499,22 @@ def build_feedback_flex(user_id, is_correct, score, elapsed, correct_answer=None
             e *= 100
             body_contents.append({
                 "type": "text",
-                "text": "💥FEVER TIME ✖100💥\n➡${e}",
+                "text": "💥FEVER TIME ✖100💥",
                 "weight": "bold",
                 "size": "lg",
                 "color": "#ff0000",
                 "align": "center",
                 "margin": "md"
-        })
+            })
+            body_contents.append({
+                "type": "text",
+                "text": "➡${e}",
+                "weight": "bold",
+                "size": "lg",
+                "color": "#ff0000",
+                "align": "center",
+                "margin": "md"
+            })
         
     return FlexSendMessage(
         alt_text="回答フィードバック",
