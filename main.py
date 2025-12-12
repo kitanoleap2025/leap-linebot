@@ -705,7 +705,6 @@ def handle_message_common(event, bot_type, line_bot_api):
         }
 
         if is_correct:
-            update_total_e_rate(user_id)
             user_streaks[user_id] += 1
             delta_score = delta_map.get(label, 1)
             user_scores[user_id][correct_answer] = min(user_scores[user_id].get(correct_answer, 1) + delta_score, 4)
