@@ -727,17 +727,15 @@ def handle_message_common(event, bot_type, line_bot_api):
             user_scores[user_id][correct_answer] = min(user_scores[user_id].get(correct_answer, 1) + delta_score, 4)
 
             label_score = get_label_score(label)
+            # フィーバー中は獲得 e を 100倍
+            fever_multiplier = 100 if user_fever[user_id] == 1 else 1
             y = 5 - score
-            e = y * label_score * (user_streaks[user_id] ** 3)
+            e = y * label_score * (user_streaks[user_id] ** 3) * fever_multiplier
 
             # --- FEVER: 状態遷移（1/20 で ON、ON のときは 1/10 で OFF）
             prev_fever = user_fever.get(user_id, 0)
             new_fever = fever_time(prev_fever)
             user_fever[user_id] = int(new_fever)
-
-    # フィーバー中は獲得 e を 100倍
-            if user_fever[user_id] == 1:
-                e *= 1000
 
             # 日付チェック
             today = datetime.date.today()
