@@ -737,7 +737,7 @@ def handle_message_common(event, bot_type, line_bot_api):
 
     # フィーバー中は獲得 e を 100倍
             if user_fever[user_id] == 1:
-                e *= 100
+                e *= 1000
 
             # 日付チェック
             today = datetime.date.today()
