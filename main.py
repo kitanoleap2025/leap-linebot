@@ -52,6 +52,7 @@ user_answer_start_times = {}  # 問題出題時刻を記録
 user_daily_counts = defaultdict(lambda: {"date": None, "count": 1})
 user_streaks = defaultdict(int)
 user_daily_e = defaultdict(lambda: {"date": None, "total_e": 0})
+user_fever = defaultdict(int)  # user_id: 0 or 1
 
 def fever_time(fevertime):
     # fevertime が None または 0 のとき
@@ -402,7 +403,6 @@ def get_label_score(lbl):
     }
     return score_map.get(lbl, 0)
         
-#FEEDBACK　flex
 def build_feedback_flex(user_id, is_correct, score, elapsed, correct_answer=None, label=None, meaning=None):
     body_contents = []
     label_score = get_label_score(label)
@@ -492,6 +492,18 @@ def build_feedback_flex(user_id, is_correct, score, elapsed, correct_answer=None
             "size": "lg",
             "color": "#333333",
             "margin": "xl"
+        })
+
+        # フィーバー表示
+    if user_fever[user_id] == 1:
+        body_contents.append({
+            "type": "text",
+            "text": "💥Fever Time！✖100💥",
+            "weight": "bold",
+            "size": "lg",
+            "color": "#ff0000",
+            "align": "center",
+            "margin": "md"
         })
         
     return FlexSendMessage(
@@ -708,6 +720,14 @@ def handle_message_common(event, bot_type, line_bot_api):
             y = 5 - score
             e = y * label_score * (user_streaks[user_id] ** 3)
 
+            # --- FEVER: 状態遷移（1/20 で ON、ON のときは 1/10 で OFF）
+            prev_fever = user_fever.get(user_id, 0)
+            new_fever = fever_time(prev_fever)
+            user_fever[user_id] = int(new_fever)
+
+    # フィーバー中は獲得 e を 100倍
+            if user_fever[user_id] == 1:
+                e *= 100
 
             # 日付チェック
             today = datetime.date.today()
