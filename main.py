@@ -52,6 +52,21 @@ user_answer_start_times = {}  # 問題出題時刻を記録
 user_daily_counts = defaultdict(lambda: {"date": None, "count": 1})
 user_streaks = defaultdict(int)
 user_daily_e = defaultdict(lambda: {"date": None, "total_e": 0})
+
+def fever_time(fevertime):
+    # fevertime が None または 0 のとき
+    if not fevertime:
+        # 1/20 で Fever を開始
+        if random.random() < 1/20:
+            return 1
+        return 0
+
+    # fevertime が 1 のとき、1/10 でリセット
+    if fevertime == 1:
+        if random.random() < 1/10:
+            return 0
+        return 1
+        
 #ユーザーデータ読み込み・保存
 def load_user_data(user_id):
     try:
