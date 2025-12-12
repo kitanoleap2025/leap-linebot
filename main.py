@@ -495,15 +495,16 @@ def build_feedback_flex(user_id, is_correct, score, elapsed, correct_answer=None
         })
 
         # フィーバー表示
-    if user_fever[user_id] == 1:
-        body_contents.append({
-            "type": "text",
-            "text": "💥Fever Time！✖100💥",
-            "weight": "bold",
-            "size": "lg",
-            "color": "#ff0000",
-            "align": "center",
-            "margin": "md"
+        if user_fever[user_id] == 1:
+            e *= 100
+            body_contents.append({
+                "type": "text",
+                "text": "💥FEVER TIME ✖100💥\n➡${e}",
+                "weight": "bold",
+                "size": "lg",
+                "color": "#ff0000",
+                "align": "center",
+                "margin": "md"
         })
         
     return FlexSendMessage(
