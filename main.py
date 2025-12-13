@@ -53,6 +53,7 @@ user_daily_counts = defaultdict(lambda: {"date": None, "count": 1})
 user_streaks = defaultdict(int)
 user_daily_e = defaultdict(lambda: {"date": None, "total_e": 0})
 user_fever = defaultdict(int)  # user_id: 0 or 1
+user_ranking_wait = defaultdict(int)  # user_id: 残りカウント
 
 def fever_time(fevertime):
     # fevertime が None または 0 のとき
@@ -697,17 +698,22 @@ def handle_message_common(event, bot_type, line_bot_api):
             )
         )
         return
-    
-    # ランキング
+
     if msg == "ランキング":
-        if user_answer_counts[user_id] % 5 != 0:
+        if user_ranking_wait[user_id] > 0:
             line_bot_api.reply_message(
                 event.reply_token,
-                TextSendMessage(text="ランキングは5問解くごとに表示できます！")
+                TextSendMessage(text=f"ランキングは{user_ranking_wait[user_id]}問後に表示できます！")
             )
             return
+
+        # ランキング表示
         flex_msg = build_ranking_with_totalE_flex(bot_type)
         line_bot_api.reply_message(event.reply_token, flex_msg)
+
+        # 表示後にカウントをリセット（5問ごとに待機）
+        user_ranking_wait[user_id] = 5
+        return
 
     if user_id in user_states:
         range_str, q = user_states[user_id]
@@ -794,6 +800,10 @@ def handle_message_common(event, bot_type, line_bot_api):
         
         messages_to_send = [flex_feedback]
 
+        # 回答後にランキング待機カウントを1減らす
+        if user_ranking_wait[user_id] > 0:
+            user_ranking_wait[user_id] -= 1
+            
         if user_answer_counts[user_id] % 5 == 0:
             async_save_user_data(user_id)
             trivia = random.choice(trivia_messages)
