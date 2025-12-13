@@ -174,8 +174,10 @@ def build_result_flex(user_id, bot_type):
     try:
         doc = db.collection("users").document(user_id).get()
         total_rate = doc.to_dict().get(field_name, 0)
+        total_e = data.get("total_e", 0)
     except Exception:
         total_rate = 0
+        total_e = 0
         
     # bot_type による範囲設定
     if bot_type == "LEAP":
@@ -251,7 +253,7 @@ def build_result_flex(user_id, bot_type):
                 "layout": "vertical",
                 "contents": [
                     {"type": "text", "text": f"{name}", "weight": "bold", "size": "xl", "color": "#000000", "align": "center"},
-                    {"type": "text", "text": f"Total LEAP$: {user_daily_e.get(user_id, {}).get('total_e', 0)}", "weight": "bold", "size": "lg", "color": "#000000", "margin": "md"},
+                    {"type": "text", "text": f"Total LEAP$: {total_e}", "weight": "bold", "size": "lg", "color": "#000000", "margin": "md"},
                     {"type": "separator", "margin": "md"},
                     *parts,
                     {"type": "text", "text": f"Total Rating: {total_rate}", "weight": "bold", "size": "lg", "color": "#000000", "margin": "md"},
@@ -574,7 +576,7 @@ def build_ranking_with_totalE_flex(bot_type):
         "type": "box",
         "layout": "vertical",
         "contents": [
-            {"type": "text", "text": "週間$ランキング", "weight": "bold", "size": "xl"},
+            {"type": "text", "text": "週間リープ$ランキング", "weight": "bold", "size": "xl"},
             {"type": "separator", "margin": "md"}
         ]
     })
