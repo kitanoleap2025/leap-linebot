@@ -762,7 +762,7 @@ def handle_message_common(event, bot_type, line_bot_api):
             if last_date_str:
                 last_date = datetime.datetime.strptime(last_date_str, "%Y-%m-%d").date()
             else:
-            # 初回なら今日で初期化
+                # 初回のみ週の開始日を設定
                 last_date = today
                 user_daily_e[user_id]["date"] = today.strftime("%Y-%m-%d")
 
@@ -771,16 +771,14 @@ def handle_message_common(event, bot_type, line_bot_api):
                 user_daily_e[user_id]["total_e"] = 0
                 user_daily_e[user_id]["date"] = today.strftime("%Y-%m-%d")
 
-            # トータル e 更新
+            # トータル e 更新（ここでは足すだけ）
             user_daily_e[user_id]["total_e"] += e
-            try:
-                db.collection("users").document(user_id).set({
-                    "total_e": user_daily_e[user_id]["total_e"],
-                    "total_e_date": user_daily_e[user_id]["date"]
-                }, merge=True)
-            except Exception as ex:
-                print(f"Error saving total_e for {user_id}: {ex}")
-    
+
+            db.collection("users").document(user_id).set({
+                "total_e": user_daily_e[user_id]["total_e"],
+                "total_e_date": user_daily_e[user_id]["date"]
+            }, merge=True)
+
         else:
             # 不正解時は0
             user_streaks[user_id] = max(user_streaks[user_id] - 3, 0)
