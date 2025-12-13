@@ -790,7 +790,7 @@ def handle_message_common(event, bot_type, line_bot_api):
 
         else:
             # 不正解時は0
-            user_streaks[user_id] = max(user_streaks[user_id] - 1, 0)
+            user_streaks[user_id] = max(user_streaks[user_id] - 0, 0)
             user_scores[user_id][correct_answer] = 0
 
         # q を取得して meaning を渡す
