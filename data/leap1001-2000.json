@@ -2300,12 +2300,12 @@
         "meaning": "compensate　[他] (A for B)(A)に (Bを)補償する"
     },
     {
-        "text": "1464 Many children suffer from ___ in some families.\n多くの子どもが家庭内で虐待を受けている。",
+        "text": "1464 child ___\n児童虐待👶",
         "answer": "abuse",
         "meaning": "abuse　[名] ①虐待 ②乱用 [他] ③～を悪用する"
     },
     {
-        "text": "1465 The teacher showed ___ by favoring certain students.\n先生は特定の生徒を優遇して偏見を示した。",
+        "text": "1465 ___ against Nara residents\n奈良県民に対する偏見🦌",
         "answer": "bias",
         "meaning": "bias　[名] 偏見"
     },
@@ -2645,7 +2645,7 @@
         "meaning": "enterprise　[名] ①企業 ②(冒険的な)事業"
     },
     {
-        "text": "1533 They launched a risky ___ into the tech market.\n彼らはハイリスクなベンチャーをテック市場に展開した💡",
+        "text": "1533 The startup was a risky ___, but it changed the industry.\n危険な事業だったが、業界をひっくり返した。",
         "answer": "venture",
         "meaning": "venture　[名] ①(ベンチャー)事業 [自] ②危険を冒して行く"
     },
