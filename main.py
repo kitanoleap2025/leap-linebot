@@ -700,9 +700,14 @@ def handle_message_common(event, bot_type, line_bot_api):
     
     # ランキング
     if msg == "ランキング":
+        if user_answer_counts[user_id] % 5 != 0:
+            line_bot_api.reply_message(
+                event.reply_token,
+                TextSendMessage(text="ランキングは5問解くごとに表示できます！")
+            )
+            return
         flex_msg = build_ranking_with_totalE_flex(bot_type)
         line_bot_api.reply_message(event.reply_token, flex_msg)
-        return
 
     if user_id in user_states:
         range_str, q = user_states[user_id]
