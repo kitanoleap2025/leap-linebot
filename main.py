@@ -173,6 +173,7 @@ def build_result_flex(user_id, bot_type):
     field_name = f"total_rate_{bot_type.lower()}"
     try:
         doc = db.collection("users").document(user_id).get()
+        data = doc.to_dict() or {} 
         total_rate = doc.to_dict().get(field_name, 0)
         total_e = data.get("total_e", 0)
     except Exception:
