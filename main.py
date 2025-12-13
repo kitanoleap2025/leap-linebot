@@ -704,7 +704,7 @@ def handle_message_common(event, bot_type, line_bot_api):
         if user_ranking_wait[user_id] > 0:
             line_bot_api.reply_message(
                 event.reply_token,
-                TextSendMessage(text=f"ランキングは{user_ranking_wait[user_id]}問後に表示できます！")
+                TextSendMessage(text=f"ランキングは{user_ranking_wait[user_id]}問解いた後に表示できます！")
             )
             return
 
