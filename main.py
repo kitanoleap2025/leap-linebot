@@ -389,6 +389,12 @@ trivia_messages = [
     "ヒントろぼっと🤖\nヒントろぼっとで表示されるメッセージは合計1000種類ある。",
     "ヒントろぼっと🤖\n北野高校前の横断歩道で間に合う最後の青信号は8:08だ。",
     "ヒントろぼっと🤖\nリープを濡らすとバチが当たる。",
+    "英語ことわざ🤖\nBirds of a feather flock together.\n-類は友を呼ぶ。",
+    "英語ことわざ🤖\nkill two birds with one stone\n-一石二鳥",
+    "英語ことわざ🤖\nFirst come, first served.\n-早いもの勝ち。",
+    "英語ことわざ🤖\nLook before you leap.\n転ばぬ先の杖。",
+    "英語ことわざ🤖\nRome was not built in a day.\n-ローマは一日にして成らず。",
+    "英語ことわざ🤖\nIt is no use crying over split milk.\n-覆水盆に返らず。",
 ]
     
 def evaluate_X(elapsed, score, answer, is_multiple_choice=True):
