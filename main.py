@@ -59,7 +59,7 @@ def fever_time(fevertime):
     # fevertime が None または 0 のとき
     if not fevertime:
         # 1/20 で Fever を開始
-        if random.random() < 1/20:
+        if random.random() < 1/30:
             return 1
         return 0
 
@@ -164,7 +164,7 @@ def get_rank(score):
     return {0: "✖", 1: "✔/❓", 2: "✔2", 3: "✔3", 4: "✔4"}.get(score, "✔/❓")
 
 def score_to_weight(score):
-    return {0: 1000000, 1: 10000000, 2:10000, 3: 10000, 4: 1}.get(score, 10000000000000000000000)
+    return {0: 100000000, 1: 100000000, 2:10000, 3: 10000, 4: 1}.get(score, 100000000000000000000)
 
 def build_result_flex(user_id, bot_type):
     name = user_names.get(user_id, DEFAULT_NAME)
@@ -511,10 +511,10 @@ def build_feedback_flex(user_id, is_correct, score, elapsed, correct_answer=None
 
         # フィーバー表示
         if user_fever[user_id] == 1:
-            e = y * label_score * (user_streaks[user_id] ** 3) *111
+            e = y * label_score * (user_streaks[user_id] ** 3) *9999
             body_contents.append({
                 "type": "text",
-                "text": "💥FEVER ✖111💥",
+                "text": "💥FEVER ✖9999💥",
                 "weight": "bold",
                 "size": "lg",
                 "color": "#ff0000",
@@ -760,7 +760,7 @@ def handle_message_common(event, bot_type, line_bot_api):
             
             label_score = get_label_score(label)
             # フィーバー中は獲得 e を 100倍
-            fever_multiplier = 111 if user_fever[user_id] == 1 else 1
+            fever_multiplier = 9999 if user_fever[user_id] == 1 else 1
             y = 5 - score
             e = y * label_score * (user_streaks[user_id] ** 3) * fever_multiplier
 
@@ -790,7 +790,7 @@ def handle_message_common(event, bot_type, line_bot_api):
 
         else:
             # 不正解時は0
-            user_streaks[user_id] = max(user_streaks[user_id] - 3, 0)
+            user_streaks[user_id] = max(user_streaks[user_id] - 1, 0)
             user_scores[user_id][correct_answer] = 0
 
         # q を取得して meaning を渡す
