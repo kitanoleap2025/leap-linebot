@@ -251,6 +251,8 @@ def build_result_flex(user_id, bot_type):
                 "layout": "vertical",
                 "contents": [
                     {"type": "text", "text": f"{name}", "weight": "bold", "size": "xl", "color": "#000000", "align": "center"},
+                    {"type": "text", "text": f"Total LEAP$: {user_daily_e.get(user_id, {}).get('total_e', 0)}", "weight": "bold", "size": "lg", "color": "#000000", "margin": "md"},
+                    {"type": "separator", "margin": "md"},
                     *parts,
                     {"type": "text", "text": f"Total Rating: {total_rate}", "weight": "bold", "size": "lg", "color": "#000000", "margin": "md"},
                     {"type": "separator", "margin": "md"},
@@ -383,7 +385,7 @@ trivia_messages = [
     "ヒントろぼっと🤖\n大谷翔平は全国の小学校にLEAPを送った。",
     "ヒントろぼっと🤖\nヒントろぼっとで表示されるメッセージは合計1000種類ある。",
     "ヒントろぼっと🤖\n北野高校前の横断歩道で間に合う最後の青信号は8:08だ。",
-    "ヒントろぼっと🤖\nリープも濡らせばバチが当たる。",
+    "ヒントろぼっと🤖\nリープを濡らすとバチが当たる。",
 ]
     
 def evaluate_X(elapsed, score, answer, is_multiple_choice=True):
@@ -497,10 +499,10 @@ def build_feedback_flex(user_id, is_correct, score, elapsed, correct_answer=None
 
         # フィーバー表示
         if user_fever[user_id] == 1:
-            e = y * label_score * (user_streaks[user_id] ** 3) *100
+            e = y * label_score * (user_streaks[user_id] ** 3) *111
             body_contents.append({
                 "type": "text",
-                "text": "💥FEVER TIME ✖100💥",
+                "text": "💥FEVER ✖111💥",
                 "weight": "bold",
                 "size": "lg",
                 "color": "#ff0000",
@@ -746,7 +748,7 @@ def handle_message_common(event, bot_type, line_bot_api):
             
             label_score = get_label_score(label)
             # フィーバー中は獲得 e を 100倍
-            fever_multiplier = 100 if user_fever[user_id] == 1 else 1
+            fever_multiplier = 111 if user_fever[user_id] == 1 else 1
             y = 5 - score
             e = y * label_score * (user_streaks[user_id] ** 3) * fever_multiplier
 
