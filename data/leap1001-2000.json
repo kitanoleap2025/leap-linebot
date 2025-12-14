@@ -175,7 +175,7 @@
         "meaning": "physician　[名] ①〈米〉医師 ②〈英〉内科医"
     },
     {
-        "text": "1036 Stress can sometimes lead to an eating ___ if it builds up for too long.\nストレスが長く積み重なると、摂食の不調につながることがある。",
+        "text": "1036 sleep ___\n睡眠障害😬💤",
         "answer": "disorder",
         "meaning": "disorder　[名] （心身の）不調"
     },
@@ -185,7 +185,7 @@
         "meaning": "pregnant　[形] 妊娠した"
     },
     {
-        "text": "1038 ___ research has shown that stress is harmful.\n臨床研究では、ストレスは有害であることが示されている.",
+        "text": "1038 The drug is still in the ___ testing stage.\nその薬はまだ臨床試験の段階にある。",
         "answer": "clinical",
         "meaning": "clinical　[形] 臨床の"
     },
@@ -375,7 +375,7 @@
         "meaning": "cooperate　[自] （with ～）（～と）協力する，（in ～）（～を）協力する"
     },
     {
-        "text": "1079 The temple was closed for years, but now they will ___ it.\nその寺院は何年も閉鎖されていたが,今は修復される。",
+        "text": "1079 ___ civility to the TikTok comment section\nTik Tokのコメント欄の民度を回復させる🤬",
         "answer": "restore",
         "meaning": "restore　[他] ①（治安など）を回復する ②（古い建物，絵など）を修復する"
     },
@@ -392,12 +392,12 @@
      {
         "text": "1082 The political ___ of the country are becoming increasingly complicated.\nその国の政治情勢はますます複雑になっている。",
         "answer": "affairs",
-        "meaning": ""
+        "meaning": "affair　[名] ①（―s）情勢 ②（スキャンダラスな）事件 ③情事，浮気"
     },
      {
         "text": "1083 She belongs to a secret government ___.\n彼女は政府の秘密機関に所属している。",
         "answer": "agency",
-        "meaning": ""
+        "meaning": "agency　[名] ①（政府）機関 ②代理店"
     },
     {
         "text": "1084 The city ___ decided to build a new park.\n市議会は新しい公園を建設することを決定した。",
@@ -405,9 +405,9 @@
         "meaning": "council　[名] 議会"
     },
      {
-        "text": "1085 Takeshi rules the ___.\nタケシは王国を支配する。",
+        "text": "1085 Takeshi rules the ___.\nタケシは王国を支配する。👑",
         "answer": "kingdom",
-        "meaning": ""
+        "meaning": "kingdom　[名] ①（the ～ kingdom）～界，社会 ②王国"
     },
     {
         "text": "1086 France is a ___, not a monarchy.\nフランスは共和国であり,君主制ではない。",
