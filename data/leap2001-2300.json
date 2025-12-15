@@ -35,6 +35,471 @@
         "meaning": ""
     },
     {
+        "text": "2008 I ___ all night before the physics exam\n物理の試験前夜に一晩中詰め込んだ",
+        "answer": "cram",
+        "meaning": ""
+    },
+    {
+        "text": "2009 I ___ about his real motive\n彼の本当の動機について推測した",
+        "answer": "speculate",
+        "meaning": ""
+    },
+    {
+        "text": "2010 The puddle quickly ___ under the sun\n水たまりは太陽の下ですぐ蒸発した",
+        "answer": "evaporate",
+        "meaning": ""
+    },
+    {
+        "text": "2011 He ___ after riding the roller coaster\nジェットコースターの後で吐いた",
+        "answer": "vomit",
+        "meaning": ""
+    },
+    {
+        "text": "2012 She ___ at the unfair comment\n彼女は不公平な発言に顔をしかめた",
+        "answer": "frown",
+        "meaning": ""
+    },
+    {
+        "text": "2013 A strange idea ___ in his mind\n奇妙な考えが彼の頭に浮かんだ",
+        "answer": "hatch",
+        "meaning": ""
+    },
+    {
+        "text": "2014 The child ___ to his mother in fear\nその子供は恐怖で母親にしがみついた",
+        "answer": "cling",
+        "meaning": ""
+    },
+    {
+        "text": "2015 He refused to ___ to outdated rules\n彼は時代遅れの規則に従うのを拒んだ",
+        "answer": "adhere",
+        "meaning": ""
+    },
+    {
+        "text": "2016 The two companies decided to ___\nその2社は協力することを決めた",
+        "answer": "collaborate",
+        "meaning": ""
+    },
+    {
+        "text": "2017 Production began to ___ behind schedule\n生産は予定より遅れ始めた",
+        "answer": "lag",
+        "meaning": ""
+    },
+    {
+        "text": "2018 The service is designed to ___ students\nそのサービスは学生向けに作られている",
+        "answer": "cater",
+        "meaning": ""
+    },
+    {
+        "text": "2019 His face ___ with embarrassment\n彼の顔は恥ずかしさで赤くなった",
+        "answer": "flush",
+        "meaning": ""
+    },
+    {
+        "text": "2020 She ___ the failure to bad luck\n彼女は失敗を不運のせいにした",
+        "answer": "ascribe",
+        "meaning": ""
+    },
+    {
+        "text": "2021 The professor ___ the new theory\n教授は新しい理論を支持した",
+        "answer": "endorse",
+        "meaning": ""
+    },
+    {
+        "text": "2022 He finally ___ the truth\n彼はついに真実を明かした",
+        "answer": "disclose",
+        "meaning": ""
+    },
+    {
+        "text": "2023 Her English has greatly ___\n彼女の英語は大きく上達した",
+        "answer": "improve",
+        "meaning": ""
+    },
+    {
+        "text": "2024 Doctors decided to ___ the organ\n医師たちは臓器を移植することを決めた",
+        "answer": "transplant",
+        "meaning": ""
+    },
+    {
+        "text": "2025 The theory ___ many fields of science\nその理論は多くの科学分野を含んでいる",
+        "answer": "encompass",
+        "meaning": ""
+    },
+    {
+        "text": "2026 They ___ a strong alliance under pressure\n彼らは圧力の中で強い同盟を築いた",
+        "answer": "forge",
+        "meaning": ""
+    },
+    {
+        "text": "2027 His lies ___ everyone involved\n彼の嘘は関係者全員を巻き込んだ",
+        "answer": "entangle",
+        "meaning": ""
+    },
+    {
+        "text": "2028 This decision will ___ serious risks\nこの決定は重大なリスクを伴う",
+        "answer": "entail",
+        "meaning": ""
+    },
+    {
+        "text": "2029 The event ___ a new era\nその出来事は新時代の到来を告げた",
+        "answer": "herald",
+        "meaning": ""
+    },
+    {
+        "text": "2030 Her achievement ___ our expectations\n彼女の成果は私たちの予想を上回った",
+        "answer": "surpass",
+        "meaning": ""
+    },
+    {
+        "text": "2031 Art can ___ language barriers\n芸術は言語の壁を超えることができる",
+        "answer": "transcend",
+        "meaning": ""
+    },
+    {
+        "text": "2032 He tried to ___ the teacher to get a better grade\n彼は成績を上げるために先生にお世辞を言った",
+        "answer": "flatter",
+        "meaning": ""
+    },
+    {
+        "text": "2033 The government ___ the new law\n政府は新しい法律を制定した",
+        "answer": "enact",
+        "meaning": ""
+    },
+    {
+        "text": "2034 They voted to ___ the constitution\n彼らは憲法を改正することに投票した",
+        "answer": "amend",
+        "meaning": ""
+    },
+    {
+        "text": "2035 The criminal planned to ___ a child\n犯人は子供を誘拐する計画を立てた",
+        "answer": "kidnap",
+        "meaning": ""
+    },
+    {
+        "text": "2036 He was arrested for trying to ___ drugs\n彼は薬物を密輸しようとして逮捕された",
+        "answer": "smuggle",
+        "meaning": ""
+    },
+    {
+        "text": "2037 The jury decided to ___ the suspect\n陪審は容疑者を有罪と判断した",
+        "answer": "convict",
+        "meaning": ""
+    },
+    {
+        "text": "2038 Fear can ___ rational thinking\n恐怖は合理的思考を妨げることがある",
+        "answer": "hinder",
+        "meaning": ""
+    },
+    {
+        "text": "2039 The punishment ___ lasting pain\nその罰は長く続く苦痛を与えた",
+        "answer": "inflict",
+        "meaning": ""
+    },
+    {
+        "text": "2040 New policies aim to ___ poverty\n新しい政策は貧困を和らげることを目的としている",
+        "answer": "alleviate",
+        "meaning": ""
+    },
+    {
+        "text": "2041 Scientists are trying to ___ the disease\n科学者たちはその病気を根絶しようとしている",
+        "answer": "eradicate",
+        "meaning": ""
+    },
+    {
+        "text": "2042 The school decided to ___ the violent student\n学校は問題を起こした生徒を退学させることにした",
+        "answer": "expel",
+        "meaning": ""
+    },
+    {
+        "text": "2043 Please ___ unnecessary details\n不要な詳細は省いてください",
+        "answer": "omit",
+        "meaning": ""
+    },
+    {
+        "text": "2044 He chose to ___ his old notes\n彼は古いノートを捨てることにした",
+        "answer": "discard",
+        "meaning": ""
+    },
+    {
+        "text": "2045 The government tried to ___ inflation\n政府はインフレを抑えようとした",
+        "answer": "curb",
+        "meaning": ""
+    },
+    {
+        "text": "2046 She struggled to ___ her anger\n彼女は怒りを抑えようとした",
+        "answer": "restrain",
+        "meaning": ""
+    },
+    {
+        "text": "2047 Stress can ___ creativity\nストレスは創造性を妨げることがある",
+        "answer": "inhibit",
+        "meaning": ""
+    },
+    {
+        "text": "2048 Poor communication can ___ progress\n不十分な意思疎通は進歩を妨げる",
+        "answer": "hamper",
+        "meaning": ""
+    },
+    {
+        "text": "2049 The ad was designed to ___ customers\nその広告は客を引き寄せるために作られた",
+        "answer": "lure",
+        "meaning": ""
+    },
+    {
+        "text": "2050 Her calm voice ___ everyone\n彼女の落ち着いた声は皆を安心させた",
+        "answer": "reassure",
+        "meaning": ""
+    },
+    {
+        "text": "2051 Circumstances often ___ our choices\n状況はしばしば私たちの選択を左右する",
+        "answer": "dictate",
+        "meaning": ""
+    },
+    {
+        "text": "2052 His remark ___ a heated debate\n彼の発言は激しい議論を引き起こした",
+        "answer": "provoke",
+        "meaning": ""
+    },
+    {
+        "text": "2053 The engineer worked to ___ the design\n技術者は設計を洗練させた",
+        "answer": "refine",
+        "meaning": ""
+    },
+    {
+        "text": "2054 Books can ___ young minds\n本は若い心を啓発する",
+        "answer": "enlighten",
+        "meaning": ""
+    },
+    {
+        "text": "2055 The speech helped ___ public anger\nその演説は国民の怒りを解き放った",
+        "answer": "unleash",
+        "meaning": ""
+    },
+    {
+        "text": "2056 The conflict may ___ for years\nその対立は何年も長引くかもしれない",
+        "answer": "prolong",
+        "meaning": ""
+    },
+    {
+        "text": "2057 Quick action helped ___ the damage\n迅速な対応が被害を軽減した",
+        "answer": "mitigate",
+        "meaning": ""
+    },
+    {
+        "text": "2058 He had to ___ coffee beans by hand\n彼はコーヒー豆を手で挽かなければならなかった",
+        "answer": "grind",
+        "meaning": ""
+    },
+    {
+        "text": "2059 This material can ___ extreme heat\nこの素材は極端な熱に耐えられる",
+        "answer": "withstand",
+        "meaning": ""
+    },
+    {
+        "text": "2060 He had to ___ all his strength to finish\n彼はやり遂げるために全力を出した",
+        "answer": "exert",
+        "meaning": ""
+    },
+    {
+        "text": "2061 She tried to ___ the courage to speak up\n彼女は発言する勇気を奮い起こそうとした",
+        "answer": "summon",
+        "meaning": ""
+    },
+    {
+        "text": "2062 He ___ the door open in panic\n彼は慌ててドアを押し開けた",
+        "answer": "thrust",
+        "meaning": ""
+    },
+    {
+        "text": "2063 The needle ___ his skin\n針が彼の皮膚を貫いた",
+        "answer": "pierce",
+        "meaning": ""
+    },
+    {
+        "text": "2064 We must ___ technology for good purposes\n私たちは技術を善の目的のために活用すべきだ",
+        "answer": "harness",
+        "meaning": ""
+    },
+    {
+        "text": "2065 Archaeologists began to ___ the site\n考古学者たちはその遺跡を発掘し始めた",
+        "answer": "excavate",
+        "meaning": ""
+    },
+    {
+        "text": "2066 He managed to ___ the question\n彼はその質問をうまくかわした",
+        "answer": "evade",
+        "meaning": ""
+    },
+    {
+        "text": "2067 She ___ the spirit of the movement\n彼女はその運動の精神を体現していた",
+        "answer": "embody",
+        "meaning": ""
+    },
+    {
+        "text": "2068 Children quickly ___ new languages\n子供は新しい言語をすぐに吸収する",
+        "answer": "assimilate",
+        "meaning": ""
+    },
+    {
+        "text": "2069 It is hard to ___ truth from rumor\n噂と真実を見分けるのは難しい",
+        "answer": "discern",
+        "meaning": ""
+    },
+    {
+        "text": "2070 The editor will ___ the article carefully\n編集者はその記事を注意深く精査する",
+        "answer": "scrutinize",
+        "meaning": ""
+    },
+    {
+        "text": "2071 The company worked to ___ its workflow\nその会社は業務を効率化した",
+        "answer": "streamline",
+        "meaning": ""
+    },
+    {
+        "text": "2072 She volunteered to ___ younger students\n彼女は後輩を指導することを申し出た",
+        "answer": "mentor",
+        "meaning": ""
+    },
+    {
+        "text": "2073 He began to ___ his future seriously\n彼は自分の将来を真剣に考え始めた",
+        "answer": "contemplate",
+        "meaning": ""
+    },
+    {
+        "text": "2074 Many experts ___ that the market will fall\n多くの専門家は市場が下落すると推測している",
+        "answer": "conjecture",
+        "meaning": ""
+    },
+    {
+        "text": "2075 I ___ he knows the truth\n彼は真実を知っていると思う",
+        "answer": "presume",
+        "meaning": ""
+    },
+    {
+        "text": "2076 We need to ___ public opinion\n世論を測る必要がある",
+        "answer": "gauge",
+        "meaning": ""
+    },
+    {
+        "text": "2077 Please ___ the data before publishing\n公開前にデータを確認してください",
+        "answer": "verify",
+        "meaning": ""
+    },
+    {
+        "text": "2078 The leader ___ his support for reform\n指導者は改革への支持を誓った",
+        "answer": "pledge",
+        "meaning": ""
+    },
+    {
+        "text": "2079 The news filled them with ___\nその知らせは彼らを落胆させた",
+        "answer": "dismay",
+        "meaning": ""
+    },
+    {
+        "text": "2080 She ___ the loss of her old friend\n彼女は旧友の死を嘆いた",
+        "answer": "lament",
+        "meaning": ""
+    },
+    {
+        "text": "2081 The question continues to ___ scientists\nその問題はいまだに科学者たちを困惑させている",
+        "answer": "perplex",
+        "meaning": ""
+    },
+    {
+        "text": "2082 The sight was enough to ___ everyone\nその光景は皆に嫌悪感を与えた",
+        "answer": "disgust",
+        "meaning": ""
+    },
+    {
+        "text": "2083 The song can ___ childhood memories\nその曲は子供時代の記憶を呼び起こす",
+        "answer": "evoke",
+        "meaning": ""
+    },
+    {
+        "text": "2084 He still ___ doubts about the plan\n彼はいまだその計画に疑念を抱いている",
+        "answer": "harbor",
+        "meaning": ""
+    },
+    {
+        "text": "2085 Cultural ___ often causes conflict\n文化的摩擦はしばしば対立を生む",
+        "answer": "friction",
+        "meaning": ""
+    },
+    {
+        "text": "2086 Genetic ___ can lead to new traits\n遺伝的突然変異は新しい形質を生むことがある",
+        "answer": "mutation",
+        "meaning": ""
+    },
+    {
+        "text": "2087 Eye color is determined by ___\n目の色は遺伝によって決まる",
+        "answer": "heredity",
+        "meaning": ""
+    },
+    {
+        "text": "2088 The paper presents a ___ of past research\nその論文は過去の研究の統合を示している",
+        "answer": "synthesis",
+        "meaning": ""
+    },
+    {
+        "text": "2089 The injured dog was treated by a ___\nそのけがをした犬は獣医に診てもらった",
+        "answer": "veterinarian",
+        "meaning": ""
+    },
+    {
+        "text": "2090 The flu spread as an ___\nそのインフルエンザは流行病として広がった",
+        "answer": "epidemic",
+        "meaning": ""
+    },
+    {
+        "text": "2091 ___ has become a global health issue\n肥満は世界的な健康問題になっている",
+        "answer": "obesity",
+        "meaning": ""
+    },
+    {
+        "text": "2092 Each ___ transmits signals in the brain\nそれぞれの神経細胞が脳内で信号を伝える",
+        "answer": "neuron",
+        "meaning": ""
+    },
+    {
+        "text": "2093 ___ affects memory and reasoning\n認知症は記憶や判断力に影響を与える",
+        "answer": "dementia",
+        "meaning": ""
+    },
+    {
+        "text": "2094 He was diagnosed with ___\n彼は糖尿病と診断された",
+        "answer": "diabetes",
+        "meaning": ""
+    },
+    {
+        "text": "2095 Some patients respond to a ___\n一部の患者は偽薬に反応する",
+        "answer": "placebo",
+        "meaning": ""
+    },
+    {
+        "text": "2096 ___ weakens the immune system\n栄養失調は免疫機能を弱める",
+        "answer": "malnutrition",
+        "meaning": ""
+    },
+    {
+        "text": "2097 Severe ___ can be life-threatening\n深刻な脱水症状は命に関わる",
+        "answer": "dehydration",
+        "meaning": ""
+    },
+    {
+        "text": "2098 The debate over ___ remains controversial\n中絶をめぐる議論はいまだに論争的だ",
+        "answer": "abortion",
+        "meaning": ""
+    },
+    {
+        "text": "2099 The doctor prescribed an ___\n医師は抗生物質を処方した",
+        "answer": "antibiotic",
+        "meaning": ""
+    },
+    {
+        "text": "2100 She decided to specialize in ___\n彼女は精神医学を専門にすることを決めた",
+        "answer": "psychiatry",
+        "meaning": ""
+    },
+    {
         "text": "2109 discrimination against Nara ___ residents\n奈良県民への差別",
         "answer": "prefecture",
         "meaning": "prefecture　[名] 県，府"
