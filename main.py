@@ -164,7 +164,7 @@ def get_rank(score):
     return {0: "✖", 1: "✔/❓", 2: "✔2", 3: "✔3", 4: "✔4"}.get(score, "✔/❓")
 
 def score_to_weight(score):
-    return {0: 100000000, 1: 100000000, 2:10000, 3: 10000, 4: 1}.get(score, 100000000000000000000)
+    return {0: 1000000, 1: 1000000, 2:10000, 3: 10000, 4: 1}.get(score, 10000000000000000000)
 
 def build_result_flex(user_id, bot_type):
     name = user_names.get(user_id, DEFAULT_NAME)
