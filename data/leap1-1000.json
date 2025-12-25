@@ -1065,7 +1065,7 @@
         "meaning": "degree　[名] ①（温度などの）度 ②程度 ③学位"
     },
     {
-        "text": "214 Many houses were damaged by the ___.\n多くの家が洪水で被害を受けた。",
+        "text": "214 Are there tires designed for ___ing?\n洪水用タイヤってありますか？🛞",
         "answer": "flood",
         "meaning": "flood　[名] ①洪水 <可算>[他] ②～を水浸しにする"
     },
@@ -2895,7 +2895,7 @@
         "meaning": "baggage　[名]（旅行時の）手荷物<不可算>"
     },
     {
-        "text": "580 We went to Italy ___ Paris.\n私たちはパリ経由でイタリアへ行った。",
+        "text": "580 Go to Kyoto ___ Juso.\n十三経由で京都に行く🚉",
         "answer": "via",
         "meaning": "via　[前] ①～経由で ②～によって"
     },
@@ -4971,7 +4971,7 @@
         "meaning": "ironically　[副] 皮肉なことに"
     },
     {
-        "text": "995 He is talented and hardworking; ___, he’s very humble.\n彼は才能があり勤勉だ。さらに、非常に謙虚でもある。",
+        "text": "995 She is beautiful and intelligent. ___, she is humble.\n彼女は美しく、聡明だ。さらに、謙虚でもある。😍",
         "answer": "moreover",
         "meaning": "moreover　[副] その上"
     },
