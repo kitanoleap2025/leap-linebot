@@ -511,10 +511,10 @@ def build_feedback_flex(user_id, is_correct, score, elapsed, correct_answer=None
 
         # フィーバー表示
         if user_fever[user_id] == 1:
-            e = y * label_score * (user_streaks[user_id] ** 3) *9999
+            e = y * label_score * (user_streaks[user_id] ** 3) *7777
             body_contents.append({
                 "type": "text",
-                "text": "💥FEVER ✖9999💥",
+                "text": "💥FEVER ✖7777💥",
                 "weight": "bold",
                 "size": "lg",
                 "color": "#ff0000",
@@ -760,7 +760,7 @@ def handle_message_common(event, bot_type, line_bot_api):
             
             label_score = get_label_score(label)
             # フィーバー中は獲得 e を 100倍
-            fever_multiplier = 9999 if user_fever[user_id] == 1 else 1
+            fever_multiplier = 7777 if user_fever[user_id] == 1 else 1
             y = 5 - score
             e = y * label_score * (user_streaks[user_id] ** 3) * fever_multiplier
 
