@@ -1550,7 +1550,7 @@
         "meaning": "eternal　[形] （命や若さなど）永遠の"
     },
     {
-        "text": "1314 Our ___ plan was to travel by train.\n私たちの最初の計画は列車で旅行することだった。",
+        "text": "1314 The ___ plan was to go to China.\n最初の計画は中国に行くことだ。",
         "answer": "initial",
         "meaning": "initial　[形] ①最初の [名] ②頭文字，イニシャル"
     },
@@ -4745,8 +4745,8 @@
         "meaning": "thrill　[他] ①～をぞくぞく［わくわく］させる [名] ②スリル"
     },
     {
-        "text": "1953 He felt ___ when everyone laughed at his mistake.\n皆に自分のミスを笑われて彼は恥をかかされた😞",
-        "answer": "humiliated",
+        "text": "1953 ___ her\n彼女に恥をかかせる",
+        "answer": "humiliate",
         "meaning": "humiliate　[他] ～に恥をかかせる"
     },
     {
