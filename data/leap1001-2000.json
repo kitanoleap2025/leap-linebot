@@ -2995,7 +2995,7 @@
         "meaning": "transition　[名] 移り変わり，推移"
     },
     {
-        "text": "1603 The new technology was a real ___ in the industry.\nその新しい技術は業界における真の革命的変化だった。",
+        "text": "1603 AI has become a ___.\nAIは革命的な存在となった。",
         "answer": "game-changer",
         "meaning": "game-changer　[名] 革命的なこと[人・物]"
     },
@@ -3320,8 +3320,8 @@
         "meaning": "blink　[自] まばたきする"
     },
     {
-        "text": "1668 The only good thing about this facility is that the chair ___.\nこの施設の唯一良い所は,椅子が回ることだ。💞",
-        "answer": "spins",
+        "text": "1668 The only good thing about this facility is that the chair ___s.\nこの施設の唯一良い所は,椅子が回ることだ。💞",
+        "answer": "spin",
         "meaning": "spin　[自] ①ぐるぐる回る [他] ②～を回す ③～を紡ぐ"
     },
     {
@@ -3445,8 +3445,8 @@
         "meaning": "tuition　[名] ①〈米〉授業料 ②(少人数での)授業"
     },
     {
-        "text": "1693 his sense of ___\n彼の倫理観💀",
-        "answer": "ethics",
+        "text": "1693 his sense of ___s\n彼の倫理観💀",
+        "answer": "ethic",
         "meaning": "ethic　[名] ①(―s)(社会や職業上の)倫理(観)②(伝統的に守られた)倫理"
     },
     {
@@ -3500,8 +3500,8 @@
         "meaning": "deduce　[他] (A from B)(B からA)を推定する"
     },
     {
-        "text": "1704 The teacher ___ it necessary to give extra homework.\n教師は追加の宿題を出すことが必要だと考えた。",
-        "answer": "deemed",
+        "text": "1704 The teacher ___ed it necessary to give extra homework.\n教師は追加の宿題を出すことが必要だと考えた。",
+        "answer": "deem",
         "meaning": "deem　[他] (Ｏ (to be)Ｃ)ＯをＣだと思う"
     },
     {
@@ -3525,8 +3525,8 @@
         "meaning": "concede　[他] (譲歩して)～を認める"
     },
     {
-        "text": "1709 I ___ and chose her.\n妥協して彼女を選んだ。",
-        "answer": "compromised",
+        "text": "1709 I ___d and chose her.\n妥協して彼女を選んだ。",
+        "answer": "compromise",
         "meaning": "compromise　[自] ①妥協する [他] ②(主義など)を曲げる [名] ③妥協"
     },
     {
@@ -3997,7 +3997,7 @@
     {
         "text": "1803 ___ woman\n熟女👵",
         "answer": "mature",
-        "meaning": "mature\t[形] ①成熟した，熟成した [自] ②成熟する，熟成する"
+        "meaning": "mature　[形] ①成熟した，熟成した [自] ②成熟する，熟成する"
     },
     {
         "text": "1804 Her handwriting is always clean and ___.\n彼女の字はいつもきれいで整っている。",
@@ -4265,8 +4265,8 @@
         "meaning": "multiply　[他] ①～を増やす ②(A by B)(A)に(B を)掛ける [自] ③増える"
     },
     {
-        "text": "1857 The price of Bitcoin ___.\nビットコインの価格は急上昇した。",
-        "answer": "soared",
+        "text": "1857 The price of Bitcoin ___ed.\nビットコインの価格は急上昇した。",
+        "answer": "soar",
         "meaning": "soar　[自] ①(価格，温度が)急上昇する ②(鳥が)舞い上がる"
     },
     {
@@ -4350,8 +4350,8 @@
         "meaning": "millennium　[名] 1000年間"
     },
     {
-        "text": "1874 Her beauty has ___.\n彼女の美しさは期限切れだ。🔚",
-        "answer": "expired",
+        "text": "1874 Her beauty has ___d.\n彼女の美しさは期限切れだ。🔚",
+        "answer": "expire",
         "meaning": "expire　[自] 期限が切れる"
     },
     {
@@ -4685,8 +4685,8 @@
         "meaning": "portray　[他] ～を描く"
     },
     {
-        "text": "1941 The painting ___ a peaceful village by the river.\nその絵は川辺の穏やかな村を描いている。",
-        "answer": "depicts",
+        "text": "1941 The painting ___s a peaceful village by the river.\nその絵は川辺の穏やかな村を描いている。",
+        "answer": "depict",
         "meaning": "depict　[他] (主に文字や絵や彫刻などで)～を描く" 
     },
     {
@@ -4700,23 +4700,23 @@
         "meaning": "tease　[他] ～をからかう，冷やかす"
     },
     {
-        "text": "1944 The surprise party ___ her completely.\nサプライズパーティーは彼女を完全に喜ばせた。🎉",
-        "answer": "delighted",
+        "text": "1944 The surprise party ___ed her completely.\nサプライズパーティーは彼女を完全に喜ばせた。🎉",
+        "answer": "delight",
         "meaning": "delight　[他] ①～を喜ばせる [名] ②（大）喜び"
     },
     {
-        "text": "1945 The magician's trick ___ everyone in the audience.\nそのマジシャンのトリックは観客全員を驚かせた。😲",
-        "answer": "astonished",
+        "text": "1945 The magician's trick ___ed everyone in the audience.\nそのマジシャンのトリックは観客全員を驚かせた。😲",
+        "answer": "astonish",
         "meaning": "astonish　[他] ～を（とても）驚かせる"
     },
     {
-        "text": "1946 She ___ the thought of failing the exam.\n試験に落ちることを考えると彼女は怖くなる。😨",
-        "answer": "dreaded",
+        "text": "1946 She ___ed the thought of failing the exam.\n試験に落ちることを考えると彼女は怖くなる。😨",
+        "answer": "dread",
         "meaning": "dread　[他] ①～を恐れる [名] ②恐怖"
     },
     {
-        "text": "1947 He ___ his success to hard work and persistence.\n彼は自分の成功を努力と忍耐のおかげだと考えている。💪",
-        "answer": "attributes",
+        "text": "1947 He ___s his success to hard work and persistence.\n彼は自分の成功を努力と忍耐のおかげだと考えている。💪",
+        "answer": "attribute",
         "meaning": "attribute　[他] ①（A to B)（A）を（B）のせいだとする [名] ②特性，属性"
     },
     {
@@ -4725,23 +4725,23 @@
         "meaning": "console　[他] ～を慰める"
     },
     {
-        "text": "1949 The shocking story ___ a lot of curiosity among the readers.\nその衝撃的な話は読者の好奇心をかき立てた。📖",
-        "answer": "aroused",
+        "text": "1949 The shocking story ___d a lot of curiosity among the readers.\nその衝撃的な話は読者の好奇心をかき立てた。📖",
+        "answer": "arouse",
         "meaning": "arouse　[他] ～を呼び起こす"
     },
     {
-        "text": "1950 Everyone was ___ by his noisy electric eraser.\n彼のうるさい電動消しゴムにみんな気を散らされた。",
-        "answer": "distracted",
+        "text": "1950 Everyone was ___ed by his noisy electric eraser.\n彼のうるさい電動消しゴムにみんな気を散らされた。",
+        "answer": "distract",
         "meaning": "distract　[他] ①（注意，意識など）をそらす ②～の気を紛らす"
     },
     {
-        "text": "1951 The loud noise ___ her in the midnight.\n夜中の大きな音に彼女はびっくりする😳",
-        "answer": "startled",
+        "text": "1951 The loud noise ___d her in the midnight.\n夜中の大きな音に彼女はびっくりする😳",
+        "answer": "startle",
         "meaning": "startle　[他] ～を驚かせる"
     },
     {
-        "text": "1952 Winning the competition ___ him with excitement.\n大会で優勝して彼はワクワクする🏆",
-        "answer": "thrilled",
+        "text": "1952 Winning the competition ___ed him with excitement.\n大会で優勝して彼はワクワクする🏆",
+        "answer": "thrill",
         "meaning": "thrill　[他] ①～をぞくぞく［わくわく］させる [名] ②スリル"
     },
     {
@@ -4795,8 +4795,8 @@
         "meaning": "immerse　[他] (A in B)(BにA)を没頭させる"
     },
     {
-        "text": "1963 get ___ by the puzzle\nそのパズルに困惑する🌀",
-        "answer": "bewildered",
+        "text": "1963 get ___ed by the puzzle\nそのパズルに困惑する🌀",
+        "answer": "bewilder",
         "meaning": "bewilder　[他] （通例，受け身）～を当惑させる"
     },
     {
@@ -4810,7 +4810,7 @@
         "meaning": "willing　[形] （be ― to do）嫌がらずに～する"
     },
     {
-        "text": "1966 Melos was ___.\nメロスは激怒した。",
+        "text": "1966 Melos was ___.\nメロスは激怒した。🤬",
         "answer": "furious",
         "meaning": "furious　[形] 激怒した"
     },
@@ -4855,12 +4855,12 @@
         "meaning": "grief　[名] （人の死などに対する）深い悲しみ"
     },
     {
-        "text": "1975 She looked at me with ___.\n彼女は私を軽蔑の目で見た。",
+        "text": "1975 She looked at me with ___.\n彼女は私を軽蔑の目で見た。😵‍💫",
         "answer": "contempt",
         "meaning": "contempt　[名] 軽蔑"
     },
     {
-        "text": "1976 He didn’t mean to ___ you.\n彼は君を侮辱するつもりはなかったよ。",
+        "text": "1976 He didn’t mean to ___ you.\n彼は君を侮辱するつもりはなかったよ。😏",
         "answer": "insult",
         "meaning": "insult　[名] ①侮辱 [他] ②～を侮辱する"
     },
