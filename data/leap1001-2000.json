@@ -290,6 +290,16 @@
         "meaning": "justice　[名] 正義"
     }, 
     {
+        "text": "1060 a large ___ firm\n大手保険会社💵", 
+        "answer": "insurance",
+        "meaning": "insurance　[名] 保険〈不可算〉"
+    }, 
+    {
+        "text": "1061 ___ reveals who people truly are.\n苦難は人の真の姿を明らかにする。", 
+        "answer": "hardship",
+        "meaning": "hardship　[名] （主に経済的）苦難"
+    }, 
+    {
         "text": "1062 I wish I could save people around the world from ___.\n世界中の人々を貧困から救えたら良いのに。",
         "answer": "poverty",
         "meaning": "poverty　[名] 貧困〈不可算〉"
@@ -479,6 +489,11 @@
         "answer": "overwork",
         "meaning": "overwork　[自] ①働きすぎる [他] ②～を働かせすぎる，酷使する [名] ③過労"
     },
+    {
+        "text": "1100 a large insurance ___\n大手保険会社💵", 
+        "answer": "firm",
+        "meaning": "firm　[名] ①会社 [形] ②（土台，信念などが）固い ③（体が）引き締まった"
+    }, 
     {
         "text": "1101 The workers formed a labor ___.\n労働者たちは労働組合を結成した。",
         "answer": "union",
