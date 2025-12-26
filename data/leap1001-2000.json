@@ -590,8 +590,8 @@
         "meaning": "sword　[名] 剣"
     },
     {
-        "text": "1122 heal emotional ___\n心の傷を回復する💗",
-        "answer": "wounds",
+        "text": "1122 emotional ___s\n心の傷",
+        "answer": "wound",
         "meaning": "wound　[名] ①傷 [他] ②～を傷つける"
     },
     {
@@ -2390,7 +2390,7 @@
         "meaning": "treaty　[名] 条約"
     },
     {
-        "text": "1482 The indigenous ___ had their own customs and traditions.\n先住部族は独自の習慣と伝統を持っていた。",
+        "text": "1482 Native American ___s\nアメリカの先住部族👱🏾‍♀️",
         "answer": "tribe",
         "meaning": "tribe　[名] 部族，種族"
     },
@@ -2790,7 +2790,7 @@
         "meaning": "torture　[名] ①拷問 ②辛いこと [他] ③～を拷問にかける"
     },
     {
-        "text": "1562 The two countries are in a trade ___ over tariffs.\n両国は関税を巡る貿易紛争中だ🌐",
+        "text": "1562 a ___ between people at the bottom\n底辺の争い",
         "answer": "dispute",
         "meaning": "dispute　[名] ①論争，紛争 [他] ②～に異議を唱える"
     },
@@ -3205,7 +3205,7 @@
         "meaning": "compile　[他] ～をまとめる，(辞書などを)編纂する"
     },
     {
-        "text": "1645 His hobby is ___ pirated movies.\n彼は海賊版映画を閲覧するのが趣味だ。🦜",
+        "text": "1645 His hobby is ___ pirated movies.\n彼は海賊版映画を閲覧するのが趣味だ。🆓",
         "answer": "browsing",
         "meaning": "browse　[自] ①拾い読みする [他] ②～を拾い読みする"
     },
@@ -3450,7 +3450,7 @@
         "meaning": "ethic　[名] ①(―s)(社会や職業上の)倫理(観)②(伝統的に守られた)倫理"
     },
     {
-        "text": "1694 She decided to study ___ to understand human behavior.\n彼女は人間の行動を理解するために心理学を学ぶことにした。",
+        "text": "1694 Adlerian ___\nアドラー心理学",
         "answer": "psychology",
         "meaning": "psychology　[名] ①心理学 ②心理"
     },
