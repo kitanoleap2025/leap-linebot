@@ -744,65 +744,56 @@ def handle_message_common(event, bot_type, line_bot_api):
         range_str, q = user_states[user_id]
         correct_answer = q["answer"]
         meaning = q.get("meaning")
-        # 正解かどうか判定
+
+    # 正解かどうか判定
         is_correct = (msg.lower() == correct_answer.lower())
         score = user_scores[user_id].get(correct_answer, 1)
-
         elapsed = time.time() - user_answer_start_times.get(user_id, time.time())
         label, delta = evaluate_X(elapsed, score, correct_answer)
-        # ラベルに応じたスコア変化
-        delta_map = {
-            "!!Brilliant": 3,
-            "!Great": 2,
-            "✓Correct": 1
-        }
+
+        delta_map = {"!!Brilliant": 3, "!Great": 2, "✓Correct": 1}
 
         if is_correct:
+            # ストリーク・スコア更新
             user_streaks[user_id] += 1
             delta_score = delta_map.get(label, 1)
-            user_scores[user_id][correct_answer] = min(user_scores[user_id].get(correct_answer, 1) + delta_score, 4)
+            user_scores[user_id][correct_answer] = min(score + delta_score, 4)
 
-
-            # --- FEVER: 状態遷移（1/20 で ON、ON のときは 1/10 で OFF）
+        # FEVER判定
             prev_fever = user_fever.get(user_id, 0)
-            new_fever = fever_time(prev_fever)
-            user_fever[user_id] = int(new_fever)
-            
-            label_score = get_label_score(label)
-            # フィーバー中は獲得 e を 100倍
+            user_fever[user_id] = int(fever_time(prev_fever))
             fever_multiplier = 7777 if user_fever[user_id] == 1 else 1
+
+            label_score = get_label_score(label)
             y = 5 - score
             e = y * label_score * (user_streaks[user_id] ** 3) * fever_multiplier
 
-            # 日付チェック
+        # 日付チェック・7日リセット
             today = datetime.date.today()
-
             last_date_str = user_daily_e[user_id].get("date")
             if last_date_str:
                 last_date = datetime.datetime.strptime(last_date_str, "%Y-%m-%d").date()
             else:
-                # 初回のみ週の開始日を設定
                 last_date = today
                 user_daily_e[user_id]["date"] = today.strftime("%Y-%m-%d")
 
-            # 7日経過していたらリセット
             if (today - last_date).days >= 7:
                 user_daily_e[user_id]["total_e"] = 0
                 user_daily_e[user_id]["date"] = today.strftime("%Y-%m-%d")
 
-            # トータル e 更新（ここでは足すだけ）
+            # total_e 更新
             user_daily_e[user_id]["total_e"] += e
-
             db.collection("users").document(user_id).set({
                 "total_e": user_daily_e[user_id]["total_e"],
                 "total_e_date": user_daily_e[user_id]["date"]
             }, merge=True)
 
         else:
-            # 不正解時は0
+            # 不正解時
             user_streaks[user_id] = max(user_streaks[user_id] - 0, 0)
             user_scores[user_id][correct_answer] = 0
 
+    # フィードバック作成
         flex_feedback = build_feedback_flex(
             user_id, is_correct, score, elapsed,
             correct_answer=correct_answer,
@@ -811,34 +802,36 @@ def handle_message_common(event, bot_type, line_bot_api):
         )
 
         messages_to_send = [flex_feedback]
-        
-        next_question_msg, next_q = send_question(user_id, range_str, bot_type=bot_type)
+
+    # 次の問題
+        next_question_msg, _ = send_question(user_id, range_str, bot_type=bot_type)
         messages_to_send.append(next_question_msg)
 
-        
-        today = time.strftime("%Y-%m-%d")
-        if user_daily_counts[user_id]["date"] != today:
-            user_daily_counts[user_id]["date"] = today
+    # 日別カウント更新
+        today_str = time.strftime("%Y-%m-%d")
+        if user_daily_counts[user_id]["date"] != today_str:
+            user_daily_counts[user_id]["date"] = today_str
             user_daily_counts[user_id]["count"] = 1
         user_daily_counts[user_id]["count"] += 1
         user_answer_counts[user_id] += 1
 
-        # 回答後にランキング待機カウントを1減らす
+    # ランキング待機カウント
         if user_ranking_wait[user_id] > 0:
             user_ranking_wait[user_id] -= 1
-            
+
+    # 5問ごとにデータ保存 & トリビア送信
         if user_answer_counts[user_id] % 5 == 0:
             async_save_user_data(user_id)
             trivia = random.choice(trivia_messages)
             messages_to_send.append(TextSendMessage(text=trivia))
 
+    # total_rate更新
         total_rate = update_total_rate(user_id, bot_type)
-
-        messages_to_send.append(next_question_msg)
 
         line_bot_api.reply_message(event.reply_token, messages=messages_to_send)
         return
-        
+
+# user_states にない場合
     line_bot_api.reply_message(
         event.reply_token,
         TextSendMessage(text="「学ぶ」を押してみましょう！")
