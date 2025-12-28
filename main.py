@@ -58,7 +58,7 @@ user_ranking_wait = defaultdict(int)  # user_id: 残りカウント
 
 parser = WebhookParser(LINE_CHANNEL_SECRET)
 
-@app.route("/callback", methods=["POST"])
+@app.route("/callback/leap", methods=["POST"])
 def callback():
     signature = request.headers.get("X-Line-Signature", "")
     body = request.get_data(as_text=True)
