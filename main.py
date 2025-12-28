@@ -336,9 +336,8 @@ def send_question(user_id, range_str, bot_type="LEAP"):
         else:
             text_to_send = f"未出題の単語:あと{remaining_count}語\n" + text_to_send
 
-    return TextSendMessage(text=text_to_send, quick_reply=QuickReply(items=quick_buttons))
-
-
+    return TextSendMessage(text=text_to_send, quick_reply=QuickReply(items=quick_buttons)), q
+  
 def choose_weighted_question(user_id, questions):
     scores = user_scores.get(user_id, {})
     candidates = []
@@ -802,16 +801,16 @@ def handle_message_common(event, bot_type, line_bot_api):
             user_streaks[user_id] = max(user_streaks[user_id] - 0, 0)
             user_scores[user_id][correct_answer] = 0
 
-        # q を取得して meaning を渡す
-        questions = get_questions_by_range(range_str, bot_type, user_id)
-        q = next((x for x in questions if x["answer"] == correct_answer), None)
-
         flex_feedback = build_feedback_flex(
             user_id, is_correct, score, elapsed,
             correct_answer=correct_answer,
             label=label if is_correct else None,
             meaning=meaning
         )
+
+        messages_to_send = [flex_feedback]
+        # 次の問題
+        next_question_msg = send_question(user_id, range_str, bot_type=bot_type)
         
         today = time.strftime("%Y-%m-%d")
         if user_daily_counts[user_id]["date"] != today:
@@ -819,8 +818,6 @@ def handle_message_common(event, bot_type, line_bot_api):
             user_daily_counts[user_id]["count"] = 1
         user_daily_counts[user_id]["count"] += 1
         user_answer_counts[user_id] += 1
-        
-        messages_to_send = [flex_feedback]
 
         # 回答後にランキング待機カウントを1減らす
         if user_ranking_wait[user_id] > 0:
@@ -831,11 +828,9 @@ def handle_message_common(event, bot_type, line_bot_api):
             trivia = random.choice(trivia_messages)
             messages_to_send.append(TextSendMessage(text=trivia))
 
-        # 次の問題
-        next_question_msg = send_question(user_id, range_str, bot_type=bot_type)
-        messages_to_send.append(next_question_msg)
-
         total_rate = update_total_rate(user_id, bot_type)
+
+        messages_to_send.append(next_question_msg)
 
         line_bot_api.reply_message(event.reply_token, messages=messages_to_send)
         return
@@ -844,7 +839,6 @@ def handle_message_common(event, bot_type, line_bot_api):
         event.reply_token,
         TextSendMessage(text="「学ぶ」を押してみましょう！")
     )
-
 #---------------------------------------------------------------------------------
 if __name__ == "__main__":
     port = int(os.environ.get("PORT", 8000))
