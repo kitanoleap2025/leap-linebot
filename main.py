@@ -54,26 +54,6 @@ user_streaks = defaultdict(int)
 user_daily_e = defaultdict(lambda: {"date": None, "total_e": 0})
 user_fever = defaultdict(int)  # user_id: 0 or 1
 user_ranking_wait = defaultdict(int)  # user_id: 残りカウント
-#---------------------------------------------------------------------------------
-app = Flask(__name__)
-
-parser = WebhookParser(LINE_CHANNEL_SECRET)
-
-@app.route("/callback", methods=["POST"])
-def callback():
-    signature = request.headers.get("X-Line-Signature", "")
-    body = request.get_data(as_text=True)
-
-    try:
-        events = parser.parse(body, signature)
-    except InvalidSignatureError:
-        abort(400)
-
-    for event in events:
-        handler_leap.handle(event)
-
-    return "OK"
-#---------------------------------------------------------------------------------
     
 def fever_time(fevertime):
     # fevertime が None または 0 のとき
@@ -310,15 +290,14 @@ def update_total_rate(user_id, bot_type):
 
     return total_rate
 
-def send_question(user_id, range_str, bot_type="LEAP"):
+def send_question(user_id, range_str, bot_type="LEAP", update_state=True):
     scores = user_scores.get(user_id, {})
-    
+
     if range_str == "WRONG":
         questions = get_questions_by_range("WRONG", bot_type, user_id)
         remaining_count = len(questions)
     else:
         questions = get_questions_by_range(range_str, bot_type, user_id)
-        # スコアが未設定の単語だけ数える
         remaining_count = sum(1 for q in questions if q["answer"] not in scores)
 
     if not questions:
@@ -327,9 +306,10 @@ def send_question(user_id, range_str, bot_type="LEAP"):
     q = choose_weighted_question(user_id, questions)
     if q is None:
         return TextSendMessage(text="🥳🥳🥳間違えた問題はありません！")
-    
-    user_states[user_id] = (range_str, q)
-    user_answer_start_times[user_id] = time.time()
+
+    if update_state:
+        user_states[user_id] = (range_str, q)
+        user_answer_start_times[user_id] = time.time()
 
     correct_answer = q["answer"]
     if correct_answer not in scores:
@@ -349,7 +329,6 @@ def send_question(user_id, range_str, bot_type="LEAP"):
 
     text_to_send = f"{score_display}\n{q['text']}"
 
-    # 0でなければ残り問題数を表示
     if remaining_count > 0:
         if range_str == "WRONG":
             text_to_send = f"間違えた単語:あと{remaining_count}語\n" + text_to_send
@@ -357,7 +336,6 @@ def send_question(user_id, range_str, bot_type="LEAP"):
             text_to_send = f"未出題の単語:あと{remaining_count}語\n" + text_to_send
 
     return TextSendMessage(text=text_to_send, quick_reply=QuickReply(items=quick_buttons))
-
 
 def choose_weighted_question(user_id, questions):
     scores = user_scores.get(user_id, {})
@@ -663,7 +641,8 @@ def build_ranking_with_totalE_flex(bot_type):
 parser = WebhookParser(os.getenv("LINE_CHANNEL_SECRET_LEAP")) 
 handler_leap = WebhookHandler(os.getenv("LINE_CHANNEL_SECRET_LEAP")) 
 @app.route("/callback/leap", methods=["POST"]) 
-def callback_leap(): body = request.get_data(as_text=True) 
+def callback_leap(): 
+    body = request.get_data(as_text=True) 
     signature = request.headers.get("X-Line-Signature", "") 
 if not signature: abort(400, "Missing X-Line-Signature") 
     try: handler_leap.handle(body, signature) 
@@ -673,9 +652,11 @@ if not signature: abort(400, "Missing X-Line-Signature")
 @handler_leap.add(MessageEvent, message=TextMessage) 
 def handle_leap_message(event): 
     handle_message_common(event, bot_type="LEAP", line_bot_api=line_bot_api_leap) 
-    @app.route("/health") def health(): ua = request.headers.get("User-Agent", "") 
+    @app.route("/health") 
+    def health(): ua = request.headers.get("User-Agent", "") 
         if "cron-job.org" in ua: 
-            return "ok", 200 return "unauthorized", 403 
+            return "ok", 200 
+            return "unauthorized", 403 
 #-----------------------------------------------------------------------------
 
 def handle_message_common(event, bot_type, line_bot_api):
@@ -750,57 +731,45 @@ def handle_message_common(event, bot_type, line_bot_api):
         user_ranking_wait[user_id] = 5
         return
 
+
     if user_id in user_states:
         range_str, q = user_states[user_id]
         correct_answer = q["answer"]
         meaning = q.get("meaning")
-        # 正解かどうか判定
         is_correct = (msg.lower() == correct_answer.lower())
         score = user_scores[user_id].get(correct_answer, 1)
-
         elapsed = time.time() - user_answer_start_times.get(user_id, time.time())
+
         label, delta = evaluate_X(elapsed, score, correct_answer)
-        # ラベルに応じたスコア変化
-        delta_map = {
-            "!!Brilliant": 3,
-            "!Great": 2,
-            "✓Correct": 1
-        }
+        delta_map = {"!!Brilliant": 3, "!Great": 2, "✓Correct": 1}
 
         if is_correct:
             user_streaks[user_id] += 1
             delta_score = delta_map.get(label, 1)
             user_scores[user_id][correct_answer] = min(user_scores[user_id].get(correct_answer, 1) + delta_score, 4)
 
-
-            # --- FEVER: 状態遷移（1/20 で ON、ON のときは 1/10 で OFF）
+            # FEVER: 状態遷移
             prev_fever = user_fever.get(user_id, 0)
             new_fever = fever_time(prev_fever)
             user_fever[user_id] = int(new_fever)
-            
+
             label_score = get_label_score(label)
-            # フィーバー中は獲得 e を 100倍
             fever_multiplier = 7777 if user_fever[user_id] == 1 else 1
             y = 5 - score
             e = y * label_score * (user_streaks[user_id] ** 3) * fever_multiplier
 
-            # 日付チェック
             today = datetime.date.today()
-
             last_date_str = user_daily_e[user_id].get("date")
             if last_date_str:
                 last_date = datetime.datetime.strptime(last_date_str, "%Y-%m-%d").date()
             else:
-                # 初回のみ週の開始日を設定
                 last_date = today
                 user_daily_e[user_id]["date"] = today.strftime("%Y-%m-%d")
 
-            # 7日経過していたらリセット
             if (today - last_date).days >= 7:
                 user_daily_e[user_id]["total_e"] = 0
                 user_daily_e[user_id]["date"] = today.strftime("%Y-%m-%d")
 
-            # トータル e 更新（ここでは足すだけ）
             user_daily_e[user_id]["total_e"] += e
 
             db.collection("users").document(user_id).set({
@@ -809,48 +778,43 @@ def handle_message_common(event, bot_type, line_bot_api):
             }, merge=True)
 
         else:
-            # 不正解時は0
-            user_streaks[user_id] = max(user_streaks[user_id] - 0, 0)
+            user_streaks[user_id] = 0
             user_scores[user_id][correct_answer] = 0
 
-        # q を取得して meaning を渡す
-        questions = get_questions_by_range(range_str, bot_type, user_id)
-        q = next((x for x in questions if x["answer"] == correct_answer), None)
-
+        # フィードバック作成
         flex_feedback = build_feedback_flex(
             user_id, is_correct, score, elapsed,
             correct_answer=correct_answer,
             label=label if is_correct else None,
             meaning=meaning
         )
-        
-        today = time.strftime("%Y-%m-%d")
-        if user_daily_counts[user_id]["date"] != today:
-            user_daily_counts[user_id]["date"] = today
+
+        today_str = time.strftime("%Y-%m-%d")
+        if user_daily_counts[user_id]["date"] != today_str:
+            user_daily_counts[user_id]["date"] = today_str
             user_daily_counts[user_id]["count"] = 1
         user_daily_counts[user_id]["count"] += 1
         user_answer_counts[user_id] += 1
-        
+
         messages_to_send = [flex_feedback]
 
-        # 回答後にランキング待機カウントを1減らす
         if user_ranking_wait[user_id] > 0:
             user_ranking_wait[user_id] -= 1
-            
+
         if user_answer_counts[user_id] % 5 == 0:
             async_save_user_data(user_id)
             trivia = random.choice(trivia_messages)
             messages_to_send.append(TextSendMessage(text=trivia))
 
-        # 次の問題
-        next_question_msg = send_question(user_id, range_str, bot_type=bot_type)
+        # 次の問題を送信
+        next_question_msg = send_question(user_id, range_str, bot_type=bot_type, update_state=True)
         messages_to_send.append(next_question_msg)
 
         total_rate = update_total_rate(user_id, bot_type)
 
-        line_bot_api.reply_message(event.reply_token, messages=messages_to_send)
+        line_bot_api.reply_message(event.reply_token, messages_to_send)
         return
-        
+
     line_bot_api.reply_message(
         event.reply_token,
         TextSendMessage(text="「学ぶ」を押してみましょう！")
