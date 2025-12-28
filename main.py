@@ -1,10 +1,10 @@
-from flask import Flask, request
+from flask import Flask, request, abort
 import os, json, random, threading, time, datetime
 from collections import defaultdict
 from dotenv import load_dotenv
 
 # LINE Bot SDK
-from linebot import LineBotApi, WebhookHandler
+from linebot import LineBotApi, WebhookHandler, WebhookParser
 from linebot.models import (
     MessageEvent, TextMessage, TextSendMessage, FlexSendMessage,
     BoxComponent, TextComponent, QuickReply, QuickReplyButton, MessageAction,
@@ -54,7 +54,27 @@ user_streaks = defaultdict(int)
 user_daily_e = defaultdict(lambda: {"date": None, "total_e": 0})
 user_fever = defaultdict(int)  # user_id: 0 or 1
 user_ranking_wait = defaultdict(int)  # user_id: 残りカウント
+#---------------------------------------------------------------------------------
+app = Flask(__name__)
 
+parser = WebhookParser(LINE_CHANNEL_SECRET)
+
+@app.route("/callback", methods=["POST"])
+def callback():
+    signature = request.headers.get("X-Line-Signature", "")
+    body = request.get_data(as_text=True)
+
+    try:
+        events = parser.parse(body, signature)
+    except InvalidSignatureError:
+        abort(400)
+
+    for event in events:
+        handler_leap.handle(event)
+
+    return "OK"
+#---------------------------------------------------------------------------------
+    
 def fever_time(fevertime):
     # fevertime が None または 0 のとき
     if not fevertime:
