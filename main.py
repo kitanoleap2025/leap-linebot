@@ -55,7 +55,6 @@ user_daily_e = defaultdict(lambda: {"date": None, "total_e": 0})
 user_fever = defaultdict(int)  # user_id: 0 or 1
 user_ranking_wait = defaultdict(int)  # user_id: 残りカウント
 #---------------------------------------------------------------------------------
-app = Flask(__name__)
 
 parser = WebhookParser(LINE_CHANNEL_SECRET)
 
@@ -73,6 +72,10 @@ def callback():
         handler_leap.handle(event)
 
     return "OK"
+    
+if __name__ == "__main__":
+    port = int(os.environ.get("PORT", 8000))
+    app.run(host="0.0.0.0", port=port)
 #---------------------------------------------------------------------------------
     
 def fever_time(fevertime):
@@ -856,7 +859,3 @@ def handle_message_common(event, bot_type, line_bot_api):
         event.reply_token,
         TextSendMessage(text="「学ぶ」を押してみましょう！")
     )
-
-if __name__ == "__main__":
-    port = int(os.environ.get("PORT", 8000))
-    app.run(host="0.0.0.0", port=port)
