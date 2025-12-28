@@ -691,10 +691,10 @@ def handle_message_common(event, bot_type, line_bot_api):
         async_save_user_data(user_id)
         line_bot_api.reply_message(event.reply_token, TextSendMessage(text=f"名前を「{new_name}」に変更しました。"))
         return
-    
+
     # 質問送信
     if msg in ["A", "B", "C", "WRONG"]:
-        question_msg = send_question(user_id, msg, bot_type=bot_type)
+        question_msg, _ = send_question(user_id, msg, bot_type=bot_type)
         line_bot_api.reply_message(event.reply_token, question_msg)
         return
         
