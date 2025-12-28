@@ -57,6 +57,8 @@ user_ranking_wait = defaultdict(int)  # user_id: 残りカウント
 #---------------------------------------------------------------------------------
 parser = WebhookParser(os.getenv("LINE_CHANNEL_SECRET_LEAP"))
 
+handler_leap = WebhookHandler(os.getenv("LINE_CHANNEL_SECRET_LEAP"))
+
 @app.route("/callback/leap", methods=["POST"])
 def callback_leap():
     body = request.get_data(as_text=True)
@@ -64,10 +66,7 @@ def callback_leap():
     if not signature:
         abort(400, "Missing X-Line-Signature")
     try:
-        # WebhookHandler ではなく WebhookParser を使う場合
-        events = parser.parse(body, signature)
-        for event in events:
-            handler_leap.handle(event)
+        handler_leap.handle(body, signature)
     except InvalidSignatureError:
         abort(400, "Invalid signature")
     return "OK"
