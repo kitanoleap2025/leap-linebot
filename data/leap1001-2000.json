@@ -2730,7 +2730,7 @@
         "meaning": "margin　[名] ①余白，欄外 ②(票などの)差 ③端"
     },
     {
-        "text": "1547 She ___ in mathematics and science at school.\n彼女は学校で数学と理科が優れている🏆",
+        "text": "1547 She ___s in mathematics and science at school.\n彼女は学校で数学と理科が優れている🏆",
         "answer": "excel",
         "meaning": "excel　[自] (in [at] ～)( ～において)優れている"
     },
@@ -4335,8 +4335,8 @@
         "meaning": "fraction　[名] ①少量 ②分数，端数"
     },
     {
-        "text": "1868 The concert was broadcast ___ on radio and TV.\nそのコンサートはラジオとテレビで同時に放送された。",
-        "answer": "simultaneous",
+        "text": "1868 Oxidation and reduction occur ___.\n酸化と還元は同時に起こる。",
+        "answer": "simultaneously",
         "meaning": "simultaneous　[形] 同時の"
     },
     {
