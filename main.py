@@ -812,12 +812,9 @@ def handle_message_common(event, bot_type, line_bot_api):
 
         messages_to_send = [flex_feedback]
         
-        # 次の問題
-        next_question_msg = FlexSendMessage(
-        alt_text="次の問題です",
-        contents=send_question(user_id, range_str, bot_type=bot_type)
-    )
-        next_question_msg = send_question(user_id, range_str, bot_type=bot_type)
+        next_question_msg, next_q = send_question(user_id, range_str, bot_type=bot_type)
+        messages_to_send.append(next_question_msg)
+
         
         today = time.strftime("%Y-%m-%d")
         if user_daily_counts[user_id]["date"] != today:
