@@ -398,7 +398,7 @@ trivia_messages = [
     "ヒントろぼっと🤖\nFirst come, first served.\n-早いもの勝ち。",
     "ヒントろぼっと🤖\nLook before you leap.\n転ばぬ先の杖。",
     "ヒントろぼっと🤖\nRome was not built in a day.\n-ローマは一日にして成らず。",
-    "ヒントろぼっと🤖\nIt is no use crying over split milk.\n-覆水盆に返らず。",
+    "ヒントろぼっと🤖\nIt is no use crying over spilt milk.\n-覆水盆に返らず。",
 ]
     
 def evaluate_X(elapsed, score, answer, is_multiple_choice=True):
