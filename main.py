@@ -54,7 +54,9 @@ user_streaks = defaultdict(int)
 user_daily_e = defaultdict(lambda: {"date": None, "total_e": 0})
 user_fever = defaultdict(int)  # user_id: 0 or 1
 user_ranking_wait = defaultdict(int)  # user_id: 残りカウント
-    
+
+
+
 def fever_time(fevertime):
     # fevertime が None または 0 のとき
     if not fevertime:
@@ -809,7 +811,12 @@ def handle_message_common(event, bot_type, line_bot_api):
         )
 
         messages_to_send = [flex_feedback]
+        
         # 次の問題
+        next_question_msg = FlexSendMessage(
+        alt_text="次の問題です",
+        contents=send_question(user_id, range_str, bot_type=bot_type)
+    )
         next_question_msg = send_question(user_id, range_str, bot_type=bot_type)
         
         today = time.strftime("%Y-%m-%d")
