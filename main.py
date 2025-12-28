@@ -55,27 +55,39 @@ user_daily_e = defaultdict(lambda: {"date": None, "total_e": 0})
 user_fever = defaultdict(int)  # user_id: 0 or 1
 user_ranking_wait = defaultdict(int)  # user_id: 残りカウント
 #---------------------------------------------------------------------------------
-
 parser = WebhookParser(os.getenv("LINE_CHANNEL_SECRET_LEAP"))
 
 @app.route("/callback/leap", methods=["POST"])
-def callback():
-    signature = request.headers.get("X-Line-Signature", "")
+def callback_leap():
     body = request.get_data(as_text=True)
-
+    signature = request.headers.get("X-Line-Signature", "")
+    if not signature:
+        abort(400, "Missing X-Line-Signature")
     try:
+        # WebhookHandler ではなく WebhookParser を使う場合
         events = parser.parse(body, signature)
+        for event in events:
+            handler_leap.handle(event)
     except InvalidSignatureError:
-        abort(400)
-
-    for event in events:
-        handler_leap.handle(event)
-
+        abort(400, "Invalid signature")
     return "OK"
-    
+
+# LEAP イベントハンドラ
+@handler_leap.add(MessageEvent, message=TextMessage)
+def handle_leap_message(event):
+    handle_message_common(event, bot_type="LEAP", line_bot_api=line_bot_api_leap)
+
+@app.route("/health")
+def health():
+    ua = request.headers.get("User-Agent", "")
+    if "cron-job.org" in ua:
+        return "ok", 200
+    return "unauthorized", 403
+
 if __name__ == "__main__":
     port = int(os.environ.get("PORT", 8000))
     app.run(host="0.0.0.0", port=port)
+
 #---------------------------------------------------------------------------------
     
 def fever_time(fevertime):
@@ -661,26 +673,6 @@ def build_ranking_with_totalE_flex(bot_type):
         contents=flex_content
     )
 # —————— ここからLINEイベントハンドラ部分 ——————
-# LEAP
-@app.route("/callback/leap", methods=["POST"])
-def callback_leap():
-    body = request.get_data(as_text=True)
-    signature = request.headers["X-Line-Signature"]
-    handler_leap.handle(body, signature)
-    return "OK"
-
-# LEAP
-@handler_leap.add(MessageEvent, message=TextMessage)
-def handle_leap_message(event):
-    handle_message_common(event, bot_type="LEAP", line_bot_api=line_bot_api_leap)
-
-@app.route("/health")
-def health():
-    ua = request.headers.get("User-Agent", "")
-    if "cron-job.org" in ua:
-        return "ok", 200
-    else:
-        return "unauthorized", 403
 
 def handle_message_common(event, bot_type, line_bot_api):
     user_id = event.source.user_id
