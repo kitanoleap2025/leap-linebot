@@ -56,7 +56,7 @@ user_fever = defaultdict(int)  # user_id: 0 or 1
 user_ranking_wait = defaultdict(int)  # user_id: 残りカウント
 #---------------------------------------------------------------------------------
 
-parser = WebhookParser(LINE_CHANNEL_SECRET)
+parser = WebhookParser(os.getenv("LINE_CHANNEL_SECRET_LEAP"))
 
 @app.route("/callback/leap", methods=["POST"])
 def callback():
