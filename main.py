@@ -290,7 +290,7 @@ def update_total_rate(user_id, bot_type):
 
     return total_rate
 
-def send_question(user_id, range_str, bot_type="LEAP", update_state=True):
+def send_question(user_id, range_str, bot_type="LEAP", update_state=False):
     scores = user_scores.get(user_id, {})
 
     if range_str == "WRONG":
@@ -815,7 +815,11 @@ def handle_message_common(event, bot_type, line_bot_api):
             messages_to_send.append(TextSendMessage(text=trivia))
 
         # 次の問題を送信
-        next_question_msg = send_question(user_id, range_str, bot_type=bot_type, update_state=True)
+        next_question_msg, next_q = send_question_and_q(user_id, range_str, bot_type)
+
+# ここで初めて state を更新
+        user_states[user_id] = (range_str, next_q)
+        user_answer_start_times[user_id] = time.time()
         messages_to_send.append(next_question_msg)
 
         total_rate = update_total_rate(user_id, bot_type)
