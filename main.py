@@ -691,10 +691,21 @@ def handle_message_common(event, bot_type, line_bot_api):
         async_save_user_data(user_id)
         line_bot_api.reply_message(event.reply_token, TextSendMessage(text=f"名前を「{new_name}」に変更しました。"))
         return
-    
-    # 質問送信
+
     if msg in ["A", "B", "C", "WRONG"]:
-        question_msg = send_question(user_id, msg, bot_type=bot_type)
+        next_q = generate_question(user_id, msg, bot_type)
+
+        if next_q is None:
+            line_bot_api.reply_message(
+                event.reply_token,
+                TextSendMessage(text="🥳🥳🥳問題がありません！")
+            )
+            return
+
+        user_states[user_id] = (msg, next_q)
+        user_answer_start_times[user_id] = time.time()
+
+        question_msg = build_question_message(user_id, next_q, msg, bot_type)
         line_bot_api.reply_message(event.reply_token, question_msg)
         return
         
@@ -831,9 +842,6 @@ def handle_message_common(event, bot_type, line_bot_api):
                 user_id, next_q, range_str, bot_type
             )
             messages_to_send.append(next_question_msg)
-
-        user_answer_start_times[user_id] = time.time()
-        messages_to_send.append(next_question_msg)
 
         total_rate = update_total_rate(user_id, bot_type)
 
