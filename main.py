@@ -352,7 +352,7 @@ trivia_messages = [
     "ヒントろぼっと🤖\nIt is no use crying over spilt milk.\n-覆水盆に返らず。",
 ]
     
-def evaluate_X(elapsed, score, answer, is_multiple_choice=True):
+def evaluate_X(elapsed, score):
     X = elapsed**1.7 + score**1.7
 
     if X <= 16:
@@ -830,6 +830,7 @@ def handle_message_common(event, bot_type, line_bot_api):
         next_q = generate_question(user_id, range_str, bot_type)
 
         if next_q is None:
+            user_states.pop(user_id, None)
             messages_to_send.append(
                 TextSendMessage(text="🥳🥳🥳間違えた問題はありません！")
             )
