@@ -290,53 +290,6 @@ def update_total_rate(user_id, bot_type):
 
     return total_rate
 
-def send_question(user_id, range_str, bot_type="LEAP", update_state=False):
-    scores = user_scores.get(user_id, {})
-
-    if range_str == "WRONG":
-        questions = get_questions_by_range("WRONG", bot_type, user_id)
-        remaining_count = len(questions)
-    else:
-        questions = get_questions_by_range(range_str, bot_type, user_id)
-        remaining_count = sum(1 for q in questions if q["answer"] not in scores)
-
-    if not questions:
-        return TextSendMessage(text="🥳🥳🥳間違えた問題はありません！")
-
-    q = choose_weighted_question(user_id, questions)
-    if q is None:
-        return TextSendMessage(text="🥳🥳🥳間違えた問題はありません！")
-
-    if update_state:
-        user_states[user_id] = (range_str, q)
-        user_answer_start_times[user_id] = time.time()
-
-    correct_answer = q["answer"]
-    if correct_answer not in scores:
-        score_display = "❓初出題の問題"
-    else:
-        score = scores[correct_answer]
-        score_display = "✔" * score + "□" * (4 - score) if score > 0 else "✖間違えた問題"
-
-    # 選択肢作成
-    all_questions = leap_1_1000 + leap_1001_2000 + leap_2001_2300
-    other_answers = [item["answer"] for item in all_questions if item["answer"] != correct_answer]
-    wrong_choices = random.sample(other_answers, k=min(3, len(other_answers)))
-    choices = wrong_choices + [correct_answer]
-    random.shuffle(choices)
-    quick_buttons = [QuickReplyButton(action=MessageAction(label=choice, text=choice))
-                     for choice in choices]
-
-    text_to_send = f"{score_display}\n{q['text']}"
-
-    if remaining_count > 0:
-        if range_str == "WRONG":
-            text_to_send = f"間違えた単語:あと{remaining_count}語\n" + text_to_send
-        else:
-            text_to_send = f"未出題の単語:あと{remaining_count}語\n" + text_to_send
-
-    return TextSendMessage(text=text_to_send, quick_reply=QuickReply(items=quick_buttons))
-
 def choose_weighted_question(user_id, questions):
     scores = user_scores.get(user_id, {})
     candidates = []
@@ -635,6 +588,54 @@ def build_ranking_with_totalE_flex(bot_type):
         alt_text=f"{bot_type.upper()}ランキング + TotalEランキング",
         contents=flex_content
     )
+
+def generate_question(user_id, range_str, bot_type):
+    questions = get_questions_by_range(range_str, bot_type, user_id)
+    if not questions:
+        return None
+    return choose_weighted_question(user_id, questions)
+
+def build_question_message(user_id, q, range_str, bot_type):
+    scores = user_scores.get(user_id, {})
+    correct_answer = q["answer"]
+
+    if correct_answer not in scores:
+        score_display = "❓初出題の問題"
+    else:
+        score = scores[correct_answer]
+        score_display = "✔" * score + "□" * (4 - score) if score > 0 else "✖間違えた問題"
+
+    # 残り数表示
+    if range_str == "WRONG":
+        questions = get_questions_by_range("WRONG", bot_type, user_id)
+        remaining_count = len(questions)
+        prefix = f"間違えた単語:あと{remaining_count}語\n"
+    else:
+        questions = get_questions_by_range(range_str, bot_type, user_id)
+        remaining_count = sum(1 for qq in questions if qq["answer"] not in scores)
+        prefix = f"未出題の単語:あと{remaining_count}語\n"
+
+    # 選択肢
+    all_questions = leap_1_1000 + leap_1001_2000 + leap_2001_2300
+    other_answers = [item["answer"] for item in all_questions if item["answer"] != correct_answer]
+    wrong_choices = random.sample(other_answers, k=min(3, len(other_answers)))
+    choices = wrong_choices + [correct_answer]
+    random.shuffle(choices)
+
+    quick_buttons = [
+        QuickReplyButton(action=MessageAction(label=choice, text=choice))
+        for choice in choices
+    ]
+
+    text = f"{prefix}{score_display}\n{q['text']}"
+
+    return TextSendMessage(
+        text=text,
+        quick_reply=QuickReply(items=quick_buttons)
+    )
+
+
+
 # —————— ここからLINEイベントハンドラ部分 ——————
 # LEAP
 #--------------------------------------------------------------------------------- 
@@ -814,11 +815,23 @@ def handle_message_common(event, bot_type, line_bot_api):
             trivia = random.choice(trivia_messages)
             messages_to_send.append(TextSendMessage(text=trivia))
 
-        # 次の問題を送信
-        next_question_msg, next_q = send_question_and_q(user_id, range_str, bot_type)
+# 次の問題を生成（1回だけ）
+        next_q = generate_question(user_id, range_str, bot_type)
 
-# ここで初めて state を更新
-        user_states[user_id] = (range_str, next_q)
+        if next_q is None:
+            messages_to_send.append(
+                TextSendMessage(text="🥳🥳🥳間違えた問題はありません！")
+            )
+        else:
+    # state 更新はここだけ
+            user_states[user_id] = (range_str, next_q)
+            user_answer_start_times[user_id] = time.time()
+
+            next_question_msg = build_question_message(
+                user_id, next_q, range_str, bot_type
+            )
+            messages_to_send.append(next_question_msg)
+
         user_answer_start_times[user_id] = time.time()
         messages_to_send.append(next_question_msg)
 
