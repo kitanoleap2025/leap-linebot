@@ -62,6 +62,7 @@ def save_latest_question(user_id, q, range_str):
         "meaning": q.get("meaning"),
         "range": range_str,
         "text": q["text"],
+        "start_time": time.time(),
         "timestamp": firestore.SERVER_TIMESTAMP
     })
 
