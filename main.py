@@ -1,3 +1,4 @@
+processing_users = set()
 latest_question = {} 
 from flask import Flask, request, abort
 import os, json, random, threading, time, datetime
