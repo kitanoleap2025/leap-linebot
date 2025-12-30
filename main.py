@@ -1,5 +1,4 @@
 processing_users = set()
-latest_question = {} 
 from flask import Flask, request, abort
 import os, json, random, threading, time, datetime
 from collections import defaultdict
@@ -56,7 +55,26 @@ user_streaks = defaultdict(int)
 user_daily_e = defaultdict(lambda: {"date": None, "total_e": 0})
 user_fever = defaultdict(int)  # user_id: 0 or 1
 user_ranking_wait = defaultdict(int)  # user_id: 残りカウント
-    
+
+def save_latest_question(user_id, q, range_str):
+    db.collection("latest_questions").document(user_id).set({
+        "answer": q["answer"],
+        "meaning": q.get("meaning"),
+        "range": range_str,
+        "text": q["text"],
+        "timestamp": firestore.SERVER_TIMESTAMP
+    })
+
+def load_latest_question(user_id):
+    doc = db.collection("latest_questions").document(user_id).get()
+    if not doc.exists:
+        return None
+    return doc.to_dict()
+
+def delete_latest_question(user_id):
+    db.collection("latest_questions").document(user_id).delete()
+
+
 def fever_time(fevertime):
     # fevertime が None または 0 のとき
     if not fevertime:
@@ -668,12 +686,10 @@ def health():
         return "ok", 200
     return "unauthorized", 403
 #-----------------------------------------------------------------------------
-
 def handle_message_common(event, bot_type, line_bot_api):
     user_id = event.source.user_id
     msg = event.message.text.strip()
 
-    # -------- 処理中フラグ --------
     if user_id in processing_users:
         return
     processing_users.add(user_id)
@@ -686,37 +702,25 @@ def handle_message_common(event, bot_type, line_bot_api):
         if msg.startswith("@"):
             new_name = msg[1:].strip()
             if not new_name:
-                line_bot_api.reply_message(
-                    event.reply_token,
-                    TextSendMessage(text="名前が空です。")
-                )
+                line_bot_api.reply_message(event.reply_token, TextSendMessage(text="名前が空です。"))
                 return
             if len(new_name) > 10:
-                line_bot_api.reply_message(
-                    event.reply_token,
-                    TextSendMessage(text="名前は10文字以内で入力してください。")
-                )
+                line_bot_api.reply_message(event.reply_token, TextSendMessage(text="名前は10文字以内で入力してください。"))
                 return
             user_names[user_id] = new_name
             async_save_user_data(user_id)
-            line_bot_api.reply_message(
-                event.reply_token,
-                TextSendMessage(text=f"名前を「{new_name}」に変更しました。")
-            )
+            line_bot_api.reply_message(event.reply_token, TextSendMessage(text=f"名前を「{new_name}」に変更しました。"))
             return
 
         # ---------------- 範囲選択 ----------------
         if msg in ["A", "B", "C", "WRONG"]:
             q = generate_question(user_id, msg, bot_type)
             if q is None:
-                line_bot_api.reply_message(
-                    event.reply_token,
-                    TextSendMessage(text="🥳🥳🥳問題がありません！")
-                )
+                line_bot_api.reply_message(event.reply_token, TextSendMessage(text="🥳🥳🥳問題がありません！"))
                 return
 
-            user_states[user_id] = msg          # range だけ保持
-            latest_question[user_id] = q        # ★最新問題を保存
+            user_states[user_id] = msg
+            save_latest_question(user_id, q, msg)
             user_answer_start_times[user_id] = time.time()
 
             line_bot_api.reply_message(
@@ -728,10 +732,7 @@ def handle_message_common(event, bot_type, line_bot_api):
         # ---------------- 成績 ----------------
         if msg == "成績":
             update_total_rate(user_id, bot_type)
-            line_bot_api.reply_message(
-                event.reply_token,
-                build_result_flex(user_id, bot_type)
-            )
+            line_bot_api.reply_message(event.reply_token, build_result_flex(user_id, bot_type))
             return
 
         # ---------------- 学ぶ ----------------
@@ -745,10 +746,7 @@ def handle_message_common(event, bot_type, line_bot_api):
             ]
             line_bot_api.reply_message(
                 event.reply_token,
-                TextSendMessage(
-                    text="学ぶ\n範囲を選択",
-                    quick_reply=QuickReply(items=quick_buttons)
-                )
+                TextSendMessage(text="学ぶ\n範囲を選択", quick_reply=QuickReply(items=quick_buttons))
             )
             return
 
@@ -757,35 +755,28 @@ def handle_message_common(event, bot_type, line_bot_api):
             if user_ranking_wait[user_id] > 0:
                 line_bot_api.reply_message(
                     event.reply_token,
-                    TextSendMessage(
-                        text=f"ランキングは{user_ranking_wait[user_id]}問解いた後に表示できます！"
-                    )
+                    TextSendMessage(text=f"ランキングは{user_ranking_wait[user_id]}問解いた後に表示できます！")
                 )
                 return
-
-            line_bot_api.reply_message(
-                event.reply_token,
-                build_ranking_with_totalE_flex(bot_type)
-            )
+            line_bot_api.reply_message(event.reply_token, build_ranking_with_totalE_flex(bot_type))
             user_ranking_wait[user_id] = 5
             return
 
         # ================= 回答処理 =================
-        if user_id not in latest_question:
+        latest = load_latest_question(user_id)
+        if not latest:
             line_bot_api.reply_message(
                 event.reply_token,
                 TextSendMessage(text="「学ぶ」を押してみましょう！")
             )
             return
 
-        # --- 最新の問題だけ参照 ---
-        q = latest_question[user_id]
-        range_str = user_states.get(user_id)
-        correct_answer = q["answer"]
-        meaning = q.get("meaning")
+        correct_answer = latest["answer"]
+        meaning = latest.get("meaning")
+        range_str = latest["range"]
 
         elapsed = time.time() - user_answer_start_times.get(user_id, time.time())
-        is_correct = (msg.lower() == correct_answer.lower())
+        is_correct = msg.lower() == correct_answer.lower()
         score = user_scores[user_id].get(correct_answer, 1)
 
         label, _ = evaluate_X(elapsed, score)
@@ -793,9 +784,7 @@ def handle_message_common(event, bot_type, line_bot_api):
 
         if is_correct:
             user_streaks[user_id] += 1
-            user_scores[user_id][correct_answer] = min(
-                score + delta_map.get(label, 1), 4
-            )
+            user_scores[user_id][correct_answer] = min(score + delta_map.get(label, 1), 4)
 
             prev_fever = user_fever.get(user_id, 0)
             user_fever[user_id] = fever_time(prev_fever)
@@ -807,12 +796,10 @@ def handle_message_common(event, bot_type, line_bot_api):
                 e *= 7777
 
             user_daily_e[user_id]["total_e"] += e
-
         else:
             user_streaks[user_id] = 0
             user_scores[user_id][correct_answer] = 0
 
-        # ---- フィードバック ----
         messages = [
             build_feedback_flex(
                 user_id, is_correct, score, elapsed,
@@ -822,27 +809,23 @@ def handle_message_common(event, bot_type, line_bot_api):
             )
         ]
 
-        # ★ 最新問題を必ず破棄
-        latest_question.pop(user_id, None)
+        delete_latest_question(user_id)
         user_states.pop(user_id, None)
 
-        # ---- 次の問題 ----
         next_q = generate_question(user_id, range_str, bot_type)
-        if next_q is None:
-            messages.append(TextSendMessage(text="🥳🥳🥳問題がありません！"))
-        else:
-            user_states[user_id] = range_str
-            latest_question[user_id] = next_q
+        if next_q:
+            save_latest_question(user_id, next_q, range_str)
             user_answer_start_times[user_id] = time.time()
-            messages.append(
-                build_question_message(user_id, next_q, range_str, bot_type)
-            )
+            messages.append(build_question_message(user_id, next_q, range_str, bot_type))
+        else:
+            messages.append(TextSendMessage(text="🥳🥳🥳問題がありません！"))
 
         update_total_rate(user_id, bot_type)
         line_bot_api.reply_message(event.reply_token, messages)
 
     finally:
         processing_users.discard(user_id)
+
 #--------------------------------------------------------------------------------- 
 if __name__ == "__main__": 
     port = int(os.environ.get("PORT", 8000)) 
