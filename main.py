@@ -58,12 +58,12 @@ user_ranking_wait = defaultdict(int)  # user_id: 残りカウント
 def fever_time(fevertime):
     # fevertime が None または 0 のとき
     if not fevertime:
-        # 1/20 で Fever を開始
+        #開始
         if random.random() < 1/30:
             return 1
         return 0
 
-    # fevertime が 1 のとき、1/10 でリセット
+    #リセット
     if fevertime == 1:
         if random.random() < 1/10:
             return 0
@@ -174,7 +174,7 @@ def build_result_flex(user_id, bot_type):
     try:
         doc = db.collection("users").document(user_id).get()
         data = doc.to_dict() or {} 
-        total_rate = doc.to_dict().get(field_name, 0)
+        total_rate = data.get(field_name, 0)
         total_e = data.get("total_e", 0)
     except Exception:
         total_rate = 0
@@ -760,7 +760,7 @@ def handle_message_common(event, bot_type, line_bot_api):
         score = user_scores[user_id].get(correct_answer, 1)
         elapsed = time.time() - user_answer_start_times.get(user_id, time.time())
 
-        label, delta = evaluate_X(elapsed, score, correct_answer)
+        label, delta = evaluate_X(elapsed, score)
         delta_map = {"!!Brilliant": 3, "!Great": 2, "✓Correct": 1}
 
         if is_correct:
@@ -855,7 +855,7 @@ def handle_message_common(event, bot_type, line_bot_api):
     )
 
 #--------------------------------------------------------------------------------- 
-    if __name__ == "__main__": 
-        port = int(os.environ.get("PORT", 8000)) 
-        app.run(host="0.0.0.0", port=port) 
+if __name__ == "__main__": 
+    port = int(os.environ.get("PORT", 8000)) 
+    app.run(host="0.0.0.0", port=port) 
 #---------------------------------------------------------------------------------
