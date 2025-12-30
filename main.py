@@ -1,5 +1,3 @@
-processing_users = set()
-
 from flask import Flask, request, abort
 import os, json, random, threading, time, datetime
 from collections import defaultdict
