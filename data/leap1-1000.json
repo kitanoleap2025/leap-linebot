@@ -80,18 +80,18 @@
         "meaning": "celebrate　[他] ①（特別な日、出来事）を祝う ②（儀式など）を挙行する，執り行う"
     },
     {
-        "text": "017 His family ___ his finally being accepted into college.\n彼の家族は,彼がついに大学に合格したことを祝った.㊗️",
-        "answer": "congratulated",
+        "text": "017 His family ___d his finally being accepted into college.\n彼の家族は,彼がついに大学に合格したことを祝った.㊗️",
+        "answer": "congratulate",
         "meaning": "congratulate　[他] （人）を祝う，～にお祝いを述べる"
     },
     {
-        "text": "018 Everyone ___ his remarkable idea.\n誰もが彼の注目すべきアイデアに感心した.",
-        "answer": "admired",
+        "text": "018 Everyone ___d his remarkable idea.\n誰もが彼の注目すべきアイデアに感心した.",
+        "answer": "admire",
         "meaning": "admire　[他] ～を称賛する，～に感心する"
     },
     {
-        "text": "019 His outstanding presentation ___ everyone.\n彼の傑出したプレゼンは,みんなに感銘を与えた.",
-        "answer": "impressed",
+        "text": "019 His outstanding presentation ___ed everyone.\n彼の傑出したプレゼンは,みんなに感銘を与えた.",
+        "answer": "impress",
         "meaning": "impress　[他] ～に感銘を与える，～を感心させる"
     },
     {
@@ -100,8 +100,8 @@
         "meaning": "award　[名] ①賞 [他] ②～を授与する"
     },
     {
-        "text": "021 He ___ why he had missed the deadline.\n彼はなぜ締め切りを過ぎたのか説明した.",
-        "answer": "explained",
+        "text": "021 He ___ed why he had missed the deadline.\n彼はなぜ締め切りを過ぎたのか説明した.",
+        "answer": "explain",
         "meaning": "explain　[他] ～を説明する"
     },
     {
@@ -120,8 +120,8 @@
         "meaning": "express　[他] ①（意見，気持ち）を表現する [名] ②急行（列車，バス）"
     },
     {
-        "text": "025 The man running ahead is the one I ___ to run with.\n前を走っている男は,一緒に走ると約束した人だ.🏃‍➡️",
-        "answer": "promised",
+        "text": "025 The man running ahead is the one I ___d to run with.\n前を走っている男は,一緒に走ると約束した人だ.🏃‍➡️",
+        "answer": "promise",
         "meaning": "promise　[名] ①約束 [他] ②～を約束する"
     },
     {
@@ -131,8 +131,8 @@
     },
     {
         "text": "027 ___ will improve dramatically within a few years.\n技術は数年のうちに劇的に進化するだろう。",
-        "answer": "Technology",
-        "meaning": ""
+        "answer": "technology",
+        "meaning": "technology　[名] （科学）技術"
     },
     {
         "text": "028 ___ shows that sunlight improves mental health.\n研究によると,日光はメンタルヘルスを改善する.🌞",
@@ -230,7 +230,7 @@
         "meaning": "form　[他] ①～を形成する [名] ②形態 ③書式"
     },
     {
-        "text": "047 I wish I could ___ people around the world from poverty.\n世界中の人々を貧困から救えたら良いのに。",
+        "text": "047 ___ time by skipping home economics class\n家庭科をサボって時間を節約する。",
         "answer": "save",
         "meaning": "save　[他] ①（時間，手間）を省く ②～を貯金する ③（命など）を救う [前] ④～を除いて（＝except）"
     },
@@ -310,7 +310,7 @@
         "meaning": "rule　[名] ①規則 [他] ②～を支配する"
     },
     {
-        "text": "063 He played an important ___ in the success of the project.\n彼はそのプロジェクトの成功に重要な役割を果たした。",
+        "text": "063 an important ___\n重要な役割",
         "answer": "role",
         "meaning": "role　[名] 役割"
     },
@@ -365,7 +365,7 @@
         "meaning": "local　[形] ①その土地の，地元の ②地方の [名] ③地元の人"
     },
     {
-        "text": "074 The company conducted a ___ to understand customer satisfaction.\nその会社は顧客満足度を理解するために調査を行った。",
+        "text": "074 a ___ of educational background\n学歴の調査",
         "answer": "survey",
         "meaning": "survey　[名] ①調査〈可算〉 [他] ②～を調査する"
     },
@@ -385,7 +385,7 @@
         "meaning": "fashion　[名] ①流行 ②流儀，やり方 [他] ③（手などで）～を作る"
     },
     {
-        "text": "078 People who collect Bell Marks are almost always from ___ high schools.\nベルマーク集めてる人は、大体公立高校出身だ。",
+        "text": "078 People who collect Bell Marks are almost always from ___ high schools.\nベルマークを集めてる人は、大体公立高校出身だ。",
         "answer": "public",
         "meaning": "public　[名] ①（the ―）大衆 [形] ②公共の，公の"
     },
@@ -1145,12 +1145,12 @@
         "meaning": "character　[名] ①性格，特徴 ②登場人物 ③文字"
     },
     {
-        "text": "230 unique ___\nユニークな特徴",
-        "answer": "characteristics",
+        "text": "230 unique ___s\nユニークな特徴",
+        "answer": "characteristic",
         "meaning": "characteristic　[名] ①特徴〈可算〉 [形] ②特有の，特徴的な"
     },
     {
-        "text": "231 This smartphone has a new ___ that improves battery life.\nこのスマホにはバッテリー寿命を改善する新しい特徴がある📱",
+        "text": "231 a ___ article on a scandal\nスキャンダルの特集記事",
         "answer": "feature",
         "meaning": "feature　[名] ①特徴 ②特集記事 [他] ③～を特集する"
     },
