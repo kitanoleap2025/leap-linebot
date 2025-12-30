@@ -1,3 +1,4 @@
+latest_question = {} 
 from flask import Flask, request, abort
 import os, json, random, threading, time, datetime
 from collections import defaultdict
@@ -713,7 +714,8 @@ def handle_message_common(event, bot_type, line_bot_api):
                 )
                 return
 
-            user_states[user_id] = (msg, q)
+            user_states[user_id] = msg          # range だけ保持
+            latest_question[user_id] = q        # ★最新問題を保存
             user_answer_start_times[user_id] = time.time()
 
             line_bot_api.reply_message(
@@ -768,15 +770,16 @@ def handle_message_common(event, bot_type, line_bot_api):
             return
 
         # ================= 回答処理 =================
-        if user_id not in user_states:
+        if user_id not in latest_question:
             line_bot_api.reply_message(
                 event.reply_token,
                 TextSendMessage(text="「学ぶ」を押してみましょう！")
             )
             return
 
-        # --- 現在の問題 ---
-        range_str, q = user_states[user_id]
+        # --- 最新の問題だけ参照 ---
+        q = latest_question[user_id]
+        range_str = user_states.get(user_id)
         correct_answer = q["answer"]
         meaning = q.get("meaning")
 
@@ -818,7 +821,8 @@ def handle_message_common(event, bot_type, line_bot_api):
             )
         ]
 
-        # ★ state を一旦消す
+        # ★ 最新問題を必ず破棄
+        latest_question.pop(user_id, None)
         user_states.pop(user_id, None)
 
         # ---- 次の問題 ----
@@ -826,7 +830,8 @@ def handle_message_common(event, bot_type, line_bot_api):
         if next_q is None:
             messages.append(TextSendMessage(text="🥳🥳🥳問題がありません！"))
         else:
-            user_states[user_id] = (range_str, next_q)
+            user_states[user_id] = range_str
+            latest_question[user_id] = next_q
             user_answer_start_times[user_id] = time.time()
             messages.append(
                 build_question_message(user_id, next_q, range_str, bot_type)
@@ -837,7 +842,6 @@ def handle_message_common(event, bot_type, line_bot_api):
 
     finally:
         processing_users.discard(user_id)
-
 #--------------------------------------------------------------------------------- 
 if __name__ == "__main__": 
     port = int(os.environ.get("PORT", 8000)) 
