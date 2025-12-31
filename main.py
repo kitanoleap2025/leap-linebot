@@ -54,7 +54,56 @@ user_streaks = defaultdict(int)
 user_daily_e = defaultdict(lambda: {"date": None, "total_e": 0})
 user_fever = defaultdict(int)  # user_id: 0 or 1
 user_ranking_wait = defaultdict(int)  # user_id: 残りカウント
+
+def send_question(user_id, range_str, bot_type="LEAP"):
+    scores = user_scores.get(user_id, {})
     
+    if range_str == "WRONG":
+        questions = get_questions_by_range("WRONG", bot_type, user_id)
+        remaining_count = len(questions)
+    else:
+        questions = get_questions_by_range(range_str, bot_type, user_id)
+        # スコアが未設定の単語だけ数える
+        remaining_count = sum(1 for q in questions if q["answer"] not in scores)
+
+    if not questions:
+        return TextSendMessage(text="🥳🥳🥳間違えた問題はありません！")
+
+    q = choose_weighted_question(user_id, questions)
+    if q is None:
+        return TextSendMessage(text="🥳🥳🥳間違えた問題はありません！")
+    
+    user_states[user_id] = (range_str, q)
+    user_answer_start_times[user_id] = time.time()
+
+    correct_answer = q["answer"]
+    if correct_answer not in scores:
+        score_display = "❓初出題の問題"
+    else:
+        score = scores[correct_answer]
+        score_display = "✔" * score + "□" * (4 - score) if score > 0 else "✖間違えた問題"
+
+    # 選択肢作成
+    all_questions = leap_1_1000 + leap_1001_2000 + leap_2001_2300
+    other_answers = [item["answer"] for item in all_questions if item["answer"] != correct_answer]
+    wrong_choices = random.sample(other_answers, k=min(3, len(other_answers)))
+    choices = wrong_choices + [correct_answer]
+    random.shuffle(choices)
+    quick_buttons = [QuickReplyButton(action=MessageAction(label=choice, text=choice))
+                     for choice in choices]
+
+    text_to_send = f"{score_display}\n{q['text']}"
+
+    # 0でなければ残り問題数を表示
+    if remaining_count > 0:
+        if range_str == "WRONG":
+            text_to_send = f"間違えた単語:あと{remaining_count}語\n" + text_to_send
+        else:
+            text_to_send = f"未出題の単語:あと{remaining_count}語\n" + text_to_send
+
+    return TextSendMessage(text=text_to_send, quick_reply=QuickReply(items=quick_buttons))
+
+
 def fever_time(fevertime):
     # fevertime が None または 0 のとき
     if not fevertime:
@@ -588,54 +637,6 @@ def build_ranking_with_totalE_flex(bot_type):
         alt_text=f"{bot_type.upper()}ランキング + TotalEランキング",
         contents=flex_content
     )
-
-def generate_question(user_id, range_str, bot_type):
-    questions = get_questions_by_range(range_str, bot_type, user_id)
-    if not questions:
-        return None
-    return choose_weighted_question(user_id, questions)
-
-def build_question_message(user_id, q, range_str, bot_type):
-    scores = user_scores.get(user_id, {})
-    correct_answer = q["answer"]
-
-    if correct_answer not in scores:
-        score_display = "❓初出題の問題"
-    else:
-        score = scores[correct_answer]
-        score_display = "✔" * score + "□" * (4 - score) if score > 0 else "✖間違えた問題"
-
-    # 残り数表示
-    if range_str == "WRONG":
-        questions = get_questions_by_range("WRONG", bot_type, user_id)
-        remaining_count = len(questions)
-        prefix = f"間違えた単語:あと{remaining_count}語\n"
-    else:
-        questions = get_questions_by_range(range_str, bot_type, user_id)
-        remaining_count = sum(1 for qq in questions if qq["answer"] not in scores)
-        prefix = f"未出題の単語:あと{remaining_count}語\n"
-
-    # 選択肢
-    all_questions = leap_1_1000 + leap_1001_2000 + leap_2001_2300
-    other_answers = [item["answer"] for item in all_questions if item["answer"] != correct_answer]
-    wrong_choices = random.sample(other_answers, k=min(3, len(other_answers)))
-    choices = wrong_choices + [correct_answer]
-    random.shuffle(choices)
-
-    quick_buttons = [
-        QuickReplyButton(action=MessageAction(label=choice, text=choice))
-        for choice in choices
-    ]
-
-    text = f"{prefix}{score_display}\n{q['text']}"
-
-    return TextSendMessage(
-        text=text,
-        quick_reply=QuickReply(items=quick_buttons)
-    )
-
-
-
 # —————— ここからLINEイベントハンドラ部分 ——————
 # LEAP
 #--------------------------------------------------------------------------------- 
