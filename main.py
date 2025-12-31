@@ -83,6 +83,19 @@ def send_question(user_id, range_str):
     user_answer_start_times[user_id] = time.time()
 
     correct_answer = q["answer"]
+
+    # --- Firebaseに最新出題を保存 ---
+    try:
+        db.collection("users").document(user_id).set({
+            "latest_questions": {
+                "answer": correct_answer,
+                "meaning": q.get("meaning", "")
+            }
+        }, merge=True)
+    except Exception as e:
+        print(f"Error saving latest_questions for {user_id}: {e}")
+    # ---------------------------------
+    
     if correct_answer not in scores:
         score_display = "❓初出題の問題"
     else:
