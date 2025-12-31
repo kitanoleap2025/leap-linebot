@@ -7,8 +7,7 @@ from dotenv import load_dotenv
 from linebot import LineBotApi, WebhookHandler, WebhookParser
 from linebot.models import (
     MessageEvent, TextMessage, TextSendMessage, FlexSendMessage,
-    BoxComponent, TextComponent, QuickReply, QuickReplyButton, MessageAction,
-    ButtonsTemplate, TemplateSendMessage, PostbackAction, PostbackEvent
+    QuickReply, QuickReplyButton, MessageAction
 )
 from linebot.exceptions import InvalidSignatureError  
 
@@ -541,12 +540,6 @@ def build_feedback_flex(user_id, is_correct, score, elapsed, correct_answer=None
         }
     )
 
-medal_colors = {
-    1: "#000000", 
-    2: "#000000", 
-    3: "#000000", 
-}
-
 # 高速ランキング（自分の順位も表示）
 def build_ranking_with_totalE_flex():
     
@@ -588,13 +581,12 @@ def build_ranking_with_totalE_flex():
         ]
     })
     for i, (name, e_value) in enumerate(ranking_e, start=1):
-        color = medal_colors.get(i, "#000000")
         bubbles.append({
             "type": "box",
             "layout": "vertical",
             "contents": [
-                {"type": "text", "text": f"{i}位 {name}", "flex": 1, "size": "md", "color": color},
-                {"type": "text", "text": str(e_value), "flex": 1, "size": "lg", "align": "end", "color": color}
+                {"type": "text", "text": f"{i}位 {name}", "flex": 1, "size": "md", "color": "#000000": },
+                {"type": "text", "text": str(e_value), "flex": 1, "size": "lg", "align": "end", "color": "#000000"}
             ]
         })
     bubbles.append({"type": "separator", "margin": "md"})
@@ -609,14 +601,13 @@ def build_ranking_with_totalE_flex():
         ]
     })
     for i, (name, rate) in enumerate(ranking_rate, start=1):
-        color = medal_colors.get(i, "#000000")
         bubbles.append({
             "type": "box",
             "layout": "baseline",
             "contents": [
-                {"type": "text", "text": f"{i}位", "flex": 1, "size": "md", "color": color},
-                {"type": "text", "text": name, "flex": 3, "size": "md", "color": color},
-                {"type": "text", "text": str(rate), "flex": 1, "size": "md", "align": "end", "color": color}
+                {"type": "text", "text": f"{i}位", "flex": 1, "size": "md", "color": "#000000"},
+                {"type": "text", "text": name, "flex": 3, "size": "md", "color": "#000000"},
+                {"type": "text", "text": str(rate), "flex": 1, "size": "md", "align": "end", "color": "#000000"}
             ]
         })
 
@@ -636,9 +627,6 @@ def build_ranking_with_totalE_flex():
 # —————— ここからLINEイベントハンドラ部分 ——————
 # LEAP
 #--------------------------------------------------------------------------------- 
-parser = WebhookParser(os.getenv("LINE_CHANNEL_SECRET_LEAP"))
-handler_leap = WebhookHandler(os.getenv("LINE_CHANNEL_SECRET_LEAP"))
-
 @app.route("/callback/leap", methods=["POST"])
 def callback_leap():
     body = request.get_data(as_text=True)
