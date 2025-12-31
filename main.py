@@ -352,7 +352,7 @@ trivia_messages = [
     "ヒントろぼっと🤖\nIt is no use crying over spilt milk.\n-覆水盆に返らず。",
 ]
     
-def evaluate_X(elapsed, score):
+def evaluate_X(elapsed, score, correct_answer):
     X = elapsed**1.7 + score**1.7
 
     if X <= 16:
