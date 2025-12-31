@@ -835,8 +835,6 @@ def handle_message_common(event, bot_type, line_bot_api):
                 TextSendMessage(text="🥳🥳🥳間違えた問題はありません！")
             )
         else:
-    # state 更新はここだけ
-            user_states[user_id] = (range_str, next_q)
             user_answer_start_times[user_id] = time.time()
 
             next_question_msg = build_question_message(
@@ -845,6 +843,7 @@ def handle_message_common(event, bot_type, line_bot_api):
             messages_to_send.append(next_question_msg)
 
         total_rate = update_total_rate(user_id, bot_type)
+        user_states[user_id] = (range_str, next_q)
 
         line_bot_api.reply_message(event.reply_token, messages_to_send)
         return
