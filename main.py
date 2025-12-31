@@ -2,16 +2,12 @@ from flask import Flask, request, abort
 import os, json, random, threading, time, datetime
 from collections import defaultdict
 from dotenv import load_dotenv
-
-# LINE Bot SDK
 from linebot import LineBotApi, WebhookHandler, WebhookParser
 from linebot.models import (
     MessageEvent, TextMessage, TextSendMessage, FlexSendMessage,
     QuickReply, QuickReplyButton, MessageAction
 )
 from linebot.exceptions import InvalidSignatureError  
-
-# Firebase
 import firebase_admin
 from firebase_admin import credentials, firestore
 
@@ -84,7 +80,7 @@ def send_question(user_id, range_str):
 
     correct_answer = q["answer"]
 
-    # --- Firebaseに最新出題を保存 ---
+    #firebase
     try:
         db.collection("users").document(user_id).set({
             "latest_questions": {
@@ -94,8 +90,7 @@ def send_question(user_id, range_str):
         }, merge=True)
     except Exception as e:
         print(f"Error saving latest_questions for {user_id}: {e}")
-    # ---------------------------------
-    
+  
     if correct_answer not in scores:
         score_display = "❓初出題の問題"
     else:
@@ -370,8 +365,8 @@ trivia_messages = [
     "ヒントろぼっと🤖\n地球は平面だ。",
     "ヒントろぼっと🤖\nLEAP:「2秒で伸ばしてやる。」",
     "ヒントろぼっと🤖\nLEAP:「2秒で伸ばしてやる。」",
-    "ヒントろぼっと🤖\n中国語版LEAP、「跳跃」!",
-    "ヒントろぼっと🤖\n中国語版LEAP、「跳跃」!",
+    "ヒントろぼっと [o_o] \n中国語版LEAP、「跳跃」!",
+    "ヒントろぼっと [o_o] \n中国語版LEAP、「跳跃」!",
     "ヒントろぼっと🤖\n正解した単語には「✓」が最大4つ付く。",
     "ヒントろぼっと🤖\n「@(新しい名前)」と送信するとランキングに表示される名前を変更できる。",
     "ヒントろぼっと🤖\n正解した単語は以降出題されにくくなる。",
@@ -553,7 +548,7 @@ def build_feedback_flex(user_id, is_correct, score, elapsed, correct_answer=None
         }
     )
 
-# 高速ランキング（自分の順位も表示）
+# 高速ランキング
 def build_ranking_with_totalE_flex():
     try:
         docs_rate = db.collection("users")\
@@ -639,8 +634,6 @@ def build_ranking_with_totalE_flex():
         contents=flex_content
     )
 # —————— ここからLINEイベントハンドラ部分 ——————
-# LEAP
-#--------------------------------------------------------------------------------- 
 @app.route("/callback/leap", methods=["POST"])
 def callback_leap():
     body = request.get_data(as_text=True)
@@ -664,7 +657,6 @@ def health():
 def handle_message(event):
     handle_message_common(event, line_bot_api_leap)
     
-#-----------------------------------------------------------------------------
 def handle_message_common(event, line_bot_api):
     user_id = event.source.user_id
     msg = event.message.text.strip()
@@ -755,7 +747,6 @@ def handle_message_common(event, line_bot_api):
 
         elapsed = time.time() - user_answer_start_times.get(user_id, time.time())
         label, delta = evaluate_X(elapsed)
-        # ラベルに応じたスコア変化
         delta_map = {
             "!!Brilliant": 3,
             "!Great": 2,
@@ -763,12 +754,10 @@ def handle_message_common(event, line_bot_api):
         }
 
         if is_correct:
-            user_streaks[user_id] += 1
+            
             delta_score = delta_map.get(label, 1)
             user_scores[user_id][correct_answer] = min(user_scores[user_id].get(correct_answer, 1) + delta_score, 4)
 
-
-            # --- FEVER: 状態遷移（1/20 で ON、ON のときは 1/10 で OFF）
             prev_fever = user_fever.get(user_id, 0)
             new_fever = fever_time(prev_fever)
             user_fever[user_id] = int(new_fever)
@@ -778,6 +767,8 @@ def handle_message_common(event, line_bot_api):
             fever_multiplier = 777 if user_fever[user_id] == 1 else 1
             e = label_score * (user_streaks[user_id] ** 3) * fever_multiplier
 
+            user_streaks[user_id] += 1
+            
             # 日付チェック
             today = datetime.date.today()
 
@@ -785,7 +776,6 @@ def handle_message_common(event, line_bot_api):
             if last_date_str:
                 last_date = datetime.datetime.strptime(last_date_str, "%Y-%m-%d").date()
             else:
-                # 初回のみ週の開始日を設定
                 last_date = today
                 user_daily_e[user_id]["date"] = today.strftime("%Y-%m-%d")
 
@@ -804,7 +794,7 @@ def handle_message_common(event, line_bot_api):
 
         else:
             # 不正解時は0
-            user_streaks[user_id] = max(user_streaks[user_id] - 0, 0)
+            #user_streaks[user_id] = max(user_streaks[user_id] - 0, 0)
             user_scores[user_id][correct_answer] = 0
 
 
@@ -824,7 +814,6 @@ def handle_message_common(event, line_bot_api):
         
         messages_to_send = [flex_feedback]
 
-        # 回答後にランキング待機カウントを1減らす
         if user_ranking_wait[user_id] > 0:
             user_ranking_wait[user_id] -= 1
             
@@ -833,7 +822,6 @@ def handle_message_common(event, line_bot_api):
             trivia = random.choice(trivia_messages)
             messages_to_send.append(TextSendMessage(text=trivia))
 
-        # 次の問題
         user_states.pop(user_id, None)
         user_answer_start_times.pop(user_id, None)
         next_question_msg = send_question(user_id, range_str)
