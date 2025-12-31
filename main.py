@@ -802,9 +802,6 @@ def handle_message_common(event, bot_type, line_bot_api):
             user_streaks[user_id] = max(user_streaks[user_id] - 0, 0)
             user_scores[user_id][correct_answer] = 0
 
-        # q を取得して meaning を渡す
-        questions = get_questions_by_range(range_str, bot_type, user_id)
-        q = next((x for x in questions if x["answer"] == correct_answer), None)
 
         flex_feedback = build_feedback_flex(
             user_id, is_correct, score, elapsed,
@@ -832,6 +829,8 @@ def handle_message_common(event, bot_type, line_bot_api):
             messages_to_send.append(TextSendMessage(text=trivia))
 
         # 次の問題
+        user_states.pop(user_id, None)
+        user_answer_start_times.pop(user_id, None)
         next_question_msg = send_question(user_id, range_str, bot_type=bot_type)
         messages_to_send.append(next_question_msg)
 
@@ -844,9 +843,6 @@ def handle_message_common(event, bot_type, line_bot_api):
         event.reply_token,
         TextSendMessage(text="「学ぶ」を押してみましょう！")
     )
-
-
-
 
 if __name__ == "__main__": 
     port = int(os.environ.get("PORT", 8000)) 
