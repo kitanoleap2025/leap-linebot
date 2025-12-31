@@ -666,8 +666,6 @@ def health():
         return "ok", 200
     return "unauthorized", 403
 #-----------------------------------------------------------------------------
-
-
 def handle_message_common(event, bot_type, line_bot_api):
     user_id = event.source.user_id
     msg = event.message.text.strip()
@@ -691,21 +689,10 @@ def handle_message_common(event, bot_type, line_bot_api):
         async_save_user_data(user_id)
         line_bot_api.reply_message(event.reply_token, TextSendMessage(text=f"名前を「{new_name}」に変更しました。"))
         return
-
+    
+    # 質問送信
     if msg in ["A", "B", "C", "WRONG"]:
-        next_q = generate_question(user_id, msg, bot_type)
-
-        if next_q is None:
-            line_bot_api.reply_message(
-                event.reply_token,
-                TextSendMessage(text="🥳🥳🥳問題がありません！")
-            )
-            return
-
-        user_states[user_id] = (msg, next_q)
-        user_answer_start_times[user_id] = time.time()
-
-        question_msg = build_question_message(user_id, next_q, msg, bot_type)
+        question_msg = send_question(user_id, msg, bot_type=bot_type)
         line_bot_api.reply_message(event.reply_token, question_msg)
         return
         
@@ -752,44 +739,56 @@ def handle_message_common(event, bot_type, line_bot_api):
         return
 
     if user_id in user_states:
-        user_states[user_id] = (range_str, next_q)
         range_str, q = user_states[user_id]
         correct_answer = q["answer"]
         meaning = q.get("meaning")
+        # 正解かどうか判定
         is_correct = (msg.lower() == correct_answer.lower())
         score = user_scores[user_id].get(correct_answer, 1)
-        elapsed = time.time() - user_answer_start_times.get(user_id, time.time())
 
+        elapsed = time.time() - user_answer_start_times.get(user_id, time.time())
         label, delta = evaluate_X(elapsed, score, correct_answer)
-        delta_map = {"!!Brilliant": 3, "!Great": 2, "✓Correct": 1}
+        # ラベルに応じたスコア変化
+        delta_map = {
+            "!!Brilliant": 3,
+            "!Great": 2,
+            "✓Correct": 1
+        }
 
         if is_correct:
             user_streaks[user_id] += 1
             delta_score = delta_map.get(label, 1)
             user_scores[user_id][correct_answer] = min(user_scores[user_id].get(correct_answer, 1) + delta_score, 4)
 
-            # FEVER: 状態遷移
+
+            # --- FEVER: 状態遷移（1/20 で ON、ON のときは 1/10 で OFF）
             prev_fever = user_fever.get(user_id, 0)
             new_fever = fever_time(prev_fever)
             user_fever[user_id] = int(new_fever)
-
+            
             label_score = get_label_score(label)
+            # フィーバー中は獲得 e を 100倍
             fever_multiplier = 7777 if user_fever[user_id] == 1 else 1
             y = 5 - score
             e = y * label_score * (user_streaks[user_id] ** 3) * fever_multiplier
 
+            # 日付チェック
             today = datetime.date.today()
+
             last_date_str = user_daily_e[user_id].get("date")
             if last_date_str:
                 last_date = datetime.datetime.strptime(last_date_str, "%Y-%m-%d").date()
             else:
+                # 初回のみ週の開始日を設定
                 last_date = today
                 user_daily_e[user_id]["date"] = today.strftime("%Y-%m-%d")
 
+            # 7日経過していたらリセット
             if (today - last_date).days >= 7:
                 user_daily_e[user_id]["total_e"] = 0
                 user_daily_e[user_id]["date"] = today.strftime("%Y-%m-%d")
 
+            # トータル e 更新（ここでは足すだけ）
             user_daily_e[user_id]["total_e"] += e
 
             db.collection("users").document(user_id).set({
@@ -798,64 +797,56 @@ def handle_message_common(event, bot_type, line_bot_api):
             }, merge=True)
 
         else:
-            user_streaks[user_id] = 0
+            # 不正解時は0
+            user_streaks[user_id] = max(user_streaks[user_id] - 0, 0)
             user_scores[user_id][correct_answer] = 0
 
-        # フィードバック作成
+        # q を取得して meaning を渡す
+        questions = get_questions_by_range(range_str, bot_type, user_id)
+        q = next((x for x in questions if x["answer"] == correct_answer), None)
+
         flex_feedback = build_feedback_flex(
             user_id, is_correct, score, elapsed,
             correct_answer=correct_answer,
             label=label if is_correct else None,
             meaning=meaning
         )
-
-        today_str = time.strftime("%Y-%m-%d")
-        if user_daily_counts[user_id]["date"] != today_str:
-            user_daily_counts[user_id]["date"] = today_str
+        
+        today = time.strftime("%Y-%m-%d")
+        if user_daily_counts[user_id]["date"] != today:
+            user_daily_counts[user_id]["date"] = today
             user_daily_counts[user_id]["count"] = 1
         user_daily_counts[user_id]["count"] += 1
         user_answer_counts[user_id] += 1
-
+        
         messages_to_send = [flex_feedback]
 
+        # 回答後にランキング待機カウントを1減らす
         if user_ranking_wait[user_id] > 0:
             user_ranking_wait[user_id] -= 1
-
+            
         if user_answer_counts[user_id] % 5 == 0:
             async_save_user_data(user_id)
             trivia = random.choice(trivia_messages)
             messages_to_send.append(TextSendMessage(text=trivia))
 
-        # 次の問題を生成（1回だけ）
-        next_q = generate_question(user_id, range_str, bot_type)
-        if next_q is None:
-            user_states.pop(user_id, None)
-            line_bot_api.reply_message(
-                event.reply_token,
-                TextSendMessage(text="🥳🥳🥳問題がありません！")
-            )
-            return
-        
-        user_answer_start_times[user_id] = time.time()
-
-        next_question_msg = build_question_message(
-            user_id, next_q, range_str, bot_type
-        )
-        user_states[user_id] = (range_str, next_q)
+        # 次の問題
+        next_question_msg = send_question(user_id, range_str, bot_type=bot_type)
         messages_to_send.append(next_question_msg)
 
         total_rate = update_total_rate(user_id, bot_type)
 
-        line_bot_api.reply_message(event.reply_token, messages_to_send)
+        line_bot_api.reply_message(event.reply_token, messages=messages_to_send)
         return
-
+        
     line_bot_api.reply_message(
         event.reply_token,
         TextSendMessage(text="「学ぶ」を押してみましょう！")
     )
 
-#--------------------------------------------------------------------------------- 
-    if __name__ == "__main__": 
-        port = int(os.environ.get("PORT", 8000)) 
-        app.run(host="0.0.0.0", port=port) 
-#---------------------------------------------------------------------------------
+
+
+
+if __name__ == "__main__": 
+    port = int(os.environ.get("PORT", 8000)) 
+    app.run(host="0.0.0.0", port=port) 
