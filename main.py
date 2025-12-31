@@ -90,8 +90,7 @@ def send_question(user_id, range_str):
         score_display = "✔" * score + "□" * (4 - score) if score > 0 else "✖間違えた問題"
 
     # 選択肢作成
-    all_questions = leap_1_1000 + leap_1001_2000 + leap_2001_2300
-    other_answers = [item["answer"] for item in all_questions if item["answer"] != correct_answer]
+    other_answers = [item["answer"] for item in ALL_QUESTIONS if item["answer"] != correct_answer]
     wrong_choices = random.sample(other_answers, k=min(3, len(other_answers)))
     choices = wrong_choices + [correct_answer]
     random.shuffle(choices)
@@ -397,12 +396,12 @@ trivia_messages = [
     "ヒントろぼっと🤖\nIt is no use crying over spilt milk.\n-覆水盆に返らず。",
 ]
     
-def evaluate_X(elapsed, score, correct_answer):
-    X = elapsed**1.7 + score**1.7
+def evaluate_X(elapsed):
+    X = elapsed
 
-    if X <= 16:
+    if X <= 7:
         return "!!Brilliant", 3
-    elif X <= 28:
+    elif X <= 10:
         return "!Great", 2
     else:
         return "✓Correct", 1
@@ -410,8 +409,8 @@ def evaluate_X(elapsed, score, correct_answer):
 def get_label_score(lbl):
     score_map = {
         "✓Correct": 1,
-        "!Great": 3,
-        "!!Brilliant": 10
+        "!Great": 5,
+        "!!Brilliant": 100
     }
     return score_map.get(lbl, 0)
         
@@ -731,7 +730,7 @@ def handle_message_common(event, line_bot_api):
         score = user_scores[user_id].get(correct_answer, 1)
 
         elapsed = time.time() - user_answer_start_times.get(user_id, time.time())
-        label, delta = evaluate_X(elapsed, score, correct_answer)
+        label, delta = evaluate_X(elapsed)
         # ラベルに応じたスコア変化
         delta_map = {
             "!!Brilliant": 3,
@@ -749,12 +748,11 @@ def handle_message_common(event, line_bot_api):
             prev_fever = user_fever.get(user_id, 0)
             new_fever = fever_time(prev_fever)
             user_fever[user_id] = int(new_fever)
-            
+
             label_score = get_label_score(label)
             # フィーバー中は獲得 e を 100倍
             fever_multiplier = 7777 if user_fever[user_id] == 1 else 1
-            y = 5 - score
-            e = y * label_score * (user_streaks[user_id] ** 3) * fever_multiplier
+            e = label_score * (user_streaks[user_id] ** 3) * fever_multiplier
 
             # 日付チェック
             today = datetime.date.today()
