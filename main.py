@@ -28,6 +28,13 @@ leap_1_1000 = load_words("data/leap1-1000.json")
 leap_1001_2000 = load_words("data/leap1001-2000.json")
 leap_2001_2300 = load_words("data/leap2001-2300.json")
 
+ALL_QUESTIONS = leap_1_1000 + leap_1001_2000 + leap_2001_2300
+RANGES = {
+    "A": leap_1_1000,
+    "B": leap_1001_2000,
+    "C": leap_2001_2300,
+}
+
 DEFAULT_NAME = "イキイキした毎日"
 
 # LEAP公式ラインインスタンス
@@ -55,14 +62,14 @@ user_daily_e = defaultdict(lambda: {"date": None, "total_e": 0})
 user_fever = defaultdict(int)  # user_id: 0 or 1
 user_ranking_wait = defaultdict(int)  # user_id: 残りカウント
 
-def send_question(user_id, range_str, bot_type="LEAP"):
+def send_question(user_id, range_str):
     scores = user_scores.get(user_id, {})
     
     if range_str == "WRONG":
-        questions = get_questions_by_range("WRONG", bot_type, user_id)
+        questions = get_questions_by_range("WRONG", user_id)
         remaining_count = len(questions)
     else:
-        questions = get_questions_by_range(range_str, bot_type, user_id)
+        questions = get_questions_by_range(range_str, user_id)
         # スコアが未設定の単語だけ数える
         remaining_count = sum(1 for q in questions if q["answer"] not in scores)
 
@@ -192,7 +199,7 @@ def async_save_user_data(user_id):
     threading.Thread(target=save_user_data, args=(user_id,), daemon=True).start()
 
 #範囲ごとの問題取得
-def get_questions_by_range(range_str, bot_type, user_id):
+def get_questions_by_range(range_str, user_id):
     if range_str == "A":
         return leap_1_1000
     elif range_str == "B":
@@ -215,7 +222,7 @@ def get_rank(score):
 def score_to_weight(score):
     return {0: 100000, 1: 1000000, 2:100000, 3: 10000, 4: 1}.get(score, 100000000000000000000000)
 
-def build_result_flex(user_id, bot_type):
+def build_result_flex(user_id):
     name = user_names.get(user_id, DEFAULT_NAME)
 
     # Firebase から総合レートを取得
@@ -228,16 +235,14 @@ def build_result_flex(user_id, bot_type):
     except Exception:
         total_rate = 0
         total_e = 0
-        
-    # bot_type による範囲設定
-    if bot_type == "LEAP":
-        ranges = [("A", "1-1000"), ("B", "1001-2000"), ("C", "2001-2300")]
+    
+    ranges = [("A", "1-1000"), ("B", "1001-2000"), ("C", "2001-2300")]
 
     parts = []
     all_answers = []
 
     for range_label, title in ranges:
-        qs = get_questions_by_range(range_label, bot_type, user_id)
+        qs = get_questions_by_range(range_label, user_id)
         all_answers.extend([q["answer"] for q in qs])
 
         count = len(qs)
@@ -318,19 +323,13 @@ def build_result_flex(user_id, bot_type):
 
     return flex_message
 
-def update_total_rate(user_id, bot_type):
+def update_total_rate(user_id):
     field_name = f"total_rate_{bot_type.lower()}"
     
-    # 単語リストをまとめる
-    if bot_type.lower() == "leap":
-        questions = leap_1_1000 + leap_1001_2000 + leap_2001_2300
-
     total_words = len(questions)  # 現在ロードされている単語数を使用
-
+    total_score = sum(scores.get(q["answer"], 1) for q in ALL_QUESTIONS)
     scores = user_scores.get(user_id, {})
-    total_score = sum(scores.get(q["answer"], 1) for q in questions)
-    
-    total_rate = int(total_score / total_words * 2500) if total_words else 0
+    total_rate = int(total_score / total_words * 2500)
 
     try:
         db.collection("users").document(user_id).set({field_name: total_rate}, merge=True)
@@ -355,7 +354,6 @@ def choose_weighted_question(user_id, questions):
 trivia_messages = [
     "ヒントろぼっと🤖\n【図工上手いクラスメイトに対する噂あるある】\nあいつもうニス行ってるらしい",
     "ヒントろぼっと🤖\n【スシローあるある】\nばぼなく",
-    "ヒントろぼっと🤖\n【犬の散歩あるある】\n全員行きに見える",
     "ヒントろぼっと🤖\n全ての単語帳はLEAPに通ず。",
     "ヒントろぼっと🤖\nLEAPは剣よりも強し。",
     "ヒントろぼっと🤖\nWBGTとLEAPテストの得点には相関関係があると言われている。",
@@ -551,16 +549,15 @@ medal_colors = {
 }
 
 # 高速ランキング（自分の順位も表示）
-def build_ranking_with_totalE_flex(bot_type):
-    # total_rateランキング
-    field_name_rate = f"total_rate_{bot_type.lower()}"
+def build_ranking_with_totalE_flex():
+    
     try:
         docs_rate = db.collection("users")\
-            .order_by(field_name_rate, direction=firestore.Query.DESCENDING)\
+            .order_by("total_rate", direction=firestore.Query.DESCENDING)\
             .limit(30).stream()
         ranking_rate = [
             (doc.to_dict().get("name") or "イキイキした毎日",
-             doc.to_dict().get(field_name_rate, 0))
+             doc.to_dict().get("total_rate", 0))
             for doc in docs_rate
         ]
     except Exception as e:
@@ -608,7 +605,7 @@ def build_ranking_with_totalE_flex(bot_type):
         "type": "box",
         "layout": "vertical",
         "contents": [
-            {"type": "text", "text": f"{bot_type.upper()}トータルレート", "weight": "bold", "size": "xl"},
+            {"type": "text", "text": "LEAPトータルレート", "weight": "bold", "size": "xl"},
             {"type": "separator", "margin": "md"}
         ]
     })
@@ -634,7 +631,7 @@ def build_ranking_with_totalE_flex(bot_type):
     }
 
     return FlexSendMessage(
-        alt_text=f"{bot_type.upper()}ランキング + TotalEランキング",
+        alt_text="Ratingランキング + $ランキング",
         contents=flex_content
     )
 # —————— ここからLINEイベントハンドラ部分 ——————
@@ -655,11 +652,6 @@ def callback_leap():
         abort(400, "Invalid signature")
     return "OK"
 
-# LEAP イベントハンドラ
-@handler_leap.add(MessageEvent, message=TextMessage)
-def handle_leap_message(event):
-    handle_message_common(event, bot_type="LEAP", line_bot_api=line_bot_api_leap)
-
 @app.route("/health")
 def health():
     ua = request.headers.get("User-Agent", "")
@@ -667,11 +659,9 @@ def health():
         return "ok", 200
     return "unauthorized", 403
 #-----------------------------------------------------------------------------
-def handle_message_common(event, bot_type, line_bot_api):
+def handle_message_common(event, line_bot_api):
     user_id = event.source.user_id
     msg = event.message.text.strip()
-
-# 以降の questions_1_1000, questions_1001_2000 は send_question 内で判断する
 
     if user_id not in user_scores:
         load_user_data(user_id)
@@ -693,26 +683,26 @@ def handle_message_common(event, bot_type, line_bot_api):
     
     # 質問送信
     if msg in ["A", "B", "C", "WRONG"]:
-        question_msg = send_question(user_id, msg, bot_type=bot_type)
+        question_msg = send_question(user_id, msg)
         line_bot_api.reply_message(event.reply_token, question_msg)
         return
         
     # 成績表示
     if msg == "成績":
-        total_rate = update_total_rate(user_id, bot_type=bot_type)
-        flex_msg = build_result_flex(user_id, bot_type=bot_type)
+        total_rate = update_total_rate(user_id)
+        flex_msg = build_result_flex(user_id)
         line_bot_api.reply_message(event.reply_token, flex_msg)
         return
 
     if msg == "学ぶ":
-        if bot_type == "LEAP":
-            quick_buttons = [
-                QuickReplyButton(action=MessageAction(label="1-1000", text="A")),
-                QuickReplyButton(action=MessageAction(label="1001-2000", text="B")),
-                QuickReplyButton(action=MessageAction(label="2001-2300", text="C")),
-                QuickReplyButton(action=MessageAction(label="間違えた問題", text="WRONG")),
-                QuickReplyButton(action=MessageAction(label="使い方", text="使い方")),
-            ]
+       
+        quick_buttons = [
+            QuickReplyButton(action=MessageAction(label="1-1000", text="A")),
+            QuickReplyButton(action=MessageAction(label="1001-2000", text="B")),
+            QuickReplyButton(action=MessageAction(label="2001-2300", text="C")),
+            QuickReplyButton(action=MessageAction(label="間違えた問題", text="WRONG")),
+            QuickReplyButton(action=MessageAction(label="使い方", text="使い方")),
+        ]
 
         line_bot_api.reply_message(
             event.reply_token,
@@ -732,7 +722,7 @@ def handle_message_common(event, bot_type, line_bot_api):
             return
 
         # ランキング表示
-        flex_msg = build_ranking_with_totalE_flex(bot_type)
+        flex_msg = build_ranking_with_totalE_flex()
         line_bot_api.reply_message(event.reply_token, flex_msg)
 
         # 表示後にカウントをリセット（5問ごとに待機）
@@ -831,10 +821,10 @@ def handle_message_common(event, bot_type, line_bot_api):
         # 次の問題
         user_states.pop(user_id, None)
         user_answer_start_times.pop(user_id, None)
-        next_question_msg = send_question(user_id, range_str, bot_type=bot_type)
+        next_question_msg = send_question(user_id, range_str)
         messages_to_send.append(next_question_msg)
 
-        total_rate = update_total_rate(user_id, bot_type)
+        total_rate = update_total_rate(user_id)
 
         line_bot_api.reply_message(event.reply_token, messages=messages_to_send)
         return
