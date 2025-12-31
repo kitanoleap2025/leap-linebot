@@ -218,7 +218,7 @@ def get_rank(score):
     return {0: "✖", 1: "✔/❓", 2: "✔2", 3: "✔3", 4: "✔4"}.get(score, "✔/❓")
 
 def score_to_weight(score):
-    return {0: 100000, 1: 1000000, 2:100000, 3: 10000, 4: 1}.get(score, 100000000000000000000000)
+    return {0: 10000, 1: 10000, 2:10000, 3: 10000, 4: 1}.get(score, 1000000000)
 
 def build_result_flex(user_id):
     name = user_names.get(user_id, DEFAULT_NAME)
@@ -494,12 +494,11 @@ def build_feedback_flex(user_id, is_correct, score, elapsed, correct_answer=None
 
     count_today = user_daily_counts[user_id]["count"]
     if is_correct:
-        y = 5 - score
-        e = y * label_score * (user_streaks[user_id] ** 3)
+        e = label_score * (user_streaks[user_id] ** 3)
         total_e_today = user_daily_e[user_id]["total_e"]
         body_contents.append({
             "type": "text",
-            "text": f"{y}×{label_symbol}{label_score}×🔥{user_streaks[user_id]}³=${e}",
+            "text": f"{label_symbol}{label_score}×🔥{user_streaks[user_id]}³=${e}",
             "size": "lg",
             "color": "#333333",
             "margin": "xl"
@@ -507,7 +506,7 @@ def build_feedback_flex(user_id, is_correct, score, elapsed, correct_answer=None
 
         # フィーバー表示
         if user_fever[user_id] == 1:
-            e = y * label_score * (user_streaks[user_id] ** 3) *7777
+            e = label_score * (user_streaks[user_id] ** 3) *7777
             body_contents.append({
                 "type": "text",
                 "text": "💥FEVER ✖7777💥",
