@@ -324,17 +324,18 @@ def build_result_flex(user_id):
     return flex_message
 
 def update_total_rate(user_id):
-    field_name = f"total_rate_{bot_type.lower()}"
-    
-    total_words = len(questions)  # 現在ロードされている単語数を使用
-    total_score = sum(scores.get(q["answer"], 1) for q in ALL_QUESTIONS)
+    total_words = len(ALL_QUESTIONS)
     scores = user_scores.get(user_id, {})
+    total_score = sum(scores.get(q["answer"], 1) for q in ALL_QUESTIONS)
     total_rate = int(total_score / total_words * 2500)
 
     try:
-        db.collection("users").document(user_id).set({field_name: total_rate}, merge=True)
+        db.collection("users").document(user_id).set(
+            {"total_rate": total_rate},
+            merge=True
+        )
     except Exception as e:
-        print(f"Error updating {field_name} for {user_id}: {e}")
+        print(f"Error updating total_rate for {user_id}: {e}")
 
     return total_rate
 
