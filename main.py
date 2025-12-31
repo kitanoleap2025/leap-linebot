@@ -645,6 +645,11 @@ def health():
     if "cron-job.org" in ua:
         return "ok", 200
     return "unauthorized", 403
+
+@handler_leap.add(MessageEvent, message=TextMessage)
+def handle_message(event):
+    handle_message_common(event, line_bot_api_leap)
+    
 #-----------------------------------------------------------------------------
 def handle_message_common(event, line_bot_api):
     user_id = event.source.user_id
