@@ -705,9 +705,9 @@ def handle_message_common(event, line_bot_api):
         quick_buttons = [
             QuickReplyButton(action=MessageAction(label="1-1000", text="A")),
             QuickReplyButton(action=MessageAction(label="1001-2000", text="B")),
-            QuickReplyButton(action=MessageAction(label="2001-2300", text="C")),
             QuickReplyButton(action=MessageAction(label="間違えた問題", text="WRONG")),
             QuickReplyButton(action=MessageAction(label="使い方", text="使い方")),
+            QuickReplyButton(action=MessageAction(label="???", text="未公開")),
         ]
 
         line_bot_api.reply_message(
