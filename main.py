@@ -826,24 +826,18 @@ def handle_message_common(event, bot_type, line_bot_api):
             trivia = random.choice(trivia_messages)
             messages_to_send.append(TextSendMessage(text=trivia))
 
-# 次の問題を生成（1回だけ）
+        # 次の問題を生成（1回だけ）
         next_q = generate_question(user_id, range_str, bot_type)
 
-        if next_q is None:
-            user_states.pop(user_id, None)
-            messages_to_send.append(
-                TextSendMessage(text="🥳🥳🥳間違えた問題はありません！")
-            )
-        else:
-            user_answer_start_times[user_id] = time.time()
+        user_answer_start_times[user_id] = time.time()
 
-            next_question_msg = build_question_message(
-                user_id, next_q, range_str, bot_type
-            )
-            messages_to_send.append(next_question_msg)
+        next_question_msg = build_question_message(
+            user_id, next_q, range_str, bot_type
+        )
+        user_states[user_id] = (range_str, next_q)
+        messages_to_send.append(next_question_msg)
 
         total_rate = update_total_rate(user_id, bot_type)
-        user_states[user_id] = (range_str, next_q)
 
         line_bot_api.reply_message(event.reply_token, messages_to_send)
         return
