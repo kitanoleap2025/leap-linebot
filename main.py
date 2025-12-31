@@ -585,7 +585,7 @@ def build_ranking_with_totalE_flex():
             "type": "box",
             "layout": "vertical",
             "contents": [
-                {"type": "text", "text": f"{i}位 {name}", "flex": 1, "size": "md", "color": "#000000": },
+                {"type": "text", "text": f"{i}位 {name}", "flex": 1, "size": "md", "color": "#000000"},
                 {"type": "text", "text": str(e_value), "flex": 1, "size": "lg", "align": "end", "color": "#000000"}
             ]
         })
