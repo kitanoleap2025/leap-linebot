@@ -735,9 +735,19 @@ def handle_message_common(event, line_bot_api):
 
     if user_id in user_states:
         range_str, q = user_states[user_id]
-        correct_answer = q["answer"]
-        meaning = q.get("meaning")
-        # 正解かどうか判定
+
+        # Firebaseから最新出題を取得
+        try:
+            doc = db.collection("users").document(user_id).get()
+            latest = doc.to_dict().get("latest_questions", {})
+            correct_answer = latest.get("answer", q["answer"])
+            meaning = latest.get("meaning", q.get("meaning"))
+        except Exception as e:
+            print(f"Error fetching latest_questions for {user_id}: {e}")
+            correct_answer = q["answer"]
+            meaning = q.get("meaning")
+            
+            # 正解かどうか判定
         is_correct = (msg.lower() == correct_answer.lower())
         score = user_scores[user_id].get(correct_answer, 1)
 
