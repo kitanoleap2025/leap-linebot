@@ -751,8 +751,8 @@ def handle_message_common(event, bot_type, line_bot_api):
         user_ranking_wait[user_id] = 5
         return
 
-
     if user_id in user_states:
+        user_states[user_id] = (range_str, next_q)
         range_str, q = user_states[user_id]
         correct_answer = q["answer"]
         meaning = q.get("meaning")
