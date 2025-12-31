@@ -225,12 +225,10 @@ def score_to_weight(score):
 def build_result_flex(user_id):
     name = user_names.get(user_id, DEFAULT_NAME)
 
-    # Firebase から総合レートを取得
-    field_name = f"total_rate_{bot_type.lower()}"
     try:
         doc = db.collection("users").document(user_id).get()
         data = doc.to_dict() or {} 
-        total_rate = doc.to_dict().get(field_name, 0)
+        total_rate = data.get("total_rate", 0)
         total_e = data.get("total_e", 0)
     except Exception:
         total_rate = 0
