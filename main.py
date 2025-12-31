@@ -231,7 +231,7 @@ def get_rank(score):
     return {0: "✖", 1: "✔/❓", 2: "✔2", 3: "✔3", 4: "✔4"}.get(score, "✔/❓")
 
 def score_to_weight(score):
-    return {0: 10000, 1: 10000, 2:10000, 3: 10000, 4: 1}.get(score, 1000000000)
+    return {0: 10000, 1: 1000000, 2:100000, 3: 10000, 4: 1}.get(score, 100000000000)
 
 def build_result_flex(user_id):
     name = user_names.get(user_id, DEFAULT_NAME)
@@ -414,18 +414,18 @@ trivia_messages = [
 def evaluate_X(elapsed):
     X = elapsed
 
-    if X <= 7:
+    if X <= 10:
         return "!!Brilliant", 3
-    elif X <= 10:
+    elif X <= 20:
         return "!Great", 2
     else:
         return "✓Correct", 1
 
 def get_label_score(lbl):
     score_map = {
-        "✓Correct": 1,
-        "!Great": 5,
-        "!!Brilliant": 100
+        "✓Correct": 10,
+        "!Great": 50,
+        "!!Brilliant": 1000
     }
     return score_map.get(lbl, 0)
         
@@ -455,7 +455,7 @@ def build_feedback_flex(user_id, is_correct, score, elapsed, correct_answer=None
             "type": "text",
             "text": label or "✓Correct",
             "weight": "bold",
-            "size": "xl",
+            "size": "xxl",
             "color": color,
             "align": "center"
         })
@@ -521,10 +521,10 @@ def build_feedback_flex(user_id, is_correct, score, elapsed, correct_answer=None
 
         # フィーバー表示
         if user_fever[user_id] == 1:
-            e = label_score * (user_streaks[user_id] ** 3) *7777
+            e = label_score * (user_streaks[user_id] ** 3) *777
             body_contents.append({
                 "type": "text",
-                "text": "💥FEVER ✖7777💥",
+                "text": "💥FEVER ✖777💥",
                 "weight": "bold",
                 "size": "lg",
                 "color": "#ff0000",
@@ -774,8 +774,8 @@ def handle_message_common(event, line_bot_api):
             user_fever[user_id] = int(new_fever)
 
             label_score = get_label_score(label)
-            # フィーバー中は獲得 e を 100倍
-            fever_multiplier = 7777 if user_fever[user_id] == 1 else 1
+            # フィーバー倍率
+            fever_multiplier = 777 if user_fever[user_id] == 1 else 1
             e = label_score * (user_streaks[user_id] ** 3) * fever_multiplier
 
             # 日付チェック
