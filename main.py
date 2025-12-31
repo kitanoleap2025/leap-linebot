@@ -542,14 +542,13 @@ def build_feedback_flex(user_id, is_correct, score, elapsed, correct_answer=None
 
 # 高速ランキング（自分の順位も表示）
 def build_ranking_with_totalE_flex():
-    
     try:
         docs_rate = db.collection("users")\
-            .order_by("total_rate", direction=firestore.Query.DESCENDING)\
+            .order_by("total_rate_leap", direction=firestore.Query.DESCENDING)\
             .limit(30).stream()
         ranking_rate = [
             (doc.to_dict().get("name") or "イキイキした毎日",
-             doc.to_dict().get("total_rate", 0))
+             doc.to_dict().get("total_rate_leap", 0))
             for doc in docs_rate
         ]
     except Exception as e:
@@ -581,12 +580,13 @@ def build_ranking_with_totalE_flex():
         ]
     })
     for i, (name, e_value) in enumerate(ranking_e, start=1):
+        color = "#000000"
         bubbles.append({
             "type": "box",
             "layout": "vertical",
             "contents": [
-                {"type": "text", "text": f"{i}位 {name}", "flex": 1, "size": "md", "color": "#000000"},
-                {"type": "text", "text": str(e_value), "flex": 1, "size": "lg", "align": "end", "color": "#000000"}
+                {"type": "text", "text": f"{i}位 {name}", "flex": 1, "size": "md", "color": color},
+                {"type": "text", "text": str(e_value), "flex": 1, "size": "lg", "align": "end", "color": color}
             ]
         })
     bubbles.append({"type": "separator", "margin": "md"})
@@ -596,18 +596,19 @@ def build_ranking_with_totalE_flex():
         "type": "box",
         "layout": "vertical",
         "contents": [
-            {"type": "text", "text": "LEAPトータルレート", "weight": "bold", "size": "xl"},
+            {"type": "text", "text": "トータルレート", "weight": "bold", "size": "xl"},
             {"type": "separator", "margin": "md"}
         ]
     })
     for i, (name, rate) in enumerate(ranking_rate, start=1):
+        color = "#000000"
         bubbles.append({
             "type": "box",
             "layout": "baseline",
             "contents": [
-                {"type": "text", "text": f"{i}位", "flex": 1, "size": "md", "color": "#000000"},
-                {"type": "text", "text": name, "flex": 3, "size": "md", "color": "#000000"},
-                {"type": "text", "text": str(rate), "flex": 1, "size": "md", "align": "end", "color": "#000000"}
+                {"type": "text", "text": f"{i}位", "flex": 1, "size": "md", "color": color},
+                {"type": "text", "text": name, "flex": 3, "size": "md", "color": color},
+                {"type": "text", "text": str(rate), "flex": 1, "size": "md", "align": "end", "color": color}
             ]
         })
 
@@ -621,7 +622,7 @@ def build_ranking_with_totalE_flex():
     }
 
     return FlexSendMessage(
-        alt_text="Ratingランキング + $ランキング",
+        alt_text="leapランキング + TotalEランキング",
         contents=flex_content
     )
 # —————— ここからLINEイベントハンドラ部分 ——————
