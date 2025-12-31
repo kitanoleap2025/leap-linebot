@@ -132,7 +132,7 @@ def fever_time(fevertime):
 
     # fevertime が 1 のとき、1/10 でリセット
     if fevertime == 1:
-        if random.random() < 1/10:
+        if random.random() < 1/15:
             return 0
         return 1
         
