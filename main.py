@@ -828,7 +828,14 @@ def handle_message_common(event, bot_type, line_bot_api):
 
         # 次の問題を生成（1回だけ）
         next_q = generate_question(user_id, range_str, bot_type)
-
+        if next_q is None:
+            user_states.pop(user_id, None)
+            line_bot_api.reply_message(
+                event.reply_token,
+                TextSendMessage(text="🥳🥳🥳問題がありません！")
+            )
+            return
+        
         user_answer_start_times[user_id] = time.time()
 
         next_question_msg = build_question_message(
