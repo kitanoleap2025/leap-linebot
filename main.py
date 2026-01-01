@@ -91,14 +91,6 @@ def send_question(user_id, range_str):
 
     correct_answer = q["answer"]
 
-    #firebase
-    try:
-        db.collection("users").document(user_id).set({
-            "latest_questions": {
-                "answer": correct_answer,
-                "meaning": q.get("meaning", "")
-            }
-        }, merge=True)
     except Exception as e:
         print(f"Error saving latest_questions for {user_id}: {e}")
   
@@ -511,7 +503,7 @@ def build_feedback_flex(user_id, is_correct, score, elapsed, correct_answer=None
 def build_ranking_with_totalE_flex():
     try:
         docs_rate = db.collection("users")\
-            .order_by("total_rate", direction=firestore.Query.DESCENDING)
+            .order_by("total_rate_leap", direction=firestore.Query.DESCENDING)
             .limit(30).stream()
         ranking_rate = [
             (doc.to_dict().get("name") or "イキイキした毎日",
@@ -627,10 +619,14 @@ def handle_message_common(event, line_bot_api):
 
     user_daily_e[user_id]["total_e"] = data.get("total_e", 0)
     user_daily_e[user_id]["date"] = data.get("total_e_date")
-    
-    if user_id not in user_scores:
-        load_user_data(user_id)
 
+    if user_id not in user_states:
+        load_user_data(user_id)
+        line_bot_api.reply_message(
+            event.reply_token,
+            TextSendMessage(text="もう一度送ってください。")
+        )
+        return
     
     # 名前変更コマンド
     if msg.startswith("@"):
