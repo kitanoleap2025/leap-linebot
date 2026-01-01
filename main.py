@@ -409,9 +409,9 @@ trivia_messages = [
 def evaluate_X(elapsed):
     X = elapsed
 
-    if X <= 10:
+    if X <= 15:
         return "!!Brilliant", 3
-    elif X <= 20:
+    elif X <= 25:
         return "!Great", 2
     else:
         return "✓Correct", 1
@@ -440,7 +440,7 @@ def build_feedback_flex(user_id, is_correct, score, elapsed, correct_answer=None
         color = color_map.get(label, "#000000")
         body_contents.append({
             "type": "text",
-            "text": "✔️✔️✔️✔️✔️✔️✔️✔️",
+            "text": "✔️✔️✔️✔️✔️✔️✔️✔️✔️✔️",
             "weight": "bold",
             "size": "md",
             "color": "#ff1493",
@@ -475,7 +475,7 @@ def build_feedback_flex(user_id, is_correct, score, elapsed, correct_answer=None
         })
         body_contents.append({
             "type": "text",
-            "text": "✔️✔️✔️✔️✔️✔️✔️✔️",
+            "text": "✔️✔️✔️✔️✔️✔️✔️✔️✔️✔️",
             "weight": "bold",
             "size": "md",
             "color": "#ff1493",
