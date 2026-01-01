@@ -618,11 +618,6 @@ def handle_message_common(event, line_bot_api):
 
     if user_id not in user_states:
         load_user_data(user_id)
-        line_bot_api.reply_message(
-            event.reply_token,
-            TextSendMessage(text="もう一度送ってください。")
-        )
-        return
     
     # 名前変更コマンド
     if msg.startswith("@"):
@@ -689,15 +684,6 @@ def handle_message_common(event, line_bot_api):
 
     if user_id in user_states:
         range_str, q = user_states[user_id]
-
-        # Firebaseから最新出題を取得
-        try:
-            correct_answer = latest.get("answer", q["answer"])
-            meaning = latest.get("meaning", q.get("meaning"))
-        except Exception as e:
-            print(f"Error fetching latest_questions for {user_id}: {e}")
-            correct_answer = q["answer"]
-            meaning = q.get("meaning")
             
             # 正解かどうか判定
         is_correct = (msg.lower() == correct_answer.lower())
