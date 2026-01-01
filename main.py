@@ -619,9 +619,6 @@ def handle_message_common(event, line_bot_api):
     msg = event.message.text.strip()
     user_daily_e[user_id]["total_e"] = data.get("total_e", 0)
     user_daily_e[user_id]["date"] = data.get("total_e_date")
-
-    if user_id not in user_states:
-        load_user_data(user_id)
     
     # 名前変更コマンド
     if msg.startswith("@"):
@@ -766,7 +763,6 @@ def handle_message_common(event, line_bot_api):
             trivia = random.choice(trivia_messages)
             messages_to_send.append(TextSendMessage(text=trivia))
 
-        user_states.pop(user_id, None)
         user_answer_start_times.pop(user_id, None)
         next_question_msg = send_question(user_id, range_str)
         messages_to_send.append(next_question_msg)
