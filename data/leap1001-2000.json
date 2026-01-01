@@ -260,7 +260,7 @@
         "meaning": "agenda　[名] 議題，協議事項"
     },
     {
-        "text": "1054 ___ is guaranteed.\n自由が保障される.",
+        "text": "1054 ___ is guaranteed.\n自由が保障される。",
         "answer": "liberty",
         "meaning": "liberty　[名] 自由"
     },
@@ -400,8 +400,8 @@
         "meaning": "conservative　[形] 保守的な"
     },
      {
-        "text": "1082 The political ___ of the country are becoming increasingly complicated.\nその国の政治情勢はますます複雑になっている。",
-        "answer": "affairs",
+        "text": "1082 The political ___s of the country are becoming increasingly complicated.\nその国の政治情勢はますます複雑になっている。",
+        "answer": "affair",
         "meaning": "affair　[名] ①（―s）情勢 ②（スキャンダラスな）事件 ③情事，浮気"
     },
      {
