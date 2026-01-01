@@ -67,25 +67,24 @@ def load_user_from_firestore(user_id):
     user_doc_cache[user_id] = data
     return data
 
-
 def send_question(user_id, range_str):
     scores = user_scores.get(user_id, {})
-    
+
     if range_str == "WRONG":
         questions = get_questions_by_range("WRONG", user_id)
         remaining_count = len(questions)
     else:
         questions = get_questions_by_range(range_str, user_id)
-        # スコアが未設定の単語だけ数える
         remaining_count = sum(1 for q in questions if q["answer"] not in scores)
 
     if not questions:
-        return TextSendMessage(text="🥳🥳🥳間違えた問題はありません！")
+        return TextSendMessage(text="🥳🥳🥳間違えた問題はありません！"), None  # q がない場合 None
 
     q = choose_weighted_question(user_id, questions)
     if q is None:
-        return TextSendMessage(text="🥳🥳🥳間違えた問題はありません！")
-    
+        return TextSendMessage(text="🥳🥳🥳間違えた問題はありません！"), None
+
+    # user_states は更新しておく
     user_states[user_id] = (range_str, q)
     user_answer_start_times[user_id] = time.time()
 
@@ -107,14 +106,13 @@ def send_question(user_id, range_str):
     debug_info = f"\n\n[DEBUG]\nanswer={q['answer']}"
     text_to_send = f"{score_display}\n{q['text']}{debug_info}"
 
-    # 0でなければ残り問題数を表示
     if remaining_count > 0:
         if range_str == "WRONG":
             text_to_send = f"間違えた単語:あと{remaining_count}語\n" + text_to_send
         else:
             text_to_send = f"未出題の単語:あと{remaining_count}語\n" + text_to_send
 
-    return TextSendMessage(text=text_to_send, quick_reply=QuickReply(items=quick_buttons))
+    return TextSendMessage(text=text_to_send, quick_reply=QuickReply(items=quick_buttons)), q
 
 def fever_time(fevertime):
     # fevertime が None または 0 のとき
@@ -613,13 +611,14 @@ def handle_message(event):
 def handle_message_common(event, line_bot_api):
     user_id = event.source.user_id
     
+    # Firestoreからユーザーデータ読み込み
     data = load_user_from_firestore(user_id)
     user_scores[user_id] = defaultdict(lambda: 1, data.get("scores", {}))
     user_names[user_id] = data.get("name", DEFAULT_NAME)
     msg = event.message.text.strip()
     user_daily_e[user_id]["total_e"] = data.get("total_e", 0)
     user_daily_e[user_id]["date"] = data.get("total_e_date")
-    
+
     # 名前変更コマンド
     if msg.startswith("@"):
         new_name = msg[1:].strip()
@@ -633,13 +632,15 @@ def handle_message_common(event, line_bot_api):
         async_save_user_data(user_id)
         line_bot_api.reply_message(event.reply_token, TextSendMessage(text=f"名前を「{new_name}」に変更しました。"))
         return
-    
+
     # 質問送信
     if msg in ["A", "B", "C", "WRONG"]:
-        question_msg = send_question(user_id, msg)
+        question_msg, latest_q = send_question(user_id, msg)  # ←最新問題をローカルで取得
         line_bot_api.reply_message(event.reply_token, question_msg)
-        return
-        
+        # 最新問題を user_states にも保存しておく
+        user_states[user_id] = (msg, latest_q)
+        return  
+
     # 成績表示
     if msg == "成績":
         total_rate = update_total_rate(user_id)
@@ -685,22 +686,18 @@ def handle_message_common(event, line_bot_api):
 
     if user_id in user_states:
         range_str, q = user_states[user_id]
-        correct_answer = q["answer"]
-        meaning = q.get("meaning")
-        # 正解かどうか判定
-        is_correct = (msg.lower() == correct_answer.lower())
-        score = user_scores[user_id].get(correct_answer, 1)
+        current_q = q.copy() 
+        correct_answer = current_q["answer"]
+        meaning = current_q.get("meaning")
 
+        is_correct = (msg.lower() == correct_answer.lower())
         elapsed = time.time() - user_answer_start_times.get(user_id, time.time())
         label, delta = evaluate_X(elapsed)
-        delta_map = {
-            "!!Brilliant": 3,
-            "!Great": 2,
-            "✓Correct": 1
-        }
+
+        score = user_scores[user_id].get(correct_answer, 1)
 
         if is_correct:
-            
+            delta_map = {"!!Brilliant": 3, "!Great": 2, "✓Correct": 1}
             delta_score = delta_map.get(label, 1)
             user_scores[user_id][correct_answer] = min(user_scores[user_id].get(correct_answer, 1) + delta_score, 4)
 
@@ -738,9 +735,11 @@ def handle_message_common(event, line_bot_api):
             #user_streaks[user_id] = max(user_streaks[user_id] - 0, 0)
             user_scores[user_id][correct_answer] = 0
 
-
         flex_feedback = build_feedback_flex(
-            user_id, is_correct, score, elapsed,
+            user_id,
+            is_correct,
+            score=user_scores[user_id].get(correct_answer, 1),
+            elapsed=elapsed,
             correct_answer=correct_answer,
             label=label if is_correct else None,
             meaning=meaning
@@ -764,10 +763,15 @@ def handle_message_common(event, line_bot_api):
             messages_to_send.append(TextSendMessage(text=trivia))
 
         user_answer_start_times.pop(user_id, None)
-        next_question_msg = send_question(user_id, range_str)
         messages_to_send.append(next_question_msg)
+        next_question_msg, next_q = send_question(user_id, range_str)
+        user_states[user_id] = (range_str, next_q)
 
-        line_bot_api.reply_message(event.reply_token, messages=messages_to_send)
+        # メッセージ送信
+        line_bot_api.reply_message(
+            event.reply_token,
+            messages=[flex_feedback, next_question_msg]
+        )
         return
         
     line_bot_api.reply_message(
