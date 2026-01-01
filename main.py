@@ -116,8 +116,7 @@ def send_question(user_id, range_str):
     quick_buttons = [QuickReplyButton(action=MessageAction(label=choice, text=choice))
                      for choice in choices]
 
-    debug_info = f"\n\n[DEBUG]\nanswer={q['answer']}"
-    text_to_send = f"{score_display}\n{q['text']}{debug_info}"
+    text_to_send = f"{score_display}\n{q['text']}"
 
     # 0でなければ残り問題数を表示
     if remaining_count > 0:
@@ -368,9 +367,9 @@ trivia_messages = [
 def evaluate_X(elapsed):
     X = elapsed
 
-    if X <= 15:
+    if X <= 10:
         return "!!Brilliant", 3
-    elif X <= 25:
+    elif X <= 15:
         return "!Great", 2
     else:
         return "✓Correct", 1
@@ -399,7 +398,7 @@ def build_feedback_flex(user_id, is_correct, score, elapsed, correct_answer=None
         color = color_map.get(label, "#000000")
         body_contents.append({
             "type": "text",
-            "text": "✔️✔️✔️✔️✔️✔️✔️✔️✔️✔️",
+            "text": "✔️✔️✔️✔️✔️✔️✔️✔️",
             "weight": "bold",
             "size": "md",
             "color": "#ff1493",
@@ -420,7 +419,7 @@ def build_feedback_flex(user_id, is_correct, score, elapsed, correct_answer=None
             "text": random.choice([
                 "🎉 お見事！",
                 "🚀 スコア上昇中！",
-                "🧠 天才的！",
+                "🧠 天才！",
                 "🏆 完璧！",
                 "🎯 的中！",
                 "👏 さすが！",
@@ -434,7 +433,7 @@ def build_feedback_flex(user_id, is_correct, score, elapsed, correct_answer=None
         })
         body_contents.append({
             "type": "text",
-            "text": "✔️✔️✔️✔️✔️✔️✔️✔️✔️✔️",
+            "text": "✔️✔️✔️✔️✔️✔️✔️✔️✔️",
             "weight": "bold",
             "size": "md",
             "color": "#ff1493",
