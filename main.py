@@ -684,8 +684,9 @@ def handle_message_common(event, line_bot_api):
 
     if user_id in user_states:
         range_str, q = user_states[user_id]
-            
-            # 正解かどうか判定
+        correct_answer = q["answer"]
+        meaning = q.get("meaning")
+        # 正解かどうか判定
         is_correct = (msg.lower() == correct_answer.lower())
         score = user_scores[user_id].get(correct_answer, 1)
 
