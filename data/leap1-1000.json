@@ -5,13 +5,13 @@
         "meaning": "agree　[自] ①賛成する ②（主語の中で 意見が一致する ③（with ～）（気候，食べ物が）（～に）合う"
     },
     {
-        "text": "002 He strongly ___ corruption until he was promoted.\n昇進するまでは,彼は汚職に強く反対していた。",
-        "answer": "opposed",
+        "text": "002 He strongly ___d corruption until he was promoted.\n昇進するまでは,彼は汚職に強く反対していた。",
+        "answer": "oppose",
         "meaning": "oppose　[他] ～に反対する"
     },
     {
-        "text": "003 The teacher ___ me to study English vocabulary.\n先生は私に英単語を勉強するよう助言した。",
-        "answer": "advised",
+        "text": "003 The teacher ___d me to study English vocabulary.\n先生は私に英単語を勉強するよう助言した。",
+        "answer": "advise",
         "meaning": "advise　[他] ～に忠告する"
     },
     {
@@ -20,13 +20,13 @@
         "meaning": "tip　[名] ①助言，ヒント ②チップ ③（足や山などの）先，先端（いずれも〈可算〉）"
     },
     {
-        "text": "005 We ___ the problem so much, we forgot to solve it.\n私たちはその問題についてあまりに議論しすぎて,解決するのを忘れていた.",
-        "answer": "discussed",
+        "text": "005 We ___ed the problem so much, we forgot to solve it.\n私たちはその問題についてあまりに議論しすぎて,解決するのを忘れていた.",
+        "answer": "discuss",
         "meaning": "discuss　[他] ①～について話し合う，議論する ②～を話題に出す"
     },
     {
-        "text": "006 He ___ the train for his lateness.\n彼は遅刻したことを電車のせいにした.",
-        "answer": "blamed",
+        "text": "006 He ___d the train for his lateness.\n彼は遅刻したことを電車のせいにした.",
+        "answer": "blame",
         "meaning": "blame　[他] ～に責任があるとする"
     },
     {
@@ -45,18 +45,18 @@
         "meaning": "complain　[自] ①文句を言う，苦情を言う ②（of ～）（病気などを）訴える"
     },
     {
-        "text": "010 Einstein was ___ the presidency of Israel.\nアインシュタインはイスラエル大統領の職を申し出られた.",
-        "answer": "offered",
+        "text": "010 Einstein was ___ed the presidency of Israel.\nアインシュタインはイスラエル大統領の職を申し出られた.",
+        "answer": "offer",
         "meaning": "offer　[他] ①～を申し出る [名] ②申し出 ③値引き"
     },
     {
-        "text": "011 He ___ that he was gay.\n彼は自身がゲイであることをほのめかした。",
-        "answer": "suggested",
+        "text": "011 He ___ed that he was gay.\n彼は自身がゲイであることをほのめかした。",
+        "answer": "suggest",
         "meaning": "suggest　[他] ①～を示唆する ②～を提案する"
     },
     {
-        "text": "012 I was ___ to the local volunteer club.\n私は地元のボランティアクラブに推薦された。",
-        "answer": "recommended",
+        "text": "012 I was ___ed to the local volunteer club.\n私は地元のボランティアクラブに推薦された。",
+        "answer": "recommend",
         "meaning": "recommend　[他] ～を推薦する，勧める"
     },
     {
@@ -65,8 +65,8 @@
         "meaning": "grateful　[形] 感謝している"
     },
     {
-        "text": "014 I ___ for criticizing.\n私は批判したことを謝った.",
-        "answer": "apologized",
+        "text": "014 I ___d for criticizing.\n私は批判したことを謝った.",
+        "answer": "apologize",
         "meaning": "apologize　[自] （to ～）（～に）謝る"
     },
     {
@@ -690,8 +690,8 @@
         "meaning": "mistake　[名] ①間違い [他] ②（A for B）（A）を（B と）間違える"
     },
     {
-        "text": "139 We ought not to spend a lot of time ___ social media.\nソーシャルメディアを確認するのに多くの時間を費やすべきではない。",
-        "answer": "checking",
+        "text": "139 We ought not to spend a lot of time ___ing social media.\nソーシャルメディアを確認するのに多くの時間を費やすべきではない。",
+        "answer": "check",
         "meaning": "check　[他] ①～を調べる ②～を阻止する [名] ③小切手 ④勘定書 ⑤検査，点検 ⑥抑制"
     },
     {
@@ -730,8 +730,8 @@
         "meaning": "sew　[他] ①～を縫う ②（on）（ボタンなど）を縫いつける"
     },
     {
-        "text": "147 At dawn, the LGBTQ flag was ___ from his house.\n夜が明けると、彼の家からLGBTQフラッグが上がった。🏳️‍🌈",
-        "answer": "raised",
+        "text": "147 At dawn, the LGBTQ flag was ___d from his house.\n夜が明けると、彼の家からLGBTQフラッグが上がった。🏳️‍🌈",
+        "answer": "raise",
         "meaning": "raise　[他] ①～を上げる ②（子ども，作物）を育てる ③（お金，資金）を集める ④（問題）を提起する [名]⑤賃上げ，昇給"
     },
     {
@@ -750,8 +750,8 @@
         "meaning": "spill　[他] ①～をこぼす [名] ②（石油などの）流出"
     },
     {
-        "text": "151 He said something shallow, ___ to be profound.\n彼は深そうに見せかけて浅いことを言った",
-        "answer": "pretending",
+        "text": "151 He said something shallow, ___ing to be profound.\n彼は深そうに見せかけて浅いことを言った",
+        "answer": "pretend",
         "meaning": "pretend　[自] （to do / that SV）（～する/ ～である）ふりをする"
     },
     {
@@ -770,13 +770,13 @@
         "meaning": "explore　[他] ①～を探検する，（街など）を探索する ②（問題など）を探る"
     },
     {
-        "text": "155 It is not what ___ that matters. It is how you respond.\n大事なのは何が起きたかではない.どう応じるかだ.",
-        "answer": "happened",
+        "text": "155 It is not what ___ed that matters. It is how you respond.\n大事なのは何が起きたかではない.どう応じるかだ.",
+        "answer": "happen",
         "meaning": "happen　[自] ①（to ～）（～に）起こる ②（to do）偶然～する"
     },
     {
-        "text": "156 More and more problems ___.\nますます多くの問題が現れた.",
-        "answer": "appeared",
+        "text": "156 More and more problems ___ed.\nますます多くの問題が現れた.",
+        "answer": "appear",
         "meaning": "appear　[自] ①現れる ②（to be ～）～のように思える"
     },
     {
@@ -805,8 +805,8 @@
         "meaning": "base　[他] ①～の基礎を置く [名] ②基礎（の部分），基盤 ③基地"
     },
     {
-        "text": "162 The list ___ her name.\nリストには彼女の名前が含まれていた.",
-        "answer": "included",
+        "text": "162 The list ___d her name.\nリストには彼女の名前が含まれていた.",
+        "answer": "include",
         "meaning": "include　[他] ～を含む"
     },
     {
@@ -860,8 +860,8 @@
         "meaning": "uniform　[名] ①制服 [形] ②同一の，一定の"
     },
     {
-        "text": "173 The revelation that he had repeated three ___ caused chaos in the classroom.\n彼が3留だったことが発覚し,教室は大混乱となった.💮💮💮", 
-        "answer": "grades",
+        "text": "173 The revelation that he had repeated three ___s caused chaos in the classroom.\n彼が3留だったことが発覚し,教室は大混乱となった.💮💮💮", 
+        "answer": "grade",
         "meaning": "grade　[名] ①（小，中，高の）学年 ②等級 ③成績"
     },
     {
@@ -875,8 +875,8 @@
         "meaning": "graduate　[自] （from ～）（～を）卒業する"
     },
     {
-        "text": "176 He ___ to quit his job.\n彼は仕事を辞めることに決めた。",
-        "answer": "decided",
+        "text": "176 He ___d to quit his job.\n彼は仕事を辞めることに決めた。",
+        "answer": "decide",
         "meaning": "decide　[他] ①（to do）（～すること）を決定する，決心する [自] ②（on ～）（～を）決める"
     },
     {
@@ -945,8 +945,8 @@
         "meaning": "appreciate　[他] ①～を（正しく）理解する ②～のよさがわかる ③～に感謝する"
     },
     {
-        "text": "190 His family celebrated his finally being ___ into college.\n彼の家族は,彼がついに大学に合格したことを祝った.㊗️",
-        "answer": "accepted",
+        "text": "190 His family celebrated his finally being ___ed into college.\n彼の家族は,彼がついに大学に合格したことを祝った.㊗️",
+        "answer": "accept",
         "meaning": "accept　[他] ～を受け入れる"
     },
     {
@@ -965,8 +965,8 @@
         "meaning": "wonder　[他] ①（wh―節 / if SV）～かなと思う [自] ②（at ～）（～に）驚く"
     },
     {
-        "text": "194 He ___ to side with the insects.\n彼はその虫の味方をするようだ.🐛",
-        "answer": "seems",
+        "text": "194 He ___s to side with the insects.\n彼はその虫の味方をするようだ.🐛",
+        "answer": "seem",
         "meaning": "seem　[自] ～のように思われる"
     },
     {
@@ -985,8 +985,8 @@
         "meaning": "focus　[自] ①（on ～）（～に）焦点を当てる，力を注ぐ [名] ②焦点"
     },
     {
-        "text": "198 In principle, club activities are not ___ during exam periods.\n原則として,部活動はテスト期間中は許可されていません.",
-        "answer": "allowed",
+        "text": "198 In principle, club activities are not ___ed during exam periods.\n原則として,部活動はテスト期間中は許可されていません.",
+        "answer": "allow",
         "meaning": "allow　[他] ①（人が）～を許可する ②（物が）～を可能にする"
     },
     {
@@ -1045,8 +1045,8 @@
         "meaning": "harvest　[名] ①収穫 [他] ②～を収穫する ③（臓器，体液など）を摘出する"
     },
     {
-        "text": "210 He seems to side with the ___.\n彼はその虫の味方をするようだ.🐛",
-        "answer": "insects",
+        "text": "210 He seems to side with the ___s.\n彼はその虫の味方をするようだ.🐛",
+        "answer": "insect",
         "meaning": "insect　[名] 昆虫"
     },
     {
@@ -1075,8 +1075,8 @@
         "meaning": "freeze　[自] ①凍る，凍りつく [他] ②～を凍らせる"
     },
     {
-        "text": "216 The cherry blossoms are ___ in the stream.\n桜が小川に反射する🌸",
-        "answer": "reflected",
+        "text": "216 The cherry blossoms are ___ed in the stream.\n桜が小川に反射する🌸",
+        "answer": "reflect",
         "meaning": "reflect　[他] ①～を反射する ②～を反映する [自] ③（on ～）（～を）熟考する"
     },
     {
