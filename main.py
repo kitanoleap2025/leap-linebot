@@ -88,6 +88,18 @@ def send_question(user_id, range_str):
     
     user_states[user_id] = (range_str, q)
     user_answer_start_times[user_id] = time.time()
+    # Firebaseに保存
+    try:
+        db.collection("users").document(user_id).set({
+            "latest_question": {
+                "answer": q["answer"],
+                "meaning": q.get("meaning"),
+                "range": range_str,
+                "timestamp": datetime.datetime.now().isoformat()
+            }
+        }, merge=True)
+    except Exception as e:
+        print(f"Error saving latest_question for {user_id}: {e}")
 
     correct_answer = q["answer"]
     if correct_answer not in scores:
@@ -688,12 +700,19 @@ def handle_message_common(event, line_bot_api):
         user_ranking_wait[user_id] = 5
         return
 
-    if user_id in user_states:
-        range_str, q = user_states[user_id]
-        correct_answer = q["answer"]
-        meaning = q.get("meaning")
-        # 正解かどうか判定
+    if user_id in user_states or True:  # 既存のuser_statesチェックは無視してFirestore参照
+        # Firestoreからlatest_question取得
+        latest_q_doc = db.collection("users").document(user_id).get()
+        latest_q = latest_q_doc.to_dict().get("latest_question", {}) if latest_q_doc.exists else {}
+
+        correct_answer = latest_q.get("answer")
+        meaning = latest_q.get("meaning")
+        range_str = latest_q.get("range")
+
         is_correct = (msg.lower() == correct_answer.lower())
+
+   
+
         score = user_scores[user_id].get(correct_answer, 1)
 
         elapsed = time.time() - user_answer_start_times.get(user_id, time.time())
