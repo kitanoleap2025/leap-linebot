@@ -25,9 +25,9 @@ leap_2001_2300 = load_words("data/leap2001-2300.json")
 
 ALL_QUESTIONS = leap_1_1000 + leap_1001_2000 + leap_2001_2300
 RANGES = {
-    "A": leap_1_1000,
-    "B": leap_1001_2000,
-    "C": leap_2001_2300,
+    "A": {"title": "1-1000", "questions": leap_1_1000},
+    "B": {"title": "1001-2000", "questions": leap_1001_2000},
+    "C": {"title": "2001-2300", "questions": leap_2001_2300},
 }
 
 DEFAULT_NAME = "イキイキした毎日"
@@ -56,6 +56,17 @@ user_streaks = defaultdict(int)
 user_daily_e = defaultdict(lambda: {"date": None, "total_e": 0})
 user_fever = defaultdict(int)  # user_id: 0 or 1
 user_ranking_wait = defaultdict(int)  # user_id: 残りカウント
+
+user_doc_cache = {}  # user_id -> firestore data dict
+def load_user_from_firestore(user_id):
+    if user_id in user_doc_cache:
+        return user_doc_cache[user_id]
+
+    doc = db.collection("users").document(user_id).get()
+    data = doc.to_dict() if doc.exists else {}
+    user_doc_cache[user_id] = data
+    return data
+
 
 def send_question(user_id, range_str):
     scores = user_scores.get(user_id, {})
@@ -145,59 +156,22 @@ def load_user_data(user_id):
         print(f"Error loading user data for {user_id}: {e}")
         user_names[user_id] = DEFAULT_NAME
 
-def check_and_reset_total_e(user_id):
-    today = datetime.date.today()
-
-    # ユーザーの過去データ取得（dbから）
-    doc = db.collection("users").document(user_id).get()
-    stored = doc.to_dict() if doc.exists else {}
-
-    total_e = stored.get("total_e", 0)
-    date_str = stored.get("total_e_date")
-
-    # 日付の処理
-    if not date_str:
-        # 初回 or 空欄 → 今日を設定
-        new_date = today
-    else:
-        try:
-            old_date = datetime.datetime.strptime(date_str, "%Y-%m-%d").date()
-        except:
-            old_date = today
-
-        # 7日経過していたらリセット
-        if (today - old_date).days >= 7:
-            total_e = 0
-            new_date = today
-        else:
-            new_date = old_date
-
-    # firestore へ保存
-    db.collection("users").document(user_id).set({
-        "total_e": total_e,
-        "total_e_date": new_date.strftime("%Y-%m-%d")
-    }, merge=True)
-
-    # メモリ上の値も更新
-    user_daily_e[user_id]["total_e"] = total_e
-    user_daily_e[user_id]["date"] = new_date.strftime("%Y-%m-%d")
-
-
 def save_user_data(user_id):
 
     check_and_reset_total_e(user_id)
     today = time.strftime("%Y-%m-%d")
     total_e = user_daily_e[user_id]["total_e"]
     total_e_date = user_daily_e[user_id]["date"]
-
     data = {
         "scores": dict(user_scores[user_id]),
-        "name": user_names.get(user_id, DEFAULT_NAME),
-        "total_e": total_e,
-        "total_e_date": total_e_date
+        "name": user_names[user_id],
+        "total_e": user_daily_e[user_id]["total_e"],
+        "total_e_date": user_daily_e[user_id]["date"]
     }
+
     try:
         db.collection("users").document(user_id).set(data, merge=True)
+        user_doc_cache[user_id].update(data)
     except Exception as e:
         print(f"Error saving user data for {user_id}: {e}")
 
@@ -228,29 +202,25 @@ def get_rank(score):
 def score_to_weight(score):
     return {0: 10000, 1: 1000000, 2:100000, 3: 10000, 4: 1}.get(score, 100000000000)
 
-def build_result_flex(user_id):
-    name = user_names.get(user_id, DEFAULT_NAME)
-
-    try:
-        doc = db.collection("users").document(user_id).get()
-        data = doc.to_dict() or {} 
-        total_rate = data.get("total_rate", 0)
-        total_e = data.get("total_e", 0)
-    except Exception:
-        total_rate = 0
-        total_e = 0
+def build_result_flex(user_id, data):
+    total_rate = data.get("total_rate", 0)
+    total_e = data.get("total_e", 0)
+    name = user_names.get(user_id, DEFAULT_NAME)   
     
-    ranges = [("A", "1-1000"), ("B", "1001-2000"), ("C", "2001-2300")]
-
     parts = []
     all_answers = []
 
-    for range_label, title in ranges:
-        qs = get_questions_by_range(range_label, user_id)
-        all_answers.extend([q["answer"] for q in qs])
+    for key, info in RANGES.items():
+        title = info["title"]
+        qs = info["questions"]
+
+        all_answers.extend(q["answer"] for q in qs)
 
         count = len(qs)
-        total_score = sum(user_scores.get(user_id, {}).get(q["answer"], 1) for q in qs)
+        total_score = sum(
+            user_scores.get(user_id, {}).get(q["answer"], 1)
+            for q in qs
+        )
         rate_percent = int((total_score / count) * 2500) if count else 0
 
         parts.append({
@@ -258,8 +228,8 @@ def build_result_flex(user_id):
             "layout": "vertical",
             "margin": "md",
             "contents": [
-                {"type": "text", "text": title, "weight": "bold", "size": "sm", "color": "#000000"},
-                {"type": "text", "text": f"Rating: {rate_percent}", "size": "md", "color": "#333333"},
+                {"type": "text", "text": title, "weight": "bold", "size": "sm"},
+                {"type": "text", "text": f"Rating: {rate_percent}", "size": "md"},
             ],
         })
 
@@ -661,6 +631,14 @@ def handle_message_common(event, line_bot_api):
     user_id = event.source.user_id
     msg = event.message.text.strip()
 
+    data = load_user_from_firestore(user_id)
+    # メモリへ展開
+    user_scores[user_id] = defaultdict(lambda: 1, data.get("scores", {}))
+    user_names[user_id] = data.get("name", DEFAULT_NAME)
+
+    user_daily_e[user_id]["total_e"] = data.get("total_e", 0)
+    user_daily_e[user_id]["date"] = data.get("total_e_date")
+    
     if user_id not in user_scores:
         load_user_data(user_id)
 
@@ -688,7 +666,7 @@ def handle_message_common(event, line_bot_api):
     # 成績表示
     if msg == "成績":
         total_rate = update_total_rate(user_id)
-        flex_msg = build_result_flex(user_id)
+        flex_msg = build_result_flex(user_id, user_doc_cache[user_id])
         line_bot_api.reply_message(event.reply_token, flex_msg)
         return
 
@@ -733,8 +711,6 @@ def handle_message_common(event, line_bot_api):
 
         # Firebaseから最新出題を取得
         try:
-            doc = db.collection("users").document(user_id).get()
-            latest = doc.to_dict().get("latest_questions", {})
             correct_answer = latest.get("answer", q["answer"])
             meaning = latest.get("meaning", q.get("meaning"))
         except Exception as e:
@@ -787,11 +763,6 @@ def handle_message_common(event, line_bot_api):
 
             # トータル e 更新（ここでは足すだけ）
             user_daily_e[user_id]["total_e"] += e
-
-            db.collection("users").document(user_id).set({
-                "total_e": user_daily_e[user_id]["total_e"],
-                "total_e_date": user_daily_e[user_id]["date"]
-            }, merge=True)
 
         else:
             # 不正解時は0
