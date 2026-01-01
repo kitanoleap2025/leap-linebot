@@ -261,7 +261,7 @@
     },
     {
         "text": "1054 ___ is guaranteed.\n自由が保障される.",
-        "answer": "Liberty",
+        "answer": "liberty",
         "meaning": "liberty　[名] 自由"
     },
     {
@@ -280,8 +280,8 @@
         "meaning": "mankind　[名] （集合的に）人類"
     },
     {
-        "text": "1058 ___ does not last long.\n権威は長く続かない.", 
-        "answer": "Authority",
+        "text": "1058 ___ does not last long.\n権威は長く続かない。", 
+        "answer": "authority",
         "meaning": "authority　[名] ①権威 ②権力 ③（―ies）当局"
     },
     {
@@ -1030,8 +1030,8 @@
         "meaning": "insight　[名] ①（into ～）（～に対する）洞察（力)②見識"
     },
     {
-        "text": "1207 ___ is necessary when dealing with dangerous chemicals.\n危険な化学物質を扱うときは注意が必要だ。",
-        "answer": "Caution",
+        "text": "1207 ___!\n警告！⚠️",
+        "answer": "caution",
         "meaning": "caution　[名] ①用心 ②警告 [他] ③～に注意［警告］を与える"
     },
     {
@@ -1730,7 +1730,7 @@
         "meaning": "divine　[形] 神の"
     },
     {
-        "text": "1347 She was raised in a ___ family.\n彼女はムスリムの家庭で育った。",
+        "text": "1347 A ___ who can also eat pork.\n豚肉もイケるムスリム🧕🏽",
         "answer": "Muslim",
         "meaning": "Muslim　[名] イスラム教徒"
     },
@@ -1965,8 +1965,8 @@
         "meaning": "frequently　[副] 頻繁に"
     },
     {
-        "text": "1394 ___, there’s an illegal immigrant in this class!\nこのクラスに1人不法移民がいるらしいぞ！",
-        "answer": "Apparently",
+        "text": "1394 ___, there’s an illegal immigrant in this class!\nこのクラスに1人不法移民がいるらしいぞ！👩🏽‍🦰",
+        "answer": "apparently",
         "meaning": "apparently　[副] ①見たところでは ②<口語>どうやら～らしい"
     },
     {
@@ -4920,8 +4920,8 @@
         "meaning": "adequate　[形] 十分な，適切な"
     },
     {
-        "text": "1985 ___, I’m happy the result of the exam.\n全体的に見て,私は試験の結果に満足だ。✅",
-        "answer": "Overall",
+        "text": "1985 ___, you probably won’t repeat a year.\n全体的に見て、留年はしないだろう。✅",
+        "answer": "overall",
         "meaning": "overall　[形] ①全体的な，全面的な [副] ②全体的に，全面的に"
     },
     {
