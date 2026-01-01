@@ -108,7 +108,8 @@ def send_question(user_id, range_str):
     quick_buttons = [QuickReplyButton(action=MessageAction(label=choice, text=choice))
                      for choice in choices]
 
-    text_to_send = f"{score_display}\n{q['text']}"
+    debug_info = f"\n\n[DEBUG]\nanswer={q['answer']}"
+    text_to_send = f"{score_display}\n{q['text']}{debug_info}"
 
     # 0でなければ残り問題数を表示
     if remaining_count > 0:
