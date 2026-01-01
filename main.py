@@ -498,9 +498,12 @@ def build_feedback_flex(user_id, is_correct, score, elapsed, correct_answer=None
 # 高速ランキング
 def build_ranking_with_totalE_flex():
     try:
-        docs_rate = db.collection("users")\
-            .order_by("total_rate_leap", direction=firestore.Query.DESCENDING)
-            .limit(30).stream()
+        docs_rate = (
+            db.collection("users")
+              .order_by("total_rate_leap", direction=firestore.Query.DESCENDING)
+              .limit(30)
+              .stream()
+        )
         ranking_rate = [
             (doc.to_dict().get("name") or "イキイキした毎日",
              doc.to_dict().get("total_rate_leap", 0))
@@ -512,9 +515,12 @@ def build_ranking_with_totalE_flex():
 
     # totalEランキング
     try:
-        docs_e = db.collection("users")\
-            .order_by("total_e", direction=firestore.Query.DESCENDING)\
-            .limit(5).stream()
+        docs_e = (
+            db.collection("users")
+              .order_by("total_e", direction=firestore.Query.DESCENDING)
+              .limit(5)
+              .stream()
+        )
         ranking_e = [
             (doc.to_dict().get("name") or "イキイキした毎日",
              doc.to_dict().get("total_e", 0))
