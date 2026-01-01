@@ -719,6 +719,7 @@ def handle_message_common(event, line_bot_api):
             )
             return
 
+        update_total_rate(user_id)
         # ランキング表示
         flex_msg = build_ranking_with_totalE_flex()
         line_bot_api.reply_message(event.reply_token, flex_msg)
@@ -826,8 +827,6 @@ def handle_message_common(event, line_bot_api):
         user_answer_start_times.pop(user_id, None)
         next_question_msg = send_question(user_id, range_str)
         messages_to_send.append(next_question_msg)
-
-        total_rate = update_total_rate(user_id)
 
         line_bot_api.reply_message(event.reply_token, messages=messages_to_send)
         return
