@@ -90,10 +90,6 @@ def send_question(user_id, range_str):
     user_answer_start_times[user_id] = time.time()
 
     correct_answer = q["answer"]
-
-    except Exception as e:
-        print(f"Error saving latest_questions for {user_id}: {e}")
-  
     if correct_answer not in scores:
         score_display = "❓初出題の問題"
     else:
@@ -119,7 +115,6 @@ def send_question(user_id, range_str):
             text_to_send = f"未出題の単語:あと{remaining_count}語\n" + text_to_send
 
     return TextSendMessage(text=text_to_send, quick_reply=QuickReply(items=quick_buttons))
-
 
 def fever_time(fevertime):
     # fevertime が None または 0 のとき
