@@ -611,16 +611,17 @@ def handle_message(event):
     handle_message_common(event, line_bot_api_leap)
     
 def handle_message_common(event, line_bot_api):
+    data = load_user_from_firestore(user_id)
+    user_scores[user_id] = defaultdict(lambda: 1, data.get("scores", {}))
+    user_names[user_id] = data.get("name", DEFAULT_NAME)
+    
     user_id = event.source.user_id
     msg = event.message.text.strip()
     user_daily_e[user_id]["total_e"] = data.get("total_e", 0)
     user_daily_e[user_id]["date"] = data.get("total_e_date")
 
     if user_id not in user_states:
-        data = load_user_from_firestore(user_id)
         load_user_data(user_id)
-        user_scores[user_id] = defaultdict(lambda: 1, data.get("scores", {}))
-        user_names[user_id] = data.get("name", DEFAULT_NAME)
     
     # 名前変更コマンド
     if msg.startswith("@"):
