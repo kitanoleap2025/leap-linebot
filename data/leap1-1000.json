@@ -586,7 +586,7 @@
     },
     {
         "text": "118 ___ can broaden your view of the world.\n旅行は世界に対する視野を広げてくれる。",
-        "answer": "Traveling",
+        "answer": "traveling",
         "meaning": "travel　[自] ①旅行する，移動する ②（光，音などが）進む"
     },
     {
@@ -835,8 +835,8 @@
         "meaning": "gather　[他] ①～を集める [自] ②集まる"
     },
     {
-        "text": "168 ___ is written by the victors.\n歴史は勝者によって書かれる.",
-        "answer": "History",
+        "text": "168 ___ is written by the victors.\n歴史は勝者によって書かれる。🚩",
+        "answer": "history",
         "meaning": "history　[名] ①歴史 ②履歴，前歴，病歴"
     },
     {
@@ -880,8 +880,8 @@
         "meaning": "decide　[他] ①（to do）（～すること）を決定する，決心する [自] ②（on ～）（～を）決める"
     },
     {
-        "text": "177 ___ by appearances, he is selfish.\n見た目で判断すると、彼は自分勝手だ。",
-        "answer": "Judging",
+        "text": "177 ___ by appearances, he is selfish.\n見た目で判断すると、彼は自分勝手だ。🥸",
+        "answer": "judging",
         "meaning": "judge　[他] ①～を判断する [名] ②裁判官，審判（員）"
     },
     {
@@ -1505,8 +1505,8 @@
         "meaning": "modern　[形] ①現代の ②近代的な"
     },
     {
-        "text": "302 ___ Greeks argued about politics more than TikTok.\n古代ギリシャ人は、TikTokよりも政治で口論していた.",
-        "answer": "Ancient",
+        "text": "302 The ___ mural contained a pun.\その古代の壁画にはだじゃれが書かれていた。🧱",
+        "answer": "ancient",
         "meaning": "ancient　[形] ①古代の ②古びた"
     },
     {
@@ -1945,8 +1945,8 @@
         "meaning": "hardly　[副] ①（程度）ほとんど～ない ②（― ever）めったに～ない"
     },
     {
-        "text": "390 ___ all the students in this class use AI.\nこのクラスのほとんどすべての生徒がAIを使っている。", 
-        "answer": "Almost",
+        "text": "390 ___ all the students in this class use AI.\nこのクラスのほとんどすべての生徒がAIを使っている。🤫", 
+        "answer": "almost",
         "meaning": "almost　[副] ほとんど"
     },
     {
@@ -2346,7 +2346,7 @@
     },
     {
         "text": "470 ___ is often shown on passports.\n国籍はしばしばパスポートに記載される。",
-        "answer": "Nationality",
+        "answer": "nationality",
         "meaning": "nationality　[名] 国籍"
     },
     {
@@ -3230,8 +3230,8 @@
         "meaning": "protect　[他] ～を守る，保護する"
     },
     {
-        "text": "647 I ___ my ankle in P.E.\n私は体育の授業で足首をひねった。",
-        "answer": "twisted",
+        "text": "647 I ___ed my ankle in P.E.\n私は体育の授業で足首をひねった。",
+        "answer": "twist",
         "meaning": "twist　[他] ①～を（ねじ）曲げる ②（体の一部）をひねる，捻挫する"
     },
     {
@@ -3370,7 +3370,7 @@
         "meaning": "search　[他] ①（A for B)（B（物）を求めてA（場所））を捜す [名] ②捜索，調査"
     },
     {
-        "text": "675 Her plan sounds ___.\n彼女の計画は筋が通っている。",
+        "text": "675 ___ thinking\n論理的思考🧠",
         "answer": "logical",
         "meaning": "logical　[形] 論理的な"
     },
@@ -4103,7 +4103,7 @@
     {
         "text": "821 People ___ to accept ideas not because they are true, but because they are familiar.\n人々はアイデアが真実だからではなく,馴染みがあるから受け入れる傾向がある.",
         "answer": "tend",
-        "meaning": ""
+        "meaning": "tend　[自] （to do）～する傾向にある"
     },
     {
         "text": "822 After all his hard work, he truly ___ the award. \n彼はこれまでの努力のすべてに対して、本当にその賞に値する🏆",
@@ -4111,8 +4111,8 @@
         "meaning": "deserve　[他] ～に値する"
     },
     {
-        "text": "823 glass ___\nガラスの破片",
-        "answer": "fragments",
+        "text": "823 glass ___s\nガラスの破片",
+        "answer": "fragment",
         "meaning": "fragment　[名] 破片〈可算〉"
     },
     {
@@ -4153,7 +4153,7 @@
     {
         "text": "831 I created an online ___ to buy books more easily.\n本をもっと簡単に買うためにオンラインアカウントを作った💻",
         "answer": "account",
-        "meaning": ""
+        "meaning": "account　[自] （for ～）①（割合を）占める ②（～の原因を）説明する [名] ③説明 ④口座"
     },
     {
         "text": "832 ___ the volume of his head\n彼の頭の体積を計算する✏️",
@@ -4203,7 +4203,7 @@
     {
         "text": "841 There’s a serious water ___ in the region due to the drought.\n干ばつのため、その地域では深刻な水不足が起きている🚱",
         "answer": "shortage",
-        "meaning": ""
+        "meaning": "shortage　[名] 不足〈可算〉"
     },
     {
         "text": "842 an ___ amount of fat\n莫大な(量の)脂肪",
@@ -4306,8 +4306,8 @@
         "meaning": "supply　[他] ①～を供給する [名] ②供給"
     },
     {
-        "text": "862 People who can be ___ by Artificial Intelligence\nAIに代替可能な人。🤓",
-        "answer": "replaced",
+        "text": "862 People who can be ___d by Artificial Intelligence\nAIに代替可能な人。🤓",
+        "answer": "replace",
         "meaning": "replace　[他] ①～に取って代わる ②（A with B）（A）を（B に）取り替える"
     },
     {
@@ -4486,8 +4486,8 @@
         "meaning": "transfer　[自] ①（電車などを）乗り換える ②転勤［転校，移籍］する [他] ③（物，活動拠点など）を移す，～を転勤［転属］させる ④（銀行で）～を振り込む"
     },
     {
-        "text": "898 get ___ at 21\n21で離婚する",
-        "answer": "divorced",
+        "text": "898 get ___d at 21\n21で離婚する",
+        "answer": "divorce",
         "meaning": "divorce　[自] ①離婚する [他] ②～と離婚する [名] ③離婚"
     },
     {
@@ -4526,8 +4526,8 @@
         "meaning": "aisle　[名] 通路"
     },
     {
-        "text": "906 cover one’s ___\n足跡を消す。👣",
-        "answer": "tracks",
+        "text": "906 cover one’s ___s\n足跡を消す。👣",
+        "answer": "track",
         "meaning": "track　[名] ①足跡，小道 ②（鉄道の）線路，プラットホーム [他] ③～を追跡する"
     },
     {
@@ -4706,8 +4706,8 @@
         "meaning": "amuse　[他] ～を楽しませる"
     },
     {
-        "text": "942 The pop star’s cheating scandal ___ media attention.\nその人気スターの不倫騒動はマスコミの関心を引き付けた。",
-        "answer": "attracted",
+        "text": "942 The pop star’s cheating scandal ___ed media attention.\nその人気スターの不倫騒動はマスコミの関心を引き付けた。",
+        "answer": "attract",
         "meaning": "attract　[他] ～を引きつける，魅了する"
     },
     {
@@ -4716,8 +4716,8 @@
         "meaning": "fascinate　[他] ～を魅了する，～にとても興味をもたせる"
     },
     {
-        "text": "944 be ___ in programming\nプログラミングに没頭する",
-        "answer": "absorbed",
+        "text": "944 be ___ed in programming\nプログラミングに没頭する",
+        "answer": "absorb",
         "meaning": "absorb　[他] ①（be ―ed in ～）～に没頭する ②～を吸収する"
     },
     {
@@ -4726,23 +4726,23 @@
         "meaning": "fond　[他] ①（be ― of～）（～が）好きだ ②懐かしい"
     },
     {
-        "text": "946 The horror movie really ___ me last night.\n昨夜、そのホラー映画は本当に私を怖がらせた。",
-        "answer": "scared",
+        "text": "946 The horror movie really ___d me last night.\n昨夜、そのホラー映画は本当に私を怖がらせた。",
+        "answer": "scare",
         "meaning": "scare　[他] ～をおびえさせる"
     },
     {
-        "text": "947 The sudden noise ___ everyone in the room.\n突然の音が部屋中の人を驚かせた。",
-        "answer": "alarmed",
+        "text": "947 The sudden noise ___ed everyone in the room.\n突然の音が部屋中の人を驚かせた。",
+        "answer": "alarm",
         "meaning": "alarm　[他] ①～をぎょっとさせる [名] ②恐怖，不安"
     },
     {
-        "text": "948 The magician’s trick ___ the audience.\nその手品師のトリックに観客は驚嘆した。",
-        "answer": "amazed",
+        "text": "948 The magician’s trick ___d the audience.\nその手品師のトリックに観客は驚嘆した。",
+        "answer": "amaze",
         "meaning": "amaze　[他] ～を驚かせる"
     },
     {
-        "text": "949 His constant tapping ___ me during the test.\nテスト中に彼のカタカタ音が私をいら立たせた。",
-        "answer": "irritated",
+        "text": "949 His constant tapping ___d me during the test.\nテスト中に彼のカタカタ音が私をいら立たせた。",
+        "answer": "irritate",
         "meaning": "irritate　[他] （長期にわたって）～をいらいらさせる"
     },
     {
@@ -4751,33 +4751,33 @@
         "meaning": "upset　[他] ①～を動揺させる ②（均衡など）を乱す [形] ③動揺して，腹を立てて"
     },
     {
-        "text": "951 The strange question ___ the students.\nその奇妙な質問は生徒たちを困惑させた。",
-        "answer": "puzzled",
+        "text": "951 The strange question ___d the students.\nその奇妙な質問は生徒たちを困惑させた。",
+        "answer": "puzzle",
         "meaning": "puzzle　[他] ①～を当惑させる [名] ②難問，パズル"
     },
     {
-        "text": "952 The instructions only ___ me more.\nその説明書はますます私を混乱させただけだった。",
-        "answer": "confused",
+        "text": "952 The instructions only ___d me more.\nその説明書はますます私を混乱させただけだった。",
+        "answer": "confuse",
         "meaning": "confuse　[他] ①～を混乱させる，困惑させる ②（A with［and］ B)（A）を（Bと）混同する"
     },
     {
-        "text": "953 ___ feast\nつまらない宴会",
-        "answer": "bored",
+        "text": "953 ___d feast\nつまらない宴会",
+        "answer": "bore",
         "meaning": "bore　[他] ～をうんざりさせる，退屈させる"
     },
     {
-        "text": "954 Her failure to understand the concept ___ the teacher.\n彼女がその概念を理解しないことに先生はいら立った。",
-        "answer": "frustrated",
+        "text": "954 Her failure to understand the concept ___d the teacher.\n彼女がその概念を理解しないことに先生はいら立った。",
+        "answer": "frustrate",
         "meaning": "frustrate　[他] ①～を欲求不満にさせる ②（計画など）を挫折させる"
     },
     {
-        "text": "955 His careless mistake ___ everyone who trusted him.\n彼の不注意なミスは彼を信頼していた人々を失望させた。",
-        "answer": "disappointed",
+        "text": "955 His careless mistake ___ed everyone who trusted him.\n彼の不注意なミスは彼を信頼していた人々を失望させた。",
+        "answer": "disappoint",
         "meaning": "disappoint　[他] ～を失望させる"
     },
     {
-        "text": "956 I feel ___ when I hear compliments.\n褒め言葉を聞いて照れる.",
-        "answer": "embarrassed",
+        "text": "956 I feel ___ed when I hear compliments.\n褒め言葉を聞いて照れる.",
+        "answer": "embarrass",
         "meaning": "embarrass　[他] ～に恥ずかしい思いをさせる，困惑させる"
     },
     {
@@ -4806,8 +4806,8 @@
         "meaning": "tremble　[自] 震える"
     },
     {
-        "text": "962 He always ___ about his expensive car.\n彼はいつも自分の高級車を自慢している。",
-        "answer": "boasts",
+        "text": "962 He always ___s about his expensive car.\n彼はいつも自分の高級車を自慢している。",
+        "answer": "boast",
         "meaning": "boast　[自] ①自慢する [他] ②（場所や組織が）～を誇りにしている"
     },
     {
@@ -4836,8 +4836,8 @@
         "meaning": "despair　[名] 絶望"
     },
     {
-        "text": "968 show my ___\n感情をむき出しにする",
-        "answer": "emotions",
+        "text": "968 show my ___s\n感情をむき出しにする",
+        "answer": "emotion",
         "meaning": "emotion　[名] （特に強い）感情〈可算〉"
     },
     {
@@ -4871,8 +4871,8 @@
         "meaning": "sorrow　[名] 悲しみ"
     },
     {
-        "text": "975 Complex issues compose themselves of simple, ___ mistakes.\n複雑な問題は,無視された単純なミスから成り立っている。",
-        "answer": "ignored",
+        "text": "975 Complex issues compose themselves of simple, ___d mistakes.\n複雑な問題は,無視された単純なミスから成り立っている。",
+        "answer": "ignore",
         "meaning": "ignore　[他] （人，物）を無視する"
     },
     {
@@ -4961,8 +4961,8 @@
         "meaning": "necessarily　[副] （not ―）必ずしも（～ない）"
     },
     {
-        "text": "993 ___ speaking,\n率直に言うと,",
-        "answer": "Frankly",
+        "text": "993 ___, you’re held back.\n率直に言うと、あなたは留年です。😱😱😱",
+        "answer": "frankly",
         "meaning": "frankly　[副] 率直に"
     },
     {
@@ -4992,7 +4992,7 @@
     },
     {
         "text": "999 ___ capitalism, your value peaks at checkout.\n資本主義によると,あなたの価値はチェックアウト時にピークに達する。",
-        "answer": "According to",
+        "answer": "according to",
         "meaning": "according to　[前] ①（調査，人の話など）によれば ②（能力など）に応じて"
     },
     {
