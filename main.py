@@ -58,21 +58,6 @@ user_ranking_wait = defaultdict(int)  # user_id: 残りカウント
 app = Flask(__name__)
 
 parser = WebhookParser(LINE_CHANNEL_SECRET)
-
-@app.route("/callback", methods=["POST"])
-def callback():
-    signature = request.headers.get("X-Line-Signature", "")
-    body = request.get_data(as_text=True)
-
-    try:
-        events = parser.parse(body, signature)
-    except InvalidSignatureError:
-        abort(400)
-
-    for event in events:
-        handler_leap.handle(event)
-
-    return "OK"
 #---------------------------------------------------------------------------------
     
 def fever_time(fevertime):
