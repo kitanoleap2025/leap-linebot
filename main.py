@@ -2,12 +2,17 @@ from flask import Flask, request, abort
 import os, json, random, threading, time, datetime
 from collections import defaultdict
 from dotenv import load_dotenv
+
+# LINE Bot SDK
 from linebot import LineBotApi, WebhookHandler, WebhookParser
 from linebot.models import (
     MessageEvent, TextMessage, TextSendMessage, FlexSendMessage,
-    QuickReply, QuickReplyButton, MessageAction
+    BoxComponent, TextComponent, QuickReply, QuickReplyButton, MessageAction,
+    ButtonsTemplate, TemplateSendMessage, PostbackAction, PostbackEvent
 )
 from linebot.exceptions import InvalidSignatureError  
+
+# Firebase
 import firebase_admin
 from firebase_admin import credentials, firestore
 
@@ -22,13 +27,6 @@ def load_words(path):
 leap_1_1000 = load_words("data/leap1-1000.json")
 leap_1001_2000 = load_words("data/leap1001-2000.json")
 leap_2001_2300 = load_words("data/leap2001-2300.json")
-
-ALL_QUESTIONS = leap_1_1000 + leap_1001_2000 + leap_2001_2300
-RANGES = {
-    "A": {"title": "1-1000", "questions": leap_1_1000},
-    "B": {"title": "1001-2000", "questions": leap_1001_2000},
-    "C": {"title": "2001-2300", "questions": leap_2001_2300},
-}
 
 DEFAULT_NAME = "イキイキした毎日"
 
@@ -56,88 +54,38 @@ user_streaks = defaultdict(int)
 user_daily_e = defaultdict(lambda: {"date": None, "total_e": 0})
 user_fever = defaultdict(int)  # user_id: 0 or 1
 user_ranking_wait = defaultdict(int)  # user_id: 残りカウント
+#---------------------------------------------------------------------------------
+app = Flask(__name__)
 
-user_doc_cache = {}  # user_id -> firestore data dict
-def load_user_from_firestore(user_id):
-    if user_id in user_doc_cache:
-        return user_doc_cache[user_id]
+parser = WebhookParser(LINE_CHANNEL_SECRET)
 
-    doc = db.collection("users").document(user_id).get()
-    data = doc.to_dict() if doc.exists else {}
-    user_doc_cache[user_id] = data
-    return data
+@app.route("/callback", methods=["POST"])
+def callback():
+    signature = request.headers.get("X-Line-Signature", "")
+    body = request.get_data(as_text=True)
 
-
-def send_question(user_id, range_str):
-    scores = user_scores.get(user_id, {})
-    
-    if range_str == "WRONG":
-        questions = get_questions_by_range("WRONG", user_id)
-        remaining_count = len(questions)
-    else:
-        questions = get_questions_by_range(range_str, user_id)
-        # スコアが未設定の単語だけ数える
-        remaining_count = sum(1 for q in questions if q["answer"] not in scores)
-
-    if not questions:
-        return TextSendMessage(text="🥳🥳🥳間違えた問題はありません！")
-
-    q = choose_weighted_question(user_id, questions)
-    if q is None:
-        return TextSendMessage(text="🥳🥳🥳間違えた問題はありません！")
-    
-    user_states[user_id] = (range_str, q)
-    user_answer_start_times[user_id] = time.time()
-    # Firebaseに保存
     try:
-        db.collection("users").document(user_id).set({
-            "latest_question": {
-                "answer": q["answer"],
-                "meaning": q.get("meaning"),
-                "range": range_str,
-                "timestamp": datetime.datetime.now().isoformat()
-            }
-        }, merge=True)
-    except Exception as e:
-        print(f"Error saving latest_question for {user_id}: {e}")
+        events = parser.parse(body, signature)
+    except InvalidSignatureError:
+        abort(400)
 
-    correct_answer = q["answer"]
-    if correct_answer not in scores:
-        score_display = "❓初出題の問題"
-    else:
-        score = scores[correct_answer]
-        score_display = "✔" * score + "□" * (4 - score) if score > 0 else "✖間違えた問題"
+    for event in events:
+        handler_leap.handle(event)
 
-    # 選択肢作成
-    other_answers = [item["answer"] for item in ALL_QUESTIONS if item["answer"] != correct_answer]
-    wrong_choices = random.sample(other_answers, k=min(3, len(other_answers)))
-    choices = wrong_choices + [correct_answer]
-    random.shuffle(choices)
-    quick_buttons = [QuickReplyButton(action=MessageAction(label=choice, text=choice))
-                     for choice in choices]
-
-    text_to_send = f"{score_display}\n{q['text']}"
-
-    # 0でなければ残り問題数を表示
-    if remaining_count > 0:
-        if range_str == "WRONG":
-            text_to_send = f"間違えた単語:あと{remaining_count}語\n" + text_to_send
-        else:
-            text_to_send = f"未出題の単語:あと{remaining_count}語\n" + text_to_send
-
-    return TextSendMessage(text=text_to_send, quick_reply=QuickReply(items=quick_buttons))
-
+    return "OK"
+#---------------------------------------------------------------------------------
+    
 def fever_time(fevertime):
     # fevertime が None または 0 のとき
     if not fevertime:
-        # 1/30 で Fever を開始
+        # 1/20 で Fever を開始
         if random.random() < 1/30:
             return 1
         return 0
 
     # fevertime が 1 のとき、1/10 でリセット
     if fevertime == 1:
-        if random.random() < 1/15:
+        if random.random() < 1/10:
             return 0
         return 1
         
@@ -155,64 +103,116 @@ def load_user_data(user_id):
         print(f"Error loading user data for {user_id}: {e}")
         user_names[user_id] = DEFAULT_NAME
 
+def check_and_reset_total_e(user_id):
+    today = datetime.date.today()
+
+    # ユーザーの過去データ取得（dbから）
+    doc = db.collection("users").document(user_id).get()
+    stored = doc.to_dict() if doc.exists else {}
+
+    total_e = stored.get("total_e", 0)
+    date_str = stored.get("total_e_date")
+
+    # 日付の処理
+    if not date_str:
+        # 初回 or 空欄 → 今日を設定
+        new_date = today
+    else:
+        try:
+            old_date = datetime.datetime.strptime(date_str, "%Y-%m-%d").date()
+        except:
+            old_date = today
+
+        # 7日経過していたらリセット
+        if (today - old_date).days >= 7:
+            total_e = 0
+            new_date = today
+        else:
+            new_date = old_date
+
+    # firestore へ保存
+    db.collection("users").document(user_id).set({
+        "total_e": total_e,
+        "total_e_date": new_date.strftime("%Y-%m-%d")
+    }, merge=True)
+
+    # メモリ上の値も更新
+    user_daily_e[user_id]["total_e"] = total_e
+    user_daily_e[user_id]["date"] = new_date.strftime("%Y-%m-%d")
+
+
 def save_user_data(user_id):
 
     check_and_reset_total_e(user_id)
     today = time.strftime("%Y-%m-%d")
     total_e = user_daily_e[user_id]["total_e"]
     total_e_date = user_daily_e[user_id]["date"]
+
     data = {
         "scores": dict(user_scores[user_id]),
-        "name": user_names[user_id],
-        "total_e": user_daily_e[user_id]["total_e"],
-        "total_e_date": user_daily_e[user_id]["date"]
+        "name": user_names.get(user_id, DEFAULT_NAME),
+        "total_e": total_e,
+        "total_e_date": total_e_date
     }
-
     try:
         db.collection("users").document(user_id).set(data, merge=True)
-        user_doc_cache[user_id].update(data)
     except Exception as e:
         print(f"Error saving user data for {user_id}: {e}")
 
 def async_save_user_data(user_id):
     threading.Thread(target=save_user_data, args=(user_id,), daemon=True).start()
 
-#WRONG範囲抽出
-def get_questions_by_range(range_str, user_id):
-    if range_str in RANGES:
-        return RANGES[range_str]["questions"]
-
-    if range_str == "WRONG":
-        wrong = {w for w, s in user_scores.get(user_id, {}).items() if s == 0}
-        return [q for q in ALL_QUESTIONS if q["answer"] in wrong]
-
+#範囲ごとの問題取得
+def get_questions_by_range(range_str, bot_type, user_id):
+    if range_str == "A":
+        return leap_1_1000
+    elif range_str == "B":
+        return leap_1001_2000
+    elif range_str == "C":
+        return leap_2001_2300
+    elif range_str == "WRONG":
+        # user_scores 内で score == 0 の単語を集め、該当する問題オブジェクトを返す
+        wrong_words = {w for w, s in user_scores.get(user_id, {}).items() if s == 0}
+        if not wrong_words:
+            return []
+        # 全単語リスト（bot_type==LEAP の想定）
+        all_questions = leap_1_1000 + leap_1001_2000 + leap_2001_2300
+        return [q for q in all_questions if q["answer"] in wrong_words]
     return []
             
 def get_rank(score):
     return {0: "✖", 1: "✔/❓", 2: "✔2", 3: "✔3", 4: "✔4"}.get(score, "✔/❓")
 
 def score_to_weight(score):
-    return {0: 10000, 1: 1000000, 2:100000, 3: 10000, 4: 1}.get(score, 100000000000)
+    return {0: 100000, 1: 1000000, 2:100000, 3: 10000, 4: 1}.get(score, 100000000000000000000000)
 
-def build_result_flex(user_id, data):
-    total_rate = data.get("total_rate", 0)
-    total_e = data.get("total_e", 0)
-    name = user_names.get(user_id, DEFAULT_NAME)   
-    
+def build_result_flex(user_id, bot_type):
+    name = user_names.get(user_id, DEFAULT_NAME)
+
+    # Firebase から総合レートを取得
+    field_name = f"total_rate_{bot_type.lower()}"
+    try:
+        doc = db.collection("users").document(user_id).get()
+        data = doc.to_dict() or {} 
+        total_rate = doc.to_dict().get(field_name, 0)
+        total_e = data.get("total_e", 0)
+    except Exception:
+        total_rate = 0
+        total_e = 0
+        
+    # bot_type による範囲設定
+    if bot_type == "LEAP":
+        ranges = [("A", "1-1000"), ("B", "1001-2000"), ("C", "2001-2300")]
+
     parts = []
     all_answers = []
 
-    for key, info in RANGES.items():
-        title = info["title"]
-        qs = info["questions"]
-
-        all_answers.extend(q["answer"] for q in qs)
+    for range_label, title in ranges:
+        qs = get_questions_by_range(range_label, bot_type, user_id)
+        all_answers.extend([q["answer"] for q in qs])
 
         count = len(qs)
-        total_score = sum(
-            user_scores.get(user_id, {}).get(q["answer"], 1)
-            for q in qs
-        )
+        total_score = sum(user_scores.get(user_id, {}).get(q["answer"], 1) for q in qs)
         rate_percent = int((total_score / count) * 2500) if count else 0
 
         parts.append({
@@ -220,8 +220,8 @@ def build_result_flex(user_id, data):
             "layout": "vertical",
             "margin": "md",
             "contents": [
-                {"type": "text", "text": title, "weight": "bold", "size": "sm"},
-                {"type": "text", "text": f"Rating: {rate_percent}", "size": "md"},
+                {"type": "text", "text": title, "weight": "bold", "size": "sm", "color": "#000000"},
+                {"type": "text", "text": f"Rating: {rate_percent}", "size": "md", "color": "#333333"},
             ],
         })
 
@@ -289,16 +289,74 @@ def build_result_flex(user_id, data):
 
     return flex_message
 
-def update_total_rate(user_id):
-    total_words = len(ALL_QUESTIONS)
-    scores = user_scores.get(user_id, {})
-    total_score = sum(scores.get(q["answer"], 1) for q in ALL_QUESTIONS)
-    total_rate = int(total_score / total_words * 2500)
+def update_total_rate(user_id, bot_type):
+    field_name = f"total_rate_{bot_type.lower()}"
+    
+    # 単語リストをまとめる
+    if bot_type.lower() == "leap":
+        questions = leap_1_1000 + leap_1001_2000 + leap_2001_2300
 
-    # Firestoreには書かない
-    user_doc_cache.setdefault(user_id, {})["total_rate"] = total_rate
+    total_words = len(questions)  # 現在ロードされている単語数を使用
+
+    scores = user_scores.get(user_id, {})
+    total_score = sum(scores.get(q["answer"], 1) for q in questions)
+    
+    total_rate = int(total_score / total_words * 2500) if total_words else 0
+
+    try:
+        db.collection("users").document(user_id).set({field_name: total_rate}, merge=True)
+    except Exception as e:
+        print(f"Error updating {field_name} for {user_id}: {e}")
 
     return total_rate
+
+def send_question(user_id, range_str, bot_type="LEAP"):
+    scores = user_scores.get(user_id, {})
+    
+    if range_str == "WRONG":
+        questions = get_questions_by_range("WRONG", bot_type, user_id)
+        remaining_count = len(questions)
+    else:
+        questions = get_questions_by_range(range_str, bot_type, user_id)
+        # スコアが未設定の単語だけ数える
+        remaining_count = sum(1 for q in questions if q["answer"] not in scores)
+
+    if not questions:
+        return TextSendMessage(text="🥳🥳🥳間違えた問題はありません！")
+
+    q = choose_weighted_question(user_id, questions)
+    if q is None:
+        return TextSendMessage(text="🥳🥳🥳間違えた問題はありません！")
+    
+    user_states[user_id] = (range_str, q)
+    user_answer_start_times[user_id] = time.time()
+
+    correct_answer = q["answer"]
+    if correct_answer not in scores:
+        score_display = "❓初出題の問題"
+    else:
+        score = scores[correct_answer]
+        score_display = "✔" * score + "□" * (4 - score) if score > 0 else "✖間違えた問題"
+
+    # 選択肢作成
+    all_questions = leap_1_1000 + leap_1001_2000 + leap_2001_2300
+    other_answers = [item["answer"] for item in all_questions if item["answer"] != correct_answer]
+    wrong_choices = random.sample(other_answers, k=min(3, len(other_answers)))
+    choices = wrong_choices + [correct_answer]
+    random.shuffle(choices)
+    quick_buttons = [QuickReplyButton(action=MessageAction(label=choice, text=choice))
+                     for choice in choices]
+
+    text_to_send = f"{score_display}\n{q['text']}"
+
+    # 0でなければ残り問題数を表示
+    if remaining_count > 0:
+        if range_str == "WRONG":
+            text_to_send = f"間違えた単語:あと{remaining_count}語\n" + text_to_send
+        else:
+            text_to_send = f"未出題の単語:あと{remaining_count}語\n" + text_to_send
+
+    return TextSendMessage(text=text_to_send, quick_reply=QuickReply(items=quick_buttons))
 
 
 def choose_weighted_question(user_id, questions):
@@ -315,70 +373,69 @@ def choose_weighted_question(user_id, questions):
     return chosen
 
 trivia_messages = [
-    "ヒントろぼっと|•_•|\n【図工上手いクラスメイトに対する噂あるある】\nあいつもうニス行ってるらしい",
-    "ヒントろぼっと|•_•|\n【スシローあるある】\nばぼなく",
-    "ヒントろぼっと|•_•|\n全ての単語帳はLEAPに通ず。",
-    "ヒントろぼっと|•_•|\nLEAPは剣よりも強し。",
-    "ヒントろぼっと|•_•|\nWBGTとLEAPテストの得点には相関関係があると言われている。",
-    "ヒントろぼっと|•_•|\n地球は平面だ。",
-    "ヒントろぼっと|•_•|\nLEAP:「2秒で伸ばしてやる。」",
-    "ヒントろぼっと|•_•|\nLEAP:「2秒で伸ばしてやる。」",
-    "ヒントろぼっと|•_•|\n中国語版LEAP、「跳跃」!",
-    "ヒントろぼっと|•_•|\n中国語版LEAP、「跳跃」!",
-    "ヒントろぼっと|•_•|\n正解した単語には「✓」が最大4つ付く。",
-    "ヒントろぼっと|•_•|\n「@(新しい名前)」と送信するとランキングに表示される名前を変更できる。",
-    "ヒントろぼっと|•_•|\n正解した単語は以降出題されにくくなる。",
-    "ヒントろぼっと|•_•|\n「学ぶ」→「間違えた問題」では間違えた問題のみ出題される。",
-    "ヒントろぼっと|•_•|\n1回スカイダビングしたいのならばパラシュートは不要だが、2回なら必要だ。",
-    "ヒントろぼっと|•_•|\n若さはニュースを楽しめるようになった日で終わる。",
-    "ヒントろぼっと|•_•|\n医師会は1日に2問の英単語学習を推奨している。",
-    "ヒントろぼっと|•_•|\nLEAPろぼっとは認知症予防に役立つ。",
-    "ヒントろぼっと|•_•|\nノーベン詐欺禁止法",
-    "ヒントろぼっと|•_•|\n統計による予測:次のLEAPテストは難しい。",
-    "ヒントろぼっと|•_•|\n統計による予測:次のLEAPテストは易しい。",
-    "ヒントろぼっと|•_•|\nLEAPを1000周すると魔法使いになれるらしい。",
-    "ヒントろぼっと|•_•|\nLEAPは世界で7番目に売れた書物だ。",
-    "ヒントろぼっと|•_•|\nLEAPは投げられた。",
-    "ヒントろぼっと|•_•|\n朕はLEAPなり。",
-    "ヒントろぼっと|•_•|\nLEAPは山より高く、海より低い。",
-    "ヒントろぼっと|•_•|\nLEAPは昔、「CHEAP」という名前だったらしい。",
-    "ヒントろぼっと|•_•|\nDoritosはおいしいです。",
-    "ヒントろぼっと|•_•|\nやっておきたかった英語長文500",
-    "ヒントろぼっと|•_•|\n日本はリープの賜物である。",
-    "ヒントろぼっと|•_•|\nLEAP!1秒ごとに世界で100人が読破中!",
-    "ヒントろぼっと|•_•|\nLEAP一周するとおにぎり3個分のカロリーを消費することが報告された。",
-    "ヒントろぼっと|•_•|\nネイティブも愛す!LEAP!",
-    "ヒントろぼっと|•_•|\nLEAPには大金を払う価値がある。",
-    "ヒントろぼっと|•_•|\nLEAPには莫大な時間を払う価値がある。",
-    "ヒントろぼっと|•_•|\n大谷翔平は全国の小学校にLEAPを送った。",
-    "ヒントろぼっと|•_•|\n大谷翔平は全国の小学校にLEAPを送った。",
-    "ヒントろぼっと|•_•|\nヒントろぼっとで表示されるメッセージは1000種類以上ある。",
-    "ヒントろぼっと|•_•|\n北野高校前の横断歩道で間に合う最後の青信号は8:08だ。",
-    "ヒントろぼっと|•_•|\n【迷信】リープを濡らすとバチが当たる。",
-    "ヒントろぼっと|•_•|\nたまにフィーバータイムが来るらしい。",
-    "ヒントろぼっと|•_•|\nBirds of a feather flock together.\n-類は友を呼ぶ。",
-    "ヒントろぼっと|•_•|\nkill two birds with one stone\n-一石二鳥",
-    "ヒントろぼっと|•_•|\nFirst come, first served.\n-早いもの勝ち。",
-    "ヒントろぼっと|•_•|\nLook before you leap.\n転ばぬ先の杖。",
-    "ヒントろぼっと|•_•|\nRome was not built in a day.\n-ローマは一日にして成らず。",
-    "ヒントろぼっと|•_•|\nIt is no use crying over spilt milk.\n-覆水盆に返らず。",
+    "ヒントろぼっと🤖\n【図工上手いクラスメイトに対する噂あるある】\nあいつもうニス行ってるらしい",
+    "ヒントろぼっと🤖\n【スシローあるある】\nばぼなく",
+    "ヒントろぼっと🤖\n【犬の散歩あるある】\n全員行きに見える",
+    "ヒントろぼっと🤖\n全ての単語帳はLEAPに通ず。",
+    "ヒントろぼっと🤖\nLEAPは剣よりも強し。",
+    "ヒントろぼっと🤖\nWBGTとLEAPテストの得点には相関関係があると言われている。",
+    "ヒントろぼっと🤖\n地球は平面だ。",
+    "ヒントろぼっと🤖\nLEAP:「2秒で伸ばしてやる。」",
+    "ヒントろぼっと🤖\n中国語版LEAP、「跳跃」!",
+    "ヒントろぼっと🤖\n正解した単語には「✓」が最大4つ付く。",
+    "ヒントろぼっと🤖\n「@(新しい名前)」と送信するとランキングに表示される名前を変更できる。",
+    "ヒントろぼっと🤖\n正解した単語は以降出題されにくくなる。",
+    "ヒントろぼっと🤖\n「学ぶ」→「間違えた問題」では間違えた問題のみ出題される。",
+    "ヒントろぼっと🤖\n1回スカイダビングしたいのならばパラシュートは不要だが、2回なら必要だ。",
+    "ヒントろぼっと🤖\n若さはニュースを楽しめるようになった日で終わる。",
+    "ヒントろぼっと🤖\n医師会は1日に2問の英単語学習を推奨している。",
+    "ヒントろぼっと🤖\n1日に2問の英単語学習は認知症予防に役立つ。",
+    "ヒントろぼっと🤖\nネットの釣りタイトル禁止法が遂に成立。国民はやんややんやの大喝采！",
+    "ヒントろぼっと🤖\n英単語学習は高齢者のキレ症を治すと報告された。",
+    "ヒントろぼっと🤖\nノーベン詐欺禁止法が遂に成立。国民はやんややんやの大喝采！",
+    "ヒントろぼっと🤖\n統計による予測:次のLEAPテストは難しい。",
+    "ヒントろぼっと🤖\n統計による予測:次のLEAPテストは易しい。",
+    "ヒントろぼっと🤖\nLEAPを1000周すると魔法使いになる。",
+    "ヒントろぼっと🤖\nLEAPは世界で7番目に売れた書物だ。",
+    "ヒントろぼっと🤖\nLEAPは投げられた。",
+    "ヒントろぼっと🤖\n朕はLEAPなり。",
+    "ヒントろぼっと🤖\nLEAPは山より高く、海より低い。",
+    "ヒントろぼっと🤖\nLEAPは昔、「CHEAP」という名前だったらしい。",
+    "ヒントろぼっと🤖\nDoritosはおいしいです。",
+    "ヒントろぼっと🤖\nやっておきたかった英語長文500",
+    "ヒントろぼっと🤖\n日本はリープの賜物である。",
+    "ヒントろぼっと🤖\nLEAP!1秒ごとに世界で100人が読破中!",
+    "ヒントろぼっと🤖\nLEAP一周するとおにぎり3個分のカロリーを消費することが報告された。",
+    "ヒントろぼっと🤖\nネイティブも愛す!LEAP!",
+    "ヒントろぼっと🤖\nLEAPには大金を払う価値がある。",
+    "ヒントろぼっと🤖\nLEAPには莫大な時間を払う価値がある。",
+    "ヒントろぼっと🤖\n大谷翔平は全国の小学校にLEAPを送った。",
+    "ヒントろぼっと🤖\nヒントろぼっとで表示されるメッセージは合計1000種類ある。",
+    "ヒントろぼっと🤖\n北野高校前の横断歩道で間に合う最後の青信号は8:08だ。",
+    "ヒントろぼっと🤖\nリープを濡らすとバチが当たる。",
+    "ヒントろぼっと🤖\nBirds of a feather flock together.\n-類は友を呼ぶ。",
+    "ヒントろぼっと🤖\nkill two birds with one stone\n-一石二鳥",
+    "ヒントろぼっと🤖\nFirst come, first served.\n-早いもの勝ち。",
+    "ヒントろぼっと🤖\nLook before you leap.\n転ばぬ先の杖。",
+    "ヒントろぼっと🤖\nRome was not built in a day.\n-ローマは一日にして成らず。",
+    "ヒントろぼっと🤖\nIt is no use crying over spilt milk.\n-覆水盆に返らず。",
 ]
     
-def evaluate_X(elapsed):
-    X = elapsed
+def evaluate_X(elapsed, score, answer, is_multiple_choice=True):
+    X = elapsed**1.7 + score**1.7
 
-    if X <= 10:
+    if X <= 16:
         return "!!Brilliant", 3
-    elif X <= 15:
+    elif X <= 28:
         return "!Great", 2
     else:
         return "✓Correct", 1
 
 def get_label_score(lbl):
     score_map = {
-        "✓Correct": 10,
-        "!Great": 50,
-        "!!Brilliant": 1000
+        "✓Correct": 1,
+        "!Great": 3,
+        "!!Brilliant": 10
     }
     return score_map.get(lbl, 0)
         
@@ -408,7 +465,7 @@ def build_feedback_flex(user_id, is_correct, score, elapsed, correct_answer=None
             "type": "text",
             "text": label or "✓Correct",
             "weight": "bold",
-            "size": "xxl",
+            "size": "xl",
             "color": color,
             "align": "center"
         })
@@ -419,7 +476,7 @@ def build_feedback_flex(user_id, is_correct, score, elapsed, correct_answer=None
             "text": random.choice([
                 "🎉 お見事！",
                 "🚀 スコア上昇中！",
-                "🧠 天才！",
+                "🧠 天才的！",
                 "🏆 完璧！",
                 "🎯 的中！",
                 "👏 さすが！",
@@ -433,7 +490,7 @@ def build_feedback_flex(user_id, is_correct, score, elapsed, correct_answer=None
         })
         body_contents.append({
             "type": "text",
-            "text": "✔️✔️✔️✔️✔️✔️✔️✔️✔️",
+            "text": "✔️✔️✔️✔️✔️✔️✔️✔️",
             "weight": "bold",
             "size": "md",
             "color": "#ff1493",
@@ -462,11 +519,12 @@ def build_feedback_flex(user_id, is_correct, score, elapsed, correct_answer=None
 
     count_today = user_daily_counts[user_id]["count"]
     if is_correct:
-        e = label_score * (user_streaks[user_id] ** 3)
+        y = 5 - score
+        e = y * label_score * (user_streaks[user_id] ** 3)
         total_e_today = user_daily_e[user_id]["total_e"]
         body_contents.append({
             "type": "text",
-            "text": f"{label_symbol}{label_score}×🔥{user_streaks[user_id]}³=${e}",
+            "text": f"{y}×{label_symbol}{label_score}×🔥{user_streaks[user_id]}³=${e}",
             "size": "lg",
             "color": "#333333",
             "margin": "xl"
@@ -474,10 +532,10 @@ def build_feedback_flex(user_id, is_correct, score, elapsed, correct_answer=None
 
         # フィーバー表示
         if user_fever[user_id] == 1:
-            e = label_score * (user_streaks[user_id] ** 3) *777
+            e = y * label_score * (user_streaks[user_id] ** 3) *7777
             body_contents.append({
                 "type": "text",
-                "text": "💥FEVER ✖777💥",
+                "text": "💥FEVER ✖7777💥",
                 "weight": "bold",
                 "size": "lg",
                 "color": "#ff0000",
@@ -506,18 +564,23 @@ def build_feedback_flex(user_id, is_correct, score, elapsed, correct_answer=None
         }
     )
 
-# 高速ランキング
-def build_ranking_with_totalE_flex():
+medal_colors = {
+    1: "#000000", 
+    2: "#000000", 
+    3: "#000000", 
+}
+
+# 高速ランキング（自分の順位も表示）
+def build_ranking_with_totalE_flex(bot_type):
+    # total_rateランキング
+    field_name_rate = f"total_rate_{bot_type.lower()}"
     try:
-        docs_rate = (
-            db.collection("users")
-              .order_by("total_rate_leap", direction=firestore.Query.DESCENDING)
-              .limit(30)
-              .stream()
-        )
+        docs_rate = db.collection("users")\
+            .order_by(field_name_rate, direction=firestore.Query.DESCENDING)\
+            .limit(30).stream()
         ranking_rate = [
             (doc.to_dict().get("name") or "イキイキした毎日",
-             doc.to_dict().get("total_rate_leap", 0))
+             doc.to_dict().get(field_name_rate, 0))
             for doc in docs_rate
         ]
     except Exception as e:
@@ -526,12 +589,9 @@ def build_ranking_with_totalE_flex():
 
     # totalEランキング
     try:
-        docs_e = (
-            db.collection("users")
-              .order_by("total_e", direction=firestore.Query.DESCENDING)
-              .limit(5)
-              .stream()
-        )
+        docs_e = db.collection("users")\
+            .order_by("total_e", direction=firestore.Query.DESCENDING)\
+            .limit(5).stream()
         ranking_e = [
             (doc.to_dict().get("name") or "イキイキした毎日",
              doc.to_dict().get("total_e", 0))
@@ -552,7 +612,7 @@ def build_ranking_with_totalE_flex():
         ]
     })
     for i, (name, e_value) in enumerate(ranking_e, start=1):
-        color = "#000000"
+        color = medal_colors.get(i, "#000000")
         bubbles.append({
             "type": "box",
             "layout": "vertical",
@@ -568,12 +628,12 @@ def build_ranking_with_totalE_flex():
         "type": "box",
         "layout": "vertical",
         "contents": [
-            {"type": "text", "text": "トータルレート", "weight": "bold", "size": "xl"},
+            {"type": "text", "text": f"{bot_type.upper()}トータルレート", "weight": "bold", "size": "xl"},
             {"type": "separator", "margin": "md"}
         ]
     })
     for i, (name, rate) in enumerate(ranking_rate, start=1):
-        color = "#000000"
+        color = medal_colors.get(i, "#000000")
         bubbles.append({
             "type": "box",
             "layout": "baseline",
@@ -594,47 +654,40 @@ def build_ranking_with_totalE_flex():
     }
 
     return FlexSendMessage(
-        alt_text="leapランキング + TotalEランキング",
+        alt_text=f"{bot_type.upper()}ランキング + TotalEランキング",
         contents=flex_content
     )
 # —————— ここからLINEイベントハンドラ部分 ——————
+# LEAP
 @app.route("/callback/leap", methods=["POST"])
 def callback_leap():
     body = request.get_data(as_text=True)
-    signature = request.headers.get("X-Line-Signature", "")
-    if not signature:
-        abort(400, "Missing X-Line-Signature")
-    try:
-        handler_leap.handle(body, signature)
-    except InvalidSignatureError:
-        abort(400, "Invalid signature")
+    signature = request.headers["X-Line-Signature"]
+    handler_leap.handle(body, signature)
     return "OK"
+
+# LEAP
+@handler_leap.add(MessageEvent, message=TextMessage)
+def handle_leap_message(event):
+    handle_message_common(event, bot_type="LEAP", line_bot_api=line_bot_api_leap)
 
 @app.route("/health")
 def health():
     ua = request.headers.get("User-Agent", "")
     if "cron-job.org" in ua:
         return "ok", 200
-    return "unauthorized", 403
+    else:
+        return "unauthorized", 403
 
-@handler_leap.add(MessageEvent, message=TextMessage)
-def handle_message(event):
-    handle_message_common(event, line_bot_api_leap)
-    
-def handle_message_common(event, line_bot_api):
+def handle_message_common(event, bot_type, line_bot_api):
     user_id = event.source.user_id
     msg = event.message.text.strip()
 
-    data = load_user_from_firestore(user_id)
-    # メモリへ展開
-    user_scores[user_id] = defaultdict(lambda: 1, data.get("scores", {}))
-    user_names[user_id] = data.get("name", DEFAULT_NAME)
+# 以降の questions_1_1000, questions_1001_2000 は send_question 内で判断する
 
-    user_daily_e[user_id]["total_e"] = data.get("total_e", 0)
-    user_daily_e[user_id]["date"] = data.get("total_e_date")
-
-    if user_id not in user_states:
+    if user_id not in user_scores:
         load_user_data(user_id)
+
     
     # 名前変更コマンド
     if msg.startswith("@"):
@@ -652,26 +705,26 @@ def handle_message_common(event, line_bot_api):
     
     # 質問送信
     if msg in ["A", "B", "C", "WRONG"]:
-        question_msg = send_question(user_id, msg)
+        question_msg = send_question(user_id, msg, bot_type=bot_type)
         line_bot_api.reply_message(event.reply_token, question_msg)
         return
         
     # 成績表示
     if msg == "成績":
-        total_rate = update_total_rate(user_id)
-        flex_msg = build_result_flex(user_id, user_doc_cache[user_id])
+        total_rate = update_total_rate(user_id, bot_type=bot_type)
+        flex_msg = build_result_flex(user_id, bot_type=bot_type)
         line_bot_api.reply_message(event.reply_token, flex_msg)
         return
 
     if msg == "学ぶ":
-       
-        quick_buttons = [
-            QuickReplyButton(action=MessageAction(label="1-1000", text="A")),
-            QuickReplyButton(action=MessageAction(label="1001-2000", text="B")),
-            QuickReplyButton(action=MessageAction(label="間違えた問題", text="WRONG")),
-            QuickReplyButton(action=MessageAction(label="使い方", text="使い方")),
-            QuickReplyButton(action=MessageAction(label="???", text="未公開")),
-        ]
+        if bot_type == "LEAP":
+            quick_buttons = [
+                QuickReplyButton(action=MessageAction(label="1-1000", text="A")),
+                QuickReplyButton(action=MessageAction(label="1001-2000", text="B")),
+                QuickReplyButton(action=MessageAction(label="2001-2300", text="C")),
+                QuickReplyButton(action=MessageAction(label="間違えた問題", text="WRONG")),
+                QuickReplyButton(action=MessageAction(label="使い方", text="使い方")),
+            ]
 
         line_bot_api.reply_message(
             event.reply_token,
@@ -686,36 +739,29 @@ def handle_message_common(event, line_bot_api):
         if user_ranking_wait[user_id] > 0:
             line_bot_api.reply_message(
                 event.reply_token,
-                TextSendMessage(text=f"ランキングはあと{user_ranking_wait[user_id]}問解くと表示できます！")
+                TextSendMessage(text=f"ランキングは{user_ranking_wait[user_id]}問解いた後に表示できます！")
             )
             return
 
-        update_total_rate(user_id)
         # ランキング表示
-        flex_msg = build_ranking_with_totalE_flex()
+        flex_msg = build_ranking_with_totalE_flex(bot_type)
         line_bot_api.reply_message(event.reply_token, flex_msg)
 
         # 表示後にカウントをリセット（5問ごとに待機）
         user_ranking_wait[user_id] = 5
         return
 
-    if user_id in user_states or True:  # 既存のuser_statesチェックは無視してFirestore参照
-        # Firestoreからlatest_question取得
-        latest_q_doc = db.collection("users").document(user_id).get()
-        latest_q = latest_q_doc.to_dict().get("latest_question", {}) if latest_q_doc.exists else {}
-
-        correct_answer = latest_q.get("answer")
-        meaning = latest_q.get("meaning")
-        range_str = latest_q.get("range")
-
+    if user_id in user_states:
+        range_str, q = user_states[user_id]
+        correct_answer = q["answer"]
+        meaning = q.get("meaning")
+        # 正解かどうか判定
         is_correct = (msg.lower() == correct_answer.lower())
-
-   
-
         score = user_scores[user_id].get(correct_answer, 1)
 
         elapsed = time.time() - user_answer_start_times.get(user_id, time.time())
-        label, delta = evaluate_X(elapsed)
+        label, delta = evaluate_X(elapsed, score, correct_answer)
+        # ラベルに応じたスコア変化
         delta_map = {
             "!!Brilliant": 3,
             "!Great": 2,
@@ -723,21 +769,22 @@ def handle_message_common(event, line_bot_api):
         }
 
         if is_correct:
-            
+            user_streaks[user_id] += 1
             delta_score = delta_map.get(label, 1)
             user_scores[user_id][correct_answer] = min(user_scores[user_id].get(correct_answer, 1) + delta_score, 4)
 
+
+            # --- FEVER: 状態遷移（1/20 で ON、ON のときは 1/10 で OFF）
             prev_fever = user_fever.get(user_id, 0)
             new_fever = fever_time(prev_fever)
             user_fever[user_id] = int(new_fever)
-
-            label_score = get_label_score(label)
-            # フィーバー倍率
-            fever_multiplier = 777 if user_fever[user_id] == 1 else 1
-            e = label_score * (user_streaks[user_id] ** 3) * fever_multiplier
-
-            user_streaks[user_id] += 1
             
+            label_score = get_label_score(label)
+            # フィーバー中は獲得 e を 100倍
+            fever_multiplier = 7777 if user_fever[user_id] == 1 else 1
+            y = 5 - score
+            e = y * label_score * (user_streaks[user_id] ** 3) * fever_multiplier
+
             # 日付チェック
             today = datetime.date.today()
 
@@ -745,6 +792,7 @@ def handle_message_common(event, line_bot_api):
             if last_date_str:
                 last_date = datetime.datetime.strptime(last_date_str, "%Y-%m-%d").date()
             else:
+                # 初回のみ週の開始日を設定
                 last_date = today
                 user_daily_e[user_id]["date"] = today.strftime("%Y-%m-%d")
 
@@ -756,11 +804,19 @@ def handle_message_common(event, line_bot_api):
             # トータル e 更新（ここでは足すだけ）
             user_daily_e[user_id]["total_e"] += e
 
+            db.collection("users").document(user_id).set({
+                "total_e": user_daily_e[user_id]["total_e"],
+                "total_e_date": user_daily_e[user_id]["date"]
+            }, merge=True)
+
         else:
             # 不正解時は0
-            #user_streaks[user_id] = max(user_streaks[user_id] - 0, 0)
+            user_streaks[user_id] = max(user_streaks[user_id] - 0, 0)
             user_scores[user_id][correct_answer] = 0
 
+        # q を取得して meaning を渡す
+        questions = get_questions_by_range(range_str, bot_type, user_id)
+        q = next((x for x in questions if x["answer"] == correct_answer), None)
 
         flex_feedback = build_feedback_flex(
             user_id, is_correct, score, elapsed,
@@ -778,6 +834,7 @@ def handle_message_common(event, line_bot_api):
         
         messages_to_send = [flex_feedback]
 
+        # 回答後にランキング待機カウントを1減らす
         if user_ranking_wait[user_id] > 0:
             user_ranking_wait[user_id] -= 1
             
@@ -786,10 +843,11 @@ def handle_message_common(event, line_bot_api):
             trivia = random.choice(trivia_messages)
             messages_to_send.append(TextSendMessage(text=trivia))
 
-        user_states.pop(user_id, None)
-        user_answer_start_times.pop(user_id, None)
-        next_question_msg = send_question(user_id, range_str)
+        # 次の問題
+        next_question_msg = send_question(user_id, range_str, bot_type=bot_type)
         messages_to_send.append(next_question_msg)
+
+        total_rate = update_total_rate(user_id, bot_type)
 
         line_bot_api.reply_message(event.reply_token, messages=messages_to_send)
         return
@@ -799,6 +857,6 @@ def handle_message_common(event, line_bot_api):
         TextSendMessage(text="「学ぶ」を押してみましょう！")
     )
 
-if __name__ == "__main__": 
-    port = int(os.environ.get("PORT", 8000)) 
-    app.run(host="0.0.0.0", port=port) 
+if __name__ == "__main__":
+    port = int(os.environ.get("PORT", 8000))
+    app.run(host="0.0.0.0", port=port)
