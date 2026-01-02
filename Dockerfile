@@ -15,5 +15,9 @@ ENV PORT=8080
 EXPOSE 8080
 
 # Bot を起動
-CMD ["gunicorn", "-b", ":8080", "main:app"]
+CMD ["gunicorn", "main:app",
+     "-b", ":8080",
+     "--workers", "1",
+     "--threads", "8",
+     "--timeout", "120"]
 
