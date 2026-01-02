@@ -1,2 +1,21 @@
-.env
+# Python 関連
 __pycache__/
+*.pyc
+*.pyo
+*.pyd
+env/
+venv/
+*.env
+
+# IDE 関連
+.vscode/
+.idea/
+
+# データ / 一時ファイル
+*.sqlite3
+*.log
+tmp/
+*.DS_Store
+
+# Firebase の秘密キーを Git に上げない
+firebase_credentials.json
