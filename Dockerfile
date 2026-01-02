@@ -15,4 +15,4 @@ ENV PORT=8080
 EXPOSE 8080
 
 # Bot を起動
-CMD ["sh", "-c", "gunicorn main:app -b 0.0.0.0:$PORT --workers 1 --threads 8 --timeout 120"]
+CMD ["sh", "-c", "gunicorn main:app -b 0.0.0.0:$PORT --workers 1 --threads 1 --timeout 30"]
