@@ -15,4 +15,5 @@ ENV PORT=8080
 EXPOSE 8080
 
 # Bot を起動
-CMD ["python", "main.py"]
+CMD ["gunicorn", "-b", ":8080", "main:app"]
+
