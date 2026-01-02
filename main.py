@@ -14,22 +14,42 @@ from linebot.v3.webhooks import MessageEvent, TextMessageContent
 
 app = Flask(__name__)
 
-CHANNEL_SECRET = os.environ.get("LINE_CHANNEL_SECRET")
-CHANNEL_ACCESS_TOKEN = os.environ.get("LINE_CHANNEL_ACCESS_TOKEN")
+# import 時に外部サービスへ触らない
+handler = None
+configuration = None
 
-handler = WebhookHandler(CHANNEL_SECRET)
-configuration = Configuration(access_token=CHANNEL_ACCESS_TOKEN)
+
+def init_line():
+    """
+    Cloud Run / Gunicorn 対応
+    worker 起動後に必要になったタイミングで初期化する
+    """
+    global handler, configuration
+
+    if handler is not None and configuration is not None:
+        return
+
+    channel_secret = os.environ.get("LINE_CHANNEL_SECRET")
+    channel_access_token = os.environ.get("LINE_CHANNEL_ACCESS_TOKEN")
+
+    if not channel_secret or not channel_access_token:
+        raise RuntimeError("LINE環境変数が設定されていません")
+
+    handler = WebhookHandler(channel_secret)
+    configuration = Configuration(access_token=channel_access_token)
 
 
 @app.route("/callback", methods=["POST"])
 def callback():
+    init_line()
+
     signature = request.headers.get("X-Line-Signature", "")
     body = request.get_data(as_text=True)
 
     try:
         handler.handle(body, signature)
     except InvalidSignatureError:
-        # 検証も含めて、とにかく200返す
+        # LINEは200以外を返すと面倒
         return "OK", 200
 
     return "OK", 200
@@ -37,6 +57,7 @@ def callback():
 
 @handler.add(MessageEvent, message=TextMessageContent)
 def handle_message(event):
+    # handler は callback で初期化済み
     with ApiClient(configuration) as api_client:
         line_bot_api = MessagingApi(api_client)
         line_bot_api.reply_message(
@@ -49,4 +70,5 @@ def handle_message(event):
 
 @app.route("/", methods=["GET"])
 def health():
+    # Cloud Run のヘルスチェック用
     return "OK", 200
